@@ -26,18 +26,22 @@ class WebPubSubArgs:
                  disable_aad_auth: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
                  live_trace_configuration: Optional[pulumi.Input['LiveTraceConfigurationArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input['WebPubSubNetworkACLsArgs']] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[str]] = None,
                  resource_log_configuration: Optional[pulumi.Input['ResourceLogConfigurationArgs']] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
+                 resource_stopped: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
+                 socket_io: Optional[pulumi.Input['WebPubSubSocketIOSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tls: Optional[pulumi.Input['WebPubSubTlsSettingsArgs']] = None):
         """
         The set of arguments for constructing a WebPubSub resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] disable_aad_auth: DisableLocalAuth
                Enable or disable aad auth
                When set as true, connection with AuthType=aad won't work.
@@ -45,16 +49,24 @@ class WebPubSubArgs:
                Enable or disable local auth with AccessKey
                When set as true, connection with AccessKey=xxx won't work.
         :param pulumi.Input['ManagedIdentityArgs'] identity: A class represent managed identities used for request and response
+        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service
         :param pulumi.Input['LiveTraceConfigurationArgs'] live_trace_configuration: Live trace configuration of a Microsoft.SignalRService resource.
-        :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['WebPubSubNetworkACLsArgs'] network_acls: Network ACLs for the resource
         :param pulumi.Input[str] public_network_access: Enable or disable public network access. Default to "Enabled".
                When it's Enabled, network ACLs still apply.
                When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
+        :param pulumi.Input[str] region_endpoint_enabled: Enable or disable the regional endpoint. Default to "Enabled".
+               When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+               This property is replica specific. Disable the regional endpoint without replica is not allowed.
         :param pulumi.Input['ResourceLogConfigurationArgs'] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] resource_name: The name of the resource.
+        :param pulumi.Input[str] resource_stopped: Stop or start the resource.  Default to "False".
+               When it's true, the data plane of the resource is shutdown.
+               When it's false, the data plane of the resource is started.
         :param pulumi.Input['ResourceSkuArgs'] sku: The billing information of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
+        :param pulumi.Input['WebPubSubSocketIOSettingsArgs'] socket_io: SocketIO settings for the resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['WebPubSubTlsSettingsArgs'] tls: TLS settings for the resource
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -68,6 +80,8 @@ class WebPubSubArgs:
             pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if live_trace_configuration is not None:
             pulumi.set(__self__, "live_trace_configuration", live_trace_configuration)
         if location is not None:
@@ -78,12 +92,22 @@ class WebPubSubArgs:
             public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if region_endpoint_enabled is None:
+            region_endpoint_enabled = 'Enabled'
+        if region_endpoint_enabled is not None:
+            pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
         if resource_log_configuration is not None:
             pulumi.set(__self__, "resource_log_configuration", resource_log_configuration)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
+        if resource_stopped is None:
+            resource_stopped = 'false'
+        if resource_stopped is not None:
+            pulumi.set(__self__, "resource_stopped", resource_stopped)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if socket_io is not None:
+            pulumi.set(__self__, "socket_io", socket_io)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tls is not None:
@@ -93,7 +117,7 @@ class WebPubSubArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -142,6 +166,18 @@ class WebPubSubArgs:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'ServiceKind']]]:
+        """
+        The kind of the service
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'ServiceKind']]]):
+        pulumi.set(self, "kind", value)
+
+    @property
     @pulumi.getter(name="liveTraceConfiguration")
     def live_trace_configuration(self) -> Optional[pulumi.Input['LiveTraceConfigurationArgs']]:
         """
@@ -157,7 +193,7 @@ class WebPubSubArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -192,6 +228,20 @@ class WebPubSubArgs:
         pulumi.set(self, "public_network_access", value)
 
     @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or disable the regional endpoint. Default to "Enabled".
+        When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
+
+    @region_endpoint_enabled.setter
+    def region_endpoint_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region_endpoint_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceLogConfiguration")
     def resource_log_configuration(self) -> Optional[pulumi.Input['ResourceLogConfigurationArgs']]:
         """
@@ -216,6 +266,20 @@ class WebPubSubArgs:
         pulumi.set(self, "resource_name", value)
 
     @property
+    @pulumi.getter(name="resourceStopped")
+    def resource_stopped(self) -> Optional[pulumi.Input[str]]:
+        """
+        Stop or start the resource.  Default to "False".
+        When it's true, the data plane of the resource is shutdown.
+        When it's false, the data plane of the resource is started.
+        """
+        return pulumi.get(self, "resource_stopped")
+
+    @resource_stopped.setter
+    def resource_stopped(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_stopped", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['ResourceSkuArgs']]:
         """
@@ -228,10 +292,22 @@ class WebPubSubArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="socketIO")
+    def socket_io(self) -> Optional[pulumi.Input['WebPubSubSocketIOSettingsArgs']]:
+        """
+        SocketIO settings for the resource
+        """
+        return pulumi.get(self, "socket_io")
+
+    @socket_io.setter
+    def socket_io(self, value: Optional[pulumi.Input['WebPubSubSocketIOSettingsArgs']]):
+        pulumi.set(self, "socket_io", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags of the service which is a list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -260,22 +336,26 @@ class WebPubSub(pulumi.CustomResource):
                  disable_aad_auth: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
                  live_trace_configuration: Optional[pulumi.Input[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[Union['WebPubSubNetworkACLsArgs', 'WebPubSubNetworkACLsArgsDict']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_log_configuration: Optional[pulumi.Input[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 resource_stopped: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
+                 socket_io: Optional[pulumi.Input[Union['WebPubSubSocketIOSettingsArgs', 'WebPubSubSocketIOSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tls: Optional[pulumi.Input[Union['WebPubSubTlsSettingsArgs', 'WebPubSubTlsSettingsArgsDict']]] = None,
                  __props__=None):
         """
         A class represent a resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-02-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,17 +366,25 @@ class WebPubSub(pulumi.CustomResource):
                Enable or disable local auth with AccessKey
                When set as true, connection with AccessKey=xxx won't work.
         :param pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']] identity: A class represent managed identities used for request and response
+        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service
         :param pulumi.Input[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']] live_trace_configuration: Live trace configuration of a Microsoft.SignalRService resource.
-        :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['WebPubSubNetworkACLsArgs', 'WebPubSubNetworkACLsArgsDict']] network_acls: Network ACLs for the resource
         :param pulumi.Input[str] public_network_access: Enable or disable public network access. Default to "Enabled".
                When it's Enabled, network ACLs still apply.
                When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] region_endpoint_enabled: Enable or disable the regional endpoint. Default to "Enabled".
+               When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+               This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] resource_name_: The name of the resource.
+        :param pulumi.Input[str] resource_stopped: Stop or start the resource.  Default to "False".
+               When it's true, the data plane of the resource is shutdown.
+               When it's false, the data plane of the resource is started.
         :param pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']] sku: The billing information of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
+        :param pulumi.Input[Union['WebPubSubSocketIOSettingsArgs', 'WebPubSubSocketIOSettingsArgsDict']] socket_io: SocketIO settings for the resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union['WebPubSubTlsSettingsArgs', 'WebPubSubTlsSettingsArgsDict']] tls: TLS settings for the resource
         """
         ...
@@ -307,9 +395,9 @@ class WebPubSub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent a resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-02-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WebPubSubArgs args: The arguments to use to populate this resource's properties.
@@ -329,14 +417,18 @@ class WebPubSub(pulumi.CustomResource):
                  disable_aad_auth: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
                  live_trace_configuration: Optional[pulumi.Input[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[Union['WebPubSubNetworkACLsArgs', 'WebPubSubNetworkACLsArgsDict']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_log_configuration: Optional[pulumi.Input[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 resource_stopped: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
+                 socket_io: Optional[pulumi.Input[Union['WebPubSubSocketIOSettingsArgs', 'WebPubSubSocketIOSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tls: Optional[pulumi.Input[Union['WebPubSubTlsSettingsArgs', 'WebPubSubTlsSettingsArgsDict']]] = None,
                  __props__=None):
@@ -355,18 +447,26 @@ class WebPubSub(pulumi.CustomResource):
                 disable_local_auth = False
             __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["kind"] = kind
             __props__.__dict__["live_trace_configuration"] = live_trace_configuration
             __props__.__dict__["location"] = location
             __props__.__dict__["network_acls"] = network_acls
             if public_network_access is None:
                 public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
+            if region_endpoint_enabled is None:
+                region_endpoint_enabled = 'Enabled'
+            __props__.__dict__["region_endpoint_enabled"] = region_endpoint_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_log_configuration"] = resource_log_configuration
             __props__.__dict__["resource_name"] = resource_name_
+            if resource_stopped is None:
+                resource_stopped = 'false'
+            __props__.__dict__["resource_stopped"] = resource_stopped
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["socket_io"] = socket_io
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tls"] = tls
             __props__.__dict__["external_ip"] = None
@@ -411,6 +511,7 @@ class WebPubSub(pulumi.CustomResource):
         __props__.__dict__["host_name"] = None
         __props__.__dict__["host_name_prefix"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["live_trace_configuration"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -419,10 +520,13 @@ class WebPubSub(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
         __props__.__dict__["public_port"] = None
+        __props__.__dict__["region_endpoint_enabled"] = None
         __props__.__dict__["resource_log_configuration"] = None
+        __props__.__dict__["resource_stopped"] = None
         __props__.__dict__["server_port"] = None
         __props__.__dict__["shared_private_link_resources"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["socket_io"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tls"] = None
@@ -483,6 +587,14 @@ class WebPubSub(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[str]]:
+        """
+        The kind of the service
+        """
+        return pulumi.get(self, "kind")
+
+    @property
     @pulumi.getter(name="liveTraceConfiguration")
     def live_trace_configuration(self) -> pulumi.Output[Optional['outputs.LiveTraceConfigurationResponse']]:
         """
@@ -492,9 +604,9 @@ class WebPubSub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
-        The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -502,7 +614,7 @@ class WebPubSub(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -549,12 +661,32 @@ class WebPubSub(pulumi.CustomResource):
         return pulumi.get(self, "public_port")
 
     @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enable or disable the regional endpoint. Default to "Enabled".
+        When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
+
+    @property
     @pulumi.getter(name="resourceLogConfiguration")
     def resource_log_configuration(self) -> pulumi.Output[Optional['outputs.ResourceLogConfigurationResponse']]:
         """
         Resource log configuration of a Microsoft.SignalRService resource.
         """
         return pulumi.get(self, "resource_log_configuration")
+
+    @property
+    @pulumi.getter(name="resourceStopped")
+    def resource_stopped(self) -> pulumi.Output[Optional[str]]:
+        """
+        Stop or start the resource.  Default to "False".
+        When it's true, the data plane of the resource is shutdown.
+        When it's false, the data plane of the resource is started.
+        """
+        return pulumi.get(self, "resource_stopped")
 
     @property
     @pulumi.getter(name="serverPort")
@@ -581,10 +713,18 @@ class WebPubSub(pulumi.CustomResource):
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="socketIO")
+    def socket_io(self) -> pulumi.Output[Optional['outputs.WebPubSubSocketIOSettingsResponse']]:
+        """
+        SocketIO settings for the resource
+        """
+        return pulumi.get(self, "socket_io")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -592,7 +732,7 @@ class WebPubSub(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Tags of the service which is a list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -608,7 +748,7 @@ class WebPubSub(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

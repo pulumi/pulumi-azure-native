@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBareMetalMachineResult:
-    def __init__(__self__, associated_resource_ids=None, bmc_connection_string=None, bmc_credentials=None, bmc_mac_address=None, boot_mac_address=None, cluster_id=None, cordon_status=None, detailed_status=None, detailed_status_message=None, extended_location=None, hardware_inventory=None, hardware_validation_status=None, hybrid_aks_clusters_associated_ids=None, id=None, kubernetes_node_name=None, kubernetes_version=None, location=None, machine_details=None, machine_name=None, machine_roles=None, machine_sku_id=None, name=None, oam_ipv4_address=None, oam_ipv6_address=None, os_image=None, power_state=None, provisioning_state=None, rack_id=None, rack_slot=None, ready_state=None, runtime_protection_status=None, serial_number=None, service_tag=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None):
+    def __init__(__self__, associated_resource_ids=None, bmc_connection_string=None, bmc_credentials=None, bmc_mac_address=None, boot_mac_address=None, cluster_id=None, cordon_status=None, detailed_status=None, detailed_status_message=None, extended_location=None, hardware_inventory=None, hardware_validation_status=None, hybrid_aks_clusters_associated_ids=None, id=None, kubernetes_node_name=None, kubernetes_version=None, location=None, machine_cluster_version=None, machine_details=None, machine_name=None, machine_roles=None, machine_sku_id=None, name=None, oam_ipv4_address=None, oam_ipv6_address=None, os_image=None, power_state=None, provisioning_state=None, rack_id=None, rack_slot=None, ready_state=None, runtime_protection_status=None, secret_rotation_status=None, serial_number=None, service_tag=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None):
         if associated_resource_ids and not isinstance(associated_resource_ids, list):
             raise TypeError("Expected argument 'associated_resource_ids' to be a list")
         pulumi.set(__self__, "associated_resource_ids", associated_resource_ids)
@@ -76,6 +76,9 @@ class GetBareMetalMachineResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if machine_cluster_version and not isinstance(machine_cluster_version, str):
+            raise TypeError("Expected argument 'machine_cluster_version' to be a str")
+        pulumi.set(__self__, "machine_cluster_version", machine_cluster_version)
         if machine_details and not isinstance(machine_details, str):
             raise TypeError("Expected argument 'machine_details' to be a str")
         pulumi.set(__self__, "machine_details", machine_details)
@@ -118,6 +121,9 @@ class GetBareMetalMachineResult:
         if runtime_protection_status and not isinstance(runtime_protection_status, dict):
             raise TypeError("Expected argument 'runtime_protection_status' to be a dict")
         pulumi.set(__self__, "runtime_protection_status", runtime_protection_status)
+        if secret_rotation_status and not isinstance(secret_rotation_status, list):
+            raise TypeError("Expected argument 'secret_rotation_status' to be a list")
+        pulumi.set(__self__, "secret_rotation_status", secret_rotation_status)
         if serial_number and not isinstance(serial_number, str):
             raise TypeError("Expected argument 'serial_number' to be a str")
         pulumi.set(__self__, "serial_number", serial_number)
@@ -274,6 +280,14 @@ class GetBareMetalMachineResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="machineClusterVersion")
+    def machine_cluster_version(self) -> Optional[str]:
+        """
+        The cluster version that has been applied to this machine during deployment or a version update.
+        """
+        return pulumi.get(self, "machine_cluster_version")
+
+    @property
     @pulumi.getter(name="machineDetails")
     def machine_details(self) -> str:
         """
@@ -386,6 +400,14 @@ class GetBareMetalMachineResult:
         return pulumi.get(self, "runtime_protection_status")
 
     @property
+    @pulumi.getter(name="secretRotationStatus")
+    def secret_rotation_status(self) -> Sequence['outputs.SecretRotationStatusResponse']:
+        """
+        The list of statuses that represent secret rotation activity.
+        """
+        return pulumi.get(self, "secret_rotation_status")
+
+    @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> str:
         """
@@ -457,6 +479,7 @@ class AwaitableGetBareMetalMachineResult(GetBareMetalMachineResult):
             kubernetes_node_name=self.kubernetes_node_name,
             kubernetes_version=self.kubernetes_version,
             location=self.location,
+            machine_cluster_version=self.machine_cluster_version,
             machine_details=self.machine_details,
             machine_name=self.machine_name,
             machine_roles=self.machine_roles,
@@ -471,6 +494,7 @@ class AwaitableGetBareMetalMachineResult(GetBareMetalMachineResult):
             rack_slot=self.rack_slot,
             ready_state=self.ready_state,
             runtime_protection_status=self.runtime_protection_status,
+            secret_rotation_status=self.secret_rotation_status,
             serial_number=self.serial_number,
             service_tag=self.service_tag,
             system_data=self.system_data,
@@ -484,9 +508,9 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBareMetalMachineResult:
     """
     Get properties of the provided bare metal machine.
-    Azure REST API version: 2023-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
 
 
     :param str bare_metal_machine_name: The name of the bare metal machine.
@@ -516,6 +540,7 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[str] = None,
         kubernetes_node_name=pulumi.get(__ret__, 'kubernetes_node_name'),
         kubernetes_version=pulumi.get(__ret__, 'kubernetes_version'),
         location=pulumi.get(__ret__, 'location'),
+        machine_cluster_version=pulumi.get(__ret__, 'machine_cluster_version'),
         machine_details=pulumi.get(__ret__, 'machine_details'),
         machine_name=pulumi.get(__ret__, 'machine_name'),
         machine_roles=pulumi.get(__ret__, 'machine_roles'),
@@ -530,6 +555,7 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[str] = None,
         rack_slot=pulumi.get(__ret__, 'rack_slot'),
         ready_state=pulumi.get(__ret__, 'ready_state'),
         runtime_protection_status=pulumi.get(__ret__, 'runtime_protection_status'),
+        secret_rotation_status=pulumi.get(__ret__, 'secret_rotation_status'),
         serial_number=pulumi.get(__ret__, 'serial_number'),
         service_tag=pulumi.get(__ret__, 'service_tag'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -541,9 +567,9 @@ def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBareMetalMachineResult]:
     """
     Get properties of the provided bare metal machine.
-    Azure REST API version: 2023-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
 
 
     :param str bare_metal_machine_name: The name of the bare metal machine.
@@ -572,6 +598,7 @@ def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input
         kubernetes_node_name=pulumi.get(__response__, 'kubernetes_node_name'),
         kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
         location=pulumi.get(__response__, 'location'),
+        machine_cluster_version=pulumi.get(__response__, 'machine_cluster_version'),
         machine_details=pulumi.get(__response__, 'machine_details'),
         machine_name=pulumi.get(__response__, 'machine_name'),
         machine_roles=pulumi.get(__response__, 'machine_roles'),
@@ -586,6 +613,7 @@ def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input
         rack_slot=pulumi.get(__response__, 'rack_slot'),
         ready_state=pulumi.get(__response__, 'ready_state'),
         runtime_protection_status=pulumi.get(__response__, 'runtime_protection_status'),
+        secret_rotation_status=pulumi.get(__response__, 'secret_rotation_status'),
         serial_number=pulumi.get(__response__, 'serial_number'),
         service_tag=pulumi.get(__response__, 'service_tag'),
         system_data=pulumi.get(__response__, 'system_data'),

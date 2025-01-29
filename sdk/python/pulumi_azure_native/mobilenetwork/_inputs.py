@@ -34,6 +34,10 @@ __all__ = [
     'DataNetworkResourceIdArgsDict',
     'DiagnosticsUploadConfigurationArgs',
     'DiagnosticsUploadConfigurationArgsDict',
+    'EventHubConfigurationArgs',
+    'EventHubConfigurationArgsDict',
+    'HomeNetworkPublicKeyArgs',
+    'HomeNetworkPublicKeyArgsDict',
     'HttpsServerCertificateArgs',
     'HttpsServerCertificateArgsDict',
     'InstallationArgs',
@@ -48,6 +52,8 @@ __all__ = [
     'ManagedServiceIdentityArgsDict',
     'MobileNetworkResourceIdArgs',
     'MobileNetworkResourceIdArgsDict',
+    'NASRerouteConfigurationArgs',
+    'NASRerouteConfigurationArgsDict',
     'NaptConfigurationArgs',
     'NaptConfigurationArgsDict',
     'PccRuleConfigurationArgs',
@@ -64,12 +70,18 @@ __all__ = [
     'PortRangeArgsDict',
     'PortReuseHoldTimesArgs',
     'PortReuseHoldTimesArgsDict',
+    'PublicLandMobileNetworkHomeNetworkPublicKeysArgs',
+    'PublicLandMobileNetworkHomeNetworkPublicKeysArgsDict',
+    'PublicLandMobileNetworkArgs',
+    'PublicLandMobileNetworkArgsDict',
     'QosPolicyArgs',
     'QosPolicyArgsDict',
     'ServiceDataFlowTemplateArgs',
     'ServiceDataFlowTemplateArgsDict',
     'ServiceResourceIdArgs',
     'ServiceResourceIdArgsDict',
+    'SignalingConfigurationArgs',
+    'SignalingConfigurationArgsDict',
     'SimPolicyResourceIdArgs',
     'SimPolicyResourceIdArgsDict',
     'SimStaticIpPropertiesStaticIpArgs',
@@ -84,6 +96,8 @@ __all__ = [
     'SliceResourceIdArgsDict',
     'SnssaiArgs',
     'SnssaiArgsDict',
+    'UserConsentConfigurationArgs',
+    'UserConsentConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -613,6 +627,118 @@ class DiagnosticsUploadConfigurationArgs:
 
 
 if not MYPY:
+    class EventHubConfigurationArgsDict(TypedDict):
+        """
+        Configuration for sending packet core events to Azure Event Hub.
+        """
+        id: pulumi.Input[str]
+        """
+        Resource ID  of Azure Event Hub to send packet core events to.
+        """
+        reporting_interval: NotRequired[pulumi.Input[int]]
+        """
+        The duration (in seconds) between UE usage reports.
+        """
+elif False:
+    EventHubConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventHubConfigurationArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 reporting_interval: Optional[pulumi.Input[int]] = None):
+        """
+        Configuration for sending packet core events to Azure Event Hub.
+        :param pulumi.Input[str] id: Resource ID  of Azure Event Hub to send packet core events to.
+        :param pulumi.Input[int] reporting_interval: The duration (in seconds) between UE usage reports.
+        """
+        pulumi.set(__self__, "id", id)
+        if reporting_interval is None:
+            reporting_interval = 1800
+        if reporting_interval is not None:
+            pulumi.set(__self__, "reporting_interval", reporting_interval)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Resource ID  of Azure Event Hub to send packet core events to.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="reportingInterval")
+    def reporting_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration (in seconds) between UE usage reports.
+        """
+        return pulumi.get(self, "reporting_interval")
+
+    @reporting_interval.setter
+    def reporting_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "reporting_interval", value)
+
+
+if not MYPY:
+    class HomeNetworkPublicKeyArgsDict(TypedDict):
+        """
+        A key used for SUPI concealment.
+        """
+        id: pulumi.Input[int]
+        """
+        The Home Network Public Key Identifier determines which public key was used to generate the SUCI sent to the AMF. See TS 23.003 Section 2.2B Section 5.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of Azure Key Vault secret containing the private key, versioned or unversioned. For example: https://contosovault.vault.azure.net/secrets/mySuciPrivateKey/562a4bb76b524a1493a6afe8e536ee78.
+        """
+elif False:
+    HomeNetworkPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HomeNetworkPublicKeyArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[int],
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        A key used for SUPI concealment.
+        :param pulumi.Input[int] id: The Home Network Public Key Identifier determines which public key was used to generate the SUCI sent to the AMF. See TS 23.003 Section 2.2B Section 5.
+        :param pulumi.Input[str] url: The URL of Azure Key Vault secret containing the private key, versioned or unversioned. For example: https://contosovault.vault.azure.net/secrets/mySuciPrivateKey/562a4bb76b524a1493a6afe8e536ee78.
+        """
+        pulumi.set(__self__, "id", id)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[int]:
+        """
+        The Home Network Public Key Identifier determines which public key was used to generate the SUCI sent to the AMF. See TS 23.003 Section 2.2B Section 5.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of Azure Key Vault secret containing the private key, versioned or unversioned. For example: https://contosovault.vault.azure.net/secrets/mySuciPrivateKey/562a4bb76b524a1493a6afe8e536ee78.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+
+if not MYPY:
     class HttpsServerCertificateArgsDict(TypedDict):
         """
         HTTPS server certificate configuration.
@@ -690,9 +816,17 @@ if not MYPY:
         """
         Interface properties
         """
+        bfd_ipv4_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The IPv4 addresses of the endpoints to send BFD probes to.
+        """
         ipv4_address: NotRequired[pulumi.Input[str]]
         """
         The IPv4 address.
+        """
+        ipv4_address_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of IPv4 addresses, for a multi-node system.
         """
         ipv4_gateway: NotRequired[pulumi.Input[str]]
         """
@@ -706,31 +840,59 @@ if not MYPY:
         """
         The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         """
+        vlan_id: NotRequired[pulumi.Input[int]]
+        """
+        VLAN identifier of the network interface. Example: 501.
+        """
 elif False:
     InterfacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InterfacePropertiesArgs:
     def __init__(__self__, *,
+                 bfd_ipv4_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipv4_address: Optional[pulumi.Input[str]] = None,
+                 ipv4_address_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipv4_gateway: Optional[pulumi.Input[str]] = None,
                  ipv4_subnet: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 vlan_id: Optional[pulumi.Input[int]] = None):
         """
         Interface properties
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bfd_ipv4_endpoints: The IPv4 addresses of the endpoints to send BFD probes to.
         :param pulumi.Input[str] ipv4_address: The IPv4 address.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv4_address_list: The list of IPv4 addresses, for a multi-node system.
         :param pulumi.Input[str] ipv4_gateway: The default IPv4 gateway (router).
         :param pulumi.Input[str] ipv4_subnet: The IPv4 subnet.
         :param pulumi.Input[str] name: The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
+        :param pulumi.Input[int] vlan_id: VLAN identifier of the network interface. Example: 501.
         """
+        if bfd_ipv4_endpoints is not None:
+            pulumi.set(__self__, "bfd_ipv4_endpoints", bfd_ipv4_endpoints)
         if ipv4_address is not None:
             pulumi.set(__self__, "ipv4_address", ipv4_address)
+        if ipv4_address_list is not None:
+            pulumi.set(__self__, "ipv4_address_list", ipv4_address_list)
         if ipv4_gateway is not None:
             pulumi.set(__self__, "ipv4_gateway", ipv4_gateway)
         if ipv4_subnet is not None:
             pulumi.set(__self__, "ipv4_subnet", ipv4_subnet)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if vlan_id is not None:
+            pulumi.set(__self__, "vlan_id", vlan_id)
+
+    @property
+    @pulumi.getter(name="bfdIpv4Endpoints")
+    def bfd_ipv4_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IPv4 addresses of the endpoints to send BFD probes to.
+        """
+        return pulumi.get(self, "bfd_ipv4_endpoints")
+
+    @bfd_ipv4_endpoints.setter
+    def bfd_ipv4_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "bfd_ipv4_endpoints", value)
 
     @property
     @pulumi.getter(name="ipv4Address")
@@ -743,6 +905,18 @@ class InterfacePropertiesArgs:
     @ipv4_address.setter
     def ipv4_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv4_address", value)
+
+    @property
+    @pulumi.getter(name="ipv4AddressList")
+    def ipv4_address_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of IPv4 addresses, for a multi-node system.
+        """
+        return pulumi.get(self, "ipv4_address_list")
+
+    @ipv4_address_list.setter
+    def ipv4_address_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ipv4_address_list", value)
 
     @property
     @pulumi.getter(name="ipv4Gateway")
@@ -779,6 +953,18 @@ class InterfacePropertiesArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="vlanId")
+    def vlan_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        VLAN identifier of the network interface. Example: 501.
+        """
+        return pulumi.get(self, "vlan_id")
+
+    @vlan_id.setter
+    def vlan_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vlan_id", value)
 
 
 if not MYPY:
@@ -960,6 +1146,41 @@ class MobileNetworkResourceIdArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class NASRerouteConfigurationArgsDict(TypedDict):
+        """
+        Configuration enabling NAS reroute.
+        """
+        macro_mme_group_id: pulumi.Input[int]
+        """
+        The macro network's MME group ID. This is where unknown UEs are sent to via NAS reroute.
+        """
+elif False:
+    NASRerouteConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NASRerouteConfigurationArgs:
+    def __init__(__self__, *,
+                 macro_mme_group_id: pulumi.Input[int]):
+        """
+        Configuration enabling NAS reroute.
+        :param pulumi.Input[int] macro_mme_group_id: The macro network's MME group ID. This is where unknown UEs are sent to via NAS reroute.
+        """
+        pulumi.set(__self__, "macro_mme_group_id", macro_mme_group_id)
+
+    @property
+    @pulumi.getter(name="macroMmeGroupId")
+    def macro_mme_group_id(self) -> pulumi.Input[int]:
+        """
+        The macro network's MME group ID. This is where unknown UEs are sent to via NAS reroute.
+        """
+        return pulumi.get(self, "macro_mme_group_id")
+
+    @macro_mme_group_id.setter
+    def macro_mme_group_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "macro_mme_group_id", value)
 
 
 if not MYPY:
@@ -1544,7 +1765,7 @@ class PlatformConfigurationArgs:
 if not MYPY:
     class PlmnIdArgsDict(TypedDict):
         """
-        Public land mobile network (PLMN) ID.
+        Public land mobile network (PLMN) ID. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
         """
         mcc: pulumi.Input[str]
         """
@@ -1563,7 +1784,7 @@ class PlmnIdArgs:
                  mcc: pulumi.Input[str],
                  mnc: pulumi.Input[str]):
         """
-        Public land mobile network (PLMN) ID.
+        Public land mobile network (PLMN) ID. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
         :param pulumi.Input[str] mcc: Mobile country code (MCC).
         :param pulumi.Input[str] mnc: Mobile network code (MNC).
         """
@@ -1717,6 +1938,136 @@ class PortReuseHoldTimesArgs:
     @udp.setter
     def udp(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "udp", value)
+
+
+if not MYPY:
+    class PublicLandMobileNetworkHomeNetworkPublicKeysArgsDict(TypedDict):
+        """
+        Configuration relating to SUPI concealment.
+        """
+        profile_a: NotRequired[pulumi.Input[Sequence[pulumi.Input['HomeNetworkPublicKeyArgsDict']]]]
+        """
+        This provides a mapping to identify which public key has been used for SUPI concealment using the Profile A Protection Scheme.
+        """
+        profile_b: NotRequired[pulumi.Input[Sequence[pulumi.Input['HomeNetworkPublicKeyArgsDict']]]]
+        """
+        This provides a mapping to identify which public key has been used for SUPI concealment using the Profile B Protection Scheme.
+        """
+elif False:
+    PublicLandMobileNetworkHomeNetworkPublicKeysArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PublicLandMobileNetworkHomeNetworkPublicKeysArgs:
+    def __init__(__self__, *,
+                 profile_a: Optional[pulumi.Input[Sequence[pulumi.Input['HomeNetworkPublicKeyArgs']]]] = None,
+                 profile_b: Optional[pulumi.Input[Sequence[pulumi.Input['HomeNetworkPublicKeyArgs']]]] = None):
+        """
+        Configuration relating to SUPI concealment.
+        :param pulumi.Input[Sequence[pulumi.Input['HomeNetworkPublicKeyArgs']]] profile_a: This provides a mapping to identify which public key has been used for SUPI concealment using the Profile A Protection Scheme.
+        :param pulumi.Input[Sequence[pulumi.Input['HomeNetworkPublicKeyArgs']]] profile_b: This provides a mapping to identify which public key has been used for SUPI concealment using the Profile B Protection Scheme.
+        """
+        if profile_a is not None:
+            pulumi.set(__self__, "profile_a", profile_a)
+        if profile_b is not None:
+            pulumi.set(__self__, "profile_b", profile_b)
+
+    @property
+    @pulumi.getter(name="profileA")
+    def profile_a(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HomeNetworkPublicKeyArgs']]]]:
+        """
+        This provides a mapping to identify which public key has been used for SUPI concealment using the Profile A Protection Scheme.
+        """
+        return pulumi.get(self, "profile_a")
+
+    @profile_a.setter
+    def profile_a(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HomeNetworkPublicKeyArgs']]]]):
+        pulumi.set(self, "profile_a", value)
+
+    @property
+    @pulumi.getter(name="profileB")
+    def profile_b(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HomeNetworkPublicKeyArgs']]]]:
+        """
+        This provides a mapping to identify which public key has been used for SUPI concealment using the Profile B Protection Scheme.
+        """
+        return pulumi.get(self, "profile_b")
+
+    @profile_b.setter
+    def profile_b(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HomeNetworkPublicKeyArgs']]]]):
+        pulumi.set(self, "profile_b", value)
+
+
+if not MYPY:
+    class PublicLandMobileNetworkArgsDict(TypedDict):
+        """
+        Configuration relating to a particular PLMN
+        """
+        mcc: pulumi.Input[str]
+        """
+        Mobile country code (MCC).
+        """
+        mnc: pulumi.Input[str]
+        """
+        Mobile network code (MNC).
+        """
+        home_network_public_keys: NotRequired[pulumi.Input['PublicLandMobileNetworkHomeNetworkPublicKeysArgsDict']]
+        """
+        Configuration relating to SUPI concealment.
+        """
+elif False:
+    PublicLandMobileNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PublicLandMobileNetworkArgs:
+    def __init__(__self__, *,
+                 mcc: pulumi.Input[str],
+                 mnc: pulumi.Input[str],
+                 home_network_public_keys: Optional[pulumi.Input['PublicLandMobileNetworkHomeNetworkPublicKeysArgs']] = None):
+        """
+        Configuration relating to a particular PLMN
+        :param pulumi.Input[str] mcc: Mobile country code (MCC).
+        :param pulumi.Input[str] mnc: Mobile network code (MNC).
+        :param pulumi.Input['PublicLandMobileNetworkHomeNetworkPublicKeysArgs'] home_network_public_keys: Configuration relating to SUPI concealment.
+        """
+        pulumi.set(__self__, "mcc", mcc)
+        pulumi.set(__self__, "mnc", mnc)
+        if home_network_public_keys is not None:
+            pulumi.set(__self__, "home_network_public_keys", home_network_public_keys)
+
+    @property
+    @pulumi.getter
+    def mcc(self) -> pulumi.Input[str]:
+        """
+        Mobile country code (MCC).
+        """
+        return pulumi.get(self, "mcc")
+
+    @mcc.setter
+    def mcc(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mcc", value)
+
+    @property
+    @pulumi.getter
+    def mnc(self) -> pulumi.Input[str]:
+        """
+        Mobile network code (MNC).
+        """
+        return pulumi.get(self, "mnc")
+
+    @mnc.setter
+    def mnc(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mnc", value)
+
+    @property
+    @pulumi.getter(name="homeNetworkPublicKeys")
+    def home_network_public_keys(self) -> Optional[pulumi.Input['PublicLandMobileNetworkHomeNetworkPublicKeysArgs']]:
+        """
+        Configuration relating to SUPI concealment.
+        """
+        return pulumi.get(self, "home_network_public_keys")
+
+    @home_network_public_keys.setter
+    def home_network_public_keys(self, value: Optional[pulumi.Input['PublicLandMobileNetworkHomeNetworkPublicKeysArgs']]):
+        pulumi.set(self, "home_network_public_keys", value)
 
 
 if not MYPY:
@@ -1987,6 +2338,62 @@ class ServiceResourceIdArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class SignalingConfigurationArgsDict(TypedDict):
+        """
+        Signaling configuration for the packet core.
+        """
+        nas_encryption: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'NasEncryptionType']]]]]
+        """
+        An ordered list of NAS encryption algorithms, used to encrypt control plane traffic between the UE and packet core, in order from most to least preferred. If not specified, the packet core will use a built-in default ordering.
+        """
+        nas_reroute: NotRequired[pulumi.Input['NASRerouteConfigurationArgsDict']]
+        """
+        Configuration enabling 4G NAS reroute.
+        """
+elif False:
+    SignalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SignalingConfigurationArgs:
+    def __init__(__self__, *,
+                 nas_encryption: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'NasEncryptionType']]]]] = None,
+                 nas_reroute: Optional[pulumi.Input['NASRerouteConfigurationArgs']] = None):
+        """
+        Signaling configuration for the packet core.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'NasEncryptionType']]]] nas_encryption: An ordered list of NAS encryption algorithms, used to encrypt control plane traffic between the UE and packet core, in order from most to least preferred. If not specified, the packet core will use a built-in default ordering.
+        :param pulumi.Input['NASRerouteConfigurationArgs'] nas_reroute: Configuration enabling 4G NAS reroute.
+        """
+        if nas_encryption is not None:
+            pulumi.set(__self__, "nas_encryption", nas_encryption)
+        if nas_reroute is not None:
+            pulumi.set(__self__, "nas_reroute", nas_reroute)
+
+    @property
+    @pulumi.getter(name="nasEncryption")
+    def nas_encryption(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'NasEncryptionType']]]]]:
+        """
+        An ordered list of NAS encryption algorithms, used to encrypt control plane traffic between the UE and packet core, in order from most to least preferred. If not specified, the packet core will use a built-in default ordering.
+        """
+        return pulumi.get(self, "nas_encryption")
+
+    @nas_encryption.setter
+    def nas_encryption(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'NasEncryptionType']]]]]):
+        pulumi.set(self, "nas_encryption", value)
+
+    @property
+    @pulumi.getter(name="nasReroute")
+    def nas_reroute(self) -> Optional[pulumi.Input['NASRerouteConfigurationArgs']]:
+        """
+        Configuration enabling 4G NAS reroute.
+        """
+        return pulumi.get(self, "nas_reroute")
+
+    @nas_reroute.setter
+    def nas_reroute(self, value: Optional[pulumi.Input['NASRerouteConfigurationArgs']]):
+        pulumi.set(self, "nas_reroute", value)
 
 
 if not MYPY:
@@ -2332,5 +2739,37 @@ class SnssaiArgs:
     @sd.setter
     def sd(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sd", value)
+
+
+if not MYPY:
+    class UserConsentConfigurationArgsDict(TypedDict):
+        allow_support_telemetry_access: NotRequired[pulumi.Input[bool]]
+        """
+        Allow Microsoft to access non-PII telemetry information from the packet core.
+        """
+elif False:
+    UserConsentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserConsentConfigurationArgs:
+    def __init__(__self__, *,
+                 allow_support_telemetry_access: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] allow_support_telemetry_access: Allow Microsoft to access non-PII telemetry information from the packet core.
+        """
+        if allow_support_telemetry_access is not None:
+            pulumi.set(__self__, "allow_support_telemetry_access", allow_support_telemetry_access)
+
+    @property
+    @pulumi.getter(name="allowSupportTelemetryAccess")
+    def allow_support_telemetry_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow Microsoft to access non-PII telemetry information from the packet core.
+        """
+        return pulumi.get(self, "allow_support_telemetry_access")
+
+    @allow_support_telemetry_access.setter
+    def allow_support_telemetry_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_support_telemetry_access", value)
 
 

@@ -133,7 +133,7 @@ class PipelineJob(pulumi.CustomResource):
                  __props__=None):
         """
         Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
-        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 2.x: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class PipelineJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
-        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 2.x: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PipelineJobArgs args: The arguments to use to populate this resource's properties.

@@ -274,7 +274,7 @@ class IotSecuritySolution(pulumi.CustomResource):
                  __props__=None):
         """
         IoT Security solution configuration and resource information.
-        Azure REST API version: 2019-08-01. Prior API version in Azure Native 1.x: 2019-08-01.
+        Azure REST API version: 2019-08-01. Prior API version in Azure Native 2.x: 2019-08-01.
 
         Other available API versions: 2017-08-01-preview.
 
@@ -303,7 +303,7 @@ class IotSecuritySolution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IoT Security solution configuration and resource information.
-        Azure REST API version: 2019-08-01. Prior API version in Azure Native 1.x: 2019-08-01.
+        Azure REST API version: 2019-08-01. Prior API version in Azure Native 2.x: 2019-08-01.
 
         Other available API versions: 2017-08-01-preview.
 

@@ -6,6 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AuthenticationMethod',
+    'AutoUpgradeOptions',
+    'AzureHybridBenefit',
+    'ConnectedClusterKind',
     'PrivateLinkState',
     'ProvisioningState',
     'ResourceIdentityType',
@@ -18,6 +21,30 @@ class AuthenticationMethod(str, Enum):
     """
     TOKEN = "Token"
     AAD = "AAD"
+
+
+class AutoUpgradeOptions(str, Enum):
+    """
+    Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class AzureHybridBenefit(str, Enum):
+    """
+    Indicates whether Azure Hybrid Benefit is opted in
+    """
+    TRUE = "True"
+    FALSE = "False"
+    NOT_APPLICABLE = "NotApplicable"
+
+
+class ConnectedClusterKind(str, Enum):
+    """
+    The kind of connected cluster.
+    """
+    PROVISIONED_CLUSTER = "ProvisionedCluster"
 
 
 class PrivateLinkState(str, Enum):

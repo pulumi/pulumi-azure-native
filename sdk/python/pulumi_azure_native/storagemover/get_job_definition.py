@@ -191,7 +191,7 @@ class GetJobDefinitionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Resource system metadata.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -261,9 +261,9 @@ def get_job_definition(job_definition_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobDefinitionResult:
     """
     Gets a Job Definition resource.
-    Azure REST API version: 2023-03-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+    Other available API versions: 2023-03-01.
 
 
     :param str job_definition_name: The name of the Job Definition resource.
@@ -305,9 +305,9 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
     Gets a Job Definition resource.
-    Azure REST API version: 2023-03-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+    Other available API versions: 2023-03-01.
 
 
     :param str job_definition_name: The name of the Job Definition resource.

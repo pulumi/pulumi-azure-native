@@ -20,6 +20,8 @@ __all__ = [
     'AcceptedAudiencesArgsDict',
     'AzureSkuArgs',
     'AzureSkuArgsDict',
+    'CalloutPolicyArgs',
+    'CalloutPolicyArgsDict',
     'IdentityArgs',
     'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
@@ -150,6 +152,82 @@ class AzureSkuArgs:
     @capacity.setter
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
+
+
+if not MYPY:
+    class CalloutPolicyArgsDict(TypedDict):
+        """
+        Configuration for external callout policies, including URI patterns, access types, and service types.
+        """
+        callout_type: NotRequired[pulumi.Input[Union[str, 'CalloutType']]]
+        """
+        Type of the callout service, specifying the kind of external resource or service being accessed.
+        """
+        callout_uri_regex: NotRequired[pulumi.Input[str]]
+        """
+        Regular expression or FQDN pattern for the callout URI.
+        """
+        outbound_access: NotRequired[pulumi.Input[Union[str, 'OutboundAccess']]]
+        """
+        Indicates whether outbound access is permitted for the specified URI pattern.
+        """
+elif False:
+    CalloutPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CalloutPolicyArgs:
+    def __init__(__self__, *,
+                 callout_type: Optional[pulumi.Input[Union[str, 'CalloutType']]] = None,
+                 callout_uri_regex: Optional[pulumi.Input[str]] = None,
+                 outbound_access: Optional[pulumi.Input[Union[str, 'OutboundAccess']]] = None):
+        """
+        Configuration for external callout policies, including URI patterns, access types, and service types.
+        :param pulumi.Input[Union[str, 'CalloutType']] callout_type: Type of the callout service, specifying the kind of external resource or service being accessed.
+        :param pulumi.Input[str] callout_uri_regex: Regular expression or FQDN pattern for the callout URI.
+        :param pulumi.Input[Union[str, 'OutboundAccess']] outbound_access: Indicates whether outbound access is permitted for the specified URI pattern.
+        """
+        if callout_type is not None:
+            pulumi.set(__self__, "callout_type", callout_type)
+        if callout_uri_regex is not None:
+            pulumi.set(__self__, "callout_uri_regex", callout_uri_regex)
+        if outbound_access is not None:
+            pulumi.set(__self__, "outbound_access", outbound_access)
+
+    @property
+    @pulumi.getter(name="calloutType")
+    def callout_type(self) -> Optional[pulumi.Input[Union[str, 'CalloutType']]]:
+        """
+        Type of the callout service, specifying the kind of external resource or service being accessed.
+        """
+        return pulumi.get(self, "callout_type")
+
+    @callout_type.setter
+    def callout_type(self, value: Optional[pulumi.Input[Union[str, 'CalloutType']]]):
+        pulumi.set(self, "callout_type", value)
+
+    @property
+    @pulumi.getter(name="calloutUriRegex")
+    def callout_uri_regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        Regular expression or FQDN pattern for the callout URI.
+        """
+        return pulumi.get(self, "callout_uri_regex")
+
+    @callout_uri_regex.setter
+    def callout_uri_regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "callout_uri_regex", value)
+
+    @property
+    @pulumi.getter(name="outboundAccess")
+    def outbound_access(self) -> Optional[pulumi.Input[Union[str, 'OutboundAccess']]]:
+        """
+        Indicates whether outbound access is permitted for the specified URI pattern.
+        """
+        return pulumi.get(self, "outbound_access")
+
+    @outbound_access.setter
+    def outbound_access(self, value: Optional[pulumi.Input[Union[str, 'OutboundAccess']]]):
+        pulumi.set(self, "outbound_access", value)
 
 
 if not MYPY:
@@ -344,6 +422,10 @@ if not MYPY:
         """
         The language extension object.
         """
+        language_extension_custom_image_name: NotRequired[pulumi.Input[str]]
+        """
+        The language extension custom image name.
+        """
         language_extension_image_name: NotRequired[pulumi.Input[Union[str, 'LanguageExtensionImageName']]]
         """
         The language extension image name.
@@ -358,17 +440,33 @@ elif False:
 @pulumi.input_type
 class LanguageExtensionArgs:
     def __init__(__self__, *,
+                 language_extension_custom_image_name: Optional[pulumi.Input[str]] = None,
                  language_extension_image_name: Optional[pulumi.Input[Union[str, 'LanguageExtensionImageName']]] = None,
                  language_extension_name: Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]] = None):
         """
         The language extension object.
+        :param pulumi.Input[str] language_extension_custom_image_name: The language extension custom image name.
         :param pulumi.Input[Union[str, 'LanguageExtensionImageName']] language_extension_image_name: The language extension image name.
         :param pulumi.Input[Union[str, 'LanguageExtensionName']] language_extension_name: The language extension name.
         """
+        if language_extension_custom_image_name is not None:
+            pulumi.set(__self__, "language_extension_custom_image_name", language_extension_custom_image_name)
         if language_extension_image_name is not None:
             pulumi.set(__self__, "language_extension_image_name", language_extension_image_name)
         if language_extension_name is not None:
             pulumi.set(__self__, "language_extension_name", language_extension_name)
+
+    @property
+    @pulumi.getter(name="languageExtensionCustomImageName")
+    def language_extension_custom_image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The language extension custom image name.
+        """
+        return pulumi.get(self, "language_extension_custom_image_name")
+
+    @language_extension_custom_image_name.setter
+    def language_extension_custom_image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "language_extension_custom_image_name", value)
 
     @property
     @pulumi.getter(name="languageExtensionImageName")
@@ -772,6 +870,10 @@ if not MYPY:
         """
         The subnet resource id.
         """
+        state: NotRequired[pulumi.Input[Union[str, 'VnetState']]]
+        """
+        When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
+        """
 elif False:
     VirtualNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -780,16 +882,22 @@ class VirtualNetworkConfigurationArgs:
     def __init__(__self__, *,
                  data_management_public_ip_id: pulumi.Input[str],
                  engine_public_ip_id: pulumi.Input[str],
-                 subnet_id: pulumi.Input[str]):
+                 subnet_id: pulumi.Input[str],
+                 state: Optional[pulumi.Input[Union[str, 'VnetState']]] = None):
         """
         A class that contains virtual network definition.
         :param pulumi.Input[str] data_management_public_ip_id: Data management's service public IP address resource id.
         :param pulumi.Input[str] engine_public_ip_id: Engine service's public IP address resource id.
         :param pulumi.Input[str] subnet_id: The subnet resource id.
+        :param pulumi.Input[Union[str, 'VnetState']] state: When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
         """
         pulumi.set(__self__, "data_management_public_ip_id", data_management_public_ip_id)
         pulumi.set(__self__, "engine_public_ip_id", engine_public_ip_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if state is None:
+            state = 'Enabled'
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter(name="dataManagementPublicIpId")
@@ -826,5 +934,17 @@ class VirtualNetworkConfigurationArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'VnetState']]]:
+        """
+        When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'VnetState']]]):
+        pulumi.set(self, "state", value)
 
 

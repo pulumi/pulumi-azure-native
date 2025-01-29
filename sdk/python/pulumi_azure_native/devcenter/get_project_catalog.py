@@ -214,7 +214,7 @@ def get_project_catalog(catalog_name: Optional[str] = None,
     Gets an associated project catalog.
     Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-10-01-preview.
 
 
     :param str catalog_name: The name of the Catalog.
@@ -251,7 +251,7 @@ def get_project_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
     Gets an associated project catalog.
     Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-10-01-preview.
 
 
     :param str catalog_name: The name of the Catalog.

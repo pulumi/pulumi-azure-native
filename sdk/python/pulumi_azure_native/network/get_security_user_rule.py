@@ -214,9 +214,9 @@ def get_security_user_rule(configuration_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityUserRuleResult:
     """
     Gets a security user rule.
-    Azure REST API version: 2024-03-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-03-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -257,9 +257,9 @@ def get_security_user_rule_output(configuration_name: Optional[pulumi.Input[str]
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityUserRuleResult]:
     """
     Gets a security user rule.
-    Azure REST API version: 2024-03-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-03-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.

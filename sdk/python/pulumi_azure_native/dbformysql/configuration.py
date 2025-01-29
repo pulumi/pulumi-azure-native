@@ -134,9 +134,9 @@ class Configuration(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Configuration.
-        Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
+        Azure REST API version: 2023-12-30. Prior API version in Azure Native 2.x: 2022-01-01.
 
-        Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        Other available API versions: 2020-07-01-privatepreview, 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,9 +155,9 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Configuration.
-        Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
+        Azure REST API version: 2023-12-30. Prior API version in Azure Native 2.x: 2022-01-01.
 
-        Other available API versions: 2017-12-01, 2020-07-01-privatepreview, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        Other available API versions: 2020-07-01-privatepreview, 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -342,7 +342,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

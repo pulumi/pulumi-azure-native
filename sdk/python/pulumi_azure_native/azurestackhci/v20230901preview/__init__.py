@@ -6,21 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .gallery_image import *
-from .get_gallery_image import *
-from .get_guest_agent import *
 from .get_logical_network import *
-from .get_marketplace_gallery_image import *
-from .get_network_interface import *
-from .get_storage_container import *
-from .get_virtual_hard_disk import *
-from .get_virtual_machine_instance import *
-from .guest_agent import *
 from .logical_network import *
-from .marketplace_gallery_image import *
-from .network_interface import *
-from .storage_container import *
-from .virtual_hard_disk import *
-from .virtual_machine_instance import *
 from ._inputs import *
 from . import outputs

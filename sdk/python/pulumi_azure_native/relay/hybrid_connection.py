@@ -116,9 +116,9 @@ class HybridConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Description of hybrid connection resource.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
-        Other available API versions: 2024-01-01.
+        Other available API versions: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,9 +136,9 @@ class HybridConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of hybrid connection resource.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
-        Other available API versions: 2024-01-01.
+        Other available API versions: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param HybridConnectionArgs args: The arguments to use to populate this resource's properties.

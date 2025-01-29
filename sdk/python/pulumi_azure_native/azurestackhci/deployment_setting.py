@@ -27,7 +27,8 @@ class DeploymentSettingArgs:
                  deployment_configuration: pulumi.Input['DeploymentConfigurationArgs'],
                  deployment_mode: pulumi.Input[Union[str, 'DeploymentMode']],
                  resource_group_name: pulumi.Input[str],
-                 deployment_settings_name: Optional[pulumi.Input[str]] = None):
+                 deployment_settings_name: Optional[pulumi.Input[str]] = None,
+                 operation_type: Optional[pulumi.Input[Union[str, 'OperationType']]] = None):
         """
         The set of arguments for constructing a DeploymentSetting resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arc_node_resource_ids: Azure resource ids of Arc machines to be part of cluster.
@@ -36,6 +37,7 @@ class DeploymentSettingArgs:
         :param pulumi.Input[Union[str, 'DeploymentMode']] deployment_mode: The deployment mode for cluster deployment.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] deployment_settings_name: Name of Deployment Setting
+        :param pulumi.Input[Union[str, 'OperationType']] operation_type: The intended operation for a cluster.
         """
         pulumi.set(__self__, "arc_node_resource_ids", arc_node_resource_ids)
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -44,6 +46,10 @@ class DeploymentSettingArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if deployment_settings_name is not None:
             pulumi.set(__self__, "deployment_settings_name", deployment_settings_name)
+        if operation_type is None:
+            operation_type = 'ClusterProvisioning'
+        if operation_type is not None:
+            pulumi.set(__self__, "operation_type", operation_type)
 
     @property
     @pulumi.getter(name="arcNodeResourceIds")
@@ -117,6 +123,18 @@ class DeploymentSettingArgs:
     def deployment_settings_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "deployment_settings_name", value)
 
+    @property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> Optional[pulumi.Input[Union[str, 'OperationType']]]:
+        """
+        The intended operation for a cluster.
+        """
+        return pulumi.get(self, "operation_type")
+
+    @operation_type.setter
+    def operation_type(self, value: Optional[pulumi.Input[Union[str, 'OperationType']]]):
+        pulumi.set(self, "operation_type", value)
+
 
 class DeploymentSetting(pulumi.CustomResource):
     @overload
@@ -128,13 +146,14 @@ class DeploymentSetting(pulumi.CustomResource):
                  deployment_configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']]] = None,
                  deployment_mode: Optional[pulumi.Input[Union[str, 'DeploymentMode']]] = None,
                  deployment_settings_name: Optional[pulumi.Input[str]] = None,
+                 operation_type: Optional[pulumi.Input[Union[str, 'OperationType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Edge device resource
-        Azure REST API version: 2023-08-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-08-01-preview.
 
-        Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Other available API versions: 2023-08-01-preview, 2024-01-01, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,6 +162,7 @@ class DeploymentSetting(pulumi.CustomResource):
         :param pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']] deployment_configuration: Scale units will contains list of deployment data
         :param pulumi.Input[Union[str, 'DeploymentMode']] deployment_mode: The deployment mode for cluster deployment.
         :param pulumi.Input[str] deployment_settings_name: Name of Deployment Setting
+        :param pulumi.Input[Union[str, 'OperationType']] operation_type: The intended operation for a cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -153,9 +173,9 @@ class DeploymentSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Edge device resource
-        Azure REST API version: 2023-08-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-08-01-preview.
 
-        Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Other available API versions: 2023-08-01-preview, 2024-01-01, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DeploymentSettingArgs args: The arguments to use to populate this resource's properties.
@@ -177,6 +197,7 @@ class DeploymentSetting(pulumi.CustomResource):
                  deployment_configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']]] = None,
                  deployment_mode: Optional[pulumi.Input[Union[str, 'DeploymentMode']]] = None,
                  deployment_settings_name: Optional[pulumi.Input[str]] = None,
+                 operation_type: Optional[pulumi.Input[Union[str, 'OperationType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -200,6 +221,9 @@ class DeploymentSetting(pulumi.CustomResource):
                 raise TypeError("Missing required property 'deployment_mode'")
             __props__.__dict__["deployment_mode"] = deployment_mode
             __props__.__dict__["deployment_settings_name"] = deployment_settings_name
+            if operation_type is None:
+                operation_type = 'ClusterProvisioning'
+            __props__.__dict__["operation_type"] = operation_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -236,6 +260,7 @@ class DeploymentSetting(pulumi.CustomResource):
         __props__.__dict__["deployment_configuration"] = None
         __props__.__dict__["deployment_mode"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["operation_type"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["reported_properties"] = None
         __props__.__dict__["system_data"] = None
@@ -275,6 +300,14 @@ class DeploymentSetting(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The intended operation for a cluster.
+        """
+        return pulumi.get(self, "operation_type")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
@@ -284,7 +317,7 @@ class DeploymentSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reportedProperties")
-    def reported_properties(self) -> pulumi.Output['outputs.ReportedPropertiesResponse']:
+    def reported_properties(self) -> pulumi.Output['outputs.EceReportedPropertiesResponse']:
         """
         Deployment Status reported from cluster.
         """

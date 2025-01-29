@@ -25,34 +25,10 @@ if typing.TYPE_CHECKING:
     v20221101preview = __v20221101preview
     import pulumi_azure_native.dataprotection.v20230101 as __v20230101
     v20230101 = __v20230101
-    import pulumi_azure_native.dataprotection.v20230401preview as __v20230401preview
-    v20230401preview = __v20230401preview
-    import pulumi_azure_native.dataprotection.v20230501 as __v20230501
-    v20230501 = __v20230501
-    import pulumi_azure_native.dataprotection.v20230601preview as __v20230601preview
-    v20230601preview = __v20230601preview
-    import pulumi_azure_native.dataprotection.v20230801preview as __v20230801preview
-    v20230801preview = __v20230801preview
-    import pulumi_azure_native.dataprotection.v20231101 as __v20231101
-    v20231101 = __v20231101
-    import pulumi_azure_native.dataprotection.v20231201 as __v20231201
-    v20231201 = __v20231201
-    import pulumi_azure_native.dataprotection.v20240201preview as __v20240201preview
-    v20240201preview = __v20240201preview
-    import pulumi_azure_native.dataprotection.v20240301 as __v20240301
-    v20240301 = __v20240301
     import pulumi_azure_native.dataprotection.v20240401 as __v20240401
     v20240401 = __v20240401
 else:
     v20221101preview = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20221101preview')
     v20230101 = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20230101')
-    v20230401preview = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20230401preview')
-    v20230501 = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20230501')
-    v20230601preview = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20230601preview')
-    v20230801preview = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20230801preview')
-    v20231101 = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20231101')
-    v20231201 = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20231201')
-    v20240201preview = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20240201preview')
-    v20240301 = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20240301')
     v20240401 = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20240401')
 

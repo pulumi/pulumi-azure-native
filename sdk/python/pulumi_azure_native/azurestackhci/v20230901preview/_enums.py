@@ -5,34 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'CloudInitDataSource',
-    'DiskFileFormat',
     'ExtendedLocationTypes',
-    'HyperVGeneration',
     'IPPoolTypeEnum',
     'IpAllocationMethodEnum',
-    'OperatingSystemTypes',
-    'ProvisioningAction',
-    'ResourceIdentityType',
-    'SecurityTypes',
-    'VmSizeEnum',
 ]
-
-
-class CloudInitDataSource(str, Enum):
-    """
-    Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
-    """
-    NO_CLOUD = "NoCloud"
-    AZURE = "Azure"
-
-
-class DiskFileFormat(str, Enum):
-    """
-    The format of the actual VHD file [vhd, vhdx]
-    """
-    VHDX = "vhdx"
-    VHD = "vhd"
 
 
 class ExtendedLocationTypes(str, Enum):
@@ -40,14 +16,6 @@ class ExtendedLocationTypes(str, Enum):
     The type of the extended location.
     """
     CUSTOM_LOCATION = "CustomLocation"
-
-
-class HyperVGeneration(str, Enum):
-    """
-    The hypervisor generation of the Virtual Machine [V1, V2]
-    """
-    V1 = "V1"
-    V2 = "V2"
 
 
 class IPPoolTypeEnum(str, Enum):
@@ -64,61 +32,3 @@ class IpAllocationMethodEnum(str, Enum):
     """
     DYNAMIC = "Dynamic"
     STATIC = "Static"
-
-
-class OperatingSystemTypes(str, Enum):
-    """
-    This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
-    """
-    LINUX = "Linux"
-    WINDOWS = "Windows"
-
-
-class ProvisioningAction(str, Enum):
-    """
-    The guest agent provisioning action.
-    """
-    INSTALL = "install"
-    UNINSTALL = "uninstall"
-    REPAIR = "repair"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-
-
-class SecurityTypes(str, Enum):
-    """
-    Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.
-    """
-    TRUSTED_LAUNCH = "TrustedLaunch"
-    CONFIDENTIAL_VM = "ConfidentialVM"
-
-
-class VmSizeEnum(str, Enum):
-    DEFAULT = "Default"
-    STANDARD_A2_V2 = "Standard_A2_v2"
-    STANDARD_A4_V2 = "Standard_A4_v2"
-    STANDARD_D2S_V3 = "Standard_D2s_v3"
-    STANDARD_D4S_V3 = "Standard_D4s_v3"
-    STANDARD_D8S_V3 = "Standard_D8s_v3"
-    STANDARD_D16S_V3 = "Standard_D16s_v3"
-    STANDARD_D32S_V3 = "Standard_D32s_v3"
-    STANDARD_DS2_V2 = "Standard_DS2_v2"
-    STANDARD_DS3_V2 = "Standard_DS3_v2"
-    STANDARD_DS4_V2 = "Standard_DS4_v2"
-    STANDARD_DS5_V2 = "Standard_DS5_v2"
-    STANDARD_DS13_V2 = "Standard_DS13_v2"
-    STANDARD_K8_S_V1 = "Standard_K8S_v1"
-    STANDARD_K8_S2_V1 = "Standard_K8S2_v1"
-    STANDARD_K8_S3_V1 = "Standard_K8S3_v1"
-    STANDARD_K8_S4_V1 = "Standard_K8S4_v1"
-    STANDARD_NK6 = "Standard_NK6"
-    STANDARD_NK12 = "Standard_NK12"
-    STANDARD_NV6 = "Standard_NV6"
-    STANDARD_NV12 = "Standard_NV12"
-    STANDARD_K8_S5_V1 = "Standard_K8S5_v1"
-    CUSTOM = "Custom"

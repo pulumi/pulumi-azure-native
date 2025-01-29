@@ -15,12 +15,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.consumption.v20230501 as __v20230501
     v20230501 = __v20230501
-    import pulumi_azure_native.consumption.v20231101 as __v20231101
-    v20231101 = __v20231101
     import pulumi_azure_native.consumption.v20240801 as __v20240801
     v20240801 = __v20240801
 else:
     v20230501 = _utilities.lazy_import('pulumi_azure_native.consumption.v20230501')
-    v20231101 = _utilities.lazy_import('pulumi_azure_native.consumption.v20231101')
     v20240801 = _utilities.lazy_import('pulumi_azure_native.consumption.v20240801')
 

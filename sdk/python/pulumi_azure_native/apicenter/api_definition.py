@@ -163,9 +163,9 @@ class ApiDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         API definition entity.
-        Azure REST API version: 2024-03-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2024-03-01.
 
-        Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        Other available API versions: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,9 +186,9 @@ class ApiDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         API definition entity.
-        Azure REST API version: 2024-03-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2024-03-01.
 
-        Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+        Other available API versions: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ApiDefinitionArgs args: The arguments to use to populate this resource's properties.

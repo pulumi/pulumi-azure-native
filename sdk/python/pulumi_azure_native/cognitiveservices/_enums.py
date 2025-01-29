@@ -5,7 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'AllowedContentLevel',
+    'ByPassSelection',
+    'ContentLevel',
     'DeploymentModelVersionUpgradeOption',
     'DeploymentScaleType',
     'EncryptionScopeState',
@@ -22,7 +23,15 @@ __all__ = [
 ]
 
 
-class AllowedContentLevel(str, Enum):
+class ByPassSelection(str, Enum):
+    """
+    Setting for trusted services.
+    """
+    NONE = "None"
+    AZURE_SERVICES = "AzureServices"
+
+
+class ContentLevel(str, Enum):
     """
     Level at which content is filtered.
     """
@@ -109,11 +118,12 @@ class RaiPolicyContentSource(str, Enum):
 
 class RaiPolicyMode(str, Enum):
     """
-    Content Filters mode.
+    Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
     """
     DEFAULT = "Default"
     DEFERRED = "Deferred"
     BLOCKING = "Blocking"
+    ASYNCHRONOUS_FILTER = "Asynchronous_filter"
 
 
 class ResourceIdentityType(str, Enum):

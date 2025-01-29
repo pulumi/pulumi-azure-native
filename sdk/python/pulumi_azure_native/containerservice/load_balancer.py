@@ -184,9 +184,9 @@ class LoadBalancer(pulumi.CustomResource):
                  __props__=None):
         """
         The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
-        Azure REST API version: 2024-03-02-preview.
+        Azure REST API version: 2024-09-02-preview. Prior API version in Azure Native 2.x: 2024-03-02-preview.
 
-        Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview.
+        Other available API versions: 2024-03-02-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,9 +208,9 @@ class LoadBalancer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
-        Azure REST API version: 2024-03-02-preview.
+        Azure REST API version: 2024-09-02-preview. Prior API version in Azure Native 2.x: 2024-03-02-preview.
 
-        Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview.
+        Other available API versions: 2024-03-02-preview.
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.

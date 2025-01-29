@@ -27,7 +27,10 @@ class GetConfigurationAssignmentResult:
     """
     Configuration Assignment
     """
-    def __init__(__self__, id=None, location=None, maintenance_configuration_id=None, name=None, resource_id=None, system_data=None, type=None):
+    def __init__(__self__, filter=None, id=None, location=None, maintenance_configuration_id=None, name=None, resource_id=None, system_data=None, type=None):
+        if filter and not isinstance(filter, dict):
+            raise TypeError("Expected argument 'filter' to be a dict")
+        pulumi.set(__self__, "filter", filter)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +52,14 @@ class GetConfigurationAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.ConfigurationAssignmentFilterPropertiesResponse']:
+        """
+        Properties of the configuration assignment
+        """
+        return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetConfigurationAssignmentResult(GetConfigurationAssignmentResult
         if False:
             yield self
         return GetConfigurationAssignmentResult(
+            filter=self.filter,
             id=self.id,
             location=self.location,
             maintenance_configuration_id=self.maintenance_configuration_id,
@@ -129,10 +141,10 @@ def get_configuration_assignment(configuration_assignment_name: Optional[str] = 
                                  resource_type: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationAssignmentResult:
     """
-    Get configuration for resource.
-    Azure REST API version: 2022-11-01-preview.
+    Get configuration assignment for resource..
+    Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+    Other available API versions: 2022-11-01-preview.
 
 
     :param str configuration_assignment_name: Configuration assignment name
@@ -151,6 +163,7 @@ def get_configuration_assignment(configuration_assignment_name: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('azure-native:maintenance:getConfigurationAssignment', __args__, opts=opts, typ=GetConfigurationAssignmentResult).value
 
     return AwaitableGetConfigurationAssignmentResult(
+        filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         maintenance_configuration_id=pulumi.get(__ret__, 'maintenance_configuration_id'),
@@ -165,10 +178,10 @@ def get_configuration_assignment_output(configuration_assignment_name: Optional[
                                         resource_type: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAssignmentResult]:
     """
-    Get configuration for resource.
-    Azure REST API version: 2022-11-01-preview.
+    Get configuration assignment for resource..
+    Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+    Other available API versions: 2022-11-01-preview.
 
 
     :param str configuration_assignment_name: Configuration assignment name
@@ -186,6 +199,7 @@ def get_configuration_assignment_output(configuration_assignment_name: Optional[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:maintenance:getConfigurationAssignment', __args__, opts=opts, typ=GetConfigurationAssignmentResult)
     return __ret__.apply(lambda __response__: GetConfigurationAssignmentResult(
+        filter=pulumi.get(__response__, 'filter'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         maintenance_configuration_id=pulumi.get(__response__, 'maintenance_configuration_id'),

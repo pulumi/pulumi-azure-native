@@ -83,7 +83,7 @@ class GetAppServiceCertificateOrderCertificateResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -151,9 +151,9 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceCertificateOrderCertificateResult:
     """
     Description for Get the certificate associated with a certificate order.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2020-10-01, 2022-09-01.
 
 
     :param str certificate_order_name: Name of the certificate order.
@@ -183,9 +183,9 @@ def get_app_service_certificate_order_certificate_output(certificate_order_name:
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceCertificateOrderCertificateResult]:
     """
     Description for Get the certificate associated with a certificate order.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2020-10-01, 2022-09-01.
 
 
     :param str certificate_order_name: Name of the certificate order.

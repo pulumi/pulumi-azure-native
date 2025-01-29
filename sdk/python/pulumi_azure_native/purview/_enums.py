@@ -5,25 +5,25 @@
 from enum import Enum
 
 __all__ = [
-    'CredentialsType',
+    'AccountSkuName',
     'EventHubType',
     'EventStreamingState',
     'EventStreamingType',
+    'KafkaConfigurationIdentityType',
     'ManagedEventHubState',
-    'ManagedResourcesPublicNetworkAccess',
+    'ManagedIdentityType',
+    'PrivateEndpointConnectionStatus',
     'PublicNetworkAccess',
-    'Status',
-    'Type',
+    'TenantEndpointState',
 ]
 
 
-class CredentialsType(str, Enum):
+class AccountSkuName(str, Enum):
     """
-    Identity Type.
+    Gets or sets the sku name.
     """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
+    STANDARD = "Standard"
+    FREE = "Free"
 
 
 class EventHubType(str, Enum):
@@ -51,22 +51,42 @@ class EventStreamingType(str, Enum):
     AZURE = "Azure"
 
 
+class KafkaConfigurationIdentityType(str, Enum):
+    """
+    Identity Type.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+
+
 class ManagedEventHubState(str, Enum):
     """
-     Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+    Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
     """
     NOT_SPECIFIED = "NotSpecified"
     DISABLED = "Disabled"
     ENABLED = "Enabled"
 
 
-class ManagedResourcesPublicNetworkAccess(str, Enum):
+class ManagedIdentityType(str, Enum):
     """
-    Gets or sets the public network access for managed resources.
+    Identity Type
     """
-    NOT_SPECIFIED = "NotSpecified"
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+
+
+class PrivateEndpointConnectionStatus(str, Enum):
+    """
+    The status.
+    """
+    UNKNOWN = "Unknown"
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+    DISCONNECTED = "Disconnected"
 
 
 class PublicNetworkAccess(str, Enum):
@@ -78,21 +98,10 @@ class PublicNetworkAccess(str, Enum):
     DISABLED = "Disabled"
 
 
-class Status(str, Enum):
+class TenantEndpointState(str, Enum):
     """
-    The status.
+    Gets or sets the state of tenant endpoint.
     """
-    UNKNOWN = "Unknown"
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
-
-
-class Type(str, Enum):
-    """
-    Identity Type
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
+    NOT_SPECIFIED = "NotSpecified"
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"

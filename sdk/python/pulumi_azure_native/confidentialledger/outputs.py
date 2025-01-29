@@ -246,8 +246,12 @@ class LedgerPropertiesResponse(dict):
             suggest = "aad_based_security_principals"
         elif key == "certBasedSecurityPrincipals":
             suggest = "cert_based_security_principals"
+        elif key == "ledgerSku":
+            suggest = "ledger_sku"
         elif key == "ledgerType":
             suggest = "ledger_type"
+        elif key == "runningState":
+            suggest = "running_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LedgerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -268,7 +272,9 @@ class LedgerPropertiesResponse(dict):
                  provisioning_state: str,
                  aad_based_security_principals: Optional[Sequence['outputs.AADBasedSecurityPrincipalResponse']] = None,
                  cert_based_security_principals: Optional[Sequence['outputs.CertBasedSecurityPrincipalResponse']] = None,
-                 ledger_type: Optional[str] = None):
+                 ledger_sku: Optional[str] = None,
+                 ledger_type: Optional[str] = None,
+                 running_state: Optional[str] = None):
         """
         Additional Confidential Ledger properties.
         :param str identity_service_uri: Endpoint for accessing network identity.
@@ -278,7 +284,9 @@ class LedgerPropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of Ledger Resource
         :param Sequence['AADBasedSecurityPrincipalResponse'] aad_based_security_principals: Array of all AAD based Security Principals.
         :param Sequence['CertBasedSecurityPrincipalResponse'] cert_based_security_principals: Array of all cert based Security Principals.
+        :param str ledger_sku: SKU associated with the ledger
         :param str ledger_type: Type of Confidential Ledger
+        :param str running_state: Object representing RunningState for Ledger.
         """
         pulumi.set(__self__, "identity_service_uri", identity_service_uri)
         pulumi.set(__self__, "ledger_internal_namespace", ledger_internal_namespace)
@@ -289,8 +297,12 @@ class LedgerPropertiesResponse(dict):
             pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
         if cert_based_security_principals is not None:
             pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
+        if ledger_sku is not None:
+            pulumi.set(__self__, "ledger_sku", ledger_sku)
         if ledger_type is not None:
             pulumi.set(__self__, "ledger_type", ledger_type)
+        if running_state is not None:
+            pulumi.set(__self__, "running_state", running_state)
 
     @property
     @pulumi.getter(name="identityServiceUri")
@@ -349,12 +361,28 @@ class LedgerPropertiesResponse(dict):
         return pulumi.get(self, "cert_based_security_principals")
 
     @property
+    @pulumi.getter(name="ledgerSku")
+    def ledger_sku(self) -> Optional[str]:
+        """
+        SKU associated with the ledger
+        """
+        return pulumi.get(self, "ledger_sku")
+
+    @property
     @pulumi.getter(name="ledgerType")
     def ledger_type(self) -> Optional[str]:
         """
         Type of Confidential Ledger
         """
         return pulumi.get(self, "ledger_type")
+
+    @property
+    @pulumi.getter(name="runningState")
+    def running_state(self) -> Optional[str]:
+        """
+        Object representing RunningState for Ledger.
+        """
+        return pulumi.get(self, "running_state")
 
 
 @pulumi.output_type
@@ -379,6 +407,8 @@ class ManagedCCFPropertiesResponse(dict):
             suggest = "member_identity_certificates"
         elif key == "nodeCount":
             suggest = "node_count"
+        elif key == "runningState":
+            suggest = "running_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagedCCFPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -398,16 +428,18 @@ class ManagedCCFPropertiesResponse(dict):
                  provisioning_state: str,
                  deployment_type: Optional['outputs.DeploymentTypeResponse'] = None,
                  member_identity_certificates: Optional[Sequence['outputs.MemberIdentityCertificateResponse']] = None,
-                 node_count: Optional[int] = None):
+                 node_count: Optional[int] = None,
+                 running_state: Optional[str] = None):
         """
         Additional Managed CCF properties.
         :param str app_name: Unique name for the Managed CCF.
         :param str app_uri: Endpoint for calling Managed CCF Service.
         :param str identity_service_uri: Endpoint for accessing network identity.
-        :param str provisioning_state: Provisioning state of Ledger Resource
+        :param str provisioning_state: Provisioning state of Managed CCF Resource
         :param 'DeploymentTypeResponse' deployment_type: Deployment Type of Managed CCF
         :param Sequence['MemberIdentityCertificateResponse'] member_identity_certificates: List of member identity certificates for  Managed CCF
         :param int node_count: Number of CCF nodes in the Managed CCF.
+        :param str running_state: Object representing RunningState for Managed CCF.
         """
         pulumi.set(__self__, "app_name", app_name)
         pulumi.set(__self__, "app_uri", app_uri)
@@ -419,6 +451,8 @@ class ManagedCCFPropertiesResponse(dict):
             pulumi.set(__self__, "member_identity_certificates", member_identity_certificates)
         if node_count is not None:
             pulumi.set(__self__, "node_count", node_count)
+        if running_state is not None:
+            pulumi.set(__self__, "running_state", running_state)
 
     @property
     @pulumi.getter(name="appName")
@@ -448,7 +482,7 @@ class ManagedCCFPropertiesResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning state of Ledger Resource
+        Provisioning state of Managed CCF Resource
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -475,6 +509,14 @@ class ManagedCCFPropertiesResponse(dict):
         Number of CCF nodes in the Managed CCF.
         """
         return pulumi.get(self, "node_count")
+
+    @property
+    @pulumi.getter(name="runningState")
+    def running_state(self) -> Optional[str]:
+        """
+        Object representing RunningState for Managed CCF.
+        """
+        return pulumi.get(self, "running_state")
 
 
 @pulumi.output_type

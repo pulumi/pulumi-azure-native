@@ -56,6 +56,8 @@ __all__ = [
     'ColumnArgsDict',
     'CompositePathArgs',
     'CompositePathArgsDict',
+    'ComputedPropertyArgs',
+    'ComputedPropertyArgsDict',
     'ConflictResolutionPolicyArgs',
     'ConflictResolutionPolicyArgsDict',
     'ConsistencyPolicyArgs',
@@ -72,12 +74,14 @@ __all__ = [
     'CreateUpdateOptionsArgsDict',
     'DataCenterResourcePropertiesArgs',
     'DataCenterResourcePropertiesArgsDict',
+    'DataTransferServiceResourceCreateUpdatePropertiesArgs',
+    'DataTransferServiceResourceCreateUpdatePropertiesArgsDict',
     'DatabaseRestoreResourceArgs',
     'DatabaseRestoreResourceArgsDict',
     'ExcludedPathArgs',
     'ExcludedPathArgsDict',
-    'FirewallRulePropertiesArgs',
-    'FirewallRulePropertiesArgsDict',
+    'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs',
+    'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict',
     'GraphResourceArgs',
     'GraphResourceArgsDict',
     'GremlinDatabaseResourceArgs',
@@ -100,6 +104,8 @@ __all__ = [
     'ManagedCassandraManagedServiceIdentityArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
+    'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs',
+    'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgsDict',
     'MongoClusterRestoreParametersArgs',
     'MongoClusterRestoreParametersArgsDict',
     'MongoDBCollectionResourceArgs',
@@ -128,6 +134,8 @@ __all__ = [
     'PrivilegeResourceArgsDict',
     'PrivilegeArgs',
     'PrivilegeArgsDict',
+    'ResourceRestoreParametersArgs',
+    'ResourceRestoreParametersArgsDict',
     'RestoreParametersArgs',
     'RestoreParametersArgsDict',
     'RoleArgs',
@@ -140,6 +148,8 @@ __all__ = [
     'SqlContainerResourceArgsDict',
     'SqlDatabaseResourceArgs',
     'SqlDatabaseResourceArgsDict',
+    'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs',
+    'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgsDict',
     'SqlStoredProcedureResourceArgs',
     'SqlStoredProcedureResourceArgsDict',
     'SqlTriggerResourceArgs',
@@ -152,6 +162,12 @@ __all__ = [
     'UniqueKeyPolicyArgsDict',
     'UniqueKeyArgs',
     'UniqueKeyArgsDict',
+    'VectorEmbeddingPolicyArgs',
+    'VectorEmbeddingPolicyArgsDict',
+    'VectorEmbeddingArgs',
+    'VectorEmbeddingArgsDict',
+    'VectorIndexArgs',
+    'VectorIndexArgsDict',
     'VirtualNetworkRuleArgs',
     'VirtualNetworkRuleArgsDict',
 ]
@@ -198,7 +214,7 @@ if not MYPY:
     class ApiPropertiesArgsDict(TypedDict):
         server_version: NotRequired[pulumi.Input[Union[str, 'ServerVersion']]]
         """
-        Describes the ServerVersion of an a MongoDB account.
+        Describes the version of the MongoDB account.
         """
 elif False:
     ApiPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -208,7 +224,7 @@ class ApiPropertiesArgs:
     def __init__(__self__, *,
                  server_version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
         """
-        :param pulumi.Input[Union[str, 'ServerVersion']] server_version: Describes the ServerVersion of an a MongoDB account.
+        :param pulumi.Input[Union[str, 'ServerVersion']] server_version: Describes the version of the MongoDB account.
         """
         if server_version is not None:
             pulumi.set(__self__, "server_version", server_version)
@@ -217,7 +233,7 @@ class ApiPropertiesArgs:
     @pulumi.getter(name="serverVersion")
     def server_version(self) -> Optional[pulumi.Input[Union[str, 'ServerVersion']]]:
         """
-        Describes the ServerVersion of an a MongoDB account.
+        Describes the version of the MongoDB account.
         """
         return pulumi.get(self, "server_version")
 
@@ -1206,6 +1222,10 @@ if not MYPY:
         """
         Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
         """
+        azure_connection_method: NotRequired[pulumi.Input[Union[str, 'AzureConnectionType']]]
+        """
+        How to connect to the azure services needed for running the cluster
+        """
         cassandra_audit_logging_enabled: NotRequired[pulumi.Input[bool]]
         """
         Whether Cassandra audit logging is enabled
@@ -1273,6 +1293,7 @@ elif False:
 class ClusterResourcePropertiesArgs:
     def __init__(__self__, *,
                  authentication_method: Optional[pulumi.Input[Union[str, 'AuthenticationMethod']]] = None,
+                 azure_connection_method: Optional[pulumi.Input[Union[str, 'AzureConnectionType']]] = None,
                  cassandra_audit_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  cassandra_version: Optional[pulumi.Input[str]] = None,
                  client_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]]] = None,
@@ -1291,6 +1312,7 @@ class ClusterResourcePropertiesArgs:
         """
         Properties of a managed Cassandra cluster.
         :param pulumi.Input[Union[str, 'AuthenticationMethod']] authentication_method: Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+        :param pulumi.Input[Union[str, 'AzureConnectionType']] azure_connection_method: How to connect to the azure services needed for running the cluster
         :param pulumi.Input[bool] cassandra_audit_logging_enabled: Whether Cassandra audit logging is enabled
         :param pulumi.Input[str] cassandra_version: Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateArgs']]] client_certificates: List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
@@ -1309,6 +1331,8 @@ class ClusterResourcePropertiesArgs:
         """
         if authentication_method is not None:
             pulumi.set(__self__, "authentication_method", authentication_method)
+        if azure_connection_method is not None:
+            pulumi.set(__self__, "azure_connection_method", azure_connection_method)
         if cassandra_audit_logging_enabled is not None:
             pulumi.set(__self__, "cassandra_audit_logging_enabled", cassandra_audit_logging_enabled)
         if cassandra_version is not None:
@@ -1351,6 +1375,18 @@ class ClusterResourcePropertiesArgs:
     @authentication_method.setter
     def authentication_method(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMethod']]]):
         pulumi.set(self, "authentication_method", value)
+
+    @property
+    @pulumi.getter(name="azureConnectionMethod")
+    def azure_connection_method(self) -> Optional[pulumi.Input[Union[str, 'AzureConnectionType']]]:
+        """
+        How to connect to the azure services needed for running the cluster
+        """
+        return pulumi.get(self, "azure_connection_method")
+
+    @azure_connection_method.setter
+    def azure_connection_method(self, value: Optional[pulumi.Input[Union[str, 'AzureConnectionType']]]):
+        pulumi.set(self, "azure_connection_method", value)
 
     @property
     @pulumi.getter(name="cassandraAuditLoggingEnabled")
@@ -1639,6 +1675,62 @@ class CompositePathArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
+
+
+if not MYPY:
+    class ComputedPropertyArgsDict(TypedDict):
+        """
+        The definition of a computed property
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of a computed property, for example - "cp_lowerName"
+        """
+        query: NotRequired[pulumi.Input[str]]
+        """
+        The query that evaluates the value for computed property, for example - "SELECT VALUE LOWER(c.name) FROM c"
+        """
+elif False:
+    ComputedPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ComputedPropertyArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 query: Optional[pulumi.Input[str]] = None):
+        """
+        The definition of a computed property
+        :param pulumi.Input[str] name: The name of a computed property, for example - "cp_lowerName"
+        :param pulumi.Input[str] query: The query that evaluates the value for computed property, for example - "SELECT VALUE LOWER(c.name) FROM c"
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a computed property, for example - "cp_lowerName"
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input[str]]:
+        """
+        The query that evaluates the value for computed property, for example - "SELECT VALUE LOWER(c.name) FROM c"
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query", value)
 
 
 if not MYPY:
@@ -2108,7 +2200,7 @@ if not MYPY:
         """
         autoscale_settings: NotRequired[pulumi.Input['AutoscaleSettingsArgsDict']]
         """
-        Specifies the Autoscale settings.
+        Specifies the Autoscale settings. Note: Either throughput or autoscaleSettings is required, but not both.
         """
         throughput: NotRequired[pulumi.Input[int]]
         """
@@ -2124,7 +2216,7 @@ class CreateUpdateOptionsArgs:
                  throughput: Optional[pulumi.Input[int]] = None):
         """
         CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are "If-Match", "If-None-Match", "Session-Token" and "Throughput"
-        :param pulumi.Input['AutoscaleSettingsArgs'] autoscale_settings: Specifies the Autoscale settings.
+        :param pulumi.Input['AutoscaleSettingsArgs'] autoscale_settings: Specifies the Autoscale settings. Note: Either throughput or autoscaleSettings is required, but not both.
         :param pulumi.Input[int] throughput: Request Units per second. For example, "throughput": 10000.
         """
         if autoscale_settings is not None:
@@ -2136,7 +2228,7 @@ class CreateUpdateOptionsArgs:
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['AutoscaleSettingsArgs']]:
         """
-        Specifies the Autoscale settings.
+        Specifies the Autoscale settings. Note: Either throughput or autoscaleSettings is required, but not both.
         """
         return pulumi.get(self, "autoscale_settings")
 
@@ -2206,6 +2298,10 @@ if not MYPY:
         """
         The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
         """
+        private_endpoint_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Ip of the VPN Endpoint for this data center.
+        """
         provision_error: NotRequired[pulumi.Input['CassandraErrorArgsDict']]
         """
         Error related to resource provisioning.
@@ -2235,6 +2331,7 @@ class DataCenterResourcePropertiesArgs:
                  disk_sku: Optional[pulumi.Input[str]] = None,
                  managed_disk_customer_key_uri: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
+                 private_endpoint_ip_address: Optional[pulumi.Input[str]] = None,
                  provision_error: Optional[pulumi.Input['CassandraErrorArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']]] = None,
                  sku: Optional[pulumi.Input[str]] = None):
@@ -2251,6 +2348,7 @@ class DataCenterResourcePropertiesArgs:
         :param pulumi.Input[str] disk_sku: Disk SKU used for data centers. Default value is P30.
         :param pulumi.Input[str] managed_disk_customer_key_uri: Key uri to use for encryption of managed disks. Ensure the system assigned identity of the cluster has been assigned appropriate permissions(key get/wrap/unwrap permissions) on the key.
         :param pulumi.Input[int] node_count: The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+        :param pulumi.Input[str] private_endpoint_ip_address: Ip of the VPN Endpoint for this data center.
         :param pulumi.Input['CassandraErrorArgs'] provision_error: Error related to resource provisioning.
         :param pulumi.Input[Union[str, 'ManagedCassandraProvisioningState']] provisioning_state: The status of the resource at the time the operation was called.
         :param pulumi.Input[str] sku: Virtual Machine SKU used for data centers. Default value is Standard_DS14_v2
@@ -2277,6 +2375,8 @@ class DataCenterResourcePropertiesArgs:
             pulumi.set(__self__, "managed_disk_customer_key_uri", managed_disk_customer_key_uri)
         if node_count is not None:
             pulumi.set(__self__, "node_count", node_count)
+        if private_endpoint_ip_address is not None:
+            pulumi.set(__self__, "private_endpoint_ip_address", private_endpoint_ip_address)
         if provision_error is not None:
             pulumi.set(__self__, "provision_error", provision_error)
         if provisioning_state is not None:
@@ -2417,6 +2517,18 @@ class DataCenterResourcePropertiesArgs:
         pulumi.set(self, "node_count", value)
 
     @property
+    @pulumi.getter(name="privateEndpointIpAddress")
+    def private_endpoint_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Ip of the VPN Endpoint for this data center.
+        """
+        return pulumi.get(self, "private_endpoint_ip_address")
+
+    @private_endpoint_ip_address.setter
+    def private_endpoint_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_endpoint_ip_address", value)
+
+    @property
     @pulumi.getter(name="provisionError")
     def provision_error(self) -> Optional[pulumi.Input['CassandraErrorArgs']]:
         """
@@ -2451,6 +2563,84 @@ class DataCenterResourcePropertiesArgs:
     @sku.setter
     def sku(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sku", value)
+
+
+if not MYPY:
+    class DataTransferServiceResourceCreateUpdatePropertiesArgsDict(TypedDict):
+        """
+        Properties for Create or Update request for DataTransferServiceResource
+        """
+        service_type: pulumi.Input[str]
+        """
+        ServiceType for the service.
+        Expected value is 'DataTransfer'.
+        """
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Instance count for the service.
+        """
+        instance_size: NotRequired[pulumi.Input[Union[str, 'ServiceSize']]]
+        """
+        Instance type for the service.
+        """
+elif False:
+    DataTransferServiceResourceCreateUpdatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataTransferServiceResourceCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 service_type: pulumi.Input[str],
+                 instance_count: Optional[pulumi.Input[int]] = None,
+                 instance_size: Optional[pulumi.Input[Union[str, 'ServiceSize']]] = None):
+        """
+        Properties for Create or Update request for DataTransferServiceResource
+        :param pulumi.Input[str] service_type: ServiceType for the service.
+               Expected value is 'DataTransfer'.
+        :param pulumi.Input[int] instance_count: Instance count for the service.
+        :param pulumi.Input[Union[str, 'ServiceSize']] instance_size: Instance type for the service.
+        """
+        pulumi.set(__self__, "service_type", 'DataTransfer')
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_size is not None:
+            pulumi.set(__self__, "instance_size", instance_size)
+
+    @property
+    @pulumi.getter(name="serviceType")
+    def service_type(self) -> pulumi.Input[str]:
+        """
+        ServiceType for the service.
+        Expected value is 'DataTransfer'.
+        """
+        return pulumi.get(self, "service_type")
+
+    @service_type.setter
+    def service_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_type", value)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Instance count for the service.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter(name="instanceSize")
+    def instance_size(self) -> Optional[pulumi.Input[Union[str, 'ServiceSize']]]:
+        """
+        Instance type for the service.
+        """
+        return pulumi.get(self, "instance_size")
+
+    @instance_size.setter
+    def instance_size(self, value: Optional[pulumi.Input[Union[str, 'ServiceSize']]]):
+        pulumi.set(self, "instance_size", value)
 
 
 if not MYPY:
@@ -2542,57 +2732,81 @@ class ExcludedPathArgs:
 
 
 if not MYPY:
-    class FirewallRulePropertiesArgsDict(TypedDict):
+    class GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict(TypedDict):
         """
-        The properties of a mongo cluster firewall rule.
+        Properties for Create or Update request for GraphAPIComputeServiceResource
         """
-        end_ip_address: pulumi.Input[str]
+        service_type: pulumi.Input[str]
         """
-        The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        ServiceType for the service.
+        Expected value is 'GraphAPICompute'.
         """
-        start_ip_address: pulumi.Input[str]
+        instance_count: NotRequired[pulumi.Input[int]]
         """
-        The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        Instance count for the service.
+        """
+        instance_size: NotRequired[pulumi.Input[Union[str, 'ServiceSize']]]
+        """
+        Instance type for the service.
         """
 elif False:
-    FirewallRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class FirewallRulePropertiesArgs:
+class GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs:
     def __init__(__self__, *,
-                 end_ip_address: pulumi.Input[str],
-                 start_ip_address: pulumi.Input[str]):
+                 service_type: pulumi.Input[str],
+                 instance_count: Optional[pulumi.Input[int]] = None,
+                 instance_size: Optional[pulumi.Input[Union[str, 'ServiceSize']]] = None):
         """
-        The properties of a mongo cluster firewall rule.
-        :param pulumi.Input[str] end_ip_address: The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        :param pulumi.Input[str] start_ip_address: The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        Properties for Create or Update request for GraphAPIComputeServiceResource
+        :param pulumi.Input[str] service_type: ServiceType for the service.
+               Expected value is 'GraphAPICompute'.
+        :param pulumi.Input[int] instance_count: Instance count for the service.
+        :param pulumi.Input[Union[str, 'ServiceSize']] instance_size: Instance type for the service.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
+        pulumi.set(__self__, "service_type", 'GraphAPICompute')
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_size is not None:
+            pulumi.set(__self__, "instance_size", instance_size)
 
     @property
-    @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="serviceType")
+    def service_type(self) -> pulumi.Input[str]:
         """
-        The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        ServiceType for the service.
+        Expected value is 'GraphAPICompute'.
         """
-        return pulumi.get(self, "end_ip_address")
+        return pulumi.get(self, "service_type")
 
-    @end_ip_address.setter
-    def end_ip_address(self, value: pulumi.Input[str]):
-        pulumi.set(self, "end_ip_address", value)
+    @service_type.setter
+    def service_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_type", value)
 
     @property
-    @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
+        Instance count for the service.
         """
-        return pulumi.get(self, "start_ip_address")
+        return pulumi.get(self, "instance_count")
 
-    @start_ip_address.setter
-    def start_ip_address(self, value: pulumi.Input[str]):
-        pulumi.set(self, "start_ip_address", value)
+    @instance_count.setter
+    def instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter(name="instanceSize")
+    def instance_size(self) -> Optional[pulumi.Input[Union[str, 'ServiceSize']]]:
+        """
+        Instance type for the service.
+        """
+        return pulumi.get(self, "instance_size")
+
+    @instance_size.setter
+    def instance_size(self, value: Optional[pulumi.Input[Union[str, 'ServiceSize']]]):
+        pulumi.set(self, "instance_size", value)
 
 
 if not MYPY:
@@ -2639,18 +2853,34 @@ if not MYPY:
         """
         Name of the Cosmos DB Gremlin database
         """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
+        """
 elif False:
     GremlinDatabaseResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GremlinDatabaseResourceArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str]):
+                 id: pulumi.Input[str],
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 restore_parameters: Optional[pulumi.Input['ResourceRestoreParametersArgs']] = None):
         """
         Cosmos DB Gremlin database resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB Gremlin database
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Enum to indicate the mode of resource creation.
+        :param pulumi.Input['ResourceRestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore
         """
         pulumi.set(__self__, "id", id)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
 
     @property
     @pulumi.getter
@@ -2663,6 +2893,30 @@ class GremlinDatabaseResourceArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional[pulumi.Input['ResourceRestoreParametersArgs']]:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @restore_parameters.setter
+    def restore_parameters(self, value: Optional[pulumi.Input['ResourceRestoreParametersArgs']]):
+        pulumi.set(self, "restore_parameters", value)
 
 
 if not MYPY:
@@ -2738,6 +2992,10 @@ if not MYPY:
         """
         The conflict resolution policy for the graph.
         """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
         default_ttl: NotRequired[pulumi.Input[int]]
         """
         Default time to live
@@ -2749,6 +3007,10 @@ if not MYPY:
         partition_key: NotRequired[pulumi.Input['ContainerPartitionKeyArgsDict']]
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
         """
         unique_key_policy: NotRequired[pulumi.Input['UniqueKeyPolicyArgsDict']]
         """
@@ -2763,18 +3025,22 @@ class GremlinGraphResourceArgs:
                  id: pulumi.Input[str],
                  analytical_storage_ttl: Optional[pulumi.Input[float]] = None,
                  conflict_resolution_policy: Optional[pulumi.Input['ConflictResolutionPolicyArgs']] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input['IndexingPolicyArgs']] = None,
                  partition_key: Optional[pulumi.Input['ContainerPartitionKeyArgs']] = None,
+                 restore_parameters: Optional[pulumi.Input['ResourceRestoreParametersArgs']] = None,
                  unique_key_policy: Optional[pulumi.Input['UniqueKeyPolicyArgs']] = None):
         """
         Cosmos DB Gremlin graph resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB Gremlin graph
         :param pulumi.Input[float] analytical_storage_ttl: Analytical TTL.
         :param pulumi.Input['ConflictResolutionPolicyArgs'] conflict_resolution_policy: The conflict resolution policy for the graph.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Enum to indicate the mode of resource creation.
         :param pulumi.Input[int] default_ttl: Default time to live
         :param pulumi.Input['IndexingPolicyArgs'] indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
         :param pulumi.Input['ContainerPartitionKeyArgs'] partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param pulumi.Input['ResourceRestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore
         :param pulumi.Input['UniqueKeyPolicyArgs'] unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """
         pulumi.set(__self__, "id", id)
@@ -2782,12 +3048,16 @@ class GremlinGraphResourceArgs:
             pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if conflict_resolution_policy is not None:
             pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
         if indexing_policy is not None:
             pulumi.set(__self__, "indexing_policy", indexing_policy)
         if partition_key is not None:
             pulumi.set(__self__, "partition_key", partition_key)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
         if unique_key_policy is not None:
             pulumi.set(__self__, "unique_key_policy", unique_key_policy)
 
@@ -2828,6 +3098,18 @@ class GremlinGraphResourceArgs:
         pulumi.set(self, "conflict_resolution_policy", value)
 
     @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[pulumi.Input[int]]:
         """
@@ -2862,6 +3144,18 @@ class GremlinGraphResourceArgs:
     @partition_key.setter
     def partition_key(self, value: Optional[pulumi.Input['ContainerPartitionKeyArgs']]):
         pulumi.set(self, "partition_key", value)
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional[pulumi.Input['ResourceRestoreParametersArgs']]:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @restore_parameters.setter
+    def restore_parameters(self, value: Optional[pulumi.Input['ResourceRestoreParametersArgs']]):
+        pulumi.set(self, "restore_parameters", value)
 
     @property
     @pulumi.getter(name="uniqueKeyPolicy")
@@ -3041,6 +3335,10 @@ if not MYPY:
         """
         List of spatial specifics
         """
+        vector_indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input['VectorIndexArgsDict']]]]
+        """
+        List of paths to include in the vector indexing
+        """
 elif False:
     IndexingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3052,7 +3350,8 @@ class IndexingPolicyArgs:
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]]] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]]] = None,
                  indexing_mode: Optional[pulumi.Input[Union[str, 'IndexingMode']]] = None,
-                 spatial_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]]] = None):
+                 spatial_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]]] = None,
+                 vector_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['VectorIndexArgs']]]] = None):
         """
         Cosmos DB indexing policy
         :param pulumi.Input[bool] automatic: Indicates if the indexing policy is automatic
@@ -3061,6 +3360,7 @@ class IndexingPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]] included_paths: List of paths to include in the indexing
         :param pulumi.Input[Union[str, 'IndexingMode']] indexing_mode: Indicates the indexing mode.
         :param pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]] spatial_indexes: List of spatial specifics
+        :param pulumi.Input[Sequence[pulumi.Input['VectorIndexArgs']]] vector_indexes: List of paths to include in the vector indexing
         """
         if automatic is not None:
             pulumi.set(__self__, "automatic", automatic)
@@ -3076,6 +3376,8 @@ class IndexingPolicyArgs:
             pulumi.set(__self__, "indexing_mode", indexing_mode)
         if spatial_indexes is not None:
             pulumi.set(__self__, "spatial_indexes", spatial_indexes)
+        if vector_indexes is not None:
+            pulumi.set(__self__, "vector_indexes", vector_indexes)
 
     @property
     @pulumi.getter
@@ -3148,6 +3450,18 @@ class IndexingPolicyArgs:
     @spatial_indexes.setter
     def spatial_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]]]):
         pulumi.set(self, "spatial_indexes", value)
+
+    @property
+    @pulumi.getter(name="vectorIndexes")
+    def vector_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VectorIndexArgs']]]]:
+        """
+        List of paths to include in the vector indexing
+        """
+        return pulumi.get(self, "vector_indexes")
+
+    @vector_indexes.setter
+    def vector_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VectorIndexArgs']]]]):
+        pulumi.set(self, "vector_indexes", value)
 
 
 if not MYPY:
@@ -3355,6 +3669,84 @@ class ManagedServiceIdentityArgs:
 
 
 if not MYPY:
+    class MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgsDict(TypedDict):
+        """
+        Properties for Create or Update request for MaterializedViewsBuilderServiceResource
+        """
+        service_type: pulumi.Input[str]
+        """
+        ServiceType for the service.
+        Expected value is 'MaterializedViewsBuilder'.
+        """
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Instance count for the service.
+        """
+        instance_size: NotRequired[pulumi.Input[Union[str, 'ServiceSize']]]
+        """
+        Instance type for the service.
+        """
+elif False:
+    MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 service_type: pulumi.Input[str],
+                 instance_count: Optional[pulumi.Input[int]] = None,
+                 instance_size: Optional[pulumi.Input[Union[str, 'ServiceSize']]] = None):
+        """
+        Properties for Create or Update request for MaterializedViewsBuilderServiceResource
+        :param pulumi.Input[str] service_type: ServiceType for the service.
+               Expected value is 'MaterializedViewsBuilder'.
+        :param pulumi.Input[int] instance_count: Instance count for the service.
+        :param pulumi.Input[Union[str, 'ServiceSize']] instance_size: Instance type for the service.
+        """
+        pulumi.set(__self__, "service_type", 'MaterializedViewsBuilder')
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_size is not None:
+            pulumi.set(__self__, "instance_size", instance_size)
+
+    @property
+    @pulumi.getter(name="serviceType")
+    def service_type(self) -> pulumi.Input[str]:
+        """
+        ServiceType for the service.
+        Expected value is 'MaterializedViewsBuilder'.
+        """
+        return pulumi.get(self, "service_type")
+
+    @service_type.setter
+    def service_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_type", value)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Instance count for the service.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter(name="instanceSize")
+    def instance_size(self) -> Optional[pulumi.Input[Union[str, 'ServiceSize']]]:
+        """
+        Instance type for the service.
+        """
+        return pulumi.get(self, "instance_size")
+
+    @instance_size.setter
+    def instance_size(self, value: Optional[pulumi.Input[Union[str, 'ServiceSize']]]):
+        pulumi.set(self, "instance_size", value)
+
+
+if not MYPY:
     class MongoClusterRestoreParametersArgsDict(TypedDict):
         """
         Parameters used for restore operations
@@ -3423,9 +3815,17 @@ if not MYPY:
         """
         Analytical TTL.
         """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
         indexes: NotRequired[pulumi.Input[Sequence[pulumi.Input['MongoIndexArgsDict']]]]
         """
         List of index keys
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
         """
         shard_key: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
@@ -3439,20 +3839,28 @@ class MongoDBCollectionResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input['MongoIndexArgs']]]] = None,
+                 restore_parameters: Optional[pulumi.Input['ResourceRestoreParametersArgs']] = None,
                  shard_key: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Cosmos DB MongoDB collection resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB MongoDB collection
         :param pulumi.Input[int] analytical_storage_ttl: Analytical TTL.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Enum to indicate the mode of resource creation.
         :param pulumi.Input[Sequence[pulumi.Input['MongoIndexArgs']]] indexes: List of index keys
+        :param pulumi.Input['ResourceRestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] shard_key: A key-value pair of shard keys to be applied for the request.
         """
         pulumi.set(__self__, "id", id)
         if analytical_storage_ttl is not None:
             pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
         if shard_key is not None:
             pulumi.set(__self__, "shard_key", shard_key)
 
@@ -3481,6 +3889,18 @@ class MongoDBCollectionResourceArgs:
         pulumi.set(self, "analytical_storage_ttl", value)
 
     @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
     @pulumi.getter
     def indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoIndexArgs']]]]:
         """
@@ -3491,6 +3911,18 @@ class MongoDBCollectionResourceArgs:
     @indexes.setter
     def indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoIndexArgs']]]]):
         pulumi.set(self, "indexes", value)
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional[pulumi.Input['ResourceRestoreParametersArgs']]:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @restore_parameters.setter
+    def restore_parameters(self, value: Optional[pulumi.Input['ResourceRestoreParametersArgs']]):
+        pulumi.set(self, "restore_parameters", value)
 
     @property
     @pulumi.getter(name="shardKey")
@@ -3514,18 +3946,34 @@ if not MYPY:
         """
         Name of the Cosmos DB MongoDB database
         """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
+        """
 elif False:
     MongoDBDatabaseResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MongoDBDatabaseResourceArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str]):
+                 id: pulumi.Input[str],
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 restore_parameters: Optional[pulumi.Input['ResourceRestoreParametersArgs']] = None):
         """
         Cosmos DB MongoDB database resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB MongoDB database
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Enum to indicate the mode of resource creation.
+        :param pulumi.Input['ResourceRestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore
         """
         pulumi.set(__self__, "id", id)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
 
     @property
     @pulumi.getter
@@ -3538,6 +3986,30 @@ class MongoDBDatabaseResourceArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional[pulumi.Input['ResourceRestoreParametersArgs']]:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @restore_parameters.setter
+    def restore_parameters(self, value: Optional[pulumi.Input['ResourceRestoreParametersArgs']]):
+        pulumi.set(self, "restore_parameters", value)
 
 
 if not MYPY:
@@ -4239,6 +4711,82 @@ class PrivilegeArgs:
 
 
 if not MYPY:
+    class ResourceRestoreParametersArgsDict(TypedDict):
+        """
+        Parameters to indicate the information about the restore.
+        """
+        restore_source: NotRequired[pulumi.Input[str]]
+        """
+        The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        """
+        restore_timestamp_in_utc: NotRequired[pulumi.Input[str]]
+        """
+        Time to which the account has to be restored (ISO-8601 format).
+        """
+        restore_with_ttl_disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
+        """
+elif False:
+    ResourceRestoreParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceRestoreParametersArgs:
+    def __init__(__self__, *,
+                 restore_source: Optional[pulumi.Input[str]] = None,
+                 restore_timestamp_in_utc: Optional[pulumi.Input[str]] = None,
+                 restore_with_ttl_disabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Parameters to indicate the information about the restore.
+        :param pulumi.Input[str] restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        :param pulumi.Input[str] restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
+        :param pulumi.Input[bool] restore_with_ttl_disabled: Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
+        """
+        if restore_source is not None:
+            pulumi.set(__self__, "restore_source", restore_source)
+        if restore_timestamp_in_utc is not None:
+            pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+        if restore_with_ttl_disabled is not None:
+            pulumi.set(__self__, "restore_with_ttl_disabled", restore_with_ttl_disabled)
+
+    @property
+    @pulumi.getter(name="restoreSource")
+    def restore_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        """
+        return pulumi.get(self, "restore_source")
+
+    @restore_source.setter
+    def restore_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_source", value)
+
+    @property
+    @pulumi.getter(name="restoreTimestampInUtc")
+    def restore_timestamp_in_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time to which the account has to be restored (ISO-8601 format).
+        """
+        return pulumi.get(self, "restore_timestamp_in_utc")
+
+    @restore_timestamp_in_utc.setter
+    def restore_timestamp_in_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_timestamp_in_utc", value)
+
+    @property
+    @pulumi.getter(name="restoreWithTtlDisabled")
+    def restore_with_ttl_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
+        """
+        return pulumi.get(self, "restore_with_ttl_disabled")
+
+    @restore_with_ttl_disabled.setter
+    def restore_with_ttl_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restore_with_ttl_disabled", value)
+
+
+if not MYPY:
     class RestoreParametersArgsDict(TypedDict):
         """
         Parameters to indicate the information about the restore.
@@ -4263,6 +4811,10 @@ if not MYPY:
         """
         Time to which the account has to be restored (ISO-8601 format).
         """
+        restore_with_ttl_disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
+        """
         tables_to_restore: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         List of specific tables available for restore.
@@ -4278,6 +4830,7 @@ class RestoreParametersArgs:
                  restore_mode: Optional[pulumi.Input[Union[str, 'RestoreMode']]] = None,
                  restore_source: Optional[pulumi.Input[str]] = None,
                  restore_timestamp_in_utc: Optional[pulumi.Input[str]] = None,
+                 restore_with_ttl_disabled: Optional[pulumi.Input[bool]] = None,
                  tables_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Parameters to indicate the information about the restore.
@@ -4286,6 +4839,7 @@ class RestoreParametersArgs:
         :param pulumi.Input[Union[str, 'RestoreMode']] restore_mode: Describes the mode of the restore.
         :param pulumi.Input[str] restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         :param pulumi.Input[str] restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
+        :param pulumi.Input[bool] restore_with_ttl_disabled: Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_restore: List of specific tables available for restore.
         """
         if databases_to_restore is not None:
@@ -4298,6 +4852,8 @@ class RestoreParametersArgs:
             pulumi.set(__self__, "restore_source", restore_source)
         if restore_timestamp_in_utc is not None:
             pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+        if restore_with_ttl_disabled is not None:
+            pulumi.set(__self__, "restore_with_ttl_disabled", restore_with_ttl_disabled)
         if tables_to_restore is not None:
             pulumi.set(__self__, "tables_to_restore", tables_to_restore)
 
@@ -4360,6 +4916,18 @@ class RestoreParametersArgs:
     @restore_timestamp_in_utc.setter
     def restore_timestamp_in_utc(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "restore_timestamp_in_utc", value)
+
+    @property
+    @pulumi.getter(name="restoreWithTtlDisabled")
+    def restore_with_ttl_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
+        """
+        return pulumi.get(self, "restore_with_ttl_disabled")
+
+    @restore_with_ttl_disabled.setter
+    def restore_with_ttl_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restore_with_ttl_disabled", value)
 
     @property
     @pulumi.getter(name="tablesToRestore")
@@ -4531,9 +5099,17 @@ if not MYPY:
         """
         The client encryption policy for the container.
         """
+        computed_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComputedPropertyArgsDict']]]]
+        """
+        List of computed properties
+        """
         conflict_resolution_policy: NotRequired[pulumi.Input['ConflictResolutionPolicyArgsDict']]
         """
         The conflict resolution policy for the container.
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
         """
         default_ttl: NotRequired[pulumi.Input[int]]
         """
@@ -4547,9 +5123,17 @@ if not MYPY:
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
         """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
+        """
         unique_key_policy: NotRequired[pulumi.Input['UniqueKeyPolicyArgsDict']]
         """
         The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        """
+        vector_embedding_policy: NotRequired[pulumi.Input['VectorEmbeddingPolicyArgsDict']]
+        """
+        The vector embedding policy for the container.
         """
 elif False:
     SqlContainerResourceArgsDict: TypeAlias = Mapping[str, Any]
@@ -4560,37 +5144,53 @@ class SqlContainerResourceArgs:
                  id: pulumi.Input[str],
                  analytical_storage_ttl: Optional[pulumi.Input[float]] = None,
                  client_encryption_policy: Optional[pulumi.Input['ClientEncryptionPolicyArgs']] = None,
+                 computed_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ComputedPropertyArgs']]]] = None,
                  conflict_resolution_policy: Optional[pulumi.Input['ConflictResolutionPolicyArgs']] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input['IndexingPolicyArgs']] = None,
                  partition_key: Optional[pulumi.Input['ContainerPartitionKeyArgs']] = None,
-                 unique_key_policy: Optional[pulumi.Input['UniqueKeyPolicyArgs']] = None):
+                 restore_parameters: Optional[pulumi.Input['ResourceRestoreParametersArgs']] = None,
+                 unique_key_policy: Optional[pulumi.Input['UniqueKeyPolicyArgs']] = None,
+                 vector_embedding_policy: Optional[pulumi.Input['VectorEmbeddingPolicyArgs']] = None):
         """
         Cosmos DB SQL container resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB SQL container
         :param pulumi.Input[float] analytical_storage_ttl: Analytical TTL.
         :param pulumi.Input['ClientEncryptionPolicyArgs'] client_encryption_policy: The client encryption policy for the container.
+        :param pulumi.Input[Sequence[pulumi.Input['ComputedPropertyArgs']]] computed_properties: List of computed properties
         :param pulumi.Input['ConflictResolutionPolicyArgs'] conflict_resolution_policy: The conflict resolution policy for the container.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Enum to indicate the mode of resource creation.
         :param pulumi.Input[int] default_ttl: Default time to live
         :param pulumi.Input['IndexingPolicyArgs'] indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
         :param pulumi.Input['ContainerPartitionKeyArgs'] partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param pulumi.Input['ResourceRestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore
         :param pulumi.Input['UniqueKeyPolicyArgs'] unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        :param pulumi.Input['VectorEmbeddingPolicyArgs'] vector_embedding_policy: The vector embedding policy for the container.
         """
         pulumi.set(__self__, "id", id)
         if analytical_storage_ttl is not None:
             pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if client_encryption_policy is not None:
             pulumi.set(__self__, "client_encryption_policy", client_encryption_policy)
+        if computed_properties is not None:
+            pulumi.set(__self__, "computed_properties", computed_properties)
         if conflict_resolution_policy is not None:
             pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
         if indexing_policy is not None:
             pulumi.set(__self__, "indexing_policy", indexing_policy)
         if partition_key is not None:
             pulumi.set(__self__, "partition_key", partition_key)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
         if unique_key_policy is not None:
             pulumi.set(__self__, "unique_key_policy", unique_key_policy)
+        if vector_embedding_policy is not None:
+            pulumi.set(__self__, "vector_embedding_policy", vector_embedding_policy)
 
     @property
     @pulumi.getter
@@ -4629,6 +5229,18 @@ class SqlContainerResourceArgs:
         pulumi.set(self, "client_encryption_policy", value)
 
     @property
+    @pulumi.getter(name="computedProperties")
+    def computed_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComputedPropertyArgs']]]]:
+        """
+        List of computed properties
+        """
+        return pulumi.get(self, "computed_properties")
+
+    @computed_properties.setter
+    def computed_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComputedPropertyArgs']]]]):
+        pulumi.set(self, "computed_properties", value)
+
+    @property
     @pulumi.getter(name="conflictResolutionPolicy")
     def conflict_resolution_policy(self) -> Optional[pulumi.Input['ConflictResolutionPolicyArgs']]:
         """
@@ -4639,6 +5251,18 @@ class SqlContainerResourceArgs:
     @conflict_resolution_policy.setter
     def conflict_resolution_policy(self, value: Optional[pulumi.Input['ConflictResolutionPolicyArgs']]):
         pulumi.set(self, "conflict_resolution_policy", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
 
     @property
     @pulumi.getter(name="defaultTtl")
@@ -4677,6 +5301,18 @@ class SqlContainerResourceArgs:
         pulumi.set(self, "partition_key", value)
 
     @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional[pulumi.Input['ResourceRestoreParametersArgs']]:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @restore_parameters.setter
+    def restore_parameters(self, value: Optional[pulumi.Input['ResourceRestoreParametersArgs']]):
+        pulumi.set(self, "restore_parameters", value)
+
+    @property
     @pulumi.getter(name="uniqueKeyPolicy")
     def unique_key_policy(self) -> Optional[pulumi.Input['UniqueKeyPolicyArgs']]:
         """
@@ -4688,6 +5324,18 @@ class SqlContainerResourceArgs:
     def unique_key_policy(self, value: Optional[pulumi.Input['UniqueKeyPolicyArgs']]):
         pulumi.set(self, "unique_key_policy", value)
 
+    @property
+    @pulumi.getter(name="vectorEmbeddingPolicy")
+    def vector_embedding_policy(self) -> Optional[pulumi.Input['VectorEmbeddingPolicyArgs']]:
+        """
+        The vector embedding policy for the container.
+        """
+        return pulumi.get(self, "vector_embedding_policy")
+
+    @vector_embedding_policy.setter
+    def vector_embedding_policy(self, value: Optional[pulumi.Input['VectorEmbeddingPolicyArgs']]):
+        pulumi.set(self, "vector_embedding_policy", value)
+
 
 if not MYPY:
     class SqlDatabaseResourceArgsDict(TypedDict):
@@ -4698,18 +5346,34 @@ if not MYPY:
         """
         Name of the Cosmos DB SQL database
         """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
+        """
 elif False:
     SqlDatabaseResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlDatabaseResourceArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str]):
+                 id: pulumi.Input[str],
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 restore_parameters: Optional[pulumi.Input['ResourceRestoreParametersArgs']] = None):
         """
         Cosmos DB SQL database resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB SQL database
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Enum to indicate the mode of resource creation.
+        :param pulumi.Input['ResourceRestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore
         """
         pulumi.set(__self__, "id", id)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
 
     @property
     @pulumi.getter
@@ -4722,6 +5386,128 @@ class SqlDatabaseResourceArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional[pulumi.Input['ResourceRestoreParametersArgs']]:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @restore_parameters.setter
+    def restore_parameters(self, value: Optional[pulumi.Input['ResourceRestoreParametersArgs']]):
+        pulumi.set(self, "restore_parameters", value)
+
+
+if not MYPY:
+    class SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgsDict(TypedDict):
+        """
+        Properties for Create or Update request for SqlDedicatedGatewayServiceResource
+        """
+        service_type: pulumi.Input[str]
+        """
+        ServiceType for the service.
+        Expected value is 'SqlDedicatedGateway'.
+        """
+        dedicated_gateway_type: NotRequired[pulumi.Input[Union[str, 'DedicatedGatewayType']]]
+        """
+        DedicatedGatewayType for the service.
+        """
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Instance count for the service.
+        """
+        instance_size: NotRequired[pulumi.Input[Union[str, 'ServiceSize']]]
+        """
+        Instance type for the service.
+        """
+elif False:
+    SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs:
+    def __init__(__self__, *,
+                 service_type: pulumi.Input[str],
+                 dedicated_gateway_type: Optional[pulumi.Input[Union[str, 'DedicatedGatewayType']]] = None,
+                 instance_count: Optional[pulumi.Input[int]] = None,
+                 instance_size: Optional[pulumi.Input[Union[str, 'ServiceSize']]] = None):
+        """
+        Properties for Create or Update request for SqlDedicatedGatewayServiceResource
+        :param pulumi.Input[str] service_type: ServiceType for the service.
+               Expected value is 'SqlDedicatedGateway'.
+        :param pulumi.Input[Union[str, 'DedicatedGatewayType']] dedicated_gateway_type: DedicatedGatewayType for the service.
+        :param pulumi.Input[int] instance_count: Instance count for the service.
+        :param pulumi.Input[Union[str, 'ServiceSize']] instance_size: Instance type for the service.
+        """
+        pulumi.set(__self__, "service_type", 'SqlDedicatedGateway')
+        if dedicated_gateway_type is not None:
+            pulumi.set(__self__, "dedicated_gateway_type", dedicated_gateway_type)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_size is not None:
+            pulumi.set(__self__, "instance_size", instance_size)
+
+    @property
+    @pulumi.getter(name="serviceType")
+    def service_type(self) -> pulumi.Input[str]:
+        """
+        ServiceType for the service.
+        Expected value is 'SqlDedicatedGateway'.
+        """
+        return pulumi.get(self, "service_type")
+
+    @service_type.setter
+    def service_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_type", value)
+
+    @property
+    @pulumi.getter(name="dedicatedGatewayType")
+    def dedicated_gateway_type(self) -> Optional[pulumi.Input[Union[str, 'DedicatedGatewayType']]]:
+        """
+        DedicatedGatewayType for the service.
+        """
+        return pulumi.get(self, "dedicated_gateway_type")
+
+    @dedicated_gateway_type.setter
+    def dedicated_gateway_type(self, value: Optional[pulumi.Input[Union[str, 'DedicatedGatewayType']]]):
+        pulumi.set(self, "dedicated_gateway_type", value)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Instance count for the service.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter(name="instanceSize")
+    def instance_size(self) -> Optional[pulumi.Input[Union[str, 'ServiceSize']]]:
+        """
+        Instance type for the service.
+        """
+        return pulumi.get(self, "instance_size")
+
+    @instance_size.setter
+    def instance_size(self, value: Optional[pulumi.Input[Union[str, 'ServiceSize']]]):
+        pulumi.set(self, "instance_size", value)
 
 
 if not MYPY:
@@ -4938,18 +5724,34 @@ if not MYPY:
         """
         Name of the Cosmos DB table
         """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'CreateMode']]]
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        restore_parameters: NotRequired[pulumi.Input['ResourceRestoreParametersArgsDict']]
+        """
+        Parameters to indicate the information about the restore
+        """
 elif False:
     TableResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableResourceArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str]):
+                 id: pulumi.Input[str],
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 restore_parameters: Optional[pulumi.Input['ResourceRestoreParametersArgs']] = None):
         """
         Cosmos DB table resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB table
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Enum to indicate the mode of resource creation.
+        :param pulumi.Input['ResourceRestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore
         """
         pulumi.set(__self__, "id", id)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
 
     @property
     @pulumi.getter
@@ -4962,6 +5764,30 @@ class TableResourceArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional[pulumi.Input['ResourceRestoreParametersArgs']]:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @restore_parameters.setter
+    def restore_parameters(self, value: Optional[pulumi.Input['ResourceRestoreParametersArgs']]):
+        pulumi.set(self, "restore_parameters", value)
 
 
 if not MYPY:
@@ -5034,6 +5860,184 @@ class UniqueKeyArgs:
     @paths.setter
     def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "paths", value)
+
+
+if not MYPY:
+    class VectorEmbeddingPolicyArgsDict(TypedDict):
+        """
+        Cosmos DB Vector Embedding Policy
+        """
+        vector_embeddings: NotRequired[pulumi.Input[Sequence[pulumi.Input['VectorEmbeddingArgsDict']]]]
+        """
+        List of vector embeddings
+        """
+elif False:
+    VectorEmbeddingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VectorEmbeddingPolicyArgs:
+    def __init__(__self__, *,
+                 vector_embeddings: Optional[pulumi.Input[Sequence[pulumi.Input['VectorEmbeddingArgs']]]] = None):
+        """
+        Cosmos DB Vector Embedding Policy
+        :param pulumi.Input[Sequence[pulumi.Input['VectorEmbeddingArgs']]] vector_embeddings: List of vector embeddings
+        """
+        if vector_embeddings is not None:
+            pulumi.set(__self__, "vector_embeddings", vector_embeddings)
+
+    @property
+    @pulumi.getter(name="vectorEmbeddings")
+    def vector_embeddings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VectorEmbeddingArgs']]]]:
+        """
+        List of vector embeddings
+        """
+        return pulumi.get(self, "vector_embeddings")
+
+    @vector_embeddings.setter
+    def vector_embeddings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VectorEmbeddingArgs']]]]):
+        pulumi.set(self, "vector_embeddings", value)
+
+
+if not MYPY:
+    class VectorEmbeddingArgsDict(TypedDict):
+        """
+        Represents a vector embedding. A vector embedding is used to define a vector field in the documents.
+        """
+        data_type: pulumi.Input[Union[str, 'VectorDataType']]
+        """
+        Indicates the data type of vector.
+        """
+        dimensions: pulumi.Input[int]
+        """
+        The number of dimensions in the vector.
+        """
+        distance_function: pulumi.Input[Union[str, 'DistanceFunction']]
+        """
+        The distance function to use for distance calculation in between vectors.
+        """
+        path: pulumi.Input[str]
+        """
+        The path to the vector field in the document.
+        """
+elif False:
+    VectorEmbeddingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VectorEmbeddingArgs:
+    def __init__(__self__, *,
+                 data_type: pulumi.Input[Union[str, 'VectorDataType']],
+                 dimensions: pulumi.Input[int],
+                 distance_function: pulumi.Input[Union[str, 'DistanceFunction']],
+                 path: pulumi.Input[str]):
+        """
+        Represents a vector embedding. A vector embedding is used to define a vector field in the documents.
+        :param pulumi.Input[Union[str, 'VectorDataType']] data_type: Indicates the data type of vector.
+        :param pulumi.Input[int] dimensions: The number of dimensions in the vector.
+        :param pulumi.Input[Union[str, 'DistanceFunction']] distance_function: The distance function to use for distance calculation in between vectors.
+        :param pulumi.Input[str] path: The path to the vector field in the document.
+        """
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "distance_function", distance_function)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> pulumi.Input[Union[str, 'VectorDataType']]:
+        """
+        Indicates the data type of vector.
+        """
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: pulumi.Input[Union[str, 'VectorDataType']]):
+        pulumi.set(self, "data_type", value)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[int]:
+        """
+        The number of dimensions in the vector.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[int]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="distanceFunction")
+    def distance_function(self) -> pulumi.Input[Union[str, 'DistanceFunction']]:
+        """
+        The distance function to use for distance calculation in between vectors.
+        """
+        return pulumi.get(self, "distance_function")
+
+    @distance_function.setter
+    def distance_function(self, value: pulumi.Input[Union[str, 'DistanceFunction']]):
+        pulumi.set(self, "distance_function", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The path to the vector field in the document.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+
+if not MYPY:
+    class VectorIndexArgsDict(TypedDict):
+        path: pulumi.Input[str]
+        """
+        The path to the vector field in the document.
+        """
+        type: pulumi.Input[Union[str, 'VectorIndexType']]
+        """
+        The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
+        """
+elif False:
+    VectorIndexArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VectorIndexArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'VectorIndexType']]):
+        """
+        :param pulumi.Input[str] path: The path to the vector field in the document.
+        :param pulumi.Input[Union[str, 'VectorIndexType']] type: The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The path to the vector field in the document.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'VectorIndexType']]:
+        """
+        The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'VectorIndexType']]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

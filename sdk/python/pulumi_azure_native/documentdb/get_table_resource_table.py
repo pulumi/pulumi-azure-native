@@ -122,9 +122,9 @@ def get_table_resource_table(account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResourceTableResult:
     """
     Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
-    Azure REST API version: 2023-04-15.
+    Azure REST API version: 2024-11-15.
 
-    Other available API versions: 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+    Other available API versions: 2023-04-15, 2024-12-01-preview.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -152,9 +152,9 @@ def get_table_resource_table_output(account_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResourceTableResult]:
     """
     Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
-    Azure REST API version: 2023-04-15.
+    Azure REST API version: 2024-11-15.
 
-    Other available API versions: 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+    Other available API versions: 2023-04-15, 2024-12-01-preview.
 
 
     :param str account_name: Cosmos DB database account name.

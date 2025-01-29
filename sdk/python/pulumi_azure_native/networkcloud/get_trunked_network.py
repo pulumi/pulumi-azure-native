@@ -256,9 +256,9 @@ def get_trunked_network(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrunkedNetworkResult:
     """
     Get properties of the provided trunked network.
-    Azure REST API version: 2023-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -294,9 +294,9 @@ def get_trunked_network_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrunkedNetworkResult]:
     """
     Get properties of the provided trunked network.
-    Azure REST API version: 2023-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

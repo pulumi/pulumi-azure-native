@@ -136,9 +136,9 @@ class Cluster(pulumi.CustomResource):
                  __props__=None):
         """
         Single Event Hubs Cluster resource in List or Get operations.
-        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
 
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Other available API versions: 2022-10-01-preview, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,9 +157,9 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single Event Hubs Cluster resource in List or Get operations.
-        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
 
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Other available API versions: 2022-10-01-preview, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -202,6 +202,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["metric_id"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -234,6 +235,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["metric_id"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["supports_scaling"] = None
@@ -274,6 +276,14 @@ class Cluster(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        Provisioning state of the Cluster.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter

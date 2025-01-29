@@ -27,7 +27,7 @@ class GetNamespaceResult:
     """
     Description of a namespace resource.
     """
-    def __init__(__self__, alternate_name=None, created_at=None, disable_local_auth=None, encryption=None, id=None, identity=None, location=None, metric_id=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_bus_endpoint=None, sku=None, status=None, system_data=None, tags=None, type=None, updated_at=None, zone_redundant=None):
+    def __init__(__self__, alternate_name=None, created_at=None, disable_local_auth=None, encryption=None, id=None, identity=None, location=None, metric_id=None, minimum_tls_version=None, name=None, premium_messaging_partitions=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_bus_endpoint=None, sku=None, status=None, system_data=None, tags=None, type=None, updated_at=None, zone_redundant=None):
         if alternate_name and not isinstance(alternate_name, str):
             raise TypeError("Expected argument 'alternate_name' to be a str")
         pulumi.set(__self__, "alternate_name", alternate_name)
@@ -58,6 +58,9 @@ class GetNamespaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if premium_messaging_partitions and not isinstance(premium_messaging_partitions, int):
+            raise TypeError("Expected argument 'premium_messaging_partitions' to be a int")
+        pulumi.set(__self__, "premium_messaging_partitions", premium_messaging_partitions)
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
@@ -173,6 +176,14 @@ class GetNamespaceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="premiumMessagingPartitions")
+    def premium_messaging_partitions(self) -> Optional[int]:
+        """
+        The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+        """
+        return pulumi.get(self, "premium_messaging_partitions")
+
+    @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
@@ -277,6 +288,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             metric_id=self.metric_id,
             minimum_tls_version=self.minimum_tls_version,
             name=self.name,
+            premium_messaging_partitions=self.premium_messaging_partitions,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
@@ -295,13 +307,13 @@ def get_namespace(namespace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceResult:
     """
     Gets a description for the specified namespace.
-    Azure REST API version: 2022-01-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2022-01-01-preview, 2023-01-01-preview.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
@@ -320,6 +332,7 @@ def get_namespace(namespace_name: Optional[str] = None,
         metric_id=pulumi.get(__ret__, 'metric_id'),
         minimum_tls_version=pulumi.get(__ret__, 'minimum_tls_version'),
         name=pulumi.get(__ret__, 'name'),
+        premium_messaging_partitions=pulumi.get(__ret__, 'premium_messaging_partitions'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
@@ -336,13 +349,13 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Gets a description for the specified namespace.
-    Azure REST API version: 2022-01-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2022-01-01-preview, 2023-01-01-preview.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
@@ -360,6 +373,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
         metric_id=pulumi.get(__response__, 'metric_id'),
         minimum_tls_version=pulumi.get(__response__, 'minimum_tls_version'),
         name=pulumi.get(__response__, 'name'),
+        premium_messaging_partitions=pulumi.get(__response__, 'premium_messaging_partitions'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         public_network_access=pulumi.get(__response__, 'public_network_access'),

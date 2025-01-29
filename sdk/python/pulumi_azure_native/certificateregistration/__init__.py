@@ -19,16 +19,10 @@ if typing.TYPE_CHECKING:
     v20201001 = __v20201001
     import pulumi_azure_native.certificateregistration.v20220901 as __v20220901
     v20220901 = __v20220901
-    import pulumi_azure_native.certificateregistration.v20230101 as __v20230101
-    v20230101 = __v20230101
-    import pulumi_azure_native.certificateregistration.v20231201 as __v20231201
-    v20231201 = __v20231201
     import pulumi_azure_native.certificateregistration.v20240401 as __v20240401
     v20240401 = __v20240401
 else:
     v20201001 = _utilities.lazy_import('pulumi_azure_native.certificateregistration.v20201001')
     v20220901 = _utilities.lazy_import('pulumi_azure_native.certificateregistration.v20220901')
-    v20230101 = _utilities.lazy_import('pulumi_azure_native.certificateregistration.v20230101')
-    v20231201 = _utilities.lazy_import('pulumi_azure_native.certificateregistration.v20231201')
     v20240401 = _utilities.lazy_import('pulumi_azure_native.certificateregistration.v20240401')
 

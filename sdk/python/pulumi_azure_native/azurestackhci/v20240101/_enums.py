@@ -5,38 +5,17 @@
 from enum import Enum
 
 __all__ = [
-    'AvailabilityType',
     'CloudInitDataSource',
-    'ComplianceAssignmentType',
     'DeploymentMode',
-    'DiagnosticLevel',
-    'DiskFileFormat',
     'ExtendedLocationTypes',
     'HyperVGeneration',
     'IPPoolTypeEnum',
     'IpAllocationMethodEnum',
-    'ManagedServiceIdentityType',
     'OperatingSystemTypes',
-    'ProvisioningAction',
     'ResourceIdentityType',
     'SecurityTypes',
-    'ServiceName',
-    'SoftwareAssuranceIntent',
-    'State',
-    'UpdateRunPropertiesState',
-    'UpdateSummariesPropertiesState',
     'VmSizeEnum',
-    'WindowsServerSubscription',
 ]
-
-
-class AvailabilityType(str, Enum):
-    """
-    Indicates the way the update content can be downloaded.
-    """
-    LOCAL = "Local"
-    ONLINE = "Online"
-    NOTIFY = "Notify"
 
 
 class CloudInitDataSource(str, Enum):
@@ -45,20 +24,6 @@ class CloudInitDataSource(str, Enum):
     """
     NO_CLOUD = "NoCloud"
     AZURE = "Azure"
-
-
-class ComplianceAssignmentType(str, Enum):
-    """
-    Secured Core Compliance Assignment
-    """
-    AUDIT = "Audit"
-    """
-    Report on the state of the machine, but don't make changes.
-    """
-    APPLY_AND_AUTO_CORRECT = "ApplyAndAutoCorrect"
-    """
-    Applied to the machine. If it drifts, the local service inside the machine makes a correction at the next evaluation.
-    """
 
 
 class DeploymentMode(str, Enum):
@@ -73,23 +38,6 @@ class DeploymentMode(str, Enum):
     """
     Deploy cluster using deployment settings.
     """
-
-
-class DiagnosticLevel(str, Enum):
-    """
-    Desired level of diagnostic data emitted by the cluster.
-    """
-    OFF = "Off"
-    BASIC = "Basic"
-    ENHANCED = "Enhanced"
-
-
-class DiskFileFormat(str, Enum):
-    """
-    The format of the actual VHD file [vhd, vhdx]
-    """
-    VHDX = "vhdx"
-    VHD = "vhd"
 
 
 class ExtendedLocationTypes(str, Enum):
@@ -123,31 +71,12 @@ class IpAllocationMethodEnum(str, Enum):
     STATIC = "Static"
 
 
-class ManagedServiceIdentityType(str, Enum):
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
-
-
 class OperatingSystemTypes(str, Enum):
     """
     This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
     """
     LINUX = "Linux"
     WINDOWS = "Windows"
-
-
-class ProvisioningAction(str, Enum):
-    """
-    The guest agent provisioning action.
-    """
-    INSTALL = "install"
-    UNINSTALL = "uninstall"
-    REPAIR = "repair"
 
 
 class ResourceIdentityType(str, Enum):
@@ -163,70 +92,6 @@ class SecurityTypes(str, Enum):
     """
     TRUSTED_LAUNCH = "TrustedLaunch"
     CONFIDENTIAL_VM = "ConfidentialVM"
-
-
-class ServiceName(str, Enum):
-    """
-    Name of the service.
-    """
-    WAC = "WAC"
-
-
-class SoftwareAssuranceIntent(str, Enum):
-    """
-    Customer Intent for Software Assurance Benefit.
-    """
-    ENABLE = "Enable"
-    DISABLE = "Disable"
-
-
-class State(str, Enum):
-    """
-    State of the update as it relates to this stamp.
-    """
-    HAS_PREREQUISITE = "HasPrerequisite"
-    OBSOLETE = "Obsolete"
-    READY = "Ready"
-    NOT_APPLICABLE_BECAUSE_ANOTHER_UPDATE_IS_IN_PROGRESS = "NotApplicableBecauseAnotherUpdateIsInProgress"
-    PREPARING = "Preparing"
-    INSTALLING = "Installing"
-    INSTALLED = "Installed"
-    PREPARATION_FAILED = "PreparationFailed"
-    INSTALLATION_FAILED = "InstallationFailed"
-    INVALID = "Invalid"
-    RECALLED = "Recalled"
-    DOWNLOADING = "Downloading"
-    DOWNLOAD_FAILED = "DownloadFailed"
-    HEALTH_CHECKING = "HealthChecking"
-    HEALTH_CHECK_FAILED = "HealthCheckFailed"
-    READY_TO_INSTALL = "ReadyToInstall"
-    SCAN_IN_PROGRESS = "ScanInProgress"
-    SCAN_FAILED = "ScanFailed"
-    ADDITIONAL_CONTENT_REQUIRED = "AdditionalContentRequired"
-
-
-class UpdateRunPropertiesState(str, Enum):
-    """
-    State of the update run.
-    """
-    UNKNOWN = "Unknown"
-    SUCCEEDED = "Succeeded"
-    IN_PROGRESS = "InProgress"
-    FAILED = "Failed"
-
-
-class UpdateSummariesPropertiesState(str, Enum):
-    """
-    Overall update state of the stamp.
-    """
-    UNKNOWN = "Unknown"
-    APPLIED_SUCCESSFULLY = "AppliedSuccessfully"
-    UPDATE_AVAILABLE = "UpdateAvailable"
-    UPDATE_IN_PROGRESS = "UpdateInProgress"
-    UPDATE_FAILED = "UpdateFailed"
-    NEEDS_ATTENTION = "NeedsAttention"
-    PREPARATION_IN_PROGRESS = "PreparationInProgress"
-    PREPARATION_FAILED = "PreparationFailed"
 
 
 class VmSizeEnum(str, Enum):
@@ -253,11 +118,3 @@ class VmSizeEnum(str, Enum):
     STANDARD_NV12 = "Standard_NV12"
     STANDARD_K8_S5_V1 = "Standard_K8S5_v1"
     CUSTOM = "Custom"
-
-
-class WindowsServerSubscription(str, Enum):
-    """
-    Desired state of Windows Server Subscription.
-    """
-    DISABLED = "Disabled"
-    ENABLED = "Enabled"

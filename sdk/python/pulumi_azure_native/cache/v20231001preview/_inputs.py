@@ -22,18 +22,10 @@ __all__ = [
     'ClusterPropertiesEncryptionArgsDict',
     'ClusterPropertiesKeyEncryptionKeyIdentityArgs',
     'ClusterPropertiesKeyEncryptionKeyIdentityArgsDict',
-    'DatabasePropertiesGeoReplicationArgs',
-    'DatabasePropertiesGeoReplicationArgsDict',
     'EnterpriseSkuArgs',
     'EnterpriseSkuArgsDict',
-    'LinkedDatabaseArgs',
-    'LinkedDatabaseArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
-    'ModuleArgs',
-    'ModuleArgsDict',
-    'PersistenceArgs',
-    'PersistenceArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
 ]
@@ -189,62 +181,6 @@ class ClusterPropertiesKeyEncryptionKeyIdentityArgs:
 
 
 if not MYPY:
-    class DatabasePropertiesGeoReplicationArgsDict(TypedDict):
-        """
-        Optional set of properties to configure geo replication for this database.
-        """
-        group_nickname: NotRequired[pulumi.Input[str]]
-        """
-        Name for the group of linked database resources
-        """
-        linked_databases: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgsDict']]]]
-        """
-        List of database resources to link with this database
-        """
-elif False:
-    DatabasePropertiesGeoReplicationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DatabasePropertiesGeoReplicationArgs:
-    def __init__(__self__, *,
-                 group_nickname: Optional[pulumi.Input[str]] = None,
-                 linked_databases: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]]] = None):
-        """
-        Optional set of properties to configure geo replication for this database.
-        :param pulumi.Input[str] group_nickname: Name for the group of linked database resources
-        :param pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]] linked_databases: List of database resources to link with this database
-        """
-        if group_nickname is not None:
-            pulumi.set(__self__, "group_nickname", group_nickname)
-        if linked_databases is not None:
-            pulumi.set(__self__, "linked_databases", linked_databases)
-
-    @property
-    @pulumi.getter(name="groupNickname")
-    def group_nickname(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name for the group of linked database resources
-        """
-        return pulumi.get(self, "group_nickname")
-
-    @group_nickname.setter
-    def group_nickname(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "group_nickname", value)
-
-    @property
-    @pulumi.getter(name="linkedDatabases")
-    def linked_databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]]]:
-        """
-        List of database resources to link with this database
-        """
-        return pulumi.get(self, "linked_databases")
-
-    @linked_databases.setter
-    def linked_databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]]]):
-        pulumi.set(self, "linked_databases", value)
-
-
-if not MYPY:
     class EnterpriseSkuArgsDict(TypedDict):
         """
         SKU parameters supplied to the create RedisEnterprise operation.
@@ -300,42 +236,6 @@ class EnterpriseSkuArgs:
 
 
 if not MYPY:
-    class LinkedDatabaseArgsDict(TypedDict):
-        """
-        Specifies details of a linked database resource.
-        """
-        id: NotRequired[pulumi.Input[str]]
-        """
-        Resource ID of a database resource to link with this database.
-        """
-elif False:
-    LinkedDatabaseArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LinkedDatabaseArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Specifies details of a linked database resource.
-        :param pulumi.Input[str] id: Resource ID of a database resource to link with this database.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ID of a database resource to link with this database.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
     class ManagedServiceIdentityArgsDict(TypedDict):
         """
         Managed service identity (system assigned and/or user assigned identities)
@@ -388,157 +288,6 @@ class ManagedServiceIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
-
-
-if not MYPY:
-    class ModuleArgsDict(TypedDict):
-        """
-        Specifies configuration of a redis module
-        """
-        name: pulumi.Input[str]
-        """
-        The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-        """
-        args: NotRequired[pulumi.Input[str]]
-        """
-        Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
-        """
-elif False:
-    ModuleArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ModuleArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 args: Optional[pulumi.Input[str]] = None):
-        """
-        Specifies configuration of a redis module
-        :param pulumi.Input[str] name: The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-        :param pulumi.Input[str] args: Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
-        """
-        pulumi.set(__self__, "name", name)
-        if args is not None:
-            pulumi.set(__self__, "args", args)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def args(self) -> Optional[pulumi.Input[str]]:
-        """
-        Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
-        """
-        return pulumi.get(self, "args")
-
-    @args.setter
-    def args(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "args", value)
-
-
-if not MYPY:
-    class PersistenceArgsDict(TypedDict):
-        """
-        Persistence-related configuration for the RedisEnterprise database
-        """
-        aof_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Sets whether AOF is enabled.
-        """
-        aof_frequency: NotRequired[pulumi.Input[Union[str, 'AofFrequency']]]
-        """
-        Sets the frequency at which data is written to disk.
-        """
-        rdb_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Sets whether RDB is enabled.
-        """
-        rdb_frequency: NotRequired[pulumi.Input[Union[str, 'RdbFrequency']]]
-        """
-        Sets the frequency at which a snapshot of the database is created.
-        """
-elif False:
-    PersistenceArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class PersistenceArgs:
-    def __init__(__self__, *,
-                 aof_enabled: Optional[pulumi.Input[bool]] = None,
-                 aof_frequency: Optional[pulumi.Input[Union[str, 'AofFrequency']]] = None,
-                 rdb_enabled: Optional[pulumi.Input[bool]] = None,
-                 rdb_frequency: Optional[pulumi.Input[Union[str, 'RdbFrequency']]] = None):
-        """
-        Persistence-related configuration for the RedisEnterprise database
-        :param pulumi.Input[bool] aof_enabled: Sets whether AOF is enabled.
-        :param pulumi.Input[Union[str, 'AofFrequency']] aof_frequency: Sets the frequency at which data is written to disk.
-        :param pulumi.Input[bool] rdb_enabled: Sets whether RDB is enabled.
-        :param pulumi.Input[Union[str, 'RdbFrequency']] rdb_frequency: Sets the frequency at which a snapshot of the database is created.
-        """
-        if aof_enabled is not None:
-            pulumi.set(__self__, "aof_enabled", aof_enabled)
-        if aof_frequency is not None:
-            pulumi.set(__self__, "aof_frequency", aof_frequency)
-        if rdb_enabled is not None:
-            pulumi.set(__self__, "rdb_enabled", rdb_enabled)
-        if rdb_frequency is not None:
-            pulumi.set(__self__, "rdb_frequency", rdb_frequency)
-
-    @property
-    @pulumi.getter(name="aofEnabled")
-    def aof_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Sets whether AOF is enabled.
-        """
-        return pulumi.get(self, "aof_enabled")
-
-    @aof_enabled.setter
-    def aof_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "aof_enabled", value)
-
-    @property
-    @pulumi.getter(name="aofFrequency")
-    def aof_frequency(self) -> Optional[pulumi.Input[Union[str, 'AofFrequency']]]:
-        """
-        Sets the frequency at which data is written to disk.
-        """
-        return pulumi.get(self, "aof_frequency")
-
-    @aof_frequency.setter
-    def aof_frequency(self, value: Optional[pulumi.Input[Union[str, 'AofFrequency']]]):
-        pulumi.set(self, "aof_frequency", value)
-
-    @property
-    @pulumi.getter(name="rdbEnabled")
-    def rdb_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Sets whether RDB is enabled.
-        """
-        return pulumi.get(self, "rdb_enabled")
-
-    @rdb_enabled.setter
-    def rdb_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "rdb_enabled", value)
-
-    @property
-    @pulumi.getter(name="rdbFrequency")
-    def rdb_frequency(self) -> Optional[pulumi.Input[Union[str, 'RdbFrequency']]]:
-        """
-        Sets the frequency at which a snapshot of the database is created.
-        """
-        return pulumi.get(self, "rdb_frequency")
-
-    @rdb_frequency.setter
-    def rdb_frequency(self, value: Optional[pulumi.Input[Union[str, 'RdbFrequency']]]):
-        pulumi.set(self, "rdb_frequency", value)
 
 
 if not MYPY:

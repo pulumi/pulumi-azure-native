@@ -22,6 +22,8 @@ __all__ = [
     'FlowPropertiesArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
+    'MessagingOptionsArgs',
+    'MessagingOptionsArgsDict',
     'PipelinePropertiesArgs',
     'PipelinePropertiesArgsDict',
     'PlanArgs',
@@ -30,6 +32,8 @@ __all__ = [
     'SchemaArgsDict',
     'SelectedResourceArgs',
     'SelectedResourceArgsDict',
+    'StreamSourceAddressesArgs',
+    'StreamSourceAddressesArgsDict',
     'SubscriberArgs',
     'SubscriberArgsDict',
 ]
@@ -77,6 +81,10 @@ if not MYPY:
         """
         Requirement ID of the connection
         """
+        schema_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The schema URIs for this connection
+        """
         schemas: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchemaArgsDict']]]]
         """
         The schemas for this connection
@@ -100,6 +108,7 @@ class ConnectionPropertiesArgs:
                  primary_contact: Optional[pulumi.Input[str]] = None,
                  remote_subscription_id: Optional[pulumi.Input[str]] = None,
                  requirement_id: Optional[pulumi.Input[str]] = None,
+                 schema_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schemas: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaArgs']]]] = None,
                  secondary_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -113,6 +122,7 @@ class ConnectionPropertiesArgs:
         :param pulumi.Input[str] primary_contact: The primary contact for this connection request
         :param pulumi.Input[str] remote_subscription_id: Subscription ID to link cloud subscriptions together
         :param pulumi.Input[str] requirement_id: Requirement ID of the connection
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] schema_uris: The schema URIs for this connection
         :param pulumi.Input[Sequence[pulumi.Input['SchemaArgs']]] schemas: The schemas for this connection
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_contacts: The secondary contacts for this connection request
         """
@@ -133,6 +143,8 @@ class ConnectionPropertiesArgs:
             pulumi.set(__self__, "remote_subscription_id", remote_subscription_id)
         if requirement_id is not None:
             pulumi.set(__self__, "requirement_id", requirement_id)
+        if schema_uris is not None:
+            pulumi.set(__self__, "schema_uris", schema_uris)
         if schemas is not None:
             pulumi.set(__self__, "schemas", schemas)
         if secondary_contacts is not None:
@@ -247,6 +259,18 @@ class ConnectionPropertiesArgs:
         pulumi.set(self, "requirement_id", value)
 
     @property
+    @pulumi.getter(name="schemaUris")
+    def schema_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The schema URIs for this connection
+        """
+        return pulumi.get(self, "schema_uris")
+
+    @schema_uris.setter
+    def schema_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "schema_uris", value)
+
+    @property
     @pulumi.getter
     def schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaArgs']]]]:
         """
@@ -280,9 +304,21 @@ if not MYPY:
         """
         The connection associated with this flow
         """
+        customer_managed_key_vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI to the customer managed key for this flow
+        """
         data_type: NotRequired[pulumi.Input[Union[str, 'DataType']]]
         """
         Transfer Storage Blobs or Tables
+        """
+        destination_endpoint_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[float]]]]
+        """
+        The destination endpoint ports of the stream
+        """
+        destination_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The destination endpoints of the stream
         """
         flow_type: NotRequired[pulumi.Input[Union[str, 'FlowType']]]
         """
@@ -291,6 +327,14 @@ if not MYPY:
         key_vault_uri: NotRequired[pulumi.Input[str]]
         """
         AME, PME, or TORUS only! AKV Chain Containing SAS Token
+        """
+        messaging_options: NotRequired[pulumi.Input['MessagingOptionsArgsDict']]
+        """
+        The messaging options for this flow
+        """
+        passphrase: NotRequired[pulumi.Input[str]]
+        """
+        The passphrase used for SRT streams
         """
         policies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -303,6 +347,10 @@ if not MYPY:
         service_bus_queue_id: NotRequired[pulumi.Input[str]]
         """
         Service Bus Queue ID
+        """
+        source_addresses: NotRequired[pulumi.Input['StreamSourceAddressesArgsDict']]
+        """
+        The source IP address and CIDR ranges of the stream
         """
         status: NotRequired[pulumi.Input[Union[str, 'FlowStatus']]]
         """
@@ -320,6 +368,18 @@ if not MYPY:
         """
         Storage Container Name
         """
+        stream_id: NotRequired[pulumi.Input[str]]
+        """
+        The flow stream identifier
+        """
+        stream_latency: NotRequired[pulumi.Input[float]]
+        """
+        The latency of the stream in milliseconds
+        """
+        stream_protocol: NotRequired[pulumi.Input[Union[str, 'StreamProtocol']]]
+        """
+        The protocol of the stream
+        """
 elif False:
     FlowPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -327,44 +387,74 @@ elif False:
 class FlowPropertiesArgs:
     def __init__(__self__, *,
                  connection: Optional[pulumi.Input['SelectedResourceArgs']] = None,
+                 customer_managed_key_vault_uri: Optional[pulumi.Input[str]] = None,
                  data_type: Optional[pulumi.Input[Union[str, 'DataType']]] = None,
+                 destination_endpoint_ports: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
+                 destination_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  flow_type: Optional[pulumi.Input[Union[str, 'FlowType']]] = None,
                  key_vault_uri: Optional[pulumi.Input[str]] = None,
+                 messaging_options: Optional[pulumi.Input['MessagingOptionsArgs']] = None,
+                 passphrase: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schema: Optional[pulumi.Input['SchemaArgs']] = None,
                  service_bus_queue_id: Optional[pulumi.Input[str]] = None,
+                 source_addresses: Optional[pulumi.Input['StreamSourceAddressesArgs']] = None,
                  status: Optional[pulumi.Input[Union[str, 'FlowStatus']]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_container_name: Optional[pulumi.Input[str]] = None):
+                 storage_container_name: Optional[pulumi.Input[str]] = None,
+                 stream_id: Optional[pulumi.Input[str]] = None,
+                 stream_latency: Optional[pulumi.Input[float]] = None,
+                 stream_protocol: Optional[pulumi.Input[Union[str, 'StreamProtocol']]] = None):
         """
         Properties of flow
         :param pulumi.Input['SelectedResourceArgs'] connection: The connection associated with this flow
+        :param pulumi.Input[str] customer_managed_key_vault_uri: The URI to the customer managed key for this flow
         :param pulumi.Input[Union[str, 'DataType']] data_type: Transfer Storage Blobs or Tables
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] destination_endpoint_ports: The destination endpoint ports of the stream
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_endpoints: The destination endpoints of the stream
         :param pulumi.Input[Union[str, 'FlowType']] flow_type: The flow type for this flow
         :param pulumi.Input[str] key_vault_uri: AME, PME, or TORUS only! AKV Chain Containing SAS Token
+        :param pulumi.Input['MessagingOptionsArgs'] messaging_options: The messaging options for this flow
+        :param pulumi.Input[str] passphrase: The passphrase used for SRT streams
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policies: The policies for this flow
         :param pulumi.Input['SchemaArgs'] schema: The selected schema for this flow
         :param pulumi.Input[str] service_bus_queue_id: Service Bus Queue ID
+        :param pulumi.Input['StreamSourceAddressesArgs'] source_addresses: The source IP address and CIDR ranges of the stream
         :param pulumi.Input[Union[str, 'FlowStatus']] status: Status of the current flow
         :param pulumi.Input[str] storage_account_id: Storage Account ID
         :param pulumi.Input[str] storage_account_name: Storage Account
         :param pulumi.Input[str] storage_container_name: Storage Container Name
+        :param pulumi.Input[str] stream_id: The flow stream identifier
+        :param pulumi.Input[float] stream_latency: The latency of the stream in milliseconds
+        :param pulumi.Input[Union[str, 'StreamProtocol']] stream_protocol: The protocol of the stream
         """
         if connection is not None:
             pulumi.set(__self__, "connection", connection)
+        if customer_managed_key_vault_uri is not None:
+            pulumi.set(__self__, "customer_managed_key_vault_uri", customer_managed_key_vault_uri)
         if data_type is not None:
             pulumi.set(__self__, "data_type", data_type)
+        if destination_endpoint_ports is not None:
+            pulumi.set(__self__, "destination_endpoint_ports", destination_endpoint_ports)
+        if destination_endpoints is not None:
+            pulumi.set(__self__, "destination_endpoints", destination_endpoints)
         if flow_type is not None:
             pulumi.set(__self__, "flow_type", flow_type)
         if key_vault_uri is not None:
             pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if messaging_options is not None:
+            pulumi.set(__self__, "messaging_options", messaging_options)
+        if passphrase is not None:
+            pulumi.set(__self__, "passphrase", passphrase)
         if policies is not None:
             pulumi.set(__self__, "policies", policies)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
         if service_bus_queue_id is not None:
             pulumi.set(__self__, "service_bus_queue_id", service_bus_queue_id)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if storage_account_id is not None:
@@ -373,6 +463,12 @@ class FlowPropertiesArgs:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
         if storage_container_name is not None:
             pulumi.set(__self__, "storage_container_name", storage_container_name)
+        if stream_id is not None:
+            pulumi.set(__self__, "stream_id", stream_id)
+        if stream_latency is not None:
+            pulumi.set(__self__, "stream_latency", stream_latency)
+        if stream_protocol is not None:
+            pulumi.set(__self__, "stream_protocol", stream_protocol)
 
     @property
     @pulumi.getter
@@ -387,6 +483,18 @@ class FlowPropertiesArgs:
         pulumi.set(self, "connection", value)
 
     @property
+    @pulumi.getter(name="customerManagedKeyVaultUri")
+    def customer_managed_key_vault_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI to the customer managed key for this flow
+        """
+        return pulumi.get(self, "customer_managed_key_vault_uri")
+
+    @customer_managed_key_vault_uri.setter
+    def customer_managed_key_vault_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_managed_key_vault_uri", value)
+
+    @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional[pulumi.Input[Union[str, 'DataType']]]:
         """
@@ -397,6 +505,30 @@ class FlowPropertiesArgs:
     @data_type.setter
     def data_type(self, value: Optional[pulumi.Input[Union[str, 'DataType']]]):
         pulumi.set(self, "data_type", value)
+
+    @property
+    @pulumi.getter(name="destinationEndpointPorts")
+    def destination_endpoint_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]:
+        """
+        The destination endpoint ports of the stream
+        """
+        return pulumi.get(self, "destination_endpoint_ports")
+
+    @destination_endpoint_ports.setter
+    def destination_endpoint_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]):
+        pulumi.set(self, "destination_endpoint_ports", value)
+
+    @property
+    @pulumi.getter(name="destinationEndpoints")
+    def destination_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The destination endpoints of the stream
+        """
+        return pulumi.get(self, "destination_endpoints")
+
+    @destination_endpoints.setter
+    def destination_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_endpoints", value)
 
     @property
     @pulumi.getter(name="flowType")
@@ -421,6 +553,30 @@ class FlowPropertiesArgs:
     @key_vault_uri.setter
     def key_vault_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter(name="messagingOptions")
+    def messaging_options(self) -> Optional[pulumi.Input['MessagingOptionsArgs']]:
+        """
+        The messaging options for this flow
+        """
+        return pulumi.get(self, "messaging_options")
+
+    @messaging_options.setter
+    def messaging_options(self, value: Optional[pulumi.Input['MessagingOptionsArgs']]):
+        pulumi.set(self, "messaging_options", value)
+
+    @property
+    @pulumi.getter
+    def passphrase(self) -> Optional[pulumi.Input[str]]:
+        """
+        The passphrase used for SRT streams
+        """
+        return pulumi.get(self, "passphrase")
+
+    @passphrase.setter
+    def passphrase(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "passphrase", value)
 
     @property
     @pulumi.getter
@@ -457,6 +613,18 @@ class FlowPropertiesArgs:
     @service_bus_queue_id.setter
     def service_bus_queue_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_bus_queue_id", value)
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input['StreamSourceAddressesArgs']]:
+        """
+        The source IP address and CIDR ranges of the stream
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input['StreamSourceAddressesArgs']]):
+        pulumi.set(self, "source_addresses", value)
 
     @property
     @pulumi.getter
@@ -505,6 +673,42 @@ class FlowPropertiesArgs:
     @storage_container_name.setter
     def storage_container_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_container_name", value)
+
+    @property
+    @pulumi.getter(name="streamId")
+    def stream_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The flow stream identifier
+        """
+        return pulumi.get(self, "stream_id")
+
+    @stream_id.setter
+    def stream_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_id", value)
+
+    @property
+    @pulumi.getter(name="streamLatency")
+    def stream_latency(self) -> Optional[pulumi.Input[float]]:
+        """
+        The latency of the stream in milliseconds
+        """
+        return pulumi.get(self, "stream_latency")
+
+    @stream_latency.setter
+    def stream_latency(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "stream_latency", value)
+
+    @property
+    @pulumi.getter(name="streamProtocol")
+    def stream_protocol(self) -> Optional[pulumi.Input[Union[str, 'StreamProtocol']]]:
+        """
+        The protocol of the stream
+        """
+        return pulumi.get(self, "stream_protocol")
+
+    @stream_protocol.setter
+    def stream_protocol(self, value: Optional[pulumi.Input[Union[str, 'StreamProtocol']]]):
+        pulumi.set(self, "stream_protocol", value)
 
 
 if not MYPY:
@@ -560,6 +764,42 @@ class ManagedServiceIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class MessagingOptionsArgsDict(TypedDict):
+        """
+        The option associated with messaging flows.
+        """
+        billing_tier: NotRequired[pulumi.Input[Union[str, 'FlowBillingTier']]]
+        """
+        Billing tier for this messaging flow
+        """
+elif False:
+    MessagingOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessagingOptionsArgs:
+    def __init__(__self__, *,
+                 billing_tier: Optional[pulumi.Input[Union[str, 'FlowBillingTier']]] = None):
+        """
+        The option associated with messaging flows.
+        :param pulumi.Input[Union[str, 'FlowBillingTier']] billing_tier: Billing tier for this messaging flow
+        """
+        if billing_tier is not None:
+            pulumi.set(__self__, "billing_tier", billing_tier)
+
+    @property
+    @pulumi.getter(name="billingTier")
+    def billing_tier(self) -> Optional[pulumi.Input[Union[str, 'FlowBillingTier']]]:
+        """
+        Billing tier for this messaging flow
+        """
+        return pulumi.get(self, "billing_tier")
+
+    @billing_tier.setter
+    def billing_tier(self, value: Optional[pulumi.Input[Union[str, 'FlowBillingTier']]]):
+        pulumi.set(self, "billing_tier", value)
 
 
 if not MYPY:
@@ -803,6 +1043,10 @@ if not MYPY:
         """
         Content of the schema
         """
+        direction: NotRequired[pulumi.Input[Union[str, 'SchemaDirection']]]
+        """
+        The direction of the schema.
+        """
         id: NotRequired[pulumi.Input[str]]
         """
         ID associated with this schema
@@ -810,6 +1054,14 @@ if not MYPY:
         name: NotRequired[pulumi.Input[str]]
         """
         Name of the schema
+        """
+        schema_type: NotRequired[pulumi.Input[Union[str, 'SchemaType']]]
+        """
+        The Schema Type
+        """
+        schema_uri: NotRequired[pulumi.Input[str]]
+        """
+        Uri containing SAS token for the zipped schema
         """
         status: NotRequired[pulumi.Input[Union[str, 'SchemaStatus']]]
         """
@@ -823,25 +1075,37 @@ class SchemaArgs:
     def __init__(__self__, *,
                  connection_id: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
+                 direction: Optional[pulumi.Input[Union[str, 'SchemaDirection']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 schema_type: Optional[pulumi.Input[Union[str, 'SchemaType']]] = None,
+                 schema_uri: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'SchemaStatus']]] = None):
         """
         The schema object.
         :param pulumi.Input[str] connection_id: Connection ID associated with this schema
         :param pulumi.Input[str] content: Content of the schema
+        :param pulumi.Input[Union[str, 'SchemaDirection']] direction: The direction of the schema.
         :param pulumi.Input[str] id: ID associated with this schema
         :param pulumi.Input[str] name: Name of the schema
+        :param pulumi.Input[Union[str, 'SchemaType']] schema_type: The Schema Type
+        :param pulumi.Input[str] schema_uri: Uri containing SAS token for the zipped schema
         :param pulumi.Input[Union[str, 'SchemaStatus']] status: Status of the schema
         """
         if connection_id is not None:
             pulumi.set(__self__, "connection_id", connection_id)
         if content is not None:
             pulumi.set(__self__, "content", content)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if schema_type is not None:
+            pulumi.set(__self__, "schema_type", schema_type)
+        if schema_uri is not None:
+            pulumi.set(__self__, "schema_uri", schema_uri)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -871,6 +1135,18 @@ class SchemaArgs:
 
     @property
     @pulumi.getter
+    def direction(self) -> Optional[pulumi.Input[Union[str, 'SchemaDirection']]]:
+        """
+        The direction of the schema.
+        """
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: Optional[pulumi.Input[Union[str, 'SchemaDirection']]]):
+        pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         ID associated with this schema
@@ -892,6 +1168,30 @@ class SchemaArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="schemaType")
+    def schema_type(self) -> Optional[pulumi.Input[Union[str, 'SchemaType']]]:
+        """
+        The Schema Type
+        """
+        return pulumi.get(self, "schema_type")
+
+    @schema_type.setter
+    def schema_type(self, value: Optional[pulumi.Input[Union[str, 'SchemaType']]]):
+        pulumi.set(self, "schema_type", value)
+
+    @property
+    @pulumi.getter(name="schemaUri")
+    def schema_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Uri containing SAS token for the zipped schema
+        """
+        return pulumi.get(self, "schema_uri")
+
+    @schema_uri.setter
+    def schema_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_uri", value)
 
     @property
     @pulumi.getter
@@ -999,6 +1299,42 @@ class SelectedResourceArgs:
     @subscription_name.setter
     def subscription_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subscription_name", value)
+
+
+if not MYPY:
+    class StreamSourceAddressesArgsDict(TypedDict):
+        """
+        The source IP address and CIDR ranges of the stream
+        """
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A source IP address or CIDR range
+        """
+elif False:
+    StreamSourceAddressesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StreamSourceAddressesArgs:
+    def __init__(__self__, *,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The source IP address and CIDR ranges of the stream
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: A source IP address or CIDR range
+        """
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A source IP address or CIDR range
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_addresses", value)
 
 
 if not MYPY:

@@ -27,10 +27,7 @@ class GetTagInheritanceSettingResult:
     """
     Tag Inheritance Setting definition.
     """
-    def __init__(__self__, e_tag=None, id=None, kind=None, name=None, properties=None, type=None):
-        if e_tag and not isinstance(e_tag, str):
-            raise TypeError("Expected argument 'e_tag' to be a str")
-        pulumi.set(__self__, "e_tag", e_tag)
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -48,18 +45,10 @@ class GetTagInheritanceSettingResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
-        """
-        eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-        """
-        return pulumi.get(self, "e_tag")
-
-    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -76,7 +65,7 @@ class GetTagInheritanceSettingResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -92,7 +81,7 @@ class GetTagInheritanceSettingResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -103,7 +92,6 @@ class AwaitableGetTagInheritanceSettingResult(GetTagInheritanceSettingResult):
         if False:
             yield self
         return GetTagInheritanceSettingResult(
-            e_tag=self.e_tag,
             id=self.id,
             kind=self.kind,
             name=self.name,
@@ -116,7 +104,7 @@ def get_tag_inheritance_setting(scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagInheritanceSettingResult:
     """
     Get the setting from the given scope by name.
-    Azure REST API version: 2022-10-05-preview.
+    Azure REST API version: 2024-08-01.
 
 
     :param str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
@@ -129,7 +117,6 @@ def get_tag_inheritance_setting(scope: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement:getTagInheritanceSetting', __args__, opts=opts, typ=GetTagInheritanceSettingResult).value
 
     return AwaitableGetTagInheritanceSettingResult(
-        e_tag=pulumi.get(__ret__, 'e_tag'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
@@ -140,7 +127,7 @@ def get_tag_inheritance_setting_output(scope: Optional[pulumi.Input[str]] = None
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagInheritanceSettingResult]:
     """
     Get the setting from the given scope by name.
-    Azure REST API version: 2022-10-05-preview.
+    Azure REST API version: 2024-08-01.
 
 
     :param str scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
@@ -152,7 +139,6 @@ def get_tag_inheritance_setting_output(scope: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getTagInheritanceSetting', __args__, opts=opts, typ=GetTagInheritanceSettingResult)
     return __ret__.apply(lambda __response__: GetTagInheritanceSettingResult(
-        e_tag=pulumi.get(__response__, 'e_tag'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),
         name=pulumi.get(__response__, 'name'),

@@ -26,10 +26,10 @@ class NetworkInterfaceArgs:
                  network_interface_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
-        :param pulumi.Input[str] network_device_name: Name of the NetworkDevice
+        :param pulumi.Input[str] network_device_name: Name of the Network Device.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[str] network_interface_name: Name of the NetworkInterface
+        :param pulumi.Input[str] network_interface_name: Name of the Network Interface.
         """
         pulumi.set(__self__, "network_device_name", network_device_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -42,7 +42,7 @@ class NetworkInterfaceArgs:
     @pulumi.getter(name="networkDeviceName")
     def network_device_name(self) -> pulumi.Input[str]:
         """
-        Name of the NetworkDevice
+        Name of the Network Device.
         """
         return pulumi.get(self, "network_device_name")
 
@@ -78,7 +78,7 @@ class NetworkInterfaceArgs:
     @pulumi.getter(name="networkInterfaceName")
     def network_interface_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the NetworkInterface
+        Name of the Network Interface.
         """
         return pulumi.get(self, "network_interface_name")
 
@@ -99,15 +99,15 @@ class NetworkInterface(pulumi.CustomResource):
                  __props__=None):
         """
         Defines the NetworkInterface resource.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
 
-        Other available API versions: 2023-06-15.
+        Other available API versions: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[str] network_device_name: Name of the NetworkDevice
-        :param pulumi.Input[str] network_interface_name: Name of the NetworkInterface
+        :param pulumi.Input[str] network_device_name: Name of the Network Device.
+        :param pulumi.Input[str] network_interface_name: Name of the Network Interface.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -118,9 +118,9 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the NetworkInterface resource.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
 
-        Other available API versions: 2023-06-15.
+        Other available API versions: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -209,7 +209,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter(name="administrativeState")
     def administrative_state(self) -> pulumi.Output[str]:
         """
-        administrativeState of the network interface. Example: Enabled | Disabled.
+        Administrative state of the resource.
         """
         return pulumi.get(self, "administrative_state")
 
@@ -225,7 +225,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter(name="connectedTo")
     def connected_to(self) -> pulumi.Output[str]:
         """
-        The arm resource id of the interface or compute server its connected to.
+        The ARM resource id of the interface or compute server its connected to.
         """
         return pulumi.get(self, "connected_to")
 
@@ -241,7 +241,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter(name="ipv4Address")
     def ipv4_address(self) -> pulumi.Output[str]:
         """
-        ipv4Address.
+        IPv4Address of the interface.
         """
         return pulumi.get(self, "ipv4_address")
 
@@ -249,7 +249,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter(name="ipv6Address")
     def ipv6_address(self) -> pulumi.Output[str]:
         """
-        ipv6Address.
+        IPv6Address of the interface.
         """
         return pulumi.get(self, "ipv6_address")
 
@@ -265,7 +265,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter(name="physicalIdentifier")
     def physical_identifier(self) -> pulumi.Output[str]:
         """
-        physicalIdentifier of the network interface.
+        Physical Identifier of the network interface.
         """
         return pulumi.get(self, "physical_identifier")
 
@@ -273,7 +273,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 

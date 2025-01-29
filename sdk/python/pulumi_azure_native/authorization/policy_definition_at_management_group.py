@@ -30,7 +30,9 @@ class PolicyDefinitionAtManagementGroupArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]] = None,
                  policy_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_rule: Optional[Any] = None,
-                 policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None):
+                 policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PolicyDefinitionAtManagementGroup resource.
         :param pulumi.Input[str] management_group_id: The ID of the management group.
@@ -42,6 +44,8 @@ class PolicyDefinitionAtManagementGroupArgs:
         :param pulumi.Input[str] policy_definition_name: The name of the policy definition to create.
         :param Any policy_rule: The policy rule.
         :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        :param pulumi.Input[str] version: The policy definition version in #.#.# format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] versions: A list of available versions for this policy definition.
         """
         pulumi.set(__self__, "management_group_id", management_group_id)
         if description is not None:
@@ -62,6 +66,10 @@ class PolicyDefinitionAtManagementGroupArgs:
             pulumi.set(__self__, "policy_rule", policy_rule)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+        if versions is not None:
+            pulumi.set(__self__, "versions", versions)
 
     @property
     @pulumi.getter(name="managementGroupId")
@@ -171,6 +179,30 @@ class PolicyDefinitionAtManagementGroupArgs:
     def policy_type(self, value: Optional[pulumi.Input[Union[str, 'PolicyType']]]):
         pulumi.set(self, "policy_type", value)
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy definition version in #.#.# format.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter
+    def versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of available versions for this policy definition.
+        """
+        return pulumi.get(self, "versions")
+
+    @versions.setter
+    def versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "versions", value)
+
 
 class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
     @overload
@@ -186,12 +218,14 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
                  policy_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_rule: Optional[Any] = None,
                  policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The policy definition.
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
-        Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+        Other available API versions: 2018-05-01, 2019-06-01, 2021-06-01, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,6 +238,8 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] policy_definition_name: The name of the policy definition to create.
         :param Any policy_rule: The policy rule.
         :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        :param pulumi.Input[str] version: The policy definition version in #.#.# format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] versions: A list of available versions for this policy definition.
         """
         ...
     @overload
@@ -213,9 +249,9 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy definition.
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
-        Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+        Other available API versions: 2018-05-01, 2019-06-01, 2021-06-01, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param PolicyDefinitionAtManagementGroupArgs args: The arguments to use to populate this resource's properties.
@@ -241,6 +277,8 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
                  policy_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_rule: Optional[Any] = None,
                  policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -263,6 +301,8 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
             __props__.__dict__["policy_definition_name"] = policy_definition_name
             __props__.__dict__["policy_rule"] = policy_rule
             __props__.__dict__["policy_type"] = policy_type
+            __props__.__dict__["version"] = version
+            __props__.__dict__["versions"] = versions
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -300,6 +340,8 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
         __props__.__dict__["policy_type"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
+        __props__.__dict__["versions"] = None
         return PolicyDefinitionAtManagementGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -381,4 +423,20 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
         The type of the resource (Microsoft.Authorization/policyDefinitions).
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The policy definition version in #.#.# format.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter
+    def versions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of available versions for this policy definition.
+        """
+        return pulumi.get(self, "versions")
 

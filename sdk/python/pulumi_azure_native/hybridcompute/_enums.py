@@ -5,18 +5,36 @@
 from enum import Enum
 
 __all__ = [
+    'ArcKindEnum',
     'AssessmentModeTypes',
     'GatewayType',
+    'LicenseAssignmentState',
     'LicenseCoreType',
     'LicenseEdition',
+    'LicenseProfileProductType',
+    'LicenseProfileSubscriptionStatus',
     'LicenseState',
     'LicenseTarget',
     'LicenseType',
     'PatchModeTypes',
+    'ProgramYear',
     'PublicNetworkAccessType',
     'ResourceIdentityType',
     'StatusLevelTypes',
 ]
+
+
+class ArcKindEnum(str, Enum):
+    """
+    Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+    """
+    AVS = "AVS"
+    HCI = "HCI"
+    SCVMM = "SCVMM"
+    V_MWARE = "VMware"
+    EPS = "EPS"
+    GCP = "GCP"
+    AWS = "AWS"
 
 
 class AssessmentModeTypes(str, Enum):
@@ -34,6 +52,14 @@ class GatewayType(str, Enum):
     PUBLIC = "Public"
 
 
+class LicenseAssignmentState(str, Enum):
+    """
+    Describes the license assignment state (Assigned or NotAssigned).
+    """
+    ASSIGNED = "Assigned"
+    NOT_ASSIGNED = "NotAssigned"
+
+
 class LicenseCoreType(str, Enum):
     """
     Describes the license core type (pCore or vCore).
@@ -48,6 +74,26 @@ class LicenseEdition(str, Enum):
     """
     STANDARD = "Standard"
     DATACENTER = "Datacenter"
+
+
+class LicenseProfileProductType(str, Enum):
+    """
+    Indicates the product type of the license.
+    """
+    WINDOWS_SERVER = "WindowsServer"
+    WINDOWS_IO_T_ENTERPRISE = "WindowsIoTEnterprise"
+
+
+class LicenseProfileSubscriptionStatus(str, Enum):
+    """
+    Indicates the subscription status of the product.
+    """
+    UNKNOWN = "Unknown"
+    ENABLING = "Enabling"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    DISABLING = "Disabling"
+    FAILED = "Failed"
 
 
 class LicenseState(str, Enum):
@@ -83,6 +129,15 @@ class PatchModeTypes(str, Enum):
     MANUAL = "Manual"
 
 
+class ProgramYear(str, Enum):
+    """
+    Describes the program year the volume license is for.
+    """
+    YEAR_1 = "Year 1"
+    YEAR_2 = "Year 2"
+    YEAR_3 = "Year 3"
+
+
 class PublicNetworkAccessType(str, Enum):
     """
     Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
@@ -94,6 +149,10 @@ class PublicNetworkAccessType(str, Enum):
     DISABLED = "Disabled"
     """
     Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
+    """
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
+    """
+    Azure Arc agent communication with Azure Arc services over public (internet) is enforced by Network Security Perimeter (NSP)
     """
 
 

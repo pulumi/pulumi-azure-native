@@ -262,6 +262,8 @@ def get_kusto_pool(kusto_pool_name: Optional[str] = None,
     Gets a Kusto pool.
     Azure REST API version: 2021-06-01-preview.
 
+    Other available API versions: 2021-04-01-preview.
+
 
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -300,6 +302,8 @@ def get_kusto_pool_output(kusto_pool_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a Kusto pool.
     Azure REST API version: 2021-06-01-preview.
+
+    Other available API versions: 2021-04-01-preview.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.

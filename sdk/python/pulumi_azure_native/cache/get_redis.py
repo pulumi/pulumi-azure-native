@@ -27,10 +27,13 @@ class GetRedisResult:
     """
     A single Redis item in List or Get Operation.
     """
-    def __init__(__self__, access_keys=None, enable_non_ssl_port=None, host_name=None, id=None, identity=None, instances=None, linked_servers=None, location=None, minimum_tls_version=None, name=None, port=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, redis_configuration=None, redis_version=None, replicas_per_master=None, replicas_per_primary=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet_id=None, tags=None, tenant_settings=None, type=None, zones=None):
+    def __init__(__self__, access_keys=None, disable_access_key_authentication=None, enable_non_ssl_port=None, host_name=None, id=None, identity=None, instances=None, linked_servers=None, location=None, minimum_tls_version=None, name=None, port=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, redis_configuration=None, redis_version=None, replicas_per_master=None, replicas_per_primary=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet_id=None, tags=None, tenant_settings=None, type=None, update_channel=None, zonal_allocation_policy=None, zones=None):
         if access_keys and not isinstance(access_keys, dict):
             raise TypeError("Expected argument 'access_keys' to be a dict")
         pulumi.set(__self__, "access_keys", access_keys)
+        if disable_access_key_authentication and not isinstance(disable_access_key_authentication, bool):
+            raise TypeError("Expected argument 'disable_access_key_authentication' to be a bool")
+        pulumi.set(__self__, "disable_access_key_authentication", disable_access_key_authentication)
         if enable_non_ssl_port and not isinstance(enable_non_ssl_port, bool):
             raise TypeError("Expected argument 'enable_non_ssl_port' to be a bool")
         pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
@@ -106,6 +109,12 @@ class GetRedisResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if update_channel and not isinstance(update_channel, str):
+            raise TypeError("Expected argument 'update_channel' to be a str")
+        pulumi.set(__self__, "update_channel", update_channel)
+        if zonal_allocation_policy and not isinstance(zonal_allocation_policy, str):
+            raise TypeError("Expected argument 'zonal_allocation_policy' to be a str")
+        pulumi.set(__self__, "zonal_allocation_policy", zonal_allocation_policy)
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
@@ -117,6 +126,14 @@ class GetRedisResult:
         The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
         """
         return pulumi.get(self, "access_keys")
+
+    @property
+    @pulumi.getter(name="disableAccessKeyAuthentication")
+    def disable_access_key_authentication(self) -> Optional[bool]:
+        """
+        Authentication to Redis through access keys is disabled when set as true. Default value is false.
+        """
+        return pulumi.get(self, "disable_access_key_authentication")
 
     @property
     @pulumi.getter(name="enableNonSslPort")
@@ -218,7 +235,7 @@ class GetRedisResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[str]:
         """
-        Whether or not public endpoint access is allowed for this cache.  Value is optional, but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'. Note: This setting is important for caches with private endpoints. It has *no effect* on caches that are joined to, or injected into, a virtual network subnet.
+        Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         """
         return pulumi.get(self, "public_network_access")
 
@@ -226,7 +243,7 @@ class GetRedisResult:
     @pulumi.getter(name="redisConfiguration")
     def redis_configuration(self) -> Optional['outputs.RedisCommonPropertiesResponseRedisConfiguration']:
         """
-        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         """
         return pulumi.get(self, "redis_configuration")
 
@@ -319,6 +336,22 @@ class GetRedisResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="updateChannel")
+    def update_channel(self) -> Optional[str]:
+        """
+        Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
+        """
+        return pulumi.get(self, "update_channel")
+
+    @property
+    @pulumi.getter(name="zonalAllocationPolicy")
+    def zonal_allocation_policy(self) -> Optional[str]:
+        """
+        Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
+        """
+        return pulumi.get(self, "zonal_allocation_policy")
+
+    @property
     @pulumi.getter
     def zones(self) -> Optional[Sequence[str]]:
         """
@@ -334,6 +367,7 @@ class AwaitableGetRedisResult(GetRedisResult):
             yield self
         return GetRedisResult(
             access_keys=self.access_keys,
+            disable_access_key_authentication=self.disable_access_key_authentication,
             enable_non_ssl_port=self.enable_non_ssl_port,
             host_name=self.host_name,
             id=self.id,
@@ -359,6 +393,8 @@ class AwaitableGetRedisResult(GetRedisResult):
             tags=self.tags,
             tenant_settings=self.tenant_settings,
             type=self.type,
+            update_channel=self.update_channel,
+            zonal_allocation_policy=self.zonal_allocation_policy,
             zones=self.zones)
 
 
@@ -367,13 +403,13 @@ def get_redis(name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRedisResult:
     """
     Gets a Redis cache (resource description).
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-11-01.
 
-    Other available API versions: 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+    Other available API versions: 2020-06-01, 2023-04-01.
 
 
     :param str name: The name of the Redis cache.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -383,6 +419,7 @@ def get_redis(name: Optional[str] = None,
 
     return AwaitableGetRedisResult(
         access_keys=pulumi.get(__ret__, 'access_keys'),
+        disable_access_key_authentication=pulumi.get(__ret__, 'disable_access_key_authentication'),
         enable_non_ssl_port=pulumi.get(__ret__, 'enable_non_ssl_port'),
         host_name=pulumi.get(__ret__, 'host_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -408,19 +445,21 @@ def get_redis(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tenant_settings=pulumi.get(__ret__, 'tenant_settings'),
         type=pulumi.get(__ret__, 'type'),
+        update_channel=pulumi.get(__ret__, 'update_channel'),
+        zonal_allocation_policy=pulumi.get(__ret__, 'zonal_allocation_policy'),
         zones=pulumi.get(__ret__, 'zones'))
 def get_redis_output(name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRedisResult]:
     """
     Gets a Redis cache (resource description).
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-11-01.
 
-    Other available API versions: 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+    Other available API versions: 2020-06-01, 2023-04-01.
 
 
     :param str name: The name of the Redis cache.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -429,6 +468,7 @@ def get_redis_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:cache:getRedis', __args__, opts=opts, typ=GetRedisResult)
     return __ret__.apply(lambda __response__: GetRedisResult(
         access_keys=pulumi.get(__response__, 'access_keys'),
+        disable_access_key_authentication=pulumi.get(__response__, 'disable_access_key_authentication'),
         enable_non_ssl_port=pulumi.get(__response__, 'enable_non_ssl_port'),
         host_name=pulumi.get(__response__, 'host_name'),
         id=pulumi.get(__response__, 'id'),
@@ -454,4 +494,6 @@ def get_redis_output(name: Optional[pulumi.Input[str]] = None,
         tags=pulumi.get(__response__, 'tags'),
         tenant_settings=pulumi.get(__response__, 'tenant_settings'),
         type=pulumi.get(__response__, 'type'),
+        update_channel=pulumi.get(__response__, 'update_channel'),
+        zonal_allocation_policy=pulumi.get(__response__, 'zonal_allocation_policy'),
         zones=pulumi.get(__response__, 'zones')))

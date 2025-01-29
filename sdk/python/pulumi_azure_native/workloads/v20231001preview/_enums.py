@@ -97,11 +97,10 @@ class ManagedResourcesNetworkAccessType(str, Enum):
 
 class ManagedServiceIdentityType(str, Enum):
     """
-    The managed service identity for all identities.
+    Type of manage identity
     """
     NONE = "None"
     USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 class MonthOfYear(str, Enum):

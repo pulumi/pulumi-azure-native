@@ -19,6 +19,7 @@ __all__ = [
     'ApplicationInsightsComponentAnalyticsItemPropertiesResponse',
     'ApplicationInsightsComponentDataVolumeCapResponse',
     'ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions',
+    'WorkbookPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -299,5 +300,158 @@ class ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDef
         A flag indicating whether email notifications are supported for detections for this rule
         """
         return pulumi.get(self, "supports_email_notifications")
+
+
+@pulumi.output_type
+class WorkbookPropertiesResponse(dict):
+    """
+    Properties that contain a workbook.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serializedData":
+            suggest = "serialized_data"
+        elif key == "sharedTypeKind":
+            suggest = "shared_type_kind"
+        elif key == "timeModified":
+            suggest = "time_modified"
+        elif key == "userId":
+            suggest = "user_id"
+        elif key == "workbookId":
+            suggest = "workbook_id"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkbookPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkbookPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkbookPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: str,
+                 name: str,
+                 serialized_data: str,
+                 shared_type_kind: Optional[str] = None,
+                 time_modified: str,
+                 user_id: str,
+                 workbook_id: str,
+                 source_resource_id: Optional[str] = None,
+                 tags: Optional[Sequence[str]] = None,
+                 version: Optional[str] = None):
+        """
+        Properties that contain a workbook.
+        :param str category: Workbook category, as defined by the user at creation time.
+        :param str name: The user-defined name of the workbook.
+        :param str serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
+        :param str shared_type_kind: Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        :param str time_modified: Date and time in UTC of the last modification that was made to this workbook definition.
+        :param str user_id: Unique user id of the specific user that owns this workbook.
+        :param str workbook_id: Internally assigned unique id of the workbook definition.
+        :param str source_resource_id: Optional resourceId for a source resource.
+        :param Sequence[str] tags: A list of 0 or more tags that are associated with this workbook definition
+        :param str version: This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "serialized_data", serialized_data)
+        if shared_type_kind is None:
+            shared_type_kind = 'shared'
+        pulumi.set(__self__, "shared_type_kind", shared_type_kind)
+        pulumi.set(__self__, "time_modified", time_modified)
+        pulumi.set(__self__, "user_id", user_id)
+        pulumi.set(__self__, "workbook_id", workbook_id)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        """
+        Workbook category, as defined by the user at creation time.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The user-defined name of the workbook.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serializedData")
+    def serialized_data(self) -> str:
+        """
+        Configuration of this particular workbook. Configuration data is a string containing valid JSON
+        """
+        return pulumi.get(self, "serialized_data")
+
+    @property
+    @pulumi.getter(name="sharedTypeKind")
+    def shared_type_kind(self) -> str:
+        """
+        Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        """
+        return pulumi.get(self, "shared_type_kind")
+
+    @property
+    @pulumi.getter(name="timeModified")
+    def time_modified(self) -> str:
+        """
+        Date and time in UTC of the last modification that was made to this workbook definition.
+        """
+        return pulumi.get(self, "time_modified")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> str:
+        """
+        Unique user id of the specific user that owns this workbook.
+        """
+        return pulumi.get(self, "user_id")
+
+    @property
+    @pulumi.getter(name="workbookId")
+    def workbook_id(self) -> str:
+        """
+        Internally assigned unique id of the workbook definition.
+        """
+        return pulumi.get(self, "workbook_id")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[str]:
+        """
+        Optional resourceId for a source resource.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence[str]]:
+        """
+        A list of 0 or more tags that are associated with this workbook definition
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        """
+        return pulumi.get(self, "version")
 
 

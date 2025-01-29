@@ -93,26 +93,16 @@ if typing.TYPE_CHECKING:
     v20220702 = __v20220702
     import pulumi_azure_native.compute.v20220801 as __v20220801
     v20220801 = __v20220801
-    import pulumi_azure_native.compute.v20220803 as __v20220803
-    v20220803 = __v20220803
     import pulumi_azure_native.compute.v20220904 as __v20220904
     v20220904 = __v20220904
     import pulumi_azure_native.compute.v20221101 as __v20221101
     v20221101 = __v20221101
-    import pulumi_azure_native.compute.v20230102 as __v20230102
-    v20230102 = __v20230102
     import pulumi_azure_native.compute.v20230301 as __v20230301
     v20230301 = __v20230301
-    import pulumi_azure_native.compute.v20230402 as __v20230402
-    v20230402 = __v20230402
     import pulumi_azure_native.compute.v20230701 as __v20230701
     v20230701 = __v20230701
-    import pulumi_azure_native.compute.v20230703 as __v20230703
-    v20230703 = __v20230703
     import pulumi_azure_native.compute.v20230901 as __v20230901
     v20230901 = __v20230901
-    import pulumi_azure_native.compute.v20231002 as __v20231002
-    v20231002 = __v20231002
     import pulumi_azure_native.compute.v20240301 as __v20240301
     v20240301 = __v20240301
     import pulumi_azure_native.compute.v20240302 as __v20240302
@@ -133,16 +123,11 @@ else:
     v20220303 = _utilities.lazy_import('pulumi_azure_native.compute.v20220303')
     v20220702 = _utilities.lazy_import('pulumi_azure_native.compute.v20220702')
     v20220801 = _utilities.lazy_import('pulumi_azure_native.compute.v20220801')
-    v20220803 = _utilities.lazy_import('pulumi_azure_native.compute.v20220803')
     v20220904 = _utilities.lazy_import('pulumi_azure_native.compute.v20220904')
     v20221101 = _utilities.lazy_import('pulumi_azure_native.compute.v20221101')
-    v20230102 = _utilities.lazy_import('pulumi_azure_native.compute.v20230102')
     v20230301 = _utilities.lazy_import('pulumi_azure_native.compute.v20230301')
-    v20230402 = _utilities.lazy_import('pulumi_azure_native.compute.v20230402')
     v20230701 = _utilities.lazy_import('pulumi_azure_native.compute.v20230701')
-    v20230703 = _utilities.lazy_import('pulumi_azure_native.compute.v20230703')
     v20230901 = _utilities.lazy_import('pulumi_azure_native.compute.v20230901')
-    v20231002 = _utilities.lazy_import('pulumi_azure_native.compute.v20231002')
     v20240301 = _utilities.lazy_import('pulumi_azure_native.compute.v20240301')
     v20240302 = _utilities.lazy_import('pulumi_azure_native.compute.v20240302')
     v20240303 = _utilities.lazy_import('pulumi_azure_native.compute.v20240303')

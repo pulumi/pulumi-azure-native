@@ -114,9 +114,9 @@ class ArchiveVersion(pulumi.CustomResource):
                  __props__=None):
         """
         An object that represents an export pipeline for a container registry.
-        Azure REST API version: 2023-06-01-preview.
+        Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        Other available API versions: 2023-06-01-preview, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,9 +134,9 @@ class ArchiveVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents an export pipeline for a container registry.
-        Azure REST API version: 2023-06-01-preview.
+        Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        Other available API versions: 2023-06-01-preview, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ArchiveVersionArgs args: The arguments to use to populate this resource's properties.

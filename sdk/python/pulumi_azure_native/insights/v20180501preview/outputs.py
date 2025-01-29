@@ -13,10 +13,116 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
+from . import outputs
 
 __all__ = [
+    'ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponse',
     'ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions',
 ]
+
+@pulumi.output_type
+class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponse(dict):
+    """
+    Properties that define a ProactiveDetection configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "customEmails":
+            suggest = "custom_emails"
+        elif key == "ruleDefinitions":
+            suggest = "rule_definitions"
+        elif key == "sendEmailsToSubscriptionOwners":
+            suggest = "send_emails_to_subscription_owners"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_updated_time: str,
+                 name: str,
+                 custom_emails: Optional[Sequence[str]] = None,
+                 enabled: Optional[bool] = None,
+                 rule_definitions: Optional['outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions'] = None,
+                 send_emails_to_subscription_owners: Optional[bool] = None):
+        """
+        Properties that define a ProactiveDetection configuration.
+        :param str last_updated_time: The last time this rule was updated
+        :param str name: The rule name
+        :param Sequence[str] custom_emails: Custom email addresses for this rule notifications
+        :param bool enabled: A flag that indicates whether this rule is enabled by the user
+        :param 'ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions' rule_definitions: Static definitions of the ProactiveDetection configuration rule (same values for all components).
+        :param bool send_emails_to_subscription_owners: A flag that indicated whether notifications on this rule should be sent to subscription owners
+        """
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        pulumi.set(__self__, "name", name)
+        if custom_emails is not None:
+            pulumi.set(__self__, "custom_emails", custom_emails)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if rule_definitions is not None:
+            pulumi.set(__self__, "rule_definitions", rule_definitions)
+        if send_emails_to_subscription_owners is not None:
+            pulumi.set(__self__, "send_emails_to_subscription_owners", send_emails_to_subscription_owners)
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> str:
+        """
+        The last time this rule was updated
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The rule name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="customEmails")
+    def custom_emails(self) -> Optional[Sequence[str]]:
+        """
+        Custom email addresses for this rule notifications
+        """
+        return pulumi.get(self, "custom_emails")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        A flag that indicates whether this rule is enabled by the user
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="ruleDefinitions")
+    def rule_definitions(self) -> Optional['outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions']:
+        """
+        Static definitions of the ProactiveDetection configuration rule (same values for all components).
+        """
+        return pulumi.get(self, "rule_definitions")
+
+    @property
+    @pulumi.getter(name="sendEmailsToSubscriptionOwners")
+    def send_emails_to_subscription_owners(self) -> Optional[bool]:
+        """
+        A flag that indicated whether notifications on this rule should be sent to subscription owners
+        """
+        return pulumi.get(self, "send_emails_to_subscription_owners")
+
 
 @pulumi.output_type
 class ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions(dict):

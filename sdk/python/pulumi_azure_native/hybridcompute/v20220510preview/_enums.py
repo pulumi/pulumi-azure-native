@@ -8,7 +8,6 @@ __all__ = [
     'AssessmentModeTypes',
     'PatchModeTypes',
     'ResourceIdentityType',
-    'StatusLevelTypes',
 ]
 
 
@@ -35,12 +34,3 @@ class ResourceIdentityType(str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
-
-
-class StatusLevelTypes(str, Enum):
-    """
-    The level code.
-    """
-    INFO = "Info"
-    WARNING = "Warning"
-    ERROR = "Error"

@@ -80,13 +80,13 @@ def list_access_invitations(organization_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccessInvitationsResult:
     """
     List invitations success response
-    Azure REST API version: 2023-08-22.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2024-02-13, 2024-07-01.
+    Other available API versions: 2023-08-22.
 
 
     :param str organization_name: Organization resource name
-    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_group_name: Resource group name
     :param Mapping[str, str] search_filters: Search filters for the request
     """
     __args__ = dict()
@@ -106,13 +106,13 @@ def list_access_invitations_output(organization_name: Optional[pulumi.Input[str]
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccessInvitationsResult]:
     """
     List invitations success response
-    Azure REST API version: 2023-08-22.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2024-02-13, 2024-07-01.
+    Other available API versions: 2023-08-22.
 
 
     :param str organization_name: Organization resource name
-    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_group_name: Resource group name
     :param Mapping[str, str] search_filters: Search filters for the request
     """
     __args__ = dict()

@@ -104,14 +104,14 @@ def get_patch_schedule(default: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPatchScheduleResult:
     """
     Gets the patching schedule of a redis cache.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-11-01.
 
-    Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+    Other available API versions: 2023-04-01.
 
 
     :param str default: Default string modeled as parameter for auto generation to work correctly.
     :param str name: The name of the redis cache.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['default'] = default
@@ -132,14 +132,14 @@ def get_patch_schedule_output(default: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPatchScheduleResult]:
     """
     Gets the patching schedule of a redis cache.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-11-01.
 
-    Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+    Other available API versions: 2023-04-01.
 
 
     :param str default: Default string modeled as parameter for auto generation to work correctly.
     :param str name: The name of the redis cache.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['default'] = default

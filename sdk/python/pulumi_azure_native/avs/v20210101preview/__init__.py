@@ -8,5 +8,3 @@ import typing
 from ._enums import *
 from .addon import *
 from .get_addon import *
-from .get_workload_network_dhcp import *
-from .workload_network_dhcp import *

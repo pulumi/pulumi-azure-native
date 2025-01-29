@@ -27,16 +27,16 @@ class GetTestBaseAccountResult:
     """
     The Test Base Account resource.
     """
-    def __init__(__self__, access_level=None, etag=None, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, access_level=None, id=None, identity=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
         if access_level and not isinstance(access_level, str):
             raise TypeError("Expected argument 'access_level' to be a str")
         pulumi.set(__self__, "access_level", access_level)
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -69,19 +69,19 @@ class GetTestBaseAccountResult:
 
     @property
     @pulumi.getter
-    def etag(self) -> str:
+    def id(self) -> str:
         """
-        Resource Etag.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
-        return pulumi.get(self, "etag")
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def identity(self) -> Optional['outputs.SystemAssignedServiceIdentityResponse']:
         """
-        Resource ID.
+        The identity of the testBaseAccount.
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -95,7 +95,7 @@ class GetTestBaseAccountResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -119,7 +119,7 @@ class GetTestBaseAccountResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -127,7 +127,7 @@ class GetTestBaseAccountResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -135,7 +135,7 @@ class GetTestBaseAccountResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -147,8 +147,8 @@ class AwaitableGetTestBaseAccountResult(GetTestBaseAccountResult):
             yield self
         return GetTestBaseAccountResult(
             access_level=self.access_level,
-            etag=self.etag,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -163,12 +163,12 @@ def get_test_base_account(resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestBaseAccountResult:
     """
     Gets a Test Base Account.
-    Azure REST API version: 2022-04-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2022-04-01-preview.
 
 
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()
@@ -179,8 +179,8 @@ def get_test_base_account(resource_group_name: Optional[str] = None,
 
     return AwaitableGetTestBaseAccountResult(
         access_level=pulumi.get(__ret__, 'access_level'),
-        etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -193,12 +193,12 @@ def get_test_base_account_output(resource_group_name: Optional[pulumi.Input[str]
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestBaseAccountResult]:
     """
     Gets a Test Base Account.
-    Azure REST API version: 2022-04-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2022-04-01-preview.
 
 
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()
@@ -208,8 +208,8 @@ def get_test_base_account_output(resource_group_name: Optional[pulumi.Input[str]
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getTestBaseAccount', __args__, opts=opts, typ=GetTestBaseAccountResult)
     return __ret__.apply(lambda __response__: GetTestBaseAccountResult(
         access_level=pulumi.get(__response__, 'access_level'),
-        etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

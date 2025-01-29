@@ -26,6 +26,8 @@ __all__ = [
     'AuthCredentialArgsDict',
     'AuthInfoArgs',
     'AuthInfoArgsDict',
+    'AzureADAuthenticationAsArmPolicyArgs',
+    'AzureADAuthenticationAsArmPolicyArgsDict',
     'BaseImageTriggerArgs',
     'BaseImageTriggerArgsDict',
     'CredentialsArgs',
@@ -94,6 +96,8 @@ __all__ = [
     'SetValueArgsDict',
     'SkuArgs',
     'SkuArgsDict',
+    'SoftDeletePolicyArgs',
+    'SoftDeletePolicyArgsDict',
     'SourcePropertiesArgs',
     'SourcePropertiesArgsDict',
     'SourceRegistryCredentialsArgs',
@@ -478,6 +482,44 @@ class AuthInfoArgs:
     @scope.setter
     def scope(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scope", value)
+
+
+if not MYPY:
+    class AzureADAuthenticationAsArmPolicyArgsDict(TypedDict):
+        """
+        The policy for using ARM audience token for a container registry.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'AzureADAuthenticationAsArmPolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+elif False:
+    AzureADAuthenticationAsArmPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureADAuthenticationAsArmPolicyArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[Union[str, 'AzureADAuthenticationAsArmPolicyStatus']]] = None):
+        """
+        The policy for using ARM audience token for a container registry.
+        :param pulumi.Input[Union[str, 'AzureADAuthenticationAsArmPolicyStatus']] status: The value that indicates whether the policy is enabled or not.
+        """
+        if status is None:
+            status = 'enabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'AzureADAuthenticationAsArmPolicyStatus']]]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'AzureADAuthenticationAsArmPolicyStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:
@@ -3230,6 +3272,10 @@ if not MYPY:
         """
         The policies for a container registry.
         """
+        azure_ad_authentication_as_arm_policy: NotRequired[pulumi.Input['AzureADAuthenticationAsArmPolicyArgsDict']]
+        """
+        The policy for using ARM audience token for a container registry.
+        """
         export_policy: NotRequired[pulumi.Input['ExportPolicyArgsDict']]
         """
         The export policy for a container registry.
@@ -3242,6 +3288,10 @@ if not MYPY:
         """
         The retention policy for a container registry.
         """
+        soft_delete_policy: NotRequired[pulumi.Input['SoftDeletePolicyArgsDict']]
+        """
+        The soft delete policy for a container registry.
+        """
         trust_policy: NotRequired[pulumi.Input['TrustPolicyArgsDict']]
         """
         The content trust policy for a container registry.
@@ -3252,25 +3302,45 @@ elif False:
 @pulumi.input_type
 class PoliciesArgs:
     def __init__(__self__, *,
+                 azure_ad_authentication_as_arm_policy: Optional[pulumi.Input['AzureADAuthenticationAsArmPolicyArgs']] = None,
                  export_policy: Optional[pulumi.Input['ExportPolicyArgs']] = None,
                  quarantine_policy: Optional[pulumi.Input['QuarantinePolicyArgs']] = None,
                  retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None,
+                 soft_delete_policy: Optional[pulumi.Input['SoftDeletePolicyArgs']] = None,
                  trust_policy: Optional[pulumi.Input['TrustPolicyArgs']] = None):
         """
         The policies for a container registry.
+        :param pulumi.Input['AzureADAuthenticationAsArmPolicyArgs'] azure_ad_authentication_as_arm_policy: The policy for using ARM audience token for a container registry.
         :param pulumi.Input['ExportPolicyArgs'] export_policy: The export policy for a container registry.
         :param pulumi.Input['QuarantinePolicyArgs'] quarantine_policy: The quarantine policy for a container registry.
         :param pulumi.Input['RetentionPolicyArgs'] retention_policy: The retention policy for a container registry.
+        :param pulumi.Input['SoftDeletePolicyArgs'] soft_delete_policy: The soft delete policy for a container registry.
         :param pulumi.Input['TrustPolicyArgs'] trust_policy: The content trust policy for a container registry.
         """
+        if azure_ad_authentication_as_arm_policy is not None:
+            pulumi.set(__self__, "azure_ad_authentication_as_arm_policy", azure_ad_authentication_as_arm_policy)
         if export_policy is not None:
             pulumi.set(__self__, "export_policy", export_policy)
         if quarantine_policy is not None:
             pulumi.set(__self__, "quarantine_policy", quarantine_policy)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
+        if soft_delete_policy is not None:
+            pulumi.set(__self__, "soft_delete_policy", soft_delete_policy)
         if trust_policy is not None:
             pulumi.set(__self__, "trust_policy", trust_policy)
+
+    @property
+    @pulumi.getter(name="azureADAuthenticationAsArmPolicy")
+    def azure_ad_authentication_as_arm_policy(self) -> Optional[pulumi.Input['AzureADAuthenticationAsArmPolicyArgs']]:
+        """
+        The policy for using ARM audience token for a container registry.
+        """
+        return pulumi.get(self, "azure_ad_authentication_as_arm_policy")
+
+    @azure_ad_authentication_as_arm_policy.setter
+    def azure_ad_authentication_as_arm_policy(self, value: Optional[pulumi.Input['AzureADAuthenticationAsArmPolicyArgs']]):
+        pulumi.set(self, "azure_ad_authentication_as_arm_policy", value)
 
     @property
     @pulumi.getter(name="exportPolicy")
@@ -3307,6 +3377,18 @@ class PoliciesArgs:
     @retention_policy.setter
     def retention_policy(self, value: Optional[pulumi.Input['RetentionPolicyArgs']]):
         pulumi.set(self, "retention_policy", value)
+
+    @property
+    @pulumi.getter(name="softDeletePolicy")
+    def soft_delete_policy(self) -> Optional[pulumi.Input['SoftDeletePolicyArgs']]:
+        """
+        The soft delete policy for a container registry.
+        """
+        return pulumi.get(self, "soft_delete_policy")
+
+    @soft_delete_policy.setter
+    def soft_delete_policy(self, value: Optional[pulumi.Input['SoftDeletePolicyArgs']]):
+        pulumi.set(self, "soft_delete_policy", value)
 
     @property
     @pulumi.getter(name="trustPolicy")
@@ -3705,6 +3787,66 @@ class SkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class SoftDeletePolicyArgsDict(TypedDict):
+        """
+        The soft delete policy for a container registry
+        """
+        retention_days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days after which a soft-deleted item is permanently deleted.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PolicyStatus']]]
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+elif False:
+    SoftDeletePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SoftDeletePolicyArgs:
+    def __init__(__self__, *,
+                 retention_days: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'PolicyStatus']]] = None):
+        """
+        The soft delete policy for a container registry
+        :param pulumi.Input[int] retention_days: The number of days after which a soft-deleted item is permanently deleted.
+        :param pulumi.Input[Union[str, 'PolicyStatus']] status: The value that indicates whether the policy is enabled or not.
+        """
+        if retention_days is None:
+            retention_days = 7
+        if retention_days is not None:
+            pulumi.set(__self__, "retention_days", retention_days)
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="retentionDays")
+    def retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days after which a soft-deleted item is permanently deleted.
+        """
+        return pulumi.get(self, "retention_days")
+
+    @retention_days.setter
+    def retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_days", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PolicyStatus']]]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PolicyStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:

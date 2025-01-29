@@ -16,16 +16,10 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'AddressPrefixItemArgs',
-    'AddressPrefixItemArgsDict',
     'IPTrafficArgs',
     'IPTrafficArgsDict',
     'IpamPoolPropertiesArgs',
     'IpamPoolPropertiesArgsDict',
-    'NetworkManagerPropertiesNetworkManagerScopesArgs',
-    'NetworkManagerPropertiesNetworkManagerScopesArgsDict',
-    'NetworkManagerSecurityGroupItemArgs',
-    'NetworkManagerSecurityGroupItemArgsDict',
     'ReachabilityAnalysisIntentPropertiesArgs',
     'ReachabilityAnalysisIntentPropertiesArgsDict',
     'ReachabilityAnalysisRunPropertiesArgs',
@@ -37,62 +31,6 @@ __all__ = [
 ]
 
 MYPY = False
-
-if not MYPY:
-    class AddressPrefixItemArgsDict(TypedDict):
-        """
-        Address prefix item.
-        """
-        address_prefix: NotRequired[pulumi.Input[str]]
-        """
-        Address prefix.
-        """
-        address_prefix_type: NotRequired[pulumi.Input[Union[str, 'AddressPrefixType']]]
-        """
-        Address prefix type.
-        """
-elif False:
-    AddressPrefixItemArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AddressPrefixItemArgs:
-    def __init__(__self__, *,
-                 address_prefix: Optional[pulumi.Input[str]] = None,
-                 address_prefix_type: Optional[pulumi.Input[Union[str, 'AddressPrefixType']]] = None):
-        """
-        Address prefix item.
-        :param pulumi.Input[str] address_prefix: Address prefix.
-        :param pulumi.Input[Union[str, 'AddressPrefixType']] address_prefix_type: Address prefix type.
-        """
-        if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
-        if address_prefix_type is not None:
-            pulumi.set(__self__, "address_prefix_type", address_prefix_type)
-
-    @property
-    @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Address prefix.
-        """
-        return pulumi.get(self, "address_prefix")
-
-    @address_prefix.setter
-    def address_prefix(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "address_prefix", value)
-
-    @property
-    @pulumi.getter(name="addressPrefixType")
-    def address_prefix_type(self) -> Optional[pulumi.Input[Union[str, 'AddressPrefixType']]]:
-        """
-        Address prefix type.
-        """
-        return pulumi.get(self, "address_prefix_type")
-
-    @address_prefix_type.setter
-    def address_prefix_type(self, value: Optional[pulumi.Input[Union[str, 'AddressPrefixType']]]):
-        pulumi.set(self, "address_prefix_type", value)
-
 
 if not MYPY:
     class IPTrafficArgsDict(TypedDict):
@@ -284,97 +222,6 @@ class IpamPoolPropertiesArgs:
     @parent_pool_name.setter
     def parent_pool_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parent_pool_name", value)
-
-
-if not MYPY:
-    class NetworkManagerPropertiesNetworkManagerScopesArgsDict(TypedDict):
-        """
-        Scope of Network Manager.
-        """
-        management_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        List of management groups.
-        """
-        subscriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        List of subscriptions.
-        """
-elif False:
-    NetworkManagerPropertiesNetworkManagerScopesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class NetworkManagerPropertiesNetworkManagerScopesArgs:
-    def __init__(__self__, *,
-                 management_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        Scope of Network Manager.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] management_groups: List of management groups.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subscriptions: List of subscriptions.
-        """
-        if management_groups is not None:
-            pulumi.set(__self__, "management_groups", management_groups)
-        if subscriptions is not None:
-            pulumi.set(__self__, "subscriptions", subscriptions)
-
-    @property
-    @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of management groups.
-        """
-        return pulumi.get(self, "management_groups")
-
-    @management_groups.setter
-    def management_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "management_groups", value)
-
-    @property
-    @pulumi.getter
-    def subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of subscriptions.
-        """
-        return pulumi.get(self, "subscriptions")
-
-    @subscriptions.setter
-    def subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "subscriptions", value)
-
-
-if not MYPY:
-    class NetworkManagerSecurityGroupItemArgsDict(TypedDict):
-        """
-        Network manager security group item.
-        """
-        network_group_id: pulumi.Input[str]
-        """
-        Network manager group Id.
-        """
-elif False:
-    NetworkManagerSecurityGroupItemArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class NetworkManagerSecurityGroupItemArgs:
-    def __init__(__self__, *,
-                 network_group_id: pulumi.Input[str]):
-        """
-        Network manager security group item.
-        :param pulumi.Input[str] network_group_id: Network manager group Id.
-        """
-        pulumi.set(__self__, "network_group_id", network_group_id)
-
-    @property
-    @pulumi.getter(name="networkGroupId")
-    def network_group_id(self) -> pulumi.Input[str]:
-        """
-        Network manager group Id.
-        """
-        return pulumi.get(self, "network_group_id")
-
-    @network_group_id.setter
-    def network_group_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "network_group_id", value)
 
 
 if not MYPY:

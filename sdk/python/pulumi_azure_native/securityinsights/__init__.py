@@ -57,7 +57,10 @@ from .get_mcas_data_connector import *
 from .get_mdatp_data_connector import *
 from .get_metadata import *
 from .get_microsoft_security_incident_creation_alert_rule import *
+from .get_msti_data_connector import *
 from .get_office_data_connector import *
+from .get_premium_microsoft_defender_for_threat_intelligence import *
+from .get_rest_api_poller_data_connector import *
 from .get_scheduled_alert_rule import *
 from .get_sentinel_onboarding_state import *
 from .get_source_control import *
@@ -86,7 +89,10 @@ from .mcas_data_connector import *
 from .mdatp_data_connector import *
 from .metadata import *
 from .microsoft_security_incident_creation_alert_rule import *
+from .msti_data_connector import *
 from .office_data_connector import *
+from .premium_microsoft_defender_for_threat_intelligence import *
+from .rest_api_poller_data_connector import *
 from .scheduled_alert_rule import *
 from .sentinel_onboarding_state import *
 from .source_control import *

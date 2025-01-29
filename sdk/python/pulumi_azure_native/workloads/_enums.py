@@ -10,10 +10,11 @@ __all__ = [
     'AppServicePlanTier',
     'BackupType',
     'ConditionalOperator',
-    'ConfigurationType',
     'DayOfWeek',
     'DiskSkuName',
+    'FileShareConfigurationType',
     'IAASVMPolicyType',
+    'ManagedResourcesNetworkAccessType',
     'ManagedServiceIdentityType',
     'MonthOfYear',
     'NamingPatternType',
@@ -30,6 +31,7 @@ __all__ = [
     'SAPHighAvailabilityType',
     'SAPProductType',
     'SAPSoftwareInstallationType',
+    'SAPVirtualInstanceIdentityType',
     'ScheduleRunType',
     'SslCryptoProvider',
     'SslPreference',
@@ -117,15 +119,6 @@ class ConditionalOperator(str, Enum):
     """
 
 
-class ConfigurationType(str, Enum):
-    """
-    The type of file share config.
-    """
-    SKIP = "Skip"
-    CREATE_AND_MOUNT = "CreateAndMount"
-    MOUNT = "Mount"
-
-
 class DayOfWeek(str, Enum):
     SUNDAY = "Sunday"
     MONDAY = "Monday"
@@ -141,12 +134,51 @@ class DiskSkuName(str, Enum):
     Defines the disk sku name.
     """
     STANDARD_LRS = "Standard_LRS"
+    """
+    Standard LRS Disk SKU.
+    """
     PREMIUM_LRS = "Premium_LRS"
+    """
+    Premium_LRS Disk SKU.
+    """
     STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    """
+    StandardSSD_LRS Disk SKU.
+    """
     ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    """
+    UltraSSD_LRS Disk SKU.
+    """
     PREMIUM_ZRS = "Premium_ZRS"
+    """
+    Premium_ZRS Disk SKU.
+    """
     STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
+    """
+    StandardSSD_ZRS Disk SKU.
+    """
     PREMIUM_V2_LRS = "PremiumV2_LRS"
+    """
+    PremiumV2_LRS Disk SKU.
+    """
+
+
+class FileShareConfigurationType(str, Enum):
+    """
+    The type of file share config, eg: Mount/CreateAndMount/Skip.
+    """
+    SKIP = "Skip"
+    """
+    Skip creating the file share.
+    """
+    CREATE_AND_MOUNT = "CreateAndMount"
+    """
+    Fileshare will be created and mounted by service.
+    """
+    MOUNT = "Mount"
+    """
+    Existing fileshare provided will be mounted by service.
+    """
 
 
 class IAASVMPolicyType(str, Enum):
@@ -158,12 +190,28 @@ class IAASVMPolicyType(str, Enum):
     V2 = "V2"
 
 
+class ManagedResourcesNetworkAccessType(str, Enum):
+    """
+    Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
+    """
+    PUBLIC = "Public"
+    """
+    Managed resources will be deployed with public network access enabled.
+    """
+    PRIVATE = "Private"
+    """
+    Managed resources will be deployed with public network access disabled.
+    """
+
+
 class ManagedServiceIdentityType(str, Enum):
     """
-    Type of manage identity
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
     NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class MonthOfYear(str, Enum):
@@ -187,6 +235,9 @@ class NamingPatternType(str, Enum):
     The pattern type to be used for resource naming.
     """
     FULL_RESOURCE_NAME = "FullResourceName"
+    """
+    Full resource names that will be created by service.
+    """
 
 
 class OSType(str, Enum):
@@ -194,7 +245,13 @@ class OSType(str, Enum):
     The OS Type
     """
     LINUX = "Linux"
+    """
+    Linux OS Type.
+    """
     WINDOWS = "Windows"
+    """
+    Windows OS Type.
+    """
 
 
 class PolicyType(str, Enum):
@@ -237,16 +294,31 @@ class RoutingPreference(str, Enum):
     Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
     """
     DEFAULT = "Default"
+    """
+    Default routing preference. Only RFC1918 traffic is routed to the customer VNET.
+    """
     ROUTE_ALL = "RouteAll"
+    """
+    Route all traffic to the customer VNET.
+    """
 
 
 class SAPConfigurationType(str, Enum):
     """
-    The configuration Type.
+    The configuration type. Eg: Deployment/Discovery
     """
     DEPLOYMENT = "Deployment"
+    """
+    SAP system will be deployed by service. No OS configurations will be done.
+    """
     DISCOVERY = "Discovery"
+    """
+    Existing SAP system will be registered.
+    """
     DEPLOYMENT_WITH_OS_CONFIG = "DeploymentWithOSConfig"
+    """
+    SAP system will be deployed by service. OS configurations will be done.
+    """
 
 
 class SAPDatabaseScaleMethod(str, Enum):
@@ -335,11 +407,34 @@ class SAPProductType(str, Enum):
 
 class SAPSoftwareInstallationType(str, Enum):
     """
-    The SAP software installation Type.
+    The SAP software installation type.
     """
     SERVICE_INITIATED = "ServiceInitiated"
+    """
+    SAP Install managed by service.
+    """
     SAP_INSTALL_WITHOUT_OS_CONFIG = "SAPInstallWithoutOSConfig"
+    """
+    SAP Install without OS Config.
+    """
     EXTERNAL = "External"
+    """
+    External software installation type.
+    """
+
+
+class SAPVirtualInstanceIdentityType(str, Enum):
+    """
+    The type of managed identity assigned to this resource.
+    """
+    NONE = "None"
+    """
+    No managed identity.
+    """
+    USER_ASSIGNED = "UserAssigned"
+    """
+    User assigned managed identity.
+    """
 
 
 class ScheduleRunType(str, Enum):
@@ -365,8 +460,17 @@ class SslPreference(str, Enum):
     Gets or sets certificate preference if secure communication is enabled.
     """
     DISABLED = "Disabled"
+    """
+    Secure communication is disabled.
+    """
     ROOT_CERTIFICATE = "RootCertificate"
+    """
+    Secure communication is enabled with root certificate.
+    """
     SERVER_CERTIFICATE = "ServerCertificate"
+    """
+    Secure communication is enabled with server certificate.
+    """
 
 
 class TieringMode(str, Enum):

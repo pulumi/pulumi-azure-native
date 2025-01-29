@@ -10,28 +10,30 @@ from .account import *
 from .backup import *
 from .backup_policy import *
 from .backup_vault import *
+from .capacity_pool_backup import *
+from .capacity_pool_pool import *
+from .capacity_pool_snapshot import *
+from .capacity_pool_subvolume import *
+from .capacity_pool_volume import *
+from .capacity_pool_volume_quota_rule import *
 from .get_account import *
 from .get_backup import *
 from .get_backup_policy import *
 from .get_backup_vault import *
-from .get_pool import *
-from .get_snapshot import *
+from .get_capacity_pool_backup import *
+from .get_capacity_pool_pool import *
+from .get_capacity_pool_snapshot import *
+from .get_capacity_pool_subvolume import *
+from .get_capacity_pool_subvolume_metadata import *
+from .get_capacity_pool_volume import *
+from .get_capacity_pool_volume_group_id_for_ldap_user import *
+from .get_capacity_pool_volume_quota_rule import *
 from .get_snapshot_policy import *
-from .get_subvolume import *
-from .get_subvolume_metadata import *
-from .get_volume import *
 from .get_volume_group import *
-from .get_volume_group_id_for_ldap_user import *
-from .get_volume_quota_rule import *
-from .list_volume_quota_report import *
-from .list_volume_replications import *
-from .pool import *
-from .snapshot import *
+from .list_capacity_pool_volume_quota_report import *
+from .list_capacity_pool_volume_replications import *
 from .snapshot_policy import *
-from .subvolume import *
-from .volume import *
 from .volume_group import *
-from .volume_quota_rule import *
 from ._inputs import *
 from . import outputs
 
@@ -41,6 +43,8 @@ if typing.TYPE_CHECKING:
     v20210401 = __v20210401
     import pulumi_azure_native.netapp.v20210401preview as __v20210401preview
     v20210401preview = __v20210401preview
+    import pulumi_azure_native.netapp.v20210601 as __v20210601
+    v20210601 = __v20210601
     import pulumi_azure_native.netapp.v20211001 as __v20211001
     v20211001 = __v20211001
     import pulumi_azure_native.netapp.v20220501 as __v20220501
@@ -49,28 +53,6 @@ if typing.TYPE_CHECKING:
     v20221101 = __v20221101
     import pulumi_azure_native.netapp.v20221101preview as __v20221101preview
     v20221101preview = __v20221101preview
-    import pulumi_azure_native.netapp.v20230501 as __v20230501
-    v20230501 = __v20230501
-    import pulumi_azure_native.netapp.v20230501preview as __v20230501preview
-    v20230501preview = __v20230501preview
-    import pulumi_azure_native.netapp.v20230701 as __v20230701
-    v20230701 = __v20230701
-    import pulumi_azure_native.netapp.v20230701preview as __v20230701preview
-    v20230701preview = __v20230701preview
-    import pulumi_azure_native.netapp.v20231101 as __v20231101
-    v20231101 = __v20231101
-    import pulumi_azure_native.netapp.v20231101preview as __v20231101preview
-    v20231101preview = __v20231101preview
-    import pulumi_azure_native.netapp.v20240101 as __v20240101
-    v20240101 = __v20240101
-    import pulumi_azure_native.netapp.v20240301 as __v20240301
-    v20240301 = __v20240301
-    import pulumi_azure_native.netapp.v20240301preview as __v20240301preview
-    v20240301preview = __v20240301preview
-    import pulumi_azure_native.netapp.v20240501 as __v20240501
-    v20240501 = __v20240501
-    import pulumi_azure_native.netapp.v20240501preview as __v20240501preview
-    v20240501preview = __v20240501preview
     import pulumi_azure_native.netapp.v20240701 as __v20240701
     v20240701 = __v20240701
     import pulumi_azure_native.netapp.v20240701preview as __v20240701preview
@@ -78,21 +60,11 @@ if typing.TYPE_CHECKING:
 else:
     v20210401 = _utilities.lazy_import('pulumi_azure_native.netapp.v20210401')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20210401preview')
+    v20210601 = _utilities.lazy_import('pulumi_azure_native.netapp.v20210601')
     v20211001 = _utilities.lazy_import('pulumi_azure_native.netapp.v20211001')
     v20220501 = _utilities.lazy_import('pulumi_azure_native.netapp.v20220501')
     v20221101 = _utilities.lazy_import('pulumi_azure_native.netapp.v20221101')
     v20221101preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20221101preview')
-    v20230501 = _utilities.lazy_import('pulumi_azure_native.netapp.v20230501')
-    v20230501preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20230501preview')
-    v20230701 = _utilities.lazy_import('pulumi_azure_native.netapp.v20230701')
-    v20230701preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20230701preview')
-    v20231101 = _utilities.lazy_import('pulumi_azure_native.netapp.v20231101')
-    v20231101preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20231101preview')
-    v20240101 = _utilities.lazy_import('pulumi_azure_native.netapp.v20240101')
-    v20240301 = _utilities.lazy_import('pulumi_azure_native.netapp.v20240301')
-    v20240301preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20240301preview')
-    v20240501 = _utilities.lazy_import('pulumi_azure_native.netapp.v20240501')
-    v20240501preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20240501preview')
     v20240701 = _utilities.lazy_import('pulumi_azure_native.netapp.v20240701')
     v20240701preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20240701preview')
 

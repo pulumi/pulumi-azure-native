@@ -13,17 +13,21 @@ __all__ = [
     'BackupItemType',
     'BackupManagementType',
     'CreateMode',
+    'CrossRegionRestore',
     'CrossSubscriptionRestoreState',
     'DayOfWeek',
     'DiskAccountType',
+    'EnhancedSecurityState',
     'ExtendedLocationType',
     'FailoverDeploymentModel',
     'HealthErrorCustomerResolvability',
     'IAASVMPolicyType',
+    'IaasVMSnapshotConsistencyType',
     'ImmutabilityState',
     'InfrastructureEncryptionState',
     'LastBackupStatus',
     'LicenseType',
+    'LinuxLicenseType',
     'MonthOfYear',
     'MultiVmGroupCreateOption',
     'OperationType',
@@ -46,11 +50,13 @@ __all__ = [
     'RetentionDurationType',
     'RetentionScheduleFormat',
     'ScheduleRunType',
+    'SecurityConfiguration',
     'SecurityType',
     'SetMultiVmSyncStatus',
     'SkuName',
     'SoftDeleteState',
     'SqlServerLicenseType',
+    'StandardTierStorageRedundancy',
     'TieringMode',
     'VaultSubResourceType',
     'WeekOfMonth',
@@ -142,6 +148,14 @@ class CreateMode(str, Enum):
     RECOVER = "Recover"
 
 
+class CrossRegionRestore(str, Enum):
+    """
+    Flag to show if Cross Region Restore is enabled on the Vault or not
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class CrossSubscriptionRestoreState(str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
@@ -165,6 +179,17 @@ class DiskAccountType(str, Enum):
     STANDARD_LRS = "Standard_LRS"
     PREMIUM_LRS = "Premium_LRS"
     STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    PREMIUM_V2_LRS = "PremiumV2_LRS"
+    ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
+    PREMIUM_ZRS = "Premium_ZRS"
+
+
+class EnhancedSecurityState(str, Enum):
+    INVALID = "Invalid"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    ALWAYS_ON = "AlwaysON"
 
 
 class ExtendedLocationType(str, Enum):
@@ -195,6 +220,10 @@ class IAASVMPolicyType(str, Enum):
     INVALID = "Invalid"
     V1 = "V1"
     V2 = "V2"
+
+
+class IaasVMSnapshotConsistencyType(str, Enum):
+    ONLY_CRASH_CONSISTENT = "OnlyCrashConsistent"
 
 
 class ImmutabilityState(str, Enum):
@@ -230,6 +259,15 @@ class LicenseType(str, Enum):
     WINDOWS_SERVER = "WindowsServer"
 
 
+class LinuxLicenseType(str, Enum):
+    """
+    The license type for Linux VM's.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    NO_LICENSE_TYPE = "NoLicenseType"
+    LINUX_SERVER = "LinuxServer"
+
+
 class MonthOfYear(str, Enum):
     INVALID = "Invalid"
     JANUARY = "January"
@@ -261,6 +299,7 @@ class OperationType(str, Enum):
     INVALID = "Invalid"
     REGISTER = "Register"
     REREGISTER = "Reregister"
+    REHYDRATE = "Rehydrate"
 
 
 class PolicyType(str, Enum):
@@ -484,6 +523,14 @@ class ScheduleRunType(str, Enum):
     HOURLY = "Hourly"
 
 
+class SecurityConfiguration(str, Enum):
+    """
+    A value indicating whether trusted platform module to be enabled.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
 class SecurityType(str, Enum):
     """
     The target VM security type.
@@ -524,6 +571,16 @@ class SqlServerLicenseType(str, Enum):
     NO_LICENSE_TYPE = "NoLicenseType"
     PAYG = "PAYG"
     AHUB = "AHUB"
+
+
+class StandardTierStorageRedundancy(str, Enum):
+    """
+    The storage redundancy setting of a vault
+    """
+    INVALID = "Invalid"
+    LOCALLY_REDUNDANT = "LocallyRedundant"
+    GEO_REDUNDANT = "GeoRedundant"
+    ZONE_REDUNDANT = "ZoneRedundant"
 
 
 class TieringMode(str, Enum):

@@ -22,28 +22,33 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  group_name: pulumi.Input[str],
-                 virtual_subnet_id: pulumi.Input[str],
+                 auto_stop_delay: Optional[pulumi.Input[str]] = None,
+                 delete_resources_on_stop: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['ServiceSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_nic_id: Optional[pulumi.Input[str]] = None):
+                 virtual_nic_id: Optional[pulumi.Input[str]] = None,
+                 virtual_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] group_name: Name of the resource group
-        :param pulumi.Input[str] virtual_subnet_id: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
+        :param pulumi.Input[str] auto_stop_delay: The time delay before the service is auto-stopped when idle.
+        :param pulumi.Input[bool] delete_resources_on_stop: Whether service resources should be deleted when stopped. (Turned on by default)
         :param pulumi.Input[str] kind: The resource kind. Only 'vm' (the default) is supported.
-        :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] public_key: The public key of the service, used to encrypt secrets sent to the service
         :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input['ServiceSkuArgs'] sku: Service SKU
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_nic_id: The ID of the Microsoft.Network/networkInterfaces resource which the service have
+        :param pulumi.Input[str] virtual_subnet_id: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """
         pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "virtual_subnet_id", virtual_subnet_id)
+        if auto_stop_delay is not None:
+            pulumi.set(__self__, "auto_stop_delay", auto_stop_delay)
+        if delete_resources_on_stop is not None:
+            pulumi.set(__self__, "delete_resources_on_stop", delete_resources_on_stop)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -58,6 +63,8 @@ class ServiceArgs:
             pulumi.set(__self__, "tags", tags)
         if virtual_nic_id is not None:
             pulumi.set(__self__, "virtual_nic_id", virtual_nic_id)
+        if virtual_subnet_id is not None:
+            pulumi.set(__self__, "virtual_subnet_id", virtual_subnet_id)
 
     @property
     @pulumi.getter(name="groupName")
@@ -72,16 +79,28 @@ class ServiceArgs:
         pulumi.set(self, "group_name", value)
 
     @property
-    @pulumi.getter(name="virtualSubnetId")
-    def virtual_subnet_id(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="autoStopDelay")
+    def auto_stop_delay(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
+        The time delay before the service is auto-stopped when idle.
         """
-        return pulumi.get(self, "virtual_subnet_id")
+        return pulumi.get(self, "auto_stop_delay")
 
-    @virtual_subnet_id.setter
-    def virtual_subnet_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "virtual_subnet_id", value)
+    @auto_stop_delay.setter
+    def auto_stop_delay(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_stop_delay", value)
+
+    @property
+    @pulumi.getter(name="deleteResourcesOnStop")
+    def delete_resources_on_stop(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether service resources should be deleted when stopped. (Turned on by default)
+        """
+        return pulumi.get(self, "delete_resources_on_stop")
+
+    @delete_resources_on_stop.setter
+    def delete_resources_on_stop(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_resources_on_stop", value)
 
     @property
     @pulumi.getter
@@ -98,9 +117,6 @@ class ServiceArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource location.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -146,9 +162,6 @@ class ServiceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -167,12 +180,26 @@ class ServiceArgs:
     def virtual_nic_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_nic_id", value)
 
+    @property
+    @pulumi.getter(name="virtualSubnetId")
+    def virtual_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
+        """
+        return pulumi.get(self, "virtual_subnet_id")
+
+    @virtual_subnet_id.setter
+    def virtual_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_subnet_id", value)
+
 
 class Service(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_stop_delay: Optional[pulumi.Input[str]] = None,
+                 delete_resources_on_stop: Optional[pulumi.Input[bool]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -184,20 +211,20 @@ class Service(pulumi.CustomResource):
                  virtual_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A Database Migration Service resource
-        Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
+        An Azure Database Migration Service (classic) resource
+        Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2021-06-30.
 
-        Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        Other available API versions: 2021-06-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auto_stop_delay: The time delay before the service is auto-stopped when idle.
+        :param pulumi.Input[bool] delete_resources_on_stop: Whether service resources should be deleted when stopped. (Turned on by default)
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] kind: The resource kind. Only 'vm' (the default) is supported.
-        :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] public_key: The public key of the service, used to encrypt secrets sent to the service
         :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']] sku: Service SKU
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_nic_id: The ID of the Microsoft.Network/networkInterfaces resource which the service have
         :param pulumi.Input[str] virtual_subnet_id: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """
@@ -208,10 +235,10 @@ class Service(pulumi.CustomResource):
                  args: ServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A Database Migration Service resource
-        Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
+        An Azure Database Migration Service (classic) resource
+        Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2021-06-30.
 
-        Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        Other available API versions: 2021-06-30.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -228,6 +255,8 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_stop_delay: Optional[pulumi.Input[str]] = None,
+                 delete_resources_on_stop: Optional[pulumi.Input[bool]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -246,6 +275,8 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
+            __props__.__dict__["auto_stop_delay"] = auto_stop_delay
+            __props__.__dict__["delete_resources_on_stop"] = delete_resources_on_stop
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__.__dict__["group_name"] = group_name
@@ -256,8 +287,6 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_nic_id"] = virtual_nic_id
-            if virtual_subnet_id is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_subnet_id'")
             __props__.__dict__["virtual_subnet_id"] = virtual_subnet_id
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
@@ -288,6 +317,8 @@ class Service(pulumi.CustomResource):
 
         __props__ = ServiceArgs.__new__(ServiceArgs)
 
+        __props__.__dict__["auto_stop_delay"] = None
+        __props__.__dict__["delete_resources_on_stop"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
@@ -301,6 +332,22 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["virtual_nic_id"] = None
         __props__.__dict__["virtual_subnet_id"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoStopDelay")
+    def auto_stop_delay(self) -> pulumi.Output[Optional[str]]:
+        """
+        The time delay before the service is auto-stopped when idle.
+        """
+        return pulumi.get(self, "auto_stop_delay")
+
+    @property
+    @pulumi.getter(name="deleteResourcesOnStop")
+    def delete_resources_on_stop(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether service resources should be deleted when stopped. (Turned on by default)
+        """
+        return pulumi.get(self, "delete_resources_on_stop")
 
     @property
     @pulumi.getter
@@ -320,18 +367,12 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
-        """
-        Resource location.
-        """
+    def location(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Resource name.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -361,25 +402,16 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
         return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        Resource type.
-        """
         return pulumi.get(self, "type")
 
     @property
@@ -392,7 +424,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualSubnetId")
-    def virtual_subnet_id(self) -> pulumi.Output[str]:
+    def virtual_subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """

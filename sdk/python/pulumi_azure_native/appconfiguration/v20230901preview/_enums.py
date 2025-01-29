@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'AuthenticationMode',
-    'ConnectionStatus',
     'CreateMode',
     'IdentityType',
     'PrivateLinkDelegation',
@@ -26,16 +25,6 @@ class AuthenticationMode(str, Enum):
     """
     The pass-through authentication mode. User identity will be passed through from ARM, requiring user to have data plane action permissions (Available via App Configuration Data Owner/ App Configuration Data Reader).
     """
-
-
-class ConnectionStatus(str, Enum):
-    """
-    The private link service connection status.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
 
 
 class CreateMode(str, Enum):

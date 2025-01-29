@@ -5,21 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'AzureHybridBenefit',
     'ExtendedLocationTypes',
-    'NetworkPolicy',
     'OSSKU',
     'OsType',
 ]
-
-
-class AzureHybridBenefit(str, Enum):
-    """
-    Indicates whether Azure Hybrid Benefit is opted in
-    """
-    TRUE = "True"
-    FALSE = "False"
-    NOT_APPLICABLE = "NotApplicable"
 
 
 class ExtendedLocationTypes(str, Enum):
@@ -27,14 +16,6 @@ class ExtendedLocationTypes(str, Enum):
     The extended location type.
     """
     CUSTOM_LOCATION = "CustomLocation"
-
-
-class NetworkPolicy(str, Enum):
-    """
-    NetworkPolicy - Network policy used for building Kubernetes network. Possible values include: 'calico', 'flannel'. Default is 'calico'
-    """
-    CALICO = "calico"
-    FLANNEL = "flannel"
 
 
 class OSSKU(str, Enum):

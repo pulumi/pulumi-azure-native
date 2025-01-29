@@ -19,11 +19,16 @@ from ._enums import *
 __all__ = [
     'AccessConnectorPropertiesResponse',
     'AddressSpaceResponse',
+    'AutomaticClusterUpdateDefinitionResponse',
+    'ComplianceSecurityProfileDefinitionResponse',
     'CreatedByResponse',
+    'DefaultCatalogPropertiesResponse',
     'EncryptionEntitiesDefinitionResponse',
     'EncryptionResponse',
     'EncryptionV2Response',
     'EncryptionV2ResponseKeyVaultProperties',
+    'EnhancedSecurityComplianceDefinitionResponse',
+    'EnhancedSecurityMonitoringDefinitionResponse',
     'ManagedDiskEncryptionResponse',
     'ManagedDiskEncryptionResponseKeyVaultProperties',
     'ManagedIdentityConfigurationResponse',
@@ -42,6 +47,8 @@ __all__ = [
     'WorkspaceCustomParametersResponse',
     'WorkspaceCustomStringParameterResponse',
     'WorkspaceEncryptionParameterResponse',
+    'WorkspaceNoPublicIPBooleanParameterResponse',
+    'WorkspacePropertiesResponseAccessConnector',
     'WorkspacePropertiesResponseEncryption',
     'WorkspaceProviderAuthorizationResponse',
 ]
@@ -53,6 +60,8 @@ class AccessConnectorPropertiesResponse(dict):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "referedBy":
+            suggest = "refered_by"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AccessConnectorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -66,19 +75,30 @@ class AccessConnectorPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 provisioning_state: str):
+                 provisioning_state: str,
+                 refered_by: Sequence[str]):
         """
-        :param str provisioning_state: Provisioning status of the accessConnector.
+        :param str provisioning_state: Provisioning status of the Access Connector.
+        :param Sequence[str] refered_by: List of workspaces referring this Access Connector.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "refered_by", refered_by)
 
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning status of the accessConnector.
+        Provisioning status of the Access Connector.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="referedBy")
+    def refered_by(self) -> Sequence[str]:
+        """
+        List of workspaces referring this Access Connector.
+        """
+        return pulumi.get(self, "refered_by")
 
 
 @pulumi.output_type
@@ -119,6 +139,73 @@ class AddressSpaceResponse(dict):
         A list of address blocks reserved for this virtual network in CIDR notation.
         """
         return pulumi.get(self, "address_prefixes")
+
+
+@pulumi.output_type
+class AutomaticClusterUpdateDefinitionResponse(dict):
+    """
+    Status of automated cluster updates feature.
+    """
+    def __init__(__self__, *,
+                 value: Optional[str] = None):
+        """
+        Status of automated cluster updates feature.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ComplianceSecurityProfileDefinitionResponse(dict):
+    """
+    Status of Compliance Security Profile feature.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "complianceStandards":
+            suggest = "compliance_standards"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComplianceSecurityProfileDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComplianceSecurityProfileDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComplianceSecurityProfileDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compliance_standards: Optional[Sequence[str]] = None,
+                 value: Optional[str] = None):
+        """
+        Status of Compliance Security Profile feature.
+        :param Sequence[str] compliance_standards: Compliance standards associated with the workspace.
+        """
+        if compliance_standards is not None:
+            pulumi.set(__self__, "compliance_standards", compliance_standards)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="complianceStandards")
+    def compliance_standards(self) -> Optional[Sequence[str]]:
+        """
+        Compliance standards associated with the workspace.
+        """
+        return pulumi.get(self, "compliance_standards")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -180,6 +267,62 @@ class CreatedByResponse(dict):
         The Personal Object ID corresponding to the object ID above
         """
         return pulumi.get(self, "puid")
+
+
+@pulumi.output_type
+class DefaultCatalogPropertiesResponse(dict):
+    """
+    These properties lets user specify default catalog properties during workspace creation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initialName":
+            suggest = "initial_name"
+        elif key == "initialType":
+            suggest = "initial_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultCatalogPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultCatalogPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultCatalogPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 initial_name: Optional[str] = None,
+                 initial_type: Optional[str] = None):
+        """
+        These properties lets user specify default catalog properties during workspace creation.
+        :param str initial_name: Specifies the initial Name of default catalog. If not specified, the name of the workspace will be used.
+        :param str initial_type: Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
+        """
+        if initial_name is not None:
+            pulumi.set(__self__, "initial_name", initial_name)
+        if initial_type is None:
+            initial_type = 'HiveMetastore'
+        if initial_type is not None:
+            pulumi.set(__self__, "initial_type", initial_type)
+
+    @property
+    @pulumi.getter(name="initialName")
+    def initial_name(self) -> Optional[str]:
+        """
+        Specifies the initial Name of default catalog. If not specified, the name of the workspace will be used.
+        """
+        return pulumi.get(self, "initial_name")
+
+    @property
+    @pulumi.getter(name="initialType")
+    def initial_type(self) -> Optional[str]:
+        """
+        Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
+        """
+        return pulumi.get(self, "initial_type")
 
 
 @pulumi.output_type
@@ -436,6 +579,93 @@ class EncryptionV2ResponseKeyVaultProperties(dict):
         The version of KeyVault key.
         """
         return pulumi.get(self, "key_version")
+
+
+@pulumi.output_type
+class EnhancedSecurityComplianceDefinitionResponse(dict):
+    """
+    Status of settings related to the Enhanced Security and Compliance Add-On.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automaticClusterUpdate":
+            suggest = "automatic_cluster_update"
+        elif key == "complianceSecurityProfile":
+            suggest = "compliance_security_profile"
+        elif key == "enhancedSecurityMonitoring":
+            suggest = "enhanced_security_monitoring"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnhancedSecurityComplianceDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnhancedSecurityComplianceDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnhancedSecurityComplianceDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automatic_cluster_update: Optional['outputs.AutomaticClusterUpdateDefinitionResponse'] = None,
+                 compliance_security_profile: Optional['outputs.ComplianceSecurityProfileDefinitionResponse'] = None,
+                 enhanced_security_monitoring: Optional['outputs.EnhancedSecurityMonitoringDefinitionResponse'] = None):
+        """
+        Status of settings related to the Enhanced Security and Compliance Add-On.
+        :param 'AutomaticClusterUpdateDefinitionResponse' automatic_cluster_update: Status of automated cluster updates feature.
+        :param 'ComplianceSecurityProfileDefinitionResponse' compliance_security_profile: Status of Compliance Security Profile feature.
+        :param 'EnhancedSecurityMonitoringDefinitionResponse' enhanced_security_monitoring: Status of Enhanced Security Monitoring feature.
+        """
+        if automatic_cluster_update is not None:
+            pulumi.set(__self__, "automatic_cluster_update", automatic_cluster_update)
+        if compliance_security_profile is not None:
+            pulumi.set(__self__, "compliance_security_profile", compliance_security_profile)
+        if enhanced_security_monitoring is not None:
+            pulumi.set(__self__, "enhanced_security_monitoring", enhanced_security_monitoring)
+
+    @property
+    @pulumi.getter(name="automaticClusterUpdate")
+    def automatic_cluster_update(self) -> Optional['outputs.AutomaticClusterUpdateDefinitionResponse']:
+        """
+        Status of automated cluster updates feature.
+        """
+        return pulumi.get(self, "automatic_cluster_update")
+
+    @property
+    @pulumi.getter(name="complianceSecurityProfile")
+    def compliance_security_profile(self) -> Optional['outputs.ComplianceSecurityProfileDefinitionResponse']:
+        """
+        Status of Compliance Security Profile feature.
+        """
+        return pulumi.get(self, "compliance_security_profile")
+
+    @property
+    @pulumi.getter(name="enhancedSecurityMonitoring")
+    def enhanced_security_monitoring(self) -> Optional['outputs.EnhancedSecurityMonitoringDefinitionResponse']:
+        """
+        Status of Enhanced Security Monitoring feature.
+        """
+        return pulumi.get(self, "enhanced_security_monitoring")
+
+
+@pulumi.output_type
+class EnhancedSecurityMonitoringDefinitionResponse(dict):
+    """
+    Status of Enhanced Security Monitoring feature.
+    """
+    def __init__(__self__, *,
+                 value: Optional[str] = None):
+        """
+        Status of Enhanced Security Monitoring feature.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1293,7 +1523,7 @@ class WorkspaceCustomParametersResponse(dict):
                  custom_private_subnet_name: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
                  custom_public_subnet_name: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
                  custom_virtual_network_id: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
-                 enable_no_public_ip: Optional['outputs.WorkspaceCustomBooleanParameterResponse'] = None,
+                 enable_no_public_ip: Optional['outputs.WorkspaceNoPublicIPBooleanParameterResponse'] = None,
                  encryption: Optional['outputs.WorkspaceEncryptionParameterResponse'] = None,
                  load_balancer_backend_pool_name: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
                  load_balancer_id: Optional['outputs.WorkspaceCustomStringParameterResponse'] = None,
@@ -1311,7 +1541,7 @@ class WorkspaceCustomParametersResponse(dict):
         :param 'WorkspaceCustomStringParameterResponse' custom_private_subnet_name: The name of the Private Subnet within the Virtual Network
         :param 'WorkspaceCustomStringParameterResponse' custom_public_subnet_name: The name of a Public Subnet within the Virtual Network
         :param 'WorkspaceCustomStringParameterResponse' custom_virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created
-        :param 'WorkspaceCustomBooleanParameterResponse' enable_no_public_ip: Should the Public IP be Disabled?
+        :param 'WorkspaceNoPublicIPBooleanParameterResponse' enable_no_public_ip: Boolean indicating whether the public IP should be disabled. Default value is true
         :param 'WorkspaceEncryptionParameterResponse' encryption: Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
         :param 'WorkspaceCustomStringParameterResponse' load_balancer_backend_pool_name: Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
         :param 'WorkspaceCustomStringParameterResponse' load_balancer_id: Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
@@ -1397,9 +1627,9 @@ class WorkspaceCustomParametersResponse(dict):
 
     @property
     @pulumi.getter(name="enableNoPublicIp")
-    def enable_no_public_ip(self) -> Optional['outputs.WorkspaceCustomBooleanParameterResponse']:
+    def enable_no_public_ip(self) -> Optional['outputs.WorkspaceNoPublicIPBooleanParameterResponse']:
         """
-        Should the Public IP be Disabled?
+        Boolean indicating whether the public IP should be disabled. Default value is true
         """
         return pulumi.get(self, "enable_no_public_ip")
 
@@ -1549,6 +1779,103 @@ class WorkspaceEncryptionParameterResponse(dict):
         The value which should be used for this field.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WorkspaceNoPublicIPBooleanParameterResponse(dict):
+    """
+    The value which should be used for this field.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 value: bool):
+        """
+        The value which should be used for this field.
+        :param str type: The type of variable that this is
+        :param bool value: The value which should be used for this field.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of variable that this is
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> bool:
+        """
+        The value which should be used for this field.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WorkspacePropertiesResponseAccessConnector(dict):
+    """
+    Access Connector Resource that is going to be associated with Databricks Workspace
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityType":
+            suggest = "identity_type"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspacePropertiesResponseAccessConnector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspacePropertiesResponseAccessConnector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspacePropertiesResponseAccessConnector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 identity_type: str,
+                 user_assigned_identity_id: Optional[str] = None):
+        """
+        Access Connector Resource that is going to be associated with Databricks Workspace
+        :param str id: The resource ID of Azure Databricks Access Connector Resource.
+        :param str identity_type: The identity type of the Access Connector Resource.
+        :param str user_assigned_identity_id: The resource ID of the User Assigned Identity associated with the Access Connector Resource. This is required for type 'UserAssigned' and not valid for type 'SystemAssigned'.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID of Azure Databricks Access Connector Resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> str:
+        """
+        The identity type of the Access Connector Resource.
+        """
+        return pulumi.get(self, "identity_type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The resource ID of the User Assigned Identity associated with the Access Connector Resource. This is required for type 'UserAssigned' and not valid for type 'SystemAssigned'.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type

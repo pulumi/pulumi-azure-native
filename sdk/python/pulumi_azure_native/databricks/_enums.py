@@ -5,7 +5,14 @@
 from enum import Enum
 
 __all__ = [
+    'AutomaticClusterUpdateValue',
+    'ComplianceSecurityProfileValue',
+    'ComplianceStandard',
+    'DefaultStorageFirewall',
     'EncryptionKeySource',
+    'EnhancedSecurityMonitoringValue',
+    'IdentityType',
+    'InitialType',
     'KeySource',
     'ManagedServiceIdentityType',
     'PrivateLinkServiceConnectionStatus',
@@ -14,11 +21,59 @@ __all__ = [
 ]
 
 
+class AutomaticClusterUpdateValue(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ComplianceSecurityProfileValue(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ComplianceStandard(str, Enum):
+    """
+    Compliance standard that can be associated with a workspace.
+    """
+    NONE = "NONE"
+    HIPAA = "HIPAA"
+    PC_I_DSS = "PCI_DSS"
+
+
+class DefaultStorageFirewall(str, Enum):
+    """
+    Gets or Sets Default Storage Firewall configuration information
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
 class EncryptionKeySource(str, Enum):
     """
     The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
     """
     MICROSOFT_KEYVAULT = "Microsoft.Keyvault"
+
+
+class EnhancedSecurityMonitoringValue(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class IdentityType(str, Enum):
+    """
+    The identity type of the Access Connector Resource.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+
+
+class InitialType(str, Enum):
+    """
+    Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
+    """
+    HIVE_METASTORE = "HiveMetastore"
+    UNITY_CATALOG = "UnityCatalog"
 
 
 class KeySource(str, Enum):

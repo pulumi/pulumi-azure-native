@@ -6,12 +6,8 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .asset import *
-from .asset_endpoint_profile import *
 from .discovered_asset import *
 from .discovered_asset_endpoint_profile import *
-from .get_asset import *
-from .get_asset_endpoint_profile import *
 from .get_discovered_asset import *
 from .get_discovered_asset_endpoint_profile import *
 from .get_schema import *

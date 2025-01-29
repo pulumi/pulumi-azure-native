@@ -141,8 +141,6 @@ def get_bgp_peer(bgp_peer_name: Optional[str] = None,
     Get a BgpPeer
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-10-01-preview.
-
 
     :param str bgp_peer_name: The name of the BgpPeer
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -168,8 +166,6 @@ def get_bgp_peer_output(bgp_peer_name: Optional[pulumi.Input[str]] = None,
     """
     Get a BgpPeer
     Azure REST API version: 2024-03-01.
-
-    Other available API versions: 2023-10-01-preview.
 
 
     :param str bgp_peer_name: The name of the BgpPeer

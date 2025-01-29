@@ -42,7 +42,7 @@ class CosmosDbDataConnectionArgs:
         :param pulumi.Input[str] kind: Kind of the endpoint for the data connection
                Expected value is 'CosmosDb'.
         :param pulumi.Input[str] managed_identity_resource_id: The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] table_name: The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table.
         :param pulumi.Input[str] data_connection_name: The name of the data connection.
         :param pulumi.Input[str] location: Resource location.
@@ -156,7 +156,7 @@ class CosmosDbDataConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Kusto cluster.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -246,7 +246,7 @@ class CosmosDbDataConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a CosmosDb data connection.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,7 +261,7 @@ class CosmosDbDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] managed_identity_resource_id: The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB.
         :param pulumi.Input[str] mapping_rule_name: The name of an existing mapping rule to use when ingesting the retrieved data.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] retrieval_start_date: Optional. If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date.
         :param pulumi.Input[str] table_name: The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table.
         """
@@ -273,7 +273,7 @@ class CosmosDbDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a CosmosDb data connection.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param CosmosDbDataConnectionArgs args: The arguments to use to populate this resource's properties.

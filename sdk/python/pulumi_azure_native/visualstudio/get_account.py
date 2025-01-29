@@ -114,7 +114,9 @@ def get_account(resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Gets the Visual Studio Team Services account resource details.
-    Azure REST API version: 2017-11-01-preview.
+    Azure REST API version: 2014-04-01-preview.
+
+    Other available API versions: 2017-11-01-preview.
 
 
     :param str resource_group_name: Name of the resource group within the Azure subscription.
@@ -138,7 +140,9 @@ def get_account_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Gets the Visual Studio Team Services account resource details.
-    Azure REST API version: 2017-11-01-preview.
+    Azure REST API version: 2014-04-01-preview.
+
+    Other available API versions: 2017-11-01-preview.
 
 
     :param str resource_group_name: Name of the resource group within the Azure subscription.

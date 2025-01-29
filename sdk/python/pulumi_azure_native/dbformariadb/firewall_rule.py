@@ -113,7 +113,7 @@ class FirewallRule(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a server firewall rule.
-        Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
+        Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
 
         Other available API versions: 2018-06-01-preview.
 
@@ -133,7 +133,7 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server firewall rule.
-        Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
+        Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
 
         Other available API versions: 2018-06-01-preview.
 

@@ -292,6 +292,8 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
     Gets the agent pool in the Hybrid AKS provisioned cluster
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2022-05-01-preview.
+
 
     :param str agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -333,6 +335,8 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the agent pool in the Hybrid AKS provisioned cluster
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2022-05-01-preview.
 
 
     :param str agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster

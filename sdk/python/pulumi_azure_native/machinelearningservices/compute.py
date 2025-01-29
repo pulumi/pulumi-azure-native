@@ -169,9 +169,9 @@ class Compute(pulumi.CustomResource):
                  __props__=None):
         """
         Machine Learning compute object wrapped into ARM resource envelope.
-        Azure REST API version: 2023-04-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
-        Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Other available API versions: 2022-01-01-preview, 2023-04-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,9 +192,9 @@ class Compute(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Machine Learning compute object wrapped into ARM resource envelope.
-        Azure REST API version: 2023-04-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
-        Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Other available API versions: 2022-01-01-preview, 2023-04-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ComputeArgs args: The arguments to use to populate this resource's properties.

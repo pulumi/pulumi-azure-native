@@ -100,9 +100,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2021-07-01-preview.
 
-        Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
+        Other available API versions: 2019-10-17-preview, 2021-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +119,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2021-07-01-preview.
 
-        Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
+        Other available API versions: 2019-10-17-preview, 2021-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

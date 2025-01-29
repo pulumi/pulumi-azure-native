@@ -36,6 +36,7 @@ class ServerArgs:
                  maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
                  network: Optional[pulumi.Input['NetworkArgs']] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
+                 replica: Optional[pulumi.Input['ReplicaArgs']] = None,
                  replication_role: Optional[pulumi.Input[Union[str, 'ReplicationRole']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
@@ -58,11 +59,12 @@ class ServerArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window properties of a server.
         :param pulumi.Input['NetworkArgs'] network: Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
-        :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore'.
+        :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'ReviveDropped'.
+        :param pulumi.Input['ReplicaArgs'] replica: Replica properties of a server. These Replica properties are required to be passed only in case you want to Promote a server.
         :param pulumi.Input[Union[str, 'ReplicationRole']] replication_role: Replication role of the server
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input['SkuArgs'] sku: The SKU (pricing tier) of the server.
-        :param pulumi.Input[str] source_server_resource_id: The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+        :param pulumi.Input[str] source_server_resource_id: The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica' or 'ReviveDropped'. This property is returned only for Replica server
         :param pulumi.Input['StorageArgs'] storage: Storage properties of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: PostgreSQL Server version.
@@ -96,6 +98,8 @@ class ServerArgs:
             pulumi.set(__self__, "network", network)
         if point_in_time_utc is not None:
             pulumi.set(__self__, "point_in_time_utc", point_in_time_utc)
+        if replica is not None:
+            pulumi.set(__self__, "replica", replica)
         if replication_role is not None:
             pulumi.set(__self__, "replication_role", replication_role)
         if server_name is not None:
@@ -271,13 +275,25 @@ class ServerArgs:
     @pulumi.getter(name="pointInTimeUTC")
     def point_in_time_utc(self) -> Optional[pulumi.Input[str]]:
         """
-        Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore'.
+        Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'ReviveDropped'.
         """
         return pulumi.get(self, "point_in_time_utc")
 
     @point_in_time_utc.setter
     def point_in_time_utc(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "point_in_time_utc", value)
+
+    @property
+    @pulumi.getter
+    def replica(self) -> Optional[pulumi.Input['ReplicaArgs']]:
+        """
+        Replica properties of a server. These Replica properties are required to be passed only in case you want to Promote a server.
+        """
+        return pulumi.get(self, "replica")
+
+    @replica.setter
+    def replica(self, value: Optional[pulumi.Input['ReplicaArgs']]):
+        pulumi.set(self, "replica", value)
 
     @property
     @pulumi.getter(name="replicationRole")
@@ -319,7 +335,7 @@ class ServerArgs:
     @pulumi.getter(name="sourceServerResourceId")
     def source_server_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+        The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica' or 'ReviveDropped'. This property is returned only for Replica server
         """
         return pulumi.get(self, "source_server_resource_id")
 
@@ -382,6 +398,7 @@ class Server(pulumi.CustomResource):
                  maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
                  network: Optional[pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
+                 replica: Optional[pulumi.Input[Union['ReplicaArgs', 'ReplicaArgsDict']]] = None,
                  replication_role: Optional[pulumi.Input[Union[str, 'ReplicationRole']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -393,9 +410,9 @@ class Server(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a server.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2022-12-01.
 
-        Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        Other available API versions: 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2022-12-01, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -411,12 +428,13 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']] maintenance_window: Maintenance window properties of a server.
         :param pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']] network: Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
-        :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore'.
+        :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'ReviveDropped'.
+        :param pulumi.Input[Union['ReplicaArgs', 'ReplicaArgsDict']] replica: Replica properties of a server. These Replica properties are required to be passed only in case you want to Promote a server.
         :param pulumi.Input[Union[str, 'ReplicationRole']] replication_role: Replication role of the server
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (pricing tier) of the server.
-        :param pulumi.Input[str] source_server_resource_id: The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+        :param pulumi.Input[str] source_server_resource_id: The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica' or 'ReviveDropped'. This property is returned only for Replica server
         :param pulumi.Input[Union['StorageArgs', 'StorageArgsDict']] storage: Storage properties of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: PostgreSQL Server version.
@@ -429,9 +447,9 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2022-12-01.
 
-        Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        Other available API versions: 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2022-12-01, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.
@@ -461,6 +479,7 @@ class Server(pulumi.CustomResource):
                  maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
                  network: Optional[pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
+                 replica: Optional[pulumi.Input[Union['ReplicaArgs', 'ReplicaArgsDict']]] = None,
                  replication_role: Optional[pulumi.Input[Union[str, 'ReplicationRole']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -493,6 +512,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["network"] = network
             __props__.__dict__["point_in_time_utc"] = point_in_time_utc
+            __props__.__dict__["replica"] = replica
             __props__.__dict__["replication_role"] = replication_role
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -506,6 +526,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["fully_qualified_domain_name"] = None
             __props__.__dict__["minor_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["replica_capacity"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
@@ -547,6 +568,8 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["minor_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["replica"] = None
         __props__.__dict__["replica_capacity"] = None
         __props__.__dict__["replication_role"] = None
         __props__.__dict__["sku"] = None
@@ -664,6 +687,22 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "network")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connections associated with the specified resource.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter
+    def replica(self) -> pulumi.Output[Optional['outputs.ReplicaResponse']]:
+        """
+        Replica properties of a server. These Replica properties are required to be passed only in case you want to Promote a server.
+        """
+        return pulumi.get(self, "replica")
+
+    @property
     @pulumi.getter(name="replicaCapacity")
     def replica_capacity(self) -> pulumi.Output[int]:
         """
@@ -691,7 +730,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="sourceServerResourceId")
     def source_server_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+        The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica' or 'ReviveDropped'. This property is returned only for Replica server
         """
         return pulumi.get(self, "source_server_resource_id")
 

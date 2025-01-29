@@ -27,10 +27,13 @@ class GetPrivateLinkScopedResourceResult:
     """
     A private link scoped resource
     """
-    def __init__(__self__, id=None, linked_resource_id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, id=None, kind=None, linked_resource_id=None, name=None, provisioning_state=None, subscription_location=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if linked_resource_id and not isinstance(linked_resource_id, str):
             raise TypeError("Expected argument 'linked_resource_id' to be a str")
         pulumi.set(__self__, "linked_resource_id", linked_resource_id)
@@ -40,6 +43,9 @@ class GetPrivateLinkScopedResourceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if subscription_location and not isinstance(subscription_location, str):
+            raise TypeError("Expected argument 'subscription_location' to be a str")
+        pulumi.set(__self__, "subscription_location", subscription_location)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -54,6 +60,14 @@ class GetPrivateLinkScopedResourceResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The kind of scoped Azure monitor resource.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter(name="linkedResourceId")
@@ -75,9 +89,17 @@ class GetPrivateLinkScopedResourceResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        State of the private endpoint connection.
+        State of the Azure monitor resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="subscriptionLocation")
+    def subscription_location(self) -> Optional[str]:
+        """
+        The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
+        """
+        return pulumi.get(self, "subscription_location")
 
     @property
     @pulumi.getter(name="systemData")
@@ -103,9 +125,11 @@ class AwaitableGetPrivateLinkScopedResourceResult(GetPrivateLinkScopedResourceRe
             yield self
         return GetPrivateLinkScopedResourceResult(
             id=self.id,
+            kind=self.kind,
             linked_resource_id=self.linked_resource_id,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            subscription_location=self.subscription_location,
             system_data=self.system_data,
             type=self.type)
 
@@ -116,9 +140,9 @@ def get_private_link_scoped_resource(name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkScopedResourceResult:
     """
     Gets a scoped resource in a private link scope.
-    Azure REST API version: 2021-07-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2021-09-01, 2023-06-01-preview.
+    Other available API versions: 2021-07-01-preview.
 
 
     :param str name: The name of the scoped resource object.
@@ -134,9 +158,11 @@ def get_private_link_scoped_resource(name: Optional[str] = None,
 
     return AwaitableGetPrivateLinkScopedResourceResult(
         id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
         linked_resource_id=pulumi.get(__ret__, 'linked_resource_id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        subscription_location=pulumi.get(__ret__, 'subscription_location'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_private_link_scoped_resource_output(name: Optional[pulumi.Input[str]] = None,
@@ -145,9 +171,9 @@ def get_private_link_scoped_resource_output(name: Optional[pulumi.Input[str]] = 
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkScopedResourceResult]:
     """
     Gets a scoped resource in a private link scope.
-    Azure REST API version: 2021-07-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2021-09-01, 2023-06-01-preview.
+    Other available API versions: 2021-07-01-preview.
 
 
     :param str name: The name of the scoped resource object.
@@ -162,8 +188,10 @@ def get_private_link_scoped_resource_output(name: Optional[pulumi.Input[str]] = 
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getPrivateLinkScopedResource', __args__, opts=opts, typ=GetPrivateLinkScopedResourceResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkScopedResourceResult(
         id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
         linked_resource_id=pulumi.get(__response__, 'linked_resource_id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        subscription_location=pulumi.get(__response__, 'subscription_location'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

@@ -24,6 +24,7 @@ class RedisArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
+                 disable_access_key_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -39,18 +40,21 @@ class RedisArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 update_channel: Optional[pulumi.Input[Union[str, 'UpdateChannel']]] = None,
+                 zonal_allocation_policy: Optional[pulumi.Input[Union[str, 'ZonalAllocationPolicy']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Redis resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the Redis cache to deploy.
+        :param pulumi.Input[bool] disable_access_key_authentication: Authentication to Redis through access keys is disabled when set as true. Default value is false.
         :param pulumi.Input[bool] enable_non_ssl_port: Specifies whether the non-ssl Redis server port (6379) is enabled.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         :param pulumi.Input[str] name: The name of the Redis cache.
-        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional, but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'. Note: This setting is important for caches with private endpoints. It has *no effect* on caches that are joined to, or injected into, a virtual network subnet.
-        :param pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs'] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        :param pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs'] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         :param pulumi.Input[str] redis_version: Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
         :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per primary.
         :param pulumi.Input[int] replicas_per_primary: The number of replicas to be created per primary.
@@ -59,10 +63,16 @@ class RedisArgs:
         :param pulumi.Input[str] subnet_id: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A dictionary of tenant settings
+        :param pulumi.Input[Union[str, 'UpdateChannel']] update_channel: Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
+        :param pulumi.Input[Union[str, 'ZonalAllocationPolicy']] zonal_allocation_policy: Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if disable_access_key_authentication is None:
+            disable_access_key_authentication = False
+        if disable_access_key_authentication is not None:
+            pulumi.set(__self__, "disable_access_key_authentication", disable_access_key_authentication)
         if enable_non_ssl_port is None:
             enable_non_ssl_port = False
         if enable_non_ssl_port is not None:
@@ -97,6 +107,10 @@ class RedisArgs:
             pulumi.set(__self__, "tags", tags)
         if tenant_settings is not None:
             pulumi.set(__self__, "tenant_settings", tenant_settings)
+        if update_channel is not None:
+            pulumi.set(__self__, "update_channel", update_channel)
+        if zonal_allocation_policy is not None:
+            pulumi.set(__self__, "zonal_allocation_policy", zonal_allocation_policy)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -104,7 +118,7 @@ class RedisArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -123,6 +137,18 @@ class RedisArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="disableAccessKeyAuthentication")
+    def disable_access_key_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Authentication to Redis through access keys is disabled when set as true. Default value is false.
+        """
+        return pulumi.get(self, "disable_access_key_authentication")
+
+    @disable_access_key_authentication.setter
+    def disable_access_key_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_access_key_authentication", value)
 
     @property
     @pulumi.getter(name="enableNonSslPort")
@@ -188,7 +214,7 @@ class RedisArgs:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
         """
-        Whether or not public endpoint access is allowed for this cache.  Value is optional, but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'. Note: This setting is important for caches with private endpoints. It has *no effect* on caches that are joined to, or injected into, a virtual network subnet.
+        Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         """
         return pulumi.get(self, "public_network_access")
 
@@ -200,7 +226,7 @@ class RedisArgs:
     @pulumi.getter(name="redisConfiguration")
     def redis_configuration(self) -> Optional[pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs']]:
         """
-        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         """
         return pulumi.get(self, "redis_configuration")
 
@@ -305,6 +331,30 @@ class RedisArgs:
         pulumi.set(self, "tenant_settings", value)
 
     @property
+    @pulumi.getter(name="updateChannel")
+    def update_channel(self) -> Optional[pulumi.Input[Union[str, 'UpdateChannel']]]:
+        """
+        Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
+        """
+        return pulumi.get(self, "update_channel")
+
+    @update_channel.setter
+    def update_channel(self, value: Optional[pulumi.Input[Union[str, 'UpdateChannel']]]):
+        pulumi.set(self, "update_channel", value)
+
+    @property
+    @pulumi.getter(name="zonalAllocationPolicy")
+    def zonal_allocation_policy(self) -> Optional[pulumi.Input[Union[str, 'ZonalAllocationPolicy']]]:
+        """
+        Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
+        """
+        return pulumi.get(self, "zonal_allocation_policy")
+
+    @zonal_allocation_policy.setter
+    def zonal_allocation_policy(self, value: Optional[pulumi.Input[Union[str, 'ZonalAllocationPolicy']]]):
+        pulumi.set(self, "zonal_allocation_policy", value)
+
+    @property
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -322,6 +372,7 @@ class Redis(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 disable_access_key_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -339,33 +390,38 @@ class Redis(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 update_channel: Optional[pulumi.Input[Union[str, 'UpdateChannel']]] = None,
+                 zonal_allocation_policy: Optional[pulumi.Input[Union[str, 'ZonalAllocationPolicy']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A single Redis item in List or Get Operation.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
-        Other available API versions: 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+        Other available API versions: 2020-06-01, 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] disable_access_key_authentication: Authentication to Redis through access keys is disabled when set as true. Default value is false.
         :param pulumi.Input[bool] enable_non_ssl_port: Specifies whether the non-ssl Redis server port (6379) is enabled.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         :param pulumi.Input[str] name: The name of the Redis cache.
-        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional, but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'. Note: This setting is important for caches with private endpoints. It has *no effect* on caches that are joined to, or injected into, a virtual network subnet.
-        :param pulumi.Input[Union['RedisCommonPropertiesRedisConfigurationArgs', 'RedisCommonPropertiesRedisConfigurationArgsDict']] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        :param pulumi.Input[Union['RedisCommonPropertiesRedisConfigurationArgs', 'RedisCommonPropertiesRedisConfigurationArgsDict']] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         :param pulumi.Input[str] redis_version: Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
         :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per primary.
         :param pulumi.Input[int] replicas_per_primary: The number of replicas to be created per primary.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the Redis cache to deploy.
         :param pulumi.Input[str] static_ip: Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
         :param pulumi.Input[str] subnet_id: The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A dictionary of tenant settings
+        :param pulumi.Input[Union[str, 'UpdateChannel']] update_channel: Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
+        :param pulumi.Input[Union[str, 'ZonalAllocationPolicy']] zonal_allocation_policy: Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
         ...
@@ -376,9 +432,9 @@ class Redis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A single Redis item in List or Get Operation.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
-        Other available API versions: 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+        Other available API versions: 2020-06-01, 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param RedisArgs args: The arguments to use to populate this resource's properties.
@@ -395,6 +451,7 @@ class Redis(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 disable_access_key_authentication: Optional[pulumi.Input[bool]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -412,6 +469,8 @@ class Redis(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 update_channel: Optional[pulumi.Input[Union[str, 'UpdateChannel']]] = None,
+                 zonal_allocation_policy: Optional[pulumi.Input[Union[str, 'ZonalAllocationPolicy']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -422,6 +481,9 @@ class Redis(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RedisArgs.__new__(RedisArgs)
 
+            if disable_access_key_authentication is None:
+                disable_access_key_authentication = False
+            __props__.__dict__["disable_access_key_authentication"] = disable_access_key_authentication
             if enable_non_ssl_port is None:
                 enable_non_ssl_port = False
             __props__.__dict__["enable_non_ssl_port"] = enable_non_ssl_port
@@ -447,6 +509,8 @@ class Redis(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tenant_settings"] = tenant_settings
+            __props__.__dict__["update_channel"] = update_channel
+            __props__.__dict__["zonal_allocation_policy"] = zonal_allocation_policy
             __props__.__dict__["zones"] = zones
             __props__.__dict__["access_keys"] = None
             __props__.__dict__["host_name"] = None
@@ -482,6 +546,7 @@ class Redis(pulumi.CustomResource):
         __props__ = RedisArgs.__new__(RedisArgs)
 
         __props__.__dict__["access_keys"] = None
+        __props__.__dict__["disable_access_key_authentication"] = None
         __props__.__dict__["enable_non_ssl_port"] = None
         __props__.__dict__["host_name"] = None
         __props__.__dict__["identity"] = None
@@ -506,6 +571,8 @@ class Redis(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["tenant_settings"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["update_channel"] = None
+        __props__.__dict__["zonal_allocation_policy"] = None
         __props__.__dict__["zones"] = None
         return Redis(resource_name, opts=opts, __props__=__props__)
 
@@ -516,6 +583,14 @@ class Redis(pulumi.CustomResource):
         The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
         """
         return pulumi.get(self, "access_keys")
+
+    @property
+    @pulumi.getter(name="disableAccessKeyAuthentication")
+    def disable_access_key_authentication(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Authentication to Redis through access keys is disabled when set as true. Default value is false.
+        """
+        return pulumi.get(self, "disable_access_key_authentication")
 
     @property
     @pulumi.getter(name="enableNonSslPort")
@@ -609,7 +684,7 @@ class Redis(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> pulumi.Output[Optional[str]]:
         """
-        Whether or not public endpoint access is allowed for this cache.  Value is optional, but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'. Note: This setting is important for caches with private endpoints. It has *no effect* on caches that are joined to, or injected into, a virtual network subnet.
+        Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         """
         return pulumi.get(self, "public_network_access")
 
@@ -617,7 +692,7 @@ class Redis(pulumi.CustomResource):
     @pulumi.getter(name="redisConfiguration")
     def redis_configuration(self) -> pulumi.Output[Optional['outputs.RedisCommonPropertiesResponseRedisConfiguration']]:
         """
-        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         """
         return pulumi.get(self, "redis_configuration")
 
@@ -708,6 +783,22 @@ class Redis(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updateChannel")
+    def update_channel(self) -> pulumi.Output[Optional[str]]:
+        """
+        Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
+        """
+        return pulumi.get(self, "update_channel")
+
+    @property
+    @pulumi.getter(name="zonalAllocationPolicy")
+    def zonal_allocation_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
+        """
+        return pulumi.get(self, "zonal_allocation_policy")
 
     @property
     @pulumi.getter

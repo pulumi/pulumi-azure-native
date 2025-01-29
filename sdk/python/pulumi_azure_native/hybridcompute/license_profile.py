@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['LicenseProfileArgs', 'LicenseProfile']
 
@@ -25,6 +27,10 @@ class LicenseProfileArgs:
                  assigned_license: Optional[pulumi.Input[str]] = None,
                  license_profile_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 product_features: Optional[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]]] = None,
+                 product_type: Optional[pulumi.Input[Union[str, 'LicenseProfileProductType']]] = None,
+                 software_assurance_customer: Optional[pulumi.Input[bool]] = None,
+                 subscription_status: Optional[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LicenseProfile resource.
@@ -33,6 +39,10 @@ class LicenseProfileArgs:
         :param pulumi.Input[str] assigned_license: The resource id of the license.
         :param pulumi.Input[str] license_profile_name: The name of the license profile.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]] product_features: The list of product features.
+        :param pulumi.Input[Union[str, 'LicenseProfileProductType']] product_type: Indicates the product type of the license.
+        :param pulumi.Input[bool] software_assurance_customer: Specifies if this machine is licensed as part of a Software Assurance agreement.
+        :param pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']] subscription_status: Indicates the subscription status of the product.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "machine_name", machine_name)
@@ -43,6 +53,14 @@ class LicenseProfileArgs:
             pulumi.set(__self__, "license_profile_name", license_profile_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if product_features is not None:
+            pulumi.set(__self__, "product_features", product_features)
+        if product_type is not None:
+            pulumi.set(__self__, "product_type", product_type)
+        if software_assurance_customer is not None:
+            pulumi.set(__self__, "software_assurance_customer", software_assurance_customer)
+        if subscription_status is not None:
+            pulumi.set(__self__, "subscription_status", subscription_status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -107,6 +125,54 @@ class LicenseProfileArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="productFeatures")
+    def product_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]]]:
+        """
+        The list of product features.
+        """
+        return pulumi.get(self, "product_features")
+
+    @product_features.setter
+    def product_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]]]):
+        pulumi.set(self, "product_features", value)
+
+    @property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> Optional[pulumi.Input[Union[str, 'LicenseProfileProductType']]]:
+        """
+        Indicates the product type of the license.
+        """
+        return pulumi.get(self, "product_type")
+
+    @product_type.setter
+    def product_type(self, value: Optional[pulumi.Input[Union[str, 'LicenseProfileProductType']]]):
+        pulumi.set(self, "product_type", value)
+
+    @property
+    @pulumi.getter(name="softwareAssuranceCustomer")
+    def software_assurance_customer(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if this machine is licensed as part of a Software Assurance agreement.
+        """
+        return pulumi.get(self, "software_assurance_customer")
+
+    @software_assurance_customer.setter
+    def software_assurance_customer(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "software_assurance_customer", value)
+
+    @property
+    @pulumi.getter(name="subscriptionStatus")
+    def subscription_status(self) -> Optional[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]]:
+        """
+        Indicates the subscription status of the product.
+        """
+        return pulumi.get(self, "subscription_status")
+
+    @subscription_status.setter
+    def subscription_status(self, value: Optional[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]]):
+        pulumi.set(self, "subscription_status", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -128,14 +194,18 @@ class LicenseProfile(pulumi.CustomResource):
                  license_profile_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
+                 product_features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProductFeatureArgs', 'ProductFeatureArgsDict']]]]] = None,
+                 product_type: Optional[pulumi.Input[Union[str, 'LicenseProfileProductType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 software_assurance_customer: Optional[pulumi.Input[bool]] = None,
+                 subscription_status: Optional[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Describes a license profile in a hybrid machine.
-        Azure REST API version: 2023-06-20-preview.
+        Azure REST API version: 2024-07-10. Prior API version in Azure Native 2.x: 2023-06-20-preview.
 
-        Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        Other available API versions: 2023-06-20-preview, 2024-11-10-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +213,11 @@ class LicenseProfile(pulumi.CustomResource):
         :param pulumi.Input[str] license_profile_name: The name of the license profile.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] machine_name: The name of the hybrid machine.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProductFeatureArgs', 'ProductFeatureArgsDict']]]] product_features: The list of product features.
+        :param pulumi.Input[Union[str, 'LicenseProfileProductType']] product_type: Indicates the product type of the license.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[bool] software_assurance_customer: Specifies if this machine is licensed as part of a Software Assurance agreement.
+        :param pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']] subscription_status: Indicates the subscription status of the product.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -154,9 +228,9 @@ class LicenseProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a license profile in a hybrid machine.
-        Azure REST API version: 2023-06-20-preview.
+        Azure REST API version: 2024-07-10. Prior API version in Azure Native 2.x: 2023-06-20-preview.
 
-        Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        Other available API versions: 2023-06-20-preview, 2024-11-10-preview.
 
         :param str resource_name: The name of the resource.
         :param LicenseProfileArgs args: The arguments to use to populate this resource's properties.
@@ -177,7 +251,11 @@ class LicenseProfile(pulumi.CustomResource):
                  license_profile_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
+                 product_features: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProductFeatureArgs', 'ProductFeatureArgsDict']]]]] = None,
+                 product_type: Optional[pulumi.Input[Union[str, 'LicenseProfileProductType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 software_assurance_customer: Optional[pulumi.Input[bool]] = None,
+                 subscription_status: Optional[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -194,11 +272,20 @@ class LicenseProfile(pulumi.CustomResource):
             if machine_name is None and not opts.urn:
                 raise TypeError("Missing required property 'machine_name'")
             __props__.__dict__["machine_name"] = machine_name
+            __props__.__dict__["product_features"] = product_features
+            __props__.__dict__["product_type"] = product_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["software_assurance_customer"] = software_assurance_customer
+            __props__.__dict__["subscription_status"] = subscription_status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["assigned_license_immutable_id"] = None
+            __props__.__dict__["billing_end_date"] = None
+            __props__.__dict__["billing_start_date"] = None
+            __props__.__dict__["disenrollment_date"] = None
+            __props__.__dict__["enrollment_date"] = None
+            __props__.__dict__["error"] = None
             __props__.__dict__["esu_eligibility"] = None
             __props__.__dict__["esu_key_state"] = None
             __props__.__dict__["esu_keys"] = None
@@ -233,13 +320,22 @@ class LicenseProfile(pulumi.CustomResource):
 
         __props__.__dict__["assigned_license"] = None
         __props__.__dict__["assigned_license_immutable_id"] = None
+        __props__.__dict__["billing_end_date"] = None
+        __props__.__dict__["billing_start_date"] = None
+        __props__.__dict__["disenrollment_date"] = None
+        __props__.__dict__["enrollment_date"] = None
+        __props__.__dict__["error"] = None
         __props__.__dict__["esu_eligibility"] = None
         __props__.__dict__["esu_key_state"] = None
         __props__.__dict__["esu_keys"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["product_features"] = None
+        __props__.__dict__["product_type"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["server_type"] = None
+        __props__.__dict__["software_assurance_customer"] = None
+        __props__.__dict__["subscription_status"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -260,6 +356,46 @@ class LicenseProfile(pulumi.CustomResource):
         The guid id of the license.
         """
         return pulumi.get(self, "assigned_license_immutable_id")
+
+    @property
+    @pulumi.getter(name="billingEndDate")
+    def billing_end_date(self) -> pulumi.Output[str]:
+        """
+        The timestamp in UTC when the billing ends.
+        """
+        return pulumi.get(self, "billing_end_date")
+
+    @property
+    @pulumi.getter(name="billingStartDate")
+    def billing_start_date(self) -> pulumi.Output[str]:
+        """
+        The timestamp in UTC when the billing starts.
+        """
+        return pulumi.get(self, "billing_start_date")
+
+    @property
+    @pulumi.getter(name="disenrollmentDate")
+    def disenrollment_date(self) -> pulumi.Output[str]:
+        """
+        The timestamp in UTC when the user disenrolled the feature.
+        """
+        return pulumi.get(self, "disenrollment_date")
+
+    @property
+    @pulumi.getter(name="enrollmentDate")
+    def enrollment_date(self) -> pulumi.Output[str]:
+        """
+        The timestamp in UTC when the user enrolls the feature.
+        """
+        return pulumi.get(self, "enrollment_date")
+
+    @property
+    @pulumi.getter
+    def error(self) -> pulumi.Output['outputs.ErrorDetailResponse']:
+        """
+        The errors that were encountered during the feature enrollment or disenrollment.
+        """
+        return pulumi.get(self, "error")
 
     @property
     @pulumi.getter(name="esuEligibility")
@@ -302,6 +438,22 @@ class LicenseProfile(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="productFeatures")
+    def product_features(self) -> pulumi.Output[Optional[Sequence['outputs.ProductFeatureResponse']]]:
+        """
+        The list of product features.
+        """
+        return pulumi.get(self, "product_features")
+
+    @property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates the product type of the license.
+        """
+        return pulumi.get(self, "product_type")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
@@ -316,6 +468,22 @@ class LicenseProfile(pulumi.CustomResource):
         The type of the Esu servers.
         """
         return pulumi.get(self, "server_type")
+
+    @property
+    @pulumi.getter(name="softwareAssuranceCustomer")
+    def software_assurance_customer(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if this machine is licensed as part of a Software Assurance agreement.
+        """
+        return pulumi.get(self, "software_assurance_customer")
+
+    @property
+    @pulumi.getter(name="subscriptionStatus")
+    def subscription_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates the subscription status of the product.
+        """
+        return pulumi.get(self, "subscription_status")
 
     @property
     @pulumi.getter(name="systemData")

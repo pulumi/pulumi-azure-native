@@ -118,7 +118,7 @@ class GetNetworkConnectionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -223,9 +223,9 @@ def get_network_connection(network_connection_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkConnectionResult:
     """
     Gets a network connection resource
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-04-01, 2024-10-01-preview.
 
 
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.
@@ -258,9 +258,9 @@ def get_network_connection_output(network_connection_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkConnectionResult]:
     """
     Gets a network connection resource
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-04-01, 2024-10-01-preview.
 
 
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.

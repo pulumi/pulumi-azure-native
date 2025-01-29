@@ -44,7 +44,7 @@ class AppServiceCertificateOrderArgs:
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: Certificate distinguished name.
         :param pulumi.Input[int] key_size: Certificate key size.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] validity_in_years: Duration in years (must be 1).
@@ -178,7 +178,7 @@ class AppServiceCertificateOrderArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -243,9 +243,9 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  __props__=None):
         """
         SSL certificate purchase order.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2020-10-01, 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +255,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: Certificate distinguished name.
         :param pulumi.Input[int] key_size: Certificate key size.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input['CertificateProductType'] product_type: Certificate product type.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
@@ -270,9 +270,9 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SSL certificate purchase order.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2020-10-01, 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param AppServiceCertificateOrderArgs args: The arguments to use to populate this resource's properties.
@@ -490,7 +490,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 

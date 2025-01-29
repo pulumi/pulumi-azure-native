@@ -27,7 +27,7 @@ class GetMigrationResult:
     """
     Represents a migration resource.
     """
-    def __init__(__self__, cancel=None, current_status=None, dbs_to_cancel_migration_on=None, dbs_to_migrate=None, dbs_to_trigger_cutover_on=None, id=None, location=None, migration_id=None, migration_mode=None, migration_window_end_time_in_utc=None, migration_window_start_time_in_utc=None, name=None, overwrite_dbs_in_target=None, setup_logical_replication_on_source_db_if_needed=None, source_db_server_fully_qualified_domain_name=None, source_db_server_metadata=None, source_db_server_resource_id=None, start_data_migration=None, system_data=None, tags=None, target_db_server_fully_qualified_domain_name=None, target_db_server_metadata=None, target_db_server_resource_id=None, trigger_cutover=None, type=None):
+    def __init__(__self__, cancel=None, current_status=None, dbs_to_cancel_migration_on=None, dbs_to_migrate=None, dbs_to_trigger_cutover_on=None, id=None, location=None, migrate_roles=None, migration_id=None, migration_instance_resource_id=None, migration_mode=None, migration_option=None, migration_window_end_time_in_utc=None, migration_window_start_time_in_utc=None, name=None, overwrite_dbs_in_target=None, setup_logical_replication_on_source_db_if_needed=None, source_db_server_fully_qualified_domain_name=None, source_db_server_metadata=None, source_db_server_resource_id=None, source_type=None, ssl_mode=None, start_data_migration=None, system_data=None, tags=None, target_db_server_fully_qualified_domain_name=None, target_db_server_metadata=None, target_db_server_resource_id=None, trigger_cutover=None, type=None):
         if cancel and not isinstance(cancel, str):
             raise TypeError("Expected argument 'cancel' to be a str")
         pulumi.set(__self__, "cancel", cancel)
@@ -49,12 +49,21 @@ class GetMigrationResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if migrate_roles and not isinstance(migrate_roles, str):
+            raise TypeError("Expected argument 'migrate_roles' to be a str")
+        pulumi.set(__self__, "migrate_roles", migrate_roles)
         if migration_id and not isinstance(migration_id, str):
             raise TypeError("Expected argument 'migration_id' to be a str")
         pulumi.set(__self__, "migration_id", migration_id)
+        if migration_instance_resource_id and not isinstance(migration_instance_resource_id, str):
+            raise TypeError("Expected argument 'migration_instance_resource_id' to be a str")
+        pulumi.set(__self__, "migration_instance_resource_id", migration_instance_resource_id)
         if migration_mode and not isinstance(migration_mode, str):
             raise TypeError("Expected argument 'migration_mode' to be a str")
         pulumi.set(__self__, "migration_mode", migration_mode)
+        if migration_option and not isinstance(migration_option, str):
+            raise TypeError("Expected argument 'migration_option' to be a str")
+        pulumi.set(__self__, "migration_option", migration_option)
         if migration_window_end_time_in_utc and not isinstance(migration_window_end_time_in_utc, str):
             raise TypeError("Expected argument 'migration_window_end_time_in_utc' to be a str")
         pulumi.set(__self__, "migration_window_end_time_in_utc", migration_window_end_time_in_utc)
@@ -79,6 +88,12 @@ class GetMigrationResult:
         if source_db_server_resource_id and not isinstance(source_db_server_resource_id, str):
             raise TypeError("Expected argument 'source_db_server_resource_id' to be a str")
         pulumi.set(__self__, "source_db_server_resource_id", source_db_server_resource_id)
+        if source_type and not isinstance(source_type, str):
+            raise TypeError("Expected argument 'source_type' to be a str")
+        pulumi.set(__self__, "source_type", source_type)
+        if ssl_mode and not isinstance(ssl_mode, str):
+            raise TypeError("Expected argument 'ssl_mode' to be a str")
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
         if start_data_migration and not isinstance(start_data_migration, str):
             raise TypeError("Expected argument 'start_data_migration' to be a str")
         pulumi.set(__self__, "start_data_migration", start_data_migration)
@@ -148,7 +163,7 @@ class GetMigrationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -161,6 +176,14 @@ class GetMigrationResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="migrateRoles")
+    def migrate_roles(self) -> Optional[str]:
+        """
+        To migrate roles and permissions we need to send this flag as True
+        """
+        return pulumi.get(self, "migrate_roles")
+
+    @property
     @pulumi.getter(name="migrationId")
     def migration_id(self) -> str:
         """
@@ -169,12 +192,28 @@ class GetMigrationResult:
         return pulumi.get(self, "migration_id")
 
     @property
+    @pulumi.getter(name="migrationInstanceResourceId")
+    def migration_instance_resource_id(self) -> Optional[str]:
+        """
+        ResourceId of the private endpoint migration instance
+        """
+        return pulumi.get(self, "migration_instance_resource_id")
+
+    @property
     @pulumi.getter(name="migrationMode")
     def migration_mode(self) -> Optional[str]:
         """
         There are two types of migration modes Online and Offline
         """
         return pulumi.get(self, "migration_mode")
+
+    @property
+    @pulumi.getter(name="migrationOption")
+    def migration_option(self) -> Optional[str]:
+        """
+        This indicates the supported Migration option for the migration
+        """
+        return pulumi.get(self, "migration_option")
 
     @property
     @pulumi.getter(name="migrationWindowEndTimeInUtc")
@@ -220,7 +259,7 @@ class GetMigrationResult:
     @pulumi.getter(name="sourceDbServerFullyQualifiedDomainName")
     def source_db_server_fully_qualified_domain_name(self) -> Optional[str]:
         """
-        Source server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+        Source server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
         """
         return pulumi.get(self, "source_db_server_fully_qualified_domain_name")
 
@@ -236,9 +275,25 @@ class GetMigrationResult:
     @pulumi.getter(name="sourceDbServerResourceId")
     def source_db_server_resource_id(self) -> Optional[str]:
         """
-        ResourceId of the source database server
+        ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username
         """
         return pulumi.get(self, "source_db_server_resource_id")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[str]:
+        """
+        migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+        """
+        return pulumi.get(self, "source_type")
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional[str]:
+        """
+        SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+        """
+        return pulumi.get(self, "ssl_mode")
 
     @property
     @pulumi.getter(name="startDataMigration")
@@ -268,7 +323,7 @@ class GetMigrationResult:
     @pulumi.getter(name="targetDbServerFullyQualifiedDomainName")
     def target_db_server_fully_qualified_domain_name(self) -> Optional[str]:
         """
-        Target server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+        Target server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
         """
         return pulumi.get(self, "target_db_server_fully_qualified_domain_name")
 
@@ -318,8 +373,11 @@ class AwaitableGetMigrationResult(GetMigrationResult):
             dbs_to_trigger_cutover_on=self.dbs_to_trigger_cutover_on,
             id=self.id,
             location=self.location,
+            migrate_roles=self.migrate_roles,
             migration_id=self.migration_id,
+            migration_instance_resource_id=self.migration_instance_resource_id,
             migration_mode=self.migration_mode,
+            migration_option=self.migration_option,
             migration_window_end_time_in_utc=self.migration_window_end_time_in_utc,
             migration_window_start_time_in_utc=self.migration_window_start_time_in_utc,
             name=self.name,
@@ -328,6 +386,8 @@ class AwaitableGetMigrationResult(GetMigrationResult):
             source_db_server_fully_qualified_domain_name=self.source_db_server_fully_qualified_domain_name,
             source_db_server_metadata=self.source_db_server_metadata,
             source_db_server_resource_id=self.source_db_server_resource_id,
+            source_type=self.source_type,
+            ssl_mode=self.ssl_mode,
             start_data_migration=self.start_data_migration,
             system_data=self.system_data,
             tags=self.tags,
@@ -345,9 +405,9 @@ def get_migration(migration_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrationResult:
     """
     Gets details of a migration.
-    Azure REST API version: 2023-03-01-preview.
+    Azure REST API version: 2024-08-01.
 
-    Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-03-01-preview, 2024-11-01-preview.
 
 
     :param str migration_name: The name of the migration.
@@ -371,8 +431,11 @@ def get_migration(migration_name: Optional[str] = None,
         dbs_to_trigger_cutover_on=pulumi.get(__ret__, 'dbs_to_trigger_cutover_on'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
+        migrate_roles=pulumi.get(__ret__, 'migrate_roles'),
         migration_id=pulumi.get(__ret__, 'migration_id'),
+        migration_instance_resource_id=pulumi.get(__ret__, 'migration_instance_resource_id'),
         migration_mode=pulumi.get(__ret__, 'migration_mode'),
+        migration_option=pulumi.get(__ret__, 'migration_option'),
         migration_window_end_time_in_utc=pulumi.get(__ret__, 'migration_window_end_time_in_utc'),
         migration_window_start_time_in_utc=pulumi.get(__ret__, 'migration_window_start_time_in_utc'),
         name=pulumi.get(__ret__, 'name'),
@@ -381,6 +444,8 @@ def get_migration(migration_name: Optional[str] = None,
         source_db_server_fully_qualified_domain_name=pulumi.get(__ret__, 'source_db_server_fully_qualified_domain_name'),
         source_db_server_metadata=pulumi.get(__ret__, 'source_db_server_metadata'),
         source_db_server_resource_id=pulumi.get(__ret__, 'source_db_server_resource_id'),
+        source_type=pulumi.get(__ret__, 'source_type'),
+        ssl_mode=pulumi.get(__ret__, 'ssl_mode'),
         start_data_migration=pulumi.get(__ret__, 'start_data_migration'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -396,9 +461,9 @@ def get_migration_output(migration_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrationResult]:
     """
     Gets details of a migration.
-    Azure REST API version: 2023-03-01-preview.
+    Azure REST API version: 2024-08-01.
 
-    Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-03-01-preview, 2024-11-01-preview.
 
 
     :param str migration_name: The name of the migration.
@@ -421,8 +486,11 @@ def get_migration_output(migration_name: Optional[pulumi.Input[str]] = None,
         dbs_to_trigger_cutover_on=pulumi.get(__response__, 'dbs_to_trigger_cutover_on'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
+        migrate_roles=pulumi.get(__response__, 'migrate_roles'),
         migration_id=pulumi.get(__response__, 'migration_id'),
+        migration_instance_resource_id=pulumi.get(__response__, 'migration_instance_resource_id'),
         migration_mode=pulumi.get(__response__, 'migration_mode'),
+        migration_option=pulumi.get(__response__, 'migration_option'),
         migration_window_end_time_in_utc=pulumi.get(__response__, 'migration_window_end_time_in_utc'),
         migration_window_start_time_in_utc=pulumi.get(__response__, 'migration_window_start_time_in_utc'),
         name=pulumi.get(__response__, 'name'),
@@ -431,6 +499,8 @@ def get_migration_output(migration_name: Optional[pulumi.Input[str]] = None,
         source_db_server_fully_qualified_domain_name=pulumi.get(__response__, 'source_db_server_fully_qualified_domain_name'),
         source_db_server_metadata=pulumi.get(__response__, 'source_db_server_metadata'),
         source_db_server_resource_id=pulumi.get(__response__, 'source_db_server_resource_id'),
+        source_type=pulumi.get(__response__, 'source_type'),
+        ssl_mode=pulumi.get(__response__, 'ssl_mode'),
         start_data_migration=pulumi.get(__response__, 'start_data_migration'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

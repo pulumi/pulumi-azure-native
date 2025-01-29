@@ -38,6 +38,7 @@ class ContainerGroupArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[Union[str, 'ContainerGroupPriority']]] = None,
                  restart_policy: Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]] = None,
+                 secret_references: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReferenceArgs']]]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -64,6 +65,7 @@ class ContainerGroupArgs:
                - `Always` Always restart
                - `OnFailure` Restart on failure
                - `Never` Never restart
+        :param pulumi.Input[Sequence[pulumi.Input['SecretReferenceArgs']]] secret_references: The secret references that will be referenced within the container group.
         :param pulumi.Input[Union[str, 'ContainerGroupSku']] sku: The SKU for a container group.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]] subnet_ids: The subnet resource IDs for a container group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -99,6 +101,8 @@ class ContainerGroupArgs:
             pulumi.set(__self__, "priority", priority)
         if restart_policy is not None:
             pulumi.set(__self__, "restart_policy", restart_policy)
+        if secret_references is not None:
+            pulumi.set(__self__, "secret_references", secret_references)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if subnet_ids is not None:
@@ -306,6 +310,18 @@ class ContainerGroupArgs:
         pulumi.set(self, "restart_policy", value)
 
     @property
+    @pulumi.getter(name="secretReferences")
+    def secret_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretReferenceArgs']]]]:
+        """
+        The secret references that will be referenced within the container group.
+        """
+        return pulumi.get(self, "secret_references")
+
+    @secret_references.setter
+    def secret_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReferenceArgs']]]]):
+        pulumi.set(self, "secret_references", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]]:
         """
@@ -387,6 +403,7 @@ class ContainerGroup(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[Union[str, 'ContainerGroupPriority']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]] = None,
+                 secret_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecretReferenceArgs', 'SecretReferenceArgsDict']]]]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerGroupSubnetIdArgs', 'ContainerGroupSubnetIdArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -395,9 +412,9 @@ class ContainerGroup(pulumi.CustomResource):
                  __props__=None):
         """
         A container group.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-05-01.
 
-        Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+        Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2023-05-01, 2024-05-01-preview, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -420,6 +437,7 @@ class ContainerGroup(pulumi.CustomResource):
                - `Always` Always restart
                - `OnFailure` Restart on failure
                - `Never` Never restart
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretReferenceArgs', 'SecretReferenceArgsDict']]]] secret_references: The secret references that will be referenced within the container group.
         :param pulumi.Input[Union[str, 'ContainerGroupSku']] sku: The SKU for a container group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerGroupSubnetIdArgs', 'ContainerGroupSubnetIdArgsDict']]]] subnet_ids: The subnet resource IDs for a container group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -434,9 +452,9 @@ class ContainerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A container group.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-05-01.
 
-        Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+        Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2023-05-01, 2024-05-01-preview, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ContainerGroupArgs args: The arguments to use to populate this resource's properties.
@@ -469,6 +487,7 @@ class ContainerGroup(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[Union[str, 'ContainerGroupPriority']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[Union[str, 'ContainerGroupRestartPolicy']]] = None,
+                 secret_references: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecretReferenceArgs', 'SecretReferenceArgsDict']]]]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'ContainerGroupSku']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerGroupSubnetIdArgs', 'ContainerGroupSubnetIdArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -505,6 +524,7 @@ class ContainerGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restart_policy"] = restart_policy
+            __props__.__dict__["secret_references"] = secret_references
             __props__.__dict__["sku"] = sku
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
@@ -555,6 +575,7 @@ class ContainerGroup(pulumi.CustomResource):
         __props__.__dict__["priority"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["restart_policy"] = None
+        __props__.__dict__["secret_references"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
@@ -701,6 +722,14 @@ class ContainerGroup(pulumi.CustomResource):
         - `Never` Never restart
         """
         return pulumi.get(self, "restart_policy")
+
+    @property
+    @pulumi.getter(name="secretReferences")
+    def secret_references(self) -> pulumi.Output[Optional[Sequence['outputs.SecretReferenceResponse']]]:
+        """
+        The secret references that will be referenced within the container group.
+        """
+        return pulumi.get(self, "secret_references")
 
     @property
     @pulumi.getter

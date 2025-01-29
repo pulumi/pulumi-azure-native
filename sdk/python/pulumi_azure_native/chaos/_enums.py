@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'FilterType',
+    'PublicNetworkAccessOption',
     'ResourceIdentityType',
     'SelectorType',
     'TargetReferenceType',
@@ -17,6 +18,14 @@ class FilterType(str, Enum):
     Enum that discriminates between filter types. Currently only `Simple` type is supported.
     """
     SIMPLE = "Simple"
+
+
+class PublicNetworkAccessOption(str, Enum):
+    """
+    Public Network Access Control for PrivateAccess resource.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ResourceIdentityType(str, Enum):
