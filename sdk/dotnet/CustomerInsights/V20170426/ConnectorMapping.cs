@@ -142,8 +142,8 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights:ConnectorMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:ConnectorMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:customerinsights:ConnectorMapping" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

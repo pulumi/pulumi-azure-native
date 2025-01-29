@@ -197,7 +197,7 @@ class FqdnListLocalRulestack(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw:FqdnListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829:FqdnListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:FqdnListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901:FqdnListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901preview:FqdnListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240119preview:FqdnListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:FqdnListLocalRulestack")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw/v20220829:FqdnListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:FqdnListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901:FqdnListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901preview:FqdnListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240119preview:FqdnListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:FqdnListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw:FqdnListLocalRulestack")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FqdnListLocalRulestack, __self__).__init__(
             'azure-native:cloudngfw/v20231010preview:FqdnListLocalRulestack',

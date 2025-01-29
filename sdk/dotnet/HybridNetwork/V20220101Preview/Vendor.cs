@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:Vendor" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:Vendor" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:Vendor" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:Vendor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

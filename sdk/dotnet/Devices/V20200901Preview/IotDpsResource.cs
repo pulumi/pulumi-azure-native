@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Devices.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices:IotDpsResource" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20170821preview:IotDpsResource" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20171115:IotDpsResource" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20180122:IotDpsResource" },
@@ -99,6 +98,7 @@ namespace Pulumi.AzureNative.Devices.V20200901Preview
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20221212:IotDpsResource" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20230301preview:IotDpsResource" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20250201preview:IotDpsResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:devices:IotDpsResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

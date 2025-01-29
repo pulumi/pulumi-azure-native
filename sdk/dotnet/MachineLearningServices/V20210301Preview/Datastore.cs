@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:Datastore" },
@@ -84,6 +83,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:Datastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:Datastore" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

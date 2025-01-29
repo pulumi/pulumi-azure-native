@@ -118,7 +118,7 @@ export class WebPubSubReplica extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20240101preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20240301:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20240401preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20240801preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20241001preview:WebPubSubReplica" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20230301preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20240101preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20240301:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20240401preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20240801preview:WebPubSubReplica" }, { type: "azure-native:webpubsub/v20241001preview:WebPubSubReplica" }, { type: "azure-native:webpubsub:WebPubSubReplica" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubReplica.__pulumiType, name, resourceInputs, opts);
     }

@@ -215,7 +215,7 @@ class Archife(pulumi.CustomResource):
             __props__.__dict__["repository_endpoint"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20241101preview:Archife")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry/v20241101preview:Archife"), pulumi.Alias(type_="azure-native:containerregistry:Archife")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Archife, __self__).__init__(
             'azure-native:containerregistry/v20230601preview:Archife',

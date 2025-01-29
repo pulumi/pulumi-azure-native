@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20240331Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute:PrivateLinkScope" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:PrivateLinkScope" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:PrivateLinkScope" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20210325preview:PrivateLinkScope" },
@@ -99,6 +98,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20240331Preview
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:PrivateLinkScope" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240910preview:PrivateLinkScope" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20241110preview:PrivateLinkScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute:PrivateLinkScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

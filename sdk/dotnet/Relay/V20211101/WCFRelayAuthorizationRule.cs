@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.Relay.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay:WCFRelayAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:WCFRelayAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:WCFRelayAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20240101:WCFRelayAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:relay:WCFRelayAuthorizationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

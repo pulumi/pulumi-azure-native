@@ -112,7 +112,6 @@ namespace Pulumi.AzureNative.Web.V20220901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppHostNameBindingSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppHostNameBindingSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHostNameBindingSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHostNameBindingSlot" },
@@ -130,6 +129,7 @@ namespace Pulumi.AzureNative.Web.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppHostNameBindingSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppHostNameBindingSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppHostNameBindingSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppHostNameBindingSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

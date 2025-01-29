@@ -204,7 +204,7 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
             resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20200605preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20230401preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20231007:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20240601:VirtualMachineTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20230401preview:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20231007:VirtualMachineTemplate" }, { type: "azure-native:scvmm/v20240601:VirtualMachineTemplate" }, { type: "azure-native:scvmm:VirtualMachineTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineTemplate.__pulumiType, name, resourceInputs, opts);
     }

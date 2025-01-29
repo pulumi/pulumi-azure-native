@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense.V20240110
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotfirmwaredefense:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:iotfirmwaredefense/v20230208preview:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotfirmwaredefense:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

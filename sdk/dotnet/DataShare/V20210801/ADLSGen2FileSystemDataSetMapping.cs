@@ -114,11 +114,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FileSystemDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:ADLSGen2FileSystemDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ADLSGen2FileSystemDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FileSystemDataSetMapping" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

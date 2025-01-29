@@ -112,7 +112,6 @@ namespace Pulumi.AzureNative.EventHub.V20240101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:Cluster" },
@@ -120,6 +119,7 @@ namespace Pulumi.AzureNative.EventHub.V20240101
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240501preview:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20250101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking:SecurityPoliciesInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20240501preview:SecurityPoliciesInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking:SecurityPoliciesInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

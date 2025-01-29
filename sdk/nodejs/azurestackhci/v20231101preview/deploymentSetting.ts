@@ -118,7 +118,7 @@ export class DeploymentSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:DeploymentSetting" }, { type: "azure-native:azurestackhci/v20230801preview:DeploymentSetting" }, { type: "azure-native:azurestackhci/v20240101:DeploymentSetting" }, { type: "azure-native:azurestackhci/v20240215preview:DeploymentSetting" }, { type: "azure-native:azurestackhci/v20240401:DeploymentSetting" }, { type: "azure-native:azurestackhci/v20240901preview:DeploymentSetting" }, { type: "azure-native:azurestackhci/v20241201preview:DeploymentSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230801preview:DeploymentSetting" }, { type: "azure-native:azurestackhci/v20240101:DeploymentSetting" }, { type: "azure-native:azurestackhci/v20240215preview:DeploymentSetting" }, { type: "azure-native:azurestackhci/v20240401:DeploymentSetting" }, { type: "azure-native:azurestackhci/v20240901preview:DeploymentSetting" }, { type: "azure-native:azurestackhci/v20241201preview:DeploymentSetting" }, { type: "azure-native:azurestackhci:DeploymentSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentSetting.__pulumiType, name, resourceInputs, opts);
     }

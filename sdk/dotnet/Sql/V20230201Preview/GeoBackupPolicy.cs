@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:GeoBackupPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:GeoBackupPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:GeoBackupPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:GeoBackupPolicy" },
@@ -86,6 +85,7 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:GeoBackupPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:GeoBackupPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:GeoBackupPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:GeoBackupPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Job" },
@@ -87,6 +86,7 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:Job" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

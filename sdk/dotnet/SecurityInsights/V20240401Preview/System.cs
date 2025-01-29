@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:System" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:System" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:System" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -88,12 +88,12 @@ namespace Pulumi.AzureNative.Sql.V20221101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:StartStopManagedInstanceSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:StartStopManagedInstanceSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:StartStopManagedInstanceSchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

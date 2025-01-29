@@ -239,7 +239,7 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:NamespaceTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:NamespaceTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:NamespaceTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:NamespaceTopicEventSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:NamespaceTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:NamespaceTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:NamespaceTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid:NamespaceTopicEventSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceTopicEventSubscription, __self__).__init__(
             'azure-native:eventgrid/v20240601preview:NamespaceTopicEventSubscription',

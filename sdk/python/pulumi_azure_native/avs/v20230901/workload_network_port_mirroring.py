@@ -238,7 +238,7 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs:WorkloadNetworkPortMirroring"), pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkPortMirroring"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkPortMirroring"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkPortMirroring"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkPortMirroring")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkPortMirroring"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkPortMirroring"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkPortMirroring"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkPortMirroring"), pulumi.Alias(type_="azure-native:avs:WorkloadNetworkPortMirroring")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkloadNetworkPortMirroring, __self__).__init__(
             'azure-native:avs/v20230901:WorkloadNetworkPortMirroring',

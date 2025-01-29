@@ -153,7 +153,7 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs:NotificationHubAuthorizationRule" }, { type: "azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule" }, { type: "azure-native:notificationhubs/v20230101preview:NotificationHubAuthorizationRule" }, { type: "azure-native:notificationhubs/v20230901:NotificationHubAuthorizationRule" }, { type: "azure-native:notificationhubs/v20231001preview:NotificationHubAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule" }, { type: "azure-native:notificationhubs/v20230101preview:NotificationHubAuthorizationRule" }, { type: "azure-native:notificationhubs/v20230901:NotificationHubAuthorizationRule" }, { type: "azure-native:notificationhubs/v20231001preview:NotificationHubAuthorizationRule" }, { type: "azure-native:notificationhubs:NotificationHubAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationHubAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -102,11 +102,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:ScheduledSynchronizationSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:ScheduledSynchronizationSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:ScheduledSynchronizationSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ScheduledSynchronizationSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ScheduledSynchronizationSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

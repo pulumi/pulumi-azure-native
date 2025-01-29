@@ -79,11 +79,11 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:Site" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

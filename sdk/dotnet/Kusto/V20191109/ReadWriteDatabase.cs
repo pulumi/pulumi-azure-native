@@ -102,7 +102,6 @@ namespace Pulumi.AzureNative.Kusto.V20191109
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:ReadWriteDatabase" },
@@ -120,6 +119,7 @@ namespace Pulumi.AzureNative.Kusto.V20191109
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:ReadWriteDatabase" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

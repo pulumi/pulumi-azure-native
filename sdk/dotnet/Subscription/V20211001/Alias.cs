@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.Subscription.V20211001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:subscription:Alias" },
                     new global::Pulumi.Alias { Type = "azure-native:subscription/v20191001preview:Alias" },
                     new global::Pulumi.Alias { Type = "azure-native:subscription/v20200901:Alias" },
                     new global::Pulumi.Alias { Type = "azure-native:subscription/v20240801preview:Alias" },
+                    new global::Pulumi.Alias { Type = "azure-native:subscription:Alias" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -112,11 +112,11 @@ namespace Pulumi.AzureNative.Migrate.V20230909Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:GroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:GroupsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

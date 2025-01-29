@@ -116,7 +116,7 @@ export class NspAssociation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:NspAssociation" }, { type: "azure-native:network/v20230701preview:NspAssociation" }, { type: "azure-native:network/v20230801preview:NspAssociation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20230701preview:NspAssociation" }, { type: "azure-native:network/v20230801preview:NspAssociation" }, { type: "azure-native:network:NspAssociation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NspAssociation.__pulumiType, name, resourceInputs, opts);
     }

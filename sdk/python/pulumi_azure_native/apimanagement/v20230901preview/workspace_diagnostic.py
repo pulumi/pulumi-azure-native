@@ -358,7 +358,7 @@ class WorkspaceDiagnostic(pulumi.CustomResource):
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceDiagnostic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement:WorkspaceDiagnostic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceDiagnostic, __self__).__init__(
             'azure-native:apimanagement/v20230901preview:WorkspaceDiagnostic',

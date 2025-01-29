@@ -142,7 +142,6 @@ namespace Pulumi.AzureNative.Network.V20210201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:PrivateLinkService" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190401:PrivateLinkService" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190601:PrivateLinkService" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190701:PrivateLinkService" },
@@ -174,6 +173,7 @@ namespace Pulumi.AzureNative.Network.V20210201
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:PrivateLinkService" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:PrivateLinkService" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:PrivateLinkService" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:PrivateLinkService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

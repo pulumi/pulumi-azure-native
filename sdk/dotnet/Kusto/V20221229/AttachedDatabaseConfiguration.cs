@@ -106,7 +106,6 @@ namespace Pulumi.AzureNative.Kusto.V20221229
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto:AttachedDatabaseConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:AttachedDatabaseConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:AttachedDatabaseConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:AttachedDatabaseConfiguration" },
@@ -120,6 +119,7 @@ namespace Pulumi.AzureNative.Kusto.V20221229
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:AttachedDatabaseConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:AttachedDatabaseConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:AttachedDatabaseConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:AttachedDatabaseConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

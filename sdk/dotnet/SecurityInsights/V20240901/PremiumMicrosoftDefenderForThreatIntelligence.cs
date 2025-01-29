@@ -102,7 +102,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:PremiumMicrosoftDefenderForThreatIntelligence" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:PremiumMicrosoftDefenderForThreatIntelligence" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:PremiumMicrosoftDefenderForThreatIntelligence" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:PremiumMicrosoftDefenderForThreatIntelligence" },
@@ -137,6 +136,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240901
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240301:PremiumMicrosoftDefenderForThreatIntelligence" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:PremiumMicrosoftDefenderForThreatIntelligence" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:PremiumMicrosoftDefenderForThreatIntelligence" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:PremiumMicrosoftDefenderForThreatIntelligence" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

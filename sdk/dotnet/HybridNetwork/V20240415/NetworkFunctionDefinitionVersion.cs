@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.HybridNetwork.V20240415
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:NetworkFunctionDefinitionVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20230901:NetworkFunctionDefinitionVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:NetworkFunctionDefinitionVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

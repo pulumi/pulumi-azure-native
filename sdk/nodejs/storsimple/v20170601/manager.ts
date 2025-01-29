@@ -105,7 +105,7 @@ export class Manager extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:Manager" }, { type: "azure-native:storsimple/v20161001:Manager" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple/v20161001:Manager" }, { type: "azure-native:storsimple:Manager" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Manager.__pulumiType, name, resourceInputs, opts);
     }

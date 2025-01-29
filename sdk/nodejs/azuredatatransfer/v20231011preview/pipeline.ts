@@ -93,7 +93,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuredatatransfer:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240125:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240507:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240911:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240927:Pipeline" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuredatatransfer/v20240125:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240507:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240911:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240927:Pipeline" }, { type: "azure-native:azuredatatransfer:Pipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }

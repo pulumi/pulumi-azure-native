@@ -136,7 +136,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Bookmark" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Bookmark" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Bookmark" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:Bookmark" },
@@ -170,6 +169,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:Bookmark" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:Bookmark" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:Bookmark" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Bookmark" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

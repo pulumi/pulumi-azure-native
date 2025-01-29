@@ -83,9 +83,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:WorkspaceLogger" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:WorkspaceLogger" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:WorkspaceLogger" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:WorkspaceLogger" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

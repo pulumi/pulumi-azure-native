@@ -124,9 +124,9 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20241101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry:AssetEndpointProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20231101preview:AssetEndpointProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20240901preview:AssetEndpointProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry:AssetEndpointProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

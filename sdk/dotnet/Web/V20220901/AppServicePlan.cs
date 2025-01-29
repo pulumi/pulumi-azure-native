@@ -222,7 +222,6 @@ namespace Pulumi.AzureNative.Web.V20220901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:AppServicePlan" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlan" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160901:AppServicePlan" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlan" },
@@ -239,6 +238,7 @@ namespace Pulumi.AzureNative.Web.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:AppServicePlan" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:AppServicePlan" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:AppServicePlan" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:AppServicePlan" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -88,11 +88,11 @@ namespace Pulumi.AzureNative.HybridNetwork.V20240415
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:NetworkFunction" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:NetworkFunction" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20210501:NetworkFunction" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:NetworkFunction" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridnetwork/v20230901:NetworkFunction" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridnetwork:NetworkFunction" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

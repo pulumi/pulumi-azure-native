@@ -107,7 +107,7 @@ export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResourc
             resourceInputs["yearlyRetention"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20221101preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20230201preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20230801preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20240501preview:ManagedInstanceLongTermRetentionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20220501preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20221101preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20230201preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20230801preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql/v20240501preview:ManagedInstanceLongTermRetentionPolicy" }, { type: "azure-native:sql:ManagedInstanceLongTermRetentionPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceLongTermRetentionPolicy.__pulumiType, name, resourceInputs, opts);
     }

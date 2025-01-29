@@ -261,7 +261,7 @@ class Query(pulumi.CustomResource):
             __props__.__dict__["time_created"] = None
             __props__.__dict__["time_modified"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights:Query"), pulumi.Alias(type_="azure-native:operationalinsights/v20190901:Query"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Query")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190901:Query"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:Query"), pulumi.Alias(type_="azure-native:operationalinsights:Query")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Query, __self__).__init__(
             'azure-native:operationalinsights/v20190901preview:Query',

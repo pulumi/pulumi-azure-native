@@ -91,7 +91,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:BatchEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:BatchEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:BatchEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:BatchEndpoint" },
@@ -110,6 +109,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:BatchEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:BatchEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:BatchEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:BatchEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

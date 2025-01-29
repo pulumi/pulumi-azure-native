@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Network.V20230601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualHubIpConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualHubIpConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualHubIpConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualHubIpConfiguration" },
@@ -111,6 +110,7 @@ namespace Pulumi.AzureNative.Network.V20230601
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:VirtualHubIpConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:VirtualHubIpConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:VirtualHubIpConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualHubIpConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:InstanceFailoverGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20171001preview:InstanceFailoverGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:InstanceFailoverGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:InstanceFailoverGroup" },
@@ -105,6 +104,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:InstanceFailoverGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:InstanceFailoverGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:InstanceFailoverGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:InstanceFailoverGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

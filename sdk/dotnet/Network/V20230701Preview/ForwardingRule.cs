@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ForwardingRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:ForwardingRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ForwardingRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:ForwardingRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

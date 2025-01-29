@@ -409,7 +409,7 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry:Task"), pulumi.Alias(type_="azure-native:containerregistry/v20180901:Task"), pulumi.Alias(type_="azure-native:containerregistry/v20190401:Task")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20180901:Task"), pulumi.Alias(type_="azure-native:containerregistry/v20190401:Task"), pulumi.Alias(type_="azure-native:containerregistry:Task")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Task, __self__).__init__(
             'azure-native:containerregistry/v20190601preview:Task',

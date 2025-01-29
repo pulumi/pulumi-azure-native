@@ -172,7 +172,6 @@ namespace Pulumi.AzureNative.Storage.V20230401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage:BlobContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20180201:BlobContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20180301preview:BlobContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobContainer" },
@@ -190,6 +189,7 @@ namespace Pulumi.AzureNative.Storage.V20230401
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:BlobContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:BlobContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230501:BlobContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage:BlobContainer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

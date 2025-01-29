@@ -111,7 +111,7 @@ export class SimGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:SimGroup" }, { type: "azure-native:mobilenetwork/v20220401preview:SimGroup" }, { type: "azure-native:mobilenetwork/v20221101:SimGroup" }, { type: "azure-native:mobilenetwork/v20230601:SimGroup" }, { type: "azure-native:mobilenetwork/v20240201:SimGroup" }, { type: "azure-native:mobilenetwork/v20240401:SimGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220401preview:SimGroup" }, { type: "azure-native:mobilenetwork/v20221101:SimGroup" }, { type: "azure-native:mobilenetwork/v20230601:SimGroup" }, { type: "azure-native:mobilenetwork/v20240201:SimGroup" }, { type: "azure-native:mobilenetwork/v20240401:SimGroup" }, { type: "azure-native:mobilenetwork:SimGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SimGroup.__pulumiType, name, resourceInputs, opts);
     }

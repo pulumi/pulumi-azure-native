@@ -88,11 +88,11 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking:AssociationsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20221001preview:AssociationsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20230501preview:AssociationsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20231101:AssociationsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250101:AssociationsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking:AssociationsInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

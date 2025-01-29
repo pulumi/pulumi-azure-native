@@ -198,7 +198,7 @@ export class LocalRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw:LocalRule" }, { type: "azure-native:cloudngfw/v20220829:LocalRule" }, { type: "azure-native:cloudngfw/v20220829preview:LocalRule" }, { type: "azure-native:cloudngfw/v20230901:LocalRule" }, { type: "azure-native:cloudngfw/v20230901preview:LocalRule" }, { type: "azure-native:cloudngfw/v20231010preview:LocalRule" }, { type: "azure-native:cloudngfw/v20240119preview:LocalRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:LocalRule" }, { type: "azure-native:cloudngfw/v20220829preview:LocalRule" }, { type: "azure-native:cloudngfw/v20230901:LocalRule" }, { type: "azure-native:cloudngfw/v20230901preview:LocalRule" }, { type: "azure-native:cloudngfw/v20231010preview:LocalRule" }, { type: "azure-native:cloudngfw/v20240119preview:LocalRule" }, { type: "azure-native:cloudngfw:LocalRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LocalRule.__pulumiType, name, resourceInputs, opts);
     }

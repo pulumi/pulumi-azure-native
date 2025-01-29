@@ -100,7 +100,6 @@ namespace Pulumi.AzureNative.Network.V20230901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:RouteTable" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20150501preview:RouteTable" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20150615:RouteTable" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20160330:RouteTable" },
@@ -154,6 +153,7 @@ namespace Pulumi.AzureNative.Network.V20230901
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:RouteTable" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:RouteTable" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:RouteTable" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:RouteTable" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

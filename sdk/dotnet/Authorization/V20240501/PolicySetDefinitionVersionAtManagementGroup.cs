@@ -106,9 +106,9 @@ namespace Pulumi.AzureNative.Authorization.V20240501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization:PolicySetDefinitionVersionAtManagementGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20230401:PolicySetDefinitionVersionAtManagementGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20250101:PolicySetDefinitionVersionAtManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization:PolicySetDefinitionVersionAtManagementGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

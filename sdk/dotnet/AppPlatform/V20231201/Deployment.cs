@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20231201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Deployment" },
@@ -90,6 +89,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20231201
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231101preview:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:Deployment" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240501preview:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:Deployment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

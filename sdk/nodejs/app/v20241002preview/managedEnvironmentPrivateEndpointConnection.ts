@@ -106,7 +106,7 @@ export class ManagedEnvironmentPrivateEndpointConnection extends pulumi.CustomRe
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:ManagedEnvironmentPrivateEndpointConnection" }, { type: "azure-native:app/v20240202preview:ManagedEnvironmentPrivateEndpointConnection" }, { type: "azure-native:app/v20240802preview:ManagedEnvironmentPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20240202preview:ManagedEnvironmentPrivateEndpointConnection" }, { type: "azure-native:app/v20240802preview:ManagedEnvironmentPrivateEndpointConnection" }, { type: "azure-native:app:ManagedEnvironmentPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedEnvironmentPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

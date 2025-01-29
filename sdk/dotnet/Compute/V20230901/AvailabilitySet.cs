@@ -100,7 +100,6 @@ namespace Pulumi.AzureNative.Compute.V20230901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:AvailabilitySet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20150615:AvailabilitySet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20160330:AvailabilitySet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20160430preview:AvailabilitySet" },
@@ -125,6 +124,7 @@ namespace Pulumi.AzureNative.Compute.V20230901
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:AvailabilitySet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:AvailabilitySet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:AvailabilitySet" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute:AvailabilitySet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -258,7 +258,7 @@ class Spacecraft(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital:Spacecraft"), pulumi.Alias(type_="azure-native:orbital/v20221101:Spacecraft")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20221101:Spacecraft"), pulumi.Alias(type_="azure-native:orbital:Spacecraft")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Spacecraft, __self__).__init__(
             'azure-native:orbital/v20220301:Spacecraft',

@@ -262,7 +262,7 @@ class ClusterPool(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight:ClusterPool"), pulumi.Alias(type_="azure-native:hdinsight/v20230601preview:ClusterPool"), pulumi.Alias(type_="azure-native:hdinsight/v20240501preview:ClusterPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight/v20230601preview:ClusterPool"), pulumi.Alias(type_="azure-native:hdinsight/v20240501preview:ClusterPool"), pulumi.Alias(type_="azure-native:hdinsight:ClusterPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ClusterPool, __self__).__init__(
             'azure-native:hdinsight/v20231101preview:ClusterPool',

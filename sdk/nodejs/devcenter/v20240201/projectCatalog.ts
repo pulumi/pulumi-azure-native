@@ -139,7 +139,7 @@ export class ProjectCatalog extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:ProjectCatalog" }, { type: "azure-native:devcenter/v20240501preview:ProjectCatalog" }, { type: "azure-native:devcenter/v20240601preview:ProjectCatalog" }, { type: "azure-native:devcenter/v20240701preview:ProjectCatalog" }, { type: "azure-native:devcenter/v20240801preview:ProjectCatalog" }, { type: "azure-native:devcenter/v20241001preview:ProjectCatalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20240501preview:ProjectCatalog" }, { type: "azure-native:devcenter/v20240601preview:ProjectCatalog" }, { type: "azure-native:devcenter/v20240701preview:ProjectCatalog" }, { type: "azure-native:devcenter/v20240801preview:ProjectCatalog" }, { type: "azure-native:devcenter/v20241001preview:ProjectCatalog" }, { type: "azure-native:devcenter:ProjectCatalog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectCatalog.__pulumiType, name, resourceInputs, opts);
     }

@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.Network.V20240501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:FirewallPolicyRuleCollectionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200501:FirewallPolicyRuleCollectionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:FirewallPolicyRuleCollectionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200701:FirewallPolicyRuleCollectionGroup" },
@@ -105,6 +104,7 @@ namespace Pulumi.AzureNative.Network.V20240501
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:FirewallPolicyRuleCollectionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:FirewallPolicyRuleCollectionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:FirewallPolicyRuleCollectionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:FirewallPolicyRuleCollectionGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

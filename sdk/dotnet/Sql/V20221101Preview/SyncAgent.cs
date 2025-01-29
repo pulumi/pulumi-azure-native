@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Sql.V20221101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:SyncAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SyncAgent" },
@@ -105,6 +104,7 @@ namespace Pulumi.AzureNative.Sql.V20221101Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:SyncAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:SyncAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:SyncAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:SyncAgent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -64,13 +64,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20231101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ContainerRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:ContainerRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230701preview:ContainerRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230901preview:ContainerRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:ContainerRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:ContainerRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240501preview:ContainerRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ContainerRegistry" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

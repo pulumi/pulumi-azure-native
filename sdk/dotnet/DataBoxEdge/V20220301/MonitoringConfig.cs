@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:MonitoringConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:MonitoringConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:MonitoringConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:MonitoringConfig" },
@@ -77,6 +76,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:MonitoringConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:MonitoringConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:MonitoringConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:MonitoringConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

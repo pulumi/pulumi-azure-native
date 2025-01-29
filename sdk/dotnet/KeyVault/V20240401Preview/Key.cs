@@ -115,7 +115,6 @@ namespace Pulumi.AzureNative.KeyVault.V20240401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault:Key" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20190901:Key" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:Key" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:Key" },
@@ -129,6 +128,7 @@ namespace Pulumi.AzureNative.KeyVault.V20240401Preview
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230701:Key" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20241101:Key" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20241201preview:Key" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault:Key" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

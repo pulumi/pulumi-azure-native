@@ -148,13 +148,13 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:PacketCoreControlPlane" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:PacketCoreControlPlane" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:PacketCoreControlPlane" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240201:PacketCoreControlPlane" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240401:PacketCoreControlPlane" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:PacketCoreControlPlane" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

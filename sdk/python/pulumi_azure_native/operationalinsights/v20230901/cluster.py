@@ -281,7 +281,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20190801preview:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20201001:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20210601:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190801preview:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20201001:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20210601:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights/v20221001:Cluster"), pulumi.Alias(type_="azure-native:operationalinsights:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:operationalinsights/v20230901:Cluster',

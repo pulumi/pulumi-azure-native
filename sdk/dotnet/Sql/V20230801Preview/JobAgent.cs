@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Sql.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:JobAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:JobAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobAgent" },
@@ -105,6 +104,7 @@ namespace Pulumi.AzureNative.Sql.V20230801Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:JobAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:JobAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:JobAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:JobAgent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

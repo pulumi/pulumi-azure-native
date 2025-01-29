@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:AuthorizationAccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:AuthorizationAccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:AuthorizationAccessPolicy" },
@@ -78,6 +77,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:AuthorizationAccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:AuthorizationAccessPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:AuthorizationAccessPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:AuthorizationAccessPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

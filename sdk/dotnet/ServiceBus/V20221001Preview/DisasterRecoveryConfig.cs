@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20221001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:DisasterRecoveryConfig" },
@@ -103,6 +102,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20230101preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20240101:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:DisasterRecoveryConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

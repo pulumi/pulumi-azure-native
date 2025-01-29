@@ -154,7 +154,6 @@ namespace Pulumi.AzureNative.Network.V20230201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VpnServerConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VpnServerConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VpnServerConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20191101:VpnServerConfiguration" },
@@ -183,6 +182,7 @@ namespace Pulumi.AzureNative.Network.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:VpnServerConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:VpnServerConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:VpnServerConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:VpnServerConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

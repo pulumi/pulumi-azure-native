@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.Peering.V20221001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:peering:RegisteredAsn" },
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20200101preview:RegisteredAsn" },
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20200401:RegisteredAsn" },
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20201001:RegisteredAsn" },
@@ -78,6 +77,7 @@ namespace Pulumi.AzureNative.Peering.V20221001
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:RegisteredAsn" },
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:RegisteredAsn" },
                     new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:RegisteredAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native:peering:RegisteredAsn" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

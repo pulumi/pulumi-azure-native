@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.Relay.V20240101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:relay:NamespaceAuthorizationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

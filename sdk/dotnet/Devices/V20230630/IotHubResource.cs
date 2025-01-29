@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.Devices.V20230630
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices:IotHubResource" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20160203:IotHubResource" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20170119:IotHubResource" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20170701:IotHubResource" },
@@ -122,6 +121,7 @@ namespace Pulumi.AzureNative.Devices.V20230630
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20220430preview:IotHubResource" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20221115preview:IotHubResource" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20230630preview:IotHubResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:devices:IotHubResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

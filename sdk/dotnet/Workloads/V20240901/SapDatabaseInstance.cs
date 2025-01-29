@@ -124,11 +124,11 @@ namespace Pulumi.AzureNative.Workloads.V20240901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads:SapDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SapDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SapDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SapDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SapDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:SapDatabaseInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

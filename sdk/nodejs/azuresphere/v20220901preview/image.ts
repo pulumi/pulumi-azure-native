@@ -132,7 +132,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere:Image" }, { type: "azure-native:azuresphere/v20240401:Image" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere/v20240401:Image" }, { type: "azure-native:azuresphere:Image" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Image.__pulumiType, name, resourceInputs, opts);
     }

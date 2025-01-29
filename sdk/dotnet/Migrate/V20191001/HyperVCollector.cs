@@ -49,11 +49,11 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate:HyperVCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:HyperVCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:HyperVCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:HyperVCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:HyperVCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:HyperVCollector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

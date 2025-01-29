@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:FeaturestoreEntityVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:FeaturestoreEntityVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:FeaturestoreEntityVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:FeaturestoreEntityVersion" },
@@ -75,6 +74,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240101Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:FeaturestoreEntityVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:FeaturestoreEntityVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:FeaturestoreEntityVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:FeaturestoreEntityVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

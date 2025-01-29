@@ -100,8 +100,8 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storsimple:ManagerExtendedInfo" },
                     new global::Pulumi.Alias { Type = "azure-native:storsimple/v20161001:ManagerExtendedInfo" },
+                    new global::Pulumi.Alias { Type = "azure-native:storsimple:ManagerExtendedInfo" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

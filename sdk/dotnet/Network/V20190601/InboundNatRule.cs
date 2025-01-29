@@ -112,7 +112,6 @@ namespace Pulumi.AzureNative.Network.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:InboundNatRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20170601:InboundNatRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20170801:InboundNatRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20170901:InboundNatRule" },
@@ -159,6 +158,7 @@ namespace Pulumi.AzureNative.Network.V20190601
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:InboundNatRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:InboundNatRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:InboundNatRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:InboundNatRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

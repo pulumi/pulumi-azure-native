@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.Monitor.V20241001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:monitor:PipelineGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20231001preview:PipelineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:monitor:PipelineGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

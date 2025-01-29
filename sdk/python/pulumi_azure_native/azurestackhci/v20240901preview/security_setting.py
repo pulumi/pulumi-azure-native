@@ -210,7 +210,7 @@ class SecuritySetting(pulumi.CustomResource):
             __props__.__dict__["security_compliance_status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci:SecuritySetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:SecuritySetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:SecuritySetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240215preview:SecuritySetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240401:SecuritySetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20241201preview:SecuritySetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:SecuritySetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:SecuritySetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240215preview:SecuritySetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240401:SecuritySetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20241201preview:SecuritySetting"), pulumi.Alias(type_="azure-native:azurestackhci:SecuritySetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecuritySetting, __self__).__init__(
             'azure-native:azurestackhci/v20240901preview:SecuritySetting',

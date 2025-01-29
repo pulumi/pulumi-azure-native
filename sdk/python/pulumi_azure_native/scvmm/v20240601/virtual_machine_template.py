@@ -251,7 +251,7 @@ class VirtualMachineTemplate(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20200605preview:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20220521preview:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20231007:VirtualMachineTemplate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20200605preview:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20220521preview:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm/v20231007:VirtualMachineTemplate"), pulumi.Alias(type_="azure-native:scvmm:VirtualMachineTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineTemplate, __self__).__init__(
             'azure-native:scvmm/v20240601:VirtualMachineTemplate',

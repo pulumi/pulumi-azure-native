@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20240301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSubSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource" },
@@ -102,6 +101,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240401preview:WebPubSubSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240801preview:WebPubSubSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20241001preview:WebPubSubSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSubSharedPrivateLinkResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

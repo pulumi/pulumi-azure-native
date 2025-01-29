@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.App.V20240301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:ConnectedEnvironmentsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ConnectedEnvironmentsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate" },
@@ -88,6 +87,7 @@ namespace Pulumi.AzureNative.App.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:ConnectedEnvironmentsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ConnectedEnvironmentsCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app:ConnectedEnvironmentsCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

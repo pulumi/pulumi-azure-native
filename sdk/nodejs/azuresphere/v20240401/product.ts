@@ -91,7 +91,7 @@ export class Product extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere:Product" }, { type: "azure-native:azuresphere/v20220901preview:Product" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere/v20220901preview:Product" }, { type: "azure-native:azuresphere:Product" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Product.__pulumiType, name, resourceInputs, opts);
     }

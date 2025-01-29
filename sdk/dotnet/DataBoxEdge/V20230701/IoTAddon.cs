@@ -108,7 +108,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:IoTAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:IoTAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:IoTAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:IoTAddon" },
@@ -121,6 +120,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:IoTAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:IoTAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:IoTAddon" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:IoTAddon" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

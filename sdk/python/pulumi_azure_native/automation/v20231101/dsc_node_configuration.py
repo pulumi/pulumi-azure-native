@@ -240,7 +240,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["node_count"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20151031:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20180115:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20190601:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20200113preview:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20220808:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20230515preview:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20241023:DscNodeConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20180115:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20190601:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20200113preview:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20220808:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20230515preview:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation/v20241023:DscNodeConfiguration"), pulumi.Alias(type_="azure-native:automation:DscNodeConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DscNodeConfiguration, __self__).__init__(
             'azure-native:automation/v20231101:DscNodeConfiguration',

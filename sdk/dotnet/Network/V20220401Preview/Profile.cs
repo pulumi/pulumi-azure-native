@@ -112,7 +112,6 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:Profile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20151101:Profile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20170301:Profile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20170501:Profile" },
@@ -121,6 +120,7 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Profile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Profile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401:Profile" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:Profile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

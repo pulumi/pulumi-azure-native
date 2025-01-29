@@ -82,11 +82,11 @@ namespace Pulumi.AzureNative.DevCenter.V20240701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter:PlanMember" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240501preview:PlanMember" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240601preview:PlanMember" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:PlanMember" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:PlanMember" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter:PlanMember" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

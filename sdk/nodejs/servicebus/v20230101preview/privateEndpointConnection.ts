@@ -103,7 +103,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20180101preview:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20210101preview:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20211101:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20220101preview:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20221001preview:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20240101:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20180101preview:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20210101preview:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20211101:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20220101preview:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20221001preview:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20240101:PrivateEndpointConnection" }, { type: "azure-native:servicebus:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

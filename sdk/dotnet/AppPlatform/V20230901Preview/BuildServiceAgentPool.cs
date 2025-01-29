@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20230901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:BuildServiceAgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:BuildServiceAgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:BuildServiceAgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220401:BuildServiceAgentPool" },
@@ -80,6 +79,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20230901Preview
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:BuildServiceAgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:BuildServiceAgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240501preview:BuildServiceAgentPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:BuildServiceAgentPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

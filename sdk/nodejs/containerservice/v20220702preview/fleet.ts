@@ -105,7 +105,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:Fleet" }, { type: "azure-native:containerservice/v20220602preview:Fleet" }, { type: "azure-native:containerservice/v20220902preview:Fleet" }, { type: "azure-native:containerservice/v20230315preview:Fleet" }, { type: "azure-native:containerservice/v20230615preview:Fleet" }, { type: "azure-native:containerservice/v20230815preview:Fleet" }, { type: "azure-native:containerservice/v20231015:Fleet" }, { type: "azure-native:containerservice/v20240202preview:Fleet" }, { type: "azure-native:containerservice/v20240401:Fleet" }, { type: "azure-native:containerservice/v20240502preview:Fleet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220602preview:Fleet" }, { type: "azure-native:containerservice/v20220902preview:Fleet" }, { type: "azure-native:containerservice/v20230315preview:Fleet" }, { type: "azure-native:containerservice/v20230615preview:Fleet" }, { type: "azure-native:containerservice/v20230815preview:Fleet" }, { type: "azure-native:containerservice/v20231015:Fleet" }, { type: "azure-native:containerservice/v20240202preview:Fleet" }, { type: "azure-native:containerservice/v20240401:Fleet" }, { type: "azure-native:containerservice/v20240502preview:Fleet" }, { type: "azure-native:containerservice:Fleet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }

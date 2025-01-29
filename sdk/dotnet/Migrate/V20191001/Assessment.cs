@@ -64,11 +64,11 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate:Assessment" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:Assessment" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:Assessment" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:Assessment" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:Assessment" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:Assessment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

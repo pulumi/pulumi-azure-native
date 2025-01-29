@@ -175,7 +175,7 @@ class ConfigurationGroupValue(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork:ConfigurationGroupValue"), pulumi.Alias(type_="azure-native:hybridnetwork/v20240415:ConfigurationGroupValue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20240415:ConfigurationGroupValue"), pulumi.Alias(type_="azure-native:hybridnetwork:ConfigurationGroupValue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationGroupValue, __self__).__init__(
             'azure-native:hybridnetwork/v20230901:ConfigurationGroupValue',

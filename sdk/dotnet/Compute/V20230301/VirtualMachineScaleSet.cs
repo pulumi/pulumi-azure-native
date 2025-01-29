@@ -208,7 +208,6 @@ namespace Pulumi.AzureNative.Compute.V20230301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:VirtualMachineScaleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20150615:VirtualMachineScaleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20160330:VirtualMachineScaleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20160430preview:VirtualMachineScaleSet" },
@@ -233,6 +232,7 @@ namespace Pulumi.AzureNative.Compute.V20230301
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:VirtualMachineScaleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:VirtualMachineScaleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:VirtualMachineScaleSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute:VirtualMachineScaleSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

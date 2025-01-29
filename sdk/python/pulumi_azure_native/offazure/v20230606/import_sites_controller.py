@@ -197,7 +197,7 @@ class ImportSitesController(pulumi.CustomResource):
             __props__.__dict__["service_endpoint"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure:ImportSitesController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:ImportSitesController"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:ImportSitesController")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20231001preview:ImportSitesController"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:ImportSitesController"), pulumi.Alias(type_="azure-native:offazure:ImportSitesController")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ImportSitesController, __self__).__init__(
             'azure-native:offazure/v20230606:ImportSitesController',

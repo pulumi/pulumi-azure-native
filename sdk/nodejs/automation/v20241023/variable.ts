@@ -112,7 +112,7 @@ export class Variable extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation:Variable" }, { type: "azure-native:automation/v20151031:Variable" }, { type: "azure-native:automation/v20190601:Variable" }, { type: "azure-native:automation/v20200113preview:Variable" }, { type: "azure-native:automation/v20220808:Variable" }, { type: "azure-native:automation/v20230515preview:Variable" }, { type: "azure-native:automation/v20231101:Variable" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Variable" }, { type: "azure-native:automation/v20190601:Variable" }, { type: "azure-native:automation/v20200113preview:Variable" }, { type: "azure-native:automation/v20220808:Variable" }, { type: "azure-native:automation/v20230515preview:Variable" }, { type: "azure-native:automation/v20231101:Variable" }, { type: "azure-native:automation:Variable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Variable.__pulumiType, name, resourceInputs, opts);
     }

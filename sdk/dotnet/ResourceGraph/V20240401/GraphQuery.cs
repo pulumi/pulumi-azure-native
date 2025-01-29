@@ -100,12 +100,12 @@ namespace Pulumi.AzureNative.ResourceGraph.V20240401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resourcegraph:GraphQuery" },
                     new global::Pulumi.Alias { Type = "azure-native:resourcegraph/v20180901preview:GraphQuery" },
                     new global::Pulumi.Alias { Type = "azure-native:resourcegraph/v20190401:GraphQuery" },
                     new global::Pulumi.Alias { Type = "azure-native:resourcegraph/v20200401preview:GraphQuery" },
                     new global::Pulumi.Alias { Type = "azure-native:resourcegraph/v20210301:GraphQuery" },
                     new global::Pulumi.Alias { Type = "azure-native:resourcegraph/v20221001:GraphQuery" },
+                    new global::Pulumi.Alias { Type = "azure-native:resourcegraph:GraphQuery" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

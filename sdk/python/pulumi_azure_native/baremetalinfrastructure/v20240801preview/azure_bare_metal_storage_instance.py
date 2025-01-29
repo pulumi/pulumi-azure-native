@@ -216,7 +216,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:baremetalinfrastructure:AzureBareMetalStorageInstance"), pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20230406:AzureBareMetalStorageInstance"), pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20230804preview:AzureBareMetalStorageInstance"), pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20231101preview:AzureBareMetalStorageInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20230406:AzureBareMetalStorageInstance"), pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20230804preview:AzureBareMetalStorageInstance"), pulumi.Alias(type_="azure-native:baremetalinfrastructure/v20231101preview:AzureBareMetalStorageInstance"), pulumi.Alias(type_="azure-native:baremetalinfrastructure:AzureBareMetalStorageInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureBareMetalStorageInstance, __self__).__init__(
             'azure-native:baremetalinfrastructure/v20240801preview:AzureBareMetalStorageInstance',

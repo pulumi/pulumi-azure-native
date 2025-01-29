@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.TestBase.V20231101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:testbase:FavoriteProcess" },
                     new global::Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:FavoriteProcess" },
                     new global::Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:FavoriteProcess" },
+                    new global::Pulumi.Alias { Type = "azure-native:testbase:FavoriteProcess" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Kusto.V20240413
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20210827:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:ManagedPrivateEndpoint" },
@@ -96,6 +95,7 @@ namespace Pulumi.AzureNative.Kusto.V20240413
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:ManagedPrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:ManagedPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:ManagedPrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

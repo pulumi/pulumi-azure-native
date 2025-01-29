@@ -73,7 +73,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20231115Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:SqlResourceSqlTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlTrigger" },
@@ -112,6 +111,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20231115Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240901preview:SqlResourceSqlTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241115:SqlResourceSqlTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241201preview:SqlResourceSqlTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlTrigger" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

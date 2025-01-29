@@ -178,7 +178,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20200301preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20201001:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210101preview:Cluster" },
@@ -201,6 +200,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20220101
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240401:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240901preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241201preview:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

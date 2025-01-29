@@ -108,7 +108,7 @@ export class RoutePolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric:RoutePolicy" }, { type: "azure-native:managednetworkfabric/v20230615:RoutePolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:RoutePolicy" }, { type: "azure-native:managednetworkfabric:RoutePolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoutePolicy.__pulumiType, name, resourceInputs, opts);
     }

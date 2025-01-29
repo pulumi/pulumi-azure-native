@@ -104,7 +104,7 @@ export class PlacementPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs:PlacementPolicy" }, { type: "azure-native:avs/v20211201:PlacementPolicy" }, { type: "azure-native:avs/v20220501:PlacementPolicy" }, { type: "azure-native:avs/v20230301:PlacementPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20211201:PlacementPolicy" }, { type: "azure-native:avs/v20220501:PlacementPolicy" }, { type: "azure-native:avs/v20230301:PlacementPolicy" }, { type: "azure-native:avs:PlacementPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PlacementPolicy.__pulumiType, name, resourceInputs, opts);
     }

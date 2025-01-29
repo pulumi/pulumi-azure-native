@@ -101,7 +101,6 @@ namespace Pulumi.AzureNative.Web.V20240401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppVnetConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppVnetConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppVnetConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppVnetConnectionSlot" },
@@ -119,6 +118,7 @@ namespace Pulumi.AzureNative.Web.V20240401
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppVnetConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppVnetConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppVnetConnectionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppVnetConnectionSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppSwiftVirtualNetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnection" },
@@ -92,6 +91,7 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppSwiftVirtualNetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppSwiftVirtualNetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppSwiftVirtualNetworkConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppSwiftVirtualNetworkConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

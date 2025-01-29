@@ -124,7 +124,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:MarketplaceGalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:MarketplaceGalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:MarketplaceGalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:MarketplaceGalleryImage" },
@@ -134,6 +133,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:MarketplaceGalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:MarketplaceGalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:MarketplaceGalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:MarketplaceGalleryImage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

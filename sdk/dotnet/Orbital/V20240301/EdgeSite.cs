@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.Orbital.V20240301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:orbital:EdgeSite" },
                     new global::Pulumi.Alias { Type = "azure-native:orbital/v20240301preview:EdgeSite" },
+                    new global::Pulumi.Alias { Type = "azure-native:orbital:EdgeSite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

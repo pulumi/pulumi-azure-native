@@ -97,7 +97,7 @@ export class ArtifactStore extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:ArtifactStore" }, { type: "azure-native:hybridnetwork/v20230901:ArtifactStore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:ArtifactStore" }, { type: "azure-native:hybridnetwork:ArtifactStore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArtifactStore.__pulumiType, name, resourceInputs, opts);
     }

@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.Devices.V20230630Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices:IotHubResourceEventHubConsumerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20160203:IotHubResourceEventHubConsumerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20170119:IotHubResourceEventHubConsumerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20170701:IotHubResourceEventHubConsumerGroup" },
@@ -92,6 +91,7 @@ namespace Pulumi.AzureNative.Devices.V20230630Preview
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20221115preview:IotHubResourceEventHubConsumerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20230630:IotHubResourceEventHubConsumerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:devices:IotHubResourceEventHubConsumerGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

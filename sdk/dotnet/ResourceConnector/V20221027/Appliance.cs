@@ -112,9 +112,9 @@ namespace Pulumi.AzureNative.ResourceConnector.V20221027
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resourceconnector:Appliance" },
                     new global::Pulumi.Alias { Type = "azure-native:resourceconnector/v20211031preview:Appliance" },
                     new global::Pulumi.Alias { Type = "azure-native:resourceconnector/v20220415preview:Appliance" },
+                    new global::Pulumi.Alias { Type = "azure-native:resourceconnector:Appliance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

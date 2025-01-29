@@ -127,7 +127,7 @@ export class NetworkToNetworkInterconnect extends pulumi.CustomResource {
             resourceInputs["useOptionB"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric:NetworkToNetworkInterconnect" }, { type: "azure-native:managednetworkfabric/v20230615:NetworkToNetworkInterconnect" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:NetworkToNetworkInterconnect" }, { type: "azure-native:managednetworkfabric:NetworkToNetworkInterconnect" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkToNetworkInterconnect.__pulumiType, name, resourceInputs, opts);
     }

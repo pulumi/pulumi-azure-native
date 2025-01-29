@@ -117,7 +117,7 @@ export class NGroup extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance:NGroup" }, { type: "azure-native:containerinstance/v20241101preview:NGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance/v20241101preview:NGroup" }, { type: "azure-native:containerinstance:NGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NGroup.__pulumiType, name, resourceInputs, opts);
     }

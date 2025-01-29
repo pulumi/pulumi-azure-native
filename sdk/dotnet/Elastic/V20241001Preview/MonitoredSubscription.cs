@@ -58,9 +58,9 @@ namespace Pulumi.AzureNative.Elastic.V20241001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:elastic:MonitoredSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240501preview:MonitoredSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240615preview:MonitoredSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:elastic:MonitoredSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

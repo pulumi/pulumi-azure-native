@@ -122,7 +122,7 @@ export class ContainerApp extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web:ContainerApp" }, { type: "azure-native:web/v20210301:ContainerApp" }, { type: "azure-native:web/v20220301:ContainerApp" }, { type: "azure-native:web/v20220901:ContainerApp" }, { type: "azure-native:web/v20230101:ContainerApp" }, { type: "azure-native:web/v20240401:ContainerApp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20210301:ContainerApp" }, { type: "azure-native:web/v20220301:ContainerApp" }, { type: "azure-native:web/v20220901:ContainerApp" }, { type: "azure-native:web/v20230101:ContainerApp" }, { type: "azure-native:web/v20240401:ContainerApp" }, { type: "azure-native:web:ContainerApp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerApp.__pulumiType, name, resourceInputs, opts);
     }

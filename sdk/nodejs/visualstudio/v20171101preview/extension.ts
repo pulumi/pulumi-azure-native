@@ -97,7 +97,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:visualstudio:Extension" }, { type: "azure-native:visualstudio/v20140401preview:Extension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:visualstudio/v20140401preview:Extension" }, { type: "azure-native:visualstudio:Extension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Extension.__pulumiType, name, resourceInputs, opts);
     }

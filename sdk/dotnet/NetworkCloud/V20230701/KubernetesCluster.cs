@@ -175,11 +175,11 @@ namespace Pulumi.AzureNative.NetworkCloud.V20230701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:KubernetesCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:KubernetesCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:KubernetesCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:KubernetesCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:KubernetesCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:KubernetesCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

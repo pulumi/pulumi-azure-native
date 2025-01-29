@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:providerhub:OperationByProviderRegistration" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20201120:OperationByProviderRegistration" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:OperationByProviderRegistration" },
                     new global::Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:OperationByProviderRegistration" },
+                    new global::Pulumi.Alias { Type = "azure-native:providerhub:OperationByProviderRegistration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

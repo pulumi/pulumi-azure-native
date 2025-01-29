@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:CustomizedAccelerator" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:CustomizedAccelerator" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:CustomizedAccelerator" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:CustomizedAccelerator" },
@@ -80,6 +79,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231101preview:CustomizedAccelerator" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:CustomizedAccelerator" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:CustomizedAccelerator" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:CustomizedAccelerator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

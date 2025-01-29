@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Web.V20231201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppBackupConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppBackupConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppBackupConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppBackupConfiguration" },
@@ -106,6 +105,7 @@ namespace Pulumi.AzureNative.Web.V20231201
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppBackupConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppBackupConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppBackupConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppBackupConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

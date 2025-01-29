@@ -207,7 +207,6 @@ namespace Pulumi.AzureNative.Batch.V20231101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:batch:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20170901:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20181201:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20190401:Pool" },
@@ -223,6 +222,7 @@ namespace Pulumi.AzureNative.Batch.V20231101
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20230501:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20240201:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20240701:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:batch:Pool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

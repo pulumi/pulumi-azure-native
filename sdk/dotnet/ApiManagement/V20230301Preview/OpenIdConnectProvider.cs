@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20230301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:OpenIdConnectProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:OpenIdConnectProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:OpenIdConnectProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:OpenIdConnectProvider" },
@@ -116,6 +115,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20230301Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:OpenIdConnectProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:OpenIdConnectProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:OpenIdConnectProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:OpenIdConnectProvider" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

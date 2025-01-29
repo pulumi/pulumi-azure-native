@@ -58,7 +58,6 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200401:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200615:PrivateEndpointConnection" },
@@ -76,6 +75,7 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20221115preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20230630:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20230630preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:devices:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

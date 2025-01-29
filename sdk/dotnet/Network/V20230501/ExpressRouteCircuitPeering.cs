@@ -178,7 +178,6 @@ namespace Pulumi.AzureNative.Network.V20230501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ExpressRouteCircuitPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20150501preview:ExpressRouteCircuitPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20150615:ExpressRouteCircuitPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20160330:ExpressRouteCircuitPeering" },
@@ -232,6 +231,7 @@ namespace Pulumi.AzureNative.Network.V20230501
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:ExpressRouteCircuitPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:ExpressRouteCircuitPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:ExpressRouteCircuitPeering" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:ExpressRouteCircuitPeering" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

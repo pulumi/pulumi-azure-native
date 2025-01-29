@@ -359,7 +359,7 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:ContainerAppsSessionPool"), pulumi.Alias(type_="azure-native:app/v20240202preview:ContainerAppsSessionPool"), pulumi.Alias(type_="azure-native:app/v20240802preview:ContainerAppsSessionPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20240202preview:ContainerAppsSessionPool"), pulumi.Alias(type_="azure-native:app/v20240802preview:ContainerAppsSessionPool"), pulumi.Alias(type_="azure-native:app:ContainerAppsSessionPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContainerAppsSessionPool, __self__).__init__(
             'azure-native:app/v20241002preview:ContainerAppsSessionPool',

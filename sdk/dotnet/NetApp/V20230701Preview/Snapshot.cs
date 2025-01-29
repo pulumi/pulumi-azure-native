@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.NetApp.V20230701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:netapp:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20170815:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20190501:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20190601:Snapshot" },
@@ -123,6 +122,7 @@ namespace Pulumi.AzureNative.NetApp.V20230701Preview
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Snapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:Snapshot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

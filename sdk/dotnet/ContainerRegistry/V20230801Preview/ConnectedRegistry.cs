@@ -130,7 +130,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:ConnectedRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ConnectedRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ConnectedRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:ConnectedRegistry" },
@@ -140,6 +139,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230801Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:ConnectedRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:ConnectedRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:ConnectedRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:ConnectedRegistry" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

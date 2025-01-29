@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:WorkloadGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20190601preview:WorkloadGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:WorkloadGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:WorkloadGroup" },
@@ -105,6 +104,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:WorkloadGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:WorkloadGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:WorkloadGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:WorkloadGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

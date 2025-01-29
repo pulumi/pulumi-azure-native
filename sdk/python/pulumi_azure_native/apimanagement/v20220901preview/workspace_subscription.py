@@ -349,7 +349,7 @@ class WorkspaceSubscription(pulumi.CustomResource):
             __props__.__dict__["start_date"] = None
             __props__.__dict__["state_comment"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement:WorkspaceSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceSubscription, __self__).__init__(
             'azure-native:apimanagement/v20220901preview:WorkspaceSubscription',

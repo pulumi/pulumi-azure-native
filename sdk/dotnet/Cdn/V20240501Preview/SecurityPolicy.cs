@@ -79,7 +79,6 @@ namespace Pulumi.AzureNative.Cdn.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:SecurityPolicy" },
@@ -89,6 +88,7 @@ namespace Pulumi.AzureNative.Cdn.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:SecurityPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:SecurityPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:SecurityPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

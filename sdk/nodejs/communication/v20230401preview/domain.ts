@@ -142,7 +142,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["verificationStates"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication:Domain" }, { type: "azure-native:communication/v20211001preview:Domain" }, { type: "azure-native:communication/v20220701preview:Domain" }, { type: "azure-native:communication/v20230301preview:Domain" }, { type: "azure-native:communication/v20230331:Domain" }, { type: "azure-native:communication/v20230401:Domain" }, { type: "azure-native:communication/v20230601preview:Domain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20211001preview:Domain" }, { type: "azure-native:communication/v20220701preview:Domain" }, { type: "azure-native:communication/v20230301preview:Domain" }, { type: "azure-native:communication/v20230331:Domain" }, { type: "azure-native:communication/v20230401:Domain" }, { type: "azure-native:communication/v20230601preview:Domain" }, { type: "azure-native:communication:Domain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }

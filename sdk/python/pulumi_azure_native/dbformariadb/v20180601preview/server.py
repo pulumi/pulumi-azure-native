@@ -208,7 +208,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["user_visible_state"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformariadb:Server"), pulumi.Alias(type_="azure-native:dbformariadb/v20180601:Server")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformariadb/v20180601:Server"), pulumi.Alias(type_="azure-native:dbformariadb:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
             'azure-native:dbformariadb/v20180601preview:Server',

@@ -84,7 +84,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:ScopeMap" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501preview:ScopeMap" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ScopeMap" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ScopeMap" },
@@ -97,6 +96,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230801Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230701:ScopeMap" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:ScopeMap" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:ScopeMap" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:ScopeMap" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

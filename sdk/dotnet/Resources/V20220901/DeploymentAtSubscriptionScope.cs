@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.Resources.V20220901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources:DeploymentAtSubscriptionScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20180501:DeploymentAtSubscriptionScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20190301:DeploymentAtSubscriptionScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20190501:DeploymentAtSubscriptionScope" },
@@ -87,6 +86,7 @@ namespace Pulumi.AzureNative.Resources.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20240301:DeploymentAtSubscriptionScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20240701:DeploymentAtSubscriptionScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20241101:DeploymentAtSubscriptionScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources:DeploymentAtSubscriptionScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

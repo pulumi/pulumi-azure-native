@@ -85,7 +85,7 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:FirewallRule" }, { type: "azure-native:documentdb/v20230301preview:FirewallRule" }, { type: "azure-native:documentdb/v20230315preview:FirewallRule" }, { type: "azure-native:documentdb/v20230915preview:FirewallRule" }, { type: "azure-native:documentdb/v20231115preview:FirewallRule" }, { type: "azure-native:documentdb/v20240215preview:FirewallRule" }, { type: "azure-native:documentdb/v20240301preview:FirewallRule" }, { type: "azure-native:documentdb/v20240601preview:FirewallRule" }, { type: "azure-native:documentdb/v20241001preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20230301preview:FirewallRule" }, { type: "azure-native:documentdb/v20230315preview:FirewallRule" }, { type: "azure-native:documentdb/v20230915preview:FirewallRule" }, { type: "azure-native:documentdb/v20231115preview:FirewallRule" }, { type: "azure-native:documentdb/v20240215preview:FirewallRule" }, { type: "azure-native:documentdb/v20240301preview:FirewallRule" }, { type: "azure-native:documentdb/v20240601preview:FirewallRule" }, { type: "azure-native:documentdb/v20241001preview:FirewallRule" }, { type: "azure-native:documentdb:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }

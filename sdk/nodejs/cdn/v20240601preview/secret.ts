@@ -99,7 +99,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn:Secret" }, { type: "azure-native:cdn/v20200901:Secret" }, { type: "azure-native:cdn/v20210601:Secret" }, { type: "azure-native:cdn/v20220501preview:Secret" }, { type: "azure-native:cdn/v20221101preview:Secret" }, { type: "azure-native:cdn/v20230501:Secret" }, { type: "azure-native:cdn/v20230701preview:Secret" }, { type: "azure-native:cdn/v20240201:Secret" }, { type: "azure-native:cdn/v20240501preview:Secret" }, { type: "azure-native:cdn/v20240901:Secret" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:Secret" }, { type: "azure-native:cdn/v20210601:Secret" }, { type: "azure-native:cdn/v20220501preview:Secret" }, { type: "azure-native:cdn/v20221101preview:Secret" }, { type: "azure-native:cdn/v20230501:Secret" }, { type: "azure-native:cdn/v20230701preview:Secret" }, { type: "azure-native:cdn/v20240201:Secret" }, { type: "azure-native:cdn/v20240501preview:Secret" }, { type: "azure-native:cdn/v20240901:Secret" }, { type: "azure-native:cdn:Secret" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Secret.__pulumiType, name, resourceInputs, opts);
     }

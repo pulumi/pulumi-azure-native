@@ -102,7 +102,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:AwsS3DataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AwsS3DataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AwsS3DataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:AwsS3DataConnector" },
@@ -137,6 +136,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230601Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:AwsS3DataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:AwsS3DataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:AwsS3DataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:AwsS3DataConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

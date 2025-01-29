@@ -153,7 +153,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurefleet:Fleet" }, { type: "azure-native:azurefleet/v20231101preview:Fleet" }, { type: "azure-native:azurefleet/v20241101:Fleet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurefleet/v20231101preview:Fleet" }, { type: "azure-native:azurefleet/v20241101:Fleet" }, { type: "azure-native:azurefleet:Fleet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }

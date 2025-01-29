@@ -216,7 +216,7 @@ class WorkspaceGlobalSchema(pulumi.CustomResource):
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceGlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceGlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceGlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceGlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceGlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceGlobalSchema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceGlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceGlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspaceGlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspaceGlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspaceGlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement:WorkspaceGlobalSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceGlobalSchema, __self__).__init__(
             'azure-native:apimanagement/v20230301preview:WorkspaceGlobalSchema',

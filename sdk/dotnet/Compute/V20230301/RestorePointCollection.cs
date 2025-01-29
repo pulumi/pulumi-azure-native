@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Compute.V20230301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:RestorePointCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:RestorePointCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:RestorePointCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:RestorePointCollection" },
@@ -100,6 +99,7 @@ namespace Pulumi.AzureNative.Compute.V20230301
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:RestorePointCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:RestorePointCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:RestorePointCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute:RestorePointCollection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

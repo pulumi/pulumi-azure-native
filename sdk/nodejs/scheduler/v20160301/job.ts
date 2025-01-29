@@ -76,7 +76,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scheduler:Job" }, { type: "azure-native:scheduler/v20140801preview:Job" }, { type: "azure-native:scheduler/v20160101:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scheduler/v20140801preview:Job" }, { type: "azure-native:scheduler/v20160101:Job" }, { type: "azure-native:scheduler:Job" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Job.__pulumiType, name, resourceInputs, opts);
     }

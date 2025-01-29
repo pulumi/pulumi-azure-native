@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.Network.V20231101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:DdosCustomPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181101:DdosCustomPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181201:DdosCustomPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190201:DdosCustomPolicy" },
@@ -117,6 +116,7 @@ namespace Pulumi.AzureNative.Network.V20231101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:DdosCustomPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:DdosCustomPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:DdosCustomPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:DdosCustomPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

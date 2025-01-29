@@ -136,7 +136,7 @@ export class NspLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:NspLink" }, { type: "azure-native:network/v20210201preview:NspLink" }, { type: "azure-native:network/v20230801preview:NspLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NspLink" }, { type: "azure-native:network/v20230801preview:NspLink" }, { type: "azure-native:network:NspLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NspLink.__pulumiType, name, resourceInputs, opts);
     }

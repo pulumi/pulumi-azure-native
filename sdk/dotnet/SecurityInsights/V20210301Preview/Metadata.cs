@@ -136,7 +136,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Metadata" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Metadata" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Metadata" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Metadata" },
@@ -166,6 +165,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:Metadata" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:Metadata" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:Metadata" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Metadata" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

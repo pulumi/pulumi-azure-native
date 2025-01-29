@@ -173,7 +173,7 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse:Key"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:Key"), pulumi.Alias(type_="azure-native:synapse/v20201201:Key"), pulumi.Alias(type_="azure-native:synapse/v20210301:Key"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:Key"), pulumi.Alias(type_="azure-native:synapse/v20210501:Key"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:Key")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20190601preview:Key"), pulumi.Alias(type_="azure-native:synapse/v20201201:Key"), pulumi.Alias(type_="azure-native:synapse/v20210301:Key"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:Key"), pulumi.Alias(type_="azure-native:synapse/v20210501:Key"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:Key"), pulumi.Alias(type_="azure-native:synapse:Key")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Key, __self__).__init__(
             'azure-native:synapse/v20210601:Key',

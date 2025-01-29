@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.Batch.V20240701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:batch:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20151201:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20170101:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20170501:Application" },
@@ -101,6 +100,7 @@ namespace Pulumi.AzureNative.Batch.V20240701
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20230501:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20231101:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20240201:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native:batch:Application" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -121,7 +121,7 @@ export class Partner extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic:Partner" }, { type: "azure-native:logic/v20150801preview:Partner" }, { type: "azure-native:logic/v20180701preview:Partner" }, { type: "azure-native:logic/v20190501:Partner" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:Partner" }, { type: "azure-native:logic/v20180701preview:Partner" }, { type: "azure-native:logic/v20190501:Partner" }, { type: "azure-native:logic:Partner" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Partner.__pulumiType, name, resourceInputs, opts);
     }

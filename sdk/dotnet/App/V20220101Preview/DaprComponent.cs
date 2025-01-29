@@ -100,7 +100,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:DaprComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:DaprComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:DaprComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:DaprComponent" },
@@ -114,6 +113,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:DaprComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:DaprComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:DaprComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app:DaprComponent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

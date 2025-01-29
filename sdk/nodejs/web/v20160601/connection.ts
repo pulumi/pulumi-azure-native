@@ -91,7 +91,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web:Connection" }, { type: "azure-native:web/v20150801preview:Connection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801preview:Connection" }, { type: "azure-native:web:Connection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }

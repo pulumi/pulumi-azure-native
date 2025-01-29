@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.Network.V20220701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:DnsForwardingRuleset" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:DnsForwardingRuleset" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:DnsForwardingRuleset" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:DnsForwardingRuleset" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -106,7 +106,7 @@ export class BusinessApplicationAgent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:BusinessApplicationAgent" }, { type: "azure-native:securityinsights/v20240401preview:BusinessApplicationAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20240401preview:BusinessApplicationAgent" }, { type: "azure-native:securityinsights:BusinessApplicationAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BusinessApplicationAgent.__pulumiType, name, resourceInputs, opts);
     }

@@ -115,7 +115,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:KubernetesRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:KubernetesRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:KubernetesRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:KubernetesRole" },
@@ -132,6 +131,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:KubernetesRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:KubernetesRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:KubernetesRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:KubernetesRole" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

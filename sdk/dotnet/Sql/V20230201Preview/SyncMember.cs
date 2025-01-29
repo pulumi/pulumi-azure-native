@@ -118,7 +118,6 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:SyncMember" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncMember" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20190601preview:SyncMember" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncMember" },
@@ -136,6 +135,7 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:SyncMember" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:SyncMember" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:SyncMember" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:SyncMember" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

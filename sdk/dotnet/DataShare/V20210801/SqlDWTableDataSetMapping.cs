@@ -114,11 +114,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDWTableDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SqlDWTableDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:SqlDWTableDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:SqlDWTableDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SqlDWTableDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDWTableDataSetMapping" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

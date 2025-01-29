@@ -123,7 +123,7 @@ export class L2Connection extends pulumi.CustomResource {
             resourceInputs["vlanId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:orbital:L2Connection" }, { type: "azure-native:orbital/v20240301:L2Connection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20240301:L2Connection" }, { type: "azure-native:orbital:L2Connection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(L2Connection.__pulumiType, name, resourceInputs, opts);
     }

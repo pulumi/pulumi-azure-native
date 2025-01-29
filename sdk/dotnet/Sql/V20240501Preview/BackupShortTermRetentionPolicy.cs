@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:BackupShortTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy" },
@@ -81,6 +80,7 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:BackupShortTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:BackupShortTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:BackupShortTermRetentionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:BackupShortTermRetentionPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

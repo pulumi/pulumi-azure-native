@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:BandwidthSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:BandwidthSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:BandwidthSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:BandwidthSchedule" },
@@ -99,6 +98,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:BandwidthSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:BandwidthSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:BandwidthSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:BandwidthSchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

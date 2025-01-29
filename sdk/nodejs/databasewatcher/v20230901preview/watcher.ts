@@ -111,7 +111,7 @@ export class Watcher extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher:Watcher" }, { type: "azure-native:databasewatcher/v20240719preview:Watcher" }, { type: "azure-native:databasewatcher/v20241001preview:Watcher" }, { type: "azure-native:databasewatcher/v20250102:Watcher" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher/v20240719preview:Watcher" }, { type: "azure-native:databasewatcher/v20241001preview:Watcher" }, { type: "azure-native:databasewatcher/v20250102:Watcher" }, { type: "azure-native:databasewatcher:Watcher" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Watcher.__pulumiType, name, resourceInputs, opts);
     }

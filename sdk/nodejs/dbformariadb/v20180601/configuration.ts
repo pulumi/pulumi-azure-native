@@ -106,7 +106,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb:Configuration" }, { type: "azure-native:dbformariadb/v20180601preview:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb/v20180601preview:Configuration" }, { type: "azure-native:dbformariadb:Configuration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Configuration.__pulumiType, name, resourceInputs, opts);
     }

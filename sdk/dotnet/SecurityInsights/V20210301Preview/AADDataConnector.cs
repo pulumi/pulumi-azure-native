@@ -90,7 +90,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:AADDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AADDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AADDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AADDataConnector" },
@@ -125,6 +124,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:AADDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:AADDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:AADDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:AADDataConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

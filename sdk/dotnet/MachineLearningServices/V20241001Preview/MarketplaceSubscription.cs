@@ -64,12 +64,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:MarketplaceSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:MarketplaceSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:MarketplaceSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:MarketplaceSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001:MarketplaceSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:MarketplaceSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

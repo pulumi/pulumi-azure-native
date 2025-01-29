@@ -281,7 +281,7 @@ class NetworkFabricController(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["workload_management_network"] = None
             __props__.__dict__["workload_services"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric:NetworkFabricController"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:NetworkFabricController")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:NetworkFabricController"), pulumi.Alias(type_="azure-native:managednetworkfabric:NetworkFabricController")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkFabricController, __self__).__init__(
             'azure-native:managednetworkfabric/v20230201preview:NetworkFabricController',

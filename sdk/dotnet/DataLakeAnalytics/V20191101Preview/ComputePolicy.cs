@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics:ComputePolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:ComputePolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:ComputePolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:datalakeanalytics:ComputePolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -100,9 +100,9 @@ namespace Pulumi.AzureNative.Network.V20220701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:DnsResolver" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:DnsResolver" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:DnsResolver" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:DnsResolver" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

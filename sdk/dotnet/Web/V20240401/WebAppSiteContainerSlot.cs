@@ -130,8 +130,8 @@ namespace Pulumi.AzureNative.Web.V20240401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppSiteContainerSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppSiteContainerSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppSiteContainerSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

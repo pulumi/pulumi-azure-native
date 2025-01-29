@@ -144,7 +144,7 @@ export class AttestationAtResourceGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights:AttestationAtResourceGroup" }, { type: "azure-native:policyinsights/v20210101:AttestationAtResourceGroup" }, { type: "azure-native:policyinsights/v20241001:AttestationAtResourceGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:policyinsights/v20210101:AttestationAtResourceGroup" }, { type: "azure-native:policyinsights/v20241001:AttestationAtResourceGroup" }, { type: "azure-native:policyinsights:AttestationAtResourceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttestationAtResourceGroup.__pulumiType, name, resourceInputs, opts);
     }

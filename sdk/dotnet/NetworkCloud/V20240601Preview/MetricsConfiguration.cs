@@ -109,11 +109,11 @@ namespace Pulumi.AzureNative.NetworkCloud.V20240601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:MetricsConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:MetricsConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:MetricsConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:MetricsConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:MetricsConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:MetricsConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

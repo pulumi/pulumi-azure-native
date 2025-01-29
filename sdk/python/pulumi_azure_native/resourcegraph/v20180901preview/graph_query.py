@@ -196,7 +196,7 @@ class GraphQuery(pulumi.CustomResource):
             __props__.__dict__["result_kind"] = None
             __props__.__dict__["time_modified"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resourcegraph:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20190401:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20200401preview:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20210301:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20221001:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20240401:GraphQuery")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resourcegraph/v20190401:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20200401preview:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20210301:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20221001:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20240401:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph:GraphQuery")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GraphQuery, __self__).__init__(
             'azure-native:resourcegraph/v20180901preview:GraphQuery',

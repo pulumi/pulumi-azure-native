@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20231201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:GatewayCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:GatewayCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:GatewayCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:GatewayCustomDomain" },
@@ -79,6 +78,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20231201
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231101preview:GatewayCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:GatewayCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240501preview:GatewayCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:GatewayCustomDomain" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

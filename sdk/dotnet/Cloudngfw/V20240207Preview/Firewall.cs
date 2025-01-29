@@ -148,13 +148,13 @@ namespace Pulumi.AzureNative.Cloudngfw.V20240207Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw:Firewall" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20220829:Firewall" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20220829preview:Firewall" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20230901:Firewall" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20230901preview:Firewall" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20231010preview:Firewall" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240119preview:Firewall" },
+                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw:Firewall" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

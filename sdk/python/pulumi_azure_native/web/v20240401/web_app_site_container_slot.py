@@ -380,7 +380,7 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web:WebAppSiteContainerSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppSiteContainerSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20231201:WebAppSiteContainerSlot"), pulumi.Alias(type_="azure-native:web:WebAppSiteContainerSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSiteContainerSlot, __self__).__init__(
             'azure-native:web/v20240401:WebAppSiteContainerSlot',

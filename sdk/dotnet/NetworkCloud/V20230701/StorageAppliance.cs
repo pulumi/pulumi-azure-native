@@ -157,11 +157,11 @@ namespace Pulumi.AzureNative.NetworkCloud.V20230701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:StorageAppliance" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:StorageAppliance" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:StorageAppliance" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:StorageAppliance" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:StorageAppliance" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:StorageAppliance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

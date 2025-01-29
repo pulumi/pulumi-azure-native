@@ -64,12 +64,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:WorkspaceProductPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:WorkspaceProductPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:WorkspaceProductPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:WorkspaceProductPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:WorkspaceProductPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:WorkspaceProductPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:WorkspaceProductPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

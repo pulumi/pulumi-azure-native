@@ -76,10 +76,10 @@ namespace Pulumi.AzureNative.Management.V20230401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:management:ManagementGroupSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroupSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:management/v20201001:ManagementGroupSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:management/v20210401:ManagementGroupSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:management:ManagementGroupSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

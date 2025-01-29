@@ -226,7 +226,7 @@ class KustoTableDataSet(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20191101:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:KustoTableDataSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20181101preview:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20191101:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare:KustoTableDataSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KustoTableDataSet, __self__).__init__(
             'azure-native:datashare/v20210801:KustoTableDataSet',

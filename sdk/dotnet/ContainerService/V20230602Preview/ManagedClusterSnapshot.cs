@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.ContainerService.V20230602Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice:ManagedClusterSnapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:ManagedClusterSnapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:ManagedClusterSnapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:ManagedClusterSnapshot" },
@@ -118,6 +117,7 @@ namespace Pulumi.AzureNative.ContainerService.V20230602Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240602preview:ManagedClusterSnapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240702preview:ManagedClusterSnapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240902preview:ManagedClusterSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice:ManagedClusterSnapshot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

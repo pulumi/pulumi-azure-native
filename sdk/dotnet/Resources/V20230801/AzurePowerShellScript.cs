@@ -180,9 +180,9 @@ namespace Pulumi.AzureNative.Resources.V20230801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources:AzurePowerShellScript" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20191001preview:AzurePowerShellScript" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:AzurePowerShellScript" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources:AzurePowerShellScript" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

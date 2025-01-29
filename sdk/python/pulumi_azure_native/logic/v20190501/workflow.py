@@ -321,7 +321,7 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["sku"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic:Workflow"), pulumi.Alias(type_="azure-native:logic/v20150201preview:Workflow"), pulumi.Alias(type_="azure-native:logic/v20160601:Workflow"), pulumi.Alias(type_="azure-native:logic/v20180701preview:Workflow")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150201preview:Workflow"), pulumi.Alias(type_="azure-native:logic/v20160601:Workflow"), pulumi.Alias(type_="azure-native:logic/v20180701preview:Workflow"), pulumi.Alias(type_="azure-native:logic:Workflow")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workflow, __self__).__init__(
             'azure-native:logic/v20190501:Workflow',

@@ -58,10 +58,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics:Input" },
                     new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Input" },
                     new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Input" },
                     new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20211001preview:Input" },
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics:Input" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

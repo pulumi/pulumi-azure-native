@@ -106,7 +106,6 @@ namespace Pulumi.AzureNative.Network.V20230201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualRouter" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190701:VirtualRouter" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190801:VirtualRouter" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190901:VirtualRouter" },
@@ -136,6 +135,7 @@ namespace Pulumi.AzureNative.Network.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:VirtualRouter" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:VirtualRouter" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:VirtualRouter" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualRouter" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

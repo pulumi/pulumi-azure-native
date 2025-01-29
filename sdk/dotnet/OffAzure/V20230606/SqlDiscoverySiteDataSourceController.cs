@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.OffAzure.V20230606
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure:SqlDiscoverySiteDataSourceController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:SqlDiscoverySiteDataSourceController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:SqlDiscoverySiteDataSourceController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:SqlDiscoverySiteDataSourceController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

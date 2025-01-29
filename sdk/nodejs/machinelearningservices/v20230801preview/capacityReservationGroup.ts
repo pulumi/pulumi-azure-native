@@ -111,7 +111,7 @@ export class CapacityReservationGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:CapacityReservationGroup" }, { type: "azure-native:machinelearningservices/v20240101preview:CapacityReservationGroup" }, { type: "azure-native:machinelearningservices/v20240401preview:CapacityReservationGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240101preview:CapacityReservationGroup" }, { type: "azure-native:machinelearningservices/v20240401preview:CapacityReservationGroup" }, { type: "azure-native:machinelearningservices:CapacityReservationGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CapacityReservationGroup.__pulumiType, name, resourceInputs, opts);
     }

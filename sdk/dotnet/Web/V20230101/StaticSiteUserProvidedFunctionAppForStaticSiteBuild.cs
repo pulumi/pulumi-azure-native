@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.Web.V20230101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" },
@@ -86,6 +85,7 @@ namespace Pulumi.AzureNative.Web.V20230101
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

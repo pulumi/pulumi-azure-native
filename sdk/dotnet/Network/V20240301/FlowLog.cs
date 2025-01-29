@@ -130,7 +130,6 @@ namespace Pulumi.AzureNative.Network.V20240301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:FlowLog" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20191101:FlowLog" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20191201:FlowLog" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200301:FlowLog" },
@@ -157,6 +156,7 @@ namespace Pulumi.AzureNative.Network.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:FlowLog" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:FlowLog" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:FlowLog" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:FlowLog" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

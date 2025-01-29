@@ -116,7 +116,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["rp_object_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesruntime:Service"), pulumi.Alias(type_="azure-native:kubernetesruntime/v20231001preview:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesruntime/v20231001preview:Service"), pulumi.Alias(type_="azure-native:kubernetesruntime:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-native:kubernetesruntime/v20240301:Service',

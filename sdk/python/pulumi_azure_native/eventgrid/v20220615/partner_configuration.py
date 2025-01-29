@@ -176,7 +176,7 @@ class PartnerConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:PartnerConfiguration"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:PartnerConfiguration"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:PartnerConfiguration"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:PartnerConfiguration"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:PartnerConfiguration"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:PartnerConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:PartnerConfiguration"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:PartnerConfiguration"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:PartnerConfiguration"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:PartnerConfiguration"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:PartnerConfiguration"), pulumi.Alias(type_="azure-native:eventgrid:PartnerConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PartnerConfiguration, __self__).__init__(
             'azure-native:eventgrid/v20220615:PartnerConfiguration',

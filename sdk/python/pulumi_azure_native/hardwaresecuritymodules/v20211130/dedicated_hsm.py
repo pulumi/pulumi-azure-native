@@ -258,7 +258,7 @@ class DedicatedHsm(pulumi.CustomResource):
             __props__.__dict__["status_message"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hardwaresecuritymodules:DedicatedHsm"), pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm"), pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20240630preview:DedicatedHsm")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm"), pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20240630preview:DedicatedHsm"), pulumi.Alias(type_="azure-native:hardwaresecuritymodules:DedicatedHsm")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedHsm, __self__).__init__(
             'azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm',

@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.Insights.V20180501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:ProactiveDetectionConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:ProactiveDetectionConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights:ProactiveDetectionConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

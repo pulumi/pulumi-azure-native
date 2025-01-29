@@ -83,7 +83,7 @@ export class TagProductLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:TagProductLink" }, { type: "azure-native:apimanagement/v20220901preview:TagProductLink" }, { type: "azure-native:apimanagement/v20230301preview:TagProductLink" }, { type: "azure-native:apimanagement/v20230501preview:TagProductLink" }, { type: "azure-native:apimanagement/v20230901preview:TagProductLink" }, { type: "azure-native:apimanagement/v20240601preview:TagProductLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:TagProductLink" }, { type: "azure-native:apimanagement/v20230301preview:TagProductLink" }, { type: "azure-native:apimanagement/v20230501preview:TagProductLink" }, { type: "azure-native:apimanagement/v20230901preview:TagProductLink" }, { type: "azure-native:apimanagement/v20240601preview:TagProductLink" }, { type: "azure-native:apimanagement:TagProductLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagProductLink.__pulumiType, name, resourceInputs, opts);
     }

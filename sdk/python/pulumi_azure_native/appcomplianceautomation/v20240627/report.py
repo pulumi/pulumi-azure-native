@@ -210,7 +210,7 @@ class Report(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appcomplianceautomation:Report"), pulumi.Alias(type_="azure-native:appcomplianceautomation/v20221116preview:Report")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appcomplianceautomation/v20221116preview:Report"), pulumi.Alias(type_="azure-native:appcomplianceautomation:Report")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Report, __self__).__init__(
             'azure-native:appcomplianceautomation/v20240627:Report',

@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:StorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:StorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:StorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:StorageAccount" },
@@ -109,6 +108,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:StorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:StorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:StorageAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:StorageAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

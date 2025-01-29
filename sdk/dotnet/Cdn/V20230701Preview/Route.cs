@@ -139,7 +139,6 @@ namespace Pulumi.AzureNative.Cdn.V20230701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:Route" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Route" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Route" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Route" },
@@ -149,6 +148,7 @@ namespace Pulumi.AzureNative.Cdn.V20230701Preview
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:Route" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:Route" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:Route" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:Route" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

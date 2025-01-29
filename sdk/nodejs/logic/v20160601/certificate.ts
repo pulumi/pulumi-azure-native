@@ -115,7 +115,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic:Certificate" }, { type: "azure-native:logic/v20150801preview:Certificate" }, { type: "azure-native:logic/v20180701preview:Certificate" }, { type: "azure-native:logic/v20190501:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:Certificate" }, { type: "azure-native:logic/v20180701preview:Certificate" }, { type: "azure-native:logic/v20190501:Certificate" }, { type: "azure-native:logic:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

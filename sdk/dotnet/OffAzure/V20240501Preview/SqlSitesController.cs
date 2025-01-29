@@ -84,9 +84,9 @@ namespace Pulumi.AzureNative.OffAzure.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure:SqlSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:SqlSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:SqlSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:SqlSitesController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

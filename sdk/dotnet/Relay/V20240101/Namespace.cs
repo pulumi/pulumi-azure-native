@@ -124,11 +124,11 @@ namespace Pulumi.AzureNative.Relay.V20240101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay:Namespace" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:Namespace" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:Namespace" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20180101preview:Namespace" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20211101:Namespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:relay:Namespace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -90,7 +90,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:MCASDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:MCASDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MCASDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MCASDataConnector" },
@@ -125,6 +124,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230801Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:MCASDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:MCASDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:MCASDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:MCASDataConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

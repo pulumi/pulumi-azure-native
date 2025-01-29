@@ -58,13 +58,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ProductWiki" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ProductWiki" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:ProductWiki" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:ProductWiki" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:ProductWiki" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:ProductWiki" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:ProductWiki" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ProductWiki" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -124,7 +124,6 @@ namespace Pulumi.AzureNative.VideoIndexer.V20240923Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:videoindexer:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20211018preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20211027preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20211110preview:Account" },
@@ -134,6 +133,7 @@ namespace Pulumi.AzureNative.VideoIndexer.V20240923Preview
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20240101:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20240401preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20240601preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

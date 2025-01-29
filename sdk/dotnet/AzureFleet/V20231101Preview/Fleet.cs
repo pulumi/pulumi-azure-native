@@ -130,9 +130,9 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurefleet:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:azurefleet/v20240501preview:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:azurefleet/v20241101:Fleet" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurefleet:Fleet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

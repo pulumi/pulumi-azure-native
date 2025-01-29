@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppDiagnosticLogsConfigurationSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppDiagnosticLogsConfigurationSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDiagnosticLogsConfigurationSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDiagnosticLogsConfigurationSlot" },
@@ -100,6 +99,7 @@ namespace Pulumi.AzureNative.Web.V20200601
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppDiagnosticLogsConfigurationSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppDiagnosticLogsConfigurationSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppDiagnosticLogsConfigurationSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppDiagnosticLogsConfigurationSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

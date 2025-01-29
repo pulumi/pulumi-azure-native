@@ -218,7 +218,7 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:notificationhubs:NotificationHubAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20230101preview:NotificationHubAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20231001preview:NotificationHubAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20230101preview:NotificationHubAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20231001preview:NotificationHubAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs:NotificationHubAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotificationHubAuthorizationRule, __self__).__init__(
             'azure-native:notificationhubs/v20230901:NotificationHubAuthorizationRule',

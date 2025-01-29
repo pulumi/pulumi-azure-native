@@ -158,7 +158,7 @@ export class AssessmentProjectsOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20191001:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsOperation" }, { type: "azure-native:migrate:AssessmentProjectsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsOperation.__pulumiType, name, resourceInputs, opts);
     }

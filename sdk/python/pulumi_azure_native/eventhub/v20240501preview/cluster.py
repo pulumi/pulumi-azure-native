@@ -201,7 +201,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20210601preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20211101:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20220101preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20221001preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20230101preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20240101:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20180101preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20210601preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20211101:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20220101preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20221001preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20230101preview:Cluster"), pulumi.Alias(type_="azure-native:eventhub/v20240101:Cluster"), pulumi.Alias(type_="azure-native:eventhub:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:eventhub/v20240501preview:Cluster',

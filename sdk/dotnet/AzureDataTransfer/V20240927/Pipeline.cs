@@ -76,11 +76,11 @@ namespace Pulumi.AzureNative.AzureDataTransfer.V20240927
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer:Pipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20231011preview:Pipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240125:Pipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240507:Pipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240911:Pipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer:Pipeline" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

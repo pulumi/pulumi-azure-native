@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.Network.V20240501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:RoutingRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:RoutingRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:RoutingRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

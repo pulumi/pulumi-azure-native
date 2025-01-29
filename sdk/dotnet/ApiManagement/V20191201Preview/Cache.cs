@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Cache" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Cache" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Cache" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Cache" },
@@ -88,6 +87,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:Cache" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:Cache" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:Cache" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Cache" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

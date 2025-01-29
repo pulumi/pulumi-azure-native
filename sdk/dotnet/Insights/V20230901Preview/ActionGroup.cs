@@ -148,7 +148,6 @@ namespace Pulumi.AzureNative.Insights.V20230901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:ActionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20170401:ActionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20180301:ActionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20180901:ActionGroup" },
@@ -159,6 +158,7 @@ namespace Pulumi.AzureNative.Insights.V20230901Preview
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220601:ActionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20230101:ActionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20241001preview:ActionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights:ActionGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

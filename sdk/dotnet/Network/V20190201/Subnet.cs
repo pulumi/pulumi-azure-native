@@ -142,7 +142,6 @@ namespace Pulumi.AzureNative.Network.V20190201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:Subnet" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20150501preview:Subnet" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20150615:Subnet" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20160330:Subnet" },
@@ -196,6 +195,7 @@ namespace Pulumi.AzureNative.Network.V20190201
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:Subnet" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:Subnet" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:Subnet" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:Subnet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

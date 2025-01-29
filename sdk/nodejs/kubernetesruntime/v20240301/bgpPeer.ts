@@ -108,7 +108,7 @@ export class BgpPeer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesruntime:BgpPeer" }, { type: "azure-native:kubernetesruntime/v20231001preview:BgpPeer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesruntime/v20231001preview:BgpPeer" }, { type: "azure-native:kubernetesruntime:BgpPeer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BgpPeer.__pulumiType, name, resourceInputs, opts);
     }

@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.App.V20241002Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:JavaComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20231102preview:JavaComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:JavaComponent" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:JavaComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app:JavaComponent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

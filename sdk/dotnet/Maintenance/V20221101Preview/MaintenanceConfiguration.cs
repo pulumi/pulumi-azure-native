@@ -136,7 +136,6 @@ namespace Pulumi.AzureNative.Maintenance.V20221101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance:MaintenanceConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20180601preview:MaintenanceConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20200401:MaintenanceConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20200701preview:MaintenanceConfiguration" },
@@ -147,6 +146,7 @@ namespace Pulumi.AzureNative.Maintenance.V20221101Preview
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230401:MaintenanceConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230901preview:MaintenanceConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20231001preview:MaintenanceConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance:MaintenanceConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

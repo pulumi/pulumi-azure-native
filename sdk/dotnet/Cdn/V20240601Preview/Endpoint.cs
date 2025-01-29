@@ -190,7 +190,6 @@ namespace Pulumi.AzureNative.Cdn.V20240601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20150601:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20160402:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20161002:Endpoint" },
@@ -211,6 +210,7 @@ namespace Pulumi.AzureNative.Cdn.V20240601Preview
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:Endpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

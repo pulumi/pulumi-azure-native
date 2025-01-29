@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.NetApp.V20240501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:netapp:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:BackupVault" },
@@ -88,6 +87,7 @@ namespace Pulumi.AzureNative.NetApp.V20240501
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:BackupVault" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:BackupVault" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

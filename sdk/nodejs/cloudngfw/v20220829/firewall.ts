@@ -165,7 +165,7 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw:Firewall" }, { type: "azure-native:cloudngfw/v20220829preview:Firewall" }, { type: "azure-native:cloudngfw/v20230901:Firewall" }, { type: "azure-native:cloudngfw/v20230901preview:Firewall" }, { type: "azure-native:cloudngfw/v20231010preview:Firewall" }, { type: "azure-native:cloudngfw/v20240119preview:Firewall" }, { type: "azure-native:cloudngfw/v20240207preview:Firewall" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829preview:Firewall" }, { type: "azure-native:cloudngfw/v20230901:Firewall" }, { type: "azure-native:cloudngfw/v20230901preview:Firewall" }, { type: "azure-native:cloudngfw/v20231010preview:Firewall" }, { type: "azure-native:cloudngfw/v20240119preview:Firewall" }, { type: "azure-native:cloudngfw/v20240207preview:Firewall" }, { type: "azure-native:cloudngfw:Firewall" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Firewall.__pulumiType, name, resourceInputs, opts);
     }

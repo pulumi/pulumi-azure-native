@@ -201,7 +201,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uri"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere:Image"), pulumi.Alias(type_="azure-native:azuresphere/v20240401:Image")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere/v20240401:Image"), pulumi.Alias(type_="azure-native:azuresphere:Image")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Image, __self__).__init__(
             'azure-native:azuresphere/v20220901preview:Image',

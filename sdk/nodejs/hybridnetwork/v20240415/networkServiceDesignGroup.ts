@@ -97,7 +97,7 @@ export class NetworkServiceDesignGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:NetworkServiceDesignGroup" }, { type: "azure-native:hybridnetwork/v20230901:NetworkServiceDesignGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:NetworkServiceDesignGroup" }, { type: "azure-native:hybridnetwork:NetworkServiceDesignGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkServiceDesignGroup.__pulumiType, name, resourceInputs, opts);
     }

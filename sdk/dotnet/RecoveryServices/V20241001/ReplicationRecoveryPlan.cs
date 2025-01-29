@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20241001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationRecoveryPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan" },
@@ -93,6 +92,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20241001
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240101:ReplicationRecoveryPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240201:ReplicationRecoveryPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240401:ReplicationRecoveryPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationRecoveryPlan" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:Token" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501preview:Token" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Token" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Token" },
@@ -101,6 +100,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230601Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:Token" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:Token" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:Token" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:Token" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

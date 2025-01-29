@@ -159,7 +159,7 @@ export class Datastore extends pulumi.CustomResource {
             resourceInputs["vCenterId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:Datastore" }, { type: "azure-native:connectedvmwarevsphere/v20201001preview:Datastore" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:Datastore" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:Datastore" }, { type: "azure-native:connectedvmwarevsphere/v20231001:Datastore" }, { type: "azure-native:connectedvmwarevsphere/v20231201:Datastore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:Datastore" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:Datastore" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:Datastore" }, { type: "azure-native:connectedvmwarevsphere/v20231001:Datastore" }, { type: "azure-native:connectedvmwarevsphere/v20231201:Datastore" }, { type: "azure-native:connectedvmwarevsphere:Datastore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Datastore.__pulumiType, name, resourceInputs, opts);
     }

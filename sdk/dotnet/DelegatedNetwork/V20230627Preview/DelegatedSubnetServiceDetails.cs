@@ -95,10 +95,10 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20230627Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork:DelegatedSubnetServiceDetails" },
                     new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails" },
                     new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails" },
                     new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20230518preview:DelegatedSubnetServiceDetails" },
+                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork:DelegatedSubnetServiceDetails" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

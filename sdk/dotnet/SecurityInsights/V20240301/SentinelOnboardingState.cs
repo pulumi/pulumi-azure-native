@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:SentinelOnboardingState" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:SentinelOnboardingState" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:SentinelOnboardingState" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:SentinelOnboardingState" },
@@ -103,6 +102,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:SentinelOnboardingState" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:SentinelOnboardingState" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:SentinelOnboardingState" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:SentinelOnboardingState" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

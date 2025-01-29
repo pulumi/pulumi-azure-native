@@ -102,7 +102,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:GCPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:GCPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:GCPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:GCPDataConnector" },
@@ -137,6 +136,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230901Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:GCPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:GCPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:GCPDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:GCPDataConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -175,13 +175,13 @@ namespace Pulumi.AzureNative.Cloudngfw.V20231010Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw:PostRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20220829:PostRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20220829preview:PostRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20230901:PostRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20230901preview:PostRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240119preview:PostRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240207preview:PostRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw:PostRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

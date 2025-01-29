@@ -156,7 +156,7 @@ class Catalog(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere:Catalog"), pulumi.Alias(type_="azure-native:azuresphere/v20220901preview:Catalog")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere/v20220901preview:Catalog"), pulumi.Alias(type_="azure-native:azuresphere:Catalog")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Catalog, __self__).__init__(
             'azure-native:azuresphere/v20240401:Catalog',

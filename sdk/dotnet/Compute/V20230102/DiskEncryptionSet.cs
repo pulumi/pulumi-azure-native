@@ -118,7 +118,6 @@ namespace Pulumi.AzureNative.Compute.V20230102
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:DiskEncryptionSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:DiskEncryptionSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20191101:DiskEncryptionSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskEncryptionSet" },
@@ -133,6 +132,7 @@ namespace Pulumi.AzureNative.Compute.V20230102
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230402:DiskEncryptionSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20231002:DiskEncryptionSet" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240302:DiskEncryptionSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute:DiskEncryptionSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -136,7 +136,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration:Project" }, { type: "azure-native:datamigration/v20171115preview:Project" }, { type: "azure-native:datamigration/v20180315preview:Project" }, { type: "azure-native:datamigration/v20180331preview:Project" }, { type: "azure-native:datamigration/v20180419:Project" }, { type: "azure-native:datamigration/v20180715preview:Project" }, { type: "azure-native:datamigration/v20210630:Project" }, { type: "azure-native:datamigration/v20211030preview:Project" }, { type: "azure-native:datamigration/v20220130preview:Project" }, { type: "azure-native:datamigration/v20230715preview:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20171115preview:Project" }, { type: "azure-native:datamigration/v20180315preview:Project" }, { type: "azure-native:datamigration/v20180331preview:Project" }, { type: "azure-native:datamigration/v20180419:Project" }, { type: "azure-native:datamigration/v20180715preview:Project" }, { type: "azure-native:datamigration/v20210630:Project" }, { type: "azure-native:datamigration/v20211030preview:Project" }, { type: "azure-native:datamigration/v20220130preview:Project" }, { type: "azure-native:datamigration/v20230715preview:Project" }, { type: "azure-native:datamigration:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }

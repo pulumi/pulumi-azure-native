@@ -64,9 +64,9 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:portal:TenantConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20190101preview:TenantConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20221201preview:TenantConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:portal:TenantConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

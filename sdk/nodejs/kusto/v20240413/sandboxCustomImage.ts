@@ -106,7 +106,7 @@ export class SandboxCustomImage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto:SandboxCustomImage" }, { type: "azure-native:kusto/v20230815:SandboxCustomImage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20230815:SandboxCustomImage" }, { type: "azure-native:kusto:SandboxCustomImage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SandboxCustomImage.__pulumiType, name, resourceInputs, opts);
     }

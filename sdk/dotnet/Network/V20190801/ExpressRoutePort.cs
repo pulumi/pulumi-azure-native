@@ -142,7 +142,6 @@ namespace Pulumi.AzureNative.Network.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ExpressRoutePort" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:ExpressRoutePort" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181001:ExpressRoutePort" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181101:ExpressRoutePort" },
@@ -179,6 +178,7 @@ namespace Pulumi.AzureNative.Network.V20190801
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:ExpressRoutePort" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:ExpressRoutePort" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:ExpressRoutePort" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:ExpressRoutePort" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

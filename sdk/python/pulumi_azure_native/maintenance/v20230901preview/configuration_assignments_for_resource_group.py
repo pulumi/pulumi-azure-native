@@ -196,7 +196,7 @@ class ConfigurationAssignmentsForResourceGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maintenance:ConfigurationAssignmentsForResourceGroup"), pulumi.Alias(type_="azure-native:maintenance/v20230401:ConfigurationAssignmentsForResourceGroup"), pulumi.Alias(type_="azure-native:maintenance/v20231001preview:ConfigurationAssignmentsForResourceGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maintenance/v20230401:ConfigurationAssignmentsForResourceGroup"), pulumi.Alias(type_="azure-native:maintenance/v20231001preview:ConfigurationAssignmentsForResourceGroup"), pulumi.Alias(type_="azure-native:maintenance:ConfigurationAssignmentsForResourceGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationAssignmentsForResourceGroup, __self__).__init__(
             'azure-native:maintenance/v20230901preview:ConfigurationAssignmentsForResourceGroup',

@@ -217,7 +217,7 @@ class B2CTenant(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azureactivedirectory:B2CTenant"), pulumi.Alias(type_="azure-native:azureactivedirectory/v20190101preview:B2CTenant"), pulumi.Alias(type_="azure-native:azureactivedirectory/v20230118preview:B2CTenant"), pulumi.Alias(type_="azure-native:azureactivedirectory/v20230517preview:B2CTenant")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azureactivedirectory/v20190101preview:B2CTenant"), pulumi.Alias(type_="azure-native:azureactivedirectory/v20230118preview:B2CTenant"), pulumi.Alias(type_="azure-native:azureactivedirectory/v20230517preview:B2CTenant"), pulumi.Alias(type_="azure-native:azureactivedirectory:B2CTenant")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(B2CTenant, __self__).__init__(
             'azure-native:azureactivedirectory/v20210401:B2CTenant',

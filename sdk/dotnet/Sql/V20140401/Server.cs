@@ -106,7 +106,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20150501preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20190601preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Server" },
@@ -125,6 +124,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:Server" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -103,7 +103,7 @@ export class DataNetwork extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:DataNetwork" }, { type: "azure-native:mobilenetwork/v20220301preview:DataNetwork" }, { type: "azure-native:mobilenetwork/v20220401preview:DataNetwork" }, { type: "azure-native:mobilenetwork/v20221101:DataNetwork" }, { type: "azure-native:mobilenetwork/v20230601:DataNetwork" }, { type: "azure-native:mobilenetwork/v20230901:DataNetwork" }, { type: "azure-native:mobilenetwork/v20240401:DataNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:DataNetwork" }, { type: "azure-native:mobilenetwork/v20220401preview:DataNetwork" }, { type: "azure-native:mobilenetwork/v20221101:DataNetwork" }, { type: "azure-native:mobilenetwork/v20230601:DataNetwork" }, { type: "azure-native:mobilenetwork/v20230901:DataNetwork" }, { type: "azure-native:mobilenetwork/v20240401:DataNetwork" }, { type: "azure-native:mobilenetwork:DataNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataNetwork.__pulumiType, name, resourceInputs, opts);
     }

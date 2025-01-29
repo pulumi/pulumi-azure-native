@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.KeyVault.V20241201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20161001:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214preview:Secret" },
@@ -87,6 +86,7 @@ namespace Pulumi.AzureNative.KeyVault.V20241201Preview
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230701:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20240401preview:Secret" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20241101:Secret" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault:Secret" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

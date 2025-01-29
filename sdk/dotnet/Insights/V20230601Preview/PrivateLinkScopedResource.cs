@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.Insights.V20230601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:PrivateLinkScopedResource" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20191017preview:PrivateLinkScopedResource" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210701preview:PrivateLinkScopedResource" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210901:PrivateLinkScopedResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights:PrivateLinkScopedResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

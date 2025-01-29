@@ -118,7 +118,6 @@ namespace Pulumi.AzureNative.ContainerService.V20230601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210801:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20210901:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20211001:Snapshot" },
@@ -178,6 +177,7 @@ namespace Pulumi.AzureNative.ContainerService.V20230601
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240801:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240901:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240902preview:Snapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice:Snapshot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

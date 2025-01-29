@@ -183,7 +183,6 @@ namespace Pulumi.AzureNative.Sql.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:ExtendedDatabaseBlobAuditingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20170301preview:ExtendedDatabaseBlobAuditingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ExtendedDatabaseBlobAuditingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ExtendedDatabaseBlobAuditingPolicy" },
@@ -200,6 +199,7 @@ namespace Pulumi.AzureNative.Sql.V20230801Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:ExtendedDatabaseBlobAuditingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ExtendedDatabaseBlobAuditingPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:ExtendedDatabaseBlobAuditingPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:ExtendedDatabaseBlobAuditingPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

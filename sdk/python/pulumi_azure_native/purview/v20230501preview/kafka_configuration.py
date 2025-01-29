@@ -280,7 +280,7 @@ class KafkaConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:purview:KafkaConfiguration"), pulumi.Alias(type_="azure-native:purview/v20211201:KafkaConfiguration"), pulumi.Alias(type_="azure-native:purview/v20240401preview:KafkaConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:purview/v20211201:KafkaConfiguration"), pulumi.Alias(type_="azure-native:purview/v20240401preview:KafkaConfiguration"), pulumi.Alias(type_="azure-native:purview:KafkaConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KafkaConfiguration, __self__).__init__(
             'azure-native:purview/v20230501preview:KafkaConfiguration',

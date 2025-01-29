@@ -112,10 +112,10 @@ namespace Pulumi.AzureNative.Relay.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:relay:WCFRelay" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20160701:WCFRelay" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20170401:WCFRelay" },
                     new global::Pulumi.Alias { Type = "azure-native:relay/v20240101:WCFRelay" },
+                    new global::Pulumi.Alias { Type = "azure-native:relay:WCFRelay" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

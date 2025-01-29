@@ -463,7 +463,7 @@ class PreRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw:PreRule"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829:PreRule"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:PreRule"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901:PreRule"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901preview:PreRule"), pulumi.Alias(type_="azure-native:cloudngfw/v20231010preview:PreRule"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:PreRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw/v20220829:PreRule"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:PreRule"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901:PreRule"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901preview:PreRule"), pulumi.Alias(type_="azure-native:cloudngfw/v20231010preview:PreRule"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:PreRule"), pulumi.Alias(type_="azure-native:cloudngfw:PreRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PreRule, __self__).__init__(
             'azure-native:cloudngfw/v20240119preview:PreRule',

@@ -112,9 +112,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:WorkspaceDiagnostic" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:WorkspaceDiagnostic" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:WorkspaceDiagnostic" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:WorkspaceDiagnostic" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

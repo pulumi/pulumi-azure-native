@@ -118,7 +118,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:Order" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:Order" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:Order" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:Order" },
@@ -135,6 +134,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:Order" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:Order" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:Order" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:Order" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.AVS.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:Authorization" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20200320:Authorization" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Authorization" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Authorization" },
@@ -84,6 +83,7 @@ namespace Pulumi.AzureNative.AVS.V20220501
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:Authorization" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:Authorization" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs:Authorization" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

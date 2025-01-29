@@ -58,7 +58,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Diagnostic" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Diagnostic" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Diagnostic" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Diagnostic" },
@@ -78,6 +77,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:Diagnostic" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:Diagnostic" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:Diagnostic" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Diagnostic" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

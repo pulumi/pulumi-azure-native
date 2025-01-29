@@ -130,7 +130,6 @@ namespace Pulumi.AzureNative.NetApp.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:netapp:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20170815:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20190501:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20190601:Pool" },
@@ -171,6 +170,7 @@ namespace Pulumi.AzureNative.NetApp.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:Pool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

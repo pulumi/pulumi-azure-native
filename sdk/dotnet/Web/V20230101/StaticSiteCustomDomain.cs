@@ -85,7 +85,6 @@ namespace Pulumi.AzureNative.Web.V20230101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:StaticSiteCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSiteCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSiteCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSiteCustomDomain" },
@@ -95,6 +94,7 @@ namespace Pulumi.AzureNative.Web.V20230101
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:StaticSiteCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:StaticSiteCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:StaticSiteCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:StaticSiteCustomDomain" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

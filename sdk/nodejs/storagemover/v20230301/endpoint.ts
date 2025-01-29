@@ -88,7 +88,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagemover:Endpoint" }, { type: "azure-native:storagemover/v20220701preview:Endpoint" }, { type: "azure-native:storagemover/v20230701preview:Endpoint" }, { type: "azure-native:storagemover/v20231001:Endpoint" }, { type: "azure-native:storagemover/v20240701:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:Endpoint" }, { type: "azure-native:storagemover/v20230701preview:Endpoint" }, { type: "azure-native:storagemover/v20231001:Endpoint" }, { type: "azure-native:storagemover/v20240701:Endpoint" }, { type: "azure-native:storagemover:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }

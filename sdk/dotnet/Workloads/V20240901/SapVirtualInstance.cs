@@ -136,11 +136,11 @@ namespace Pulumi.AzureNative.Workloads.V20240901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads:SapVirtualInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SapVirtualInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SapVirtualInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SapVirtualInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SapVirtualInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:SapVirtualInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

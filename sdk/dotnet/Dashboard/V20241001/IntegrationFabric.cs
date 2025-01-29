@@ -73,8 +73,8 @@ namespace Pulumi.AzureNative.Dashboard.V20241001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dashboard:IntegrationFabric" },
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20231001preview:IntegrationFabric" },
+                    new global::Pulumi.Alias { Type = "azure-native:dashboard:IntegrationFabric" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

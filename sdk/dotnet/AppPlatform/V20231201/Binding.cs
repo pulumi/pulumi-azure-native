@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20231201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:Binding" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Binding" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Binding" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Binding" },
@@ -84,6 +83,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20231201
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231101preview:Binding" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:Binding" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240501preview:Binding" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:Binding" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

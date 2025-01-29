@@ -130,7 +130,6 @@ namespace Pulumi.AzureNative.Network.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20150501preview:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20150615:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20160330:LoadBalancer" },
@@ -184,6 +183,7 @@ namespace Pulumi.AzureNative.Network.V20180601
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:LoadBalancer" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:LoadBalancer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

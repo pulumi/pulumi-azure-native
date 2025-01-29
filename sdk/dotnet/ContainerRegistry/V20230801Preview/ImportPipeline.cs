@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:ImportPipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:ImportPipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:ImportPipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:ImportPipeline" },
@@ -105,6 +104,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230801Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:ImportPipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:ImportPipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:ImportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:ImportPipeline" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

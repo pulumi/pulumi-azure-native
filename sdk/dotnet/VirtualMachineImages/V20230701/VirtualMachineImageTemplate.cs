@@ -154,7 +154,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20230701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages:VirtualMachineImageTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate" },
@@ -163,6 +162,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages/v20240201:VirtualMachineImageTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native:virtualmachineimages:VirtualMachineImageTemplate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

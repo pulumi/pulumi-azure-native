@@ -82,7 +82,7 @@ export class ProductWiki extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductWiki" }, { type: "azure-native:apimanagement/v20220801:ProductWiki" }, { type: "azure-native:apimanagement/v20220901preview:ProductWiki" }, { type: "azure-native:apimanagement/v20230301preview:ProductWiki" }, { type: "azure-native:apimanagement/v20230501preview:ProductWiki" }, { type: "azure-native:apimanagement/v20240501:ProductWiki" }, { type: "azure-native:apimanagement/v20240601preview:ProductWiki" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220801:ProductWiki" }, { type: "azure-native:apimanagement/v20220901preview:ProductWiki" }, { type: "azure-native:apimanagement/v20230301preview:ProductWiki" }, { type: "azure-native:apimanagement/v20230501preview:ProductWiki" }, { type: "azure-native:apimanagement/v20240501:ProductWiki" }, { type: "azure-native:apimanagement/v20240601preview:ProductWiki" }, { type: "azure-native:apimanagement:ProductWiki" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductWiki.__pulumiType, name, resourceInputs, opts);
     }

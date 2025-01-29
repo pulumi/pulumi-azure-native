@@ -88,9 +88,9 @@ namespace Pulumi.AzureNative.Chaos.V20241101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:chaos:PrivateAccess" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20231027preview:PrivateAccess" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20240322preview:PrivateAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native:chaos:PrivateAccess" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

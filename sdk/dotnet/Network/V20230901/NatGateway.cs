@@ -118,7 +118,6 @@ namespace Pulumi.AzureNative.Network.V20230901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:NatGateway" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190201:NatGateway" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190401:NatGateway" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190601:NatGateway" },
@@ -151,6 +150,7 @@ namespace Pulumi.AzureNative.Network.V20230901
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:NatGateway" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:NatGateway" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:NatGateway" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:NatGateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

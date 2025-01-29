@@ -88,10 +88,10 @@ namespace Pulumi.AzureNative.EventGrid.V20231215Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:CaCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:CaCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20240601preview:CaCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20241215preview:CaCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:CaCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

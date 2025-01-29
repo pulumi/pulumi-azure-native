@@ -85,7 +85,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Workspace" }, { type: "azure-native:apimanagement/v20220901preview:Workspace" }, { type: "azure-native:apimanagement/v20230301preview:Workspace" }, { type: "azure-native:apimanagement/v20230501preview:Workspace" }, { type: "azure-native:apimanagement/v20230901preview:Workspace" }, { type: "azure-native:apimanagement/v20240601preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:Workspace" }, { type: "azure-native:apimanagement/v20230301preview:Workspace" }, { type: "azure-native:apimanagement/v20230501preview:Workspace" }, { type: "azure-native:apimanagement/v20230901preview:Workspace" }, { type: "azure-native:apimanagement/v20240601preview:Workspace" }, { type: "azure-native:apimanagement:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

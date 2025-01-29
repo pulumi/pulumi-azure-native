@@ -92,7 +92,7 @@ export class ReachabilityAnalysisIntent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:ReachabilityAnalysisIntent" }, { type: "azure-native:network/v20240501:ReachabilityAnalysisIntent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240501:ReachabilityAnalysisIntent" }, { type: "azure-native:network:ReachabilityAnalysisIntent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReachabilityAnalysisIntent.__pulumiType, name, resourceInputs, opts);
     }

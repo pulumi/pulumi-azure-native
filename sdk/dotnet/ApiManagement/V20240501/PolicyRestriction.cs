@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20240501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:PolicyRestriction" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:PolicyRestriction" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:PolicyRestriction" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:PolicyRestriction" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:PolicyRestriction" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

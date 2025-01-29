@@ -197,7 +197,7 @@ class View(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:customerinsights:View"), pulumi.Alias(type_="azure-native:customerinsights/v20170101:View")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:customerinsights/v20170101:View"), pulumi.Alias(type_="azure-native:customerinsights:View")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(View, __self__).__init__(
             'azure-native:customerinsights/v20170426:View',

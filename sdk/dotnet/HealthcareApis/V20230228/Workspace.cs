@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20230228
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:Workspace" },
@@ -95,6 +94,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20230228
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231201:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20240301:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20240331:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

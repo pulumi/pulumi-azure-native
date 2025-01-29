@@ -94,13 +94,13 @@ namespace Pulumi.AzureNative.AVS.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:WorkloadNetworkSegment" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkSegment" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkSegment" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkSegment" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkSegment" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:WorkloadNetworkSegment" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:WorkloadNetworkSegment" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs:WorkloadNetworkSegment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

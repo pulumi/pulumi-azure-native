@@ -91,7 +91,6 @@ namespace Pulumi.AzureNative.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppSitePushSettings" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppSitePushSettings" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSitePushSettings" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSitePushSettings" },
@@ -108,6 +107,7 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppSitePushSettings" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppSitePushSettings" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppSitePushSettings" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppSitePushSettings" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

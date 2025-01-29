@@ -320,7 +320,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["storage_account_arm_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20211201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20231201preview:Monitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20231201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads:Monitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Monitor, __self__).__init__(
             'azure-native:workloads/v20240201preview:Monitor',

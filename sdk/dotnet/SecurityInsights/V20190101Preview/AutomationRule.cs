@@ -106,7 +106,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:AutomationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AutomationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:AutomationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:AutomationRule" },
@@ -139,6 +138,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:AutomationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:AutomationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:AutomationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:AutomationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

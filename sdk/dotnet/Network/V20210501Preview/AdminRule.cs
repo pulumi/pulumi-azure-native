@@ -144,7 +144,6 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:AdminRule" },
@@ -163,6 +162,7 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101preview:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:AdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:AdminRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

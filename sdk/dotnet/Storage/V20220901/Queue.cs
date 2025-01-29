@@ -61,7 +61,6 @@ namespace Pulumi.AzureNative.Storage.V20220901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage:Queue" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:Queue" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:Queue" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:Queue" },
@@ -74,6 +73,7 @@ namespace Pulumi.AzureNative.Storage.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:Queue" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230401:Queue" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230501:Queue" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage:Queue" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

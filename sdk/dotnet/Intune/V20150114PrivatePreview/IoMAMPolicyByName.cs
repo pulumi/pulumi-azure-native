@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.Intune.V20150114PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:intune:IoMAMPolicyByName" },
                     new global::Pulumi.Alias { Type = "azure-native:intune/v20150114preview:IoMAMPolicyByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:intune:IoMAMPolicyByName" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

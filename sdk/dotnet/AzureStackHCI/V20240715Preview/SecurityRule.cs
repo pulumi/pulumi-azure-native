@@ -124,11 +124,11 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240715Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:SecurityRule" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240201preview:SecurityRule" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240501preview:SecurityRule" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:SecurityRule" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:SecurityRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:SecurityRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

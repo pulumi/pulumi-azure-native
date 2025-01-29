@@ -105,7 +105,7 @@ export class ApiVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apicenter:ApiVersion" }, { type: "azure-native:apicenter/v20240315preview:ApiVersion" }, { type: "azure-native:apicenter/v20240601preview:ApiVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240315preview:ApiVersion" }, { type: "azure-native:apicenter/v20240601preview:ApiVersion" }, { type: "azure-native:apicenter:ApiVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiVersion.__pulumiType, name, resourceInputs, opts);
     }

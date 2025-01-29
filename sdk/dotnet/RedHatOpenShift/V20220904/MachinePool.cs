@@ -61,11 +61,11 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220904
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift:MachinePool" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230401:MachinePool" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230701preview:MachinePool" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230904:MachinePool" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20231122:MachinePool" },
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift:MachinePool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

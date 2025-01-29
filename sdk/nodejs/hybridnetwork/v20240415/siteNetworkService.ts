@@ -105,7 +105,7 @@ export class SiteNetworkService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:SiteNetworkService" }, { type: "azure-native:hybridnetwork/v20230901:SiteNetworkService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:SiteNetworkService" }, { type: "azure-native:hybridnetwork:SiteNetworkService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteNetworkService.__pulumiType, name, resourceInputs, opts);
     }

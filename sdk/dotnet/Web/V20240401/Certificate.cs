@@ -190,7 +190,6 @@ namespace Pulumi.AzureNative.Web.V20240401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20150801:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160301:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:Certificate" },
@@ -208,6 +207,7 @@ namespace Pulumi.AzureNative.Web.V20240401
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:Certificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -158,7 +158,7 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:NetworkManagerRoutingConfiguration"), pulumi.Alias(type_="azure-native:network/v20240501:NetworkManagerRoutingConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20240501:NetworkManagerRoutingConfiguration"), pulumi.Alias(type_="azure-native:network:NetworkManagerRoutingConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkManagerRoutingConfiguration, __self__).__init__(
             'azure-native:network/v20240301:NetworkManagerRoutingConfiguration',

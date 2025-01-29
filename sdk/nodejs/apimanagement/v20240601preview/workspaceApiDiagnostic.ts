@@ -150,7 +150,7 @@ export class WorkspaceApiDiagnostic extends pulumi.CustomResource {
             resourceInputs["verbosity"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceApiDiagnostic" }, { type: "azure-native:apimanagement/v20230901preview:WorkspaceApiDiagnostic" }, { type: "azure-native:apimanagement/v20240501:WorkspaceApiDiagnostic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20230901preview:WorkspaceApiDiagnostic" }, { type: "azure-native:apimanagement/v20240501:WorkspaceApiDiagnostic" }, { type: "azure-native:apimanagement:WorkspaceApiDiagnostic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceApiDiagnostic.__pulumiType, name, resourceInputs, opts);
     }

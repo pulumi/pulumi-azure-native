@@ -215,7 +215,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:visualstudio:Extension"), pulumi.Alias(type_="azure-native:visualstudio/v20140401preview:Extension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:visualstudio/v20140401preview:Extension"), pulumi.Alias(type_="azure-native:visualstudio:Extension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Extension, __self__).__init__(
             'azure-native:visualstudio/v20171101preview:Extension',

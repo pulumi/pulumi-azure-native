@@ -132,7 +132,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:RestApiPollerDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:RestApiPollerDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:RestApiPollerDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:RestApiPollerDataConnector" },
@@ -167,6 +166,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:RestApiPollerDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:RestApiPollerDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:RestApiPollerDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:RestApiPollerDataConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
