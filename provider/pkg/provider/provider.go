@@ -636,6 +636,11 @@ func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, ran
 			}
 		}
 	}
+
+	// Apply the apiVersion of this resource.
+	if version.GetVersion().Major >= 3 {
+		news["apiVersion"] = resource.NewStringProperty(res.APIVersion)
+	}
 }
 
 // validateType checks the all properties and required properties of the given type and value map.
@@ -841,6 +846,17 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 		logging.V(9).Infof("no __inputs found for '%s'", urn)
 	}
 
+	
+	migratedApiVersion := false
+	if version.GetVersion().Major >= 3 {
+		if _, ok := oldInputs["apiVersion"]; !ok {
+			// migration case: apiVersion might be available in the old state
+			// and we use it to suppress spurious diffs
+			oldInputs["apiVersion"] = oldState["apiVersion"]
+			migratedApiVersion = true
+		}
+	}
+
 	// Get new resource inputs. The user is submitting these as an update.
 	newResInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.news", label),
@@ -871,6 +887,13 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 
 	// Based on the detailed diff above, calculate the list of changes and replacements.
 	changes, replaces := calculateChangesAndReplacements(detailedDiff, oldInputs, newResInputs, oldState, *res)
+
+	if version.GetVersion().Major >= 3 && migratedApiVersion {
+		if v, ok := detailedDiff["apiVersion"]; ok {
+			// in this case, the diff is between the old state and the new inputs
+			v.InputDiff = false
+		}
+	}
 
 	// TODO: implement create-before-delete for children of randomly auto-named resources.
 	deleteBeforeReplace := len(replaces) > 0
@@ -975,7 +998,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	}
 
 	// Store both outputs and inputs into the state.
-	obj := checkpointObject(inputs, outputs)
+	obj := checkpointObject(res, inputs, outputs)
 
 	// Serialize and return RPC outputs
 	checkpoint, err := plugin.MarshalProperties(
@@ -1265,7 +1288,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	// Store both outputs and inputs into the state.
-	obj := checkpointObject(inputs, outputsWithoutIgnores)
+	obj := checkpointObject(res, inputs, outputsWithoutIgnores)
 
 	// Serialize and return RPC outputs.
 	checkpoint, err := plugin.MarshalProperties(
@@ -1405,7 +1428,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	}
 
 	// Store both outputs and inputs into the state.
-	obj := checkpointObject(inputs, outputs)
+	obj := checkpointObject(res, inputs, outputs)
 
 	// Serialize and return RPC outputs.
 	checkpoint, err := plugin.MarshalProperties(
@@ -1619,11 +1642,14 @@ func azureContext(ctx context.Context, timeoutSeconds float64) (context.Context,
 
 // checkpointObject produces the checkpointed state for the given inputs and outputs.
 // In v2, we stored the inputs in an `__inputs` field of the state; removed in v3.
-func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
+func checkpointObject(res *resources.AzureAPIResource, inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
 	object := resource.NewPropertyMapFromMap(outputs)
 	if version.GetVersion().Major < 3 {
 		object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
 	}
+
+	// emit the actual apiversion as an output property
+	object["apiVersion"] = resource.NewStringProperty(res.APIVersion)
 	return object
 }
 
