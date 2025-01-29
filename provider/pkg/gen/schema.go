@@ -1075,8 +1075,7 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAl
 
 	var aliasSpecs []pschema.AliasSpec
 	for _, v := range typeAliases.SortedValues() {
-		typeToken := v
-		aliasSpecs = append(aliasSpecs, pschema.AliasSpec{Type: &typeToken})
+		aliasSpecs = append(aliasSpecs, pschema.AliasSpec{Type: &v})
 	}
 	return aliasSpecs
 }
