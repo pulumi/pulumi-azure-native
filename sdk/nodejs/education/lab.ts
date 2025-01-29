@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lab details.
- * Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2021-12-01-preview.
+ * Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 2.x: 2021-12-01-preview.
  */
 export class Lab extends pulumi.CustomResource {
     /**
@@ -83,6 +83,10 @@ export class Lab extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.education.SystemDataResponse>;
     /**
+     * Total budget
+     */
+    public /*out*/ readonly totalBudget!: pulumi.Output<outputs.education.AmountResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -138,6 +142,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["totalBudget"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["budgetPerStudent"] = undefined /*out*/;
@@ -151,6 +156,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["totalBudget"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }

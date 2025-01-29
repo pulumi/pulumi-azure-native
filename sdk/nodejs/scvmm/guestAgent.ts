@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the GuestAgent.
- * Azure REST API version: 2022-05-21-preview.
+ * Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 2.x: 2022-05-21-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+ * Other available API versions: 2022-05-21-preview, 2024-06-01.
  */
 export class GuestAgent extends pulumi.CustomResource {
     /**

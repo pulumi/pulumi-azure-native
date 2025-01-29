@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The agentPool resource definition
- * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2022-05-01-preview.
  */
 export class AgentPool extends pulumi.CustomResource {
     /**
@@ -176,7 +178,7 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["vmSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:AgentPool" }, { type: "azure-native:hybridcontainerservice/v20220501preview:agentPool" }, { type: "azure-native:hybridcontainerservice/v20220901preview:AgentPool" }, { type: "azure-native:hybridcontainerservice/v20220901preview:agentPool" }, { type: "azure-native:hybridcontainerservice:agentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:AgentPool" }, { type: "azure-native:hybridcontainerservice/v20220901preview:AgentPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AgentPool.__pulumiType, name, resourceInputs, opts);
     }

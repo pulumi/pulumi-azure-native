@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a client.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getClient(args: GetClientArgs, opts?: pulumi.InvokeOptions): Promise<GetClientResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,10 +48,6 @@ export interface GetClientResult {
      */
     readonly attributes?: any;
     /**
-     * Authentication information for the client.
-     */
-    readonly authentication?: outputs.eventgrid.ClientAuthenticationResponse;
-    /**
      * The name presented by the client for authentication. The default value is the name of the resource.
      */
     readonly authenticationName?: string;
@@ -80,7 +76,7 @@ export interface GetClientResult {
      */
     readonly state?: string;
     /**
-     * The system metadata relating to the Client resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -90,9 +86,9 @@ export interface GetClientResult {
 }
 /**
  * Get properties of a client.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getClientOutput(args: GetClientOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClientResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

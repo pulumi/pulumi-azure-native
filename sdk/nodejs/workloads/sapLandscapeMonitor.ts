@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * configuration associated with SAP Landscape Monitor Dashboard.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-02-01-preview. Prior API version in Azure Native 2.x: 2023-04-01.
  *
- * Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+ * Other available API versions: 2023-04-01, 2023-10-01-preview.
  */
 export class SapLandscapeMonitor extends pulumi.CustomResource {
     /**
@@ -43,7 +43,7 @@ export class SapLandscapeMonitor extends pulumi.CustomResource {
     /**
      * Gets or sets the SID groupings by landscape and Environment.
      */
-    public readonly grouping!: pulumi.Output<outputs.workloads.SapLandscapeMonitorPropertiesResponseGrouping | undefined>;
+    public readonly grouping!: pulumi.Output<outputs.workloads.SapLandscapeMonitorPropertiesGroupingResponse | undefined>;
     /**
      * The name of the resource
      */

@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
  */
 export function listWorkspaceConnectionSecrets(args: ListWorkspaceConnectionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceConnectionSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,7 +45,7 @@ export interface ListWorkspaceConnectionSecretsResult {
      * The name of the resource
      */
     readonly name: string;
-    readonly properties: outputs.machinelearningservices.AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.ApiKeyAuthWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.CustomKeysWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse;
+    readonly properties: outputs.machinelearningservices.AADAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.AccountKeyAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.ApiKeyAuthWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.CustomKeysWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.OAuth2AuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -56,9 +56,9 @@ export interface ListWorkspaceConnectionSecretsResult {
     readonly type: string;
 }
 /**
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
  */
 export function listWorkspaceConnectionSecretsOutput(args: ListWorkspaceConnectionSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceConnectionSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

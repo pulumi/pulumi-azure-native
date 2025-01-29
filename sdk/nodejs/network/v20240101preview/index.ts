@@ -5,36 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AdminRuleArgs } from "./adminRule";
-export type AdminRule = import("./adminRule").AdminRule;
-export const AdminRule: typeof import("./adminRule").AdminRule = null as any;
-utilities.lazyLoad(exports, ["AdminRule"], () => require("./adminRule"));
-
-export { AdminRuleCollectionArgs } from "./adminRuleCollection";
-export type AdminRuleCollection = import("./adminRuleCollection").AdminRuleCollection;
-export const AdminRuleCollection: typeof import("./adminRuleCollection").AdminRuleCollection = null as any;
-utilities.lazyLoad(exports, ["AdminRuleCollection"], () => require("./adminRuleCollection"));
-
-export { DefaultAdminRuleArgs } from "./defaultAdminRule";
-export type DefaultAdminRule = import("./defaultAdminRule").DefaultAdminRule;
-export const DefaultAdminRule: typeof import("./defaultAdminRule").DefaultAdminRule = null as any;
-utilities.lazyLoad(exports, ["DefaultAdminRule"], () => require("./defaultAdminRule"));
-
-export { GetAdminRuleArgs, GetAdminRuleResult, GetAdminRuleOutputArgs } from "./getAdminRule";
-export const getAdminRule: typeof import("./getAdminRule").getAdminRule = null as any;
-export const getAdminRuleOutput: typeof import("./getAdminRule").getAdminRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getAdminRule","getAdminRuleOutput"], () => require("./getAdminRule"));
-
-export { GetAdminRuleCollectionArgs, GetAdminRuleCollectionResult, GetAdminRuleCollectionOutputArgs } from "./getAdminRuleCollection";
-export const getAdminRuleCollection: typeof import("./getAdminRuleCollection").getAdminRuleCollection = null as any;
-export const getAdminRuleCollectionOutput: typeof import("./getAdminRuleCollection").getAdminRuleCollectionOutput = null as any;
-utilities.lazyLoad(exports, ["getAdminRuleCollection","getAdminRuleCollectionOutput"], () => require("./getAdminRuleCollection"));
-
-export { GetDefaultAdminRuleArgs, GetDefaultAdminRuleResult, GetDefaultAdminRuleOutputArgs } from "./getDefaultAdminRule";
-export const getDefaultAdminRule: typeof import("./getDefaultAdminRule").getDefaultAdminRule = null as any;
-export const getDefaultAdminRuleOutput: typeof import("./getDefaultAdminRule").getDefaultAdminRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getDefaultAdminRule","getDefaultAdminRuleOutput"], () => require("./getDefaultAdminRule"));
-
 export { GetIpamPoolArgs, GetIpamPoolResult, GetIpamPoolOutputArgs } from "./getIpamPool";
 export const getIpamPool: typeof import("./getIpamPool").getIpamPool = null as any;
 export const getIpamPoolOutput: typeof import("./getIpamPool").getIpamPoolOutput = null as any;
@@ -45,11 +15,6 @@ export const getIpamPoolUsage: typeof import("./getIpamPoolUsage").getIpamPoolUs
 export const getIpamPoolUsageOutput: typeof import("./getIpamPoolUsage").getIpamPoolUsageOutput = null as any;
 utilities.lazyLoad(exports, ["getIpamPoolUsage","getIpamPoolUsageOutput"], () => require("./getIpamPoolUsage"));
 
-export { GetNetworkManagerArgs, GetNetworkManagerResult, GetNetworkManagerOutputArgs } from "./getNetworkManager";
-export const getNetworkManager: typeof import("./getNetworkManager").getNetworkManager = null as any;
-export const getNetworkManagerOutput: typeof import("./getNetworkManager").getNetworkManagerOutput = null as any;
-utilities.lazyLoad(exports, ["getNetworkManager","getNetworkManagerOutput"], () => require("./getNetworkManager"));
-
 export { GetReachabilityAnalysisIntentArgs, GetReachabilityAnalysisIntentResult, GetReachabilityAnalysisIntentOutputArgs } from "./getReachabilityAnalysisIntent";
 export const getReachabilityAnalysisIntent: typeof import("./getReachabilityAnalysisIntent").getReachabilityAnalysisIntent = null as any;
 export const getReachabilityAnalysisIntentOutput: typeof import("./getReachabilityAnalysisIntent").getReachabilityAnalysisIntentOutput = null as any;
@@ -59,11 +24,6 @@ export { GetReachabilityAnalysisRunArgs, GetReachabilityAnalysisRunResult, GetRe
 export const getReachabilityAnalysisRun: typeof import("./getReachabilityAnalysisRun").getReachabilityAnalysisRun = null as any;
 export const getReachabilityAnalysisRunOutput: typeof import("./getReachabilityAnalysisRun").getReachabilityAnalysisRunOutput = null as any;
 utilities.lazyLoad(exports, ["getReachabilityAnalysisRun","getReachabilityAnalysisRunOutput"], () => require("./getReachabilityAnalysisRun"));
-
-export { GetSecurityAdminConfigurationArgs, GetSecurityAdminConfigurationResult, GetSecurityAdminConfigurationOutputArgs } from "./getSecurityAdminConfiguration";
-export const getSecurityAdminConfiguration: typeof import("./getSecurityAdminConfiguration").getSecurityAdminConfiguration = null as any;
-export const getSecurityAdminConfigurationOutput: typeof import("./getSecurityAdminConfiguration").getSecurityAdminConfigurationOutput = null as any;
-utilities.lazyLoad(exports, ["getSecurityAdminConfiguration","getSecurityAdminConfigurationOutput"], () => require("./getSecurityAdminConfiguration"));
 
 export { GetStaticCidrArgs, GetStaticCidrResult, GetStaticCidrOutputArgs } from "./getStaticCidr";
 export const getStaticCidr: typeof import("./getStaticCidr").getStaticCidr = null as any;
@@ -85,16 +45,6 @@ export const listIpamPoolAssociatedResources: typeof import("./listIpamPoolAssoc
 export const listIpamPoolAssociatedResourcesOutput: typeof import("./listIpamPoolAssociatedResources").listIpamPoolAssociatedResourcesOutput = null as any;
 utilities.lazyLoad(exports, ["listIpamPoolAssociatedResources","listIpamPoolAssociatedResourcesOutput"], () => require("./listIpamPoolAssociatedResources"));
 
-export { ListNetworkManagerDeploymentStatusArgs, ListNetworkManagerDeploymentStatusResult, ListNetworkManagerDeploymentStatusOutputArgs } from "./listNetworkManagerDeploymentStatus";
-export const listNetworkManagerDeploymentStatus: typeof import("./listNetworkManagerDeploymentStatus").listNetworkManagerDeploymentStatus = null as any;
-export const listNetworkManagerDeploymentStatusOutput: typeof import("./listNetworkManagerDeploymentStatus").listNetworkManagerDeploymentStatusOutput = null as any;
-utilities.lazyLoad(exports, ["listNetworkManagerDeploymentStatus","listNetworkManagerDeploymentStatusOutput"], () => require("./listNetworkManagerDeploymentStatus"));
-
-export { NetworkManagerArgs } from "./networkManager";
-export type NetworkManager = import("./networkManager").NetworkManager;
-export const NetworkManager: typeof import("./networkManager").NetworkManager = null as any;
-utilities.lazyLoad(exports, ["NetworkManager"], () => require("./networkManager"));
-
 export { ReachabilityAnalysisIntentArgs } from "./reachabilityAnalysisIntent";
 export type ReachabilityAnalysisIntent = import("./reachabilityAnalysisIntent").ReachabilityAnalysisIntent;
 export const ReachabilityAnalysisIntent: typeof import("./reachabilityAnalysisIntent").ReachabilityAnalysisIntent = null as any;
@@ -104,11 +54,6 @@ export { ReachabilityAnalysisRunArgs } from "./reachabilityAnalysisRun";
 export type ReachabilityAnalysisRun = import("./reachabilityAnalysisRun").ReachabilityAnalysisRun;
 export const ReachabilityAnalysisRun: typeof import("./reachabilityAnalysisRun").ReachabilityAnalysisRun = null as any;
 utilities.lazyLoad(exports, ["ReachabilityAnalysisRun"], () => require("./reachabilityAnalysisRun"));
-
-export { SecurityAdminConfigurationArgs } from "./securityAdminConfiguration";
-export type SecurityAdminConfiguration = import("./securityAdminConfiguration").SecurityAdminConfiguration;
-export const SecurityAdminConfiguration: typeof import("./securityAdminConfiguration").SecurityAdminConfiguration = null as any;
-utilities.lazyLoad(exports, ["SecurityAdminConfiguration"], () => require("./securityAdminConfiguration"));
 
 export { StaticCidrArgs } from "./staticCidr";
 export type StaticCidr = import("./staticCidr").StaticCidr;
@@ -128,22 +73,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:network/v20240101preview:AdminRule":
-                return new AdminRule(name, <any>undefined, { urn })
-            case "azure-native:network/v20240101preview:AdminRuleCollection":
-                return new AdminRuleCollection(name, <any>undefined, { urn })
-            case "azure-native:network/v20240101preview:DefaultAdminRule":
-                return new DefaultAdminRule(name, <any>undefined, { urn })
             case "azure-native:network/v20240101preview:IpamPool":
                 return new IpamPool(name, <any>undefined, { urn })
-            case "azure-native:network/v20240101preview:NetworkManager":
-                return new NetworkManager(name, <any>undefined, { urn })
             case "azure-native:network/v20240101preview:ReachabilityAnalysisIntent":
                 return new ReachabilityAnalysisIntent(name, <any>undefined, { urn })
             case "azure-native:network/v20240101preview:ReachabilityAnalysisRun":
                 return new ReachabilityAnalysisRun(name, <any>undefined, { urn })
-            case "azure-native:network/v20240101preview:SecurityAdminConfiguration":
-                return new SecurityAdminConfiguration(name, <any>undefined, { urn })
             case "azure-native:network/v20240101preview:StaticCidr":
                 return new StaticCidr(name, <any>undefined, { urn })
             case "azure-native:network/v20240101preview:VerifierWorkspace":

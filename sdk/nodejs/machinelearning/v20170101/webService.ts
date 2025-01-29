@@ -90,7 +90,7 @@ export class WebService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearning/v20160501preview:WebService" }, { type: "azure-native:machinelearning:WebService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearning/v20160501preview:WebService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebService.__pulumiType, name, resourceInputs, opts);
     }

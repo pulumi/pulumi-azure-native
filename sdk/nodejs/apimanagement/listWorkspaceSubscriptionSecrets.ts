@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Gets the specified Subscription keys.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2024-06-01-preview.
  */
 export function listWorkspaceSubscriptionSecrets(args: ListWorkspaceSubscriptionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceSubscriptionSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -56,7 +56,7 @@ export interface ListWorkspaceSubscriptionSecretsResult {
  * Gets the specified Subscription keys.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2024-06-01-preview.
  */
 export function listWorkspaceSubscriptionSecretsOutput(args: ListWorkspaceSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceSubscriptionSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

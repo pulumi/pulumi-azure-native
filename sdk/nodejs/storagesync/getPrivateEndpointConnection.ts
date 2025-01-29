@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified private endpoint connection associated with the storage sync service.
- * Azure REST API version: 2022-06-01.
+ * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2022-09-01.
+ * Other available API versions: 2022-06-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +24,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
 
 export interface GetPrivateEndpointConnectionArgs {
     /**
-     * The name of the private endpoint connection associated with the Azure resource
+     * The name of the private endpoint connection associated with the Azure resource.
      */
     privateEndpointConnectionName: string;
     /**
@@ -38,11 +38,15 @@ export interface GetPrivateEndpointConnectionArgs {
 }
 
 /**
- * The Private Endpoint Connection resource.
+ * The private endpoint connection resource.
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The group ids for the private endpoint resource.
+     */
+    readonly groupIds: string[];
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -50,7 +54,7 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * The resource of private end point.
+     * The private endpoint resource.
      */
     readonly privateEndpoint?: outputs.storagesync.PrivateEndpointResponse;
     /**
@@ -72,9 +76,9 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * Gets the specified private endpoint connection associated with the storage sync service.
- * Azure REST API version: 2022-06-01.
+ * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2022-09-01.
+ * Other available API versions: 2022-06-01.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,7 +91,7 @@ export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConne
 
 export interface GetPrivateEndpointConnectionOutputArgs {
     /**
-     * The name of the private endpoint connection associated with the Azure resource
+     * The name of the private endpoint connection associated with the Azure resource.
      */
     privateEndpointConnectionName: pulumi.Input<string>;
     /**

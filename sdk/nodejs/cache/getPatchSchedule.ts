@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the patching schedule of a redis cache.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+ * Other available API versions: 2023-04-01.
  */
 export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +32,7 @@ export interface GetPatchScheduleArgs {
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -64,9 +64,9 @@ export interface GetPatchScheduleResult {
 }
 /**
  * Gets the patching schedule of a redis cache.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+ * Other available API versions: 2023-04-01.
  */
 export function getPatchScheduleOutput(args: GetPatchScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPatchScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,7 +87,7 @@ export interface GetPatchScheduleOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

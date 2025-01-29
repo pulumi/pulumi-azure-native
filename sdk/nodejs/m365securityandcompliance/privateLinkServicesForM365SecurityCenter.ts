@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the service.
- * Azure REST API version: 2021-03-25-preview. Prior API version in Azure Native 1.x: 2021-03-25-preview.
+ * Azure REST API version: 2021-03-25-preview.
  */
 export class PrivateLinkServicesForM365SecurityCenter extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export class PrivateLinkServicesForM365SecurityCenter extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForM365SecurityCenter" }, { type: "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForM365SecurityCenter" }, { type: "azure-native:m365securityandcompliance:privateLinkServicesForM365SecurityCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForM365SecurityCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForM365SecurityCenter.__pulumiType, name, resourceInputs, opts);
     }

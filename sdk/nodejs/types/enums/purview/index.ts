@@ -3,29 +3,26 @@
 
 // Export sub-modules:
 import * as v20201201preview from "./v20201201preview";
-import * as v20210701 from "./v20210701";
 import * as v20211201 from "./v20211201";
 import * as v20230501preview from "./v20230501preview";
 import * as v20240401preview from "./v20240401preview";
 
 export {
     v20201201preview,
-    v20210701,
     v20211201,
     v20230501preview,
     v20240401preview,
 };
 
-export const CredentialsType = {
-    None: "None",
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
+export const AccountSkuName = {
+    Standard: "Standard",
+    Free: "Free",
 } as const;
 
 /**
- * Identity Type.
+ * Gets or sets the sku name.
  */
-export type CredentialsType = (typeof CredentialsType)[keyof typeof CredentialsType];
+export type AccountSkuName = (typeof AccountSkuName)[keyof typeof AccountSkuName];
 
 export const EventHubType = {
     Notification: "Notification",
@@ -58,6 +55,17 @@ export const EventStreamingType = {
  */
 export type EventStreamingType = (typeof EventStreamingType)[keyof typeof EventStreamingType];
 
+export const KafkaConfigurationIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * Identity Type.
+ */
+export type KafkaConfigurationIdentityType = (typeof KafkaConfigurationIdentityType)[keyof typeof KafkaConfigurationIdentityType];
+
 export const ManagedEventHubState = {
     NotSpecified: "NotSpecified",
     Disabled: "Disabled",
@@ -65,20 +73,33 @@ export const ManagedEventHubState = {
 } as const;
 
 /**
- *  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+ * Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
  */
 export type ManagedEventHubState = (typeof ManagedEventHubState)[keyof typeof ManagedEventHubState];
 
-export const ManagedResourcesPublicNetworkAccess = {
-    NotSpecified: "NotSpecified",
-    Enabled: "Enabled",
-    Disabled: "Disabled",
+export const ManagedIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
 } as const;
 
 /**
- * Gets or sets the public network access for managed resources.
+ * Identity Type
  */
-export type ManagedResourcesPublicNetworkAccess = (typeof ManagedResourcesPublicNetworkAccess)[keyof typeof ManagedResourcesPublicNetworkAccess];
+export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
+
+export const PrivateEndpointConnectionStatus = {
+    Unknown: "Unknown",
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * The status.
+ */
+export type PrivateEndpointConnectionStatus = (typeof PrivateEndpointConnectionStatus)[keyof typeof PrivateEndpointConnectionStatus];
 
 export const PublicNetworkAccess = {
     NotSpecified: "NotSpecified",
@@ -91,26 +112,13 @@ export const PublicNetworkAccess = {
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
-export const Status = {
-    Unknown: "Unknown",
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-    Disconnected: "Disconnected",
+export const TenantEndpointState = {
+    NotSpecified: "NotSpecified",
+    Disabled: "Disabled",
+    Enabled: "Enabled",
 } as const;
 
 /**
- * The status.
+ * Gets or sets the state of tenant endpoint.
  */
-export type Status = (typeof Status)[keyof typeof Status];
-
-export const Type = {
-    None: "None",
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-} as const;
-
-/**
- * Identity Type
- */
-export type Type = (typeof Type)[keyof typeof Type];
+export type TenantEndpointState = (typeof TenantEndpointState)[keyof typeof TenantEndpointState];

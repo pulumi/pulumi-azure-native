@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * List environments success response
- * Azure REST API version: 2023-08-22.
+ * Details of the environments returned on successful response
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2024-02-13, 2024-07-01.
+ * Other available API versions: 2023-08-22.
  */
 export function listAccessEnvironments(args: ListAccessEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessEnvironmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,11 +38,11 @@ export interface ListAccessEnvironmentsArgs {
 }
 
 /**
- * List environments success response
+ * Details of the environments returned on successful response
  */
 export interface ListAccessEnvironmentsResult {
     /**
-     * Data of the environments list
+     * Environment list data
      */
     readonly data?: outputs.confluent.EnvironmentRecordResponse[];
     /**
@@ -50,15 +50,15 @@ export interface ListAccessEnvironmentsResult {
      */
     readonly kind?: string;
     /**
-     * Metadata of the list
+     * Metadata of the  environment list
      */
     readonly metadata?: outputs.confluent.ConfluentListMetadataResponse;
 }
 /**
- * List environments success response
- * Azure REST API version: 2023-08-22.
+ * Details of the environments returned on successful response
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2024-02-13, 2024-07-01.
+ * Other available API versions: 2023-08-22.
  */
 export function listAccessEnvironmentsOutput(args: ListAccessEnvironmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessEnvironmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

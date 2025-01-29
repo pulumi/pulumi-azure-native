@@ -20,11 +20,6 @@ export type DeploymentSetting = import("./deploymentSetting").DeploymentSetting;
 export const DeploymentSetting: typeof import("./deploymentSetting").DeploymentSetting = null as any;
 utilities.lazyLoad(exports, ["DeploymentSetting"], () => require("./deploymentSetting"));
 
-export { EdgeDeviceArgs } from "./edgeDevice";
-export type EdgeDevice = import("./edgeDevice").EdgeDevice;
-export const EdgeDevice: typeof import("./edgeDevice").EdgeDevice = null as any;
-utilities.lazyLoad(exports, ["EdgeDevice"], () => require("./edgeDevice"));
-
 export { ExtensionArgs } from "./extension";
 export type Extension = import("./extension").Extension;
 export const Extension: typeof import("./extension").Extension = null as any;
@@ -50,11 +45,6 @@ export const getDeploymentSetting: typeof import("./getDeploymentSetting").getDe
 export const getDeploymentSettingOutput: typeof import("./getDeploymentSetting").getDeploymentSettingOutput = null as any;
 utilities.lazyLoad(exports, ["getDeploymentSetting","getDeploymentSettingOutput"], () => require("./getDeploymentSetting"));
 
-export { GetEdgeDeviceArgs, GetEdgeDeviceResult, GetEdgeDeviceOutputArgs } from "./getEdgeDevice";
-export const getEdgeDevice: typeof import("./getEdgeDevice").getEdgeDevice = null as any;
-export const getEdgeDeviceOutput: typeof import("./getEdgeDevice").getEdgeDeviceOutput = null as any;
-utilities.lazyLoad(exports, ["getEdgeDevice","getEdgeDeviceOutput"], () => require("./getEdgeDevice"));
-
 export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
 export const getExtension: typeof import("./getExtension").getExtension = null as any;
 export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
@@ -69,6 +59,11 @@ export { GetGuestAgentArgs, GetGuestAgentResult, GetGuestAgentOutputArgs } from 
 export const getGuestAgent: typeof import("./getGuestAgent").getGuestAgent = null as any;
 export const getGuestAgentOutput: typeof import("./getGuestAgent").getGuestAgentOutput = null as any;
 utilities.lazyLoad(exports, ["getGuestAgent","getGuestAgentOutput"], () => require("./getGuestAgent"));
+
+export { GetHciEdgeDeviceArgs, GetHciEdgeDeviceResult, GetHciEdgeDeviceOutputArgs } from "./getHciEdgeDevice";
+export const getHciEdgeDevice: typeof import("./getHciEdgeDevice").getHciEdgeDevice = null as any;
+export const getHciEdgeDeviceOutput: typeof import("./getHciEdgeDevice").getHciEdgeDeviceOutput = null as any;
+utilities.lazyLoad(exports, ["getHciEdgeDevice","getHciEdgeDeviceOutput"], () => require("./getHciEdgeDevice"));
 
 export { GetHciEdgeDeviceJobArgs, GetHciEdgeDeviceJobResult, GetHciEdgeDeviceJobOutputArgs } from "./getHciEdgeDeviceJob";
 export const getHciEdgeDeviceJob: typeof import("./getHciEdgeDeviceJob").getHciEdgeDeviceJob = null as any;
@@ -160,6 +155,11 @@ export type GuestAgent = import("./guestAgent").GuestAgent;
 export const GuestAgent: typeof import("./guestAgent").GuestAgent = null as any;
 utilities.lazyLoad(exports, ["GuestAgent"], () => require("./guestAgent"));
 
+export { HciEdgeDeviceArgs } from "./hciEdgeDevice";
+export type HciEdgeDevice = import("./hciEdgeDevice").HciEdgeDevice;
+export const HciEdgeDevice: typeof import("./hciEdgeDevice").HciEdgeDevice = null as any;
+utilities.lazyLoad(exports, ["HciEdgeDevice"], () => require("./hciEdgeDevice"));
+
 export { HciEdgeDeviceJobArgs } from "./hciEdgeDeviceJob";
 export type HciEdgeDeviceJob = import("./hciEdgeDeviceJob").HciEdgeDeviceJob;
 export const HciEdgeDeviceJob: typeof import("./hciEdgeDeviceJob").HciEdgeDeviceJob = null as any;
@@ -250,48 +250,34 @@ utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"
 export * from "../types/enums/azurestackhci";
 
 // Export sub-modules:
-import * as v20210901preview from "./v20210901preview";
 import * as v20220101 from "./v20220101";
 import * as v20220901 from "./v20220901";
 import * as v20221215preview from "./v20221215preview";
 import * as v20230301 from "./v20230301";
-import * as v20230601 from "./v20230601";
 import * as v20230701preview from "./v20230701preview";
-import * as v20230801 from "./v20230801";
 import * as v20230801preview from "./v20230801preview";
 import * as v20230901preview from "./v20230901preview";
 import * as v20231101preview from "./v20231101preview";
 import * as v20240101 from "./v20240101";
 import * as v20240201preview from "./v20240201preview";
-import * as v20240215preview from "./v20240215preview";
 import * as v20240401 from "./v20240401";
-import * as v20240501preview from "./v20240501preview";
 import * as v20240715preview from "./v20240715preview";
-import * as v20240801preview from "./v20240801preview";
-import * as v20240901preview from "./v20240901preview";
 import * as v20241001preview from "./v20241001preview";
 import * as v20241201preview from "./v20241201preview";
 
 export {
-    v20210901preview,
     v20220101,
     v20220901,
     v20221215preview,
     v20230301,
-    v20230601,
     v20230701preview,
-    v20230801,
     v20230801preview,
     v20230901preview,
     v20231101preview,
     v20240101,
     v20240201preview,
-    v20240215preview,
     v20240401,
-    v20240501preview,
     v20240715preview,
-    v20240801preview,
-    v20240901preview,
     v20241001preview,
     v20241201preview,
 };
@@ -306,14 +292,14 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:DeploymentSetting":
                 return new DeploymentSetting(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci:EdgeDevice":
-                return new EdgeDevice(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:Extension":
                 return new Extension(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:GalleryImage":
                 return new GalleryImage(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:GuestAgent":
                 return new GuestAgent(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:HciEdgeDevice":
+                return new HciEdgeDevice(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:HciEdgeDeviceJob":
                 return new HciEdgeDeviceJob(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:HybridIdentityMetadatum":

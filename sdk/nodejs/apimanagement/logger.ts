@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Logger details.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
  *
- * Other available API versions: 2016-10-10, 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-08-01, 2024-06-01-preview.
  */
 export class Logger extends pulumi.CustomResource {
     /**

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a description for the specified topic.
- * Azure REST API version: 2022-01-01-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2022-01-01-preview.
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,7 +28,7 @@ export interface GetTopicArgs {
      */
     namespaceName: string;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -132,9 +132,9 @@ export interface GetTopicResult {
 }
 /**
  * Returns a description for the specified topic.
- * Azure REST API version: 2022-01-01-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2022-01-01-preview.
  */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -151,7 +151,7 @@ export interface GetTopicOutputArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

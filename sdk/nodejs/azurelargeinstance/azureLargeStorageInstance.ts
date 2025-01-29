@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * AzureLargeStorageInstance info on Azure (ARM properties and
  * AzureLargeStorageInstance properties)
- * Azure REST API version: 2024-08-01-preview.
+ * Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2024-08-01-preview.
  */
 export class AzureLargeStorageInstance extends pulumi.CustomResource {
     /**

@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get an resource upload URL for build service, which may be artifacts or source archive.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
  */
 export function getBuildServiceResourceUploadUrl(args: GetBuildServiceResourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceResourceUploadUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,9 +49,9 @@ export interface GetBuildServiceResourceUploadUrlResult {
 }
 /**
  * Get an resource upload URL for build service, which may be artifacts or source archive.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
  */
 export function getBuildServiceResourceUploadUrlOutput(args: GetBuildServiceResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBuildServiceResourceUploadUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

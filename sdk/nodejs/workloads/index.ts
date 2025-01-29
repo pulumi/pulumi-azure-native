@@ -45,25 +45,10 @@ export const getProviderInstance: typeof import("./getProviderInstance").getProv
 export const getProviderInstanceOutput: typeof import("./getProviderInstance").getProviderInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getProviderInstance","getProviderInstanceOutput"], () => require("./getProviderInstance"));
 
-export { GetSAPApplicationServerInstanceArgs, GetSAPApplicationServerInstanceResult, GetSAPApplicationServerInstanceOutputArgs } from "./getSAPApplicationServerInstance";
-export const getSAPApplicationServerInstance: typeof import("./getSAPApplicationServerInstance").getSAPApplicationServerInstance = null as any;
-export const getSAPApplicationServerInstanceOutput: typeof import("./getSAPApplicationServerInstance").getSAPApplicationServerInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getSAPApplicationServerInstance","getSAPApplicationServerInstanceOutput"], () => require("./getSAPApplicationServerInstance"));
-
 export { GetSAPAvailabilityZoneDetailsArgs, GetSAPAvailabilityZoneDetailsResult, GetSAPAvailabilityZoneDetailsOutputArgs } from "./getSAPAvailabilityZoneDetails";
 export const getSAPAvailabilityZoneDetails: typeof import("./getSAPAvailabilityZoneDetails").getSAPAvailabilityZoneDetails = null as any;
 export const getSAPAvailabilityZoneDetailsOutput: typeof import("./getSAPAvailabilityZoneDetails").getSAPAvailabilityZoneDetailsOutput = null as any;
 utilities.lazyLoad(exports, ["getSAPAvailabilityZoneDetails","getSAPAvailabilityZoneDetailsOutput"], () => require("./getSAPAvailabilityZoneDetails"));
-
-export { GetSAPCentralInstanceArgs, GetSAPCentralInstanceResult, GetSAPCentralInstanceOutputArgs } from "./getSAPCentralInstance";
-export const getSAPCentralInstance: typeof import("./getSAPCentralInstance").getSAPCentralInstance = null as any;
-export const getSAPCentralInstanceOutput: typeof import("./getSAPCentralInstance").getSAPCentralInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getSAPCentralInstance","getSAPCentralInstanceOutput"], () => require("./getSAPCentralInstance"));
-
-export { GetSAPDatabaseInstanceArgs, GetSAPDatabaseInstanceResult, GetSAPDatabaseInstanceOutputArgs } from "./getSAPDatabaseInstance";
-export const getSAPDatabaseInstance: typeof import("./getSAPDatabaseInstance").getSAPDatabaseInstance = null as any;
-export const getSAPDatabaseInstanceOutput: typeof import("./getSAPDatabaseInstance").getSAPDatabaseInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getSAPDatabaseInstance","getSAPDatabaseInstanceOutput"], () => require("./getSAPDatabaseInstance"));
 
 export { GetSAPDiskConfigurationsArgs, GetSAPDiskConfigurationsResult, GetSAPDiskConfigurationsOutputArgs } from "./getSAPDiskConfigurations";
 export const getSAPDiskConfigurations: typeof import("./getSAPDiskConfigurations").getSAPDiskConfigurations = null as any;
@@ -80,10 +65,20 @@ export const getSAPSupportedSku: typeof import("./getSAPSupportedSku").getSAPSup
 export const getSAPSupportedSkuOutput: typeof import("./getSAPSupportedSku").getSAPSupportedSkuOutput = null as any;
 utilities.lazyLoad(exports, ["getSAPSupportedSku","getSAPSupportedSkuOutput"], () => require("./getSAPSupportedSku"));
 
-export { GetSAPVirtualInstanceArgs, GetSAPVirtualInstanceResult, GetSAPVirtualInstanceOutputArgs } from "./getSAPVirtualInstance";
-export const getSAPVirtualInstance: typeof import("./getSAPVirtualInstance").getSAPVirtualInstance = null as any;
-export const getSAPVirtualInstanceOutput: typeof import("./getSAPVirtualInstance").getSAPVirtualInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getSAPVirtualInstance","getSAPVirtualInstanceOutput"], () => require("./getSAPVirtualInstance"));
+export { GetSapApplicationServerInstanceArgs, GetSapApplicationServerInstanceResult, GetSapApplicationServerInstanceOutputArgs } from "./getSapApplicationServerInstance";
+export const getSapApplicationServerInstance: typeof import("./getSapApplicationServerInstance").getSapApplicationServerInstance = null as any;
+export const getSapApplicationServerInstanceOutput: typeof import("./getSapApplicationServerInstance").getSapApplicationServerInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getSapApplicationServerInstance","getSapApplicationServerInstanceOutput"], () => require("./getSapApplicationServerInstance"));
+
+export { GetSapCentralServerInstanceArgs, GetSapCentralServerInstanceResult, GetSapCentralServerInstanceOutputArgs } from "./getSapCentralServerInstance";
+export const getSapCentralServerInstance: typeof import("./getSapCentralServerInstance").getSapCentralServerInstance = null as any;
+export const getSapCentralServerInstanceOutput: typeof import("./getSapCentralServerInstance").getSapCentralServerInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getSapCentralServerInstance","getSapCentralServerInstanceOutput"], () => require("./getSapCentralServerInstance"));
+
+export { GetSapDatabaseInstanceArgs, GetSapDatabaseInstanceResult, GetSapDatabaseInstanceOutputArgs } from "./getSapDatabaseInstance";
+export const getSapDatabaseInstance: typeof import("./getSapDatabaseInstance").getSapDatabaseInstance = null as any;
+export const getSapDatabaseInstanceOutput: typeof import("./getSapDatabaseInstance").getSapDatabaseInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getSapDatabaseInstance","getSapDatabaseInstanceOutput"], () => require("./getSapDatabaseInstance"));
 
 export { GetSapDiscoverySiteArgs, GetSapDiscoverySiteResult, GetSapDiscoverySiteOutputArgs } from "./getSapDiscoverySite";
 export const getSapDiscoverySite: typeof import("./getSapDiscoverySite").getSapDiscoverySite = null as any;
@@ -99,6 +94,11 @@ export { GetSapLandscapeMonitorArgs, GetSapLandscapeMonitorResult, GetSapLandsca
 export const getSapLandscapeMonitor: typeof import("./getSapLandscapeMonitor").getSapLandscapeMonitor = null as any;
 export const getSapLandscapeMonitorOutput: typeof import("./getSapLandscapeMonitor").getSapLandscapeMonitorOutput = null as any;
 utilities.lazyLoad(exports, ["getSapLandscapeMonitor","getSapLandscapeMonitorOutput"], () => require("./getSapLandscapeMonitor"));
+
+export { GetSapVirtualInstanceArgs, GetSapVirtualInstanceResult, GetSapVirtualInstanceOutputArgs } from "./getSapVirtualInstance";
+export const getSapVirtualInstance: typeof import("./getSapVirtualInstance").getSapVirtualInstance = null as any;
+export const getSapVirtualInstanceOutput: typeof import("./getSapVirtualInstance").getSapVirtualInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getSapVirtualInstance","getSapVirtualInstanceOutput"], () => require("./getSapVirtualInstance"));
 
 export { GetSapVirtualInstanceInvokeAvailabilityZoneDetailsArgs, GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult, GetSapVirtualInstanceInvokeAvailabilityZoneDetailsOutputArgs } from "./getSapVirtualInstanceInvokeAvailabilityZoneDetails";
 export const getSapVirtualInstanceInvokeAvailabilityZoneDetails: typeof import("./getSapVirtualInstanceInvokeAvailabilityZoneDetails").getSapVirtualInstanceInvokeAvailabilityZoneDetails = null as any;
@@ -135,6 +135,21 @@ export type ProviderInstance = import("./providerInstance").ProviderInstance;
 export const ProviderInstance: typeof import("./providerInstance").ProviderInstance = null as any;
 utilities.lazyLoad(exports, ["ProviderInstance"], () => require("./providerInstance"));
 
+export { SapApplicationServerInstanceArgs } from "./sapApplicationServerInstance";
+export type SapApplicationServerInstance = import("./sapApplicationServerInstance").SapApplicationServerInstance;
+export const SapApplicationServerInstance: typeof import("./sapApplicationServerInstance").SapApplicationServerInstance = null as any;
+utilities.lazyLoad(exports, ["SapApplicationServerInstance"], () => require("./sapApplicationServerInstance"));
+
+export { SapCentralServerInstanceArgs } from "./sapCentralServerInstance";
+export type SapCentralServerInstance = import("./sapCentralServerInstance").SapCentralServerInstance;
+export const SapCentralServerInstance: typeof import("./sapCentralServerInstance").SapCentralServerInstance = null as any;
+utilities.lazyLoad(exports, ["SapCentralServerInstance"], () => require("./sapCentralServerInstance"));
+
+export { SapDatabaseInstanceArgs } from "./sapDatabaseInstance";
+export type SapDatabaseInstance = import("./sapDatabaseInstance").SapDatabaseInstance;
+export const SapDatabaseInstance: typeof import("./sapDatabaseInstance").SapDatabaseInstance = null as any;
+utilities.lazyLoad(exports, ["SapDatabaseInstance"], () => require("./sapDatabaseInstance"));
+
 export { SapDiscoverySiteArgs } from "./sapDiscoverySite";
 export type SapDiscoverySite = import("./sapDiscoverySite").SapDiscoverySite;
 export const SapDiscoverySite: typeof import("./sapDiscoverySite").SapDiscoverySite = null as any;
@@ -150,25 +165,10 @@ export type SapLandscapeMonitor = import("./sapLandscapeMonitor").SapLandscapeMo
 export const SapLandscapeMonitor: typeof import("./sapLandscapeMonitor").SapLandscapeMonitor = null as any;
 utilities.lazyLoad(exports, ["SapLandscapeMonitor"], () => require("./sapLandscapeMonitor"));
 
-export { SAPApplicationServerInstanceArgs } from "./sapapplicationServerInstance";
-export type SAPApplicationServerInstance = import("./sapapplicationServerInstance").SAPApplicationServerInstance;
-export const SAPApplicationServerInstance: typeof import("./sapapplicationServerInstance").SAPApplicationServerInstance = null as any;
-utilities.lazyLoad(exports, ["SAPApplicationServerInstance"], () => require("./sapapplicationServerInstance"));
-
-export { SAPCentralInstanceArgs } from "./sapcentralInstance";
-export type SAPCentralInstance = import("./sapcentralInstance").SAPCentralInstance;
-export const SAPCentralInstance: typeof import("./sapcentralInstance").SAPCentralInstance = null as any;
-utilities.lazyLoad(exports, ["SAPCentralInstance"], () => require("./sapcentralInstance"));
-
-export { SAPDatabaseInstanceArgs } from "./sapdatabaseInstance";
-export type SAPDatabaseInstance = import("./sapdatabaseInstance").SAPDatabaseInstance;
-export const SAPDatabaseInstance: typeof import("./sapdatabaseInstance").SAPDatabaseInstance = null as any;
-utilities.lazyLoad(exports, ["SAPDatabaseInstance"], () => require("./sapdatabaseInstance"));
-
-export { SAPVirtualInstanceArgs } from "./sapvirtualInstance";
-export type SAPVirtualInstance = import("./sapvirtualInstance").SAPVirtualInstance;
-export const SAPVirtualInstance: typeof import("./sapvirtualInstance").SAPVirtualInstance = null as any;
-utilities.lazyLoad(exports, ["SAPVirtualInstance"], () => require("./sapvirtualInstance"));
+export { SapVirtualInstanceArgs } from "./sapVirtualInstance";
+export type SapVirtualInstance = import("./sapVirtualInstance").SapVirtualInstance;
+export const SapVirtualInstance: typeof import("./sapVirtualInstance").SapVirtualInstance = null as any;
+utilities.lazyLoad(exports, ["SapVirtualInstance"], () => require("./sapVirtualInstance"));
 
 export { ServerInstanceArgs } from "./serverInstance";
 export type ServerInstance = import("./serverInstance").ServerInstance;
@@ -212,20 +212,20 @@ const _module = {
                 return new Monitor(name, <any>undefined, { urn })
             case "azure-native:workloads:ProviderInstance":
                 return new ProviderInstance(name, <any>undefined, { urn })
-            case "azure-native:workloads:SAPApplicationServerInstance":
-                return new SAPApplicationServerInstance(name, <any>undefined, { urn })
-            case "azure-native:workloads:SAPCentralInstance":
-                return new SAPCentralInstance(name, <any>undefined, { urn })
-            case "azure-native:workloads:SAPDatabaseInstance":
-                return new SAPDatabaseInstance(name, <any>undefined, { urn })
-            case "azure-native:workloads:SAPVirtualInstance":
-                return new SAPVirtualInstance(name, <any>undefined, { urn })
+            case "azure-native:workloads:SapApplicationServerInstance":
+                return new SapApplicationServerInstance(name, <any>undefined, { urn })
+            case "azure-native:workloads:SapCentralServerInstance":
+                return new SapCentralServerInstance(name, <any>undefined, { urn })
+            case "azure-native:workloads:SapDatabaseInstance":
+                return new SapDatabaseInstance(name, <any>undefined, { urn })
             case "azure-native:workloads:SapDiscoverySite":
                 return new SapDiscoverySite(name, <any>undefined, { urn })
             case "azure-native:workloads:SapInstance":
                 return new SapInstance(name, <any>undefined, { urn })
             case "azure-native:workloads:SapLandscapeMonitor":
                 return new SapLandscapeMonitor(name, <any>undefined, { urn })
+            case "azure-native:workloads:SapVirtualInstance":
+                return new SapVirtualInstance(name, <any>undefined, { urn })
             case "azure-native:workloads:ServerInstance":
                 return new ServerInstance(name, <any>undefined, { urn })
             default:

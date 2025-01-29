@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2024-04-01-preview.
- *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
  */
 export class ConnectionRaiBlocklistItem extends pulumi.CustomResource {
     /**
@@ -44,9 +42,9 @@ export class ConnectionRaiBlocklistItem extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * RAI Custom Blocklist properties.
+     * RAI Custom Blocklist Item properties.
      */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.RaiBlocklistPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.machinelearningservices.RaiBlocklistItemPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -73,6 +71,9 @@ export class ConnectionRaiBlocklistItem extends pulumi.CustomResource {
             if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
+            if ((!args || args.raiBlocklistName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'raiBlocklistName'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -81,6 +82,8 @@ export class ConnectionRaiBlocklistItem extends pulumi.CustomResource {
             }
             resourceInputs["connectionName"] = args ? args.connectionName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["proxyApiVersion"] = args ? args.proxyApiVersion : undefined;
+            resourceInputs["raiBlocklistItemName"] = args ? args.raiBlocklistItemName : undefined;
             resourceInputs["raiBlocklistName"] = args ? args.raiBlocklistName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
@@ -109,13 +112,21 @@ export interface ConnectionRaiBlocklistItemArgs {
      */
     connectionName: pulumi.Input<string>;
     /**
-     * RAI Custom Blocklist properties.
+     * RAI Custom Blocklist Item properties.
      */
-    properties: pulumi.Input<inputs.machinelearningservices.RaiBlocklistPropertiesArgs>;
+    properties: pulumi.Input<inputs.machinelearningservices.RaiBlocklistItemPropertiesArgs>;
+    /**
+     * Api version used by proxy call
+     */
+    proxyApiVersion?: pulumi.Input<string>;
+    /**
+     * Name of the RaiBlocklist Item
+     */
+    raiBlocklistItemName?: pulumi.Input<string>;
     /**
      * The name of the RaiBlocklist.
      */
-    raiBlocklistName?: pulumi.Input<string>;
+    raiBlocklistName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

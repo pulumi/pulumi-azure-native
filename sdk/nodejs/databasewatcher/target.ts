@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
- * Azure REST API version: 2023-09-01-preview.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
  *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+ * Other available API versions: 2023-09-01-preview, 2025-01-02.
  */
 export class Target extends pulumi.CustomResource {
     /**

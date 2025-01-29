@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves a SQL Server Instance resource
- * Azure REST API version: 2023-01-15-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Other available API versions: 2023-01-15-preview, 2024-05-01-preview.
  */
 export function getSqlServerInstance(args: GetSqlServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,9 +67,9 @@ export interface GetSqlServerInstanceResult {
 }
 /**
  * Retrieves a SQL Server Instance resource
- * Azure REST API version: 2023-01-15-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Other available API versions: 2023-01-15-preview, 2024-05-01-preview.
  */
 export function getSqlServerInstanceOutput(args: GetSqlServerInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

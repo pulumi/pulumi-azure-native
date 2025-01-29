@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A private link scoped resource
- * Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2021-07-01-preview.
  *
- * Other available API versions: 2021-09-01, 2023-06-01-preview.
+ * Other available API versions: 2021-07-01-preview.
  */
 export class PrivateLinkScopedResource extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
     }
 
     /**
+     * The kind of scoped Azure monitor resource.
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
+    /**
      * The resource id of the scoped Azure monitor resource.
      */
     public readonly linkedResourceId!: pulumi.Output<string | undefined>;
@@ -49,9 +53,13 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * State of the private endpoint connection.
+     * State of the Azure monitor resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
+     */
+    public readonly subscriptionLocation!: pulumi.Output<string | undefined>;
     /**
      * System data
      */
@@ -78,17 +86,21 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
             if ((!args || args.scopeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopeName'");
             }
+            resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["linkedResourceId"] = args ? args.linkedResourceId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scopeName"] = args ? args.scopeName : undefined;
+            resourceInputs["subscriptionLocation"] = args ? args.subscriptionLocation : undefined;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["linkedResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["subscriptionLocation"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -103,6 +115,10 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
  * The set of arguments for constructing a PrivateLinkScopedResource resource.
  */
 export interface PrivateLinkScopedResourceArgs {
+    /**
+     * The kind of scoped Azure monitor resource.
+     */
+    kind?: pulumi.Input<string | enums.insights.ScopedResourceKind>;
     /**
      * The resource id of the scoped Azure monitor resource.
      */
@@ -119,4 +135,8 @@ export interface PrivateLinkScopedResourceArgs {
      * The name of the Azure Monitor PrivateLinkScope resource.
      */
     scopeName: pulumi.Input<string>;
+    /**
+     * The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
+     */
+    subscriptionLocation?: pulumi.Input<string>;
 }

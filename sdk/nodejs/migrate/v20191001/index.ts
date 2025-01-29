@@ -5,85 +5,85 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AssessmentArgs } from "./assessment";
-export type Assessment = import("./assessment").Assessment;
-export const Assessment: typeof import("./assessment").Assessment = null as any;
-utilities.lazyLoad(exports, ["Assessment"], () => require("./assessment"));
+export { AssessmentProjectsAssessmentArgs } from "./assessmentProjectsAssessment";
+export type AssessmentProjectsAssessment = import("./assessmentProjectsAssessment").AssessmentProjectsAssessment;
+export const AssessmentProjectsAssessment: typeof import("./assessmentProjectsAssessment").AssessmentProjectsAssessment = null as any;
+utilities.lazyLoad(exports, ["AssessmentProjectsAssessment"], () => require("./assessmentProjectsAssessment"));
 
-export { GetAssessmentArgs, GetAssessmentResult, GetAssessmentOutputArgs } from "./getAssessment";
-export const getAssessment: typeof import("./getAssessment").getAssessment = null as any;
-export const getAssessmentOutput: typeof import("./getAssessment").getAssessmentOutput = null as any;
-utilities.lazyLoad(exports, ["getAssessment","getAssessmentOutput"], () => require("./getAssessment"));
+export { AssessmentProjectsGroupArgs } from "./assessmentProjectsGroup";
+export type AssessmentProjectsGroup = import("./assessmentProjectsGroup").AssessmentProjectsGroup;
+export const AssessmentProjectsGroup: typeof import("./assessmentProjectsGroup").AssessmentProjectsGroup = null as any;
+utilities.lazyLoad(exports, ["AssessmentProjectsGroup"], () => require("./assessmentProjectsGroup"));
 
-export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
-export const getGroup: typeof import("./getGroup").getGroup = null as any;
-export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
+export { AssessmentProjectsHyperVCollectorArgs } from "./assessmentProjectsHyperVCollector";
+export type AssessmentProjectsHyperVCollector = import("./assessmentProjectsHyperVCollector").AssessmentProjectsHyperVCollector;
+export const AssessmentProjectsHyperVCollector: typeof import("./assessmentProjectsHyperVCollector").AssessmentProjectsHyperVCollector = null as any;
+utilities.lazyLoad(exports, ["AssessmentProjectsHyperVCollector"], () => require("./assessmentProjectsHyperVCollector"));
 
-export { GetHyperVCollectorArgs, GetHyperVCollectorResult, GetHyperVCollectorOutputArgs } from "./getHyperVCollector";
-export const getHyperVCollector: typeof import("./getHyperVCollector").getHyperVCollector = null as any;
-export const getHyperVCollectorOutput: typeof import("./getHyperVCollector").getHyperVCollectorOutput = null as any;
-utilities.lazyLoad(exports, ["getHyperVCollector","getHyperVCollectorOutput"], () => require("./getHyperVCollector"));
+export { AssessmentProjectsImportCollectorArgs } from "./assessmentProjectsImportCollector";
+export type AssessmentProjectsImportCollector = import("./assessmentProjectsImportCollector").AssessmentProjectsImportCollector;
+export const AssessmentProjectsImportCollector: typeof import("./assessmentProjectsImportCollector").AssessmentProjectsImportCollector = null as any;
+utilities.lazyLoad(exports, ["AssessmentProjectsImportCollector"], () => require("./assessmentProjectsImportCollector"));
 
-export { GetImportCollectorArgs, GetImportCollectorResult, GetImportCollectorOutputArgs } from "./getImportCollector";
-export const getImportCollector: typeof import("./getImportCollector").getImportCollector = null as any;
-export const getImportCollectorOutput: typeof import("./getImportCollector").getImportCollectorOutput = null as any;
-utilities.lazyLoad(exports, ["getImportCollector","getImportCollectorOutput"], () => require("./getImportCollector"));
+export { AssessmentProjectsPrivateEndpointConnectionArgs } from "./assessmentProjectsPrivateEndpointConnection";
+export type AssessmentProjectsPrivateEndpointConnection = import("./assessmentProjectsPrivateEndpointConnection").AssessmentProjectsPrivateEndpointConnection;
+export const AssessmentProjectsPrivateEndpointConnection: typeof import("./assessmentProjectsPrivateEndpointConnection").AssessmentProjectsPrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["AssessmentProjectsPrivateEndpointConnection"], () => require("./assessmentProjectsPrivateEndpointConnection"));
 
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+export { AssessmentProjectsProjectArgs } from "./assessmentProjectsProject";
+export type AssessmentProjectsProject = import("./assessmentProjectsProject").AssessmentProjectsProject;
+export const AssessmentProjectsProject: typeof import("./assessmentProjectsProject").AssessmentProjectsProject = null as any;
+utilities.lazyLoad(exports, ["AssessmentProjectsProject"], () => require("./assessmentProjectsProject"));
 
-export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
-export const getProject: typeof import("./getProject").getProject = null as any;
-export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
-utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+export { AssessmentProjectsServerCollectorArgs } from "./assessmentProjectsServerCollector";
+export type AssessmentProjectsServerCollector = import("./assessmentProjectsServerCollector").AssessmentProjectsServerCollector;
+export const AssessmentProjectsServerCollector: typeof import("./assessmentProjectsServerCollector").AssessmentProjectsServerCollector = null as any;
+utilities.lazyLoad(exports, ["AssessmentProjectsServerCollector"], () => require("./assessmentProjectsServerCollector"));
 
-export { GetServerCollectorArgs, GetServerCollectorResult, GetServerCollectorOutputArgs } from "./getServerCollector";
-export const getServerCollector: typeof import("./getServerCollector").getServerCollector = null as any;
-export const getServerCollectorOutput: typeof import("./getServerCollector").getServerCollectorOutput = null as any;
-utilities.lazyLoad(exports, ["getServerCollector","getServerCollectorOutput"], () => require("./getServerCollector"));
+export { AssessmentProjectsVMwareCollectorArgs } from "./assessmentProjectsVMwareCollector";
+export type AssessmentProjectsVMwareCollector = import("./assessmentProjectsVMwareCollector").AssessmentProjectsVMwareCollector;
+export const AssessmentProjectsVMwareCollector: typeof import("./assessmentProjectsVMwareCollector").AssessmentProjectsVMwareCollector = null as any;
+utilities.lazyLoad(exports, ["AssessmentProjectsVMwareCollector"], () => require("./assessmentProjectsVMwareCollector"));
 
-export { GetVMwareCollectorArgs, GetVMwareCollectorResult, GetVMwareCollectorOutputArgs } from "./getVMwareCollector";
-export const getVMwareCollector: typeof import("./getVMwareCollector").getVMwareCollector = null as any;
-export const getVMwareCollectorOutput: typeof import("./getVMwareCollector").getVMwareCollectorOutput = null as any;
-utilities.lazyLoad(exports, ["getVMwareCollector","getVMwareCollectorOutput"], () => require("./getVMwareCollector"));
+export { GetAssessmentProjectsAssessmentArgs, GetAssessmentProjectsAssessmentResult, GetAssessmentProjectsAssessmentOutputArgs } from "./getAssessmentProjectsAssessment";
+export const getAssessmentProjectsAssessment: typeof import("./getAssessmentProjectsAssessment").getAssessmentProjectsAssessment = null as any;
+export const getAssessmentProjectsAssessmentOutput: typeof import("./getAssessmentProjectsAssessment").getAssessmentProjectsAssessmentOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentProjectsAssessment","getAssessmentProjectsAssessmentOutput"], () => require("./getAssessmentProjectsAssessment"));
 
-export { GroupArgs } from "./group";
-export type Group = import("./group").Group;
-export const Group: typeof import("./group").Group = null as any;
-utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+export { GetAssessmentProjectsGroupArgs, GetAssessmentProjectsGroupResult, GetAssessmentProjectsGroupOutputArgs } from "./getAssessmentProjectsGroup";
+export const getAssessmentProjectsGroup: typeof import("./getAssessmentProjectsGroup").getAssessmentProjectsGroup = null as any;
+export const getAssessmentProjectsGroupOutput: typeof import("./getAssessmentProjectsGroup").getAssessmentProjectsGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentProjectsGroup","getAssessmentProjectsGroupOutput"], () => require("./getAssessmentProjectsGroup"));
 
-export { HyperVCollectorArgs } from "./hyperVCollector";
-export type HyperVCollector = import("./hyperVCollector").HyperVCollector;
-export const HyperVCollector: typeof import("./hyperVCollector").HyperVCollector = null as any;
-utilities.lazyLoad(exports, ["HyperVCollector"], () => require("./hyperVCollector"));
+export { GetAssessmentProjectsHyperVCollectorArgs, GetAssessmentProjectsHyperVCollectorResult, GetAssessmentProjectsHyperVCollectorOutputArgs } from "./getAssessmentProjectsHyperVCollector";
+export const getAssessmentProjectsHyperVCollector: typeof import("./getAssessmentProjectsHyperVCollector").getAssessmentProjectsHyperVCollector = null as any;
+export const getAssessmentProjectsHyperVCollectorOutput: typeof import("./getAssessmentProjectsHyperVCollector").getAssessmentProjectsHyperVCollectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentProjectsHyperVCollector","getAssessmentProjectsHyperVCollectorOutput"], () => require("./getAssessmentProjectsHyperVCollector"));
 
-export { ImportCollectorArgs } from "./importCollector";
-export type ImportCollector = import("./importCollector").ImportCollector;
-export const ImportCollector: typeof import("./importCollector").ImportCollector = null as any;
-utilities.lazyLoad(exports, ["ImportCollector"], () => require("./importCollector"));
+export { GetAssessmentProjectsImportCollectorArgs, GetAssessmentProjectsImportCollectorResult, GetAssessmentProjectsImportCollectorOutputArgs } from "./getAssessmentProjectsImportCollector";
+export const getAssessmentProjectsImportCollector: typeof import("./getAssessmentProjectsImportCollector").getAssessmentProjectsImportCollector = null as any;
+export const getAssessmentProjectsImportCollectorOutput: typeof import("./getAssessmentProjectsImportCollector").getAssessmentProjectsImportCollectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentProjectsImportCollector","getAssessmentProjectsImportCollectorOutput"], () => require("./getAssessmentProjectsImportCollector"));
 
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+export { GetAssessmentProjectsPrivateEndpointConnectionArgs, GetAssessmentProjectsPrivateEndpointConnectionResult, GetAssessmentProjectsPrivateEndpointConnectionOutputArgs } from "./getAssessmentProjectsPrivateEndpointConnection";
+export const getAssessmentProjectsPrivateEndpointConnection: typeof import("./getAssessmentProjectsPrivateEndpointConnection").getAssessmentProjectsPrivateEndpointConnection = null as any;
+export const getAssessmentProjectsPrivateEndpointConnectionOutput: typeof import("./getAssessmentProjectsPrivateEndpointConnection").getAssessmentProjectsPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentProjectsPrivateEndpointConnection","getAssessmentProjectsPrivateEndpointConnectionOutput"], () => require("./getAssessmentProjectsPrivateEndpointConnection"));
 
-export { ProjectArgs } from "./project";
-export type Project = import("./project").Project;
-export const Project: typeof import("./project").Project = null as any;
-utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+export { GetAssessmentProjectsProjectArgs, GetAssessmentProjectsProjectResult, GetAssessmentProjectsProjectOutputArgs } from "./getAssessmentProjectsProject";
+export const getAssessmentProjectsProject: typeof import("./getAssessmentProjectsProject").getAssessmentProjectsProject = null as any;
+export const getAssessmentProjectsProjectOutput: typeof import("./getAssessmentProjectsProject").getAssessmentProjectsProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentProjectsProject","getAssessmentProjectsProjectOutput"], () => require("./getAssessmentProjectsProject"));
 
-export { ServerCollectorArgs } from "./serverCollector";
-export type ServerCollector = import("./serverCollector").ServerCollector;
-export const ServerCollector: typeof import("./serverCollector").ServerCollector = null as any;
-utilities.lazyLoad(exports, ["ServerCollector"], () => require("./serverCollector"));
+export { GetAssessmentProjectsServerCollectorArgs, GetAssessmentProjectsServerCollectorResult, GetAssessmentProjectsServerCollectorOutputArgs } from "./getAssessmentProjectsServerCollector";
+export const getAssessmentProjectsServerCollector: typeof import("./getAssessmentProjectsServerCollector").getAssessmentProjectsServerCollector = null as any;
+export const getAssessmentProjectsServerCollectorOutput: typeof import("./getAssessmentProjectsServerCollector").getAssessmentProjectsServerCollectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentProjectsServerCollector","getAssessmentProjectsServerCollectorOutput"], () => require("./getAssessmentProjectsServerCollector"));
 
-export { VMwareCollectorArgs } from "./vmwareCollector";
-export type VMwareCollector = import("./vmwareCollector").VMwareCollector;
-export const VMwareCollector: typeof import("./vmwareCollector").VMwareCollector = null as any;
-utilities.lazyLoad(exports, ["VMwareCollector"], () => require("./vmwareCollector"));
+export { GetAssessmentProjectsVMwareCollectorArgs, GetAssessmentProjectsVMwareCollectorResult, GetAssessmentProjectsVMwareCollectorOutputArgs } from "./getAssessmentProjectsVMwareCollector";
+export const getAssessmentProjectsVMwareCollector: typeof import("./getAssessmentProjectsVMwareCollector").getAssessmentProjectsVMwareCollector = null as any;
+export const getAssessmentProjectsVMwareCollectorOutput: typeof import("./getAssessmentProjectsVMwareCollector").getAssessmentProjectsVMwareCollectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentProjectsVMwareCollector","getAssessmentProjectsVMwareCollectorOutput"], () => require("./getAssessmentProjectsVMwareCollector"));
 
 
 // Export enums:
@@ -93,22 +93,22 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:migrate/v20191001:Assessment":
-                return new Assessment(name, <any>undefined, { urn })
-            case "azure-native:migrate/v20191001:Group":
-                return new Group(name, <any>undefined, { urn })
-            case "azure-native:migrate/v20191001:HyperVCollector":
-                return new HyperVCollector(name, <any>undefined, { urn })
-            case "azure-native:migrate/v20191001:ImportCollector":
-                return new ImportCollector(name, <any>undefined, { urn })
-            case "azure-native:migrate/v20191001:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:migrate/v20191001:Project":
-                return new Project(name, <any>undefined, { urn })
-            case "azure-native:migrate/v20191001:ServerCollector":
-                return new ServerCollector(name, <any>undefined, { urn })
-            case "azure-native:migrate/v20191001:VMwareCollector":
-                return new VMwareCollector(name, <any>undefined, { urn })
+            case "azure-native:migrate/v20191001:AssessmentProjectsAssessment":
+                return new AssessmentProjectsAssessment(name, <any>undefined, { urn })
+            case "azure-native:migrate/v20191001:AssessmentProjectsGroup":
+                return new AssessmentProjectsGroup(name, <any>undefined, { urn })
+            case "azure-native:migrate/v20191001:AssessmentProjectsHyperVCollector":
+                return new AssessmentProjectsHyperVCollector(name, <any>undefined, { urn })
+            case "azure-native:migrate/v20191001:AssessmentProjectsImportCollector":
+                return new AssessmentProjectsImportCollector(name, <any>undefined, { urn })
+            case "azure-native:migrate/v20191001:AssessmentProjectsPrivateEndpointConnection":
+                return new AssessmentProjectsPrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:migrate/v20191001:AssessmentProjectsProject":
+                return new AssessmentProjectsProject(name, <any>undefined, { urn })
+            case "azure-native:migrate/v20191001:AssessmentProjectsServerCollector":
+                return new AssessmentProjectsServerCollector(name, <any>undefined, { urn })
+            case "azure-native:migrate/v20191001:AssessmentProjectsVMwareCollector":
+                return new AssessmentProjectsVMwareCollector(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

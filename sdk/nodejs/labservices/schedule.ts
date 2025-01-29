@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Schedule for automatically turning virtual machines in a lab on and off at specified times.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-01-preview.
+ * Azure REST API version: 2023-06-07. Prior API version in Azure Native 2.x: 2022-08-01.
  *
- * Other available API versions: 2023-06-07.
+ * Other available API versions: 2022-08-01.
  */
 export class Schedule extends pulumi.CustomResource {
     /**
@@ -56,6 +56,10 @@ export class Schedule extends pulumi.CustomResource {
      * The recurrence pattern of the scheduled actions.
      */
     public readonly recurrencePattern!: pulumi.Output<outputs.labservices.RecurrencePatternResponse | undefined>;
+    /**
+     * Error details of last operation done on schedule.
+     */
+    public /*out*/ readonly resourceOperationError!: pulumi.Output<outputs.labservices.ResourceOperationErrorResponse>;
     /**
      * When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
      */
@@ -110,6 +114,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -117,6 +122,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["notes"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["recurrencePattern"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["startAt"] = undefined /*out*/;
             resourceInputs["stopAt"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

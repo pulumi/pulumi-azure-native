@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the client secret details of the Identity Provider.
- * Azure REST API version: 2022-08-01.
+ * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2022-08-01, 2024-06-01-preview.
  */
 export function listIdentityProviderSecrets(args: ListIdentityProviderSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListIdentityProviderSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,9 +45,9 @@ export interface ListIdentityProviderSecretsResult {
 }
 /**
  * Gets the client secret details of the Identity Provider.
- * Azure REST API version: 2022-08-01.
+ * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2022-08-01, 2024-06-01-preview.
  */
 export function listIdentityProviderSecretsOutput(args: ListIdentityProviderSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIdentityProviderSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

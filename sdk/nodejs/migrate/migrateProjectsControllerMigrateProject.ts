@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Migrate project.
- * Azure REST API version: 2020-05-01.
+ * Azure REST API version: 2020-05-01. Prior API version in Azure Native 2.x: 2020-05-01.
  *
  * Other available API versions: 2023-01-01.
  */

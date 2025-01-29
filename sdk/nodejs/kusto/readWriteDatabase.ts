@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a read write database.
- * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+ * Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
  */
 export class ReadWriteDatabase extends pulumi.CustomResource {
     /**
@@ -47,6 +47,10 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly isFollowed!: pulumi.Output<boolean>;
     /**
+     * KeyVault properties for the database encryption.
+     */
+    public readonly keyVaultProperties!: pulumi.Output<outputs.kusto.KeyVaultPropertiesResponse | undefined>;
+    /**
      * Kind of the database
      * Expected value is 'ReadWrite'.
      */
@@ -71,6 +75,10 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
      * The statistics of the database.
      */
     public /*out*/ readonly statistics!: pulumi.Output<outputs.kusto.DatabaseStatisticsResponse>;
+    /**
+     * The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+     */
+    public /*out*/ readonly suspensionDetails!: pulumi.Output<outputs.kusto.SuspensionDetailsResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -100,6 +108,7 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
+            resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
             resourceInputs["kind"] = "ReadWrite";
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -108,16 +117,19 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["suspensionDetails"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["hotCachePeriod"] = undefined /*out*/;
             resourceInputs["isFollowed"] = undefined /*out*/;
+            resourceInputs["keyVaultProperties"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["softDeletePeriod"] = undefined /*out*/;
             resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["suspensionDetails"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -148,6 +160,10 @@ export interface ReadWriteDatabaseArgs {
      */
     hotCachePeriod?: pulumi.Input<string>;
     /**
+     * KeyVault properties for the database encryption.
+     */
+    keyVaultProperties?: pulumi.Input<inputs.kusto.KeyVaultPropertiesArgs>;
+    /**
      * Kind of the database
      * Expected value is 'ReadWrite'.
      */
@@ -157,7 +173,7 @@ export interface ReadWriteDatabaseArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Machine Learning dataset object wrapped into ARM resource envelope.
- * Azure REST API version: 2020-05-01-preview. Prior API version in Azure Native 1.x: 2020-05-01-preview.
+ * Azure REST API version: 2020-05-01-preview. Prior API version in Azure Native 2.x: 2020-05-01-preview.
  */
 export class MachineLearningDataset extends pulumi.CustomResource {
     /**

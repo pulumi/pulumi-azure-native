@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
- * Azure REST API version: 2023-10-30-preview.
+ * Azure REST API version: 2024-10-19. Prior API version in Azure Native 2.x: 2023-10-30-preview.
  *
- * Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19.
+ * Other available API versions: 2023-10-30-preview.
  */
 export class Pool extends pulumi.CustomResource {
     /**
@@ -71,7 +71,7 @@ export class Pool extends pulumi.CustomResource {
     /**
      * Defines the organization in which the pool will be used.
      */
-    public readonly organizationProfile!: pulumi.Output<outputs.devopsinfrastructure.AzureDevOpsOrganizationProfileResponse>;
+    public readonly organizationProfile!: pulumi.Output<outputs.devopsinfrastructure.AzureDevOpsOrganizationProfileResponse | outputs.devopsinfrastructure.GitHubOrganizationProfileResponse>;
     /**
      * The status of the current operation.
      */
@@ -120,7 +120,7 @@ export class Pool extends pulumi.CustomResource {
             }
             resourceInputs["agentProfile"] = args ? args.agentProfile : undefined;
             resourceInputs["devCenterProjectResourceId"] = args ? args.devCenterProjectResourceId : undefined;
-            resourceInputs["fabricProfile"] = args ? (args.fabricProfile ? pulumi.output(args.fabricProfile).apply(inputs.devopsinfrastructure.vmssFabricProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["fabricProfile"] = args ? args.fabricProfile : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maximumConcurrency"] = args ? args.maximumConcurrency : undefined;
@@ -184,7 +184,7 @@ export interface PoolArgs {
     /**
      * Defines the organization in which the pool will be used.
      */
-    organizationProfile: pulumi.Input<inputs.devopsinfrastructure.AzureDevOpsOrganizationProfileArgs>;
+    organizationProfile: pulumi.Input<inputs.devopsinfrastructure.AzureDevOpsOrganizationProfileArgs | inputs.devopsinfrastructure.GitHubOrganizationProfileArgs>;
     /**
      * Name of the pool. It needs to be globally unique.
      */

@@ -5,18 +5,6 @@
 import * as v20211001 from "./v20211001";
 import * as v20220501 from "./v20220501";
 import * as v20221101 from "./v20221101";
-import * as v20221101preview from "./v20221101preview";
-import * as v20230501 from "./v20230501";
-import * as v20230501preview from "./v20230501preview";
-import * as v20230701 from "./v20230701";
-import * as v20230701preview from "./v20230701preview";
-import * as v20231101 from "./v20231101";
-import * as v20231101preview from "./v20231101preview";
-import * as v20240101 from "./v20240101";
-import * as v20240301 from "./v20240301";
-import * as v20240301preview from "./v20240301preview";
-import * as v20240501 from "./v20240501";
-import * as v20240501preview from "./v20240501preview";
 import * as v20240701 from "./v20240701";
 import * as v20240701preview from "./v20240701preview";
 
@@ -24,24 +12,13 @@ export {
     v20211001,
     v20220501,
     v20221101,
-    v20221101preview,
-    v20230501,
-    v20230501preview,
-    v20230701,
-    v20230701preview,
-    v20231101,
-    v20231101preview,
-    v20240101,
-    v20240301,
-    v20240301preview,
-    v20240501,
-    v20240501preview,
     v20240701,
     v20240701preview,
 };
 
 export const ApplicationType = {
     SAP_HANA: "SAP-HANA",
+    ORACLE: "ORACLE",
 } as const;
 
 /**
@@ -74,6 +51,20 @@ export const ChownMode = {
  * This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
  */
 export type ChownMode = (typeof ChownMode)[keyof typeof ChownMode];
+
+export const CoolAccessRetrievalPolicy = {
+    Default: "Default",
+    OnRead: "OnRead",
+    Never: "Never",
+} as const;
+
+/**
+ * coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+ *  Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
+ *  OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
+ *  Never - No client-driven data is pulled from cool tier to standard storage.
+ */
+export type CoolAccessRetrievalPolicy = (typeof CoolAccessRetrievalPolicy)[keyof typeof CoolAccessRetrievalPolicy];
 
 export const EnableSubvolumes = {
     /**
@@ -163,17 +154,25 @@ export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[key
 
 export const NetworkFeatures = {
     /**
-     * Basic network feature.
+     * Basic network features.
      */
     Basic: "Basic",
     /**
-     * Standard network feature.
+     * Standard network features.
      */
     Standard: "Standard",
+    /**
+     * Updating from Basic to Standard network features.
+     */
+    Basic_Standard: "Basic_Standard",
+    /**
+     * Updating from Standard to Basic network features.
+     */
+    Standard_Basic: "Standard_Basic",
 } as const;
 
 /**
- * Basic network, or Standard features available to the volume.
+ * The original value of the network features type available to the volume at the time it was created.
  */
 export type NetworkFeatures = (typeof NetworkFeatures)[keyof typeof NetworkFeatures];
 
@@ -250,7 +249,7 @@ export const SmbAccessBasedEnumeration = {
 } as const;
 
 /**
- * Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+ * Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
  */
 export type SmbAccessBasedEnumeration = (typeof SmbAccessBasedEnumeration)[keyof typeof SmbAccessBasedEnumeration];
 
@@ -266,7 +265,7 @@ export const SmbNonBrowsable = {
 } as const;
 
 /**
- * Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+ * Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
  */
 export type SmbNonBrowsable = (typeof SmbNonBrowsable)[keyof typeof SmbNonBrowsable];
 

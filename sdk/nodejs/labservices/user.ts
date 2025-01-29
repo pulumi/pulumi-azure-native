@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * User of a lab that can register for and use virtual machines within the lab.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
+ * Azure REST API version: 2023-06-07. Prior API version in Azure Native 2.x: 2022-08-01.
  *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Other available API versions: 2022-08-01.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -73,6 +73,10 @@ export class User extends pulumi.CustomResource {
      */
     public /*out*/ readonly registrationState!: pulumi.Output<string>;
     /**
+     * Error details of last operation done on lab plan.
+     */
+    public /*out*/ readonly resourceOperationError!: pulumi.Output<outputs.labservices.ResourceOperationErrorResponse>;
+    /**
      * Metadata pertaining to creation and last modification of the user resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.labservices.SystemDataResponse>;
@@ -116,6 +120,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["registrationState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["totalUsage"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -128,6 +133,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["registrationState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["totalUsage"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

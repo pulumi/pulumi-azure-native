@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get firmware analysis workspace.
- * Azure REST API version: 2023-02-08-preview.
+ * Azure REST API version: 2024-01-10.
  *
- * Other available API versions: 2024-01-10.
+ * Other available API versions: 2023-02-08-preview.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,7 +37,7 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -67,9 +67,9 @@ export interface GetWorkspaceResult {
 }
 /**
  * Get firmware analysis workspace.
- * Azure REST API version: 2023-02-08-preview.
+ * Azure REST API version: 2024-01-10.
  *
- * Other available API versions: 2024-01-10.
+ * Other available API versions: 2023-02-08-preview.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

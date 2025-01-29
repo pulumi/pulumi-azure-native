@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Security operator under a given subscription and pricing
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
  */
 export class SecurityOperator extends pulumi.CustomResource {
     /**

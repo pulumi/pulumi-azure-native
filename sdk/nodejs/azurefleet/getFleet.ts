@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Fleet
- * Azure REST API version: 2024-05-01-preview.
+ * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2023-11-01-preview, 2024-11-01.
+ * Other available API versions: 2024-05-01-preview.
  */
 export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +36,10 @@ export interface GetFleetArgs {
  * An Compute Fleet resource
  */
 export interface GetFleetResult {
+    /**
+     * Represents the configuration for additional locations where Fleet resources may be deployed.
+     */
+    readonly additionalLocationsProfile?: outputs.azurefleet.AdditionalLocationsProfileResponse;
     /**
      * Compute Profile to use for running user's workloads.
      */
@@ -93,6 +97,10 @@ export interface GetFleetResult {
      */
     readonly uniqueId: string;
     /**
+     * Attribute based Fleet.
+     */
+    readonly vmAttributes?: outputs.azurefleet.VMAttributesResponse;
+    /**
      * List of VM sizes supported for Compute Fleet
      */
     readonly vmSizesProfile: outputs.azurefleet.VmSizeProfileResponse[];
@@ -103,9 +111,9 @@ export interface GetFleetResult {
 }
 /**
  * Get a Fleet
- * Azure REST API version: 2024-05-01-preview.
+ * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2023-11-01-preview, 2024-11-01.
+ * Other available API versions: 2024-05-01-preview.
  */
 export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

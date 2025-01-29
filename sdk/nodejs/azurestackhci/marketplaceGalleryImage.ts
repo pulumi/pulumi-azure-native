@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The marketplace gallery image resource definition.
- * Azure REST API version: 2022-12-15-preview.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2024-01-01.
  */
 export class MarketplaceGalleryImage extends pulumi.CustomResource {
     /**
@@ -45,9 +45,9 @@ export class MarketplaceGalleryImage extends pulumi.CustomResource {
      */
     public readonly cloudInitDataSource!: pulumi.Output<string | undefined>;
     /**
-     * Container Name for storage container
+     * Storage ContainerID of the storage container to be used for marketplace gallery image
      */
-    public readonly containerName!: pulumi.Output<string | undefined>;
+    public readonly containerId!: pulumi.Output<string | undefined>;
     /**
      * The extendedLocation of the resource.
      */
@@ -71,7 +71,7 @@ export class MarketplaceGalleryImage extends pulumi.CustomResource {
     /**
      * Operating system type that the gallery image uses [Windows, Linux]
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
+    public readonly osType!: pulumi.Output<string>;
     /**
      * Provisioning state of the marketplace gallery image.
      */
@@ -108,11 +108,14 @@ export class MarketplaceGalleryImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.osType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'osType'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["cloudInitDataSource"] = args ? args.cloudInitDataSource : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["containerId"] = args ? args.containerId : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
             resourceInputs["identifier"] = args ? args.identifier : undefined;
@@ -129,7 +132,7 @@ export class MarketplaceGalleryImage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["cloudInitDataSource"] = undefined /*out*/;
-            resourceInputs["containerName"] = undefined /*out*/;
+            resourceInputs["containerId"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hyperVGeneration"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
@@ -159,9 +162,9 @@ export interface MarketplaceGalleryImageArgs {
      */
     cloudInitDataSource?: pulumi.Input<string | enums.azurestackhci.CloudInitDataSource>;
     /**
-     * Container Name for storage container
+     * Storage ContainerID of the storage container to be used for marketplace gallery image
      */
-    containerName?: pulumi.Input<string>;
+    containerId?: pulumi.Input<string>;
     /**
      * The extendedLocation of the resource.
      */
@@ -185,7 +188,7 @@ export interface MarketplaceGalleryImageArgs {
     /**
      * Operating system type that the gallery image uses [Windows, Linux]
      */
-    osType?: pulumi.Input<enums.azurestackhci.OperatingSystemTypes>;
+    osType: pulumi.Input<string | enums.azurestackhci.OperatingSystemTypes>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Cluster details.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-10-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
  *
- * Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -69,9 +69,17 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly cloudManagementEndpoint!: pulumi.Output<string | undefined>;
     /**
+     * Overall connectivity status for the cluster resource.
+     */
+    public /*out*/ readonly connectivityStatus!: pulumi.Output<string>;
+    /**
      * Desired properties of the cluster.
      */
     public readonly desiredProperties!: pulumi.Output<outputs.azurestackhci.ClusterDesiredPropertiesResponse | undefined>;
+    /**
+     * Attestation configurations for isolated VM (e.g. TVM, CVM) of the cluster.
+     */
+    public /*out*/ readonly isolatedVmAttestationConfiguration!: pulumi.Output<outputs.azurestackhci.IsolatedVmAttestationConfigurationResponse>;
     /**
      * Most recent billing meter timestamp.
      */
@@ -84,6 +92,10 @@ export class Cluster extends pulumi.CustomResource {
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Log Collection properties of the cluster.
+     */
+    public /*out*/ readonly logCollectionProperties!: pulumi.Output<outputs.azurestackhci.LogCollectionPropertiesResponse | undefined>;
     /**
      * The name of the resource
      */
@@ -100,6 +112,10 @@ export class Cluster extends pulumi.CustomResource {
      * First cluster sync timestamp.
      */
     public /*out*/ readonly registrationTimestamp!: pulumi.Output<string>;
+    /**
+     * RemoteSupport properties of the cluster.
+     */
+    public /*out*/ readonly remoteSupportProperties!: pulumi.Output<outputs.azurestackhci.RemoteSupportPropertiesResponse | undefined>;
     /**
      * Properties reported by cluster agent.
      */
@@ -177,12 +193,16 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["userAssignedIdentities"] = args ? args.userAssignedIdentities : undefined;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;
+            resourceInputs["connectivityStatus"] = undefined /*out*/;
+            resourceInputs["isolatedVmAttestationConfiguration"] = undefined /*out*/;
             resourceInputs["lastBillingTimestamp"] = undefined /*out*/;
             resourceInputs["lastSyncTimestamp"] = undefined /*out*/;
+            resourceInputs["logCollectionProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["registrationTimestamp"] = undefined /*out*/;
+            resourceInputs["remoteSupportProperties"] = undefined /*out*/;
             resourceInputs["reportedProperties"] = undefined /*out*/;
             resourceInputs["resourceProviderObjectId"] = undefined /*out*/;
             resourceInputs["serviceEndpoint"] = undefined /*out*/;
@@ -198,14 +218,18 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;
             resourceInputs["cloudManagementEndpoint"] = undefined /*out*/;
+            resourceInputs["connectivityStatus"] = undefined /*out*/;
             resourceInputs["desiredProperties"] = undefined /*out*/;
+            resourceInputs["isolatedVmAttestationConfiguration"] = undefined /*out*/;
             resourceInputs["lastBillingTimestamp"] = undefined /*out*/;
             resourceInputs["lastSyncTimestamp"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["logCollectionProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["registrationTimestamp"] = undefined /*out*/;
+            resourceInputs["remoteSupportProperties"] = undefined /*out*/;
             resourceInputs["reportedProperties"] = undefined /*out*/;
             resourceInputs["resourceProviderObjectId"] = undefined /*out*/;
             resourceInputs["serviceEndpoint"] = undefined /*out*/;

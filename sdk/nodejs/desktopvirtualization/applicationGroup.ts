@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a ApplicationGroup definition.
- * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+ * Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
  *
- * Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+ * Other available API versions: 2022-04-01-preview, 2022-09-09, 2024-08-08-preview.
  */
 export class ApplicationGroup extends pulumi.CustomResource {
     /**
@@ -66,13 +66,13 @@ export class ApplicationGroup extends pulumi.CustomResource {
     public readonly hostPoolArmPath!: pulumi.Output<string>;
     public readonly identity!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
     /**
-     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
@@ -86,9 +86,13 @@ export class ApplicationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly objectId!: pulumi.Output<string>;
     public readonly plan!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
+    /**
+     * Boolean representing whether the applicationGroup is show in the feed.
+     */
+    public readonly showInFeed!: pulumi.Output<boolean | undefined>;
     public readonly sku!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
@@ -135,6 +139,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["showInFeed"] = args ? args.showInFeed : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["cloudPcResource"] = undefined /*out*/;
@@ -158,6 +163,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
+            resourceInputs["showInFeed"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -197,7 +203,7 @@ export interface ApplicationGroupArgs {
     hostPoolArmPath: pulumi.Input<string>;
     identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
-     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     kind?: pulumi.Input<string>;
     /**
@@ -213,6 +219,10 @@ export interface ApplicationGroupArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Boolean representing whether the applicationGroup is show in the feed.
+     */
+    showInFeed?: pulumi.Input<boolean>;
     sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * Resource tags.

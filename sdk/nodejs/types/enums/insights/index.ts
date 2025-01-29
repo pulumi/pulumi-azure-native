@@ -10,9 +10,9 @@ import * as v20200202preview from "./v20200202preview";
 import * as v20200501preview from "./v20200501preview";
 import * as v20201005preview from "./v20201005preview";
 import * as v20210308 from "./v20210308";
+import * as v20210501preview from "./v20210501preview";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801 from "./v20210801";
-import * as v20210901 from "./v20210901";
 import * as v20220401 from "./v20220401";
 import * as v20220601 from "./v20220601";
 import * as v20220615 from "./v20220615";
@@ -22,8 +22,6 @@ import * as v20230311 from "./v20230311";
 import * as v20230315preview from "./v20230315preview";
 import * as v20230601 from "./v20230601";
 import * as v20230601preview from "./v20230601preview";
-import * as v20230901preview from "./v20230901preview";
-import * as v20231201 from "./v20231201";
 import * as v20240101preview from "./v20240101preview";
 import * as v20241001preview from "./v20241001preview";
 
@@ -36,9 +34,9 @@ export {
     v20200501preview,
     v20201005preview,
     v20210308,
+    v20210501preview,
     v20210701preview,
     v20210801,
-    v20210901,
     v20220401,
     v20220601,
     v20220615,
@@ -48,8 +46,6 @@ export {
     v20230315preview,
     v20230601,
     v20230601preview,
-    v20230901preview,
-    v20231201,
     v20240101preview,
     v20241001preview,
 };
@@ -107,6 +103,7 @@ export const ConditionOperator = {
     GreaterThanOrEqual: "GreaterThanOrEqual",
     LessThan: "LessThan",
     LessThanOrEqual: "LessThanOrEqual",
+    GreaterOrLessThan: "GreaterOrLessThan",
 } as const;
 
 /**
@@ -186,6 +183,15 @@ export const IdentityType = {
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
+export const IncidentManagementService = {
+    Icm: "Icm",
+} as const;
+
+/**
+ * The incident management service type
+ */
+export type IncidentManagementService = (typeof IncidentManagementService)[keyof typeof IncidentManagementService];
+
 export const IngestionMode = {
     ApplicationInsights: "ApplicationInsights",
     ApplicationInsightsWithDiagnosticSettings: "ApplicationInsightsWithDiagnosticSettings",
@@ -221,6 +227,7 @@ export type ItemType = (typeof ItemType)[keyof typeof ItemType];
 
 export const Kind = {
     LogAlert: "LogAlert",
+    EventLogAlert: "EventLogAlert",
     LogToMetric: "LogToMetric",
 } as const;
 
@@ -228,6 +235,17 @@ export const Kind = {
  * Indicates the type of scheduled query rule. The default is LogAlert.
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const KnownAgentSettingName = {
+    MaxDiskQuotaInMB: "MaxDiskQuotaInMB",
+    UseTimeReceivedForForwardedEvents: "UseTimeReceivedForForwardedEvents",
+} as const;
+
+/**
+ * The name of the setting. 
+ * Must be part of the list of supported settings
+ */
+export type KnownAgentSettingName = (typeof KnownAgentSettingName)[keyof typeof KnownAgentSettingName];
 
 export const KnownColumnDefinitionType = {
     String: "string",
@@ -302,6 +320,7 @@ export const KnownLogFileTextSettingsRecordStartTimestampFormat = {
 export type KnownLogFileTextSettingsRecordStartTimestampFormat = (typeof KnownLogFileTextSettingsRecordStartTimestampFormat)[keyof typeof KnownLogFileTextSettingsRecordStartTimestampFormat];
 
 export const KnownLogFilesDataSourceFormat = {
+    Json: "json",
     Text: "text",
 } as const;
 
@@ -334,7 +353,18 @@ export const KnownPublicNetworkAccessOptions = {
  */
 export type KnownPublicNetworkAccessOptions = (typeof KnownPublicNetworkAccessOptions)[keyof typeof KnownPublicNetworkAccessOptions];
 
+export const KnownStorageBlobLookupType = {
+    String: "String",
+    Cidr: "Cidr",
+} as const;
+
+/**
+ * The type of lookup to perform on the blob
+ */
+export type KnownStorageBlobLookupType = (typeof KnownStorageBlobLookupType)[keyof typeof KnownStorageBlobLookupType];
+
 export const KnownSyslogDataSourceFacilityNames = {
+    Asterisk: "*",
     Alert: "alert",
     Audit: "audit",
     Auth: "auth",
@@ -344,6 +374,14 @@ export const KnownSyslogDataSourceFacilityNames = {
     Daemon: "daemon",
     Ftp: "ftp",
     Kern: "kern",
+    Local0: "local0",
+    Local1: "local1",
+    Local2: "local2",
+    Local3: "local3",
+    Local4: "local4",
+    Local5: "local5",
+    Local6: "local6",
+    Local7: "local7",
     Lpr: "lpr",
     Mail: "mail",
     Mark: "mark",
@@ -353,15 +391,6 @@ export const KnownSyslogDataSourceFacilityNames = {
     Syslog: "syslog",
     User: "user",
     Uucp: "uucp",
-    Local0: "local0",
-    Local1: "local1",
-    Local2: "local2",
-    Local3: "local3",
-    Local4: "local4",
-    Local5: "local5",
-    Local6: "local6",
-    Local7: "local7",
-    Asterisk: "*",
 } as const;
 
 export type KnownSyslogDataSourceFacilityNames = (typeof KnownSyslogDataSourceFacilityNames)[keyof typeof KnownSyslogDataSourceFacilityNames];
@@ -392,6 +421,14 @@ export const KnownWindowsEventLogDataSourceStreams = {
 } as const;
 
 export type KnownWindowsEventLogDataSourceStreams = (typeof KnownWindowsEventLogDataSourceStreams)[keyof typeof KnownWindowsEventLogDataSourceStreams];
+
+export const KnownWindowsFirewallLogsDataSourceProfileFilter = {
+    Domain: "Domain",
+    Private: "Private",
+    Public: "Public",
+} as const;
+
+export type KnownWindowsFirewallLogsDataSourceProfileFilter = (typeof KnownWindowsFirewallLogsDataSourceProfileFilter)[keyof typeof KnownWindowsFirewallLogsDataSourceProfileFilter];
 
 export const ManagedServiceIdentityType = {
     None: "None",
@@ -546,6 +583,16 @@ export const ScaleType = {
  * the type of action that should occur when the scale rule fires.
  */
 export type ScaleType = (typeof ScaleType)[keyof typeof ScaleType];
+
+export const ScopedResourceKind = {
+    Resource: "Resource",
+    Metrics: "Metrics",
+} as const;
+
+/**
+ * The kind of scoped Azure monitor resource.
+ */
+export type ScopedResourceKind = (typeof ScopedResourceKind)[keyof typeof ScopedResourceKind];
 
 export const TimeAggregation = {
     Count: "Count",

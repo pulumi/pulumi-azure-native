@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get the non-security related metadata of an IoT hub.
- * Azure REST API version: 2022-04-30-preview.
+ * Azure REST API version: 2023-06-30.
  *
- * Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+ * Other available API versions: 2022-04-30-preview, 2023-06-30-preview.
  */
 export function getIotHubResource(args: GetIotHubResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,9 +79,9 @@ export interface GetIotHubResourceResult {
 }
 /**
  * Get the non-security related metadata of an IoT hub.
- * Azure REST API version: 2022-04-30-preview.
+ * Azure REST API version: 2023-06-30.
  *
- * Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+ * Other available API versions: 2022-04-30-preview, 2023-06-30-preview.
  */
 export function getIotHubResourceOutput(args: GetIotHubResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotHubResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

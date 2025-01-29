@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a scoped resource in a private link scope.
- * Azure REST API version: 2021-07-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2021-09-01, 2023-06-01-preview.
+ * Other available API versions: 2021-07-01-preview.
  */
 export function getPrivateLinkScopedResource(args: GetPrivateLinkScopedResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopedResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +46,10 @@ export interface GetPrivateLinkScopedResourceResult {
      */
     readonly id: string;
     /**
+     * The kind of scoped Azure monitor resource.
+     */
+    readonly kind?: string;
+    /**
      * The resource id of the scoped Azure monitor resource.
      */
     readonly linkedResourceId?: string;
@@ -54,9 +58,13 @@ export interface GetPrivateLinkScopedResourceResult {
      */
     readonly name: string;
     /**
-     * State of the private endpoint connection.
+     * State of the Azure monitor resource.
      */
     readonly provisioningState: string;
+    /**
+     * The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
+     */
+    readonly subscriptionLocation?: string;
     /**
      * System data
      */
@@ -68,9 +76,9 @@ export interface GetPrivateLinkScopedResourceResult {
 }
 /**
  * Gets a scoped resource in a private link scope.
- * Azure REST API version: 2021-07-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2021-09-01, 2023-06-01-preview.
+ * Other available API versions: 2021-07-01-preview.
  */
 export function getPrivateLinkScopedResourceOutput(args: GetPrivateLinkScopedResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkScopedResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

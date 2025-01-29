@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Action rule object containing target scope, conditions and suppression logic
- * Azure REST API version: 2019-05-05-preview. Prior API version in Azure Native 1.x: 2019-05-05-preview.
+ * Azure REST API version: 2019-05-05-preview. Prior API version in Azure Native 2.x: 2019-05-05-preview.
  */
 export class ActionRuleByName extends pulumi.CustomResource {
     /**

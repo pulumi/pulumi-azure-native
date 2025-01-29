@@ -2,22 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Get a single graph query by its resourceName.
- * Azure REST API version: 2020-04-01-preview.
+ * Azure REST API version: 2022-10-01.
  *
- * Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+ * Other available API versions: 2020-04-01-preview, 2024-04-01.
  */
 export function getGraphQuery(args: GetGraphQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQueryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resourcegraph:getGraphQuery", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
+        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -30,6 +28,10 @@ export interface GetGraphQueryArgs {
      * The name of the Graph Query resource.
      */
     resourceName: string;
+    /**
+     * The Azure subscription Id.
+     */
+    subscriptionId?: string;
 }
 
 /**
@@ -41,7 +43,7 @@ export interface GetGraphQueryResult {
      */
     readonly description?: string;
     /**
-     * This will be used to handle Optimistic Concurrency.
+     * This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
      */
     readonly etag?: string;
     /**
@@ -51,7 +53,7 @@ export interface GetGraphQueryResult {
     /**
      * The location of the resource
      */
-    readonly location: string;
+    readonly location?: string;
     /**
      * Azure resource name. This is GUID value. The display name should be assigned within properties field.
      */
@@ -64,10 +66,6 @@ export interface GetGraphQueryResult {
      * Enum indicating a type of graph query.
      */
     readonly resultKind: string;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.resourcegraph.SystemDataResponse;
     /**
      * Resource tags
      */
@@ -83,15 +81,16 @@ export interface GetGraphQueryResult {
 }
 /**
  * Get a single graph query by its resourceName.
- * Azure REST API version: 2020-04-01-preview.
+ * Azure REST API version: 2022-10-01.
  *
- * Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+ * Other available API versions: 2020-04-01-preview, 2024-04-01.
  */
 export function getGraphQueryOutput(args: GetGraphQueryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGraphQueryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resourcegraph:getGraphQuery", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
+        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -104,4 +103,8 @@ export interface GetGraphQueryOutputArgs {
      * The name of the Graph Query resource.
      */
     resourceName: pulumi.Input<string>;
+    /**
+     * The Azure subscription Id.
+     */
+    subscriptionId?: pulumi.Input<string>;
 }

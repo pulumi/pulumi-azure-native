@@ -313,7 +313,6 @@ export * from "../types/enums/app";
 import * as v20220101preview from "./v20220101preview";
 import * as v20221001 from "./v20221001";
 import * as v20230401preview from "./v20230401preview";
-import * as v20230501 from "./v20230501";
 import * as v20230502preview from "./v20230502preview";
 import * as v20230801preview from "./v20230801preview";
 import * as v20231102preview from "./v20231102preview";
@@ -326,7 +325,6 @@ export {
     v20220101preview,
     v20221001,
     v20230401preview,
-    v20230501,
     v20230502preview,
     v20230801preview,
     v20231102preview,

@@ -3,16 +3,12 @@
 
 // Export sub-modules:
 import * as v20220601 from "./v20220601";
-import * as v20220801 from "./v20220801";
 import * as v20230101 from "./v20230101";
-import * as v20230707 from "./v20230707";
 import * as v20231020 from "./v20231020";
 
 export {
     v20220601,
-    v20220801,
     v20230101,
-    v20230707,
     v20231020,
 };
 
@@ -22,7 +18,7 @@ export const ManagedIdentityTypes = {
 } as const;
 
 /**
- * Identity type
+ * Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
  */
 export type ManagedIdentityTypes = (typeof ManagedIdentityTypes)[keyof typeof ManagedIdentityTypes];
 

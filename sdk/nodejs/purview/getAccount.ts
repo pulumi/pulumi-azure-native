@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get an account
- * Azure REST API version: 2021-12-01.
+ * Azure REST API version: 2024-04-01-preview.
  *
- * Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+ * Other available API versions: 2020-12-01-preview, 2021-12-01, 2023-05-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,8 +41,7 @@ export interface GetAccountResult {
      */
     readonly accountStatus: outputs.purview.AccountPropertiesResponseAccountStatus;
     /**
-     * Cloud connectors.
-     * External cloud identifier used as part of scanning configuration.
+     * External Cloud Service connectors
      */
     readonly cloudConnectors?: outputs.purview.CloudConnectorsResponse;
     /**
@@ -58,6 +57,10 @@ export interface GetAccountResult {
      */
     readonly createdByObjectId: string;
     /**
+     * Gets the default domain in the account.
+     */
+    readonly defaultDomain: string;
+    /**
      * The URIs that are the public endpoints of the account.
      */
     readonly endpoints: outputs.purview.AccountPropertiesResponseEndpoints;
@@ -70,15 +73,19 @@ export interface GetAccountResult {
      */
     readonly id: string;
     /**
-     * Identity Info on the tracked resource
+     * The Managed Identity of the resource
      */
     readonly identity?: outputs.purview.IdentityResponse;
+    /**
+     * Ingestion Storage Account Info
+     */
+    readonly ingestionStorage?: outputs.purview.IngestionStorageResponse;
     /**
      * Gets or sets the location.
      */
     readonly location?: string;
     /**
-     *  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+     * Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
      */
     readonly managedEventHubState?: string;
     /**
@@ -93,6 +100,10 @@ export interface GetAccountResult {
      * Gets or sets the public network access for managed resources.
      */
     readonly managedResourcesPublicNetworkAccess?: string;
+    /**
+     * Gets or sets the Merge Info.
+     */
+    readonly mergeInfo?: outputs.purview.AccountMergeInfoResponse;
     /**
      * Gets or sets the name.
      */
@@ -112,7 +123,7 @@ export interface GetAccountResult {
     /**
      * Gets or sets the Sku.
      */
-    readonly sku: outputs.purview.AccountResponseSku;
+    readonly sku?: outputs.purview.AccountResponseSku;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -122,15 +133,19 @@ export interface GetAccountResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Gets or sets the state of tenant endpoint.
+     */
+    readonly tenantEndpointState?: string;
+    /**
      * Gets or sets the type.
      */
     readonly type: string;
 }
 /**
  * Get an account
- * Azure REST API version: 2021-12-01.
+ * Azure REST API version: 2024-04-01-preview.
  *
- * Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+ * Other available API versions: 2020-12-01-preview, 2021-12-01, 2023-05-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

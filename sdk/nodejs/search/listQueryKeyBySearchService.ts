@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Returns the list of query API keys for the given Azure Cognitive Search service.
- * Azure REST API version: 2022-09-01.
+ * Returns the list of query API keys for the given search service.
+ * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2022-09-01, 2025-02-01-preview.
  */
 export function listQueryKeyBySearchService(args: ListQueryKeyBySearchServiceArgs, opts?: pulumi.InvokeOptions): Promise<ListQueryKeyBySearchServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -27,13 +27,13 @@ export interface ListQueryKeyBySearchServiceArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     * The name of the search service associated with the specified resource group.
      */
     searchServiceName: string;
 }
 
 /**
- * Response containing the query API keys for a given Azure Cognitive Search service.
+ * Response containing the query API keys for a given search service.
  */
 export interface ListQueryKeyBySearchServiceResult {
     /**
@@ -41,15 +41,15 @@ export interface ListQueryKeyBySearchServiceResult {
      */
     readonly nextLink: string;
     /**
-     * The query keys for the Azure Cognitive Search service.
+     * The query keys for the search service.
      */
     readonly value: outputs.search.QueryKeyResponse[];
 }
 /**
- * Returns the list of query API keys for the given Azure Cognitive Search service.
- * Azure REST API version: 2022-09-01.
+ * Returns the list of query API keys for the given search service.
+ * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2022-09-01, 2025-02-01-preview.
  */
 export function listQueryKeyBySearchServiceOutput(args: ListQueryKeyBySearchServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListQueryKeyBySearchServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +65,7 @@ export interface ListQueryKeyBySearchServiceOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     * The name of the search service associated with the specified resource group.
      */
     searchServiceName: pulumi.Input<string>;
 }

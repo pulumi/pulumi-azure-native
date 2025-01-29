@@ -990,7 +990,6 @@ utilities.lazyLoad(exports, ["WorkspaceTagProductLink"], () => require("./worksp
 export * from "../types/enums/apimanagement";
 
 // Export sub-modules:
-import * as v20161010 from "./v20161010";
 import * as v20170301 from "./v20170301";
 import * as v20180101 from "./v20180101";
 import * as v20180601preview from "./v20180601preview";
@@ -1012,7 +1011,6 @@ import * as v20240501 from "./v20240501";
 import * as v20240601preview from "./v20240601preview";
 
 export {
-    v20161010,
     v20170301,
     v20180101,
     v20180601preview,

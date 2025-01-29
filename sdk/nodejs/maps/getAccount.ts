@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Maps Account.
- * Azure REST API version: 2021-02-01.
+ * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+ * Other available API versions: 2018-05-01, 2021-02-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,9 +37,13 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    readonly identity?: outputs.maps.ManagedServiceIdentityResponse;
     /**
      * Get or Set Kind property.
      */
@@ -61,7 +65,7 @@ export interface GetAccountResult {
      */
     readonly sku: outputs.maps.SkuResponse;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.maps.SystemDataResponse;
     /**
@@ -75,9 +79,9 @@ export interface GetAccountResult {
 }
 /**
  * Get a Maps Account.
- * Azure REST API version: 2021-02-01.
+ * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+ * Other available API versions: 2018-05-01, 2021-02-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

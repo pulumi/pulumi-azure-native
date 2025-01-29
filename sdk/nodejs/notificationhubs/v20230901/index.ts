@@ -35,11 +35,6 @@ export const getNotificationHubPnsCredentials: typeof import("./getNotificationH
 export const getNotificationHubPnsCredentialsOutput: typeof import("./getNotificationHubPnsCredentials").getNotificationHubPnsCredentialsOutput = null as any;
 utilities.lazyLoad(exports, ["getNotificationHubPnsCredentials","getNotificationHubPnsCredentialsOutput"], () => require("./getNotificationHubPnsCredentials"));
 
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
 export { ListNamespaceKeysArgs, ListNamespaceKeysResult, ListNamespaceKeysOutputArgs } from "./listNamespaceKeys";
 export const listNamespaceKeys: typeof import("./listNamespaceKeys").listNamespaceKeys = null as any;
 export const listNamespaceKeysOutput: typeof import("./listNamespaceKeys").listNamespaceKeysOutput = null as any;
@@ -70,11 +65,6 @@ export type NotificationHubAuthorizationRule = import("./notificationHubAuthoriz
 export const NotificationHubAuthorizationRule: typeof import("./notificationHubAuthorizationRule").NotificationHubAuthorizationRule = null as any;
 utilities.lazyLoad(exports, ["NotificationHubAuthorizationRule"], () => require("./notificationHubAuthorizationRule"));
 
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
 
 // Export enums:
 export * from "../../types/enums/notificationhubs/v20230901";
@@ -91,8 +81,6 @@ const _module = {
                 return new NotificationHub(name, <any>undefined, { urn })
             case "azure-native:notificationhubs/v20230901:NotificationHubAuthorizationRule":
                 return new NotificationHubAuthorizationRule(name, <any>undefined, { urn })
-            case "azure-native:notificationhubs/v20230901:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

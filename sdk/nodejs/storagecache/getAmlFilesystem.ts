@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns an AML file system.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-03-01.
+ *
+ * Other available API versions: 2023-03-01-preview.
  */
 export function getAmlFilesystem(args: GetAmlFilesystemArgs, opts?: pulumi.InvokeOptions): Promise<GetAmlFilesystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,6 +81,10 @@ export interface GetAmlFilesystemResult {
      */
     readonly provisioningState: string;
     /**
+     * Specifies root squash settings of the AML file system.
+     */
+    readonly rootSquashSettings?: outputs.storagecache.AmlFilesystemRootSquashSettingsResponse;
+    /**
      * SKU for the resource.
      */
     readonly sku?: outputs.storagecache.SkuNameResponse;
@@ -109,7 +115,9 @@ export interface GetAmlFilesystemResult {
 }
 /**
  * Returns an AML file system.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-03-01.
+ *
+ * Other available API versions: 2023-03-01-preview.
  */
 export function getAmlFilesystemOutput(args: GetAmlFilesystemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAmlFilesystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

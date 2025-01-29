@@ -4,8 +4,6 @@
 // Export sub-modules:
 import * as v20230415preview from "./v20230415preview";
 import * as v20230901preview from "./v20230901preview";
-import * as v20231027preview from "./v20231027preview";
-import * as v20231101 from "./v20231101";
 import * as v20240101 from "./v20240101";
 import * as v20240322preview from "./v20240322preview";
 import * as v20241101preview from "./v20241101preview";
@@ -13,8 +11,6 @@ import * as v20241101preview from "./v20241101preview";
 export {
     v20230415preview,
     v20230901preview,
-    v20231027preview,
-    v20231101,
     v20240101,
     v20240322preview,
     v20241101preview,
@@ -28,6 +24,16 @@ export const FilterType = {
  * Enum that discriminates between filter types. Currently only `Simple` type is supported.
  */
 export type FilterType = (typeof FilterType)[keyof typeof FilterType];
+
+export const PublicNetworkAccessOption = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Public Network Access Control for PrivateAccess resource.
+ */
+export type PublicNetworkAccessOption = (typeof PublicNetworkAccessOption)[keyof typeof PublicNetworkAccessOption];
 
 export const ResourceIdentityType = {
     None: "None",

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a ServerSiteResource
- * Azure REST API version: 2023-06-06.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-06-06, 2024-05-01-preview.
  */
 export function getServerSitesController(args: GetServerSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,9 +93,9 @@ export interface GetServerSitesControllerResult {
 }
 /**
  * Get a ServerSiteResource
- * Azure REST API version: 2023-06-06.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-06-06, 2024-05-01-preview.
  */
 export function getServerSitesControllerOutput(args: GetServerSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

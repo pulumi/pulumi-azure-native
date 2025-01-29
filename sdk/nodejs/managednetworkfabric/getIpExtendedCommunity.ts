@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Implements IP Extended Community GET method.
- * Azure REST API version: 2023-02-01-preview.
+ * Azure REST API version: 2023-06-15.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview.
  */
 export function getIpExtendedCommunity(args: GetIpExtendedCommunityArgs, opts?: pulumi.InvokeOptions): Promise<GetIpExtendedCommunityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -23,7 +23,7 @@ export function getIpExtendedCommunity(args: GetIpExtendedCommunityArgs, opts?: 
 
 export interface GetIpExtendedCommunityArgs {
     /**
-     * Name of the IP Extended Community
+     * Name of the IP Extended Community.
      */
     ipExtendedCommunityName: string;
     /**
@@ -33,21 +33,29 @@ export interface GetIpExtendedCommunityArgs {
 }
 
 /**
- * The IpExtendedCommunity resource definition.
+ * The IP Extended Community resource definition.
  */
 export interface GetIpExtendedCommunityResult {
     /**
-     * Action to be taken on the configuration. Example: Permit | Deny.
+     * Administrative state of the resource.
      */
-    readonly action: string;
+    readonly administrativeState: string;
     /**
      * Switch configuration description.
      */
     readonly annotation?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Configuration state of the resource.
+     */
+    readonly configurationState: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * List of IP Extended Community Rules.
+     */
+    readonly ipExtendedCommunityRules: outputs.managednetworkfabric.IpExtendedCommunityRuleResponse[];
     /**
      * The geo-location where the resource lives
      */
@@ -57,13 +65,9 @@ export interface GetIpExtendedCommunityResult {
      */
     readonly name: string;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
-    /**
-     * Route Target List.The expected formats are ASN(plain):NN >> example 4294967294:50, ASN.ASN:NN >> example 65533.65333:40, IP-address:NN >> example 10.10.10.10:65535. The possible values of ASN,NN are in range of 0-65535, ASN(plain) is in range of 0-4294967295.
-     */
-    readonly routeTargets: string[];
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -79,9 +83,9 @@ export interface GetIpExtendedCommunityResult {
 }
 /**
  * Implements IP Extended Community GET method.
- * Azure REST API version: 2023-02-01-preview.
+ * Azure REST API version: 2023-06-15.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview.
  */
 export function getIpExtendedCommunityOutput(args: GetIpExtendedCommunityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpExtendedCommunityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +97,7 @@ export function getIpExtendedCommunityOutput(args: GetIpExtendedCommunityOutputA
 
 export interface GetIpExtendedCommunityOutputArgs {
     /**
-     * Name of the IP Extended Community
+     * Name of the IP Extended Community.
      */
     ipExtendedCommunityName: pulumi.Input<string>;
     /**

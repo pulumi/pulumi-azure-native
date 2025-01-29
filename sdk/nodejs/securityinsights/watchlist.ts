@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Watchlist in Azure Security Insights.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
  *
- * Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+ * Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-02-01, 2024-10-01-preview.
  */
 export class Watchlist extends pulumi.CustomResource {
     /**
@@ -41,7 +41,7 @@ export class Watchlist extends pulumi.CustomResource {
     }
 
     /**
-     * The content type of the raw content. For now, only text/csv is valid
+     * The content type of the raw content. Example : text/csv or text/tsv
      */
     public readonly contentType!: pulumi.Output<string | undefined>;
     /**
@@ -85,7 +85,7 @@ export class Watchlist extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The number of lines in a csv content to skip before the header
+     * The number of lines in a csv/tsv content to skip before the header
      */
     public readonly numberOfLinesToSkip!: pulumi.Output<number | undefined>;
     /**
@@ -93,15 +93,21 @@ export class Watchlist extends pulumi.CustomResource {
      */
     public readonly provider!: pulumi.Output<string>;
     /**
-     * The raw content that represents to watchlist items to create. Example : This line will be skipped
-     * header1,header2
-     * value1,value2
+     * Describes provisioning state
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
      */
     public readonly rawContent!: pulumi.Output<string | undefined>;
     /**
-     * The source of the watchlist
+     * The filename of the watchlist, called 'source'
      */
-    public readonly source!: pulumi.Output<string>;
+    public readonly source!: pulumi.Output<string | undefined>;
+    /**
+     * The sourceType of the watchlist
+     */
+    public readonly sourceType!: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -162,9 +168,6 @@ export class Watchlist extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'source'");
-            }
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -182,6 +185,7 @@ export class Watchlist extends pulumi.CustomResource {
             resourceInputs["rawContent"] = args ? args.rawContent : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["updated"] = args ? args.updated : undefined;
             resourceInputs["updatedBy"] = args ? args.updatedBy : undefined;
@@ -192,6 +196,7 @@ export class Watchlist extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -208,8 +213,10 @@ export class Watchlist extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["numberOfLinesToSkip"] = undefined /*out*/;
             resourceInputs["provider"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["rawContent"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -232,7 +239,7 @@ export class Watchlist extends pulumi.CustomResource {
  */
 export interface WatchlistArgs {
     /**
-     * The content type of the raw content. For now, only text/csv is valid
+     * The content type of the raw content. Example : text/csv or text/tsv
      */
     contentType?: pulumi.Input<string>;
     /**
@@ -268,7 +275,7 @@ export interface WatchlistArgs {
      */
     labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The number of lines in a csv content to skip before the header
+     * The number of lines in a csv/tsv content to skip before the header
      */
     numberOfLinesToSkip?: pulumi.Input<number>;
     /**
@@ -276,9 +283,7 @@ export interface WatchlistArgs {
      */
     provider: pulumi.Input<string>;
     /**
-     * The raw content that represents to watchlist items to create. Example : This line will be skipped
-     * header1,header2
-     * value1,value2
+     * The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
      */
     rawContent?: pulumi.Input<string>;
     /**
@@ -286,9 +291,13 @@ export interface WatchlistArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The source of the watchlist
+     * The filename of the watchlist, called 'source'
      */
-    source: pulumi.Input<string | enums.securityinsights.Source>;
+    source?: pulumi.Input<string>;
+    /**
+     * The sourceType of the watchlist
+     */
+    sourceType?: pulumi.Input<string | enums.securityinsights.SourceType>;
     /**
      * The tenantId where the watchlist belongs to
      */

@@ -33,16 +33,3 @@ export const InternalLoadBalancingMode = {
  * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
  */
 export type InternalLoadBalancingMode = (typeof InternalLoadBalancingMode)[keyof typeof InternalLoadBalancingMode];
-
-export const LogLevel = {
-    Off: "Off",
-    Verbose: "Verbose",
-    Information: "Information",
-    Warning: "Warning",
-    Error: "Error",
-} as const;
-
-/**
- * Log level.
- */
-export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];

@@ -6,17 +6,7 @@ import * as v20200601 from "./v20200601";
 import * as v20201001preview from "./v20201001preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230401 from "./v20230401";
-import * as v20230501preview from "./v20230501preview";
-import * as v20230701 from "./v20230701";
-import * as v20230801 from "./v20230801";
-import * as v20230801preview from "./v20230801preview";
 import * as v20231001preview from "./v20231001preview";
-import * as v20231101 from "./v20231101";
-import * as v20240201 from "./v20240201";
-import * as v20240301 from "./v20240301";
-import * as v20240301preview from "./v20240301preview";
-import * as v20240401preview from "./v20240401preview";
-import * as v20240601preview from "./v20240601preview";
 import * as v20240901preview from "./v20240901preview";
 import * as v20241001 from "./v20241001";
 import * as v20241101 from "./v20241101";
@@ -26,21 +16,21 @@ export {
     v20201001preview,
     v20230301preview,
     v20230401,
-    v20230501preview,
-    v20230701,
-    v20230801,
-    v20230801preview,
     v20231001preview,
-    v20231101,
-    v20240201,
-    v20240301,
-    v20240301preview,
-    v20240401preview,
-    v20240601preview,
     v20240901preview,
     v20241001,
     v20241101,
 };
+
+export const AccessKeysAuthentication = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
+ */
+export type AccessKeysAuthentication = (typeof AccessKeysAuthentication)[keyof typeof AccessKeysAuthentication];
 
 export const AofFrequency = {
     AofFrequency_1s: "1s",
@@ -48,17 +38,23 @@ export const AofFrequency = {
 } as const;
 
 /**
- * Sets the frequency at which data is written to disk.
+ * Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
  */
 export type AofFrequency = (typeof AofFrequency)[keyof typeof AofFrequency];
 
 export const ClusteringPolicy = {
+    /**
+     * Enterprise clustering policy uses only the classic redis protocol, which does not support redis cluster commands.
+     */
     EnterpriseCluster: "EnterpriseCluster",
+    /**
+     * OSS clustering policy follows the redis cluster specification, and requires all clients to support redis clustering.
+     */
     OSSCluster: "OSSCluster",
 } as const;
 
 /**
- * Clustering policy - default is OSSCluster. Specified at create time.
+ * Clustering policy - default is OSSCluster. This property must be chosen at create time, and cannot be changed without deleting the database.
  */
 export type ClusteringPolicy = (typeof ClusteringPolicy)[keyof typeof ClusteringPolicy];
 
@@ -89,6 +85,16 @@ export const DayOfWeek = {
  */
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
+export const DeferUpgradeSetting = {
+    Deferred: "Deferred",
+    NotDeferred: "NotDeferred",
+} as const;
+
+/**
+ * Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
+ */
+export type DeferUpgradeSetting = (typeof DeferUpgradeSetting)[keyof typeof DeferUpgradeSetting];
+
 export const EvictionPolicy = {
     AllKeysLFU: "AllKeysLFU",
     AllKeysLRU: "AllKeysLRU",
@@ -104,6 +110,16 @@ export const EvictionPolicy = {
  * Redis eviction policy - default is VolatileLRU
  */
 export type EvictionPolicy = (typeof EvictionPolicy)[keyof typeof EvictionPolicy];
+
+export const HighAvailability = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
+ */
+export type HighAvailability = (typeof HighAvailability)[keyof typeof HighAvailability];
 
 export const ManagedServiceIdentityType = {
     None: "None",
@@ -144,7 +160,7 @@ export const PublicNetworkAccess = {
 } as const;
 
 /**
- * Whether or not public endpoint access is allowed for this cache.  Value is optional, but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'. Note: This setting is important for caches with private endpoints. It has *no effect* on caches that are joined to, or injected into, a virtual network subnet.
+ * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
@@ -180,17 +196,65 @@ export const SkuFamily = {
 export type SkuFamily = (typeof SkuFamily)[keyof typeof SkuFamily];
 
 export const SkuName = {
+    Enterprise_E1: "Enterprise_E1",
+    Enterprise_E5: "Enterprise_E5",
     Enterprise_E10: "Enterprise_E10",
     Enterprise_E20: "Enterprise_E20",
     Enterprise_E50: "Enterprise_E50",
     Enterprise_E100: "Enterprise_E100",
+    Enterprise_E200: "Enterprise_E200",
+    Enterprise_E400: "Enterprise_E400",
     EnterpriseFlash_F300: "EnterpriseFlash_F300",
     EnterpriseFlash_F700: "EnterpriseFlash_F700",
     EnterpriseFlash_F1500: "EnterpriseFlash_F1500",
+    Balanced_B0: "Balanced_B0",
+    Balanced_B1: "Balanced_B1",
+    Balanced_B3: "Balanced_B3",
+    Balanced_B5: "Balanced_B5",
+    Balanced_B10: "Balanced_B10",
+    Balanced_B20: "Balanced_B20",
+    Balanced_B50: "Balanced_B50",
+    Balanced_B100: "Balanced_B100",
+    Balanced_B150: "Balanced_B150",
+    Balanced_B250: "Balanced_B250",
+    Balanced_B350: "Balanced_B350",
+    Balanced_B500: "Balanced_B500",
+    Balanced_B700: "Balanced_B700",
+    Balanced_B1000: "Balanced_B1000",
+    MemoryOptimized_M10: "MemoryOptimized_M10",
+    MemoryOptimized_M20: "MemoryOptimized_M20",
+    MemoryOptimized_M50: "MemoryOptimized_M50",
+    MemoryOptimized_M100: "MemoryOptimized_M100",
+    MemoryOptimized_M150: "MemoryOptimized_M150",
+    MemoryOptimized_M250: "MemoryOptimized_M250",
+    MemoryOptimized_M350: "MemoryOptimized_M350",
+    MemoryOptimized_M500: "MemoryOptimized_M500",
+    MemoryOptimized_M700: "MemoryOptimized_M700",
+    MemoryOptimized_M1000: "MemoryOptimized_M1000",
+    MemoryOptimized_M1500: "MemoryOptimized_M1500",
+    MemoryOptimized_M2000: "MemoryOptimized_M2000",
+    ComputeOptimized_X3: "ComputeOptimized_X3",
+    ComputeOptimized_X5: "ComputeOptimized_X5",
+    ComputeOptimized_X10: "ComputeOptimized_X10",
+    ComputeOptimized_X20: "ComputeOptimized_X20",
+    ComputeOptimized_X50: "ComputeOptimized_X50",
+    ComputeOptimized_X100: "ComputeOptimized_X100",
+    ComputeOptimized_X150: "ComputeOptimized_X150",
+    ComputeOptimized_X250: "ComputeOptimized_X250",
+    ComputeOptimized_X350: "ComputeOptimized_X350",
+    ComputeOptimized_X500: "ComputeOptimized_X500",
+    ComputeOptimized_X700: "ComputeOptimized_X700",
+    FlashOptimized_A250: "FlashOptimized_A250",
+    FlashOptimized_A500: "FlashOptimized_A500",
+    FlashOptimized_A700: "FlashOptimized_A700",
+    FlashOptimized_A1000: "FlashOptimized_A1000",
+    FlashOptimized_A1500: "FlashOptimized_A1500",
+    FlashOptimized_A2000: "FlashOptimized_A2000",
+    FlashOptimized_A4500: "FlashOptimized_A4500",
 } as const;
 
 /**
- * The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+ * The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
@@ -201,6 +265,27 @@ export const TlsVersion = {
 } as const;
 
 /**
- * The minimum TLS version for the cluster to support, e.g. '1.2'
+ * The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
  */
 export type TlsVersion = (typeof TlsVersion)[keyof typeof TlsVersion];
+
+export const UpdateChannel = {
+    Stable: "Stable",
+    Preview: "Preview",
+} as const;
+
+/**
+ * Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
+ */
+export type UpdateChannel = (typeof UpdateChannel)[keyof typeof UpdateChannel];
+
+export const ZonalAllocationPolicy = {
+    Automatic: "Automatic",
+    UserDefined: "UserDefined",
+    NoZones: "NoZones",
+} as const;
+
+/**
+ * Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
+ */
+export type ZonalAllocationPolicy = (typeof ZonalAllocationPolicy)[keyof typeof ZonalAllocationPolicy];

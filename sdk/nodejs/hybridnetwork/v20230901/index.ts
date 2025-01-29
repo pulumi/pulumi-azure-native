@@ -45,11 +45,6 @@ export const getConfigurationGroupValue: typeof import("./getConfigurationGroupV
 export const getConfigurationGroupValueOutput: typeof import("./getConfigurationGroupValue").getConfigurationGroupValueOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationGroupValue","getConfigurationGroupValueOutput"], () => require("./getConfigurationGroupValue"));
 
-export { GetNetworkFunctionArgs, GetNetworkFunctionResult, GetNetworkFunctionOutputArgs } from "./getNetworkFunction";
-export const getNetworkFunction: typeof import("./getNetworkFunction").getNetworkFunction = null as any;
-export const getNetworkFunctionOutput: typeof import("./getNetworkFunction").getNetworkFunctionOutput = null as any;
-utilities.lazyLoad(exports, ["getNetworkFunction","getNetworkFunctionOutput"], () => require("./getNetworkFunction"));
-
 export { GetNetworkFunctionDefinitionGroupArgs, GetNetworkFunctionDefinitionGroupResult, GetNetworkFunctionDefinitionGroupOutputArgs } from "./getNetworkFunctionDefinitionGroup";
 export const getNetworkFunctionDefinitionGroup: typeof import("./getNetworkFunctionDefinitionGroup").getNetworkFunctionDefinitionGroup = null as any;
 export const getNetworkFunctionDefinitionGroupOutput: typeof import("./getNetworkFunctionDefinitionGroup").getNetworkFunctionDefinitionGroupOutput = null as any;
@@ -89,11 +84,6 @@ export { ListArtifactManifestCredentialArgs, ListArtifactManifestCredentialResul
 export const listArtifactManifestCredential: typeof import("./listArtifactManifestCredential").listArtifactManifestCredential = null as any;
 export const listArtifactManifestCredentialOutput: typeof import("./listArtifactManifestCredential").listArtifactManifestCredentialOutput = null as any;
 utilities.lazyLoad(exports, ["listArtifactManifestCredential","listArtifactManifestCredentialOutput"], () => require("./listArtifactManifestCredential"));
-
-export { NetworkFunctionArgs } from "./networkFunction";
-export type NetworkFunction = import("./networkFunction").NetworkFunction;
-export const NetworkFunction: typeof import("./networkFunction").NetworkFunction = null as any;
-utilities.lazyLoad(exports, ["NetworkFunction"], () => require("./networkFunction"));
 
 export { NetworkFunctionDefinitionGroupArgs } from "./networkFunctionDefinitionGroup";
 export type NetworkFunctionDefinitionGroup = import("./networkFunctionDefinitionGroup").NetworkFunctionDefinitionGroup;
@@ -146,8 +136,6 @@ const _module = {
                 return new ConfigurationGroupSchema(name, <any>undefined, { urn })
             case "azure-native:hybridnetwork/v20230901:ConfigurationGroupValue":
                 return new ConfigurationGroupValue(name, <any>undefined, { urn })
-            case "azure-native:hybridnetwork/v20230901:NetworkFunction":
-                return new NetworkFunction(name, <any>undefined, { urn })
             case "azure-native:hybridnetwork/v20230901:NetworkFunctionDefinitionGroup":
                 return new NetworkFunctionDefinitionGroup(name, <any>undefined, { urn })
             case "azure-native:hybridnetwork/v20230901:NetworkFunctionDefinitionVersion":

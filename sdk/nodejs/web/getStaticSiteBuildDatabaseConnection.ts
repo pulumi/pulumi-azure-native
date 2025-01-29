@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Static Site Database Connection resource.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2022-09-01.
  */
 export function getStaticSiteBuildDatabaseConnection(args: GetStaticSiteBuildDatabaseConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteBuildDatabaseConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -85,9 +85,9 @@ export interface GetStaticSiteBuildDatabaseConnectionResult {
 }
 /**
  * Static Site Database Connection resource.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2022-09-01.
  */
 export function getStaticSiteBuildDatabaseConnectionOutput(args: GetStaticSiteBuildDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteBuildDatabaseConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

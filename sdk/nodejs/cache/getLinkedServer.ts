@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+ * Other available API versions: 2023-04-01.
  */
 export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -29,7 +29,7 @@ export interface GetLinkedServerArgs {
      */
     name: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -77,9 +77,9 @@ export interface GetLinkedServerResult {
 }
 /**
  * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+ * Other available API versions: 2023-04-01.
  */
 export function getLinkedServerOutput(args: GetLinkedServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -100,7 +100,7 @@ export interface GetLinkedServerOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -10,30 +10,10 @@ export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
 export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
 utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
 
-export { GetProviderInstanceArgs, GetProviderInstanceResult, GetProviderInstanceOutputArgs } from "./getProviderInstance";
-export const getProviderInstance: typeof import("./getProviderInstance").getProviderInstance = null as any;
-export const getProviderInstanceOutput: typeof import("./getProviderInstance").getProviderInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getProviderInstance","getProviderInstanceOutput"], () => require("./getProviderInstance"));
-
-export { GetSapLandscapeMonitorArgs, GetSapLandscapeMonitorResult, GetSapLandscapeMonitorOutputArgs } from "./getSapLandscapeMonitor";
-export const getSapLandscapeMonitor: typeof import("./getSapLandscapeMonitor").getSapLandscapeMonitor = null as any;
-export const getSapLandscapeMonitorOutput: typeof import("./getSapLandscapeMonitor").getSapLandscapeMonitorOutput = null as any;
-utilities.lazyLoad(exports, ["getSapLandscapeMonitor","getSapLandscapeMonitorOutput"], () => require("./getSapLandscapeMonitor"));
-
 export { MonitorArgs } from "./monitor";
 export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
 utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
-
-export { ProviderInstanceArgs } from "./providerInstance";
-export type ProviderInstance = import("./providerInstance").ProviderInstance;
-export const ProviderInstance: typeof import("./providerInstance").ProviderInstance = null as any;
-utilities.lazyLoad(exports, ["ProviderInstance"], () => require("./providerInstance"));
-
-export { SapLandscapeMonitorArgs } from "./sapLandscapeMonitor";
-export type SapLandscapeMonitor = import("./sapLandscapeMonitor").SapLandscapeMonitor;
-export const SapLandscapeMonitor: typeof import("./sapLandscapeMonitor").SapLandscapeMonitor = null as any;
-utilities.lazyLoad(exports, ["SapLandscapeMonitor"], () => require("./sapLandscapeMonitor"));
 
 
 // Export enums:
@@ -45,10 +25,6 @@ const _module = {
         switch (type) {
             case "azure-native:workloads/v20231201preview:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
-            case "azure-native:workloads/v20231201preview:ProviderInstance":
-                return new ProviderInstance(name, <any>undefined, { urn })
-            case "azure-native:workloads/v20231201preview:SapLandscapeMonitor":
-                return new SapLandscapeMonitor(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

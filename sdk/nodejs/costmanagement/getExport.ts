@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the export for the defined scope by export name.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-08-01.
  *
- * Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Other available API versions: 2019-10-01, 2023-03-01, 2023-07-01-preview.
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,6 +62,14 @@ export interface GetExportResult {
      */
     readonly id: string;
     /**
+     * The managed identity associated with Export
+     */
+    readonly identity?: outputs.costmanagement.SystemAssignedServiceIdentityResponse;
+    /**
+     * The location of the Export's managed identity. Only required when utilizing managed identity.
+     */
+    readonly location?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
@@ -88,9 +96,9 @@ export interface GetExportResult {
 }
 /**
  * The operation to get the export for the defined scope by export name.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-08-01.
  *
- * Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Other available API versions: 2019-10-01, 2023-03-01, 2023-07-01-preview.
  */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

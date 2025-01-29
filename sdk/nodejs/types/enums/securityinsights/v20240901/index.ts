@@ -22,126 +22,6 @@ export const ActionType = {
  */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
-export const AlertDetail = {
-    /**
-     * Alert display name
-     */
-    DisplayName: "DisplayName",
-    /**
-     * Alert severity
-     */
-    Severity: "Severity",
-} as const;
-
-/**
- * Alert detail
- */
-export type AlertDetail = (typeof AlertDetail)[keyof typeof AlertDetail];
-
-export const AlertProperty = {
-    /**
-     * Alert's link
-     */
-    AlertLink: "AlertLink",
-    /**
-     * Confidence level property
-     */
-    ConfidenceLevel: "ConfidenceLevel",
-    /**
-     * Confidence score
-     */
-    ConfidenceScore: "ConfidenceScore",
-    /**
-     * Extended links to the alert
-     */
-    ExtendedLinks: "ExtendedLinks",
-    /**
-     * Product name alert property
-     */
-    ProductName: "ProductName",
-    /**
-     * Provider name alert property
-     */
-    ProviderName: "ProviderName",
-    /**
-     * Product component name alert property
-     */
-    ProductComponentName: "ProductComponentName",
-    /**
-     * Remediation steps alert property
-     */
-    RemediationSteps: "RemediationSteps",
-    /**
-     * Techniques alert property
-     */
-    Techniques: "Techniques",
-} as const;
-
-/**
- * The V3 alert property
- */
-export type AlertProperty = (typeof AlertProperty)[keyof typeof AlertProperty];
-
-export const AlertRuleKind = {
-    Scheduled: "Scheduled",
-    MicrosoftSecurityIncidentCreation: "MicrosoftSecurityIncidentCreation",
-    Fusion: "Fusion",
-} as const;
-
-/**
- * The alert rule kind
- */
-export type AlertRuleKind = (typeof AlertRuleKind)[keyof typeof AlertRuleKind];
-
-export const AlertSeverity = {
-    /**
-     * High severity
-     */
-    High: "High",
-    /**
-     * Medium severity
-     */
-    Medium: "Medium",
-    /**
-     * Low severity
-     */
-    Low: "Low",
-    /**
-     * Informational severity
-     */
-    Informational: "Informational",
-} as const;
-
-/**
- * The severity for alerts created by this alert rule.
- */
-export type AlertSeverity = (typeof AlertSeverity)[keyof typeof AlertSeverity];
-
-export const AttackTactic = {
-    Reconnaissance: "Reconnaissance",
-    ResourceDevelopment: "ResourceDevelopment",
-    InitialAccess: "InitialAccess",
-    Execution: "Execution",
-    Persistence: "Persistence",
-    PrivilegeEscalation: "PrivilegeEscalation",
-    DefenseEvasion: "DefenseEvasion",
-    CredentialAccess: "CredentialAccess",
-    Discovery: "Discovery",
-    LateralMovement: "LateralMovement",
-    Collection: "Collection",
-    Exfiltration: "Exfiltration",
-    CommandAndControl: "CommandAndControl",
-    Impact: "Impact",
-    PreAttack: "PreAttack",
-    ImpairProcessControl: "ImpairProcessControl",
-    InhibitResponseFunction: "InhibitResponseFunction",
-} as const;
-
-/**
- * The severity for alerts created by this alert rule.
- */
-export type AttackTactic = (typeof AttackTactic)[keyof typeof AttackTactic];
-
 export const AutomationRuleBooleanConditionSupportedOperator = {
     /**
      * Evaluates as true if all the item conditions are evaluated as true
@@ -523,25 +403,6 @@ export const AutomationRulePropertyConditionSupportedProperty = {
  */
 export type AutomationRulePropertyConditionSupportedProperty = (typeof AutomationRulePropertyConditionSupportedProperty)[keyof typeof AutomationRulePropertyConditionSupportedProperty];
 
-export const CcpAuthType = {
-    Basic: "Basic",
-    APIKey: "APIKey",
-    OAuth2: "OAuth2",
-    AWS: "AWS",
-    GCP: "GCP",
-    Session: "Session",
-    JwtToken: "JwtToken",
-    GitHub: "GitHub",
-    ServiceBus: "ServiceBus",
-    Oracle: "Oracle",
-    None: "None",
-} as const;
-
-/**
- * The auth type
- */
-export type CcpAuthType = (typeof CcpAuthType)[keyof typeof CcpAuthType];
-
 export const ConditionType = {
     /**
      * Evaluate an object property value
@@ -566,15 +427,6 @@ export const ConditionType = {
 } as const;
 
 export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
-
-export const DataConnectorDefinitionKind = {
-    Customizable: "Customizable",
-} as const;
-
-/**
- * The data connector kind
- */
-export type DataConnectorDefinitionKind = (typeof DataConnectorDefinitionKind)[keyof typeof DataConnectorDefinitionKind];
 
 export const DataConnectorKind = {
     AzureActiveDirectory: "AzureActiveDirectory",
@@ -605,96 +457,6 @@ export const DataTypeState = {
  */
 export type DataTypeState = (typeof DataTypeState)[keyof typeof DataTypeState];
 
-export const EntityMappingType = {
-    /**
-     * User account entity type
-     */
-    Account: "Account",
-    /**
-     * Host entity type
-     */
-    Host: "Host",
-    /**
-     * IP address entity type
-     */
-    IP: "IP",
-    /**
-     * Malware entity type
-     */
-    Malware: "Malware",
-    /**
-     * System file entity type
-     */
-    File: "File",
-    /**
-     * Process entity type
-     */
-    Process: "Process",
-    /**
-     * Cloud app entity type
-     */
-    CloudApplication: "CloudApplication",
-    /**
-     * DNS entity type
-     */
-    DNS: "DNS",
-    /**
-     * Azure resource entity type
-     */
-    AzureResource: "AzureResource",
-    /**
-     * File-hash entity type
-     */
-    FileHash: "FileHash",
-    /**
-     * Registry key entity type
-     */
-    RegistryKey: "RegistryKey",
-    /**
-     * Registry value entity type
-     */
-    RegistryValue: "RegistryValue",
-    /**
-     * Security group entity type
-     */
-    SecurityGroup: "SecurityGroup",
-    /**
-     * URL entity type
-     */
-    URL: "URL",
-    /**
-     * Mailbox entity type
-     */
-    Mailbox: "Mailbox",
-    /**
-     * Mail cluster entity type
-     */
-    MailCluster: "MailCluster",
-    /**
-     * Mail message entity type
-     */
-    MailMessage: "MailMessage",
-    /**
-     * Submission mail entity type
-     */
-    SubmissionMail: "SubmissionMail",
-} as const;
-
-/**
- * The V3 type of the mapped entity
- */
-export type EntityMappingType = (typeof EntityMappingType)[keyof typeof EntityMappingType];
-
-export const EventGroupingAggregationKind = {
-    SingleAlert: "SingleAlert",
-    AlertPerResult: "AlertPerResult",
-} as const;
-
-/**
- * The event grouping aggregation kinds
- */
-export type EventGroupingAggregationKind = (typeof EventGroupingAggregationKind)[keyof typeof EventGroupingAggregationKind];
-
 export const Flag = {
     True: "true",
     False: "false",
@@ -704,18 +466,6 @@ export const Flag = {
  * Flag indicates if this package is in preview.
  */
 export type Flag = (typeof Flag)[keyof typeof Flag];
-
-export const HttpMethodVerb = {
-    GET: "GET",
-    POST: "POST",
-    PUT: "PUT",
-    DELETE: "DELETE",
-} as const;
-
-/**
- * The HTTP method, default value GET.
- */
-export type HttpMethodVerb = (typeof HttpMethodVerb)[keyof typeof HttpMethodVerb];
 
 export const IncidentClassification = {
     /**
@@ -850,39 +600,6 @@ export const Kind = {
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
-export const MatchingMethod = {
-    /**
-     * Grouping alerts into a single incident if all the entities match
-     */
-    AllEntities: "AllEntities",
-    /**
-     * Grouping any alerts triggered by this rule into a single incident
-     */
-    AnyAlert: "AnyAlert",
-    /**
-     * Grouping alerts into a single incident if the selected entities, custom details and alert details match
-     */
-    Selected: "Selected",
-} as const;
-
-/**
- * Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
- */
-export type MatchingMethod = (typeof MatchingMethod)[keyof typeof MatchingMethod];
-
-export const MicrosoftSecurityProductName = {
-    Microsoft_Cloud_App_Security: "Microsoft Cloud App Security",
-    Azure_Security_Center: "Azure Security Center",
-    Azure_Advanced_Threat_Protection: "Azure Advanced Threat Protection",
-    Azure_Active_Directory_Identity_Protection: "Azure Active Directory Identity Protection",
-    Azure_Security_Center_for_IoT: "Azure Security Center for IoT",
-} as const;
-
-/**
- * The alerts' productName on which the cases will be generated
- */
-export type MicrosoftSecurityProductName = (typeof MicrosoftSecurityProductName)[keyof typeof MicrosoftSecurityProductName];
-
 export const Operator = {
     AND: "AND",
     OR: "OR",
@@ -923,17 +640,6 @@ export const PackageKind = {
  */
 export type PackageKind = (typeof PackageKind)[keyof typeof PackageKind];
 
-export const ProviderPermissionsScope = {
-    Subscription: "Subscription",
-    ResourceGroup: "ResourceGroup",
-    Workspace: "Workspace",
-} as const;
-
-/**
- * The scope on which the user should have permissions, in order to be able to create connections.
- */
-export type ProviderPermissionsScope = (typeof ProviderPermissionsScope)[keyof typeof ProviderPermissionsScope];
-
 export const RepositoryAccessKind = {
     OAuth: "OAuth",
     PAT: "PAT",
@@ -944,46 +650,6 @@ export const RepositoryAccessKind = {
  * The kind of repository access credentials
  */
 export type RepositoryAccessKind = (typeof RepositoryAccessKind)[keyof typeof RepositoryAccessKind];
-
-export const RestApiPollerRequestPagingKind = {
-    LinkHeader: "LinkHeader",
-    NextPageToken: "NextPageToken",
-    NextPageUrl: "NextPageUrl",
-    PersistentToken: "PersistentToken",
-    PersistentLinkHeader: "PersistentLinkHeader",
-    Offset: "Offset",
-    CountBasedPaging: "CountBasedPaging",
-} as const;
-
-/**
- * Type of paging
- */
-export type RestApiPollerRequestPagingKind = (typeof RestApiPollerRequestPagingKind)[keyof typeof RestApiPollerRequestPagingKind];
-
-export const SecurityMLAnalyticsSettingsKind = {
-    Anomaly: "Anomaly",
-} as const;
-
-/**
- * The kind of security ML Analytics Settings
- */
-export type SecurityMLAnalyticsSettingsKind = (typeof SecurityMLAnalyticsSettingsKind)[keyof typeof SecurityMLAnalyticsSettingsKind];
-
-export const SettingsStatus = {
-    /**
-     * Anomaly settings status in Production mode
-     */
-    Production: "Production",
-    /**
-     * Anomaly settings status in Flighting mode
-     */
-    Flighting: "Flighting",
-} as const;
-
-/**
- * The anomaly SecurityMLAnalyticsSettings status
- */
-export type SettingsStatus = (typeof SettingsStatus)[keyof typeof SettingsStatus];
 
 export const SourceKind = {
     LocalWorkspace: "LocalWorkspace",
@@ -1035,18 +701,6 @@ export const ThreatIntelligenceResourceInnerKind = {
  * The kind of the entity.
  */
 export type ThreatIntelligenceResourceInnerKind = (typeof ThreatIntelligenceResourceInnerKind)[keyof typeof ThreatIntelligenceResourceInnerKind];
-
-export const TriggerOperator = {
-    GreaterThan: "GreaterThan",
-    LessThan: "LessThan",
-    Equal: "Equal",
-    NotEqual: "NotEqual",
-} as const;
-
-/**
- * The operation against the threshold that triggers alert rule.
- */
-export type TriggerOperator = (typeof TriggerOperator)[keyof typeof TriggerOperator];
 
 export const TriggersOn = {
     /**

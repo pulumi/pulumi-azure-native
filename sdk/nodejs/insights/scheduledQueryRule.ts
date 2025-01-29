@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The scheduled query rule resource.
- * Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2018-04-16.
+ * Azure REST API version: 2024-01-01-preview. Prior API version in Azure Native 2.x: 2023-03-15-preview.
  *
- * Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview.
+ * Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-03-15-preview.
  */
 export class ScheduledQueryRule extends pulumi.CustomResource {
     /**

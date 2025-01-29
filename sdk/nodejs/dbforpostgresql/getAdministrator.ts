@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a server.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2024-08-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+ * Other available API versions: 2022-12-01, 2024-11-01-preview.
  */
 export function getAdministrator(args: GetAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAdministratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,7 +42,7 @@ export interface GetAdministratorArgs {
  */
 export interface GetAdministratorResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -76,9 +76,9 @@ export interface GetAdministratorResult {
 }
 /**
  * Gets information about a server.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2024-08-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+ * Other available API versions: 2022-12-01, 2024-11-01-preview.
  */
 export function getAdministratorOutput(args: GetAdministratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAdministratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
