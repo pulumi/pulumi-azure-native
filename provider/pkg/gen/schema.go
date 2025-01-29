@@ -290,6 +290,10 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 		return nil, err
 	}
 
+	if !previousCompatibleTokensLookup.IsPopulated() && providerVersion.Major >= 3 {
+		return nil, fmt.Errorf("GetPreviousCompatibleTokensLookup is not populated. This is likely due to v%d-token-paths.json being missing or empty", providerVersion.Major-1)
+	}
+
 	for moduleName, moduleVersions := range util.MapOrdered(modules) {
 		resourcePaths := map[openapi.ResourceName]map[string][]openapi.ApiVersion{}
 

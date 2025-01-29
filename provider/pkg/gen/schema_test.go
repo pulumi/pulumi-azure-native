@@ -71,7 +71,9 @@ func TestAliases(t *testing.T) {
 			resource.ModuleNaming.PreviousName = &previousName
 		}
 
-		aliasSpecs := generator.generateAliases(resource, typeNameAliases...)
+		resourceTok := generateTok(openapi.ModuleName(moduleName), typeName, sdkVersion)
+
+		aliasSpecs := generator.generateAliases(resourceTok, resource, typeNameAliases...)
 		typeAliases := []string{}
 		for _, alias := range aliasSpecs {
 			typeAliases = append(typeAliases, *alias.Type)
