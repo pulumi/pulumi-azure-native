@@ -81,6 +81,20 @@ func (v *genPropertiesVariant) nestedWithoutResponse() genPropertiesVariant {
 func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants genPropertiesVariant) (*propertyBag, error) {
 	result := newPropertyBag()
 
+	if version.GetVersion().Major >= 3 {
+		if variants.isTopLevel && variants.isOutput {
+			// Emit the actual apiVersion of the resource as a output property.
+			result.specs["apiVersion"] = pschema.PropertySpec{
+				Description: "The API version of the resource or function.",
+				TypeSpec: pschema.TypeSpec{
+					Type: "string",
+				},
+				WillReplaceOnChanges: false,
+			}
+			result.requiredSpecs.Add("apiVersion")
+		}
+	}
+
 	// Sort properties to make codegen deterministic.
 	var names []string
 	for name := range resolvedSchema.Properties {
