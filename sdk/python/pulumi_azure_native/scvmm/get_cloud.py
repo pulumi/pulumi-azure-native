@@ -211,9 +211,9 @@ def get_cloud(cloud_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudResult:
     """
     Implements Cloud GET method.
-    Azure REST API version: 2022-05-21-preview.
+    Azure REST API version: 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2020-06-05-preview, 2022-05-21-preview, 2023-10-07, 2024-06-01.
 
 
     :param str cloud_name: Name of the Cloud.
@@ -245,9 +245,9 @@ def get_cloud_output(cloud_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudResult]:
     """
     Implements Cloud GET method.
-    Azure REST API version: 2022-05-21-preview.
+    Azure REST API version: 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2020-06-05-preview, 2022-05-21-preview, 2023-10-07, 2024-06-01.
 
 
     :param str cloud_name: Name of the Cloud.

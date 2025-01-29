@@ -249,6 +249,8 @@ def get_my_workbook(resource_group_name: Optional[str] = None,
     Get a single private workbook by its resourceName.
     Azure REST API version: 2021-03-08.
 
+    Other available API versions: 2015-05-01, 2020-10-20.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
@@ -283,6 +285,8 @@ def get_my_workbook_output(resource_group_name: Optional[pulumi.Input[str]] = No
     """
     Get a single private workbook by its resourceName.
     Azure REST API version: 2021-03-08.
+
+    Other available API versions: 2015-05-01, 2020-10-20.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
     public sealed class CreateUpdateOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Autoscale settings.
+        /// Specifies the Autoscale settings. Note: Either throughput or autoscaleSettings is required, but not both.
         /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.AutoscaleSettingsArgs>? AutoscaleSettings { get; set; }

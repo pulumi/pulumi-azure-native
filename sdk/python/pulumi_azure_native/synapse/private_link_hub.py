@@ -117,9 +117,9 @@ class PrivateLinkHub(pulumi.CustomResource):
                  __props__=None):
         """
         A privateLinkHub
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
-        Other available API versions: 2021-06-01-preview.
+        Other available API versions: 2021-03-01, 2021-04-01-preview, 2021-05-01, 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,9 +137,9 @@ class PrivateLinkHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A privateLinkHub
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
-        Other available API versions: 2021-06-01-preview.
+        Other available API versions: 2021-03-01, 2021-04-01-preview, 2021-05-01, 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkHubArgs args: The arguments to use to populate this resource's properties.

@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly string SasKeyForLabel;
         /// <summary>
-        /// TrackingId of the package
+        /// TrackingId of the package.
         /// </summary>
         public readonly string TrackingId;
         /// <summary>

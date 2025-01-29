@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Cognitive Services account commitment plan.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-05-01.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Other available API versions: 2022-12-01, 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
  */
 export class SharedCommitmentPlan extends pulumi.CustomResource {
     /**

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Confluent
     {
         /// <summary>
         /// List service accounts success response
-        /// Azure REST API version: 2023-08-22.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Other available API versions: 2023-08-22, 2024-02-13.
         /// </summary>
         public static Task<ListAccessServiceAccountsResult> InvokeAsync(ListAccessServiceAccountsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessServiceAccountsResult>("azure-native:confluent:listAccessServiceAccounts", args ?? new ListAccessServiceAccountsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List service accounts success response
-        /// Azure REST API version: 2023-08-22.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Other available API versions: 2023-08-22, 2024-02-13.
         /// </summary>
         public static Output<ListAccessServiceAccountsResult> Invoke(ListAccessServiceAccountsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessServiceAccountsResult>("azure-native:confluent:listAccessServiceAccounts", args ?? new ListAccessServiceAccountsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List service accounts success response
-        /// Azure REST API version: 2023-08-22.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Other available API versions: 2023-08-22, 2024-02-13.
         /// </summary>
         public static Output<ListAccessServiceAccountsResult> Invoke(ListAccessServiceAccountsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessServiceAccountsResult>("azure-native:confluent:listAccessServiceAccounts", args ?? new ListAccessServiceAccountsInvokeArgs(), options.WithDefaults());
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Confluent
         public string OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// Resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.Confluent
         public Input<string> OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// Resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

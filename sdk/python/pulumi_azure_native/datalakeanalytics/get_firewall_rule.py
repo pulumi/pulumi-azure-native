@@ -105,6 +105,8 @@ def get_firewall_rule(account_name: Optional[str] = None,
     Gets the specified Data Lake Analytics firewall rule.
     Azure REST API version: 2019-11-01-preview.
 
+    Other available API versions: 2016-11-01.
+
 
     :param str account_name: The name of the Data Lake Analytics account.
     :param str firewall_rule_name: The name of the firewall rule to retrieve.
@@ -130,6 +132,8 @@ def get_firewall_rule_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the specified Data Lake Analytics firewall rule.
     Azure REST API version: 2019-11-01-preview.
+
+    Other available API versions: 2016-11-01.
 
 
     :param str account_name: The name of the Data Lake Analytics account.

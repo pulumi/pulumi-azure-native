@@ -106,6 +106,8 @@ def get_tag_rule(monitor_name: Optional[str] = None,
     Capture logs and metrics of Azure resources based on ARM tags.
     Azure REST API version: 2022-01-01-preview.
 
+    Other available API versions: 2020-10-01, 2020-10-01-preview.
+
 
     :param str monitor_name: Monitor resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -130,6 +132,8 @@ def get_tag_rule_output(monitor_name: Optional[pulumi.Input[str]] = None,
     """
     Capture logs and metrics of Azure resources based on ARM tags.
     Azure REST API version: 2022-01-01-preview.
+
+    Other available API versions: 2020-10-01, 2020-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name

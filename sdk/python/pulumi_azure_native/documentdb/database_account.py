@@ -35,15 +35,18 @@ class DatabaseAccountArgs:
                  consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 customer_managed_key_status: Optional[pulumi.Input[str]] = None,
                  default_identity: Optional[pulumi.Input[str]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+                 enable_burst_capacity: Optional[pulumi.Input[bool]] = None,
                  enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  enable_partition_merge: Optional[pulumi.Input[bool]] = None,
+                 enable_per_region_per_partition_autoscale: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
@@ -72,15 +75,18 @@ class DatabaseAccountArgs:
         :param pulumi.Input['ConsistencyPolicyArgs'] consistency_policy: The consistency policy for the Cosmos DB account.
         :param pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]] cors: The CORS policy for the Cosmos DB database account.
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Enum to indicate the mode of account creation.
+        :param pulumi.Input[str] customer_managed_key_status: Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
         :param pulumi.Input[str] default_identity: The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
         :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
         :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
         :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
         :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+        :param pulumi.Input[bool] enable_burst_capacity: Flag to indicate enabling/disabling of Burst Capacity feature on the account
         :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
         :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
         :param pulumi.Input[bool] enable_partition_merge: Flag to indicate enabling/disabling of Partition Merge feature on the account
+        :param pulumi.Input[bool] enable_per_region_per_partition_autoscale: Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]] ip_rules: List of IpRules.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -120,6 +126,8 @@ class DatabaseAccountArgs:
             create_mode = 'Default'
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
+        if customer_managed_key_status is not None:
+            pulumi.set(__self__, "customer_managed_key_status", customer_managed_key_status)
         if default_identity is not None:
             pulumi.set(__self__, "default_identity", default_identity)
         if disable_key_based_metadata_write_access is not None:
@@ -130,6 +138,8 @@ class DatabaseAccountArgs:
             pulumi.set(__self__, "enable_analytical_storage", enable_analytical_storage)
         if enable_automatic_failover is not None:
             pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
+        if enable_burst_capacity is not None:
+            pulumi.set(__self__, "enable_burst_capacity", enable_burst_capacity)
         if enable_cassandra_connector is not None:
             pulumi.set(__self__, "enable_cassandra_connector", enable_cassandra_connector)
         if enable_free_tier is not None:
@@ -138,6 +148,8 @@ class DatabaseAccountArgs:
             pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
         if enable_partition_merge is not None:
             pulumi.set(__self__, "enable_partition_merge", enable_partition_merge)
+        if enable_per_region_per_partition_autoscale is not None:
+            pulumi.set(__self__, "enable_per_region_per_partition_autoscale", enable_per_region_per_partition_autoscale)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if ip_rules is not None:
@@ -324,6 +336,18 @@ class DatabaseAccountArgs:
         pulumi.set(self, "create_mode", value)
 
     @property
+    @pulumi.getter(name="customerManagedKeyStatus")
+    def customer_managed_key_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
+        """
+        return pulumi.get(self, "customer_managed_key_status")
+
+    @customer_managed_key_status.setter
+    def customer_managed_key_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_managed_key_status", value)
+
+    @property
     @pulumi.getter(name="defaultIdentity")
     def default_identity(self) -> Optional[pulumi.Input[str]]:
         """
@@ -384,6 +408,18 @@ class DatabaseAccountArgs:
         pulumi.set(self, "enable_automatic_failover", value)
 
     @property
+    @pulumi.getter(name="enableBurstCapacity")
+    def enable_burst_capacity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate enabling/disabling of Burst Capacity feature on the account
+        """
+        return pulumi.get(self, "enable_burst_capacity")
+
+    @enable_burst_capacity.setter
+    def enable_burst_capacity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_burst_capacity", value)
+
+    @property
     @pulumi.getter(name="enableCassandraConnector")
     def enable_cassandra_connector(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -430,6 +466,18 @@ class DatabaseAccountArgs:
     @enable_partition_merge.setter
     def enable_partition_merge(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_partition_merge", value)
+
+    @property
+    @pulumi.getter(name="enablePerRegionPerPartitionAutoscale")
+    def enable_per_region_per_partition_autoscale(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
+        """
+        return pulumi.get(self, "enable_per_region_per_partition_autoscale")
+
+    @enable_per_region_per_partition_autoscale.setter
+    def enable_per_region_per_partition_autoscale(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_per_region_per_partition_autoscale", value)
 
     @property
     @pulumi.getter
@@ -603,16 +651,19 @@ class DatabaseAccount(pulumi.CustomResource):
                  consistency_policy: Optional[pulumi.Input[Union['ConsistencyPolicyArgs', 'ConsistencyPolicyArgsDict']]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CorsPolicyArgs', 'CorsPolicyArgsDict']]]]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 customer_managed_key_status: Optional[pulumi.Input[str]] = None,
                  database_account_offer_type: Optional[pulumi.Input['DatabaseAccountOfferType']] = None,
                  default_identity: Optional[pulumi.Input[str]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+                 enable_burst_capacity: Optional[pulumi.Input[bool]] = None,
                  enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  enable_partition_merge: Optional[pulumi.Input[bool]] = None,
+                 enable_per_region_per_partition_autoscale: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAddressOrRangeArgs', 'IpAddressOrRangeArgsDict']]]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
@@ -631,9 +682,9 @@ class DatabaseAccount(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Cosmos DB database account.
-        Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15.
+        Azure REST API version: 2024-11-15. Prior API version in Azure Native 2.x: 2023-04-15.
 
-        Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -647,16 +698,19 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[Union['ConsistencyPolicyArgs', 'ConsistencyPolicyArgsDict']] consistency_policy: The consistency policy for the Cosmos DB account.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CorsPolicyArgs', 'CorsPolicyArgsDict']]]] cors: The CORS policy for the Cosmos DB database account.
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Enum to indicate the mode of account creation.
+        :param pulumi.Input[str] customer_managed_key_status: Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
         :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
         :param pulumi.Input[str] default_identity: The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
         :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
         :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
         :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
         :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+        :param pulumi.Input[bool] enable_burst_capacity: Flag to indicate enabling/disabling of Burst Capacity feature on the account
         :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
         :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
         :param pulumi.Input[bool] enable_partition_merge: Flag to indicate enabling/disabling of Partition Merge feature on the account
+        :param pulumi.Input[bool] enable_per_region_per_partition_autoscale: Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Identity for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IpAddressOrRangeArgs', 'IpAddressOrRangeArgsDict']]]] ip_rules: List of IpRules.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -681,9 +735,9 @@ class DatabaseAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB database account.
-        Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15.
+        Azure REST API version: 2024-11-15. Prior API version in Azure Native 2.x: 2023-04-15.
 
-        Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DatabaseAccountArgs args: The arguments to use to populate this resource's properties.
@@ -710,16 +764,19 @@ class DatabaseAccount(pulumi.CustomResource):
                  consistency_policy: Optional[pulumi.Input[Union['ConsistencyPolicyArgs', 'ConsistencyPolicyArgsDict']]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CorsPolicyArgs', 'CorsPolicyArgsDict']]]]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 customer_managed_key_status: Optional[pulumi.Input[str]] = None,
                  database_account_offer_type: Optional[pulumi.Input['DatabaseAccountOfferType']] = None,
                  default_identity: Optional[pulumi.Input[str]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+                 enable_burst_capacity: Optional[pulumi.Input[bool]] = None,
                  enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  enable_partition_merge: Optional[pulumi.Input[bool]] = None,
+                 enable_per_region_per_partition_autoscale: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAddressOrRangeArgs', 'IpAddressOrRangeArgsDict']]]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
@@ -756,6 +813,7 @@ class DatabaseAccount(pulumi.CustomResource):
             if create_mode is None:
                 create_mode = 'Default'
             __props__.__dict__["create_mode"] = create_mode
+            __props__.__dict__["customer_managed_key_status"] = customer_managed_key_status
             if database_account_offer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'database_account_offer_type'")
             __props__.__dict__["database_account_offer_type"] = database_account_offer_type
@@ -764,10 +822,12 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["enable_analytical_storage"] = enable_analytical_storage
             __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
+            __props__.__dict__["enable_burst_capacity"] = enable_burst_capacity
             __props__.__dict__["enable_cassandra_connector"] = enable_cassandra_connector
             __props__.__dict__["enable_free_tier"] = enable_free_tier
             __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
             __props__.__dict__["enable_partition_merge"] = enable_partition_merge
+            __props__.__dict__["enable_per_region_per_partition_autoscale"] = enable_per_region_per_partition_autoscale
             __props__.__dict__["identity"] = identity
             __props__.__dict__["ip_rules"] = ip_rules
             __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
@@ -833,6 +893,7 @@ class DatabaseAccount(pulumi.CustomResource):
         __props__.__dict__["consistency_policy"] = None
         __props__.__dict__["cors"] = None
         __props__.__dict__["create_mode"] = None
+        __props__.__dict__["customer_managed_key_status"] = None
         __props__.__dict__["database_account_offer_type"] = None
         __props__.__dict__["default_identity"] = None
         __props__.__dict__["disable_key_based_metadata_write_access"] = None
@@ -840,10 +901,12 @@ class DatabaseAccount(pulumi.CustomResource):
         __props__.__dict__["document_endpoint"] = None
         __props__.__dict__["enable_analytical_storage"] = None
         __props__.__dict__["enable_automatic_failover"] = None
+        __props__.__dict__["enable_burst_capacity"] = None
         __props__.__dict__["enable_cassandra_connector"] = None
         __props__.__dict__["enable_free_tier"] = None
         __props__.__dict__["enable_multiple_write_locations"] = None
         __props__.__dict__["enable_partition_merge"] = None
+        __props__.__dict__["enable_per_region_per_partition_autoscale"] = None
         __props__.__dict__["failover_policies"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["instance_id"] = None
@@ -943,6 +1006,14 @@ class DatabaseAccount(pulumi.CustomResource):
         return pulumi.get(self, "create_mode")
 
     @property
+    @pulumi.getter(name="customerManagedKeyStatus")
+    def customer_managed_key_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
+        """
+        return pulumi.get(self, "customer_managed_key_status")
+
+    @property
     @pulumi.getter(name="databaseAccountOfferType")
     def database_account_offer_type(self) -> pulumi.Output[str]:
         """
@@ -999,6 +1070,14 @@ class DatabaseAccount(pulumi.CustomResource):
         return pulumi.get(self, "enable_automatic_failover")
 
     @property
+    @pulumi.getter(name="enableBurstCapacity")
+    def enable_burst_capacity(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Flag to indicate enabling/disabling of Burst Capacity feature on the account
+        """
+        return pulumi.get(self, "enable_burst_capacity")
+
+    @property
     @pulumi.getter(name="enableCassandraConnector")
     def enable_cassandra_connector(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1029,6 +1108,14 @@ class DatabaseAccount(pulumi.CustomResource):
         Flag to indicate enabling/disabling of Partition Merge feature on the account
         """
         return pulumi.get(self, "enable_partition_merge")
+
+    @property
+    @pulumi.getter(name="enablePerRegionPerPartitionAutoscale")
+    def enable_per_region_per_partition_autoscale(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
+        """
+        return pulumi.get(self, "enable_per_region_per_partition_autoscale")
 
     @property
     @pulumi.getter(name="failoverPolicies")

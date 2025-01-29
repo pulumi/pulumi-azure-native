@@ -321,7 +321,7 @@ def get_application_definition(application_definition_name: Optional[str] = None
     Gets the managed application definition.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
+    Other available API versions: 2019-07-01, 2020-08-21-preview, 2021-02-01-preview, 2023-12-01-preview.
 
 
     :param str application_definition_name: The name of the managed application definition.
@@ -364,7 +364,7 @@ def get_application_definition_output(application_definition_name: Optional[pulu
     Gets the managed application definition.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
+    Other available API versions: 2019-07-01, 2020-08-21-preview, 2021-02-01-preview, 2023-12-01-preview.
 
 
     :param str application_definition_name: The name of the managed application definition.

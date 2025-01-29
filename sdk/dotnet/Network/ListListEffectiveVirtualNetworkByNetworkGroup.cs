@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Lists all effective virtual networks by specified network group.
         /// Azure REST API version: 2022-04-01-preview.
         /// 
-        /// Other available API versions: 2021-05-01-preview.
+        /// Other available API versions: 2022-02-01-preview.
         /// </summary>
         public static Task<ListListEffectiveVirtualNetworkByNetworkGroupResult> InvokeAsync(ListListEffectiveVirtualNetworkByNetworkGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network:listListEffectiveVirtualNetworkByNetworkGroup", args ?? new ListListEffectiveVirtualNetworkByNetworkGroupArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Lists all effective virtual networks by specified network group.
         /// Azure REST API version: 2022-04-01-preview.
         /// 
-        /// Other available API versions: 2021-05-01-preview.
+        /// Other available API versions: 2022-02-01-preview.
         /// </summary>
         public static Output<ListListEffectiveVirtualNetworkByNetworkGroupResult> Invoke(ListListEffectiveVirtualNetworkByNetworkGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network:listListEffectiveVirtualNetworkByNetworkGroup", args ?? new ListListEffectiveVirtualNetworkByNetworkGroupInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Network
         /// Lists all effective virtual networks by specified network group.
         /// Azure REST API version: 2022-04-01-preview.
         /// 
-        /// Other available API versions: 2021-05-01-preview.
+        /// Other available API versions: 2022-02-01-preview.
         /// </summary>
         public static Output<ListListEffectiveVirtualNetworkByNetworkGroupResult> Invoke(ListListEffectiveVirtualNetworkByNetworkGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network:listListEffectiveVirtualNetworkByNetworkGroup", args ?? new ListListEffectiveVirtualNetworkByNetworkGroupInvokeArgs(), options.WithDefaults());

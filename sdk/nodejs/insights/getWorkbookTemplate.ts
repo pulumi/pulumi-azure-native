@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a single workbook template by its resourceName.
  * Azure REST API version: 2020-11-20.
+ *
+ * Other available API versions: 2019-10-17-preview.
  */
 export function getWorkbookTemplate(args: GetWorkbookTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,6 +80,8 @@ export interface GetWorkbookTemplateResult {
 /**
  * Get a single workbook template by its resourceName.
  * Azure REST API version: 2020-11-20.
+ *
+ * Other available API versions: 2019-10-17-preview.
  */
 export function getWorkbookTemplateOutput(args: GetWorkbookTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkbookTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -7,4 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_role_assignment import *
+from .get_role_definition import *
 from .role_assignment import *
+from .role_definition import *
+from ._inputs import *
+from . import outputs

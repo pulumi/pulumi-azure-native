@@ -59,6 +59,16 @@ export const ComputeType = {
  */
 export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
+export const EncryptionStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether or not the encryption is enabled for the workspace.
+ */
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
 export const LoadBalancerType = {
     PublicIp: "PublicIp",
     InternalLoadBalancer: "InternalLoadBalancer",
@@ -78,6 +88,19 @@ export const OsType = {
  * Compute OS Type
  */
 export type OsType = (typeof OsType)[keyof typeof OsType];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+    Timeout: "Timeout",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const RemoteLoginPortPublicAccess = {
     Enabled: "Enabled",

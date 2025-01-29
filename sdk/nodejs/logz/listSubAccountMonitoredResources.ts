@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Response of a list operation.
  * Azure REST API version: 2022-01-01-preview.
+ *
+ * Other available API versions: 2020-10-01, 2020-10-01-preview.
  */
 export function listSubAccountMonitoredResources(args: ListSubAccountMonitoredResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListSubAccountMonitoredResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,6 +53,8 @@ export interface ListSubAccountMonitoredResourcesResult {
 /**
  * Response of a list operation.
  * Azure REST API version: 2022-01-01-preview.
+ *
+ * Other available API versions: 2020-10-01, 2020-10-01-preview.
  */
 export function listSubAccountMonitoredResourcesOutput(args: ListSubAccountMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSubAccountMonitoredResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * NSX Segment
- * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
  */
 export class WorkloadNetworkSegment extends pulumi.CustomResource {
     /**
@@ -49,7 +49,7 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -73,7 +73,11 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
      */
     public readonly subnet!: pulumi.Output<outputs.avs.WorkloadNetworkSegmentSubnetResponse | undefined>;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -105,6 +109,7 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
             resourceInputs["portVif"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["connectedGateway"] = undefined /*out*/;
@@ -115,6 +120,7 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
             resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subnet"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -149,7 +155,7 @@ export interface WorkloadNetworkSegmentArgs {
      */
     revision?: pulumi.Input<number>;
     /**
-     * NSX Segment identifier. Generally the same as the Segment's display name
+     * The ID of the NSX Segment
      */
     segmentId?: pulumi.Input<string>;
     /**

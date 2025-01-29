@@ -118,6 +118,8 @@ def list_integration_account_assembly_content_callback_url(assembly_artifact_nam
     Get the content callback url for an integration account assembly.
     Azure REST API version: 2019-05-01.
 
+    Other available API versions: 2016-06-01, 2018-07-01-preview.
+
 
     :param str assembly_artifact_name: The assembly artifact name.
     :param str integration_account_name: The integration account name.
@@ -144,6 +146,8 @@ def list_integration_account_assembly_content_callback_url_output(assembly_artif
     """
     Get the content callback url for an integration account assembly.
     Azure REST API version: 2019-05-01.
+
+    Other available API versions: 2016-06-01, 2018-07-01-preview.
 
 
     :param str assembly_artifact_name: The assembly artifact name.

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Datadog
     {
         /// <summary>
         /// Response of a list operation.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2023-10-20.
         /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+        /// Other available API versions: 2021-03-01, 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07.
         /// </summary>
         public static Task<ListMonitorLinkedResourcesResult> InvokeAsync(ListMonitorLinkedResourcesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitorLinkedResourcesResult>("azure-native:datadog:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2023-10-20.
         /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+        /// Other available API versions: 2021-03-01, 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07.
         /// </summary>
         public static Output<ListMonitorLinkedResourcesResult> Invoke(ListMonitorLinkedResourcesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorLinkedResourcesResult>("azure-native:datadog:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2023-10-20.
         /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+        /// Other available API versions: 2021-03-01, 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07.
         /// </summary>
         public static Output<ListMonitorLinkedResourcesResult> Invoke(ListMonitorLinkedResourcesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorLinkedResourcesResult>("azure-native:datadog:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesInvokeArgs(), options.WithDefaults());

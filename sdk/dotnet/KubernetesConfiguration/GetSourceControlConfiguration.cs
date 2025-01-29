@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Gets details of the Source Control Configuration.
         /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Other available API versions: 2020-07-01-preview, 2020-10-01-preview, 2021-03-01, 2021-05-01-preview, 2021-11-01-preview, 2022-01-01-preview, 2022-03-01, 2022-07-01, 2022-11-01.
         /// </summary>
         public static Task<GetSourceControlConfigurationResult> InvokeAsync(GetSourceControlConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Gets details of the Source Control Configuration.
         /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Other available API versions: 2020-07-01-preview, 2020-10-01-preview, 2021-03-01, 2021-05-01-preview, 2021-11-01-preview, 2022-01-01-preview, 2022-03-01, 2022-07-01, 2022-11-01.
         /// </summary>
         public static Output<GetSourceControlConfigurationResult> Invoke(GetSourceControlConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Gets details of the Source Control Configuration.
         /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Other available API versions: 2020-07-01-preview, 2020-10-01-preview, 2021-03-01, 2021-05-01-preview, 2021-11-01-preview, 2022-01-01-preview, 2022-03-01, 2022-07-01, 2022-11-01.
         /// </summary>
         public static Output<GetSourceControlConfigurationResult> Invoke(GetSourceControlConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlConfigurationResult>("azure-native:kubernetesconfiguration:getSourceControlConfiguration", args ?? new GetSourceControlConfigurationInvokeArgs(), options.WithDefaults());

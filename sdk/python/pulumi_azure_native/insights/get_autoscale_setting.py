@@ -189,6 +189,8 @@ def get_autoscale_setting(autoscale_setting_name: Optional[str] = None,
     Gets an autoscale setting
     Azure REST API version: 2022-10-01.
 
+    Other available API versions: 2015-04-01, 2021-05-01-preview.
+
 
     :param str autoscale_setting_name: The autoscale setting name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -218,6 +220,8 @@ def get_autoscale_setting_output(autoscale_setting_name: Optional[pulumi.Input[s
     """
     Gets an autoscale setting
     Azure REST API version: 2022-10-01.
+
+    Other available API versions: 2015-04-01, 2021-05-01-preview.
 
 
     :param str autoscale_setting_name: The autoscale setting name.

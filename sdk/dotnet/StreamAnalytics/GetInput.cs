@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// Gets details about the specified input.
         /// Azure REST API version: 2020-03-01.
         /// 
-        /// Other available API versions: 2021-10-01-preview.
+        /// Other available API versions: 2016-03-01, 2017-04-01-preview, 2021-10-01-preview.
         /// </summary>
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-native:streamanalytics:getInput", args ?? new GetInputArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// Gets details about the specified input.
         /// Azure REST API version: 2020-03-01.
         /// 
-        /// Other available API versions: 2021-10-01-preview.
+        /// Other available API versions: 2016-03-01, 2017-04-01-preview, 2021-10-01-preview.
         /// </summary>
         public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInputResult>("azure-native:streamanalytics:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// Gets details about the specified input.
         /// Azure REST API version: 2020-03-01.
         /// 
-        /// Other available API versions: 2021-10-01-preview.
+        /// Other available API versions: 2016-03-01, 2017-04-01-preview, 2021-10-01-preview.
         /// </summary>
         public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInputResult>("azure-native:streamanalytics:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a security assessment on your scanned resource
  * Azure REST API version: 2021-06-01.
  *
- * Other available API versions: 2020-01-01.
+ * Other available API versions: 2019-01-01-preview, 2020-01-01.
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,7 +86,7 @@ export interface GetAssessmentResult {
  * Get a security assessment on your scanned resource
  * Azure REST API version: 2021-06-01.
  *
- * Other available API versions: 2020-01-01.
+ * Other available API versions: 2019-01-01-preview, 2020-01-01.
  */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

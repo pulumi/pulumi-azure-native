@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of a private endpoint connection.
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:media:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of a private endpoint connection.
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:media:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of a private endpoint connection.
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:media:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

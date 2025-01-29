@@ -189,6 +189,8 @@ def get_tenant_action_group(management_group_id: Optional[str] = None,
     Get a tenant action group.
     Azure REST API version: 2023-05-01-preview.
 
+    Other available API versions: 2023-03-01-preview.
+
 
     :param str management_group_id: The management group id.
     :param str tenant_action_group_name: The name of the action group.
@@ -218,6 +220,8 @@ def get_tenant_action_group_output(management_group_id: Optional[pulumi.Input[st
     """
     Get a tenant action group.
     Azure REST API version: 2023-05-01-preview.
+
+    Other available API versions: 2023-03-01-preview.
 
 
     :param str management_group_id: The management group id.

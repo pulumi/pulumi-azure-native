@@ -2,7 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20180401 from "./v20180401";
+import * as v20210401preview from "./v20210401preview";
 import * as v20220401preview from "./v20220401preview";
+import * as v20221001preview from "./v20221001preview";
 import * as v20230201 from "./v20230201";
 import * as v20230501 from "./v20230501";
 import * as v20230915preview from "./v20230915preview";
@@ -10,13 +13,51 @@ import * as v20240501 from "./v20240501";
 import * as v20240901preview from "./v20240901preview";
 
 export {
+    v20180401,
+    v20210401preview,
     v20220401preview,
+    v20221001preview,
     v20230201,
     v20230501,
     v20230915preview,
     v20240501,
     v20240901preview,
 };
+
+export const AutomaticClusterUpdateValue = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+export type AutomaticClusterUpdateValue = (typeof AutomaticClusterUpdateValue)[keyof typeof AutomaticClusterUpdateValue];
+
+export const ComplianceSecurityProfileValue = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+export type ComplianceSecurityProfileValue = (typeof ComplianceSecurityProfileValue)[keyof typeof ComplianceSecurityProfileValue];
+
+export const ComplianceStandard = {
+    NONE: "NONE",
+    HIPAA: "HIPAA",
+    PCI_DSS: "PCI_DSS",
+} as const;
+
+/**
+ * Compliance standard that can be associated with a workspace.
+ */
+export type ComplianceStandard = (typeof ComplianceStandard)[keyof typeof ComplianceStandard];
+
+export const DefaultStorageFirewall = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Gets or Sets Default Storage Firewall configuration information
+ */
+export type DefaultStorageFirewall = (typeof DefaultStorageFirewall)[keyof typeof DefaultStorageFirewall];
 
 export const EncryptionKeySource = {
     Microsoft_Keyvault: "Microsoft.Keyvault",
@@ -26,6 +67,33 @@ export const EncryptionKeySource = {
  * The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
  */
 export type EncryptionKeySource = (typeof EncryptionKeySource)[keyof typeof EncryptionKeySource];
+
+export const EnhancedSecurityMonitoringValue = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+export type EnhancedSecurityMonitoringValue = (typeof EnhancedSecurityMonitoringValue)[keyof typeof EnhancedSecurityMonitoringValue];
+
+export const IdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * The identity type of the Access Connector Resource.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+export const InitialType = {
+    HiveMetastore: "HiveMetastore",
+    UnityCatalog: "UnityCatalog",
+} as const;
+
+/**
+ * Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
+ */
+export type InitialType = (typeof InitialType)[keyof typeof InitialType];
 
 export const KeySource = {
     Default: "Default",

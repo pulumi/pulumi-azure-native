@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Single item in List or Get Migration Config operation
-    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+    /// Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
     /// 
-    /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    /// Other available API versions: 2017-04-01, 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:MigrationConfig")]
     public partial class MigrationConfig : global::Pulumi.CustomResource
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string> PostMigrationName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.DelegatedNetwork
 {
     /// <summary>
     /// Represents an instance of a DNC controller.
-    /// Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15.
+    /// Azure REST API version: 2023-06-27-preview. Prior API version in Azure Native 2.x: 2021-03-15.
     /// 
-    /// Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+    /// Other available API versions: 2021-03-15, 2023-05-18-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork:ControllerDetails")]
     public partial class ControllerDetails : global::Pulumi.CustomResource
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The purpose of the dnc controller resource.
+        /// </summary>
+        [Output("purpose")]
+        public Output<string?> Purpose { get; private set; } = null!;
 
         /// <summary>
         /// Resource guid.
@@ -131,6 +137,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The purpose of the dnc controller resource.
+        /// </summary>
+        [Input("purpose")]
+        public InputUnion<string, Pulumi.AzureNative.DelegatedNetwork.ControllerPurpose>? Purpose { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -156,6 +168,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
 
         public ControllerDetailsArgs()
         {
+            Purpose = "prod";
         }
         public static new ControllerDetailsArgs Empty => new ControllerDetailsArgs();
     }

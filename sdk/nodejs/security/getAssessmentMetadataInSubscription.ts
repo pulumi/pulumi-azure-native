@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get metadata information on an assessment type in a specific subscription
  * Azure REST API version: 2021-06-01.
+ *
+ * Other available API versions: 2020-01-01.
  */
 export function getAssessmentMetadataInSubscription(args: GetAssessmentMetadataInSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentMetadataInSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,6 +93,8 @@ export interface GetAssessmentMetadataInSubscriptionResult {
 /**
  * Get metadata information on an assessment type in a specific subscription
  * Azure REST API version: 2021-06-01.
+ *
+ * Other available API versions: 2020-01-01.
  */
 export function getAssessmentMetadataInSubscriptionOutput(args: GetAssessmentMetadataInSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentMetadataInSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

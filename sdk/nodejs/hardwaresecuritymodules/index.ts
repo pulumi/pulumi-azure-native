@@ -40,12 +40,14 @@ utilities.lazyLoad(exports, ["getDedicatedHsm","getDedicatedHsmOutput"], () => r
 export * from "../types/enums/hardwaresecuritymodules";
 
 // Export sub-modules:
+import * as v20181031preview from "./v20181031preview";
 import * as v20211130 from "./v20211130";
 import * as v20220831preview from "./v20220831preview";
 import * as v20231210preview from "./v20231210preview";
 import * as v20240630preview from "./v20240630preview";
 
 export {
+    v20181031preview,
     v20211130,
     v20220831preview,
     v20231210preview,

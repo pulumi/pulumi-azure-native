@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the named value specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2019-12-01, 2019-12-01-preview, 2020-06-01-preview, 2020-12-01, 2021-01-01-preview, 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetNamedValueResult> InvokeAsync(GetNamedValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamedValueResult>("azure-native:apimanagement:getNamedValue", args ?? new GetNamedValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the named value specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2019-12-01, 2019-12-01-preview, 2020-06-01-preview, 2020-12-01, 2021-01-01-preview, 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetNamedValueResult> Invoke(GetNamedValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamedValueResult>("azure-native:apimanagement:getNamedValue", args ?? new GetNamedValueInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the named value specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2019-12-01, 2019-12-01-preview, 2020-06-01-preview, 2020-12-01, 2021-01-01-preview, 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetNamedValueResult> Invoke(GetNamedValueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamedValueResult>("azure-native:apimanagement:getNamedValue", args ?? new GetNamedValueInvokeArgs(), options.WithDefaults());

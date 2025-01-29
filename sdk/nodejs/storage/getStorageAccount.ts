@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2021-01-01, 2021-02-01, 2021-04-01, 2021-06-01, 2021-08-01, 2021-09-01, 2022-05-01, 2022-09-01, 2023-01-01, 2023-04-01.
  */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,11 +46,15 @@ export interface GetStorageAccountResult {
      */
     readonly accessTier: string;
     /**
-     * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+     * If customer initiated account migration is in progress, the value will be true else it will be null.
+     */
+    readonly accountMigrationInProgress: boolean;
+    /**
+     * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is false for this property.
      */
     readonly allowBlobPublicAccess?: boolean;
     /**
-     * Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
+     * Allow or disallow cross AAD tenant object replication. Set this property to true for new or existing accounts only if object replication policies will involve storage accounts in different AAD tenants. The default interpretation is false for new accounts to follow best security practices by default.
      */
     readonly allowCrossTenantReplication?: boolean;
     /**
@@ -85,6 +89,10 @@ export interface GetStorageAccountResult {
      * Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
      */
     readonly dnsEndpointType?: string;
+    /**
+     * Enables extended group support with local users feature, if set to true
+     */
+    readonly enableExtendedGroups?: boolean;
     /**
      * Allows https traffic only to storage service if sets to true.
      */
@@ -133,6 +141,10 @@ export interface GetStorageAccountResult {
      * Enables Secure File Transfer Protocol, if set to true
      */
     readonly isSftpEnabled?: boolean;
+    /**
+     * This property will be set to true or false on an event of ongoing migration. Default value is null.
+     */
+    readonly isSkuConversionBlocked: boolean;
     /**
      * Storage account keys creation time.
      */
@@ -186,7 +198,7 @@ export interface GetStorageAccountResult {
      */
     readonly provisioningState: string;
     /**
-     * Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+     * Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account.
      */
     readonly publicNetworkAccess?: string;
     /**
@@ -232,9 +244,9 @@ export interface GetStorageAccountResult {
 }
 /**
  * Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2021-01-01, 2021-02-01, 2021-04-01, 2021-06-01, 2021-08-01, 2021-09-01, 2022-05-01, 2022-09-01, 2023-01-01, 2023-04-01.
  */
 export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

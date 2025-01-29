@@ -130,6 +130,8 @@ def get_configuration_profiles_version(configuration_profile_name: Optional[str]
     Get information about a configuration profile version
     Azure REST API version: 2022-05-04.
 
+    Other available API versions: 2021-04-30-preview.
+
 
     :param str configuration_profile_name: The configuration profile name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -157,6 +159,8 @@ def get_configuration_profiles_version_output(configuration_profile_name: Option
     """
     Get information about a configuration profile version
     Azure REST API version: 2022-05-04.
+
+    Other available API versions: 2021-04-30-preview.
 
 
     :param str configuration_profile_name: The configuration profile name.

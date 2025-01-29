@@ -27,7 +27,10 @@ class GetDataCollectionRuleResult:
     """
     Definition of ARM tracked top level resource.
     """
-    def __init__(__self__, data_collection_endpoint_id=None, data_flows=None, data_sources=None, description=None, destinations=None, etag=None, id=None, identity=None, immutable_id=None, kind=None, location=None, metadata=None, name=None, provisioning_state=None, stream_declarations=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, agent_settings=None, data_collection_endpoint_id=None, data_flows=None, data_sources=None, description=None, destinations=None, endpoints=None, etag=None, id=None, identity=None, immutable_id=None, kind=None, location=None, metadata=None, name=None, provisioning_state=None, references=None, stream_declarations=None, system_data=None, tags=None, type=None):
+        if agent_settings and not isinstance(agent_settings, dict):
+            raise TypeError("Expected argument 'agent_settings' to be a dict")
+        pulumi.set(__self__, "agent_settings", agent_settings)
         if data_collection_endpoint_id and not isinstance(data_collection_endpoint_id, str):
             raise TypeError("Expected argument 'data_collection_endpoint_id' to be a str")
         pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
@@ -43,6 +46,9 @@ class GetDataCollectionRuleResult:
         if destinations and not isinstance(destinations, dict):
             raise TypeError("Expected argument 'destinations' to be a dict")
         pulumi.set(__self__, "destinations", destinations)
+        if endpoints and not isinstance(endpoints, dict):
+            raise TypeError("Expected argument 'endpoints' to be a dict")
+        pulumi.set(__self__, "endpoints", endpoints)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -70,6 +76,9 @@ class GetDataCollectionRuleResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if references and not isinstance(references, dict):
+            raise TypeError("Expected argument 'references' to be a dict")
+        pulumi.set(__self__, "references", references)
         if stream_declarations and not isinstance(stream_declarations, dict):
             raise TypeError("Expected argument 'stream_declarations' to be a dict")
         pulumi.set(__self__, "stream_declarations", stream_declarations)
@@ -82,6 +91,14 @@ class GetDataCollectionRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="agentSettings")
+    def agent_settings(self) -> Optional['outputs.DataCollectionRuleResponseAgentSettings']:
+        """
+        Agent settings used to modify agent behavior on a given host
+        """
+        return pulumi.get(self, "agent_settings")
 
     @property
     @pulumi.getter(name="dataCollectionEndpointId")
@@ -123,6 +140,14 @@ class GetDataCollectionRuleResult:
         The specification of destinations.
         """
         return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> 'outputs.DataCollectionRuleResponseEndpoints':
+        """
+        Defines the ingestion endpoints to send data to via this rule.
+        """
+        return pulumi.get(self, "endpoints")
 
     @property
     @pulumi.getter
@@ -197,6 +222,14 @@ class GetDataCollectionRuleResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter
+    def references(self) -> Optional['outputs.DataCollectionRuleResponseReferences']:
+        """
+        Defines all the references that may be used in other sections of the DCR
+        """
+        return pulumi.get(self, "references")
+
+    @property
     @pulumi.getter(name="streamDeclarations")
     def stream_declarations(self) -> Optional[Mapping[str, 'outputs.StreamDeclarationResponse']]:
         """
@@ -235,11 +268,13 @@ class AwaitableGetDataCollectionRuleResult(GetDataCollectionRuleResult):
         if False:
             yield self
         return GetDataCollectionRuleResult(
+            agent_settings=self.agent_settings,
             data_collection_endpoint_id=self.data_collection_endpoint_id,
             data_flows=self.data_flows,
             data_sources=self.data_sources,
             description=self.description,
             destinations=self.destinations,
+            endpoints=self.endpoints,
             etag=self.etag,
             id=self.id,
             identity=self.identity,
@@ -249,6 +284,7 @@ class AwaitableGetDataCollectionRuleResult(GetDataCollectionRuleResult):
             metadata=self.metadata,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            references=self.references,
             stream_declarations=self.stream_declarations,
             system_data=self.system_data,
             tags=self.tags,
@@ -260,9 +296,9 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCollectionRuleResult:
     """
     Definition of ARM tracked top level resource.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2023-03-11.
 
-    Other available API versions: 2023-03-11.
+    Other available API versions: 2019-11-01-preview, 2021-04-01, 2021-09-01-preview, 2022-06-01.
 
 
     :param str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
@@ -275,11 +311,13 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getDataCollectionRule', __args__, opts=opts, typ=GetDataCollectionRuleResult).value
 
     return AwaitableGetDataCollectionRuleResult(
+        agent_settings=pulumi.get(__ret__, 'agent_settings'),
         data_collection_endpoint_id=pulumi.get(__ret__, 'data_collection_endpoint_id'),
         data_flows=pulumi.get(__ret__, 'data_flows'),
         data_sources=pulumi.get(__ret__, 'data_sources'),
         description=pulumi.get(__ret__, 'description'),
         destinations=pulumi.get(__ret__, 'destinations'),
+        endpoints=pulumi.get(__ret__, 'endpoints'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -289,6 +327,7 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        references=pulumi.get(__ret__, 'references'),
         stream_declarations=pulumi.get(__ret__, 'stream_declarations'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -298,9 +337,9 @@ def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.I
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCollectionRuleResult]:
     """
     Definition of ARM tracked top level resource.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2023-03-11.
 
-    Other available API versions: 2023-03-11.
+    Other available API versions: 2019-11-01-preview, 2021-04-01, 2021-09-01-preview, 2022-06-01.
 
 
     :param str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
@@ -312,11 +351,13 @@ def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getDataCollectionRule', __args__, opts=opts, typ=GetDataCollectionRuleResult)
     return __ret__.apply(lambda __response__: GetDataCollectionRuleResult(
+        agent_settings=pulumi.get(__response__, 'agent_settings'),
         data_collection_endpoint_id=pulumi.get(__response__, 'data_collection_endpoint_id'),
         data_flows=pulumi.get(__response__, 'data_flows'),
         data_sources=pulumi.get(__response__, 'data_sources'),
         description=pulumi.get(__response__, 'description'),
         destinations=pulumi.get(__response__, 'destinations'),
+        endpoints=pulumi.get(__response__, 'endpoints'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
@@ -326,6 +367,7 @@ def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.I
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        references=pulumi.get(__response__, 'references'),
         stream_declarations=pulumi.get(__response__, 'stream_declarations'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

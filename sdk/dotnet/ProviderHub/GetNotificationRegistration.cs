@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Gets the notification registration details.
         /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
         /// </summary>
         public static Task<GetNotificationRegistrationResult> InvokeAsync(GetNotificationRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationRegistrationResult>("azure-native:providerhub:getNotificationRegistration", args ?? new GetNotificationRegistrationArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Gets the notification registration details.
         /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
         /// </summary>
         public static Output<GetNotificationRegistrationResult> Invoke(GetNotificationRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationRegistrationResult>("azure-native:providerhub:getNotificationRegistration", args ?? new GetNotificationRegistrationInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Gets the notification registration details.
         /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
         /// </summary>
         public static Output<GetNotificationRegistrationResult> Invoke(GetNotificationRegistrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationRegistrationResult>("azure-native:providerhub:getNotificationRegistration", args ?? new GetNotificationRegistrationInvokeArgs(), options.WithDefaults());

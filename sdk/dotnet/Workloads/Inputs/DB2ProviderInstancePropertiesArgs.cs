@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Gets or sets the DB2 provider properties.
     /// </summary>
-    public sealed class DB2ProviderInstancePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class Db2ProviderInstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Gets or sets the db2 database name.
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         [Input("sslPreference")]
         public InputUnion<string, Pulumi.AzureNative.Workloads.SslPreference>? SslPreference { get; set; }
 
-        public DB2ProviderInstancePropertiesArgs()
+        public Db2ProviderInstancePropertiesArgs()
         {
         }
-        public static new DB2ProviderInstancePropertiesArgs Empty => new DB2ProviderInstancePropertiesArgs();
+        public static new Db2ProviderInstancePropertiesArgs Empty => new Db2ProviderInstancePropertiesArgs();
     }
 }

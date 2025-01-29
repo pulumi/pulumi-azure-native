@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get information about a configuration profile
  * Azure REST API version: 2022-05-04.
+ *
+ * Other available API versions: 2021-04-30-preview.
  */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,6 +68,8 @@ export interface GetConfigurationProfileResult {
 /**
  * Get information about a configuration profile
  * Azure REST API version: 2022-05-04.
+ *
+ * Other available API versions: 2021-04-30-preview.
  */
 export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

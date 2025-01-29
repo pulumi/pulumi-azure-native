@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Aad
         /// <summary>
         /// The Get Domain Service operation retrieves a json representation of the Domain Service.
         /// Azure REST API version: 2022-12-01.
+        /// 
+        /// Other available API versions: 2021-03-01, 2021-05-01, 2022-09-01.
         /// </summary>
         public static Task<GetDomainServiceResult> InvokeAsync(GetDomainServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Aad
         /// <summary>
         /// The Get Domain Service operation retrieves a json representation of the Domain Service.
         /// Azure REST API version: 2022-12-01.
+        /// 
+        /// Other available API versions: 2021-03-01, 2021-05-01, 2022-09-01.
         /// </summary>
         public static Output<GetDomainServiceResult> Invoke(GetDomainServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Aad
         /// <summary>
         /// The Get Domain Service operation retrieves a json representation of the Domain Service.
         /// Azure REST API version: 2022-12-01.
+        /// 
+        /// Other available API versions: 2021-03-01, 2021-05-01, 2022-09-01.
         /// </summary>
         public static Output<GetDomainServiceResult> Invoke(GetDomainServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceInvokeArgs(), options.WithDefaults());

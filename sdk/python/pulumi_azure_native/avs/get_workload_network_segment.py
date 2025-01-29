@@ -27,7 +27,7 @@ class GetWorkloadNetworkSegmentResult:
     """
     NSX Segment
     """
-    def __init__(__self__, connected_gateway=None, display_name=None, id=None, name=None, port_vif=None, provisioning_state=None, revision=None, status=None, subnet=None, type=None):
+    def __init__(__self__, connected_gateway=None, display_name=None, id=None, name=None, port_vif=None, provisioning_state=None, revision=None, status=None, subnet=None, system_data=None, type=None):
         if connected_gateway and not isinstance(connected_gateway, str):
             raise TypeError("Expected argument 'connected_gateway' to be a str")
         pulumi.set(__self__, "connected_gateway", connected_gateway)
@@ -55,6 +55,9 @@ class GetWorkloadNetworkSegmentResult:
         if subnet and not isinstance(subnet, dict):
             raise TypeError("Expected argument 'subnet' to be a dict")
         pulumi.set(__self__, "subnet", subnet)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -79,7 +82,7 @@ class GetWorkloadNetworkSegmentResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -87,7 +90,7 @@ class GetWorkloadNetworkSegmentResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -132,10 +135,18 @@ class GetWorkloadNetworkSegmentResult:
         return pulumi.get(self, "subnet")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -155,6 +166,7 @@ class AwaitableGetWorkloadNetworkSegmentResult(GetWorkloadNetworkSegmentResult):
             revision=self.revision,
             status=self.status,
             subnet=self.subnet,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -163,15 +175,15 @@ def get_workload_network_segment(private_cloud_name: Optional[str] = None,
                                  segment_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkSegmentResult:
     """
-    NSX Segment
-    Azure REST API version: 2022-05-01.
+    Get a WorkloadNetworkSegment
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str segment_id: NSX Segment identifier. Generally the same as the Segment's display name
+    :param str segment_id: The ID of the NSX Segment
     """
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
@@ -190,21 +202,22 @@ def get_workload_network_segment(private_cloud_name: Optional[str] = None,
         revision=pulumi.get(__ret__, 'revision'),
         status=pulumi.get(__ret__, 'status'),
         subnet=pulumi.get(__ret__, 'subnet'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_workload_network_segment_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         segment_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadNetworkSegmentResult]:
     """
-    NSX Segment
-    Azure REST API version: 2022-05-01.
+    Get a WorkloadNetworkSegment
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str segment_id: NSX Segment identifier. Generally the same as the Segment's display name
+    :param str segment_id: The ID of the NSX Segment
     """
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
@@ -222,4 +235,5 @@ def get_workload_network_segment_output(private_cloud_name: Optional[pulumi.Inpu
         revision=pulumi.get(__response__, 'revision'),
         status=pulumi.get(__response__, 'status'),
         subnet=pulumi.get(__response__, 'subnet'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

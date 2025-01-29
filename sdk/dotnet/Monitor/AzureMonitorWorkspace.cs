@@ -10,16 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Monitor
 {
     /// <summary>
-    /// An Azure Monitor Workspace definition
-    /// Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview.
+    /// An Azure Monitor Workspace definition.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-04-03.
     /// 
-    /// Other available API versions: 2023-10-01-preview.
+    /// Other available API versions: 2021-06-03-preview, 2023-04-03.
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:AzureMonitorWorkspace")]
     public partial class AzureMonitorWorkspace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The immutable Id of the Azure Monitor Workspace. This property is read-only.
+        /// The immutable ID of the Azure Monitor workspace. This property is read-only.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Monitor
         /// The Data Collection Rule and Endpoint used for ingestion by default.
         /// </summary>
         [Output("defaultIngestionSettings")]
-        public Output<Outputs.AzureMonitorWorkspaceResponseDefaultIngestionSettings> DefaultIngestionSettings { get; private set; } = null!;
+        public Output<Outputs.IngestionSettingsResponse> DefaultIngestionSettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource entity tag (ETag)
@@ -43,10 +43,10 @@ namespace Pulumi.AzureNative.Monitor
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Properties related to the metrics container in the Azure Monitor Workspace
+        /// Information about metrics for the Azure Monitor workspace
         /// </summary>
         [Output("metrics")]
-        public Output<Outputs.AzureMonitorWorkspaceResponseMetrics> Metrics { get; private set; } = null!;
+        public Output<Outputs.MetricsResponse?> Metrics { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -55,22 +55,22 @@ namespace Pulumi.AzureNative.Monitor
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of private endpoint connections
+        /// List of private endpoint connections.
         /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
+        /// The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets allow or disallow public network access to Azure Monitor Workspace
+        /// Gets or sets allow or disallow public network access to workspace
         /// </summary>
         [Output("publicNetworkAccess")]
-        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class AzureMonitorWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Azure Monitor Workspace. The name is case insensitive
+        /// The name of the Azure Monitor workspace. The name is case insensitive.
         /// </summary>
         [Input("azureMonitorWorkspaceName")]
         public Input<string>? AzureMonitorWorkspaceName { get; set; }
@@ -152,12 +152,6 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Gets or sets allow or disallow public network access to Azure Monitor Workspace
-        /// </summary>
-        [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNative.Monitor.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

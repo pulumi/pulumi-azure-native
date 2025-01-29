@@ -27,7 +27,7 @@ class GetWatchlistResult:
     """
     Represents a Watchlist in Azure Security Insights.
     """
-    def __init__(__self__, content_type=None, created=None, created_by=None, default_duration=None, description=None, display_name=None, etag=None, id=None, is_deleted=None, items_search_key=None, labels=None, name=None, number_of_lines_to_skip=None, provider=None, raw_content=None, source=None, system_data=None, tenant_id=None, type=None, updated=None, updated_by=None, upload_status=None, watchlist_alias=None, watchlist_id=None, watchlist_type=None):
+    def __init__(__self__, content_type=None, created=None, created_by=None, default_duration=None, description=None, display_name=None, etag=None, id=None, is_deleted=None, items_search_key=None, labels=None, name=None, number_of_lines_to_skip=None, provider=None, provisioning_state=None, raw_content=None, source=None, source_type=None, system_data=None, tenant_id=None, type=None, updated=None, updated_by=None, upload_status=None, watchlist_alias=None, watchlist_id=None, watchlist_type=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
@@ -70,12 +70,18 @@ class GetWatchlistResult:
         if provider and not isinstance(provider, str):
             raise TypeError("Expected argument 'provider' to be a str")
         pulumi.set(__self__, "provider", provider)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if raw_content and not isinstance(raw_content, str):
             raise TypeError("Expected argument 'raw_content' to be a str")
         pulumi.set(__self__, "raw_content", raw_content)
         if source and not isinstance(source, str):
             raise TypeError("Expected argument 'source' to be a str")
         pulumi.set(__self__, "source", source)
+        if source_type and not isinstance(source_type, str):
+            raise TypeError("Expected argument 'source_type' to be a str")
+        pulumi.set(__self__, "source_type", source_type)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -108,7 +114,7 @@ class GetWatchlistResult:
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[str]:
         """
-        The content type of the raw content. For now, only text/csv is valid
+        The content type of the raw content. Example : text/csv or text/tsv
         """
         return pulumi.get(self, "content_type")
 
@@ -204,7 +210,7 @@ class GetWatchlistResult:
     @pulumi.getter(name="numberOfLinesToSkip")
     def number_of_lines_to_skip(self) -> Optional[int]:
         """
-        The number of lines in a csv content to skip before the header
+        The number of lines in a csv/tsv content to skip before the header
         """
         return pulumi.get(self, "number_of_lines_to_skip")
 
@@ -217,22 +223,36 @@ class GetWatchlistResult:
         return pulumi.get(self, "provider")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Describes provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter(name="rawContent")
     def raw_content(self) -> Optional[str]:
         """
-        The raw content that represents to watchlist items to create. Example : This line will be skipped
-        header1,header2
-        value1,value2
+        The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
         """
         return pulumi.get(self, "raw_content")
 
     @property
     @pulumi.getter
-    def source(self) -> str:
+    def source(self) -> Optional[str]:
         """
-        The source of the watchlist
+        The filename of the watchlist, called 'source'
         """
         return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[str]:
+        """
+        The sourceType of the watchlist
+        """
+        return pulumi.get(self, "source_type")
 
     @property
     @pulumi.getter(name="systemData")
@@ -327,8 +347,10 @@ class AwaitableGetWatchlistResult(GetWatchlistResult):
             name=self.name,
             number_of_lines_to_skip=self.number_of_lines_to_skip,
             provider=self.provider,
+            provisioning_state=self.provisioning_state,
             raw_content=self.raw_content,
             source=self.source,
+            source_type=self.source_type,
             system_data=self.system_data,
             tenant_id=self.tenant_id,
             type=self.type,
@@ -346,9 +368,9 @@ def get_watchlist(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatchlistResult:
     """
     Get a watchlist, without its watchlist items.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+    Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-09-01-preview, 2021-10-01, 2021-10-01-preview, 2022-01-01-preview, 2022-04-01-preview, 2022-05-01-preview, 2022-06-01-preview, 2022-07-01-preview, 2022-08-01, 2022-08-01-preview, 2022-09-01-preview, 2022-10-01-preview, 2022-11-01, 2022-11-01-preview, 2022-12-01-preview, 2023-02-01, 2023-02-01-preview, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -377,8 +399,10 @@ def get_watchlist(resource_group_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         number_of_lines_to_skip=pulumi.get(__ret__, 'number_of_lines_to_skip'),
         provider=pulumi.get(__ret__, 'provider'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         raw_content=pulumi.get(__ret__, 'raw_content'),
         source=pulumi.get(__ret__, 'source'),
+        source_type=pulumi.get(__ret__, 'source_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'),
@@ -394,9 +418,9 @@ def get_watchlist_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWatchlistResult]:
     """
     Get a watchlist, without its watchlist items.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+    Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-09-01-preview, 2021-10-01, 2021-10-01-preview, 2022-01-01-preview, 2022-04-01-preview, 2022-05-01-preview, 2022-06-01-preview, 2022-07-01-preview, 2022-08-01, 2022-08-01-preview, 2022-09-01-preview, 2022-10-01-preview, 2022-11-01, 2022-11-01-preview, 2022-12-01-preview, 2023-02-01, 2023-02-01-preview, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -424,8 +448,10 @@ def get_watchlist_output(resource_group_name: Optional[pulumi.Input[str]] = None
         name=pulumi.get(__response__, 'name'),
         number_of_lines_to_skip=pulumi.get(__response__, 'number_of_lines_to_skip'),
         provider=pulumi.get(__response__, 'provider'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         raw_content=pulumi.get(__response__, 'raw_content'),
         source=pulumi.get(__response__, 'source'),
+        source_type=pulumi.get(__response__, 'source_type'),
         system_data=pulumi.get(__response__, 'system_data'),
         tenant_id=pulumi.get(__response__, 'tenant_id'),
         type=pulumi.get(__response__, 'type'),

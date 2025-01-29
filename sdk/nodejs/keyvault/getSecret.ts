@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified secret.  NOTE: This API is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+ * Other available API versions: 2019-09-01, 2020-04-01-preview, 2021-04-01-preview, 2021-06-01-preview, 2021-10-01, 2021-11-01-preview, 2022-02-01-preview, 2022-07-01, 2022-11-01, 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,9 +68,9 @@ export interface GetSecretResult {
 }
 /**
  * Gets the specified secret.  NOTE: This API is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+ * Other available API versions: 2019-09-01, 2020-04-01-preview, 2021-04-01-preview, 2021-06-01-preview, 2021-10-01, 2021-11-01-preview, 2022-02-01-preview, 2022-07-01, 2022-11-01, 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview.
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

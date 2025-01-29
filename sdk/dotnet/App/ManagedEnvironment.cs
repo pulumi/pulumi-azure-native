@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// An environment for hosting container apps
-    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-10-01.
     /// 
-    /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    /// Other available API versions: 2022-01-01-preview, 2022-03-01, 2022-06-01-preview, 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ManagedEnvironment")]
     public partial class ManagedEnvironment : global::Pulumi.CustomResource
@@ -43,6 +43,12 @@ namespace Pulumi.AzureNative.App
         public Output<string?> DaprAIInstrumentationKey { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration of Dapr component.
+        /// </summary>
+        [Output("daprConfiguration")]
+        public Output<Outputs.DaprConfigurationResponse?> DaprConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Default Domain Name for the cluster
         /// </summary>
         [Output("defaultDomain")]
@@ -59,6 +65,18 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("eventStreamEndpoint")]
         public Output<string> EventStreamEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
+        /// </summary>
+        [Output("infrastructureResourceGroup")]
+        public Output<string?> InfrastructureResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// The configuration of Keda component.
+        /// </summary>
+        [Output("kedaConfiguration")]
+        public Output<Outputs.KedaConfigurationResponse?> KedaConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Kind of the Environment.
@@ -79,16 +97,22 @@ namespace Pulumi.AzureNative.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Peer authentication settings for the Managed Environment
+        /// </summary>
+        [Output("peerAuthentication")]
+        public Output<Outputs.ManagedEnvironmentResponsePeerAuthentication?> PeerAuthentication { get; private set; } = null!;
+
+        /// <summary>
+        /// Peer traffic settings for the Managed Environment
+        /// </summary>
+        [Output("peerTrafficConfiguration")]
+        public Output<Outputs.ManagedEnvironmentResponsePeerTrafficConfiguration?> PeerTrafficConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning state of the Environment.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// SKU properties of the Environment.
-        /// </summary>
-        [Output("sku")]
-        public Output<Outputs.EnvironmentSkuPropertiesResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Static IP of the Environment
@@ -225,6 +249,12 @@ namespace Pulumi.AzureNative.App
         public Input<string>? EnvironmentName { get; set; }
 
         /// <summary>
+        /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
+        /// </summary>
+        [Input("infrastructureResourceGroup")]
+        public Input<string>? InfrastructureResourceGroup { get; set; }
+
+        /// <summary>
         /// Kind of the Environment.
         /// </summary>
         [Input("kind")]
@@ -237,16 +267,22 @@ namespace Pulumi.AzureNative.App
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Peer authentication settings for the Managed Environment
+        /// </summary>
+        [Input("peerAuthentication")]
+        public Input<Inputs.ManagedEnvironmentPeerAuthenticationArgs>? PeerAuthentication { get; set; }
+
+        /// <summary>
+        /// Peer traffic settings for the Managed Environment
+        /// </summary>
+        [Input("peerTrafficConfiguration")]
+        public Input<Inputs.ManagedEnvironmentPeerTrafficConfigurationArgs>? PeerTrafficConfiguration { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// SKU properties of the Environment.
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.EnvironmentSkuPropertiesArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

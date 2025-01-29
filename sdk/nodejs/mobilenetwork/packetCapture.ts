@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Packet capture session resource.
- * Azure REST API version: 2023-06-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
  *
- * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+ * Other available API versions: 2023-06-01, 2023-09-01, 2024-02-01.
  */
 export class PacketCapture extends pulumi.CustomResource {
     /**
@@ -56,6 +56,10 @@ export class PacketCapture extends pulumi.CustomResource {
      * List of network interfaces to capture on.
      */
     public readonly networkInterfaces!: pulumi.Output<string[] | undefined>;
+    /**
+     * The list of output files of a packet capture session.
+     */
+    public /*out*/ readonly outputFiles!: pulumi.Output<string[]>;
     /**
      * The provisioning state of the packet capture session resource.
      */
@@ -111,6 +115,7 @@ export class PacketCapture extends pulumi.CustomResource {
             resourceInputs["totalBytesPerSession"] = (args ? args.totalBytesPerSession : undefined) ?? 67108864;
             resourceInputs["captureStartTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputFiles"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["reason"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -121,6 +126,7 @@ export class PacketCapture extends pulumi.CustomResource {
             resourceInputs["captureStartTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["outputFiles"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["reason"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

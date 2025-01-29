@@ -202,6 +202,8 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
     Get a specific Smart Detector alert rule.
     Azure REST API version: 2021-04-01.
 
+    Other available API versions: 2019-06-01.
+
 
     :param str alert_rule_name: The name of the alert rule.
     :param bool expand_detector: Indicates if Smart Detector should be expanded.
@@ -235,6 +237,8 @@ def get_smart_detector_alert_rule_output(alert_rule_name: Optional[pulumi.Input[
     """
     Get a specific Smart Detector alert rule.
     Azure REST API version: 2021-04-01.
+
+    Other available API versions: 2019-06-01.
 
 
     :param str alert_rule_name: The name of the alert rule.

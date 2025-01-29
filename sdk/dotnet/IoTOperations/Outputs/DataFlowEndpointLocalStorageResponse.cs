@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
     /// Local persistent volume endpoint properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointLocalStorageResponse
+    public sealed class DataflowEndpointLocalStorageResponse
     {
         /// <summary>
         /// Persistent volume claim name.
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         public readonly string PersistentVolumeClaimRef;
 
         [OutputConstructor]
-        private DataFlowEndpointLocalStorageResponse(string persistentVolumeClaimRef)
+        private DataflowEndpointLocalStorageResponse(string persistentVolumeClaimRef)
         {
             PersistentVolumeClaimRef = persistentVolumeClaimRef;
         }

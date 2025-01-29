@@ -116,9 +116,9 @@ def get_firewall_policy_rule_collection_group_draft(firewall_policy_name: Option
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyRuleCollectionGroupDraftResult:
     """
     Get Rule Collection Group Draft.
-    Azure REST API version: 2023-11-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.
@@ -145,9 +145,9 @@ def get_firewall_policy_rule_collection_group_draft_output(firewall_policy_name:
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyRuleCollectionGroupDraftResult]:
     """
     Get Rule Collection Group Draft.
-    Azure REST API version: 2023-11-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.

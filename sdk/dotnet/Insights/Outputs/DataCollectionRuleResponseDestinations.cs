@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
     public sealed class DataCollectionRuleResponseDestinations
     {
         /// <summary>
+        /// List of Azure Data Explorer destinations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AdxDestinationResponse> AzureDataExplorer;
+        /// <summary>
         /// Azure Monitor Metrics destination.
         /// </summary>
         public readonly Outputs.DestinationsSpecResponseAzureMonitorMetrics? AzureMonitorMetrics;
@@ -32,6 +36,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// List of Log Analytics destinations.
         /// </summary>
         public readonly ImmutableArray<Outputs.LogAnalyticsDestinationResponse> LogAnalytics;
+        /// <summary>
+        /// List of Microsoft Fabric destinations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MicrosoftFabricDestinationResponse> MicrosoftFabric;
         /// <summary>
         /// List of monitoring account destinations.
         /// </summary>
@@ -51,6 +59,8 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
         [OutputConstructor]
         private DataCollectionRuleResponseDestinations(
+            ImmutableArray<Outputs.AdxDestinationResponse> azureDataExplorer,
+
             Outputs.DestinationsSpecResponseAzureMonitorMetrics? azureMonitorMetrics,
 
             ImmutableArray<Outputs.EventHubDestinationResponse> eventHubs,
@@ -58,6 +68,8 @@ namespace Pulumi.AzureNative.Insights.Outputs
             ImmutableArray<Outputs.EventHubDirectDestinationResponse> eventHubsDirect,
 
             ImmutableArray<Outputs.LogAnalyticsDestinationResponse> logAnalytics,
+
+            ImmutableArray<Outputs.MicrosoftFabricDestinationResponse> microsoftFabric,
 
             ImmutableArray<Outputs.MonitoringAccountDestinationResponse> monitoringAccounts,
 
@@ -67,10 +79,12 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
             ImmutableArray<Outputs.StorageTableDestinationResponse> storageTablesDirect)
         {
+            AzureDataExplorer = azureDataExplorer;
             AzureMonitorMetrics = azureMonitorMetrics;
             EventHubs = eventHubs;
             EventHubsDirect = eventHubsDirect;
             LogAnalytics = logAnalytics;
+            MicrosoftFabric = microsoftFabric;
             MonitoringAccounts = monitoringAccounts;
             StorageAccounts = storageAccounts;
             StorageBlobsDirect = storageBlobsDirect;

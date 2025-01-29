@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the association of the Cognitive Services commitment plan.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Other available API versions: 2022-12-01, 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
  */
 export function getCommitmentPlanAssociation(args: GetCommitmentPlanAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,15 +62,19 @@ export interface GetCommitmentPlanAssociationResult {
      */
     readonly systemData: outputs.cognitiveservices.SystemDataResponse;
     /**
+     * Resource tags.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the association of the Cognitive Services commitment plan.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Other available API versions: 2022-12-01, 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
  */
 export function getCommitmentPlanAssociationOutput(args: GetCommitmentPlanAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommitmentPlanAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

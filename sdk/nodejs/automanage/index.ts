@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AccountArgs } from "./account";
-export type Account = import("./account").Account;
-export const Account: typeof import("./account").Account = null as any;
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
-
 export { ConfigurationProfileArgs } from "./configurationProfile";
 export type ConfigurationProfile = import("./configurationProfile").ConfigurationProfile;
 export const ConfigurationProfile: typeof import("./configurationProfile").ConfigurationProfile = null as any;
@@ -30,20 +25,10 @@ export type ConfigurationProfileHCRPAssignment = import("./configurationProfileH
 export const ConfigurationProfileHCRPAssignment: typeof import("./configurationProfileHCRPAssignment").ConfigurationProfileHCRPAssignment = null as any;
 utilities.lazyLoad(exports, ["ConfigurationProfileHCRPAssignment"], () => require("./configurationProfileHCRPAssignment"));
 
-export { ConfigurationProfilePreferenceArgs } from "./configurationProfilePreference";
-export type ConfigurationProfilePreference = import("./configurationProfilePreference").ConfigurationProfilePreference;
-export const ConfigurationProfilePreference: typeof import("./configurationProfilePreference").ConfigurationProfilePreference = null as any;
-utilities.lazyLoad(exports, ["ConfigurationProfilePreference"], () => require("./configurationProfilePreference"));
-
 export { ConfigurationProfilesVersionArgs } from "./configurationProfilesVersion";
 export type ConfigurationProfilesVersion = import("./configurationProfilesVersion").ConfigurationProfilesVersion;
 export const ConfigurationProfilesVersion: typeof import("./configurationProfilesVersion").ConfigurationProfilesVersion = null as any;
 utilities.lazyLoad(exports, ["ConfigurationProfilesVersion"], () => require("./configurationProfilesVersion"));
-
-export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
-export const getAccount: typeof import("./getAccount").getAccount = null as any;
-export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
-utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
 export { GetConfigurationProfileArgs, GetConfigurationProfileResult, GetConfigurationProfileOutputArgs } from "./getConfigurationProfile";
 export const getConfigurationProfile: typeof import("./getConfigurationProfile").getConfigurationProfile = null as any;
@@ -65,26 +50,20 @@ export const getConfigurationProfileHCRPAssignment: typeof import("./getConfigur
 export const getConfigurationProfileHCRPAssignmentOutput: typeof import("./getConfigurationProfileHCRPAssignment").getConfigurationProfileHCRPAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationProfileHCRPAssignment","getConfigurationProfileHCRPAssignmentOutput"], () => require("./getConfigurationProfileHCRPAssignment"));
 
-export { GetConfigurationProfilePreferenceArgs, GetConfigurationProfilePreferenceResult, GetConfigurationProfilePreferenceOutputArgs } from "./getConfigurationProfilePreference";
-export const getConfigurationProfilePreference: typeof import("./getConfigurationProfilePreference").getConfigurationProfilePreference = null as any;
-export const getConfigurationProfilePreferenceOutput: typeof import("./getConfigurationProfilePreference").getConfigurationProfilePreferenceOutput = null as any;
-utilities.lazyLoad(exports, ["getConfigurationProfilePreference","getConfigurationProfilePreferenceOutput"], () => require("./getConfigurationProfilePreference"));
-
 export { GetConfigurationProfilesVersionArgs, GetConfigurationProfilesVersionResult, GetConfigurationProfilesVersionOutputArgs } from "./getConfigurationProfilesVersion";
 export const getConfigurationProfilesVersion: typeof import("./getConfigurationProfilesVersion").getConfigurationProfilesVersion = null as any;
 export const getConfigurationProfilesVersionOutput: typeof import("./getConfigurationProfilesVersion").getConfigurationProfilesVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationProfilesVersion","getConfigurationProfilesVersionOutput"], () => require("./getConfigurationProfilesVersion"));
 
 
-// Export enums:
-export * from "../types/enums/automanage";
-
 // Export sub-modules:
 import * as v20200630preview from "./v20200630preview";
+import * as v20210430preview from "./v20210430preview";
 import * as v20220504 from "./v20220504";
 
 export {
     v20200630preview,
+    v20210430preview,
     v20220504,
 };
 
@@ -92,8 +71,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:automanage:Account":
-                return new Account(name, <any>undefined, { urn })
             case "azure-native:automanage:ConfigurationProfile":
                 return new ConfigurationProfile(name, <any>undefined, { urn })
             case "azure-native:automanage:ConfigurationProfileAssignment":
@@ -102,8 +79,6 @@ const _module = {
                 return new ConfigurationProfileHCIAssignment(name, <any>undefined, { urn })
             case "azure-native:automanage:ConfigurationProfileHCRPAssignment":
                 return new ConfigurationProfileHCRPAssignment(name, <any>undefined, { urn })
-            case "azure-native:automanage:ConfigurationProfilePreference":
-                return new ConfigurationProfilePreference(name, <any>undefined, { urn })
             case "azure-native:automanage:ConfigurationProfilesVersion":
                 return new ConfigurationProfilesVersion(name, <any>undefined, { urn })
             default:

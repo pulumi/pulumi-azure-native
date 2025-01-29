@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the send key name and value for a Hybrid Connection.
  * Azure REST API version: 2018-11-01.
+ *
+ * Other available API versions: 2016-08-01, 2018-02-01.
  */
 export function listWebAppHybridConnectionKeysSlot(args: ListWebAppHybridConnectionKeysSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHybridConnectionKeysSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,6 +76,8 @@ export interface ListWebAppHybridConnectionKeysSlotResult {
 /**
  * Gets the send key name and value for a Hybrid Connection.
  * Azure REST API version: 2018-11-01.
+ *
+ * Other available API versions: 2016-08-01, 2018-02-01.
  */
 export function listWebAppHybridConnectionKeysSlotOutput(args: ListWebAppHybridConnectionKeysSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppHybridConnectionKeysSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a domain topic.
- * Azure REST API version: 2022-06-15.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,7 +54,7 @@ export interface GetDomainTopicResult {
      */
     readonly provisioningState: string;
     /**
-     * The system metadata relating to Domain Topic resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -64,9 +64,9 @@ export interface GetDomainTopicResult {
 }
 /**
  * Get properties of a domain topic.
- * Azure REST API version: 2022-06-15.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

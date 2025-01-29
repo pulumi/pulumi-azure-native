@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Mobile network resource.
- * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
  *
- * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+ * Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01.
  */
 export class MobileNetwork extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class MobileNetwork extends pulumi.CustomResource {
     }
 
     /**
+     * The identity used to retrieve any private keys used for SUPI concealment from Azure key vault.
+     */
+    public readonly identity!: pulumi.Output<outputs.mobilenetwork.ManagedServiceIdentityResponse | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -53,9 +57,13 @@ export class MobileNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+     * The unique public land mobile network identifier for the network. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
      */
     public readonly publicLandMobileNetworkIdentifier!: pulumi.Output<outputs.mobilenetwork.PlmnIdResponse>;
+    /**
+     * A list of public land mobile networks including their identifiers. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
+     */
+    public readonly publicLandMobileNetworks!: pulumi.Output<outputs.mobilenetwork.PublicLandMobileNetworkResponse[] | undefined>;
     /**
      * The mobile network resource identifier
      */
@@ -90,9 +98,11 @@ export class MobileNetwork extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["mobileNetworkName"] = args ? args.mobileNetworkName : undefined;
             resourceInputs["publicLandMobileNetworkIdentifier"] = args ? args.publicLandMobileNetworkIdentifier : undefined;
+            resourceInputs["publicLandMobileNetworks"] = args ? args.publicLandMobileNetworks : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -101,10 +111,12 @@ export class MobileNetwork extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicLandMobileNetworkIdentifier"] = undefined /*out*/;
+            resourceInputs["publicLandMobileNetworks"] = undefined /*out*/;
             resourceInputs["serviceKey"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -122,6 +134,10 @@ export class MobileNetwork extends pulumi.CustomResource {
  */
 export interface MobileNetworkArgs {
     /**
+     * The identity used to retrieve any private keys used for SUPI concealment from Azure key vault.
+     */
+    identity?: pulumi.Input<inputs.mobilenetwork.ManagedServiceIdentityArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -130,9 +146,13 @@ export interface MobileNetworkArgs {
      */
     mobileNetworkName?: pulumi.Input<string>;
     /**
-     * The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+     * The unique public land mobile network identifier for the network. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
      */
     publicLandMobileNetworkIdentifier: pulumi.Input<inputs.mobilenetwork.PlmnIdArgs>;
+    /**
+     * A list of public land mobile networks including their identifiers. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
+     */
+    publicLandMobileNetworks?: pulumi.Input<pulumi.Input<inputs.mobilenetwork.PublicLandMobileNetworkArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

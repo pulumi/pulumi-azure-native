@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Batch
 {
     /// <summary>
     /// An application package which represents a particular version of an application.
-    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
+    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-05-01.
     /// 
-    /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01, 2022-10-01, 2023-05-01, 2023-11-01, 2024-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:ApplicationPackage")]
     public partial class ApplicationPackage : global::Pulumi.CustomResource
@@ -59,6 +59,12 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Output("storageUrlExpiry")]
         public Output<string> StorageUrlExpiry { get; private set; } = null!;
+
+        /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
@@ -150,6 +156,18 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The version of the application.

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Get an assembly for an integration account.
         /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Task<GetIntegrationAccountAssemblyResult> InvokeAsync(GetIntegrationAccountAssemblyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountAssemblyResult>("azure-native:logic:getIntegrationAccountAssembly", args ?? new GetIntegrationAccountAssemblyArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Get an assembly for an integration account.
         /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Output<GetIntegrationAccountAssemblyResult> Invoke(GetIntegrationAccountAssemblyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountAssemblyResult>("azure-native:logic:getIntegrationAccountAssembly", args ?? new GetIntegrationAccountAssemblyInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Get an assembly for an integration account.
         /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Output<GetIntegrationAccountAssemblyResult> Invoke(GetIntegrationAccountAssemblyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountAssemblyResult>("azure-native:logic:getIntegrationAccountAssembly", args ?? new GetIntegrationAccountAssemblyInvokeArgs(), options.WithDefaults());

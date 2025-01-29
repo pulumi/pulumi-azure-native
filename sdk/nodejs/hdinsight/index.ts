@@ -20,6 +20,11 @@ export type ClusterPool = import("./clusterPool").ClusterPool;
 export const ClusterPool: typeof import("./clusterPool").ClusterPool = null as any;
 utilities.lazyLoad(exports, ["ClusterPool"], () => require("./clusterPool"));
 
+export { ClusterPoolClusterArgs } from "./clusterPoolCluster";
+export type ClusterPoolCluster = import("./clusterPoolCluster").ClusterPoolCluster;
+export const ClusterPoolCluster: typeof import("./clusterPoolCluster").ClusterPoolCluster = null as any;
+utilities.lazyLoad(exports, ["ClusterPoolCluster"], () => require("./clusterPoolCluster"));
+
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
@@ -40,6 +45,11 @@ export const getClusterPool: typeof import("./getClusterPool").getClusterPool = 
 export const getClusterPoolOutput: typeof import("./getClusterPool").getClusterPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getClusterPool","getClusterPoolOutput"], () => require("./getClusterPool"));
 
+export { GetClusterPoolClusterArgs, GetClusterPoolClusterResult, GetClusterPoolClusterOutputArgs } from "./getClusterPoolCluster";
+export const getClusterPoolCluster: typeof import("./getClusterPoolCluster").getClusterPoolCluster = null as any;
+export const getClusterPoolClusterOutput: typeof import("./getClusterPoolCluster").getClusterPoolClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getClusterPoolCluster","getClusterPoolClusterOutput"], () => require("./getClusterPoolCluster"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -55,6 +65,7 @@ utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./priv
 export * from "../types/enums/hdinsight";
 
 // Export sub-modules:
+import * as v20180601preview from "./v20180601preview";
 import * as v20210601 from "./v20210601";
 import * as v20230415preview from "./v20230415preview";
 import * as v20230601preview from "./v20230601preview";
@@ -64,6 +75,7 @@ import * as v20240501preview from "./v20240501preview";
 import * as v20240801preview from "./v20240801preview";
 
 export {
+    v20180601preview,
     v20210601,
     v20230415preview,
     v20230601preview,
@@ -83,6 +95,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "azure-native:hdinsight:ClusterPool":
                 return new ClusterPool(name, <any>undefined, { urn })
+            case "azure-native:hdinsight:ClusterPoolCluster":
+                return new ClusterPoolCluster(name, <any>undefined, { urn })
             case "azure-native:hdinsight:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:

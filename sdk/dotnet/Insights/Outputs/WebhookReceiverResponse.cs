@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly string? IdentifierUri;
         /// <summary>
+        /// The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        /// </summary>
+        public readonly string? ManagedIdentity;
+        /// <summary>
         /// The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
         /// </summary>
         public readonly string Name;
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.Insights.Outputs
         private WebhookReceiverResponse(
             string? identifierUri,
 
+            string? managedIdentity,
+
             string name,
 
             string? objectId,
@@ -62,6 +68,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
             bool? useCommonAlertSchema)
         {
             IdentifierUri = identifierUri;
+            ManagedIdentity = managedIdentity;
             Name = name;
             ObjectId = objectId;
             ServiceUri = serviceUri;

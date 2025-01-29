@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network.Inputs
 {
 
     /// <summary>
-    /// A reference to a another resource
+    /// Reference to another subresource.
     /// </summary>
     public sealed class SubResourceArgs : global::Pulumi.ResourceArgs
     {

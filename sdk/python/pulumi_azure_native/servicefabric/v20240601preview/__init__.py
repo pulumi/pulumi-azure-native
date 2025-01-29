@@ -6,14 +6,14 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_managed_az_resiliency_status import *
 from .get_managed_cluster import *
 from .get_managed_cluster_application import *
 from .get_managed_cluster_application_type import *
 from .get_managed_cluster_application_type_version import *
 from .get_managed_cluster_service import *
+from .get_managed_maintenance_window_status import *
 from .get_node_type import *
-from .getmanaged_az_resiliency_status import *
-from .getmanaged_maintenance_window_status import *
 from .managed_cluster import *
 from .managed_cluster_application import *
 from .managed_cluster_application_type import *

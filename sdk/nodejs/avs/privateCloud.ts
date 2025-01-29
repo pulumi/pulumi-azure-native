@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A private cloud resource
- * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2020-03-20, 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
  */
 export class PrivateCloud extends pulumi.CustomResource {
     /**
@@ -49,6 +49,10 @@ export class PrivateCloud extends pulumi.CustomResource {
      */
     public /*out*/ readonly circuit!: pulumi.Output<outputs.avs.CircuitResponse | undefined>;
     /**
+     * The type of DNS zone to use.
+     */
+    public readonly dnsZoneType!: pulumi.Output<string | undefined>;
+    /**
      * Customer managed key encryption, can be enabled or disabled
      */
     public readonly encryption!: pulumi.Output<outputs.avs.EncryptionResponse | undefined>;
@@ -57,13 +61,20 @@ export class PrivateCloud extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoints!: pulumi.Output<outputs.avs.EndpointsResponse>;
     /**
+     * Array of additional networks noncontiguous with networkBlock. Networks must be
+     * unique and non-overlapping across VNet in your subscription, on-premise, and
+     * this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
+     * (A.B.C.D/X).
+     */
+    public readonly extendedNetworkBlocks!: pulumi.Output<string[] | undefined>;
+    /**
      * Array of cloud link IDs from other clouds that connect to this one
      */
     public /*out*/ readonly externalCloudLinks!: pulumi.Output<string[]>;
     /**
-     * The identity of the private cloud, if configured.
+     * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.avs.PrivateCloudIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.avs.SystemAssignedServiceIdentityResponse | undefined>;
     /**
      * vCenter Single Sign On Identity Sources
      */
@@ -73,7 +84,7 @@ export class PrivateCloud extends pulumi.CustomResource {
      */
     public readonly internet!: pulumi.Output<string | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -85,15 +96,18 @@ export class PrivateCloud extends pulumi.CustomResource {
      */
     public /*out*/ readonly managementNetwork!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+     * The block of addresses should be unique across VNet in your subscription as
+     * well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
+     * A,B,C,D are between 0 and 255, and X is between 0 and 22
      */
     public readonly networkBlock!: pulumi.Output<string>;
     /**
-     * Flag to indicate whether the private cloud has the quota for provisioned NSX Public IP count raised from 64 to 1024
+     * Flag to indicate whether the private cloud has the quota for provisioned NSX
+     * Public IP count raised from 64 to 1024
      */
     public /*out*/ readonly nsxPublicIpQuotaRaised!: pulumi.Output<string>;
     /**
@@ -113,19 +127,24 @@ export class PrivateCloud extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+     * A secondary expressRoute circuit from a separate AZ. Only present in a
+     * stretched private cloud
      */
     public /*out*/ readonly secondaryCircuit!: pulumi.Output<outputs.avs.CircuitResponse | undefined>;
     /**
-     * The private cloud SKU
+     * The SKU (Stock Keeping Unit) assigned to this resource.
      */
     public readonly sku!: pulumi.Output<outputs.avs.SkuResponse>;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -136,6 +155,10 @@ export class PrivateCloud extends pulumi.CustomResource {
      * Optionally, set the vCenter admin password when the private cloud is created
      */
     public readonly vcenterPassword!: pulumi.Output<string | undefined>;
+    /**
+     * Azure resource ID of the virtual network
+     */
+    public readonly virtualNetworkId!: pulumi.Output<string | undefined>;
     /**
      * Used for live migration of virtual machines
      */
@@ -165,7 +188,9 @@ export class PrivateCloud extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["availability"] = args ? args.availability : undefined;
+            resourceInputs["dnsZoneType"] = args ? args.dnsZoneType : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["extendedNetworkBlocks"] = args ? args.extendedNetworkBlocks : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["identitySources"] = args ? args.identitySources : undefined;
             resourceInputs["internet"] = (args ? args.internet : undefined) ?? "Disabled";
@@ -178,6 +203,7 @@ export class PrivateCloud extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vcenterPassword"] = args ? args.vcenterPassword : undefined;
+            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
             resourceInputs["circuit"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["externalCloudLinks"] = undefined /*out*/;
@@ -188,14 +214,17 @@ export class PrivateCloud extends pulumi.CustomResource {
             resourceInputs["provisioningNetwork"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["secondaryCircuit"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vcenterCertificateThumbprint"] = undefined /*out*/;
             resourceInputs["vmotionNetwork"] = undefined /*out*/;
         } else {
             resourceInputs["availability"] = undefined /*out*/;
             resourceInputs["circuit"] = undefined /*out*/;
+            resourceInputs["dnsZoneType"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["extendedNetworkBlocks"] = undefined /*out*/;
             resourceInputs["externalCloudLinks"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["identitySources"] = undefined /*out*/;
@@ -212,10 +241,12 @@ export class PrivateCloud extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["secondaryCircuit"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vcenterCertificateThumbprint"] = undefined /*out*/;
             resourceInputs["vcenterPassword"] = undefined /*out*/;
+            resourceInputs["virtualNetworkId"] = undefined /*out*/;
             resourceInputs["vmotionNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -234,13 +265,24 @@ export interface PrivateCloudArgs {
      */
     availability?: pulumi.Input<inputs.avs.AvailabilityPropertiesArgs>;
     /**
+     * The type of DNS zone to use.
+     */
+    dnsZoneType?: pulumi.Input<string | enums.avs.DnsZoneType>;
+    /**
      * Customer managed key encryption, can be enabled or disabled
      */
     encryption?: pulumi.Input<inputs.avs.EncryptionArgs>;
     /**
-     * The identity of the private cloud, if configured.
+     * Array of additional networks noncontiguous with networkBlock. Networks must be
+     * unique and non-overlapping across VNet in your subscription, on-premise, and
+     * this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
+     * (A.B.C.D/X).
      */
-    identity?: pulumi.Input<inputs.avs.PrivateCloudIdentityArgs>;
+    extendedNetworkBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The managed service identities assigned to this resource.
+     */
+    identity?: pulumi.Input<inputs.avs.SystemAssignedServiceIdentityArgs>;
     /**
      * vCenter Single Sign On Identity Sources
      */
@@ -250,7 +292,7 @@ export interface PrivateCloudArgs {
      */
     internet?: pulumi.Input<string | enums.avs.InternetEnum>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -258,7 +300,9 @@ export interface PrivateCloudArgs {
      */
     managementCluster: pulumi.Input<inputs.avs.ManagementClusterArgs>;
     /**
-     * The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+     * The block of addresses should be unique across VNet in your subscription as
+     * well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
+     * A,B,C,D are between 0 and 255, and X is between 0 and 22
      */
     networkBlock: pulumi.Input<string>;
     /**
@@ -274,15 +318,19 @@ export interface PrivateCloudArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The private cloud SKU
+     * The SKU (Stock Keeping Unit) assigned to this resource.
      */
     sku: pulumi.Input<inputs.avs.SkuArgs>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Optionally, set the vCenter admin password when the private cloud is created
      */
     vcenterPassword?: pulumi.Input<string>;
+    /**
+     * Azure resource ID of the virtual network
+     */
+    virtualNetworkId?: pulumi.Input<string>;
 }

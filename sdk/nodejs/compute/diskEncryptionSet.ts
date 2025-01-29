@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * disk encryption set resource.
- * Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
+ * Azure REST API version: 2024-03-02. Prior API version in Azure Native 2.x: 2022-07-02.
  *
- * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+ * Other available API versions: 2020-09-30, 2020-12-01, 2021-04-01, 2021-08-01, 2021-12-01, 2022-03-02, 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02.
  */
 export class DiskEncryptionSet extends pulumi.CustomResource {
     /**

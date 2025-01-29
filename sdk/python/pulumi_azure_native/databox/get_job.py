@@ -27,10 +27,13 @@ class GetJobResult:
     """
     Job Resource.
     """
-    def __init__(__self__, cancellation_reason=None, delivery_info=None, delivery_type=None, details=None, error=None, id=None, identity=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_prepare_to_ship_enabled=None, is_shipping_address_editable=None, location=None, name=None, reverse_shipping_details_update=None, reverse_transport_preference_update=None, sku=None, start_time=None, status=None, system_data=None, tags=None, transfer_type=None, type=None):
+    def __init__(__self__, cancellation_reason=None, delayed_stage=None, delivery_info=None, delivery_type=None, details=None, error=None, id=None, identity=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_prepare_to_ship_enabled=None, is_shipping_address_editable=None, location=None, name=None, reverse_shipping_details_update=None, reverse_transport_preference_update=None, sku=None, start_time=None, status=None, system_data=None, tags=None, transfer_type=None, type=None):
         if cancellation_reason and not isinstance(cancellation_reason, str):
             raise TypeError("Expected argument 'cancellation_reason' to be a str")
         pulumi.set(__self__, "cancellation_reason", cancellation_reason)
+        if delayed_stage and not isinstance(delayed_stage, str):
+            raise TypeError("Expected argument 'delayed_stage' to be a str")
+        pulumi.set(__self__, "delayed_stage", delayed_stage)
         if delivery_info and not isinstance(delivery_info, dict):
             raise TypeError("Expected argument 'delivery_info' to be a dict")
         pulumi.set(__self__, "delivery_info", delivery_info)
@@ -105,6 +108,14 @@ class GetJobResult:
         Reason for cancellation.
         """
         return pulumi.get(self, "cancellation_reason")
+
+    @property
+    @pulumi.getter(name="delayedStage")
+    def delayed_stage(self) -> str:
+        """
+        Name of the stage where delay might be present.
+        """
+        return pulumi.get(self, "delayed_stage")
 
     @property
     @pulumi.getter(name="deliveryInfo")
@@ -290,6 +301,7 @@ class AwaitableGetJobResult(GetJobResult):
             yield self
         return GetJobResult(
             cancellation_reason=self.cancellation_reason,
+            delayed_stage=self.delayed_stage,
             delivery_info=self.delivery_info,
             delivery_type=self.delivery_type,
             details=self.details,
@@ -320,9 +332,9 @@ def get_job(expand: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Gets information about the specified job.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-12-01.
 
-    Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+    Other available API versions: 2020-11-01, 2021-03-01, 2021-05-01, 2021-08-01-preview, 2021-12-01, 2022-02-01, 2022-09-01, 2022-10-01, 2022-12-01, 2023-03-01, 2024-02-01-preview, 2024-03-01-preview.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.
@@ -338,6 +350,7 @@ def get_job(expand: Optional[str] = None,
 
     return AwaitableGetJobResult(
         cancellation_reason=pulumi.get(__ret__, 'cancellation_reason'),
+        delayed_stage=pulumi.get(__ret__, 'delayed_stage'),
         delivery_info=pulumi.get(__ret__, 'delivery_info'),
         delivery_type=pulumi.get(__ret__, 'delivery_type'),
         details=pulumi.get(__ret__, 'details'),
@@ -366,9 +379,9 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobResult]:
     """
     Gets information about the specified job.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2023-12-01.
 
-    Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+    Other available API versions: 2020-11-01, 2021-03-01, 2021-05-01, 2021-08-01-preview, 2021-12-01, 2022-02-01, 2022-09-01, 2022-10-01, 2022-12-01, 2023-03-01, 2024-02-01-preview, 2024-03-01-preview.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.
@@ -383,6 +396,7 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:databox:getJob', __args__, opts=opts, typ=GetJobResult)
     return __ret__.apply(lambda __response__: GetJobResult(
         cancellation_reason=pulumi.get(__response__, 'cancellation_reason'),
+        delayed_stage=pulumi.get(__response__, 'delayed_stage'),
         delivery_info=pulumi.get(__response__, 'delivery_info'),
         delivery_type=pulumi.get(__response__, 'delivery_type'),
         details=pulumi.get(__response__, 'details'),

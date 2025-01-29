@@ -2,9 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20190501 from "./v20190501";
+import * as v20190510 from "./v20190510";
 import * as v20190601preview from "./v20190601preview";
+import * as v20190701 from "./v20190701";
+import * as v20190801 from "./v20190801";
+import * as v20191001 from "./v20191001";
 import * as v20191001preview from "./v20191001preview";
+import * as v20200601 from "./v20200601";
+import * as v20200801 from "./v20200801";
 import * as v20201001 from "./v20201001";
+import * as v20210101 from "./v20210101";
+import * as v20210401 from "./v20210401";
 import * as v20220801preview from "./v20220801preview";
 import * as v20220901 from "./v20220901";
 import * as v20230701 from "./v20230701";
@@ -14,9 +23,18 @@ import * as v20240701 from "./v20240701";
 import * as v20241101 from "./v20241101";
 
 export {
+    v20190501,
+    v20190510,
     v20190601preview,
+    v20190701,
+    v20190801,
+    v20191001,
     v20191001preview,
+    v20200601,
+    v20200801,
     v20201001,
+    v20210101,
+    v20210401,
     v20220801preview,
     v20220901,
     v20230701,
@@ -43,7 +61,7 @@ export const DenySettingsMode = {
      */
     DenyDelete: "denyDelete",
     /**
-     * Authorized users can only read from a resource, but cannot modify or delete it.
+     * Authorized users can read from a resource, but cannot modify or delete it.
      */
     DenyWriteAndDelete: "denyWriteAndDelete",
     /**
@@ -53,7 +71,7 @@ export const DenySettingsMode = {
 } as const;
 
 /**
- * denySettings Mode.
+ * denySettings Mode that defines denied actions.
  */
 export type DenySettingsMode = (typeof DenySettingsMode)[keyof typeof DenySettingsMode];
 
@@ -73,7 +91,7 @@ export const DeploymentStacksDeleteDetachEnum = {
 } as const;
 
 /**
- * Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+ * Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
  */
 export type DeploymentStacksDeleteDetachEnum = (typeof DeploymentStacksDeleteDetachEnum)[keyof typeof DeploymentStacksDeleteDetachEnum];
 

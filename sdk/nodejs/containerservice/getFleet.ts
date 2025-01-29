@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Fleet.
- * Azure REST API version: 2023-03-15-preview.
+ * Azure REST API version: 2024-05-02-preview.
  *
- * Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+ * Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
  */
 export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,6 +49,10 @@ export interface GetFleetResult {
      */
     readonly id: string;
     /**
+     * Managed identity.
+     */
+    readonly identity?: outputs.containerservice.ManagedServiceIdentityResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -75,9 +79,9 @@ export interface GetFleetResult {
 }
 /**
  * Gets a Fleet.
- * Azure REST API version: 2023-03-15-preview.
+ * Azure REST API version: 2024-05-02-preview.
  *
- * Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+ * Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
  */
 export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

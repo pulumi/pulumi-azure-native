@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
  * Azure REST API version: 2022-01-01-preview.
+ *
+ * Other available API versions: 2020-10-01, 2020-10-01-preview.
  */
 export function getTagRule(args: GetTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTagRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,6 +62,8 @@ export interface GetTagRuleResult {
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
  * Azure REST API version: 2022-01-01-preview.
+ *
+ * Other available API versions: 2020-10-01, 2020-10-01-preview.
  */
 export function getTagRuleOutput(args: GetTagRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

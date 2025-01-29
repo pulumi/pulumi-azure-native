@@ -164,14 +164,14 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDisasterRecoveryConfigResult:
     """
     Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
-    Azure REST API version: 2022-01-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2017-04-01, 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview.
 
 
     :param str alias: The Disaster Recovery configuration name
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['alias'] = alias
@@ -197,14 +197,14 @@ def get_disaster_recovery_config_output(alias: Optional[pulumi.Input[str]] = Non
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDisasterRecoveryConfigResult]:
     """
     Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
-    Azure REST API version: 2022-01-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2017-04-01, 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview.
 
 
     :param str alias: The Disaster Recovery configuration name
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['alias'] = alias

@@ -12,6 +12,58 @@ export {
     v20241101,
 };
 
+export const AcceleratorManufacturer = {
+    /**
+     * AMD GpuType
+     */
+    AMD: "AMD",
+    /**
+     * Nvidia GpuType
+     */
+    Nvidia: "Nvidia",
+    /**
+     * Xilinx GpuType
+     */
+    Xilinx: "Xilinx",
+} as const;
+
+/**
+ * Accelerator manufacturers supported by Azure VMs.
+ */
+export type AcceleratorManufacturer = (typeof AcceleratorManufacturer)[keyof typeof AcceleratorManufacturer];
+
+export const AcceleratorType = {
+    /**
+     * GPU Accelerator
+     */
+    GPU: "GPU",
+    /**
+     * FPGA Accelerator
+     */
+    FPGA: "FPGA",
+} as const;
+
+/**
+ * Accelerator types supported by Azure VMs.
+ */
+export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorType];
+
+export const ArchitectureType = {
+    /**
+     * ARM64 Architecture
+     */
+    ARM64: "ARM64",
+    /**
+     * X64 Architecture
+     */
+    X64: "X64",
+} as const;
+
+/**
+ * Architecture types supported by Azure VMs.
+ */
+export type ArchitectureType = (typeof ArchitectureType)[keyof typeof ArchitectureType];
+
 export const CachingTypes = {
     /**
      * 'None' is default for Standard Storage
@@ -43,6 +95,30 @@ export const ComponentName = {
  * Microsoft-Windows-Shell-Setup.
  */
 export type ComponentName = (typeof ComponentName)[keyof typeof ComponentName];
+
+export const CpuManufacturer = {
+    /**
+     * Intel CPU.
+     */
+    Intel: "Intel",
+    /**
+     * AMD CPU.
+     */
+    AMD: "AMD",
+    /**
+     * Microsoft CPU.
+     */
+    Microsoft: "Microsoft",
+    /**
+     * Ampere CPU.
+     */
+    Ampere: "Ampere",
+} as const;
+
+/**
+ * Cpu Manufacturers  supported by Azure VMs.
+ */
+export type CpuManufacturer = (typeof CpuManufacturer)[keyof typeof CpuManufacturer];
 
 export const DeleteOptions = {
     /**
@@ -298,6 +374,22 @@ export const LinuxVMGuestPatchMode = {
  * the platform. The property provisionVMAgent must be true
  */
 export type LinuxVMGuestPatchMode = (typeof LinuxVMGuestPatchMode)[keyof typeof LinuxVMGuestPatchMode];
+
+export const LocalStorageDiskType = {
+    /**
+     * HDD DiskType.
+     */
+    HDD: "HDD",
+    /**
+     * SDD DiskType.
+     */
+    SSD: "SSD",
+} as const;
+
+/**
+ * Different kind of Local storage disk types supported by Azure VMs.
+ */
+export type LocalStorageDiskType = (typeof LocalStorageDiskType)[keyof typeof LocalStorageDiskType];
 
 export const ManagedServiceIdentityType = {
     None: "None",
@@ -604,6 +696,68 @@ export const StorageAccountTypes = {
  * only be used with data disks, it cannot be used with OS Disk.
  */
 export type StorageAccountTypes = (typeof StorageAccountTypes)[keyof typeof StorageAccountTypes];
+
+export const VMAttributeSupport = {
+    /**
+     * All VMSizes having the feature support will be excluded.
+     */
+    Excluded: "Excluded",
+    /**
+     *  VMSizes that have the feature support and that do not have the feature support will be used. Included is a union of Excluded and Required.
+     */
+    Included: "Included",
+    /**
+     * Only the VMSizes having the feature support will be used.
+     */
+    Required: "Required",
+} as const;
+
+/**
+ * Specifies whether the VMSize supporting RDMA (Remote Direct Memory Access) should be used to build Fleet or not.
+ */
+export type VMAttributeSupport = (typeof VMAttributeSupport)[keyof typeof VMAttributeSupport];
+
+export const VMCategory = {
+    /**
+     * General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers.
+     */
+    GeneralPurpose: "GeneralPurpose",
+    /**
+     * Compute optimized VM sizes have a high CPU-to-memory ratio. These sizes are good for medium traffic web servers, network appliances, batch processes, and application servers.
+     */
+    ComputeOptimized: "ComputeOptimized",
+    /**
+     * Memory optimized VM sizes offer a high memory-to-CPU ratio that is great for relational database servers, medium to large caches, and in-memory analytics.
+     */
+    MemoryOptimized: "MemoryOptimized",
+    /**
+     * Storage optimized virtual machine (VM) sizes offer high disk throughput and IO, and are ideal for Big Data, SQL, NoSQL databases, data warehousing, and large transactional databases. 
+     * Examples include Cassandra, MongoDB, Cloudera, and Redis.
+     */
+    StorageOptimized: "StorageOptimized",
+    /**
+     * GPU optimized VM sizes are specialized virtual machines available with single, multiple, or fractional GPUs. 
+     * These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads.
+     */
+    GpuAccelerated: "GpuAccelerated",
+    /**
+     * FPGA optimized VM sizes are specialized virtual machines available with single or multiple FPGA. 
+     * These sizes are designed for compute-intensive workloads. This article provides information about the number and type of FPGA, vCPUs, data disks, and NICs. 
+     * Storage throughput and network bandwidth are also included for each size in this grouping.
+     */
+    FpgaAccelerated: "FpgaAccelerated",
+    /**
+     * Azure High Performance Compute VMs are optimized for various HPC workloads such as computational fluid dynamics, finite element analysis, frontend and backend EDA, 
+     * rendering, molecular dynamics, computational geo science, weather simulation, and financial risk analysis.
+     */
+    HighPerformanceCompute: "HighPerformanceCompute",
+} as const;
+
+/**
+ * VMCategories defined for Azure VMs.
+ * See: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist#general-purpose
+ */
+export type VMCategory = (typeof VMCategory)[keyof typeof VMCategory];
 
 export const WindowsPatchAssessmentMode = {
     /**

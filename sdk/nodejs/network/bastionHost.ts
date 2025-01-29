@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Bastion Host resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export class BastionHost extends pulumi.CustomResource {
     /**
@@ -61,6 +61,14 @@ export class BastionHost extends pulumi.CustomResource {
      */
     public readonly enableKerberos!: pulumi.Output<boolean | undefined>;
     /**
+     * Enable/Disable Private Only feature of the Bastion Host resource.
+     */
+    public readonly enablePrivateOnlyBastion!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable/Disable Session Recording feature of the Bastion Host resource.
+     */
+    public readonly enableSessionRecording!: pulumi.Output<boolean | undefined>;
+    /**
      * Enable/Disable Shareable Link of the Bastion Host resource.
      */
     public readonly enableShareableLink!: pulumi.Output<boolean | undefined>;
@@ -84,6 +92,7 @@ export class BastionHost extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly networkAcls!: pulumi.Output<outputs.network.BastionHostPropertiesFormatResponseNetworkAcls | undefined>;
     /**
      * The provisioning state of the bastion host resource.
      */
@@ -104,6 +113,14 @@ export class BastionHost extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Reference to an existing virtual network required for Developer Bastion Host only.
+     */
+    public readonly virtualNetwork!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    /**
+     * A list of availability zones denoting where the resource needs to come from.
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a BastionHost resource with the given unique name, arguments, and options.
@@ -125,15 +142,20 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["enableFileCopy"] = (args ? args.enableFileCopy : undefined) ?? false;
             resourceInputs["enableIpConnect"] = (args ? args.enableIpConnect : undefined) ?? false;
             resourceInputs["enableKerberos"] = (args ? args.enableKerberos : undefined) ?? false;
+            resourceInputs["enablePrivateOnlyBastion"] = (args ? args.enablePrivateOnlyBastion : undefined) ?? false;
+            resourceInputs["enableSessionRecording"] = (args ? args.enableSessionRecording : undefined) ?? false;
             resourceInputs["enableShareableLink"] = (args ? args.enableShareableLink : undefined) ?? false;
             resourceInputs["enableTunneling"] = (args ? args.enableTunneling : undefined) ?? false;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.network.skuArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -144,17 +166,22 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["enableFileCopy"] = undefined /*out*/;
             resourceInputs["enableIpConnect"] = undefined /*out*/;
             resourceInputs["enableKerberos"] = undefined /*out*/;
+            resourceInputs["enablePrivateOnlyBastion"] = undefined /*out*/;
+            resourceInputs["enableSessionRecording"] = undefined /*out*/;
             resourceInputs["enableShareableLink"] = undefined /*out*/;
             resourceInputs["enableTunneling"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipConfigurations"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkAcls"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["scaleUnits"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetwork"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20190401:BastionHost" }, { type: "azure-native:network/v20190601:BastionHost" }, { type: "azure-native:network/v20190701:BastionHost" }, { type: "azure-native:network/v20190801:BastionHost" }, { type: "azure-native:network/v20190901:BastionHost" }, { type: "azure-native:network/v20191101:BastionHost" }, { type: "azure-native:network/v20191201:BastionHost" }, { type: "azure-native:network/v20200301:BastionHost" }, { type: "azure-native:network/v20200401:BastionHost" }, { type: "azure-native:network/v20200501:BastionHost" }, { type: "azure-native:network/v20200601:BastionHost" }, { type: "azure-native:network/v20200701:BastionHost" }, { type: "azure-native:network/v20200801:BastionHost" }, { type: "azure-native:network/v20201101:BastionHost" }, { type: "azure-native:network/v20210201:BastionHost" }, { type: "azure-native:network/v20210301:BastionHost" }, { type: "azure-native:network/v20210501:BastionHost" }, { type: "azure-native:network/v20210801:BastionHost" }, { type: "azure-native:network/v20220101:BastionHost" }, { type: "azure-native:network/v20220501:BastionHost" }, { type: "azure-native:network/v20220701:BastionHost" }, { type: "azure-native:network/v20220901:BastionHost" }, { type: "azure-native:network/v20221101:BastionHost" }, { type: "azure-native:network/v20230201:BastionHost" }, { type: "azure-native:network/v20230401:BastionHost" }, { type: "azure-native:network/v20230501:BastionHost" }, { type: "azure-native:network/v20230601:BastionHost" }, { type: "azure-native:network/v20230901:BastionHost" }, { type: "azure-native:network/v20231101:BastionHost" }, { type: "azure-native:network/v20240101:BastionHost" }, { type: "azure-native:network/v20240301:BastionHost" }, { type: "azure-native:network/v20240501:BastionHost" }] };
@@ -192,6 +219,14 @@ export interface BastionHostArgs {
      */
     enableKerberos?: pulumi.Input<boolean>;
     /**
+     * Enable/Disable Private Only feature of the Bastion Host resource.
+     */
+    enablePrivateOnlyBastion?: pulumi.Input<boolean>;
+    /**
+     * Enable/Disable Session Recording feature of the Bastion Host resource.
+     */
+    enableSessionRecording?: pulumi.Input<boolean>;
+    /**
      * Enable/Disable Shareable Link of the Bastion Host resource.
      */
     enableShareableLink?: pulumi.Input<boolean>;
@@ -211,6 +246,7 @@ export interface BastionHostArgs {
      * Resource location.
      */
     location?: pulumi.Input<string>;
+    networkAcls?: pulumi.Input<inputs.network.BastionHostPropertiesFormatNetworkAclsArgs>;
     /**
      * The name of the resource group.
      */
@@ -227,4 +263,12 @@ export interface BastionHostArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Reference to an existing virtual network required for Developer Bastion Host only.
+     */
+    virtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs>;
+    /**
+     * A list of availability zones denoting where the resource needs to come from.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

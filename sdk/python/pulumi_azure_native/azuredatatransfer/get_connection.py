@@ -127,9 +127,9 @@ def get_connection(connection_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
     Gets connection resource.
-    Azure REST API version: 2023-10-11-preview.
+    Azure REST API version: 2024-09-27.
 
-    Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+    Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11.
 
 
     :param str connection_name: The name for the connection that is to be requested.
@@ -154,9 +154,9 @@ def get_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Gets connection resource.
-    Azure REST API version: 2023-10-11-preview.
+    Azure REST API version: 2024-09-27.
 
-    Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+    Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11.
 
 
     :param str connection_name: The name for the connection that is to be requested.

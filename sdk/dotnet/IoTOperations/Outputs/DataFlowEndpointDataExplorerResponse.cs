@@ -14,8 +14,12 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
     /// Azure Data Explorer endpoint properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointDataExplorerResponse
+    public sealed class DataflowEndpointDataExplorerResponse
     {
+        /// <summary>
+        /// Authentication configuration. NOTE - only authentication property is allowed per entry.
+        /// </summary>
+        public readonly Outputs.DataflowEndpointDataExplorerAuthenticationResponse Authentication;
         /// <summary>
         /// Azure Data Explorer endpoint batching configuration.
         /// </summary>
@@ -30,13 +34,16 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         public readonly string Host;
 
         [OutputConstructor]
-        private DataFlowEndpointDataExplorerResponse(
+        private DataflowEndpointDataExplorerResponse(
+            Outputs.DataflowEndpointDataExplorerAuthenticationResponse authentication,
+
             Outputs.BatchingConfigurationResponse? batching,
 
             string database,
 
             string host)
         {
+            Authentication = authentication;
             Batching = batching;
             Database = database;
             Host = host;

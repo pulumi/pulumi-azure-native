@@ -20,6 +20,18 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.appconfiguration.v20200601 as __v20200601
+    v20200601 = __v20200601
+    import pulumi_azure_native.appconfiguration.v20200701preview as __v20200701preview
+    v20200701preview = __v20200701preview
+    import pulumi_azure_native.appconfiguration.v20210301preview as __v20210301preview
+    v20210301preview = __v20210301preview
+    import pulumi_azure_native.appconfiguration.v20211001preview as __v20211001preview
+    v20211001preview = __v20211001preview
+    import pulumi_azure_native.appconfiguration.v20220301preview as __v20220301preview
+    v20220301preview = __v20220301preview
+    import pulumi_azure_native.appconfiguration.v20220501 as __v20220501
+    v20220501 = __v20220501
     import pulumi_azure_native.appconfiguration.v20230301 as __v20230301
     v20230301 = __v20230301
     import pulumi_azure_native.appconfiguration.v20230801preview as __v20230801preview
@@ -29,6 +41,12 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.appconfiguration.v20240501 as __v20240501
     v20240501 = __v20240501
 else:
+    v20200601 = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20200601')
+    v20200701preview = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20200701preview')
+    v20210301preview = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20210301preview')
+    v20211001preview = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20211001preview')
+    v20220301preview = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20220301preview')
+    v20220501 = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20220501')
     v20230301 = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20230301')
     v20230801preview = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20230801preview')
     v20230901preview = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20230901preview')

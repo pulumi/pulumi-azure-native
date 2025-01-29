@@ -157,8 +157,6 @@ class DevOpsPolicyAssignment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security:DevOpsPolicyAssignment")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DevOpsPolicyAssignment, __self__).__init__(
             'azure-native:security/v20240515preview:DevOpsPolicyAssignment',
             resource_name,

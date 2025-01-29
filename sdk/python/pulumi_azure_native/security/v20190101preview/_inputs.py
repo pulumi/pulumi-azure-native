@@ -16,6 +16,8 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AssessmentStatusArgs',
+    'AssessmentStatusArgsDict',
     'AutomationActionEventHubArgs',
     'AutomationActionEventHubArgsDict',
     'AutomationActionLogicAppArgs',
@@ -30,6 +32,12 @@ __all__ = [
     'AutomationSourceArgsDict',
     'AutomationTriggeringRuleArgs',
     'AutomationTriggeringRuleArgsDict',
+    'AzureResourceDetailsArgs',
+    'AzureResourceDetailsArgsDict',
+    'OnPremiseResourceDetailsArgs',
+    'OnPremiseResourceDetailsArgsDict',
+    'OnPremiseSqlResourceDetailsArgs',
+    'OnPremiseSqlResourceDetailsArgsDict',
     'ScopeElementArgs',
     'ScopeElementArgsDict',
     'SuppressionAlertsScopeArgs',
@@ -37,6 +45,81 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AssessmentStatusArgsDict(TypedDict):
+        """
+        The result of the assessment
+        """
+        code: pulumi.Input[Union[str, 'AssessmentStatusCode']]
+        """
+        Programmatic code for the status of the assessment
+        """
+        cause: NotRequired[pulumi.Input[str]]
+        """
+        Programmatic code for the cause of the assessment status
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Human readable description of the assessment status
+        """
+elif False:
+    AssessmentStatusArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AssessmentStatusArgs:
+    def __init__(__self__, *,
+                 code: pulumi.Input[Union[str, 'AssessmentStatusCode']],
+                 cause: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The result of the assessment
+        :param pulumi.Input[Union[str, 'AssessmentStatusCode']] code: Programmatic code for the status of the assessment
+        :param pulumi.Input[str] cause: Programmatic code for the cause of the assessment status
+        :param pulumi.Input[str] description: Human readable description of the assessment status
+        """
+        pulumi.set(__self__, "code", code)
+        if cause is not None:
+            pulumi.set(__self__, "cause", cause)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def code(self) -> pulumi.Input[Union[str, 'AssessmentStatusCode']]:
+        """
+        Programmatic code for the status of the assessment
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input[Union[str, 'AssessmentStatusCode']]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def cause(self) -> Optional[pulumi.Input[str]]:
+        """
+        Programmatic code for the cause of the assessment status
+        """
+        return pulumi.get(self, "cause")
+
+    @cause.setter
+    def cause(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cause", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Human readable description of the assessment status
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
 
 if not MYPY:
     class AutomationActionEventHubArgsDict(TypedDict):
@@ -487,6 +570,310 @@ class AutomationTriggeringRuleArgs:
     @property_type.setter
     def property_type(self, value: Optional[pulumi.Input[Union[str, 'PropertyType']]]):
         pulumi.set(self, "property_type", value)
+
+
+if not MYPY:
+    class AzureResourceDetailsArgsDict(TypedDict):
+        """
+        Details of the Azure resource that was assessed
+        """
+        source: pulumi.Input[str]
+        """
+        The platform where the assessed resource resides
+        Expected value is 'Azure'.
+        """
+elif False:
+    AzureResourceDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureResourceDetailsArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input[str]):
+        """
+        Details of the Azure resource that was assessed
+        :param pulumi.Input[str] source: The platform where the assessed resource resides
+               Expected value is 'Azure'.
+        """
+        pulumi.set(__self__, "source", 'Azure')
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        """
+        The platform where the assessed resource resides
+        Expected value is 'Azure'.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class OnPremiseResourceDetailsArgsDict(TypedDict):
+        """
+        Details of the On Premise resource that was assessed
+        """
+        machine_name: pulumi.Input[str]
+        """
+        The name of the machine
+        """
+        source: pulumi.Input[str]
+        """
+        The platform where the assessed resource resides
+        Expected value is 'OnPremise'.
+        """
+        source_computer_id: pulumi.Input[str]
+        """
+        The oms agent Id installed on the machine
+        """
+        vmuuid: pulumi.Input[str]
+        """
+        The unique Id of the machine
+        """
+        workspace_id: pulumi.Input[str]
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+elif False:
+    OnPremiseResourceDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OnPremiseResourceDetailsArgs:
+    def __init__(__self__, *,
+                 machine_name: pulumi.Input[str],
+                 source: pulumi.Input[str],
+                 source_computer_id: pulumi.Input[str],
+                 vmuuid: pulumi.Input[str],
+                 workspace_id: pulumi.Input[str]):
+        """
+        Details of the On Premise resource that was assessed
+        :param pulumi.Input[str] machine_name: The name of the machine
+        :param pulumi.Input[str] source: The platform where the assessed resource resides
+               Expected value is 'OnPremise'.
+        :param pulumi.Input[str] source_computer_id: The oms agent Id installed on the machine
+        :param pulumi.Input[str] vmuuid: The unique Id of the machine
+        :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
+        """
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "source", 'OnPremise')
+        pulumi.set(__self__, "source_computer_id", source_computer_id)
+        pulumi.set(__self__, "vmuuid", vmuuid)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> pulumi.Input[str]:
+        """
+        The name of the machine
+        """
+        return pulumi.get(self, "machine_name")
+
+    @machine_name.setter
+    def machine_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "machine_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        """
+        The platform where the assessed resource resides
+        Expected value is 'OnPremise'.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="sourceComputerId")
+    def source_computer_id(self) -> pulumi.Input[str]:
+        """
+        The oms agent Id installed on the machine
+        """
+        return pulumi.get(self, "source_computer_id")
+
+    @source_computer_id.setter
+    def source_computer_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_computer_id", value)
+
+    @property
+    @pulumi.getter
+    def vmuuid(self) -> pulumi.Input[str]:
+        """
+        The unique Id of the machine
+        """
+        return pulumi.get(self, "vmuuid")
+
+    @vmuuid.setter
+    def vmuuid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vmuuid", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Input[str]:
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_id", value)
+
+
+if not MYPY:
+    class OnPremiseSqlResourceDetailsArgsDict(TypedDict):
+        """
+        Details of the On Premise Sql resource that was assessed
+        """
+        database_name: pulumi.Input[str]
+        """
+        The Sql database name installed on the machine
+        """
+        machine_name: pulumi.Input[str]
+        """
+        The name of the machine
+        """
+        server_name: pulumi.Input[str]
+        """
+        The Sql server name installed on the machine
+        """
+        source: pulumi.Input[str]
+        """
+        The platform where the assessed resource resides
+        Expected value is 'OnPremiseSql'.
+        """
+        source_computer_id: pulumi.Input[str]
+        """
+        The oms agent Id installed on the machine
+        """
+        vmuuid: pulumi.Input[str]
+        """
+        The unique Id of the machine
+        """
+        workspace_id: pulumi.Input[str]
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+elif False:
+    OnPremiseSqlResourceDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OnPremiseSqlResourceDetailsArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 machine_name: pulumi.Input[str],
+                 server_name: pulumi.Input[str],
+                 source: pulumi.Input[str],
+                 source_computer_id: pulumi.Input[str],
+                 vmuuid: pulumi.Input[str],
+                 workspace_id: pulumi.Input[str]):
+        """
+        Details of the On Premise Sql resource that was assessed
+        :param pulumi.Input[str] database_name: The Sql database name installed on the machine
+        :param pulumi.Input[str] machine_name: The name of the machine
+        :param pulumi.Input[str] server_name: The Sql server name installed on the machine
+        :param pulumi.Input[str] source: The platform where the assessed resource resides
+               Expected value is 'OnPremiseSql'.
+        :param pulumi.Input[str] source_computer_id: The oms agent Id installed on the machine
+        :param pulumi.Input[str] vmuuid: The unique Id of the machine
+        :param pulumi.Input[str] workspace_id: Azure resource Id of the workspace the machine is attached to
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "machine_name", machine_name)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "source", 'OnPremiseSql')
+        pulumi.set(__self__, "source_computer_id", source_computer_id)
+        pulumi.set(__self__, "vmuuid", vmuuid)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The Sql database name installed on the machine
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> pulumi.Input[str]:
+        """
+        The name of the machine
+        """
+        return pulumi.get(self, "machine_name")
+
+    @machine_name.setter
+    def machine_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "machine_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The Sql server name installed on the machine
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        """
+        The platform where the assessed resource resides
+        Expected value is 'OnPremiseSql'.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="sourceComputerId")
+    def source_computer_id(self) -> pulumi.Input[str]:
+        """
+        The oms agent Id installed on the machine
+        """
+        return pulumi.get(self, "source_computer_id")
+
+    @source_computer_id.setter
+    def source_computer_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_computer_id", value)
+
+    @property
+    @pulumi.getter
+    def vmuuid(self) -> pulumi.Input[str]:
+        """
+        The unique Id of the machine
+        """
+        return pulumi.get(self, "vmuuid")
+
+    @vmuuid.setter
+    def vmuuid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vmuuid", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Input[str]:
+        """
+        Azure resource Id of the workspace the machine is attached to
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_id", value)
 
 
 if not MYPY:

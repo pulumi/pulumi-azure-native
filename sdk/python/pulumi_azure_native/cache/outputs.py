@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccessPolicyAssignmentPropertiesResponseUser',
     'ClusterPropertiesResponseCustomerManagedKeyEncryption',
     'ClusterPropertiesResponseEncryption',
     'ClusterPropertiesResponseKeyEncryptionKeyIdentity',
@@ -38,6 +39,46 @@ __all__ = [
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
 ]
+
+@pulumi.output_type
+class AccessPolicyAssignmentPropertiesResponseUser(dict):
+    """
+    The user associated with the access policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPolicyAssignmentPropertiesResponseUser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPolicyAssignmentPropertiesResponseUser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPolicyAssignmentPropertiesResponseUser.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_id: Optional[str] = None):
+        """
+        The user associated with the access policy.
+        :param str object_id: The object ID of the user.
+        """
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object ID of the user.
+        """
+        return pulumi.get(self, "object_id")
+
 
 @pulumi.output_type
 class ClusterPropertiesResponseCustomerManagedKeyEncryption(dict):
@@ -244,15 +285,15 @@ class DatabasePropertiesResponseGeoReplication(dict):
 @pulumi.output_type
 class EnterpriseSkuResponse(dict):
     """
-    SKU parameters supplied to the create RedisEnterprise operation.
+    SKU parameters supplied to the create Redis Enterprise cluster operation.
     """
     def __init__(__self__, *,
                  name: str,
                  capacity: Optional[int] = None):
         """
-        SKU parameters supplied to the create RedisEnterprise operation.
-        :param str name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-        :param int capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        SKU parameters supplied to the create Redis Enterprise cluster operation.
+        :param str name: The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
+        :param int capacity: This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -262,7 +303,7 @@ class EnterpriseSkuResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
         """
         return pulumi.get(self, "name")
 
@@ -270,7 +311,7 @@ class EnterpriseSkuResponse(dict):
     @pulumi.getter
     def capacity(self) -> Optional[int]:
         """
-        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
         """
         return pulumi.get(self, "capacity")
 
@@ -434,7 +475,7 @@ class ModuleResponse(dict):
 @pulumi.output_type
 class PersistenceResponse(dict):
     """
-    Persistence-related configuration for the RedisEnterprise database
+    Persistence-related configuration for the Redis Enterprise database
     """
     @staticmethod
     def __key_warning(key: str):
@@ -465,10 +506,10 @@ class PersistenceResponse(dict):
                  rdb_enabled: Optional[bool] = None,
                  rdb_frequency: Optional[str] = None):
         """
-        Persistence-related configuration for the RedisEnterprise database
-        :param bool aof_enabled: Sets whether AOF is enabled.
-        :param str aof_frequency: Sets the frequency at which data is written to disk.
-        :param bool rdb_enabled: Sets whether RDB is enabled.
+        Persistence-related configuration for the Redis Enterprise database
+        :param bool aof_enabled: Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
+        :param str aof_frequency: Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
+        :param bool rdb_enabled: Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         :param str rdb_frequency: Sets the frequency at which a snapshot of the database is created.
         """
         if aof_enabled is not None:
@@ -484,7 +525,7 @@ class PersistenceResponse(dict):
     @pulumi.getter(name="aofEnabled")
     def aof_enabled(self) -> Optional[bool]:
         """
-        Sets whether AOF is enabled.
+        Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         return pulumi.get(self, "aof_enabled")
 
@@ -492,7 +533,7 @@ class PersistenceResponse(dict):
     @pulumi.getter(name="aofFrequency")
     def aof_frequency(self) -> Optional[str]:
         """
-        Sets the frequency at which data is written to disk.
+        Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
         """
         return pulumi.get(self, "aof_frequency")
 
@@ -500,7 +541,7 @@ class PersistenceResponse(dict):
     @pulumi.getter(name="rdbEnabled")
     def rdb_enabled(self) -> Optional[bool]:
         """
-        Sets whether RDB is enabled.
+        Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         return pulumi.get(self, "rdb_enabled")
 
@@ -525,8 +566,6 @@ class PrivateEndpointConnectionResponse(dict):
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "systemData":
-            suggest = "system_data"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
 
@@ -546,7 +585,6 @@ class PrivateEndpointConnectionResponse(dict):
                  name: str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: str,
-                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
@@ -555,7 +593,6 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
@@ -563,7 +600,6 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -599,14 +635,6 @@ class PrivateEndpointConnectionResponse(dict):
         The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -766,7 +794,7 @@ class RedisAccessKeysResponse(dict):
 @pulumi.output_type
 class RedisCommonPropertiesResponseRedisConfiguration(dict):
     """
-    All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+    All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -775,6 +803,8 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
             suggest = "preferred_data_archive_auth_method"
         elif key == "zonalConfiguration":
             suggest = "zonal_configuration"
+        elif key == "aadEnabled":
+            suggest = "aad_enabled"
         elif key == "aofBackupEnabled":
             suggest = "aof_backup_enabled"
         elif key == "aofStorageConnectionString0":
@@ -789,6 +819,8 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
             suggest = "maxmemory_policy"
         elif key == "maxmemoryReserved":
             suggest = "maxmemory_reserved"
+        elif key == "notifyKeyspaceEvents":
+            suggest = "notify_keyspace_events"
         elif key == "preferredDataPersistenceAuthMethod":
             suggest = "preferred_data_persistence_auth_method"
         elif key == "rdbBackupEnabled":
@@ -817,6 +849,7 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
                  maxclients: str,
                  preferred_data_archive_auth_method: str,
                  zonal_configuration: str,
+                 aad_enabled: Optional[str] = None,
                  aof_backup_enabled: Optional[str] = None,
                  aof_storage_connection_string0: Optional[str] = None,
                  aof_storage_connection_string1: Optional[str] = None,
@@ -825,6 +858,7 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
                  maxmemory_delta: Optional[str] = None,
                  maxmemory_policy: Optional[str] = None,
                  maxmemory_reserved: Optional[str] = None,
+                 notify_keyspace_events: Optional[str] = None,
                  preferred_data_persistence_auth_method: Optional[str] = None,
                  rdb_backup_enabled: Optional[str] = None,
                  rdb_backup_frequency: Optional[str] = None,
@@ -832,10 +866,11 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
                  rdb_storage_connection_string: Optional[str] = None,
                  storage_subscription_id: Optional[str] = None):
         """
-        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         :param str maxclients: The max clients config
         :param str preferred_data_archive_auth_method: Preferred auth method to communicate to storage account used for data archive, specify SAS or ManagedIdentity, default value is SAS
         :param str zonal_configuration: Zonal Configuration
+        :param str aad_enabled: Specifies whether AAD based authentication has been enabled or disabled for the cache
         :param str aof_backup_enabled: Specifies whether the aof backup is enabled
         :param str aof_storage_connection_string0: First storage account connection string
         :param str aof_storage_connection_string1: Second storage account connection string
@@ -844,6 +879,7 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         :param str maxmemory_delta: Value in megabytes reserved for non-cache usage per shard e.g. failover.
         :param str maxmemory_policy: The eviction strategy used when your data won't fit within its memory limit.
         :param str maxmemory_reserved: Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        :param str notify_keyspace_events: The keyspace events which should be monitored.
         :param str preferred_data_persistence_auth_method: Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
         :param str rdb_backup_enabled: Specifies whether the rdb backup is enabled
         :param str rdb_backup_frequency: Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
@@ -854,6 +890,8 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         pulumi.set(__self__, "maxclients", maxclients)
         pulumi.set(__self__, "preferred_data_archive_auth_method", preferred_data_archive_auth_method)
         pulumi.set(__self__, "zonal_configuration", zonal_configuration)
+        if aad_enabled is not None:
+            pulumi.set(__self__, "aad_enabled", aad_enabled)
         if aof_backup_enabled is not None:
             pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
         if aof_storage_connection_string0 is not None:
@@ -870,6 +908,8 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
             pulumi.set(__self__, "maxmemory_policy", maxmemory_policy)
         if maxmemory_reserved is not None:
             pulumi.set(__self__, "maxmemory_reserved", maxmemory_reserved)
+        if notify_keyspace_events is not None:
+            pulumi.set(__self__, "notify_keyspace_events", notify_keyspace_events)
         if preferred_data_persistence_auth_method is not None:
             pulumi.set(__self__, "preferred_data_persistence_auth_method", preferred_data_persistence_auth_method)
         if rdb_backup_enabled is not None:
@@ -906,6 +946,14 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         Zonal Configuration
         """
         return pulumi.get(self, "zonal_configuration")
+
+    @property
+    @pulumi.getter(name="aadEnabled")
+    def aad_enabled(self) -> Optional[str]:
+        """
+        Specifies whether AAD based authentication has been enabled or disabled for the cache
+        """
+        return pulumi.get(self, "aad_enabled")
 
     @property
     @pulumi.getter(name="aofBackupEnabled")
@@ -970,6 +1018,14 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         Value in megabytes reserved for non-cache usage per shard e.g. failover.
         """
         return pulumi.get(self, "maxmemory_reserved")
+
+    @property
+    @pulumi.getter(name="notifyKeyspaceEvents")
+    def notify_keyspace_events(self) -> Optional[str]:
+        """
+        The keyspace events which should be monitored.
+        """
+        return pulumi.get(self, "notify_keyspace_events")
 
     @property
     @pulumi.getter(name="preferredDataPersistenceAuthMethod")

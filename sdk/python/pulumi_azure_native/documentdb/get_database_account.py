@@ -27,7 +27,7 @@ class GetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
     """
-    def __init__(__self__, analytical_storage_configuration=None, api_properties=None, backup_policy=None, capabilities=None, capacity=None, connector_offer=None, consistency_policy=None, cors=None, create_mode=None, database_account_offer_type=None, default_identity=None, disable_key_based_metadata_write_access=None, disable_local_auth=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, enable_partition_merge=None, failover_policies=None, id=None, identity=None, instance_id=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, keys_metadata=None, kind=None, location=None, locations=None, minimal_tls_version=None, name=None, network_acl_bypass=None, network_acl_bypass_resource_ids=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, restore_parameters=None, system_data=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+    def __init__(__self__, analytical_storage_configuration=None, api_properties=None, backup_policy=None, capabilities=None, capacity=None, connector_offer=None, consistency_policy=None, cors=None, create_mode=None, customer_managed_key_status=None, database_account_offer_type=None, default_identity=None, disable_key_based_metadata_write_access=None, disable_local_auth=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_burst_capacity=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, enable_partition_merge=None, enable_per_region_per_partition_autoscale=None, failover_policies=None, id=None, identity=None, instance_id=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, keys_metadata=None, kind=None, location=None, locations=None, minimal_tls_version=None, name=None, network_acl_bypass=None, network_acl_bypass_resource_ids=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, restore_parameters=None, system_data=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
         if analytical_storage_configuration and not isinstance(analytical_storage_configuration, dict):
             raise TypeError("Expected argument 'analytical_storage_configuration' to be a dict")
         pulumi.set(__self__, "analytical_storage_configuration", analytical_storage_configuration)
@@ -55,6 +55,9 @@ class GetDatabaseAccountResult:
         if create_mode and not isinstance(create_mode, str):
             raise TypeError("Expected argument 'create_mode' to be a str")
         pulumi.set(__self__, "create_mode", create_mode)
+        if customer_managed_key_status and not isinstance(customer_managed_key_status, str):
+            raise TypeError("Expected argument 'customer_managed_key_status' to be a str")
+        pulumi.set(__self__, "customer_managed_key_status", customer_managed_key_status)
         if database_account_offer_type and not isinstance(database_account_offer_type, str):
             raise TypeError("Expected argument 'database_account_offer_type' to be a str")
         pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
@@ -76,6 +79,9 @@ class GetDatabaseAccountResult:
         if enable_automatic_failover and not isinstance(enable_automatic_failover, bool):
             raise TypeError("Expected argument 'enable_automatic_failover' to be a bool")
         pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
+        if enable_burst_capacity and not isinstance(enable_burst_capacity, bool):
+            raise TypeError("Expected argument 'enable_burst_capacity' to be a bool")
+        pulumi.set(__self__, "enable_burst_capacity", enable_burst_capacity)
         if enable_cassandra_connector and not isinstance(enable_cassandra_connector, bool):
             raise TypeError("Expected argument 'enable_cassandra_connector' to be a bool")
         pulumi.set(__self__, "enable_cassandra_connector", enable_cassandra_connector)
@@ -88,6 +94,9 @@ class GetDatabaseAccountResult:
         if enable_partition_merge and not isinstance(enable_partition_merge, bool):
             raise TypeError("Expected argument 'enable_partition_merge' to be a bool")
         pulumi.set(__self__, "enable_partition_merge", enable_partition_merge)
+        if enable_per_region_per_partition_autoscale and not isinstance(enable_per_region_per_partition_autoscale, bool):
+            raise TypeError("Expected argument 'enable_per_region_per_partition_autoscale' to be a bool")
+        pulumi.set(__self__, "enable_per_region_per_partition_autoscale", enable_per_region_per_partition_autoscale)
         if failover_policies and not isinstance(failover_policies, list):
             raise TypeError("Expected argument 'failover_policies' to be a list")
         pulumi.set(__self__, "failover_policies", failover_policies)
@@ -237,6 +246,14 @@ class GetDatabaseAccountResult:
         return pulumi.get(self, "create_mode")
 
     @property
+    @pulumi.getter(name="customerManagedKeyStatus")
+    def customer_managed_key_status(self) -> Optional[str]:
+        """
+        Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
+        """
+        return pulumi.get(self, "customer_managed_key_status")
+
+    @property
     @pulumi.getter(name="databaseAccountOfferType")
     def database_account_offer_type(self) -> str:
         """
@@ -293,6 +310,14 @@ class GetDatabaseAccountResult:
         return pulumi.get(self, "enable_automatic_failover")
 
     @property
+    @pulumi.getter(name="enableBurstCapacity")
+    def enable_burst_capacity(self) -> Optional[bool]:
+        """
+        Flag to indicate enabling/disabling of Burst Capacity feature on the account
+        """
+        return pulumi.get(self, "enable_burst_capacity")
+
+    @property
     @pulumi.getter(name="enableCassandraConnector")
     def enable_cassandra_connector(self) -> Optional[bool]:
         """
@@ -323,6 +348,14 @@ class GetDatabaseAccountResult:
         Flag to indicate enabling/disabling of Partition Merge feature on the account
         """
         return pulumi.get(self, "enable_partition_merge")
+
+    @property
+    @pulumi.getter(name="enablePerRegionPerPartitionAutoscale")
+    def enable_per_region_per_partition_autoscale(self) -> Optional[bool]:
+        """
+        Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
+        """
+        return pulumi.get(self, "enable_per_region_per_partition_autoscale")
 
     @property
     @pulumi.getter(name="failoverPolicies")
@@ -540,6 +573,7 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             consistency_policy=self.consistency_policy,
             cors=self.cors,
             create_mode=self.create_mode,
+            customer_managed_key_status=self.customer_managed_key_status,
             database_account_offer_type=self.database_account_offer_type,
             default_identity=self.default_identity,
             disable_key_based_metadata_write_access=self.disable_key_based_metadata_write_access,
@@ -547,10 +581,12 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             document_endpoint=self.document_endpoint,
             enable_analytical_storage=self.enable_analytical_storage,
             enable_automatic_failover=self.enable_automatic_failover,
+            enable_burst_capacity=self.enable_burst_capacity,
             enable_cassandra_connector=self.enable_cassandra_connector,
             enable_free_tier=self.enable_free_tier,
             enable_multiple_write_locations=self.enable_multiple_write_locations,
             enable_partition_merge=self.enable_partition_merge,
+            enable_per_region_per_partition_autoscale=self.enable_per_region_per_partition_autoscale,
             failover_policies=self.failover_policies,
             id=self.id,
             identity=self.identity,
@@ -583,9 +619,9 @@ def get_database_account(account_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseAccountResult:
     """
     Retrieves the properties of an existing Azure Cosmos DB database account.
-    Azure REST API version: 2023-04-15.
+    Azure REST API version: 2024-11-15.
 
-    Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+    Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-12-01-preview.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -607,6 +643,7 @@ def get_database_account(account_name: Optional[str] = None,
         consistency_policy=pulumi.get(__ret__, 'consistency_policy'),
         cors=pulumi.get(__ret__, 'cors'),
         create_mode=pulumi.get(__ret__, 'create_mode'),
+        customer_managed_key_status=pulumi.get(__ret__, 'customer_managed_key_status'),
         database_account_offer_type=pulumi.get(__ret__, 'database_account_offer_type'),
         default_identity=pulumi.get(__ret__, 'default_identity'),
         disable_key_based_metadata_write_access=pulumi.get(__ret__, 'disable_key_based_metadata_write_access'),
@@ -614,10 +651,12 @@ def get_database_account(account_name: Optional[str] = None,
         document_endpoint=pulumi.get(__ret__, 'document_endpoint'),
         enable_analytical_storage=pulumi.get(__ret__, 'enable_analytical_storage'),
         enable_automatic_failover=pulumi.get(__ret__, 'enable_automatic_failover'),
+        enable_burst_capacity=pulumi.get(__ret__, 'enable_burst_capacity'),
         enable_cassandra_connector=pulumi.get(__ret__, 'enable_cassandra_connector'),
         enable_free_tier=pulumi.get(__ret__, 'enable_free_tier'),
         enable_multiple_write_locations=pulumi.get(__ret__, 'enable_multiple_write_locations'),
         enable_partition_merge=pulumi.get(__ret__, 'enable_partition_merge'),
+        enable_per_region_per_partition_autoscale=pulumi.get(__ret__, 'enable_per_region_per_partition_autoscale'),
         failover_policies=pulumi.get(__ret__, 'failover_policies'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -648,9 +687,9 @@ def get_database_account_output(account_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseAccountResult]:
     """
     Retrieves the properties of an existing Azure Cosmos DB database account.
-    Azure REST API version: 2023-04-15.
+    Azure REST API version: 2024-11-15.
 
-    Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+    Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-12-01-preview.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -671,6 +710,7 @@ def get_database_account_output(account_name: Optional[pulumi.Input[str]] = None
         consistency_policy=pulumi.get(__response__, 'consistency_policy'),
         cors=pulumi.get(__response__, 'cors'),
         create_mode=pulumi.get(__response__, 'create_mode'),
+        customer_managed_key_status=pulumi.get(__response__, 'customer_managed_key_status'),
         database_account_offer_type=pulumi.get(__response__, 'database_account_offer_type'),
         default_identity=pulumi.get(__response__, 'default_identity'),
         disable_key_based_metadata_write_access=pulumi.get(__response__, 'disable_key_based_metadata_write_access'),
@@ -678,10 +718,12 @@ def get_database_account_output(account_name: Optional[pulumi.Input[str]] = None
         document_endpoint=pulumi.get(__response__, 'document_endpoint'),
         enable_analytical_storage=pulumi.get(__response__, 'enable_analytical_storage'),
         enable_automatic_failover=pulumi.get(__response__, 'enable_automatic_failover'),
+        enable_burst_capacity=pulumi.get(__response__, 'enable_burst_capacity'),
         enable_cassandra_connector=pulumi.get(__response__, 'enable_cassandra_connector'),
         enable_free_tier=pulumi.get(__response__, 'enable_free_tier'),
         enable_multiple_write_locations=pulumi.get(__response__, 'enable_multiple_write_locations'),
         enable_partition_merge=pulumi.get(__response__, 'enable_partition_merge'),
+        enable_per_region_per_partition_autoscale=pulumi.get(__response__, 'enable_per_region_per_partition_autoscale'),
         failover_policies=pulumi.get(__response__, 'failover_policies'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

@@ -128,6 +128,8 @@ def get_management_lock_at_subscription_level(lock_name: Optional[str] = None,
     Gets a management lock at the subscription level.
     Azure REST API version: 2020-05-01.
 
+    Other available API versions: 2017-04-01.
+
 
     :param str lock_name: The name of the lock to get.
     """
@@ -149,6 +151,8 @@ def get_management_lock_at_subscription_level_output(lock_name: Optional[pulumi.
     """
     Gets a management lock at the subscription level.
     Azure REST API version: 2020-05-01.
+
+    Other available API versions: 2017-04-01.
 
 
     :param str lock_name: The name of the lock to get.

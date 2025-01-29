@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a single private workbook by its resourceName.
  * Azure REST API version: 2021-03-08.
+ *
+ * Other available API versions: 2015-05-01, 2020-10-20.
  */
 export function getMyWorkbook(args: GetMyWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetMyWorkbookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,6 +108,8 @@ export interface GetMyWorkbookResult {
 /**
  * Get a single private workbook by its resourceName.
  * Azure REST API version: 2021-03-08.
+ *
+ * Other available API versions: 2015-05-01, 2020-10-20.
  */
 export function getMyWorkbookOutput(args: GetMyWorkbookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMyWorkbookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

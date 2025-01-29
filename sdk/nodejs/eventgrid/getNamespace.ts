@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a namespace.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,7 +49,10 @@ export interface GetNamespaceResult {
      */
     readonly inboundIpRules?: outputs.eventgrid.InboundIpRuleResponse[];
     /**
-     * Allows the user to specify if the service is zone-redundant. This is a required property and user needs to specify this value explicitly.
+     * This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
+     * property is not specified explicitly by the user, its default value depends on the following conditions:
+     *   a. For Availability Zones enabled regions - The default property value would be true.
+     *   b. For non-Availability Zones enabled regions - The default property value would be false.
      * Once specified, this property cannot be updated.
      */
     readonly isZoneRedundant?: boolean;
@@ -65,6 +68,9 @@ export interface GetNamespaceResult {
      * Name of the resource.
      */
     readonly name: string;
+    /**
+     * List of private endpoint connections.
+     */
     readonly privateEndpointConnections?: outputs.eventgrid.PrivateEndpointConnectionResponse[];
     /**
      * Provisioning state of the namespace resource.
@@ -80,7 +86,7 @@ export interface GetNamespaceResult {
      */
     readonly sku?: outputs.eventgrid.NamespaceSkuResponse;
     /**
-     * The system metadata relating to the namespace resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -102,9 +108,9 @@ export interface GetNamespaceResult {
 }
 /**
  * Get properties of a namespace.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

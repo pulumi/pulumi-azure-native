@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
-        /// Azure REST API version: 2023-11-15-preview.
+        /// Azure REST API version: 2024-12-01-preview.
         /// 
-        /// Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
         /// </summary>
         public static Task<GetThroughputPoolResult> InvokeAsync(GetThroughputPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetThroughputPoolResult>("azure-native:documentdb:getThroughputPool", args ?? new GetThroughputPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
-        /// Azure REST API version: 2023-11-15-preview.
+        /// Azure REST API version: 2024-12-01-preview.
         /// 
-        /// Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetThroughputPoolResult> Invoke(GetThroughputPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThroughputPoolResult>("azure-native:documentdb:getThroughputPool", args ?? new GetThroughputPoolInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
-        /// Azure REST API version: 2023-11-15-preview.
+        /// Azure REST API version: 2024-12-01-preview.
         /// 
-        /// Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetThroughputPoolResult> Invoke(GetThroughputPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetThroughputPoolResult>("azure-native:documentdb:getThroughputPool", args ?? new GetThroughputPoolInvokeArgs(), options.WithDefaults());

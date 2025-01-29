@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the Shared Image Gallery that you want to create or update.
- * Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
+ * Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
  *
- * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+ * Other available API versions: 2020-09-30, 2021-07-01, 2021-10-01, 2022-01-03, 2022-03-03, 2022-08-03, 2023-07-03.
  */
 export class Gallery extends pulumi.CustomResource {
     /**
@@ -48,6 +48,10 @@ export class Gallery extends pulumi.CustomResource {
      * Describes the gallery unique name.
      */
     public /*out*/ readonly identifier!: pulumi.Output<outputs.compute.GalleryIdentifierResponse | undefined>;
+    /**
+     * The identity of the gallery, if configured.
+     */
+    public readonly identity!: pulumi.Output<outputs.compute.GalleryIdentityResponse | undefined>;
     /**
      * Resource location
      */
@@ -97,6 +101,7 @@ export class Gallery extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["galleryName"] = args ? args.galleryName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sharingProfile"] = args ? args.sharingProfile : undefined;
@@ -110,6 +115,7 @@ export class Gallery extends pulumi.CustomResource {
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -138,6 +144,10 @@ export interface GalleryArgs {
      * The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
      */
     galleryName?: pulumi.Input<string>;
+    /**
+     * The identity of the gallery, if configured.
+     */
+    identity?: pulumi.Input<inputs.compute.GalleryIdentityArgs>;
     /**
      * Resource location
      */

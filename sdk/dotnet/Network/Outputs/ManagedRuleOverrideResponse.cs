@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string RuleId;
         /// <summary>
+        /// Describes the override sensitivity to be applied when rule matches.
+        /// </summary>
+        public readonly string? Sensitivity;
+        /// <summary>
         /// The state of the managed rule. Defaults to Disabled if not specified.
         /// </summary>
         public readonly string? State;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string ruleId,
 
+            string? sensitivity,
+
             string? state)
         {
             Action = action;
             RuleId = ruleId;
+            Sensitivity = sensitivity;
             State = state;
         }
     }

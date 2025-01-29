@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Access Review Schedule Definition.
- * Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+ * Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 2.x: 2021-12-01-preview.
+ *
+ * Other available API versions: 2018-05-01-preview, 2021-03-01-preview, 2021-07-01-preview, 2021-11-16-preview.
  */
 export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
     /**
@@ -39,10 +41,6 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
     }
 
     /**
-     * The role assignment state eligible/active to review
-     */
-    public /*out*/ readonly assignmentState!: pulumi.Output<string>;
-    /**
      * Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
      */
     public readonly autoApplyDecisionsEnabled!: pulumi.Output<boolean | undefined>;
@@ -71,34 +69,6 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * The DateTime when the review is scheduled to end. Required if type is endDate
-     */
-    public readonly endDate!: pulumi.Output<string | undefined>;
-    /**
-     * This is used to indicate the resource id(s) to exclude
-     */
-    public readonly excludeResourceId!: pulumi.Output<string | undefined>;
-    /**
-     * This is used to indicate the role definition id(s) to exclude
-     */
-    public readonly excludeRoleDefinitionId!: pulumi.Output<string | undefined>;
-    /**
-     * Flag to indicate whether to expand nested memberships or not.
-     */
-    public readonly expandNestedMemberships!: pulumi.Output<boolean | undefined>;
-    /**
-     * Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
-     */
-    public readonly inactiveDuration!: pulumi.Output<string | undefined>;
-    /**
-     * Flag to indicate whether to expand nested memberships or not.
-     */
-    public readonly includeAccessBelowResource!: pulumi.Output<boolean | undefined>;
-    /**
-     * Flag to indicate whether to expand nested memberships or not.
-     */
-    public readonly includeInheritedAccess!: pulumi.Output<boolean | undefined>;
-    /**
      * The duration in days for an instance.
      */
     public readonly instanceDurationInDays!: pulumi.Output<number | undefined>;
@@ -123,10 +93,6 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The number of times to repeat the access review. Required and must be positive if type is numbered.
-     */
-    public readonly numberOfOccurrences!: pulumi.Output<number | undefined>;
-    /**
      * The identity id
      */
     public /*out*/ readonly principalId!: pulumi.Output<string>;
@@ -135,9 +101,13 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
      */
     public /*out*/ readonly principalName!: pulumi.Output<string>;
     /**
-     * The identity type user/servicePrincipal to review
+     * The identity type : user/servicePrincipal
      */
     public /*out*/ readonly principalType!: pulumi.Output<string>;
+    /**
+     * Access Review schedule definition recurrence range.
+     */
+    public readonly range!: pulumi.Output<outputs.authorization.AccessReviewRecurrenceRangeResponse | undefined>;
     /**
      * Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
      */
@@ -151,10 +121,6 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
      */
     public readonly reminderNotificationsEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * ResourceId in which this review is getting created
-     */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
-    /**
      * This is the collection of reviewers.
      */
     public readonly reviewers!: pulumi.Output<outputs.authorization.AccessReviewReviewerResponse[] | undefined>;
@@ -163,13 +129,9 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
      */
     public /*out*/ readonly reviewersType!: pulumi.Output<string>;
     /**
-     * This is used to indicate the role being reviewed
+     * This is used to define what to include in scope of the review. The scope definition includes the resourceId and roleDefinitionId.
      */
-    public /*out*/ readonly roleDefinitionId!: pulumi.Output<string>;
-    /**
-     * The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-     */
-    public readonly startDate!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly scope!: pulumi.Output<outputs.authorization.AccessReviewScopeResponse>;
     /**
      * This read-only field specifies the status of an accessReview.
      */
@@ -201,7 +163,6 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             resourceInputs["descriptionForAdmins"] = args ? args.descriptionForAdmins : undefined;
             resourceInputs["descriptionForReviewers"] = args ? args.descriptionForReviewers : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["endDate"] = args ? args.endDate : undefined;
             resourceInputs["excludeResourceId"] = args ? args.excludeResourceId : undefined;
             resourceInputs["excludeRoleDefinitionId"] = args ? args.excludeRoleDefinitionId : undefined;
             resourceInputs["expandNestedMemberships"] = args ? args.expandNestedMemberships : undefined;
@@ -213,26 +174,22 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             resourceInputs["interval"] = args ? args.interval : undefined;
             resourceInputs["justificationRequiredOnApproval"] = args ? args.justificationRequiredOnApproval : undefined;
             resourceInputs["mailNotificationsEnabled"] = args ? args.mailNotificationsEnabled : undefined;
-            resourceInputs["numberOfOccurrences"] = args ? args.numberOfOccurrences : undefined;
+            resourceInputs["range"] = args ? args.range : undefined;
             resourceInputs["recommendationLookBackDuration"] = args ? args.recommendationLookBackDuration : undefined;
             resourceInputs["recommendationsEnabled"] = args ? args.recommendationsEnabled : undefined;
             resourceInputs["reminderNotificationsEnabled"] = args ? args.reminderNotificationsEnabled : undefined;
             resourceInputs["reviewers"] = args ? args.reviewers : undefined;
             resourceInputs["scheduleDefinitionId"] = args ? args.scheduleDefinitionId : undefined;
-            resourceInputs["startDate"] = args ? args.startDate : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["assignmentState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
             resourceInputs["principalType"] = undefined /*out*/;
-            resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["reviewersType"] = undefined /*out*/;
-            resourceInputs["roleDefinitionId"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["userPrincipalName"] = undefined /*out*/;
         } else {
-            resourceInputs["assignmentState"] = undefined /*out*/;
             resourceInputs["autoApplyDecisionsEnabled"] = undefined /*out*/;
             resourceInputs["backupReviewers"] = undefined /*out*/;
             resourceInputs["defaultDecision"] = undefined /*out*/;
@@ -240,31 +197,22 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             resourceInputs["descriptionForAdmins"] = undefined /*out*/;
             resourceInputs["descriptionForReviewers"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["endDate"] = undefined /*out*/;
-            resourceInputs["excludeResourceId"] = undefined /*out*/;
-            resourceInputs["excludeRoleDefinitionId"] = undefined /*out*/;
-            resourceInputs["expandNestedMemberships"] = undefined /*out*/;
-            resourceInputs["inactiveDuration"] = undefined /*out*/;
-            resourceInputs["includeAccessBelowResource"] = undefined /*out*/;
-            resourceInputs["includeInheritedAccess"] = undefined /*out*/;
             resourceInputs["instanceDurationInDays"] = undefined /*out*/;
             resourceInputs["instances"] = undefined /*out*/;
             resourceInputs["interval"] = undefined /*out*/;
             resourceInputs["justificationRequiredOnApproval"] = undefined /*out*/;
             resourceInputs["mailNotificationsEnabled"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["numberOfOccurrences"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
             resourceInputs["principalType"] = undefined /*out*/;
+            resourceInputs["range"] = undefined /*out*/;
             resourceInputs["recommendationLookBackDuration"] = undefined /*out*/;
             resourceInputs["recommendationsEnabled"] = undefined /*out*/;
             resourceInputs["reminderNotificationsEnabled"] = undefined /*out*/;
-            resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["reviewers"] = undefined /*out*/;
             resourceInputs["reviewersType"] = undefined /*out*/;
-            resourceInputs["roleDefinitionId"] = undefined /*out*/;
-            resourceInputs["startDate"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userPrincipalName"] = undefined /*out*/;
@@ -308,10 +256,6 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
      * The display name for the schedule definition.
      */
     displayName?: pulumi.Input<string>;
-    /**
-     * The DateTime when the review is scheduled to end. Required if type is endDate
-     */
-    endDate?: pulumi.Input<string>;
     /**
      * This is used to indicate the resource id(s) to exclude
      */
@@ -357,9 +301,9 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
      */
     mailNotificationsEnabled?: pulumi.Input<boolean>;
     /**
-     * The number of times to repeat the access review. Required and must be positive if type is numbered.
+     * Access Review schedule definition recurrence range.
      */
-    numberOfOccurrences?: pulumi.Input<number>;
+    range?: pulumi.Input<inputs.authorization.AccessReviewRecurrenceRangeArgs>;
     /**
      * Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
      */
@@ -381,11 +325,7 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
      */
     scheduleDefinitionId?: pulumi.Input<string>;
     /**
-     * The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+     * The recurrence type : weekly, monthly, etc.
      */
-    startDate?: pulumi.Input<string>;
-    /**
-     * The recurrence range type. The possible values are: endDate, noEnd, numbered.
-     */
-    type?: pulumi.Input<string | enums.authorization.AccessReviewRecurrenceRangeType>;
+    type?: pulumi.Input<string | enums.authorization.AccessReviewRecurrencePatternType>;
 }

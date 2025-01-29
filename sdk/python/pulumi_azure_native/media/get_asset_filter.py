@@ -131,6 +131,8 @@ def get_asset_filter(account_name: Optional[str] = None,
     Get the details of an Asset Filter associated with the specified Asset.
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
+
 
     :param str account_name: The Media Services account name.
     :param str asset_name: The Asset name.
@@ -161,6 +163,8 @@ def get_asset_filter_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Get the details of an Asset Filter associated with the specified Asset.
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
 
 
     :param str account_name: The Media Services account name.

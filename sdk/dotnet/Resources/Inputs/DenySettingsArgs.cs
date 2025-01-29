@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.Resources.Inputs
 {
 
     /// <summary>
-    /// Defines how resources deployed by the deployment stack are locked.
+    /// Defines how resources deployed by the Deployment stack are locked.
     /// </summary>
     public sealed class DenySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// DenySettings will be applied to child scopes.
+        /// DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
         /// </summary>
         [Input("applyToChildScopes")]
         public Input<bool>? ApplyToChildScopes { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Resources.Inputs
         }
 
         /// <summary>
-        /// denySettings Mode.
+        /// denySettings Mode that defines denied actions.
         /// </summary>
         [Input("mode", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Resources.DenySettingsMode> Mode { get; set; } = null!;

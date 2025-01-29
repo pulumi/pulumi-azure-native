@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// Get the description of an existing time series database connection.
         /// Azure REST API version: 2023-01-31.
+        /// 
+        /// Other available API versions: 2021-06-30-preview, 2022-05-31, 2022-10-31.
         /// </summary>
         public static Task<GetTimeSeriesDatabaseConnectionResult> InvokeAsync(GetTimeSeriesDatabaseConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTimeSeriesDatabaseConnectionResult>("azure-native:digitaltwins:getTimeSeriesDatabaseConnection", args ?? new GetTimeSeriesDatabaseConnectionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// Get the description of an existing time series database connection.
         /// Azure REST API version: 2023-01-31.
+        /// 
+        /// Other available API versions: 2021-06-30-preview, 2022-05-31, 2022-10-31.
         /// </summary>
         public static Output<GetTimeSeriesDatabaseConnectionResult> Invoke(GetTimeSeriesDatabaseConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTimeSeriesDatabaseConnectionResult>("azure-native:digitaltwins:getTimeSeriesDatabaseConnection", args ?? new GetTimeSeriesDatabaseConnectionInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// Get the description of an existing time series database connection.
         /// Azure REST API version: 2023-01-31.
+        /// 
+        /// Other available API versions: 2021-06-30-preview, 2022-05-31, 2022-10-31.
         /// </summary>
         public static Output<GetTimeSeriesDatabaseConnectionResult> Invoke(GetTimeSeriesDatabaseConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTimeSeriesDatabaseConnectionResult>("azure-native:digitaltwins:getTimeSeriesDatabaseConnection", args ?? new GetTimeSeriesDatabaseConnectionInvokeArgs(), options.WithDefaults());

@@ -107,9 +107,9 @@ def get_capability(capability_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapabilityResult:
     """
     Get a Capability resource that extends a Target resource.
-    Azure REST API version: 2023-04-15-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview.
+    Other available API versions: 2021-09-15-preview, 2022-07-01-preview, 2022-10-01-preview, 2023-04-01-preview, 2023-04-15-preview, 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-03-22-preview, 2024-11-01-preview.
 
 
     :param str capability_name: String that represents a Capability resource name.
@@ -144,9 +144,9 @@ def get_capability_output(capability_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapabilityResult]:
     """
     Get a Capability resource that extends a Target resource.
-    Azure REST API version: 2023-04-15-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview.
+    Other available API versions: 2021-09-15-preview, 2022-07-01-preview, 2022-10-01-preview, 2023-04-01-preview, 2023-04-15-preview, 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-03-22-preview, 2024-11-01-preview.
 
 
     :param str capability_name: String that represents a Capability resource name.

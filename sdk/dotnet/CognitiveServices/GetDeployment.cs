@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.CognitiveServices
     {
         /// <summary>
         /// Gets the specified deployments associated with the Cognitive Services account.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// Other available API versions: 2021-10-01, 2022-03-01, 2022-10-01, 2022-12-01, 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:cognitiveservices:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified deployments associated with the Cognitive Services account.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// Other available API versions: 2021-10-01, 2022-03-01, 2022-10-01, 2022-12-01, 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:cognitiveservices:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified deployments associated with the Cognitive Services account.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// Other available API versions: 2021-10-01, 2022-03-01, 2022-10-01, 2022-12-01, 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:cognitiveservices:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
@@ -121,6 +121,10 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -139,6 +143,8 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             Outputs.SystemDataResponse systemData,
 
+            ImmutableDictionary<string, string>? tags,
+
             string type)
         {
             Etag = etag;
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.CognitiveServices
             Properties = properties;
             Sku = sku;
             SystemData = systemData;
+            Tags = tags;
             Type = type;
         }
     }

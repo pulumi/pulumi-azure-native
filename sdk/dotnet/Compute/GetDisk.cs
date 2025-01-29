@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Gets information about a disk.
-        /// Azure REST API version: 2022-07-02.
+        /// Azure REST API version: 2024-03-02.
         /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Other available API versions: 2020-09-30, 2020-12-01, 2021-04-01, 2021-08-01, 2021-12-01, 2022-03-02, 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02.
         /// </summary>
         public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-native:compute:getDisk", args ?? new GetDiskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a disk.
-        /// Azure REST API version: 2022-07-02.
+        /// Azure REST API version: 2024-03-02.
         /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Other available API versions: 2020-09-30, 2020-12-01, 2021-04-01, 2021-08-01, 2021-12-01, 2022-03-02, 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02.
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:compute:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a disk.
-        /// Azure REST API version: 2022-07-02.
+        /// Azure REST API version: 2024-03-02.
         /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Other available API versions: 2020-09-30, 2020-12-01, 2021-04-01, 2021-08-01, 2021-12-01, 2022-03-02, 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02.
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:compute:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
@@ -156,6 +156,10 @@ namespace Pulumi.AzureNative.Compute
         /// Resource Id
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The UTC time when the ownership state of the disk was last changed i.e., the time the disk was last attached or detached from a VM or the time when the VM to which the disk was attached was deallocated or started.
+        /// </summary>
+        public readonly string LastOwnershipUpdateTime;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -287,6 +291,8 @@ namespace Pulumi.AzureNative.Compute
 
             string id,
 
+            string lastOwnershipUpdateTime,
+
             string location,
 
             string managedBy,
@@ -351,6 +357,7 @@ namespace Pulumi.AzureNative.Compute
             ExtendedLocation = extendedLocation;
             HyperVGeneration = hyperVGeneration;
             Id = id;
+            LastOwnershipUpdateTime = lastOwnershipUpdateTime;
             Location = location;
             ManagedBy = managedBy;
             ManagedByExtended = managedByExtended;

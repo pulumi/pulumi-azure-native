@@ -27,7 +27,10 @@ class GetEnvironmentTypeResult:
     """
     Represents an environment type.
     """
-    def __init__(__self__, id=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, display_name=None, id=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -48,10 +51,18 @@ class GetEnvironmentTypeResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the environment type.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -102,6 +113,7 @@ class AwaitableGetEnvironmentTypeResult(GetEnvironmentTypeResult):
         if False:
             yield self
         return GetEnvironmentTypeResult(
+            display_name=self.display_name,
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -116,9 +128,9 @@ def get_environment_type(dev_center_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentTypeResult:
     """
     Gets an environment type.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2022-08-01-preview, 2022-09-01-preview, 2022-10-12-preview, 2022-11-11-preview, 2023-01-01-preview, 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -133,6 +145,7 @@ def get_environment_type(dev_center_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter:getEnvironmentType', __args__, opts=opts, typ=GetEnvironmentTypeResult).value
 
     return AwaitableGetEnvironmentTypeResult(
+        display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -145,9 +158,9 @@ def get_environment_type_output(dev_center_name: Optional[pulumi.Input[str]] = N
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentTypeResult]:
     """
     Gets an environment type.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2022-08-01-preview, 2022-09-01-preview, 2022-10-12-preview, 2022-11-11-preview, 2023-01-01-preview, 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -161,6 +174,7 @@ def get_environment_type_output(dev_center_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getEnvironmentType', __args__, opts=opts, typ=GetEnvironmentTypeResult)
     return __ret__.apply(lambda __response__: GetEnvironmentTypeResult(
+        display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

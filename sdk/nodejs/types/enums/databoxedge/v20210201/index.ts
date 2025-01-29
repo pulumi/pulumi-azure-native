@@ -2,6 +2,48 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccountType = {
+    GeneralPurposeStorage: "GeneralPurposeStorage",
+    BlobStorage: "BlobStorage",
+} as const;
+
+/**
+ * Type of storage accessed on the storage account.
+ */
+export type AccountType = (typeof AccountType)[keyof typeof AccountType];
+
+export const AddonType = {
+    IotEdge: "IotEdge",
+    ArcForKubernetes: "ArcForKubernetes",
+} as const;
+
+/**
+ * Addon type.
+ */
+export type AddonType = (typeof AddonType)[keyof typeof AddonType];
+
+export const AzureContainerDataFormat = {
+    BlockBlob: "BlockBlob",
+    PageBlob: "PageBlob",
+    AzureFile: "AzureFile",
+} as const;
+
+/**
+ * Storage format used for the file represented by the share.
+ */
+export type AzureContainerDataFormat = (typeof AzureContainerDataFormat)[keyof typeof AzureContainerDataFormat];
+
+export const ClientPermissionType = {
+    NoAccess: "NoAccess",
+    ReadOnly: "ReadOnly",
+    ReadWrite: "ReadWrite",
+} as const;
+
+/**
+ * Type of access to be allowed for the client.
+ */
+export type ClientPermissionType = (typeof ClientPermissionType)[keyof typeof ClientPermissionType];
+
 export const DataBoxEdgeDeviceKind = {
     AzureDataBoxGateway: "AzureDataBoxGateway",
     AzureStackEdge: "AzureStackEdge",
@@ -29,6 +71,16 @@ export const DataBoxEdgeDeviceStatus = {
  */
 export type DataBoxEdgeDeviceStatus = (typeof DataBoxEdgeDeviceStatus)[keyof typeof DataBoxEdgeDeviceStatus];
 
+export const DataPolicy = {
+    Cloud: "Cloud",
+    Local: "Local",
+} as const;
+
+/**
+ * Data policy of the storage Account.
+ */
+export type DataPolicy = (typeof DataPolicy)[keyof typeof DataPolicy];
+
 export const DataResidencyType = {
     GeoZoneReplication: "GeoZoneReplication",
     ZoneReplication: "ZoneReplication",
@@ -38,6 +90,39 @@ export const DataResidencyType = {
  * DataResidencyType enum
  */
 export type DataResidencyType = (typeof DataResidencyType)[keyof typeof DataResidencyType];
+
+export const DayOfWeek = {
+    Sunday: "Sunday",
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+} as const;
+
+export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+export const EncryptionAlgorithm = {
+    None: "None",
+    AES256: "AES256",
+    RSAES_PKCS1_v_1_5: "RSAES_PKCS1_v_1_5",
+} as const;
+
+/**
+ * The algorithm used to encrypt "Value".
+ */
+export type EncryptionAlgorithm = (typeof EncryptionAlgorithm)[keyof typeof EncryptionAlgorithm];
+
+export const MonitoringStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Current monitoring status of the share.
+ */
+export type MonitoringStatus = (typeof MonitoringStatus)[keyof typeof MonitoringStatus];
 
 export const MsiIdentityType = {
     None: "None",
@@ -49,6 +134,96 @@ export const MsiIdentityType = {
  * Identity type
  */
 export type MsiIdentityType = (typeof MsiIdentityType)[keyof typeof MsiIdentityType];
+
+export const PlatformType = {
+    Windows: "Windows",
+    Linux: "Linux",
+} as const;
+
+/**
+ * Host OS supported by the Kubernetes role.
+ */
+export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
+
+export const RoleStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Role status.
+ */
+export type RoleStatus = (typeof RoleStatus)[keyof typeof RoleStatus];
+
+export const RoleTypes = {
+    IOT: "IOT",
+    ASA: "ASA",
+    Functions: "Functions",
+    Cognitive: "Cognitive",
+    MEC: "MEC",
+    CloudEdgeManagement: "CloudEdgeManagement",
+    Kubernetes: "Kubernetes",
+} as const;
+
+/**
+ * Role type.
+ */
+export type RoleTypes = (typeof RoleTypes)[keyof typeof RoleTypes];
+
+export const SSLStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Signifies whether SSL needs to be enabled or not.
+ */
+export type SSLStatus = (typeof SSLStatus)[keyof typeof SSLStatus];
+
+export const ShareAccessProtocol = {
+    SMB: "SMB",
+    NFS: "NFS",
+} as const;
+
+/**
+ * Access protocol to be used by the share.
+ */
+export type ShareAccessProtocol = (typeof ShareAccessProtocol)[keyof typeof ShareAccessProtocol];
+
+export const ShareAccessType = {
+    Change: "Change",
+    Read: "Read",
+    Custom: "Custom",
+} as const;
+
+/**
+ * Type of access to be allowed for the user.
+ */
+export type ShareAccessType = (typeof ShareAccessType)[keyof typeof ShareAccessType];
+
+export const ShareStatus = {
+    Offline: "Offline",
+    Unknown: "Unknown",
+    OK: "OK",
+    Updating: "Updating",
+    NeedsAttention: "NeedsAttention",
+} as const;
+
+/**
+ * Current status of the share.
+ */
+export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
+
+export const ShipmentType = {
+    NotApplicable: "NotApplicable",
+    ShippedToCustomer: "ShippedToCustomer",
+    SelfPickup: "SelfPickup",
+} as const;
+
+/**
+ * ShipmentType of the order
+ */
+export type ShipmentType = (typeof ShipmentType)[keyof typeof ShipmentType];
 
 export const SkuName = {
     Gateway: "Gateway",
@@ -91,3 +266,37 @@ export const SkuTier = {
  * The SKU tier. This is based on the SKU name.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+
+export const StorageAccountStatus = {
+    OK: "OK",
+    Offline: "Offline",
+    Unknown: "Unknown",
+    Updating: "Updating",
+    NeedsAttention: "NeedsAttention",
+} as const;
+
+/**
+ * Current status of the storage account
+ */
+export type StorageAccountStatus = (typeof StorageAccountStatus)[keyof typeof StorageAccountStatus];
+
+export const TriggerEventType = {
+    FileEvent: "FileEvent",
+    PeriodicTimerEvent: "PeriodicTimerEvent",
+} as const;
+
+/**
+ * Trigger Kind.
+ */
+export type TriggerEventType = (typeof TriggerEventType)[keyof typeof TriggerEventType];
+
+export const UserType = {
+    Share: "Share",
+    LocalManagement: "LocalManagement",
+    ARM: "ARM",
+} as const;
+
+/**
+ * Type of the user.
+ */
+export type UserType = (typeof UserType)[keyof typeof UserType];

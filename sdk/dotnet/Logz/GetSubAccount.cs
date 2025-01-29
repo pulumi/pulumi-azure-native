@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Logz
         /// <summary>
         /// 
         /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview.
         /// </summary>
         public static Task<GetSubAccountResult> InvokeAsync(GetSubAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Logz
         /// <summary>
         /// 
         /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview.
         /// </summary>
         public static Output<GetSubAccountResult> Invoke(GetSubAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Logz
         /// <summary>
         /// 
         /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview.
         /// </summary>
         public static Output<GetSubAccountResult> Invoke(GetSubAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountInvokeArgs(), options.WithDefaults());

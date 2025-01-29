@@ -25,12 +25,11 @@ class OpenShiftClusterArgs:
                  resource_group_name: pulumi.Input[str],
                  apiserver_profile: Optional[pulumi.Input['APIServerProfileArgs']] = None,
                  cluster_profile: Optional[pulumi.Input['ClusterProfileArgs']] = None,
-                 console_profile: Optional[pulumi.Input['ConsoleProfileArgs']] = None,
                  ingress_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['IngressProfileArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  master_profile: Optional[pulumi.Input['MasterProfileArgs']] = None,
                  network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  service_principal_profile: Optional[pulumi.Input['ServicePrincipalProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -40,12 +39,11 @@ class OpenShiftClusterArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['APIServerProfileArgs'] apiserver_profile: The cluster API server profile.
         :param pulumi.Input['ClusterProfileArgs'] cluster_profile: The cluster profile.
-        :param pulumi.Input['ConsoleProfileArgs'] console_profile: The console profile.
         :param pulumi.Input[Sequence[pulumi.Input['IngressProfileArgs']]] ingress_profiles: The cluster ingress profiles.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['MasterProfileArgs'] master_profile: The cluster master profile.
         :param pulumi.Input['NetworkProfileArgs'] network_profile: The cluster network profile.
-        :param pulumi.Input[str] provisioning_state: The cluster provisioning state.
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The cluster provisioning state.
         :param pulumi.Input[str] resource_name: The name of the OpenShift cluster resource.
         :param pulumi.Input['ServicePrincipalProfileArgs'] service_principal_profile: The cluster service principal profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -56,8 +54,6 @@ class OpenShiftClusterArgs:
             pulumi.set(__self__, "apiserver_profile", apiserver_profile)
         if cluster_profile is not None:
             pulumi.set(__self__, "cluster_profile", cluster_profile)
-        if console_profile is not None:
-            pulumi.set(__self__, "console_profile", console_profile)
         if ingress_profiles is not None:
             pulumi.set(__self__, "ingress_profiles", ingress_profiles)
         if location is not None:
@@ -114,18 +110,6 @@ class OpenShiftClusterArgs:
         pulumi.set(self, "cluster_profile", value)
 
     @property
-    @pulumi.getter(name="consoleProfile")
-    def console_profile(self) -> Optional[pulumi.Input['ConsoleProfileArgs']]:
-        """
-        The console profile.
-        """
-        return pulumi.get(self, "console_profile")
-
-    @console_profile.setter
-    def console_profile(self, value: Optional[pulumi.Input['ConsoleProfileArgs']]):
-        pulumi.set(self, "console_profile", value)
-
-    @property
     @pulumi.getter(name="ingressProfiles")
     def ingress_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IngressProfileArgs']]]]:
         """
@@ -175,14 +159,14 @@ class OpenShiftClusterArgs:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
         """
         The cluster provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @property
@@ -241,12 +225,11 @@ class OpenShiftCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apiserver_profile: Optional[pulumi.Input[Union['APIServerProfileArgs', 'APIServerProfileArgsDict']]] = None,
                  cluster_profile: Optional[pulumi.Input[Union['ClusterProfileArgs', 'ClusterProfileArgsDict']]] = None,
-                 console_profile: Optional[pulumi.Input[Union['ConsoleProfileArgs', 'ConsoleProfileArgsDict']]] = None,
                  ingress_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IngressProfileArgs', 'IngressProfileArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  master_profile: Optional[pulumi.Input[Union['MasterProfileArgs', 'MasterProfileArgsDict']]] = None,
                  network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  service_principal_profile: Optional[pulumi.Input[Union['ServicePrincipalProfileArgs', 'ServicePrincipalProfileArgsDict']]] = None,
@@ -255,20 +238,19 @@ class OpenShiftCluster(pulumi.CustomResource):
                  __props__=None):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-        Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2020-04-30.
+        Azure REST API version: 2023-11-22. Prior API version in Azure Native 2.x: 2022-09-04.
 
-        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+        Other available API versions: 2020-04-30, 2021-09-01-preview, 2022-04-01, 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['APIServerProfileArgs', 'APIServerProfileArgsDict']] apiserver_profile: The cluster API server profile.
         :param pulumi.Input[Union['ClusterProfileArgs', 'ClusterProfileArgsDict']] cluster_profile: The cluster profile.
-        :param pulumi.Input[Union['ConsoleProfileArgs', 'ConsoleProfileArgsDict']] console_profile: The console profile.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IngressProfileArgs', 'IngressProfileArgsDict']]]] ingress_profiles: The cluster ingress profiles.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['MasterProfileArgs', 'MasterProfileArgsDict']] master_profile: The cluster master profile.
         :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: The cluster network profile.
-        :param pulumi.Input[str] provisioning_state: The cluster provisioning state.
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The cluster provisioning state.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the OpenShift cluster resource.
         :param pulumi.Input[Union['ServicePrincipalProfileArgs', 'ServicePrincipalProfileArgsDict']] service_principal_profile: The cluster service principal profile.
@@ -283,9 +265,9 @@ class OpenShiftCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-        Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2020-04-30.
+        Azure REST API version: 2023-11-22. Prior API version in Azure Native 2.x: 2022-09-04.
 
-        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+        Other available API versions: 2020-04-30, 2021-09-01-preview, 2022-04-01, 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview.
 
         :param str resource_name: The name of the resource.
         :param OpenShiftClusterArgs args: The arguments to use to populate this resource's properties.
@@ -304,12 +286,11 @@ class OpenShiftCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apiserver_profile: Optional[pulumi.Input[Union['APIServerProfileArgs', 'APIServerProfileArgsDict']]] = None,
                  cluster_profile: Optional[pulumi.Input[Union['ClusterProfileArgs', 'ClusterProfileArgsDict']]] = None,
-                 console_profile: Optional[pulumi.Input[Union['ConsoleProfileArgs', 'ConsoleProfileArgsDict']]] = None,
                  ingress_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IngressProfileArgs', 'IngressProfileArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  master_profile: Optional[pulumi.Input[Union['MasterProfileArgs', 'MasterProfileArgsDict']]] = None,
                  network_profile: Optional[pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  service_principal_profile: Optional[pulumi.Input[Union['ServicePrincipalProfileArgs', 'ServicePrincipalProfileArgsDict']]] = None,
@@ -326,7 +307,6 @@ class OpenShiftCluster(pulumi.CustomResource):
 
             __props__.__dict__["apiserver_profile"] = apiserver_profile
             __props__.__dict__["cluster_profile"] = cluster_profile
-            __props__.__dict__["console_profile"] = console_profile
             __props__.__dict__["ingress_profiles"] = ingress_profiles
             __props__.__dict__["location"] = location
             __props__.__dict__["master_profile"] = master_profile
@@ -339,9 +319,11 @@ class OpenShiftCluster(pulumi.CustomResource):
             __props__.__dict__["service_principal_profile"] = service_principal_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["worker_profiles"] = worker_profiles
+            __props__.__dict__["console_profile"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["worker_profiles_status"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20200430:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20210901preview:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20220401:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230401:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230701preview:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230904:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20231122:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20240812preview:OpenShiftCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenShiftCluster, __self__).__init__(
@@ -380,6 +362,7 @@ class OpenShiftCluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["worker_profiles"] = None
+        __props__.__dict__["worker_profiles_status"] = None
         return OpenShiftCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -493,4 +476,12 @@ class OpenShiftCluster(pulumi.CustomResource):
         The cluster worker profiles.
         """
         return pulumi.get(self, "worker_profiles")
+
+    @property
+    @pulumi.getter(name="workerProfilesStatus")
+    def worker_profiles_status(self) -> pulumi.Output[Sequence['outputs.WorkerProfileResponse']]:
+        """
+        The cluster worker profiles status.
+        """
+        return pulumi.get(self, "worker_profiles_status")
 

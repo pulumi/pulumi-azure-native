@@ -11,18 +11,19 @@ namespace Pulumi.AzureNative.Network.V20220501.Inputs
 {
 
     /// <summary>
-    /// The pricing tier of the web application firewall policy.
+    /// The sku of this Bastion Host.
     /// </summary>
     public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the pricing tier.
+        /// The name of this Bastion Host.
         /// </summary>
         [Input("name")]
-        public InputUnion<string, Pulumi.AzureNative.Network.V20220501.SkuName>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Network.V20220501.BastionHostSkuName>? Name { get; set; }
 
         public SkuArgs()
         {
+            Name = "Standard";
         }
         public static new SkuArgs Empty => new SkuArgs();
     }

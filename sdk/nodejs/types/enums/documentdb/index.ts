@@ -2,8 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20210401preview from "./v20210401preview";
+import * as v20210301preview from "./v20210301preview";
 import * as v20210701preview from "./v20210701preview";
+import * as v20211115preview from "./v20211115preview";
+import * as v20230301preview from "./v20230301preview";
+import * as v20230315 from "./v20230315";
 import * as v20230315preview from "./v20230315preview";
 import * as v20230415 from "./v20230415";
 import * as v20230915 from "./v20230915";
@@ -11,20 +14,19 @@ import * as v20230915preview from "./v20230915preview";
 import * as v20231115 from "./v20231115";
 import * as v20231115preview from "./v20231115preview";
 import * as v20240215preview from "./v20240215preview";
-import * as v20240301preview from "./v20240301preview";
 import * as v20240515 from "./v20240515";
 import * as v20240515preview from "./v20240515preview";
-import * as v20240601preview from "./v20240601preview";
-import * as v20240701 from "./v20240701";
 import * as v20240815 from "./v20240815";
 import * as v20240901preview from "./v20240901preview";
-import * as v20241001preview from "./v20241001preview";
 import * as v20241115 from "./v20241115";
 import * as v20241201preview from "./v20241201preview";
 
 export {
-    v20210401preview,
+    v20210301preview,
     v20210701preview,
+    v20211115preview,
+    v20230301preview,
+    v20230315,
     v20230315preview,
     v20230415,
     v20230915,
@@ -32,14 +34,10 @@ export {
     v20231115,
     v20231115preview,
     v20240215preview,
-    v20240301preview,
     v20240515,
     v20240515preview,
-    v20240601preview,
-    v20240701,
     v20240815,
     v20240901preview,
-    v20241001preview,
     v20241115,
     v20241201preview,
 };
@@ -64,6 +62,16 @@ export const AuthenticationMethod = {
  * Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
  */
 export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
+
+export const AzureConnectionType = {
+    None: "None",
+    VPN: "VPN",
+} as const;
+
+/**
+ * How to connect to the azure services needed for running the cluster
+ */
+export type AzureConnectionType = (typeof AzureConnectionType)[keyof typeof AzureConnectionType];
 
 export const BackupPolicyMigrationStatus = {
     Invalid: "Invalid",
@@ -139,11 +147,11 @@ export type ContinuousTier = (typeof ContinuousTier)[keyof typeof ContinuousTier
 
 export const CreateMode = {
     Default: "Default",
-    PointInTimeRestore: "PointInTimeRestore",
+    Restore: "Restore",
 } as const;
 
 /**
- * The mode to create a mongo cluster.
+ * Enum to indicate the mode of resource creation.
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
@@ -181,6 +189,16 @@ export const DatabaseAccountOfferType = {
  */
 export type DatabaseAccountOfferType = (typeof DatabaseAccountOfferType)[keyof typeof DatabaseAccountOfferType];
 
+export const DedicatedGatewayType = {
+    IntegratedCache: "IntegratedCache",
+    DistributedQuery: "DistributedQuery",
+} as const;
+
+/**
+ * DedicatedGatewayType for the service.
+ */
+export type DedicatedGatewayType = (typeof DedicatedGatewayType)[keyof typeof DedicatedGatewayType];
+
 export const DefaultConsistencyLevel = {
     Eventual: "Eventual",
     Session: "Session",
@@ -193,6 +211,17 @@ export const DefaultConsistencyLevel = {
  * The default consistency level and configuration settings of the Cosmos DB account.
  */
 export type DefaultConsistencyLevel = (typeof DefaultConsistencyLevel)[keyof typeof DefaultConsistencyLevel];
+
+export const DistanceFunction = {
+    Euclidean: "euclidean",
+    Cosine: "cosine",
+    Dotproduct: "dotproduct",
+} as const;
+
+/**
+ * The distance function to use for distance calculation in between vectors.
+ */
+export type DistanceFunction = (typeof DistanceFunction)[keyof typeof DistanceFunction];
 
 export const IndexKind = {
     Hash: "Hash",
@@ -338,10 +367,13 @@ export const ServerVersion = {
     ServerVersion_3_6: "3.6",
     ServerVersion_4_0: "4.0",
     ServerVersion_4_2: "4.2",
+    ServerVersion_5_0: "5.0",
+    ServerVersion_6_0: "6.0",
+    ServerVersion_7_0: "7.0",
 } as const;
 
 /**
- * Describes the ServerVersion of an a MongoDB account.
+ * Describes the version of the MongoDB account.
  */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
 
@@ -402,3 +434,25 @@ export const TriggerType = {
  * Type of the Trigger
  */
 export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
+
+export const VectorDataType = {
+    Float32: "float32",
+    Uint8: "uint8",
+    Int8: "int8",
+} as const;
+
+/**
+ * Indicates the data type of vector.
+ */
+export type VectorDataType = (typeof VectorDataType)[keyof typeof VectorDataType];
+
+export const VectorIndexType = {
+    Flat: "flat",
+    DiskANN: "diskANN",
+    QuantizedFlat: "quantizedFlat",
+} as const;
+
+/**
+ * The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
+ */
+export type VectorIndexType = (typeof VectorIndexType)[keyof typeof VectorIndexType];

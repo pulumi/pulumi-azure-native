@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { AppServiceEnvironmentArgs } from "./appServiceEnvironment";
+export type AppServiceEnvironment = import("./appServiceEnvironment").AppServiceEnvironment;
+export const AppServiceEnvironment: typeof import("./appServiceEnvironment").AppServiceEnvironment = null as any;
+utilities.lazyLoad(exports, ["AppServiceEnvironment"], () => require("./appServiceEnvironment"));
+
 export { AppServicePlanArgs } from "./appServicePlan";
 export type AppServicePlan = import("./appServicePlan").AppServicePlan;
 export const AppServicePlan: typeof import("./appServicePlan").AppServicePlan = null as any;
@@ -14,6 +19,11 @@ export { AppServicePlanRouteForVnetArgs } from "./appServicePlanRouteForVnet";
 export type AppServicePlanRouteForVnet = import("./appServicePlanRouteForVnet").AppServicePlanRouteForVnet;
 export const AppServicePlanRouteForVnet: typeof import("./appServicePlanRouteForVnet").AppServicePlanRouteForVnet = null as any;
 utilities.lazyLoad(exports, ["AppServicePlanRouteForVnet"], () => require("./appServicePlanRouteForVnet"));
+
+export { GetAppServiceEnvironmentArgs, GetAppServiceEnvironmentResult, GetAppServiceEnvironmentOutputArgs } from "./getAppServiceEnvironment";
+export const getAppServiceEnvironment: typeof import("./getAppServiceEnvironment").getAppServiceEnvironment = null as any;
+export const getAppServiceEnvironmentOutput: typeof import("./getAppServiceEnvironment").getAppServiceEnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getAppServiceEnvironment","getAppServiceEnvironmentOutput"], () => require("./getAppServiceEnvironment"));
 
 export { GetAppServicePlanArgs, GetAppServicePlanResult, GetAppServicePlanOutputArgs } from "./getAppServicePlan";
 export const getAppServicePlan: typeof import("./getAppServicePlan").getAppServicePlan = null as any;
@@ -33,6 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:web/v20160901:AppServiceEnvironment":
+                return new AppServiceEnvironment(name, <any>undefined, { urn })
             case "azure-native:web/v20160901:AppServicePlan":
                 return new AppServicePlan(name, <any>undefined, { urn })
             case "azure-native:web/v20160901:AppServicePlanRouteForVnet":

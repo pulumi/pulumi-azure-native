@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// 
-        /// Azure REST API version: 2023-08-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview.
         /// </summary>
         public static Task<GetInferenceGroupStatusResult> InvokeAsync(GetInferenceGroupStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferenceGroupStatusResult>("azure-native:machinelearningservices:getInferenceGroupStatus", args ?? new GetInferenceGroupStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2023-08-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetInferenceGroupStatusResult> Invoke(GetInferenceGroupStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceGroupStatusResult>("azure-native:machinelearningservices:getInferenceGroupStatus", args ?? new GetInferenceGroupStatusInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2023-08-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetInferenceGroupStatusResult> Invoke(GetInferenceGroupStatusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceGroupStatusResult>("azure-native:machinelearningservices:getInferenceGroupStatus", args ?? new GetInferenceGroupStatusInvokeArgs(), options.WithDefaults());
@@ -113,10 +113,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly Outputs.ActualCapacityInfoResponse? ActualCapacityInfo;
         /// <summary>
-        /// Gets or sets capacity used from the pool's reserved capacity.
-        /// </summary>
-        public readonly int? BonusExtraCapacity;
-        /// <summary>
         /// Gets or sets the actual number of endpoints in the group.
         /// </summary>
         public readonly int? EndpointCount;
@@ -129,14 +125,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
         private GetInferenceGroupStatusResult(
             Outputs.ActualCapacityInfoResponse? actualCapacityInfo,
 
-            int? bonusExtraCapacity,
-
             int? endpointCount,
 
             int? requestedCapacity)
         {
             ActualCapacityInfo = actualCapacityInfo;
-            BonusExtraCapacity = bonusExtraCapacity;
             EndpointCount = endpointCount;
             RequestedCapacity = requestedCapacity;
         }

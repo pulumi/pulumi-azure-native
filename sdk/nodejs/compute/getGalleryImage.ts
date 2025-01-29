@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a gallery image definition.
- * Azure REST API version: 2022-03-03.
+ * Azure REST API version: 2024-03-03.
  *
- * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+ * Other available API versions: 2020-09-30, 2021-07-01, 2021-10-01, 2022-01-03, 2022-03-03, 2022-08-03, 2023-07-03.
  */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +41,10 @@ export interface GetGalleryImageArgs {
  * Specifies information about the gallery image definition that you want to create or update.
  */
 export interface GetGalleryImageResult {
+    /**
+     * Optional. Must be set to true if the gallery image features are being updated.
+     */
+    readonly allowUpdateImage?: boolean;
     /**
      * The architecture of the image. Applicable to OS disks only.
      */
@@ -90,7 +94,7 @@ export interface GetGalleryImageResult {
      */
     readonly osState: string;
     /**
-     * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+     * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
      */
     readonly osType: string;
     /**
@@ -124,9 +128,9 @@ export interface GetGalleryImageResult {
 }
 /**
  * Retrieves information about a gallery image definition.
- * Azure REST API version: 2022-03-03.
+ * Azure REST API version: 2024-03-03.
  *
- * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+ * Other available API versions: 2020-09-30, 2021-07-01, 2021-10-01, 2022-01-03, 2022-03-03, 2022-08-03, 2023-07-03.
  */
 export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets information about a RedisEnterprise cluster
- * Azure REST API version: 2023-03-01-preview.
+ * Gets information about a Redis Enterprise cluster
+ * Azure REST API version: 2024-09-01-preview.
  *
- * Other available API versions: 2020-10-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+ * Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-10-01.
  */
 export function getRedisEnterprise(args: GetRedisEnterpriseArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisEnterpriseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -23,7 +23,7 @@ export function getRedisEnterprise(args: GetRedisEnterpriseArgs, opts?: pulumi.I
 
 export interface GetRedisEnterpriseArgs {
     /**
-     * The name of the RedisEnterprise cluster.
+     * The name of the Redis Enterprise cluster.
      */
     clusterName: string;
     /**
@@ -33,13 +33,17 @@ export interface GetRedisEnterpriseArgs {
 }
 
 /**
- * Describes the RedisEnterprise cluster
+ * Describes the Redis Enterprise cluster
  */
 export interface GetRedisEnterpriseResult {
     /**
      * Encryption-at-rest configuration for the cluster.
      */
     readonly encryption?: outputs.cache.ClusterPropertiesResponseEncryption;
+    /**
+     * Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
+     */
+    readonly highAvailability?: string;
     /**
      * DNS name of the cluster endpoint
      */
@@ -53,11 +57,15 @@ export interface GetRedisEnterpriseResult {
      */
     readonly identity?: outputs.cache.ManagedServiceIdentityResponse;
     /**
+     * Distinguishes the kind of cluster. Read-only.
+     */
+    readonly kind: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * The minimum TLS version for the cluster to support, e.g. '1.2'
+     * The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
      */
     readonly minimumTlsVersion?: string;
     /**
@@ -65,7 +73,7 @@ export interface GetRedisEnterpriseResult {
      */
     readonly name: string;
     /**
-     * List of private endpoint connections associated with the specified RedisEnterprise cluster
+     * List of private endpoint connections associated with the specified Redis Enterprise cluster
      */
     readonly privateEndpointConnections: outputs.cache.PrivateEndpointConnectionResponse[];
     /**
@@ -77,6 +85,10 @@ export interface GetRedisEnterpriseResult {
      */
     readonly redisVersion: string;
     /**
+     * Explains the current redundancy strategy of the cluster, which affects the expected SLA.
+     */
+    readonly redundancyMode: string;
+    /**
      * Current resource status of the cluster
      */
     readonly resourceState: string;
@@ -84,10 +96,6 @@ export interface GetRedisEnterpriseResult {
      * The SKU to create, which affects price, performance, and features.
      */
     readonly sku: outputs.cache.EnterpriseSkuResponse;
-    /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    readonly systemData: outputs.cache.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -102,10 +110,10 @@ export interface GetRedisEnterpriseResult {
     readonly zones?: string[];
 }
 /**
- * Gets information about a RedisEnterprise cluster
- * Azure REST API version: 2023-03-01-preview.
+ * Gets information about a Redis Enterprise cluster
+ * Azure REST API version: 2024-09-01-preview.
  *
- * Other available API versions: 2020-10-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+ * Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-10-01.
  */
 export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRedisEnterpriseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -117,7 +125,7 @@ export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opt
 
 export interface GetRedisEnterpriseOutputArgs {
     /**
-     * The name of the RedisEnterprise cluster.
+     * The name of the Redis Enterprise cluster.
      */
     clusterName: pulumi.Input<string>;
     /**

@@ -187,9 +187,9 @@ def get_firewall_support_info(email: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallSupportInfoResult:
     """
     support info for firewall.
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-01-19-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
 
 
     :param str email: email address on behalf of which this API called
@@ -222,9 +222,9 @@ def get_firewall_support_info_output(email: Optional[pulumi.Input[Optional[str]]
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallSupportInfoResult]:
     """
     support info for firewall.
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-01-19-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
 
 
     :param str email: email address on behalf of which this API called

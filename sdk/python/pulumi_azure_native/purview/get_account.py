@@ -27,7 +27,7 @@ class GetAccountResult:
     """
     Account resource
     """
-    def __init__(__self__, account_status=None, cloud_connectors=None, created_at=None, created_by=None, created_by_object_id=None, endpoints=None, friendly_name=None, id=None, identity=None, location=None, managed_event_hub_state=None, managed_resource_group_name=None, managed_resources=None, managed_resources_public_network_access=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_status=None, cloud_connectors=None, created_at=None, created_by=None, created_by_object_id=None, default_domain=None, endpoints=None, friendly_name=None, id=None, identity=None, ingestion_storage=None, location=None, managed_event_hub_state=None, managed_resource_group_name=None, managed_resources=None, managed_resources_public_network_access=None, merge_info=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, tenant_endpoint_state=None, type=None):
         if account_status and not isinstance(account_status, dict):
             raise TypeError("Expected argument 'account_status' to be a dict")
         pulumi.set(__self__, "account_status", account_status)
@@ -43,6 +43,9 @@ class GetAccountResult:
         if created_by_object_id and not isinstance(created_by_object_id, str):
             raise TypeError("Expected argument 'created_by_object_id' to be a str")
         pulumi.set(__self__, "created_by_object_id", created_by_object_id)
+        if default_domain and not isinstance(default_domain, str):
+            raise TypeError("Expected argument 'default_domain' to be a str")
+        pulumi.set(__self__, "default_domain", default_domain)
         if endpoints and not isinstance(endpoints, dict):
             raise TypeError("Expected argument 'endpoints' to be a dict")
         pulumi.set(__self__, "endpoints", endpoints)
@@ -55,6 +58,9 @@ class GetAccountResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if ingestion_storage and not isinstance(ingestion_storage, dict):
+            raise TypeError("Expected argument 'ingestion_storage' to be a dict")
+        pulumi.set(__self__, "ingestion_storage", ingestion_storage)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -70,6 +76,9 @@ class GetAccountResult:
         if managed_resources_public_network_access and not isinstance(managed_resources_public_network_access, str):
             raise TypeError("Expected argument 'managed_resources_public_network_access' to be a str")
         pulumi.set(__self__, "managed_resources_public_network_access", managed_resources_public_network_access)
+        if merge_info and not isinstance(merge_info, dict):
+            raise TypeError("Expected argument 'merge_info' to be a dict")
+        pulumi.set(__self__, "merge_info", merge_info)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -91,6 +100,9 @@ class GetAccountResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tenant_endpoint_state and not isinstance(tenant_endpoint_state, str):
+            raise TypeError("Expected argument 'tenant_endpoint_state' to be a str")
+        pulumi.set(__self__, "tenant_endpoint_state", tenant_endpoint_state)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -107,8 +119,7 @@ class GetAccountResult:
     @pulumi.getter(name="cloudConnectors")
     def cloud_connectors(self) -> Optional['outputs.CloudConnectorsResponse']:
         """
-        Cloud connectors.
-        External cloud identifier used as part of scanning configuration.
+        External Cloud Service connectors
         """
         return pulumi.get(self, "cloud_connectors")
 
@@ -135,6 +146,14 @@ class GetAccountResult:
         Gets the creators of the entity's object id.
         """
         return pulumi.get(self, "created_by_object_id")
+
+    @property
+    @pulumi.getter(name="defaultDomain")
+    def default_domain(self) -> str:
+        """
+        Gets the default domain in the account.
+        """
+        return pulumi.get(self, "default_domain")
 
     @property
     @pulumi.getter
@@ -164,9 +183,17 @@ class GetAccountResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.IdentityResponse']:
         """
-        Identity Info on the tracked resource
+        The Managed Identity of the resource
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="ingestionStorage")
+    def ingestion_storage(self) -> Optional['outputs.IngestionStorageResponse']:
+        """
+        Ingestion Storage Account Info
+        """
+        return pulumi.get(self, "ingestion_storage")
 
     @property
     @pulumi.getter
@@ -180,7 +207,7 @@ class GetAccountResult:
     @pulumi.getter(name="managedEventHubState")
     def managed_event_hub_state(self) -> Optional[str]:
         """
-         Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+        Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
         """
         return pulumi.get(self, "managed_event_hub_state")
 
@@ -207,6 +234,14 @@ class GetAccountResult:
         Gets or sets the public network access for managed resources.
         """
         return pulumi.get(self, "managed_resources_public_network_access")
+
+    @property
+    @pulumi.getter(name="mergeInfo")
+    def merge_info(self) -> Optional['outputs.AccountMergeInfoResponse']:
+        """
+        Gets or sets the Merge Info.
+        """
+        return pulumi.get(self, "merge_info")
 
     @property
     @pulumi.getter
@@ -242,7 +277,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.AccountResponseSku':
+    def sku(self) -> Optional['outputs.AccountResponseSku']:
         """
         Gets or sets the Sku.
         """
@@ -265,6 +300,14 @@ class GetAccountResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="tenantEndpointState")
+    def tenant_endpoint_state(self) -> Optional[str]:
+        """
+        Gets or sets the state of tenant endpoint.
+        """
+        return pulumi.get(self, "tenant_endpoint_state")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -284,15 +327,18 @@ class AwaitableGetAccountResult(GetAccountResult):
             created_at=self.created_at,
             created_by=self.created_by,
             created_by_object_id=self.created_by_object_id,
+            default_domain=self.default_domain,
             endpoints=self.endpoints,
             friendly_name=self.friendly_name,
             id=self.id,
             identity=self.identity,
+            ingestion_storage=self.ingestion_storage,
             location=self.location,
             managed_event_hub_state=self.managed_event_hub_state,
             managed_resource_group_name=self.managed_resource_group_name,
             managed_resources=self.managed_resources,
             managed_resources_public_network_access=self.managed_resources_public_network_access,
+            merge_info=self.merge_info,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
@@ -300,6 +346,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
+            tenant_endpoint_state=self.tenant_endpoint_state,
             type=self.type)
 
 
@@ -308,9 +355,9 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Get an account
-    Azure REST API version: 2021-12-01.
+    Azure REST API version: 2024-04-01-preview.
 
-    Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+    Other available API versions: 2020-12-01-preview, 2021-07-01, 2021-12-01, 2023-05-01-preview.
 
 
     :param str account_name: The name of the account.
@@ -328,15 +375,18 @@ def get_account(account_name: Optional[str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         created_by=pulumi.get(__ret__, 'created_by'),
         created_by_object_id=pulumi.get(__ret__, 'created_by_object_id'),
+        default_domain=pulumi.get(__ret__, 'default_domain'),
         endpoints=pulumi.get(__ret__, 'endpoints'),
         friendly_name=pulumi.get(__ret__, 'friendly_name'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
+        ingestion_storage=pulumi.get(__ret__, 'ingestion_storage'),
         location=pulumi.get(__ret__, 'location'),
         managed_event_hub_state=pulumi.get(__ret__, 'managed_event_hub_state'),
         managed_resource_group_name=pulumi.get(__ret__, 'managed_resource_group_name'),
         managed_resources=pulumi.get(__ret__, 'managed_resources'),
         managed_resources_public_network_access=pulumi.get(__ret__, 'managed_resources_public_network_access'),
+        merge_info=pulumi.get(__ret__, 'merge_info'),
         name=pulumi.get(__ret__, 'name'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -344,15 +394,16 @@ def get_account(account_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
+        tenant_endpoint_state=pulumi.get(__ret__, 'tenant_endpoint_state'),
         type=pulumi.get(__ret__, 'type'))
 def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get an account
-    Azure REST API version: 2021-12-01.
+    Azure REST API version: 2024-04-01-preview.
 
-    Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+    Other available API versions: 2020-12-01-preview, 2021-07-01, 2021-12-01, 2023-05-01-preview.
 
 
     :param str account_name: The name of the account.
@@ -369,15 +420,18 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
         created_at=pulumi.get(__response__, 'created_at'),
         created_by=pulumi.get(__response__, 'created_by'),
         created_by_object_id=pulumi.get(__response__, 'created_by_object_id'),
+        default_domain=pulumi.get(__response__, 'default_domain'),
         endpoints=pulumi.get(__response__, 'endpoints'),
         friendly_name=pulumi.get(__response__, 'friendly_name'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
+        ingestion_storage=pulumi.get(__response__, 'ingestion_storage'),
         location=pulumi.get(__response__, 'location'),
         managed_event_hub_state=pulumi.get(__response__, 'managed_event_hub_state'),
         managed_resource_group_name=pulumi.get(__response__, 'managed_resource_group_name'),
         managed_resources=pulumi.get(__response__, 'managed_resources'),
         managed_resources_public_network_access=pulumi.get(__response__, 'managed_resources_public_network_access'),
+        merge_info=pulumi.get(__response__, 'merge_info'),
         name=pulumi.get(__response__, 'name'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
@@ -385,4 +439,5 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
         sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
+        tenant_endpoint_state=pulumi.get(__response__, 'tenant_endpoint_state'),
         type=pulumi.get(__response__, 'type')))

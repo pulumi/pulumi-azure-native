@@ -10,10 +10,20 @@ export type Assessment = import("./assessment").Assessment;
 export const Assessment: typeof import("./assessment").Assessment = null as any;
 utilities.lazyLoad(exports, ["Assessment"], () => require("./assessment"));
 
+export { AssessmentMetadataInSubscriptionArgs } from "./assessmentMetadataInSubscription";
+export type AssessmentMetadataInSubscription = import("./assessmentMetadataInSubscription").AssessmentMetadataInSubscription;
+export const AssessmentMetadataInSubscription: typeof import("./assessmentMetadataInSubscription").AssessmentMetadataInSubscription = null as any;
+utilities.lazyLoad(exports, ["AssessmentMetadataInSubscription"], () => require("./assessmentMetadataInSubscription"));
+
 export { GetAssessmentArgs, GetAssessmentResult, GetAssessmentOutputArgs } from "./getAssessment";
 export const getAssessment: typeof import("./getAssessment").getAssessment = null as any;
 export const getAssessmentOutput: typeof import("./getAssessment").getAssessmentOutput = null as any;
 utilities.lazyLoad(exports, ["getAssessment","getAssessmentOutput"], () => require("./getAssessment"));
+
+export { GetAssessmentMetadataInSubscriptionArgs, GetAssessmentMetadataInSubscriptionResult, GetAssessmentMetadataInSubscriptionOutputArgs } from "./getAssessmentMetadataInSubscription";
+export const getAssessmentMetadataInSubscription: typeof import("./getAssessmentMetadataInSubscription").getAssessmentMetadataInSubscription = null as any;
+export const getAssessmentMetadataInSubscriptionOutput: typeof import("./getAssessmentMetadataInSubscription").getAssessmentMetadataInSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentMetadataInSubscription","getAssessmentMetadataInSubscriptionOutput"], () => require("./getAssessmentMetadataInSubscription"));
 
 export { GetJitNetworkAccessPolicyArgs, GetJitNetworkAccessPolicyResult, GetJitNetworkAccessPolicyOutputArgs } from "./getJitNetworkAccessPolicy";
 export const getJitNetworkAccessPolicy: typeof import("./getJitNetworkAccessPolicy").getJitNetworkAccessPolicy = null as any;
@@ -45,6 +55,8 @@ const _module = {
         switch (type) {
             case "azure-native:security/v20200101:Assessment":
                 return new Assessment(name, <any>undefined, { urn })
+            case "azure-native:security/v20200101:AssessmentMetadataInSubscription":
+                return new AssessmentMetadataInSubscription(name, <any>undefined, { urn })
             case "azure-native:security/v20200101:JitNetworkAccessPolicy":
                 return new JitNetworkAccessPolicy(name, <any>undefined, { urn })
             case "azure-native:security/v20200101:ServerVulnerabilityAssessment":

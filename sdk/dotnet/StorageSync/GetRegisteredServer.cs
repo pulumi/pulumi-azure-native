@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// Get a given registered server.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2022-09-01.
+        /// Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
         /// </summary>
         public static Task<GetRegisteredServerResult> InvokeAsync(GetRegisteredServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredServerResult>("azure-native:storagesync:getRegisteredServer", args ?? new GetRegisteredServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a given registered server.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2022-09-01.
+        /// Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
         /// </summary>
         public static Output<GetRegisteredServerResult> Invoke(GetRegisteredServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredServerResult>("azure-native:storagesync:getRegisteredServer", args ?? new GetRegisteredServerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a given registered server.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2022-09-01.
+        /// Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
         /// </summary>
         public static Output<GetRegisteredServerResult> Invoke(GetRegisteredServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredServerResult>("azure-native:storagesync:getRegisteredServer", args ?? new GetRegisteredServerInvokeArgs(), options.WithDefaults());
@@ -97,6 +97,10 @@ namespace Pulumi.AzureNative.StorageSync
     public sealed class GetRegisteredServerResult
     {
         /// <summary>
+        /// Server auth type.
+        /// </summary>
+        public readonly string ActiveAuthType;
+        /// <summary>
         /// Registered Server Agent Version
         /// </summary>
         public readonly string? AgentVersion;
@@ -108,6 +112,10 @@ namespace Pulumi.AzureNative.StorageSync
         /// Registered Server Agent Version Status
         /// </summary>
         public readonly string AgentVersionStatus;
+        /// <summary>
+        /// Server Application Id
+        /// </summary>
+        public readonly string? ApplicationId;
         /// <summary>
         /// Registered Server clusterId
         /// </summary>
@@ -125,9 +133,13 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Apply server with newly discovered ApplicationId if available.
+        /// </summary>
+        public readonly bool Identity;
         /// <summary>
         /// Registered Server last heart beat
         /// </summary>
@@ -140,6 +152,10 @@ namespace Pulumi.AzureNative.StorageSync
         /// Registered Server lastWorkflowId
         /// </summary>
         public readonly string? LastWorkflowId;
+        /// <summary>
+        /// Latest Server Application Id discovered from the server. It is not yet applied.
+        /// </summary>
+        public readonly string? LatestApplicationId;
         /// <summary>
         /// Management Endpoint Uri
         /// </summary>
@@ -207,11 +223,15 @@ namespace Pulumi.AzureNative.StorageSync
 
         [OutputConstructor]
         private GetRegisteredServerResult(
+            string activeAuthType,
+
             string? agentVersion,
 
             string agentVersionExpirationDate,
 
             string agentVersionStatus,
+
+            string? applicationId,
 
             string? clusterId,
 
@@ -223,11 +243,15 @@ namespace Pulumi.AzureNative.StorageSync
 
             string id,
 
+            bool identity,
+
             string? lastHeartBeat,
 
             string? lastOperationName,
 
             string? lastWorkflowId,
+
+            string? latestApplicationId,
 
             string? managementEndpointUri,
 
@@ -261,17 +285,21 @@ namespace Pulumi.AzureNative.StorageSync
 
             string type)
         {
+            ActiveAuthType = activeAuthType;
             AgentVersion = agentVersion;
             AgentVersionExpirationDate = agentVersionExpirationDate;
             AgentVersionStatus = agentVersionStatus;
+            ApplicationId = applicationId;
             ClusterId = clusterId;
             ClusterName = clusterName;
             DiscoveryEndpointUri = discoveryEndpointUri;
             FriendlyName = friendlyName;
             Id = id;
+            Identity = identity;
             LastHeartBeat = lastHeartBeat;
             LastOperationName = lastOperationName;
             LastWorkflowId = lastWorkflowId;
+            LatestApplicationId = latestApplicationId;
             ManagementEndpointUri = managementEndpointUri;
             MonitoringConfiguration = monitoringConfiguration;
             MonitoringEndpointUri = monitoringEndpointUri;

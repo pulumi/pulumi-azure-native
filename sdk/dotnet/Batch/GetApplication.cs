@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Batch
     {
         /// <summary>
         /// Gets information about the specified application.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01, 2022-10-01, 2023-05-01, 2023-11-01, 2024-02-01.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:batch:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified application.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01, 2022-10-01, 2023-05-01, 2023-11-01, 2024-02-01.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:batch:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified application.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01, 2022-10-01, 2023-05-01, 2023-11-01, 2024-02-01.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:batch:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
@@ -121,6 +121,10 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -139,6 +143,8 @@ namespace Pulumi.AzureNative.Batch
 
             string name,
 
+            ImmutableDictionary<string, string>? tags,
+
             string type)
         {
             AllowUpdates = allowUpdates;
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.Batch
             Etag = etag;
             Id = id;
             Name = name;
+            Tags = tags;
             Type = type;
         }
     }

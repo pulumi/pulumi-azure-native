@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     public sealed class ConnectToTargetSqlDbTaskInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Boolean flag indicating whether to query object counts for each database on the target server
+        /// </summary>
+        [Input("queryObjectCounts")]
+        public Input<bool>? QueryObjectCounts { get; set; }
+
+        /// <summary>
         /// Connection information for target SQL DB
         /// </summary>
         [Input("targetConnectionInfo", required: true)]

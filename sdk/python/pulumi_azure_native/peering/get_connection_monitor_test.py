@@ -165,6 +165,8 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[str] = No
     Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
     Azure REST API version: 2022-10-01.
 
+    Other available API versions: 2021-06-01, 2022-01-01, 2022-06-01.
+
 
     :param str connection_monitor_test_name: The name of the connection monitor test
     :param str peering_service_name: The name of the peering service.
@@ -195,6 +197,8 @@ def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pu
     """
     Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
     Azure REST API version: 2022-10-01.
+
+    Other available API versions: 2021-06-01, 2022-01-01, 2022-06-01.
 
 
     :param str connection_monitor_test_name: The name of the connection monitor test

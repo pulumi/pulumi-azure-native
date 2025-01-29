@@ -8,12 +8,14 @@ import typing
 from ._enums import *
 from .access_policy import *
 from .access_policy_assignment import *
-from .database import *
+from .enterprise_access_policy_assignment import *
+from .enterprise_database import *
 from .enterprise_private_endpoint_connection import *
 from .firewall_rule import *
 from .get_access_policy import *
 from .get_access_policy_assignment import *
-from .get_database import *
+from .get_enterprise_access_policy_assignment import *
+from .get_enterprise_database import *
 from .get_enterprise_private_endpoint_connection import *
 from .get_firewall_rule import *
 from .get_linked_server import *
@@ -22,7 +24,7 @@ from .get_private_endpoint_connection import *
 from .get_redis import *
 from .get_redis_enterprise import *
 from .linked_server import *
-from .list_database_keys import *
+from .list_enterprise_database_keys import *
 from .list_redis_keys import *
 from .patch_schedule import *
 from .private_endpoint_connection import *
@@ -37,6 +39,24 @@ if typing.TYPE_CHECKING:
     v20200601 = __v20200601
     import pulumi_azure_native.cache.v20201001preview as __v20201001preview
     v20201001preview = __v20201001preview
+    import pulumi_azure_native.cache.v20201201 as __v20201201
+    v20201201 = __v20201201
+    import pulumi_azure_native.cache.v20210201preview as __v20210201preview
+    v20210201preview = __v20210201preview
+    import pulumi_azure_native.cache.v20210301 as __v20210301
+    v20210301 = __v20210301
+    import pulumi_azure_native.cache.v20210601 as __v20210601
+    v20210601 = __v20210601
+    import pulumi_azure_native.cache.v20210801 as __v20210801
+    v20210801 = __v20210801
+    import pulumi_azure_native.cache.v20220101 as __v20220101
+    v20220101 = __v20220101
+    import pulumi_azure_native.cache.v20220501 as __v20220501
+    v20220501 = __v20220501
+    import pulumi_azure_native.cache.v20220601 as __v20220601
+    v20220601 = __v20220601
+    import pulumi_azure_native.cache.v20221101preview as __v20221101preview
+    v20221101preview = __v20221101preview
     import pulumi_azure_native.cache.v20230301preview as __v20230301preview
     v20230301preview = __v20230301preview
     import pulumi_azure_native.cache.v20230401 as __v20230401
@@ -72,6 +92,15 @@ if typing.TYPE_CHECKING:
 else:
     v20200601 = _utilities.lazy_import('pulumi_azure_native.cache.v20200601')
     v20201001preview = _utilities.lazy_import('pulumi_azure_native.cache.v20201001preview')
+    v20201201 = _utilities.lazy_import('pulumi_azure_native.cache.v20201201')
+    v20210201preview = _utilities.lazy_import('pulumi_azure_native.cache.v20210201preview')
+    v20210301 = _utilities.lazy_import('pulumi_azure_native.cache.v20210301')
+    v20210601 = _utilities.lazy_import('pulumi_azure_native.cache.v20210601')
+    v20210801 = _utilities.lazy_import('pulumi_azure_native.cache.v20210801')
+    v20220101 = _utilities.lazy_import('pulumi_azure_native.cache.v20220101')
+    v20220501 = _utilities.lazy_import('pulumi_azure_native.cache.v20220501')
+    v20220601 = _utilities.lazy_import('pulumi_azure_native.cache.v20220601')
+    v20221101preview = _utilities.lazy_import('pulumi_azure_native.cache.v20221101preview')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.cache.v20230301preview')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.cache.v20230401')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.cache.v20230501preview')

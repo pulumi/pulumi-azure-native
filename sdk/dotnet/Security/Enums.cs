@@ -248,7 +248,7 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+    /// The authentication type
     /// </summary>
     [EnumType]
     public readonly struct AuthenticationType : IEquatable<AuthenticationType>
@@ -260,18 +260,7 @@ namespace Pulumi.AzureNative.Security
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /// <summary>
-        /// AWS cloud account connector user credentials authentication
-        /// </summary>
-        public static AuthenticationType AwsCreds { get; } = new AuthenticationType("awsCreds");
-        /// <summary>
-        /// AWS account connector assume role authentication
-        /// </summary>
-        public static AuthenticationType AwsAssumeRole { get; } = new AuthenticationType("awsAssumeRole");
-        /// <summary>
-        /// GCP account connector service to service authentication
-        /// </summary>
-        public static AuthenticationType GcpCredentials { get; } = new AuthenticationType("gcpCredentials");
+        public static AuthenticationType AccessToken { get; } = new AuthenticationType("AccessToken");
 
         public static bool operator ==(AuthenticationType left, AuthenticationType right) => left.Equals(right);
         public static bool operator !=(AuthenticationType left, AuthenticationType right) => !left.Equals(right);
@@ -410,6 +399,8 @@ namespace Pulumi.AzureNative.Security
         public static CloudName Github { get; } = new CloudName("Github");
         public static CloudName AzureDevOps { get; } = new CloudName("AzureDevOps");
         public static CloudName GitLab { get; } = new CloudName("GitLab");
+        public static CloudName DockerHub { get; } = new CloudName("DockerHub");
+        public static CloudName JFrog { get; } = new CloudName("JFrog");
 
         public static bool operator ==(CloudName left, CloudName right) => left.Equals(right);
         public static bool operator !=(CloudName left, CloudName right) => !left.Equals(right);
@@ -449,69 +440,6 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSource other && Equals(other);
         public bool Equals(DataSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The behavior of a policy on descendant resources.
-    /// </summary>
-    [EnumType]
-    public readonly struct DescendantBehavior : IEquatable<DescendantBehavior>
-    {
-        private readonly string _value;
-
-        private DescendantBehavior(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DescendantBehavior Unknown { get; } = new DescendantBehavior("Unknown");
-        public static DescendantBehavior Override { get; } = new DescendantBehavior("Override");
-        public static DescendantBehavior FallBack { get; } = new DescendantBehavior("FallBack");
-
-        public static bool operator ==(DescendantBehavior left, DescendantBehavior right) => left.Equals(right);
-        public static bool operator !=(DescendantBehavior left, DescendantBehavior right) => !left.Equals(right);
-
-        public static explicit operator string(DescendantBehavior value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DescendantBehavior other && Equals(other);
-        public bool Equals(DescendantBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// DevOps Policy resource types.
-    /// </summary>
-    [EnumType]
-    public readonly struct DevOpsPolicyType : IEquatable<DevOpsPolicyType>
-    {
-        private readonly string _value;
-
-        private DevOpsPolicyType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DevOpsPolicyType Unknown { get; } = new DevOpsPolicyType("Unknown");
-        public static DevOpsPolicyType Pipeline { get; } = new DevOpsPolicyType("Pipeline");
-
-        public static bool operator ==(DevOpsPolicyType left, DevOpsPolicyType right) => left.Equals(right);
-        public static bool operator !=(DevOpsPolicyType left, DevOpsPolicyType right) => !left.Equals(right);
-
-        public static explicit operator string(DevOpsPolicyType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DevOpsPolicyType other && Equals(other);
-        public bool Equals(DevOpsPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -650,6 +578,8 @@ namespace Pulumi.AzureNative.Security
         public static EnvironmentType GithubScope { get; } = new EnvironmentType("GithubScope");
         public static EnvironmentType AzureDevOpsScope { get; } = new EnvironmentType("AzureDevOpsScope");
         public static EnvironmentType GitlabScope { get; } = new EnvironmentType("GitlabScope");
+        public static EnvironmentType DockerHubOrganization { get; } = new EnvironmentType("DockerHubOrganization");
+        public static EnvironmentType JFrogArtifactory { get; } = new EnvironmentType("JFrogArtifactory");
 
         public static bool operator ==(EnvironmentType left, EnvironmentType right) => left.Equals(right);
         public static bool operator !=(EnvironmentType left, EnvironmentType right) => !left.Equals(right);
@@ -690,6 +620,8 @@ namespace Pulumi.AzureNative.Security
         public static EventSource SecureScoreControlsSnapshot { get; } = new EventSource("SecureScoreControlsSnapshot");
         public static EventSource RegulatoryComplianceAssessment { get; } = new EventSource("RegulatoryComplianceAssessment");
         public static EventSource RegulatoryComplianceAssessmentSnapshot { get; } = new EventSource("RegulatoryComplianceAssessmentSnapshot");
+        public static EventSource AttackPaths { get; } = new EventSource("AttackPaths");
+        public static EventSource AttackPathsSnapshot { get; } = new EventSource("AttackPathsSnapshot");
 
         public static bool operator ==(EventSource left, EventSource right) => left.Equals(right);
         public static bool operator !=(EventSource left, EventSource right) => !left.Equals(right);
@@ -944,6 +876,51 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// Defines the minimal attach path risk level which will be sent as email notifications
+    /// </summary>
+    [EnumType]
+    public readonly struct MinimalRiskLevel : IEquatable<MinimalRiskLevel>
+    {
+        private readonly string _value;
+
+        private MinimalRiskLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Get notifications on new attack paths with Critical risk level
+        /// </summary>
+        public static MinimalRiskLevel Critical { get; } = new MinimalRiskLevel("Critical");
+        /// <summary>
+        /// Get notifications on new attack paths with High or Critical risk level
+        /// </summary>
+        public static MinimalRiskLevel High { get; } = new MinimalRiskLevel("High");
+        /// <summary>
+        /// Get notifications on new attach paths with Medium, High or Critical risk level
+        /// </summary>
+        public static MinimalRiskLevel Medium { get; } = new MinimalRiskLevel("Medium");
+        /// <summary>
+        /// Get notifications on new attach paths with Low, Medium, High or Critical risk level
+        /// </summary>
+        public static MinimalRiskLevel Low { get; } = new MinimalRiskLevel("Low");
+
+        public static bool operator ==(MinimalRiskLevel left, MinimalRiskLevel right) => left.Equals(right);
+        public static bool operator !=(MinimalRiskLevel left, MinimalRiskLevel right) => !left.Equals(right);
+
+        public static explicit operator string(MinimalRiskLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MinimalRiskLevel other && Equals(other);
+        public bool Equals(MinimalRiskLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Defines the minimal alert severity which will be sent as email notifications
     /// </summary>
     [EnumType]
@@ -961,11 +938,11 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static MinimalSeverity High { get; } = new MinimalSeverity("High");
         /// <summary>
-        /// Get notifications on new alerts with medium or high severity
+        /// Get notifications on new alerts with Medium or High severity
         /// </summary>
         public static MinimalSeverity Medium { get; } = new MinimalSeverity("Medium");
         /// <summary>
-        /// Don't get notifications on new alerts with low, medium or high severity
+        /// Get notifications on new alerts with Low, Medium or High severity
         /// </summary>
         public static MinimalSeverity Low { get; } = new MinimalSeverity("Low");
 
@@ -1001,7 +978,6 @@ namespace Pulumi.AzureNative.Security
         public static OfferingType DefenderForContainersAws { get; } = new OfferingType("DefenderForContainersAws");
         public static OfferingType DefenderForServersAws { get; } = new OfferingType("DefenderForServersAws");
         public static OfferingType DefenderForDatabasesAws { get; } = new OfferingType("DefenderForDatabasesAws");
-        public static OfferingType InformationProtectionAws { get; } = new OfferingType("InformationProtectionAws");
         public static OfferingType CspmMonitorGcp { get; } = new OfferingType("CspmMonitorGcp");
         public static OfferingType CspmMonitorGithub { get; } = new OfferingType("CspmMonitorGithub");
         public static OfferingType CspmMonitorAzureDevOps { get; } = new OfferingType("CspmMonitorAzureDevOps");
@@ -1010,10 +986,13 @@ namespace Pulumi.AzureNative.Security
         public static OfferingType DefenderForDatabasesGcp { get; } = new OfferingType("DefenderForDatabasesGcp");
         public static OfferingType DefenderCspmAws { get; } = new OfferingType("DefenderCspmAws");
         public static OfferingType DefenderCspmGcp { get; } = new OfferingType("DefenderCspmGcp");
-        public static OfferingType DefenderForDevOpsGithub { get; } = new OfferingType("DefenderForDevOpsGithub");
-        public static OfferingType DefenderForDevOpsAzureDevOps { get; } = new OfferingType("DefenderForDevOpsAzureDevOps");
         public static OfferingType CspmMonitorGitLab { get; } = new OfferingType("CspmMonitorGitLab");
-        public static OfferingType DefenderForDevOpsGitLab { get; } = new OfferingType("DefenderForDevOpsGitLab");
+        public static OfferingType CspmMonitorDockerHub { get; } = new OfferingType("CspmMonitorDockerHub");
+        public static OfferingType DefenderForContainersDockerHub { get; } = new OfferingType("DefenderForContainersDockerHub");
+        public static OfferingType DefenderCspmDockerHub { get; } = new OfferingType("DefenderCspmDockerHub");
+        public static OfferingType CspmMonitorJFrog { get; } = new OfferingType("CspmMonitorJFrog");
+        public static OfferingType DefenderForContainersJFrog { get; } = new OfferingType("DefenderForContainersJFrog");
+        public static OfferingType DefenderCspmJFrog { get; } = new OfferingType("DefenderCspmJFrog");
 
         public static bool operator ==(OfferingType left, OfferingType right) => left.Equals(right);
         public static bool operator !=(OfferingType left, OfferingType right) => !left.Equals(right);
@@ -1382,51 +1361,6 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// A possible role to configure sending security notification alerts to
-    /// </summary>
-    [EnumType]
-    public readonly struct Roles : IEquatable<Roles>
-    {
-        private readonly string _value;
-
-        private Roles(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// If enabled, send notification on new alerts to the account admins
-        /// </summary>
-        public static Roles AccountAdmin { get; } = new Roles("AccountAdmin");
-        /// <summary>
-        /// If enabled, send notification on new alerts to the service admins
-        /// </summary>
-        public static Roles ServiceAdmin { get; } = new Roles("ServiceAdmin");
-        /// <summary>
-        /// If enabled, send notification on new alerts to the subscription owners
-        /// </summary>
-        public static Roles Owner { get; } = new Roles("Owner");
-        /// <summary>
-        /// If enabled, send notification on new alerts to the subscription contributors
-        /// </summary>
-        public static Roles Contributor { get; } = new Roles("Contributor");
-
-        public static bool operator ==(Roles left, Roles right) => left.Equals(right);
-        public static bool operator !=(Roles left, Roles right) => !left.Equals(right);
-
-        public static explicit operator string(Roles value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Roles other && Equals(other);
-        public bool Equals(Roles other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Possible states of the rule
     /// </summary>
     [EnumType]
@@ -1481,6 +1415,51 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScanningMode other && Equals(other);
         public bool Equals(ScanningMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A possible role to configure sending security notification alerts to
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityContactRole : IEquatable<SecurityContactRole>
+    {
+        private readonly string _value;
+
+        private SecurityContactRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// If enabled, send notification on new alerts to the account admins
+        /// </summary>
+        public static SecurityContactRole AccountAdmin { get; } = new SecurityContactRole("AccountAdmin");
+        /// <summary>
+        /// If enabled, send notification on new alerts to the service admins
+        /// </summary>
+        public static SecurityContactRole ServiceAdmin { get; } = new SecurityContactRole("ServiceAdmin");
+        /// <summary>
+        /// If enabled, send notification on new alerts to the subscription owners
+        /// </summary>
+        public static SecurityContactRole Owner { get; } = new SecurityContactRole("Owner");
+        /// <summary>
+        /// If enabled, send notification on new alerts to the subscription contributors
+        /// </summary>
+        public static SecurityContactRole Contributor { get; } = new SecurityContactRole("Contributor");
+
+        public static bool operator ==(SecurityContactRole left, SecurityContactRole right) => left.Equals(right);
+        public static bool operator !=(SecurityContactRole left, SecurityContactRole right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityContactRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityContactRole other && Equals(other);
+        public bool Equals(SecurityContactRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1715,6 +1694,37 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Source other && Equals(other);
         public bool Equals(Source other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The source type that will trigger the notification
+    /// </summary>
+    [EnumType]
+    public readonly struct SourceType : IEquatable<SourceType>
+    {
+        private readonly string _value;
+
+        private SourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceType Alert { get; } = new SourceType("Alert");
+        public static SourceType AttackPath { get; } = new SourceType("AttackPath");
+
+        public static bool operator ==(SourceType left, SourceType right) => left.Equals(right);
+        public static bool operator !=(SourceType left, SourceType right) => !left.Equals(right);
+
+        public static explicit operator string(SourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceType other && Equals(other);
+        public bool Equals(SourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

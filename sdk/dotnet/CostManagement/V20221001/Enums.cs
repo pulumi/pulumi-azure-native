@@ -73,6 +73,134 @@ namespace Pulumi.AzureNative.CostManagement.V20221001
     }
 
     /// <summary>
+    /// Days of Week.
+    /// </summary>
+    [EnumType]
+    public readonly struct DaysOfWeek : IEquatable<DaysOfWeek>
+    {
+        private readonly string _value;
+
+        private DaysOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DaysOfWeek Monday { get; } = new DaysOfWeek("Monday");
+        public static DaysOfWeek Tuesday { get; } = new DaysOfWeek("Tuesday");
+        public static DaysOfWeek Wednesday { get; } = new DaysOfWeek("Wednesday");
+        public static DaysOfWeek Thursday { get; } = new DaysOfWeek("Thursday");
+        public static DaysOfWeek Friday { get; } = new DaysOfWeek("Friday");
+        public static DaysOfWeek Saturday { get; } = new DaysOfWeek("Saturday");
+        public static DaysOfWeek Sunday { get; } = new DaysOfWeek("Sunday");
+
+        public static bool operator ==(DaysOfWeek left, DaysOfWeek right) => left.Equals(right);
+        public static bool operator !=(DaysOfWeek left, DaysOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DaysOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DaysOfWeek other && Equals(other);
+        public bool Equals(DaysOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExportType : IEquatable<ExportType>
+    {
+        private readonly string _value;
+
+        private ExportType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExportType Usage { get; } = new ExportType("Usage");
+        public static ExportType ActualCost { get; } = new ExportType("ActualCost");
+        public static ExportType AmortizedCost { get; } = new ExportType("AmortizedCost");
+
+        public static bool operator ==(ExportType left, ExportType right) => left.Equals(right);
+        public static bool operator !=(ExportType left, ExportType right) => !left.Equals(right);
+
+        public static explicit operator string(ExportType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExportType other && Equals(other);
+        public bool Equals(ExportType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Destination of the view data. Currently only CSV format is supported.
+    /// </summary>
+    [EnumType]
+    public readonly struct FileFormat : IEquatable<FileFormat>
+    {
+        private readonly string _value;
+
+        private FileFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FileFormat Csv { get; } = new FileFormat("Csv");
+
+        public static bool operator ==(FileFormat left, FileFormat right) => left.Equals(right);
+        public static bool operator !=(FileFormat left, FileFormat right) => !left.Equals(right);
+
+        public static explicit operator string(FileFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FileFormat other && Equals(other);
+        public bool Equals(FileFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The format of the export being delivered. Currently only 'Csv' is supported.
+    /// </summary>
+    [EnumType]
+    public readonly struct FormatType : IEquatable<FormatType>
+    {
+        private readonly string _value;
+
+        private FormatType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FormatType Csv { get; } = new FormatType("Csv");
+
+        public static bool operator ==(FormatType left, FormatType right) => left.Equals(right);
+        public static bool operator !=(FormatType left, FormatType right) => !left.Equals(right);
+
+        public static explicit operator string(FormatType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FormatType other && Equals(other);
+        public bool Equals(FormatType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The name of the aggregation function to use.
     /// </summary>
     [EnumType]
@@ -95,6 +223,36 @@ namespace Pulumi.AzureNative.CostManagement.V20221001
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FunctionType other && Equals(other);
         public bool Equals(FunctionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The granularity of rows in the export. Currently only 'Daily' is supported.
+    /// </summary>
+    [EnumType]
+    public readonly struct GranularityType : IEquatable<GranularityType>
+    {
+        private readonly string _value;
+
+        private GranularityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GranularityType Daily { get; } = new GranularityType("Daily");
+
+        public static bool operator ==(GranularityType left, GranularityType right) => left.Equals(right);
+        public static bool operator !=(GranularityType left, GranularityType right) => !left.Equals(right);
+
+        public static explicit operator string(GranularityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GranularityType other && Equals(other);
+        public bool Equals(GranularityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -265,6 +423,39 @@ namespace Pulumi.AzureNative.CostManagement.V20221001
     }
 
     /// <summary>
+    /// The schedule recurrence.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecurrenceType : IEquatable<RecurrenceType>
+    {
+        private readonly string _value;
+
+        private RecurrenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecurrenceType Daily { get; } = new RecurrenceType("Daily");
+        public static RecurrenceType Weekly { get; } = new RecurrenceType("Weekly");
+        public static RecurrenceType Monthly { get; } = new RecurrenceType("Monthly");
+        public static RecurrenceType Annually { get; } = new RecurrenceType("Annually");
+
+        public static bool operator ==(RecurrenceType left, RecurrenceType right) => left.Equals(right);
+        public static bool operator !=(RecurrenceType left, RecurrenceType right) => !left.Equals(right);
+
+        public static explicit operator string(RecurrenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecurrenceType other && Equals(other);
+        public bool Equals(RecurrenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Direction of sort.
     /// </summary>
     [EnumType]
@@ -382,6 +573,225 @@ namespace Pulumi.AzureNative.CostManagement.V20221001
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ReportType other && Equals(other);
         public bool Equals(ReportType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Frequency of the schedule.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScheduleFrequency : IEquatable<ScheduleFrequency>
+    {
+        private readonly string _value;
+
+        private ScheduleFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Cost analysis data will be emailed every day.
+        /// </summary>
+        public static ScheduleFrequency Daily { get; } = new ScheduleFrequency("Daily");
+        /// <summary>
+        /// Cost analysis data will be emailed every week.
+        /// </summary>
+        public static ScheduleFrequency Weekly { get; } = new ScheduleFrequency("Weekly");
+        /// <summary>
+        /// Cost analysis data will be emailed every month.
+        /// </summary>
+        public static ScheduleFrequency Monthly { get; } = new ScheduleFrequency("Monthly");
+
+        public static bool operator ==(ScheduleFrequency left, ScheduleFrequency right) => left.Equals(right);
+        public static bool operator !=(ScheduleFrequency left, ScheduleFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduleFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduleFrequency other && Equals(other);
+        public bool Equals(ScheduleFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Kind of the scheduled action.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScheduledActionKind : IEquatable<ScheduledActionKind>
+    {
+        private readonly string _value;
+
+        private ScheduledActionKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Cost analysis data will be emailed.
+        /// </summary>
+        public static ScheduledActionKind Email { get; } = new ScheduledActionKind("Email");
+        /// <summary>
+        /// Cost anomaly information will be emailed. Available only on subscription scope at daily frequency. If no anomaly is detected on the resource, an email won't be sent.
+        /// </summary>
+        public static ScheduledActionKind InsightAlert { get; } = new ScheduledActionKind("InsightAlert");
+
+        public static bool operator ==(ScheduledActionKind left, ScheduledActionKind right) => left.Equals(right);
+        public static bool operator !=(ScheduledActionKind left, ScheduledActionKind right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduledActionKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduledActionKind other && Equals(other);
+        public bool Equals(ScheduledActionKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of the scheduled action.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScheduledActionStatus : IEquatable<ScheduledActionStatus>
+    {
+        private readonly string _value;
+
+        private ScheduledActionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Scheduled action is saved but will not be run.
+        /// </summary>
+        public static ScheduledActionStatus Disabled { get; } = new ScheduledActionStatus("Disabled");
+        /// <summary>
+        /// Scheduled action is saved and will be run.
+        /// </summary>
+        public static ScheduledActionStatus Enabled { get; } = new ScheduledActionStatus("Enabled");
+        /// <summary>
+        /// Scheduled action is expired.
+        /// </summary>
+        public static ScheduledActionStatus Expired { get; } = new ScheduledActionStatus("Expired");
+
+        public static bool operator ==(ScheduledActionStatus left, ScheduledActionStatus right) => left.Equals(right);
+        public static bool operator !=(ScheduledActionStatus left, ScheduledActionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduledActionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduledActionStatus other && Equals(other);
+        public bool Equals(ScheduledActionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
+    /// </summary>
+    [EnumType]
+    public readonly struct StatusType : IEquatable<StatusType>
+    {
+        private readonly string _value;
+
+        private StatusType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StatusType Active { get; } = new StatusType("Active");
+        public static StatusType Inactive { get; } = new StatusType("Inactive");
+
+        public static bool operator ==(StatusType left, StatusType right) => left.Equals(right);
+        public static bool operator !=(StatusType left, StatusType right) => !left.Equals(right);
+
+        public static explicit operator string(StatusType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StatusType other && Equals(other);
+        public bool Equals(StatusType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
+    /// </summary>
+    [EnumType]
+    public readonly struct TimeframeType : IEquatable<TimeframeType>
+    {
+        private readonly string _value;
+
+        private TimeframeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TimeframeType MonthToDate { get; } = new TimeframeType("MonthToDate");
+        public static TimeframeType BillingMonthToDate { get; } = new TimeframeType("BillingMonthToDate");
+        public static TimeframeType TheLastMonth { get; } = new TimeframeType("TheLastMonth");
+        public static TimeframeType TheLastBillingMonth { get; } = new TimeframeType("TheLastBillingMonth");
+        public static TimeframeType WeekToDate { get; } = new TimeframeType("WeekToDate");
+        public static TimeframeType Custom { get; } = new TimeframeType("Custom");
+
+        public static bool operator ==(TimeframeType left, TimeframeType right) => left.Equals(right);
+        public static bool operator !=(TimeframeType left, TimeframeType right) => !left.Equals(right);
+
+        public static explicit operator string(TimeframeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TimeframeType other && Equals(other);
+        public bool Equals(TimeframeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Weeks of month.
+    /// </summary>
+    [EnumType]
+    public readonly struct WeeksOfMonth : IEquatable<WeeksOfMonth>
+    {
+        private readonly string _value;
+
+        private WeeksOfMonth(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WeeksOfMonth First { get; } = new WeeksOfMonth("First");
+        public static WeeksOfMonth Second { get; } = new WeeksOfMonth("Second");
+        public static WeeksOfMonth Third { get; } = new WeeksOfMonth("Third");
+        public static WeeksOfMonth Fourth { get; } = new WeeksOfMonth("Fourth");
+        public static WeeksOfMonth Last { get; } = new WeeksOfMonth("Last");
+
+        public static bool operator ==(WeeksOfMonth left, WeeksOfMonth right) => left.Equals(right);
+        public static bool operator !=(WeeksOfMonth left, WeeksOfMonth right) => !left.Equals(right);
+
+        public static explicit operator string(WeeksOfMonth value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WeeksOfMonth other && Equals(other);
+        public bool Equals(WeeksOfMonth other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

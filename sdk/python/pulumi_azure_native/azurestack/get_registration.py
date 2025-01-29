@@ -152,7 +152,7 @@ def get_registration(registration_name: Optional[str] = None,
     Returns the properties of an Azure Stack registration.
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2020-06-01-preview.
+    Other available API versions: 2017-06-01, 2020-06-01-preview.
 
 
     :param str registration_name: Name of the Azure Stack registration.
@@ -181,7 +181,7 @@ def get_registration_output(registration_name: Optional[pulumi.Input[str]] = Non
     Returns the properties of an Azure Stack registration.
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2020-06-01-preview.
+    Other available API versions: 2017-06-01, 2020-06-01-preview.
 
 
     :param str registration_name: Name of the Azure Stack registration.

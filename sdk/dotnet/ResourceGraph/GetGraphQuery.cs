@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ResourceGraph
     {
         /// <summary>
         /// Get a single graph query by its resourceName.
-        /// Azure REST API version: 2020-04-01-preview.
+        /// Azure REST API version: 2022-10-01.
         /// 
-        /// Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+        /// Other available API versions: 2018-09-01-preview, 2019-04-01, 2020-04-01-preview, 2021-03-01, 2024-04-01.
         /// </summary>
         public static Task<GetGraphQueryResult> InvokeAsync(GetGraphQueryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGraphQueryResult>("azure-native:resourcegraph:getGraphQuery", args ?? new GetGraphQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single graph query by its resourceName.
-        /// Azure REST API version: 2020-04-01-preview.
+        /// Azure REST API version: 2022-10-01.
         /// 
-        /// Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+        /// Other available API versions: 2018-09-01-preview, 2019-04-01, 2020-04-01-preview, 2021-03-01, 2024-04-01.
         /// </summary>
         public static Output<GetGraphQueryResult> Invoke(GetGraphQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphQueryResult>("azure-native:resourcegraph:getGraphQuery", args ?? new GetGraphQueryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single graph query by its resourceName.
-        /// Azure REST API version: 2020-04-01-preview.
+        /// Azure REST API version: 2022-10-01.
         /// 
-        /// Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+        /// Other available API versions: 2018-09-01-preview, 2019-04-01, 2020-04-01-preview, 2021-03-01, 2024-04-01.
         /// </summary>
         public static Output<GetGraphQueryResult> Invoke(GetGraphQueryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphQueryResult>("azure-native:resourcegraph:getGraphQuery", args ?? new GetGraphQueryInvokeArgs(), options.WithDefaults());
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The Azure subscription Id.
+        /// </summary>
+        [Input("subscriptionId")]
+        public string? SubscriptionId { get; set; }
 
         public GetGraphQueryArgs()
         {
@@ -74,6 +80,12 @@ namespace Pulumi.AzureNative.ResourceGraph
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
 
+        /// <summary>
+        /// The Azure subscription Id.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
         public GetGraphQueryInvokeArgs()
         {
         }
@@ -89,7 +101,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// This will be used to handle Optimistic Concurrency.
+        /// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         /// </summary>
         public readonly string? Etag;
         /// <summary>
@@ -99,7 +111,7 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// <summary>
         /// The location of the resource
         /// </summary>
-        public readonly string Location;
+        public readonly string? Location;
         /// <summary>
         /// Azure resource name. This is GUID value. The display name should be assigned within properties field.
         /// </summary>
@@ -112,10 +124,6 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// Enum indicating a type of graph query.
         /// </summary>
         public readonly string ResultKind;
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -137,15 +145,13 @@ namespace Pulumi.AzureNative.ResourceGraph
 
             string id,
 
-            string location,
+            string? location,
 
             string name,
 
             string query,
 
             string resultKind,
-
-            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -160,7 +166,6 @@ namespace Pulumi.AzureNative.ResourceGraph
             Name = name;
             Query = query;
             ResultKind = resultKind;
-            SystemData = systemData;
             Tags = tags;
             TimeModified = timeModified;
             Type = type;

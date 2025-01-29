@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the secret validation key of the DelegationSettings.
         /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Other available API versions: 2019-12-01, 2019-12-01-preview, 2020-06-01-preview, 2020-12-01, 2021-01-01-preview, 2021-04-01-preview.
         /// </summary>
         public static Task<ListDelegationSettingSecretsResult> InvokeAsync(ListDelegationSettingSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDelegationSettingSecretsResult>("azure-native:apimanagement:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the secret validation key of the DelegationSettings.
         /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Other available API versions: 2019-12-01, 2019-12-01-preview, 2020-06-01-preview, 2020-12-01, 2021-01-01-preview, 2021-04-01-preview.
         /// </summary>
         public static Output<ListDelegationSettingSecretsResult> Invoke(ListDelegationSettingSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDelegationSettingSecretsResult>("azure-native:apimanagement:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Gets the secret validation key of the DelegationSettings.
         /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Other available API versions: 2019-12-01, 2019-12-01-preview, 2020-06-01-preview, 2020-12-01, 2021-01-01-preview, 2021-04-01-preview.
         /// </summary>
         public static Output<ListDelegationSettingSecretsResult> Invoke(ListDelegationSettingSecretsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListDelegationSettingSecretsResult>("azure-native:apimanagement:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsInvokeArgs(), options.WithDefaults());

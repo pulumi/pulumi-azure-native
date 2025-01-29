@@ -12,6 +12,16 @@ export {
     v20230627preview,
 };
 
+export const ControllerPurpose = {
+    Test: "test",
+    Prod: "prod",
+} as const;
+
+/**
+ * The purpose of the dnc controller resource.
+ */
+export type ControllerPurpose = (typeof ControllerPurpose)[keyof typeof ControllerPurpose];
+
 export const OrchestratorKind = {
     Kubernetes: "Kubernetes",
 } as const;

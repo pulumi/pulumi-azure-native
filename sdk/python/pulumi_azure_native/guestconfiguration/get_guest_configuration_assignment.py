@@ -116,9 +116,9 @@ def get_guest_configuration_assignment(guest_configuration_assignment_name: Opti
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestConfigurationAssignmentResult:
     """
     Get information about a guest configuration assignment
-    Azure REST API version: 2022-01-25.
+    Azure REST API version: 2024-04-05.
 
-    Other available API versions: 2024-04-05.
+    Other available API versions: 2020-06-25, 2021-01-25, 2022-01-25.
 
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.
@@ -145,9 +145,9 @@ def get_guest_configuration_assignment_output(guest_configuration_assignment_nam
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestConfigurationAssignmentResult]:
     """
     Get information about a guest configuration assignment
-    Azure REST API version: 2022-01-25.
+    Azure REST API version: 2024-04-05.
 
-    Other available API versions: 2024-04-05.
+    Other available API versions: 2020-06-25, 2021-01-25, 2022-01-25.
 
 
     :param str guest_configuration_assignment_name: The guest configuration assignment name.

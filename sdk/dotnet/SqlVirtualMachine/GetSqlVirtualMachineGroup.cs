@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     {
         /// <summary>
         /// Gets a SQL virtual machine group.
-        /// Azure REST API version: 2022-02-01.
+        /// Azure REST API version: 2023-10-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-10-01.
+        /// Other available API versions: 2017-03-01-preview, 2021-11-01-preview, 2022-02-01, 2022-02-01-preview, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview.
         /// </summary>
         public static Task<GetSqlVirtualMachineGroupResult> InvokeAsync(GetSqlVirtualMachineGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineGroupResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup", args ?? new GetSqlVirtualMachineGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a SQL virtual machine group.
-        /// Azure REST API version: 2022-02-01.
+        /// Azure REST API version: 2023-10-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-10-01.
+        /// Other available API versions: 2017-03-01-preview, 2021-11-01-preview, 2022-02-01, 2022-02-01-preview, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview.
         /// </summary>
         public static Output<GetSqlVirtualMachineGroupResult> Invoke(GetSqlVirtualMachineGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineGroupResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup", args ?? new GetSqlVirtualMachineGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a SQL virtual machine group.
-        /// Azure REST API version: 2022-02-01.
+        /// Azure REST API version: 2023-10-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-10-01.
+        /// Other available API versions: 2017-03-01-preview, 2021-11-01-preview, 2022-02-01, 2022-02-01-preview, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview.
         /// </summary>
         public static Output<GetSqlVirtualMachineGroupResult> Invoke(GetSqlVirtualMachineGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineGroupResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup", args ?? new GetSqlVirtualMachineGroupInvokeArgs(), options.WithDefaults());

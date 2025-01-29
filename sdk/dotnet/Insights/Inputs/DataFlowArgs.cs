@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Insights.Inputs
         [Input("builtInTransform")]
         public Input<string>? BuiltInTransform { get; set; }
 
+        /// <summary>
+        /// Flag to enable overflow column in LA destinations
+        /// </summary>
+        [Input("captureOverflow")]
+        public Input<bool>? CaptureOverflow { get; set; }
+
         [Input("destinations")]
         private InputList<string>? _destinations;
 

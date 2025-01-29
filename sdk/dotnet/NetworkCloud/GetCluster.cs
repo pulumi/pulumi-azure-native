@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided cluster.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:networkcloud:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided cluster.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:networkcloud:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided cluster.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:networkcloud:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -133,6 +133,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string ClusterVersion;
         /// <summary>
+        /// The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
+        /// </summary>
+        public readonly Outputs.CommandOutputSettingsResponse? CommandOutputSettings;
+        /// <summary>
         /// The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
         /// </summary>
         public readonly Outputs.ValidationThresholdResponse? ComputeDeploymentThreshold;
@@ -161,6 +165,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identity for the resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -244,6 +252,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string clusterVersion,
 
+            Outputs.CommandOutputSettingsResponse? commandOutputSettings,
+
             Outputs.ValidationThresholdResponse? computeDeploymentThreshold,
 
             ImmutableArray<Outputs.RackDefinitionResponse> computeRackDefinitions,
@@ -257,6 +267,8 @@ namespace Pulumi.AzureNative.NetworkCloud
             Outputs.ExtendedLocationResponse hybridAksExtendedLocation,
 
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -298,6 +310,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             ClusterServicePrincipal = clusterServicePrincipal;
             ClusterType = clusterType;
             ClusterVersion = clusterVersion;
+            CommandOutputSettings = commandOutputSettings;
             ComputeDeploymentThreshold = computeDeploymentThreshold;
             ComputeRackDefinitions = computeRackDefinitions;
             DetailedStatus = detailedStatus;
@@ -305,6 +318,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             ExtendedLocation = extendedLocation;
             HybridAksExtendedLocation = hybridAksExtendedLocation;
             Id = id;
+            Identity = identity;
             Location = location;
             ManagedResourceGroupConfiguration = managedResourceGroupConfiguration;
             ManualActionCount = manualActionCount;

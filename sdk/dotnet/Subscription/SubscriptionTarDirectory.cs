@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Subscription
 {
     /// <summary>
     /// Subscription Response for Changed Target Directory.
-    /// Azure REST API version: 2024-08-01-preview.
+    /// Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2024-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:subscription:SubscriptionTarDirectory")]
     public partial class SubscriptionTarDirectory : global::Pulumi.CustomResource

@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? ApplicationType;
         /// <summary>
-        /// Application specific identifier of deployment rules for the volume group
-        /// </summary>
-        public readonly string? DeploymentSpecId;
-        /// <summary>
         /// Application specific placement rules for the volume group
         /// </summary>
         public readonly ImmutableArray<Outputs.PlacementKeyValuePairsResponse> GlobalPlacementRules;
@@ -47,8 +43,6 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string? applicationType,
 
-            string? deploymentSpecId,
-
             ImmutableArray<Outputs.PlacementKeyValuePairsResponse> globalPlacementRules,
 
             string? groupDescription,
@@ -57,7 +51,6 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         {
             ApplicationIdentifier = applicationIdentifier;
             ApplicationType = applicationType;
-            DeploymentSpecId = deploymentSpecId;
             GlobalPlacementRules = globalPlacementRules;
             GroupDescription = groupDescription;
             VolumesCount = volumesCount;

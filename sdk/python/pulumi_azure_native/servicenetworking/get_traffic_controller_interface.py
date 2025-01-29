@@ -163,9 +163,9 @@ def get_traffic_controller_interface(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficControllerInterfaceResult:
     """
     Get a TrafficController
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+    Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2024-05-01-preview, 2025-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -193,9 +193,9 @@ def get_traffic_controller_interface_output(resource_group_name: Optional[pulumi
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficControllerInterfaceResult]:
     """
     Get a TrafficController
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+    Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2024-05-01-preview, 2025-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of an event subscription.
- * Azure REST API version: 2022-06-15.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -23,7 +23,7 @@ export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulu
 
 export interface GetEventSubscriptionArgs {
     /**
-     * Name of the event subscription.
+     * Name of the event subscription to be found.
      */
     eventSubscriptionName: string;
     /**
@@ -33,7 +33,7 @@ export interface GetEventSubscriptionArgs {
 }
 
 /**
- * Event Subscription
+ * Event Subscription.
  */
 export interface GetEventSubscriptionResult {
     /**
@@ -55,7 +55,7 @@ export interface GetEventSubscriptionResult {
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly destination?: outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse;
+    readonly destination?: outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.MonitorAlertEventSubscriptionDestinationResponse | outputs.eventgrid.NamespaceTopicEventSubscriptionDestinationResponse | outputs.eventgrid.PartnerEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -89,7 +89,7 @@ export interface GetEventSubscriptionResult {
      */
     readonly retryPolicy?: outputs.eventgrid.RetryPolicyResponse;
     /**
-     * The system metadata relating to Event Subscription resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -103,9 +103,9 @@ export interface GetEventSubscriptionResult {
 }
 /**
  * Get properties of an event subscription.
- * Azure REST API version: 2022-06-15.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -117,7 +117,7 @@ export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs,
 
 export interface GetEventSubscriptionOutputArgs {
     /**
-     * Name of the event subscription.
+     * Name of the event subscription to be found.
      */
     eventSubscriptionName: pulumi.Input<string>;
     /**

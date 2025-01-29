@@ -16,8 +16,14 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AkamaiAccessControlArgs',
+    'AkamaiAccessControlArgsDict',
+    'AkamaiSignatureHeaderAuthenticationKeyArgs',
+    'AkamaiSignatureHeaderAuthenticationKeyArgsDict',
     'CrossSiteAccessPoliciesArgs',
     'CrossSiteAccessPoliciesArgsDict',
+    'HlsArgs',
+    'HlsArgsDict',
     'IPAccessControlArgs',
     'IPAccessControlArgsDict',
     'IPRangeArgs',
@@ -40,9 +46,123 @@ __all__ = [
     'LiveEventPreviewArgsDict',
     'LiveEventTranscriptionArgs',
     'LiveEventTranscriptionArgsDict',
+    'StreamingEndpointAccessControlArgs',
+    'StreamingEndpointAccessControlArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AkamaiAccessControlArgsDict(TypedDict):
+        """
+        Akamai access control
+        """
+        akamai_signature_header_authentication_key_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgsDict']]]]
+        """
+        authentication key list
+        """
+elif False:
+    AkamaiAccessControlArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkamaiAccessControlArgs:
+    def __init__(__self__, *,
+                 akamai_signature_header_authentication_key_list: Optional[pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]]] = None):
+        """
+        Akamai access control
+        :param pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]] akamai_signature_header_authentication_key_list: authentication key list
+        """
+        if akamai_signature_header_authentication_key_list is not None:
+            pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
+
+    @property
+    @pulumi.getter(name="akamaiSignatureHeaderAuthenticationKeyList")
+    def akamai_signature_header_authentication_key_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]]]:
+        """
+        authentication key list
+        """
+        return pulumi.get(self, "akamai_signature_header_authentication_key_list")
+
+    @akamai_signature_header_authentication_key_list.setter
+    def akamai_signature_header_authentication_key_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]]]):
+        pulumi.set(self, "akamai_signature_header_authentication_key_list", value)
+
+
+if not MYPY:
+    class AkamaiSignatureHeaderAuthenticationKeyArgsDict(TypedDict):
+        """
+        Akamai Signature Header authentication key.
+        """
+        base64_key: NotRequired[pulumi.Input[str]]
+        """
+        authentication key
+        """
+        expiration: NotRequired[pulumi.Input[str]]
+        """
+        The expiration time of the authentication key.
+        """
+        identifier: NotRequired[pulumi.Input[str]]
+        """
+        identifier of the key
+        """
+elif False:
+    AkamaiSignatureHeaderAuthenticationKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AkamaiSignatureHeaderAuthenticationKeyArgs:
+    def __init__(__self__, *,
+                 base64_key: Optional[pulumi.Input[str]] = None,
+                 expiration: Optional[pulumi.Input[str]] = None,
+                 identifier: Optional[pulumi.Input[str]] = None):
+        """
+        Akamai Signature Header authentication key.
+        :param pulumi.Input[str] base64_key: authentication key
+        :param pulumi.Input[str] expiration: The expiration time of the authentication key.
+        :param pulumi.Input[str] identifier: identifier of the key
+        """
+        if base64_key is not None:
+            pulumi.set(__self__, "base64_key", base64_key)
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="base64Key")
+    def base64_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        authentication key
+        """
+        return pulumi.get(self, "base64_key")
+
+    @base64_key.setter
+    def base64_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base64_key", value)
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiration time of the authentication key.
+        """
+        return pulumi.get(self, "expiration")
+
+    @expiration.setter
+    def expiration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        identifier of the key
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identifier", value)
+
 
 if not MYPY:
     class CrossSiteAccessPoliciesArgsDict(TypedDict):
@@ -98,6 +218,42 @@ class CrossSiteAccessPoliciesArgs:
     @cross_domain_policy.setter
     def cross_domain_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cross_domain_policy", value)
+
+
+if not MYPY:
+    class HlsArgsDict(TypedDict):
+        """
+        The HLS configuration.
+        """
+        fragments_per_ts_segment: NotRequired[pulumi.Input[int]]
+        """
+        The amount of fragments per HTTP Live Streaming (HLS) segment.
+        """
+elif False:
+    HlsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HlsArgs:
+    def __init__(__self__, *,
+                 fragments_per_ts_segment: Optional[pulumi.Input[int]] = None):
+        """
+        The HLS configuration.
+        :param pulumi.Input[int] fragments_per_ts_segment: The amount of fragments per HTTP Live Streaming (HLS) segment.
+        """
+        if fragments_per_ts_segment is not None:
+            pulumi.set(__self__, "fragments_per_ts_segment", fragments_per_ts_segment)
+
+    @property
+    @pulumi.getter(name="fragmentsPerTsSegment")
+    def fragments_per_ts_segment(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of fragments per HTTP Live Streaming (HLS) segment.
+        """
+        return pulumi.get(self, "fragments_per_ts_segment")
+
+    @fragments_per_ts_segment.setter
+    def fragments_per_ts_segment(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "fragments_per_ts_segment", value)
 
 
 if not MYPY:
@@ -812,5 +968,61 @@ class LiveEventTranscriptionArgs:
     @output_transcription_track.setter
     def output_transcription_track(self, value: Optional[pulumi.Input['LiveEventOutputTranscriptionTrackArgs']]):
         pulumi.set(self, "output_transcription_track", value)
+
+
+if not MYPY:
+    class StreamingEndpointAccessControlArgsDict(TypedDict):
+        """
+        StreamingEndpoint access control definition.
+        """
+        akamai: NotRequired[pulumi.Input['AkamaiAccessControlArgsDict']]
+        """
+        The access control of Akamai
+        """
+        ip: NotRequired[pulumi.Input['IPAccessControlArgsDict']]
+        """
+        The IP access control of the StreamingEndpoint.
+        """
+elif False:
+    StreamingEndpointAccessControlArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StreamingEndpointAccessControlArgs:
+    def __init__(__self__, *,
+                 akamai: Optional[pulumi.Input['AkamaiAccessControlArgs']] = None,
+                 ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
+        """
+        StreamingEndpoint access control definition.
+        :param pulumi.Input['AkamaiAccessControlArgs'] akamai: The access control of Akamai
+        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control of the StreamingEndpoint.
+        """
+        if akamai is not None:
+            pulumi.set(__self__, "akamai", akamai)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+
+    @property
+    @pulumi.getter
+    def akamai(self) -> Optional[pulumi.Input['AkamaiAccessControlArgs']]:
+        """
+        The access control of Akamai
+        """
+        return pulumi.get(self, "akamai")
+
+    @akamai.setter
+    def akamai(self, value: Optional[pulumi.Input['AkamaiAccessControlArgs']]):
+        pulumi.set(self, "akamai", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input['IPAccessControlArgs']]:
+        """
+        The IP access control of the StreamingEndpoint.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
+        pulumi.set(self, "ip", value)
 
 

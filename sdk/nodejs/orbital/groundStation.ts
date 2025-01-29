@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Ground Station contains one or more antennas.
- * Azure REST API version: 2024-03-01-preview.
+ * Azure REST API version: 2024-03-01-preview. Prior API version in Azure Native 2.x: 2024-03-01-preview.
  *
  * Other available API versions: 2024-03-01.
  */

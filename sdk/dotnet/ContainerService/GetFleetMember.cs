@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Get a FleetMember
-        /// Azure REST API version: 2023-03-15-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// 
-        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
         /// </summary>
         public static Task<GetFleetMemberResult> InvokeAsync(GetFleetMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetMemberResult>("azure-native:containerservice:getFleetMember", args ?? new GetFleetMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a FleetMember
-        /// Azure REST API version: 2023-03-15-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// 
-        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
         /// </summary>
         public static Output<GetFleetMemberResult> Invoke(GetFleetMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetMemberResult>("azure-native:containerservice:getFleetMember", args ?? new GetFleetMemberInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a FleetMember
-        /// Azure REST API version: 2023-03-15-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// 
-        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
         /// </summary>
         public static Output<GetFleetMemberResult> Invoke(GetFleetMemberInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetMemberResult>("azure-native:containerservice:getFleetMember", args ?? new GetFleetMemberInvokeArgs(), options.WithDefaults());

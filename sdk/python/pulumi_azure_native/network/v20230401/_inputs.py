@@ -522,6 +522,8 @@ __all__ = [
     'VpnServerConfigurationPolicyGroupMemberArgsDict',
     'VpnServerConfigurationPolicyGroupArgs',
     'VpnServerConfigurationPolicyGroupArgsDict',
+    'VpnServerConfigurationPropertiesArgs',
+    'VpnServerConfigurationPropertiesArgsDict',
     'VpnSiteLinkConnectionArgs',
     'VpnSiteLinkConnectionArgsDict',
     'VpnSiteLinkArgs',
@@ -26132,6 +26134,282 @@ class VpnServerConfigurationPolicyGroupArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
+
+
+if not MYPY:
+    class VpnServerConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Parameters for VpnServerConfiguration.
+        """
+        aad_authentication_parameters: NotRequired[pulumi.Input['AadAuthenticationParametersArgsDict']]
+        """
+        The set of aad vpn authentication parameters.
+        """
+        configuration_policy_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupArgsDict']]]]
+        """
+        List of all VpnServerConfigurationPolicyGroups.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the VpnServerConfiguration that is unique within a resource group.
+        """
+        radius_client_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigRadiusClientRootCertificateArgsDict']]]]
+        """
+        Radius client root certificate of VpnServerConfiguration.
+        """
+        radius_server_address: NotRequired[pulumi.Input[str]]
+        """
+        The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+        """
+        radius_server_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigRadiusServerRootCertificateArgsDict']]]]
+        """
+        Radius Server root certificate of VpnServerConfiguration.
+        """
+        radius_server_secret: NotRequired[pulumi.Input[str]]
+        """
+        The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+        """
+        radius_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RadiusServerArgsDict']]]]
+        """
+        Multiple Radius Server configuration for VpnServerConfiguration.
+        """
+        vpn_authentication_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnAuthenticationType']]]]]
+        """
+        VPN authentication types for the VpnServerConfiguration.
+        """
+        vpn_client_ipsec_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgsDict']]]]
+        """
+        VpnClientIpsecPolicies for VpnServerConfiguration.
+        """
+        vpn_client_revoked_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigVpnClientRevokedCertificateArgsDict']]]]
+        """
+        VPN client revoked certificate of VpnServerConfiguration.
+        """
+        vpn_client_root_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigVpnClientRootCertificateArgsDict']]]]
+        """
+        VPN client root certificate of VpnServerConfiguration.
+        """
+        vpn_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]]
+        """
+        VPN protocols for the VpnServerConfiguration.
+        """
+elif False:
+    VpnServerConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpnServerConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 aad_authentication_parameters: Optional[pulumi.Input['AadAuthenticationParametersArgs']] = None,
+                 configuration_policy_groups: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 radius_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigRadiusClientRootCertificateArgs']]]] = None,
+                 radius_server_address: Optional[pulumi.Input[str]] = None,
+                 radius_server_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigRadiusServerRootCertificateArgs']]]] = None,
+                 radius_server_secret: Optional[pulumi.Input[str]] = None,
+                 radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input['RadiusServerArgs']]]] = None,
+                 vpn_authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnAuthenticationType']]]]] = None,
+                 vpn_client_ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
+                 vpn_client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigVpnClientRevokedCertificateArgs']]]] = None,
+                 vpn_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigVpnClientRootCertificateArgs']]]] = None,
+                 vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]] = None):
+        """
+        Parameters for VpnServerConfiguration.
+        :param pulumi.Input['AadAuthenticationParametersArgs'] aad_authentication_parameters: The set of aad vpn authentication parameters.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupArgs']]] configuration_policy_groups: List of all VpnServerConfigurationPolicyGroups.
+        :param pulumi.Input[str] name: The name of the VpnServerConfiguration that is unique within a resource group.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigRadiusClientRootCertificateArgs']]] radius_client_root_certificates: Radius client root certificate of VpnServerConfiguration.
+        :param pulumi.Input[str] radius_server_address: The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigRadiusServerRootCertificateArgs']]] radius_server_root_certificates: Radius Server root certificate of VpnServerConfiguration.
+        :param pulumi.Input[str] radius_server_secret: The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+        :param pulumi.Input[Sequence[pulumi.Input['RadiusServerArgs']]] radius_servers: Multiple Radius Server configuration for VpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnAuthenticationType']]]] vpn_authentication_types: VPN authentication types for the VpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]] vpn_client_ipsec_policies: VpnClientIpsecPolicies for VpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigVpnClientRevokedCertificateArgs']]] vpn_client_revoked_certificates: VPN client revoked certificate of VpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigVpnClientRootCertificateArgs']]] vpn_client_root_certificates: VPN client root certificate of VpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]] vpn_protocols: VPN protocols for the VpnServerConfiguration.
+        """
+        if aad_authentication_parameters is not None:
+            pulumi.set(__self__, "aad_authentication_parameters", aad_authentication_parameters)
+        if configuration_policy_groups is not None:
+            pulumi.set(__self__, "configuration_policy_groups", configuration_policy_groups)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if radius_client_root_certificates is not None:
+            pulumi.set(__self__, "radius_client_root_certificates", radius_client_root_certificates)
+        if radius_server_address is not None:
+            pulumi.set(__self__, "radius_server_address", radius_server_address)
+        if radius_server_root_certificates is not None:
+            pulumi.set(__self__, "radius_server_root_certificates", radius_server_root_certificates)
+        if radius_server_secret is not None:
+            pulumi.set(__self__, "radius_server_secret", radius_server_secret)
+        if radius_servers is not None:
+            pulumi.set(__self__, "radius_servers", radius_servers)
+        if vpn_authentication_types is not None:
+            pulumi.set(__self__, "vpn_authentication_types", vpn_authentication_types)
+        if vpn_client_ipsec_policies is not None:
+            pulumi.set(__self__, "vpn_client_ipsec_policies", vpn_client_ipsec_policies)
+        if vpn_client_revoked_certificates is not None:
+            pulumi.set(__self__, "vpn_client_revoked_certificates", vpn_client_revoked_certificates)
+        if vpn_client_root_certificates is not None:
+            pulumi.set(__self__, "vpn_client_root_certificates", vpn_client_root_certificates)
+        if vpn_protocols is not None:
+            pulumi.set(__self__, "vpn_protocols", vpn_protocols)
+
+    @property
+    @pulumi.getter(name="aadAuthenticationParameters")
+    def aad_authentication_parameters(self) -> Optional[pulumi.Input['AadAuthenticationParametersArgs']]:
+        """
+        The set of aad vpn authentication parameters.
+        """
+        return pulumi.get(self, "aad_authentication_parameters")
+
+    @aad_authentication_parameters.setter
+    def aad_authentication_parameters(self, value: Optional[pulumi.Input['AadAuthenticationParametersArgs']]):
+        pulumi.set(self, "aad_authentication_parameters", value)
+
+    @property
+    @pulumi.getter(name="configurationPolicyGroups")
+    def configuration_policy_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupArgs']]]]:
+        """
+        List of all VpnServerConfigurationPolicyGroups.
+        """
+        return pulumi.get(self, "configuration_policy_groups")
+
+    @configuration_policy_groups.setter
+    def configuration_policy_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupArgs']]]]):
+        pulumi.set(self, "configuration_policy_groups", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the VpnServerConfiguration that is unique within a resource group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="radiusClientRootCertificates")
+    def radius_client_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigRadiusClientRootCertificateArgs']]]]:
+        """
+        Radius client root certificate of VpnServerConfiguration.
+        """
+        return pulumi.get(self, "radius_client_root_certificates")
+
+    @radius_client_root_certificates.setter
+    def radius_client_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigRadiusClientRootCertificateArgs']]]]):
+        pulumi.set(self, "radius_client_root_certificates", value)
+
+    @property
+    @pulumi.getter(name="radiusServerAddress")
+    def radius_server_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+        """
+        return pulumi.get(self, "radius_server_address")
+
+    @radius_server_address.setter
+    def radius_server_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "radius_server_address", value)
+
+    @property
+    @pulumi.getter(name="radiusServerRootCertificates")
+    def radius_server_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigRadiusServerRootCertificateArgs']]]]:
+        """
+        Radius Server root certificate of VpnServerConfiguration.
+        """
+        return pulumi.get(self, "radius_server_root_certificates")
+
+    @radius_server_root_certificates.setter
+    def radius_server_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigRadiusServerRootCertificateArgs']]]]):
+        pulumi.set(self, "radius_server_root_certificates", value)
+
+    @property
+    @pulumi.getter(name="radiusServerSecret")
+    def radius_server_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+        """
+        return pulumi.get(self, "radius_server_secret")
+
+    @radius_server_secret.setter
+    def radius_server_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "radius_server_secret", value)
+
+    @property
+    @pulumi.getter(name="radiusServers")
+    def radius_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RadiusServerArgs']]]]:
+        """
+        Multiple Radius Server configuration for VpnServerConfiguration.
+        """
+        return pulumi.get(self, "radius_servers")
+
+    @radius_servers.setter
+    def radius_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RadiusServerArgs']]]]):
+        pulumi.set(self, "radius_servers", value)
+
+    @property
+    @pulumi.getter(name="vpnAuthenticationTypes")
+    def vpn_authentication_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnAuthenticationType']]]]]:
+        """
+        VPN authentication types for the VpnServerConfiguration.
+        """
+        return pulumi.get(self, "vpn_authentication_types")
+
+    @vpn_authentication_types.setter
+    def vpn_authentication_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnAuthenticationType']]]]]):
+        pulumi.set(self, "vpn_authentication_types", value)
+
+    @property
+    @pulumi.getter(name="vpnClientIpsecPolicies")
+    def vpn_client_ipsec_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]]:
+        """
+        VpnClientIpsecPolicies for VpnServerConfiguration.
+        """
+        return pulumi.get(self, "vpn_client_ipsec_policies")
+
+    @vpn_client_ipsec_policies.setter
+    def vpn_client_ipsec_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]]):
+        pulumi.set(self, "vpn_client_ipsec_policies", value)
+
+    @property
+    @pulumi.getter(name="vpnClientRevokedCertificates")
+    def vpn_client_revoked_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigVpnClientRevokedCertificateArgs']]]]:
+        """
+        VPN client revoked certificate of VpnServerConfiguration.
+        """
+        return pulumi.get(self, "vpn_client_revoked_certificates")
+
+    @vpn_client_revoked_certificates.setter
+    def vpn_client_revoked_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigVpnClientRevokedCertificateArgs']]]]):
+        pulumi.set(self, "vpn_client_revoked_certificates", value)
+
+    @property
+    @pulumi.getter(name="vpnClientRootCertificates")
+    def vpn_client_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigVpnClientRootCertificateArgs']]]]:
+        """
+        VPN client root certificate of VpnServerConfiguration.
+        """
+        return pulumi.get(self, "vpn_client_root_certificates")
+
+    @vpn_client_root_certificates.setter
+    def vpn_client_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigVpnClientRootCertificateArgs']]]]):
+        pulumi.set(self, "vpn_client_root_certificates", value)
+
+    @property
+    @pulumi.getter(name="vpnProtocols")
+    def vpn_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]]:
+        """
+        VPN protocols for the VpnServerConfiguration.
+        """
+        return pulumi.get(self, "vpn_protocols")
+
+    @vpn_protocols.setter
+    def vpn_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]]):
+        pulumi.set(self, "vpn_protocols", value)
 
 
 if not MYPY:

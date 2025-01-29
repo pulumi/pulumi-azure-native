@@ -6,10 +6,18 @@ from enum import Enum
 
 __all__ = [
     'CreateMode',
+    'DataFlowComputeType',
+    'IntegrationRuntimeEdition',
+    'IntegrationRuntimeEntityReferenceType',
+    'IntegrationRuntimeLicenseType',
+    'IntegrationRuntimeSsisCatalogPricingTier',
+    'IntegrationRuntimeType',
     'NodeSize',
     'NodeSizeFamily',
     'ResourceIdentityType',
+    'SensitivityLabelRank',
     'StorageAccountType',
+    'TransparentDataEncryptionStatus',
     'WorkspacePublicNetworkAccess',
 ]
 
@@ -30,6 +38,57 @@ class CreateMode(str, Enum):
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
     RECOVERY = "Recovery"
     RESTORE = "Restore"
+
+
+class DataFlowComputeType(str, Enum):
+    """
+    Compute type of the cluster which will execute data flow job.
+    """
+    GENERAL = "General"
+    MEMORY_OPTIMIZED = "MemoryOptimized"
+    COMPUTE_OPTIMIZED = "ComputeOptimized"
+
+
+class IntegrationRuntimeEdition(str, Enum):
+    """
+    The edition for the SSIS Integration Runtime
+    """
+    STANDARD = "Standard"
+    ENTERPRISE = "Enterprise"
+
+
+class IntegrationRuntimeEntityReferenceType(str, Enum):
+    """
+    The type of this referenced entity.
+    """
+    INTEGRATION_RUNTIME_REFERENCE = "IntegrationRuntimeReference"
+    LINKED_SERVICE_REFERENCE = "LinkedServiceReference"
+
+
+class IntegrationRuntimeLicenseType(str, Enum):
+    """
+    License type for bringing your own license scenario.
+    """
+    BASE_PRICE = "BasePrice"
+    LICENSE_INCLUDED = "LicenseIncluded"
+
+
+class IntegrationRuntimeSsisCatalogPricingTier(str, Enum):
+    """
+    The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
+    """
+    BASIC = "Basic"
+    STANDARD = "Standard"
+    PREMIUM = "Premium"
+    PREMIUM_RS = "PremiumRS"
+
+
+class IntegrationRuntimeType(str, Enum):
+    """
+    Type of integration runtime.
+    """
+    MANAGED = "Managed"
+    SELF_HOSTED = "SelfHosted"
 
 
 class NodeSize(str, Enum):
@@ -64,6 +123,14 @@ class ResourceIdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+class SensitivityLabelRank(str, Enum):
+    NONE = "None"
+    LOW = "Low"
+    MEDIUM = "Medium"
+    HIGH = "High"
+    CRITICAL = "Critical"
+
+
 class StorageAccountType(str, Enum):
     """
     The storage account type used to store backups for this sql pool.
@@ -71,6 +138,14 @@ class StorageAccountType(str, Enum):
     GRS = "GRS"
     LRS = "LRS"
     ZRS = "ZRS"
+
+
+class TransparentDataEncryptionStatus(str, Enum):
+    """
+    The status of the database transparent data encryption.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class WorkspacePublicNetworkAccess(str, Enum):

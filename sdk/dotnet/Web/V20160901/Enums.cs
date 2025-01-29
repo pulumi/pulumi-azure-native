@@ -8,6 +8,101 @@ using Pulumi;
 namespace Pulumi.AzureNative.Web.V20160901
 {
     /// <summary>
+    /// Action object.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessControlEntryAction : IEquatable<AccessControlEntryAction>
+    {
+        private readonly string _value;
+
+        private AccessControlEntryAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessControlEntryAction Permit { get; } = new AccessControlEntryAction("Permit");
+        public static AccessControlEntryAction Deny { get; } = new AccessControlEntryAction("Deny");
+
+        public static bool operator ==(AccessControlEntryAction left, AccessControlEntryAction right) => left.Equals(right);
+        public static bool operator !=(AccessControlEntryAction left, AccessControlEntryAction right) => !left.Equals(right);
+
+        public static explicit operator string(AccessControlEntryAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessControlEntryAction other && Equals(other);
+        public bool Equals(AccessControlEntryAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Shared or dedicated app hosting.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeModeOptions : IEquatable<ComputeModeOptions>
+    {
+        private readonly string _value;
+
+        private ComputeModeOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeModeOptions Shared { get; } = new ComputeModeOptions("Shared");
+        public static ComputeModeOptions Dedicated { get; } = new ComputeModeOptions("Dedicated");
+        public static ComputeModeOptions Dynamic { get; } = new ComputeModeOptions("Dynamic");
+
+        public static bool operator ==(ComputeModeOptions left, ComputeModeOptions right) => left.Equals(right);
+        public static bool operator !=(ComputeModeOptions left, ComputeModeOptions right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeModeOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeModeOptions other && Equals(other);
+        public bool Equals(ComputeModeOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+    /// </summary>
+    [EnumType]
+    public readonly struct InternalLoadBalancingMode : IEquatable<InternalLoadBalancingMode>
+    {
+        private readonly string _value;
+
+        private InternalLoadBalancingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InternalLoadBalancingMode None { get; } = new InternalLoadBalancingMode("None");
+        public static InternalLoadBalancingMode Web { get; } = new InternalLoadBalancingMode("Web");
+        public static InternalLoadBalancingMode Publishing { get; } = new InternalLoadBalancingMode("Publishing");
+
+        public static bool operator ==(InternalLoadBalancingMode left, InternalLoadBalancingMode right) => left.Equals(right);
+        public static bool operator !=(InternalLoadBalancingMode left, InternalLoadBalancingMode right) => !left.Equals(right);
+
+        public static explicit operator string(InternalLoadBalancingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InternalLoadBalancingMode other && Equals(other);
+        public bool Equals(InternalLoadBalancingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of route this is:
     /// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
     /// INHERITED - Routes inherited from the real Virtual Network routes

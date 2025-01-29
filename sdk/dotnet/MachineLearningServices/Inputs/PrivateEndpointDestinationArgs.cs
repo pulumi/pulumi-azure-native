@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<bool>? SparkEnabled { get; set; }
 
         /// <summary>
-        /// Status of a managed network Outbound Rule of a machine learning workspace.
+        /// Type of a managed network Outbound Rule of a machine learning workspace.
         /// </summary>
         [Input("sparkStatus")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.RuleStatus>? SparkStatus { get; set; }

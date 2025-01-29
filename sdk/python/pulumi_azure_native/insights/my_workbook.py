@@ -286,7 +286,9 @@ class MyWorkbook(pulumi.CustomResource):
                  __props__=None):
         """
         An Application Insights private workbook definition.
-        Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2020-10-20.
+        Azure REST API version: 2021-03-08. Prior API version in Azure Native 2.x: 2021-03-08.
+
+        Other available API versions: 2015-05-01, 2020-10-20.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -314,7 +316,9 @@ class MyWorkbook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Application Insights private workbook definition.
-        Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2020-10-20.
+        Azure REST API version: 2021-03-08. Prior API version in Azure Native 2.x: 2021-03-08.
+
+        Other available API versions: 2015-05-01, 2020-10-20.
 
         :param str resource_name: The name of the resource.
         :param MyWorkbookArgs args: The arguments to use to populate this resource's properties.

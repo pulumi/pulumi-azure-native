@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetEventSubscriptionResult:
     """
-    Event Subscription
+    Event Subscription.
     """
     def __init__(__self__, dead_letter_destination=None, dead_letter_with_resource_identity=None, delivery_with_resource_identity=None, destination=None, event_delivery_schema=None, expiration_time_utc=None, filter=None, id=None, labels=None, name=None, provisioning_state=None, retry_policy=None, system_data=None, topic=None, type=None):
         if dead_letter_destination and not isinstance(dead_letter_destination, dict):
@@ -178,7 +178,7 @@ class GetEventSubscriptionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to Event Subscription resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -227,12 +227,12 @@ def get_event_subscription(event_subscription_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSubscriptionResult:
     """
     Get properties of an event subscription.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
-    :param str event_subscription_name: Name of the event subscription.
+    :param str event_subscription_name: Name of the event subscription to be found.
     :param str scope: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
     """
     __args__ = dict()
@@ -262,12 +262,12 @@ def get_event_subscription_output(event_subscription_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSubscriptionResult]:
     """
     Get properties of an event subscription.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
-    :param str event_subscription_name: Name of the event subscription.
+    :param str event_subscription_name: Name of the event subscription to be found.
     :param str scope: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
     """
     __args__ = dict()

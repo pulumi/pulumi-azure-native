@@ -24,6 +24,22 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.signalrservice.v20200501 as __v20200501
+    v20200501 = __v20200501
+    import pulumi_azure_native.signalrservice.v20200701preview as __v20200701preview
+    v20200701preview = __v20200701preview
+    import pulumi_azure_native.signalrservice.v20210401preview as __v20210401preview
+    v20210401preview = __v20210401preview
+    import pulumi_azure_native.signalrservice.v20210601preview as __v20210601preview
+    v20210601preview = __v20210601preview
+    import pulumi_azure_native.signalrservice.v20210901preview as __v20210901preview
+    v20210901preview = __v20210901preview
+    import pulumi_azure_native.signalrservice.v20211001 as __v20211001
+    v20211001 = __v20211001
+    import pulumi_azure_native.signalrservice.v20220201 as __v20220201
+    v20220201 = __v20220201
+    import pulumi_azure_native.signalrservice.v20220801preview as __v20220801preview
+    v20220801preview = __v20220801preview
     import pulumi_azure_native.signalrservice.v20230201 as __v20230201
     v20230201 = __v20230201
     import pulumi_azure_native.signalrservice.v20230301preview as __v20230301preview
@@ -43,6 +59,14 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.signalrservice.v20241001preview as __v20241001preview
     v20241001preview = __v20241001preview
 else:
+    v20200501 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20200501')
+    v20200701preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20200701preview')
+    v20210401preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20210401preview')
+    v20210601preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20210601preview')
+    v20210901preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20210901preview')
+    v20211001 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20211001')
+    v20220201 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20220201')
+    v20220801preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20220801preview')
     v20230201 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20230201')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20230301preview')
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20230601preview')

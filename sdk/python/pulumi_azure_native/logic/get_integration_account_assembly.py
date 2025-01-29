@@ -118,6 +118,8 @@ def get_integration_account_assembly(assembly_artifact_name: Optional[str] = Non
     Get an assembly for an integration account.
     Azure REST API version: 2019-05-01.
 
+    Other available API versions: 2016-06-01, 2018-07-01-preview.
+
 
     :param str assembly_artifact_name: The assembly artifact name.
     :param str integration_account_name: The integration account name.
@@ -144,6 +146,8 @@ def get_integration_account_assembly_output(assembly_artifact_name: Optional[pul
     """
     Get an assembly for an integration account.
     Azure REST API version: 2019-05-01.
+
+    Other available API versions: 2016-06-01, 2018-07-01-preview.
 
 
     :param str assembly_artifact_name: The assembly artifact name.

@@ -14,12 +14,20 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
     /// Kafka endpoint properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointKafkaResponse
+    public sealed class DataflowEndpointKafkaResponse
     {
+        /// <summary>
+        /// Authentication configuration. NOTE - only authentication property is allowed per entry.
+        /// </summary>
+        public readonly Outputs.DataflowEndpointKafkaAuthenticationResponse Authentication;
         /// <summary>
         /// Batching configuration.
         /// </summary>
-        public readonly Outputs.DataFlowEndpointKafkaBatchingResponse? Batching;
+        public readonly Outputs.DataflowEndpointKafkaBatchingResponse? Batching;
+        /// <summary>
+        /// Cloud event mapping config.
+        /// </summary>
+        public readonly string? CloudEventAttributes;
         /// <summary>
         /// Compression. Can be none, gzip, lz4, or snappy. No effect if the endpoint is used as a source.
         /// </summary>
@@ -35,7 +43,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// <summary>
         /// Kafka endpoint host.
         /// </summary>
-        public readonly string? Host;
+        public readonly string Host;
         /// <summary>
         /// Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
         /// </summary>
@@ -47,11 +55,15 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// <summary>
         /// TLS configuration.
         /// </summary>
-        public readonly Outputs.TlsPropertiesResponse Tls;
+        public readonly Outputs.TlsPropertiesResponse? Tls;
 
         [OutputConstructor]
-        private DataFlowEndpointKafkaResponse(
-            Outputs.DataFlowEndpointKafkaBatchingResponse? batching,
+        private DataflowEndpointKafkaResponse(
+            Outputs.DataflowEndpointKafkaAuthenticationResponse authentication,
+
+            Outputs.DataflowEndpointKafkaBatchingResponse? batching,
+
+            string? cloudEventAttributes,
 
             string? compression,
 
@@ -59,15 +71,17 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 
             string? copyMqttProperties,
 
-            string? host,
+            string host,
 
             string? kafkaAcks,
 
             string? partitionStrategy,
 
-            Outputs.TlsPropertiesResponse tls)
+            Outputs.TlsPropertiesResponse? tls)
         {
+            Authentication = authentication;
             Batching = batching;
+            CloudEventAttributes = cloudEventAttributes;
             Compression = compression;
             ConsumerGroupId = consumerGroupId;
             CopyMqttProperties = copyMqttProperties;

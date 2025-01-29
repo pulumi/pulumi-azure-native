@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
-        public readonly string TargetResourceName;
+        public readonly string? TargetResourceName;
         /// <summary>
         /// Gets or sets the target update domain.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string? targetResourceGroupName,
 
-            string targetResourceName,
+            string? targetResourceName,
 
             int? updateDomain)
         {

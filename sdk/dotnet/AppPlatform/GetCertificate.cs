@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get the certificate resource.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2021-06-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2020-07-01, 2020-11-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2022-01-01-preview, 2022-03-01-preview, 2022-04-01, 2022-05-01-preview, 2022-09-01-preview, 2022-11-01-preview, 2022-12-01, 2023-01-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:appplatform:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the certificate resource.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2021-06-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2020-07-01, 2020-11-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2022-01-01-preview, 2022-03-01-preview, 2022-04-01, 2022-05-01-preview, 2022-09-01-preview, 2022-11-01-preview, 2022-12-01, 2023-01-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:appplatform:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the certificate resource.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2021-06-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2020-07-01, 2020-11-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2022-01-01-preview, 2022-03-01-preview, 2022-04-01, 2022-05-01-preview, 2022-09-01-preview, 2022-11-01-preview, 2022-12-01, 2023-01-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:appplatform:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

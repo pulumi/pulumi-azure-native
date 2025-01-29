@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Storage Mover resource.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Other available API versions: 2022-07-01-preview, 2023-03-01, 2023-07-01-preview, 2023-10-01.
  */
 export function getStorageMover(args: GetStorageMoverArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageMoverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,7 +57,7 @@ export interface GetStorageMoverResult {
      */
     readonly provisioningState: string;
     /**
-     * Resource system metadata.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.storagemover.SystemDataResponse;
     /**
@@ -71,9 +71,9 @@ export interface GetStorageMoverResult {
 }
 /**
  * Gets a Storage Mover resource.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Other available API versions: 2022-07-01-preview, 2023-03-01, 2023-07-01-preview, 2023-10-01.
  */
 export function getStorageMoverOutput(args: GetStorageMoverOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageMoverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

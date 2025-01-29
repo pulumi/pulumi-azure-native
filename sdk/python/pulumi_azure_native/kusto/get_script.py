@@ -27,7 +27,7 @@ class GetScriptResult:
     """
     Class representing a database script.
     """
-    def __init__(__self__, continue_on_errors=None, force_update_tag=None, id=None, name=None, provisioning_state=None, script_url=None, system_data=None, type=None):
+    def __init__(__self__, continue_on_errors=None, force_update_tag=None, id=None, name=None, principal_permissions_action=None, provisioning_state=None, script_level=None, script_url=None, system_data=None, type=None):
         if continue_on_errors and not isinstance(continue_on_errors, bool):
             raise TypeError("Expected argument 'continue_on_errors' to be a bool")
         pulumi.set(__self__, "continue_on_errors", continue_on_errors)
@@ -40,9 +40,15 @@ class GetScriptResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if principal_permissions_action and not isinstance(principal_permissions_action, str):
+            raise TypeError("Expected argument 'principal_permissions_action' to be a str")
+        pulumi.set(__self__, "principal_permissions_action", principal_permissions_action)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if script_level and not isinstance(script_level, str):
+            raise TypeError("Expected argument 'script_level' to be a str")
+        pulumi.set(__self__, "script_level", script_level)
         if script_url and not isinstance(script_url, str):
             raise TypeError("Expected argument 'script_url' to be a str")
         pulumi.set(__self__, "script_url", script_url)
@@ -86,12 +92,28 @@ class GetScriptResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="principalPermissionsAction")
+    def principal_permissions_action(self) -> Optional[str]:
+        """
+        Indicates if the permissions for the script caller are kept following completion of the script.
+        """
+        return pulumi.get(self, "principal_permissions_action")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         The provisioned state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="scriptLevel")
+    def script_level(self) -> Optional[str]:
+        """
+        Differentiates between the type of script commands included - Database or Cluster. The default is Database.
+        """
+        return pulumi.get(self, "script_level")
 
     @property
     @pulumi.getter(name="scriptUrl")
@@ -128,7 +150,9 @@ class AwaitableGetScriptResult(GetScriptResult):
             force_update_tag=self.force_update_tag,
             id=self.id,
             name=self.name,
+            principal_permissions_action=self.principal_permissions_action,
             provisioning_state=self.provisioning_state,
+            script_level=self.script_level,
             script_url=self.script_url,
             system_data=self.system_data,
             type=self.type)
@@ -141,14 +165,14 @@ def get_script(cluster_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScriptResult:
     """
     Gets a Kusto cluster database script.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
-    Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15, 2024-04-13.
+    Other available API versions: 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15.
 
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str script_name: The name of the Kusto database script.
     """
     __args__ = dict()
@@ -164,7 +188,9 @@ def get_script(cluster_name: Optional[str] = None,
         force_update_tag=pulumi.get(__ret__, 'force_update_tag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        principal_permissions_action=pulumi.get(__ret__, 'principal_permissions_action'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        script_level=pulumi.get(__ret__, 'script_level'),
         script_url=pulumi.get(__ret__, 'script_url'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
@@ -175,14 +201,14 @@ def get_script_output(cluster_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScriptResult]:
     """
     Gets a Kusto cluster database script.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
-    Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15, 2024-04-13.
+    Other available API versions: 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15.
 
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str script_name: The name of the Kusto database script.
     """
     __args__ = dict()
@@ -197,7 +223,9 @@ def get_script_output(cluster_name: Optional[pulumi.Input[str]] = None,
         force_update_tag=pulumi.get(__response__, 'force_update_tag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        principal_permissions_action=pulumi.get(__response__, 'principal_permissions_action'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        script_level=pulumi.get(__response__, 'script_level'),
         script_url=pulumi.get(__response__, 'script_url'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

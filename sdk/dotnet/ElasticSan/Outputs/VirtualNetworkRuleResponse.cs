@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.ElasticSan.Outputs
         /// </summary>
         public readonly string? Action;
         /// <summary>
-        /// Gets the state of virtual network rule.
-        /// </summary>
-        public readonly string State;
-        /// <summary>
         /// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
         /// </summary>
         public readonly string VirtualNetworkResourceId;
@@ -33,12 +29,9 @@ namespace Pulumi.AzureNative.ElasticSan.Outputs
         private VirtualNetworkRuleResponse(
             string? action,
 
-            string state,
-
             string virtualNetworkResourceId)
         {
             Action = action;
-            State = state;
             VirtualNetworkResourceId = virtualNetworkResourceId;
         }
     }

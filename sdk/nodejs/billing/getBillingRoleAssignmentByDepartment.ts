@@ -2,13 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
- * Azure REST API version: 2019-10-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2019-10-01-preview.
  */
 export function getBillingRoleAssignmentByDepartment(args: GetBillingRoleAssignmentByDepartmentArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingRoleAssignmentByDepartmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -29,73 +32,45 @@ export interface GetBillingRoleAssignmentByDepartmentArgs {
      */
     billingRoleAssignmentName: string;
     /**
-     * The ID that uniquely identifies a department.
+     * The name of the department.
      */
     departmentName: string;
 }
 
 /**
- * The role assignment
+ * The properties of the billing role assignment.
  */
 export interface GetBillingRoleAssignmentByDepartmentResult {
     /**
-     * The principal Id of the user who created the role assignment.
-     */
-    readonly createdByPrincipalId: string;
-    /**
-     * The tenant Id of the user who created the role assignment.
-     */
-    readonly createdByPrincipalTenantId: string;
-    /**
-     * The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
-     */
-    readonly createdByUserEmailAddress: string;
-    /**
-     * The date the role assignment was created.
-     */
-    readonly createdOn: string;
-    /**
-     * Resource Id.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * The principal id of the user to whom the role was assigned.
+     * The properties of the billing role assignment.
      */
-    readonly principalId?: string;
+    readonly properties: outputs.billing.BillingRoleAssignmentPropertiesResponse;
     /**
-     * The principal tenant id of the user to whom the role was assigned.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly principalTenantId?: string;
+    readonly systemData: outputs.billing.SystemDataResponse;
     /**
-     * The ID of the role definition.
+     * Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \ ? /
      */
-    readonly roleDefinitionId?: string;
+    readonly tags?: {[key: string]: string};
     /**
-     * The scope at which the role was assigned.
-     */
-    readonly scope: string;
-    /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-     */
-    readonly userAuthenticationType?: string;
-    /**
-     * The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-     */
-    readonly userEmailAddress?: string;
 }
 /**
  * Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
- * Azure REST API version: 2019-10-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2019-10-01-preview.
  */
 export function getBillingRoleAssignmentByDepartmentOutput(args: GetBillingRoleAssignmentByDepartmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingRoleAssignmentByDepartmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -116,7 +91,7 @@ export interface GetBillingRoleAssignmentByDepartmentOutputArgs {
      */
     billingRoleAssignmentName: pulumi.Input<string>;
     /**
-     * The ID that uniquely identifies a department.
+     * The name of the department.
      */
     departmentName: pulumi.Input<string>;
 }

@@ -11,19 +11,19 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// DataFlowEndpoint Authentication SystemAssignedManagedIdentity properties
+    /// DataflowEndpoint Authentication SystemAssignedManagedIdentity properties
     /// </summary>
-    public sealed class DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
         /// </summary>
-        [Input("audience", required: true)]
-        public Input<string> Audience { get; set; } = null!;
+        [Input("audience")]
+        public Input<string>? Audience { get; set; }
 
-        public DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgs()
+        public DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs()
         {
         }
-        public static new DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgs Empty => new DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgs();
+        public static new DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs Empty => new DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs();
     }
 }

@@ -98,6 +98,8 @@ def get_provider_registration(provider_namespace: Optional[str] = None,
     Gets the provider registration details.
     Azure REST API version: 2021-09-01-preview.
 
+    Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
+
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     """
@@ -117,6 +119,8 @@ def get_provider_registration_output(provider_namespace: Optional[pulumi.Input[s
     """
     Gets the provider registration details.
     Azure REST API version: 2021-09-01-preview.
+
+    Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
 
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.

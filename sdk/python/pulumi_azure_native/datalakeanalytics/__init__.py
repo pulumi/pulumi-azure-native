@@ -18,8 +18,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.datalakeanalytics.v20161101 as __v20161101
+    v20161101 = __v20161101
     import pulumi_azure_native.datalakeanalytics.v20191101preview as __v20191101preview
     v20191101preview = __v20191101preview
 else:
+    v20161101 = _utilities.lazy_import('pulumi_azure_native.datalakeanalytics.v20161101')
     v20191101preview = _utilities.lazy_import('pulumi_azure_native.datalakeanalytics.v20191101preview')
 

@@ -117,6 +117,8 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
     Gets the registration definition details.
     Azure REST API version: 2022-10-01.
 
+    Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
+
 
     :param str registration_definition_id: The GUID of the registration definition.
     :param str scope: The scope of the resource.
@@ -140,6 +142,8 @@ def get_registration_definition_output(registration_definition_id: Optional[pulu
     """
     Gets the registration definition details.
     Azure REST API version: 2022-10-01.
+
+    Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
 
 
     :param str registration_definition_id: The GUID of the registration definition.

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
     public sealed class ApiPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes the ServerVersion of an a MongoDB account.
+        /// Describes the version of the MongoDB account.
         /// </summary>
         [Input("serverVersion")]
         public InputUnion<string, Pulumi.AzureNative.DocumentDB.ServerVersion>? ServerVersion { get; set; }

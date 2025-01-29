@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AADAuthenticationSettingsArgs',
+    'AADAuthenticationSettingsArgsDict',
     'AdditionalFeaturesServerConfigurationsArgs',
     'AdditionalFeaturesServerConfigurationsArgsDict',
     'AgConfigurationArgs',
@@ -56,6 +58,8 @@ __all__ = [
     'SqlWorkloadTypeUpdateSettingsArgsDict',
     'StorageConfigurationSettingsArgs',
     'StorageConfigurationSettingsArgsDict',
+    'VirtualMachineIdentityArgs',
+    'VirtualMachineIdentityArgsDict',
     'WsfcDomainCredentialsArgs',
     'WsfcDomainCredentialsArgsDict',
     'WsfcDomainProfileArgs',
@@ -63,6 +67,42 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AADAuthenticationSettingsArgsDict(TypedDict):
+        """
+        Enable AAD authentication for SQL VM.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity
+        """
+elif False:
+    AADAuthenticationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AADAuthenticationSettingsArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None):
+        """
+        Enable AAD authentication for SQL VM.
+        :param pulumi.Input[str] client_id: The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
 
 if not MYPY:
     class AdditionalFeaturesServerConfigurationsArgsDict(TypedDict):
@@ -255,19 +295,19 @@ class AgReplicaArgs:
 if not MYPY:
     class AssessmentSettingsArgsDict(TypedDict):
         """
-        Configure assessment for databases in your SQL virtual machine.
+        Configure SQL best practices Assessment for databases in your SQL virtual machine.
         """
         enable: NotRequired[pulumi.Input[bool]]
         """
-        Enable or disable assessment feature on SQL virtual machine.
+        Enable or disable SQL best practices Assessment feature on SQL virtual machine.
         """
         run_immediately: NotRequired[pulumi.Input[bool]]
         """
-        Run assessment immediately on SQL virtual machine.
+        Run SQL best practices Assessment immediately on SQL virtual machine.
         """
         schedule: NotRequired[pulumi.Input['ScheduleArgsDict']]
         """
-        Schedule for Assessment.
+        Schedule for SQL best practices Assessment.
         """
 elif False:
     AssessmentSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -279,10 +319,10 @@ class AssessmentSettingsArgs:
                  run_immediately: Optional[pulumi.Input[bool]] = None,
                  schedule: Optional[pulumi.Input['ScheduleArgs']] = None):
         """
-        Configure assessment for databases in your SQL virtual machine.
-        :param pulumi.Input[bool] enable: Enable or disable assessment feature on SQL virtual machine.
-        :param pulumi.Input[bool] run_immediately: Run assessment immediately on SQL virtual machine.
-        :param pulumi.Input['ScheduleArgs'] schedule: Schedule for Assessment.
+        Configure SQL best practices Assessment for databases in your SQL virtual machine.
+        :param pulumi.Input[bool] enable: Enable or disable SQL best practices Assessment feature on SQL virtual machine.
+        :param pulumi.Input[bool] run_immediately: Run SQL best practices Assessment immediately on SQL virtual machine.
+        :param pulumi.Input['ScheduleArgs'] schedule: Schedule for SQL best practices Assessment.
         """
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
@@ -295,7 +335,7 @@ class AssessmentSettingsArgs:
     @pulumi.getter
     def enable(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable assessment feature on SQL virtual machine.
+        Enable or disable SQL best practices Assessment feature on SQL virtual machine.
         """
         return pulumi.get(self, "enable")
 
@@ -307,7 +347,7 @@ class AssessmentSettingsArgs:
     @pulumi.getter(name="runImmediately")
     def run_immediately(self) -> Optional[pulumi.Input[bool]]:
         """
-        Run assessment immediately on SQL virtual machine.
+        Run SQL best practices Assessment immediately on SQL virtual machine.
         """
         return pulumi.get(self, "run_immediately")
 
@@ -319,7 +359,7 @@ class AssessmentSettingsArgs:
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['ScheduleArgs']]:
         """
-        Schedule for Assessment.
+        Schedule for SQL best practices Assessment.
         """
         return pulumi.get(self, "schedule")
 
@@ -629,6 +669,10 @@ if not MYPY:
         """
         Set a patching window during which Windows and SQL patches will be applied.
         """
+        additional_vm_patch: NotRequired[pulumi.Input[Union[str, 'AdditionalVmPatch']]]
+        """
+        Additional Patch to be enable or enabled on the SQL Virtual Machine.
+        """
         day_of_week: NotRequired[pulumi.Input['DayOfWeek']]
         """
         Day of week to apply the patch on.
@@ -651,17 +695,23 @@ elif False:
 @pulumi.input_type
 class AutoPatchingSettingsArgs:
     def __init__(__self__, *,
+                 additional_vm_patch: Optional[pulumi.Input[Union[str, 'AdditionalVmPatch']]] = None,
                  day_of_week: Optional[pulumi.Input['DayOfWeek']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  maintenance_window_duration: Optional[pulumi.Input[int]] = None,
                  maintenance_window_starting_hour: Optional[pulumi.Input[int]] = None):
         """
         Set a patching window during which Windows and SQL patches will be applied.
+        :param pulumi.Input[Union[str, 'AdditionalVmPatch']] additional_vm_patch: Additional Patch to be enable or enabled on the SQL Virtual Machine.
         :param pulumi.Input['DayOfWeek'] day_of_week: Day of week to apply the patch on.
         :param pulumi.Input[bool] enable: Enable or disable autopatching on SQL virtual machine.
         :param pulumi.Input[int] maintenance_window_duration: Duration of patching.
         :param pulumi.Input[int] maintenance_window_starting_hour: Hour of the day when patching is initiated. Local VM time.
         """
+        if additional_vm_patch is None:
+            additional_vm_patch = 'NotSet'
+        if additional_vm_patch is not None:
+            pulumi.set(__self__, "additional_vm_patch", additional_vm_patch)
         if day_of_week is not None:
             pulumi.set(__self__, "day_of_week", day_of_week)
         if enable is not None:
@@ -670,6 +720,18 @@ class AutoPatchingSettingsArgs:
             pulumi.set(__self__, "maintenance_window_duration", maintenance_window_duration)
         if maintenance_window_starting_hour is not None:
             pulumi.set(__self__, "maintenance_window_starting_hour", maintenance_window_starting_hour)
+
+    @property
+    @pulumi.getter(name="additionalVmPatch")
+    def additional_vm_patch(self) -> Optional[pulumi.Input[Union[str, 'AdditionalVmPatch']]]:
+        """
+        Additional Patch to be enable or enabled on the SQL Virtual Machine.
+        """
+        return pulumi.get(self, "additional_vm_patch")
+
+    @additional_vm_patch.setter
+    def additional_vm_patch(self, value: Optional[pulumi.Input[Union[str, 'AdditionalVmPatch']]]):
+        pulumi.set(self, "additional_vm_patch", value)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -1267,6 +1329,10 @@ if not MYPY:
         """
         Logical Unit Numbers for the disks.
         """
+        use_storage_pool: NotRequired[pulumi.Input[bool]]
+        """
+        Use storage pool to build a drive if true or not provided
+        """
 elif False:
     SQLStorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1274,16 +1340,20 @@ elif False:
 class SQLStorageSettingsArgs:
     def __init__(__self__, *,
                  default_file_path: Optional[pulumi.Input[str]] = None,
-                 luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+                 luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 use_storage_pool: Optional[pulumi.Input[bool]] = None):
         """
         Set disk storage settings for SQL Server.
         :param pulumi.Input[str] default_file_path: SQL Server default file path
         :param pulumi.Input[Sequence[pulumi.Input[int]]] luns: Logical Unit Numbers for the disks.
+        :param pulumi.Input[bool] use_storage_pool: Use storage pool to build a drive if true or not provided
         """
         if default_file_path is not None:
             pulumi.set(__self__, "default_file_path", default_file_path)
         if luns is not None:
             pulumi.set(__self__, "luns", luns)
+        if use_storage_pool is not None:
+            pulumi.set(__self__, "use_storage_pool", use_storage_pool)
 
     @property
     @pulumi.getter(name="defaultFilePath")
@@ -1309,9 +1379,24 @@ class SQLStorageSettingsArgs:
     def luns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "luns", value)
 
+    @property
+    @pulumi.getter(name="useStoragePool")
+    def use_storage_pool(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use storage pool to build a drive if true or not provided
+        """
+        return pulumi.get(self, "use_storage_pool")
+
+    @use_storage_pool.setter
+    def use_storage_pool(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_storage_pool", value)
+
 
 if not MYPY:
     class SQLTempDbSettingsArgsDict(TypedDict):
+        """
+        Set tempDb storage settings for SQL Server.
+        """
         data_file_count: NotRequired[pulumi.Input[int]]
         """
         SQL Server tempdb data file count
@@ -1348,6 +1433,10 @@ if not MYPY:
         """
         SQL Server tempdb persist folder location
         """
+        use_storage_pool: NotRequired[pulumi.Input[bool]]
+        """
+        Use storage pool to build a drive if true or not provided
+        """
 elif False:
     SQLTempDbSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1362,8 +1451,10 @@ class SQLTempDbSettingsArgs:
                  log_growth: Optional[pulumi.Input[int]] = None,
                  luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  persist_folder: Optional[pulumi.Input[bool]] = None,
-                 persist_folder_path: Optional[pulumi.Input[str]] = None):
+                 persist_folder_path: Optional[pulumi.Input[str]] = None,
+                 use_storage_pool: Optional[pulumi.Input[bool]] = None):
         """
+        Set tempDb storage settings for SQL Server.
         :param pulumi.Input[int] data_file_count: SQL Server tempdb data file count
         :param pulumi.Input[int] data_file_size: SQL Server tempdb data file size
         :param pulumi.Input[int] data_growth: SQL Server tempdb data file autoGrowth size
@@ -1373,6 +1464,7 @@ class SQLTempDbSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] luns: Logical Unit Numbers for the disks.
         :param pulumi.Input[bool] persist_folder: SQL Server tempdb persist folder choice
         :param pulumi.Input[str] persist_folder_path: SQL Server tempdb persist folder location
+        :param pulumi.Input[bool] use_storage_pool: Use storage pool to build a drive if true or not provided
         """
         if data_file_count is not None:
             pulumi.set(__self__, "data_file_count", data_file_count)
@@ -1392,6 +1484,8 @@ class SQLTempDbSettingsArgs:
             pulumi.set(__self__, "persist_folder", persist_folder)
         if persist_folder_path is not None:
             pulumi.set(__self__, "persist_folder_path", persist_folder_path)
+        if use_storage_pool is not None:
+            pulumi.set(__self__, "use_storage_pool", use_storage_pool)
 
     @property
     @pulumi.getter(name="dataFileCount")
@@ -1501,9 +1595,24 @@ class SQLTempDbSettingsArgs:
     def persist_folder_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "persist_folder_path", value)
 
+    @property
+    @pulumi.getter(name="useStoragePool")
+    def use_storage_pool(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use storage pool to build a drive if true or not provided
+        """
+        return pulumi.get(self, "use_storage_pool")
+
+    @use_storage_pool.setter
+    def use_storage_pool(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_storage_pool", value)
+
 
 if not MYPY:
     class ScheduleArgsDict(TypedDict):
+        """
+        Set assessment schedule for SQL Server.
+        """
         day_of_week: NotRequired[pulumi.Input['AssessmentDayOfWeek']]
         """
         Day of the week to run assessment.
@@ -1536,6 +1645,7 @@ class ScheduleArgs:
                  start_time: Optional[pulumi.Input[str]] = None,
                  weekly_interval: Optional[pulumi.Input[int]] = None):
         """
+        Set assessment schedule for SQL Server.
         :param pulumi.Input['AssessmentDayOfWeek'] day_of_week: Day of the week to run assessment.
         :param pulumi.Input[bool] enable: Enable or disable assessment schedule on SQL virtual machine.
         :param pulumi.Input[int] monthly_occurrence: Occurrence of the DayOfWeek day within a month to schedule assessment. Takes values: 1,2,3,4 and -1. Use -1 for last DayOfWeek day of the month
@@ -1623,6 +1733,10 @@ if not MYPY:
         """
         Additional SQL feature settings.
         """
+        azure_ad_authentication_settings: NotRequired[pulumi.Input['AADAuthenticationSettingsArgsDict']]
+        """
+        Azure AD authentication Settings.
+        """
         sql_connectivity_update_settings: NotRequired[pulumi.Input['SqlConnectivityUpdateSettingsArgsDict']]
         """
         SQL connectivity type settings.
@@ -1646,6 +1760,7 @@ elif False:
 class ServerConfigurationsManagementSettingsArgs:
     def __init__(__self__, *,
                  additional_features_server_configurations: Optional[pulumi.Input['AdditionalFeaturesServerConfigurationsArgs']] = None,
+                 azure_ad_authentication_settings: Optional[pulumi.Input['AADAuthenticationSettingsArgs']] = None,
                  sql_connectivity_update_settings: Optional[pulumi.Input['SqlConnectivityUpdateSettingsArgs']] = None,
                  sql_instance_settings: Optional[pulumi.Input['SQLInstanceSettingsArgs']] = None,
                  sql_storage_update_settings: Optional[pulumi.Input['SqlStorageUpdateSettingsArgs']] = None,
@@ -1653,6 +1768,7 @@ class ServerConfigurationsManagementSettingsArgs:
         """
         Set the connectivity, storage and workload settings.
         :param pulumi.Input['AdditionalFeaturesServerConfigurationsArgs'] additional_features_server_configurations: Additional SQL feature settings.
+        :param pulumi.Input['AADAuthenticationSettingsArgs'] azure_ad_authentication_settings: Azure AD authentication Settings.
         :param pulumi.Input['SqlConnectivityUpdateSettingsArgs'] sql_connectivity_update_settings: SQL connectivity type settings.
         :param pulumi.Input['SQLInstanceSettingsArgs'] sql_instance_settings: SQL Instance settings.
         :param pulumi.Input['SqlStorageUpdateSettingsArgs'] sql_storage_update_settings: SQL storage update settings.
@@ -1660,6 +1776,8 @@ class ServerConfigurationsManagementSettingsArgs:
         """
         if additional_features_server_configurations is not None:
             pulumi.set(__self__, "additional_features_server_configurations", additional_features_server_configurations)
+        if azure_ad_authentication_settings is not None:
+            pulumi.set(__self__, "azure_ad_authentication_settings", azure_ad_authentication_settings)
         if sql_connectivity_update_settings is not None:
             pulumi.set(__self__, "sql_connectivity_update_settings", sql_connectivity_update_settings)
         if sql_instance_settings is not None:
@@ -1680,6 +1798,18 @@ class ServerConfigurationsManagementSettingsArgs:
     @additional_features_server_configurations.setter
     def additional_features_server_configurations(self, value: Optional[pulumi.Input['AdditionalFeaturesServerConfigurationsArgs']]):
         pulumi.set(self, "additional_features_server_configurations", value)
+
+    @property
+    @pulumi.getter(name="azureAdAuthenticationSettings")
+    def azure_ad_authentication_settings(self) -> Optional[pulumi.Input['AADAuthenticationSettingsArgs']]:
+        """
+        Azure AD authentication Settings.
+        """
+        return pulumi.get(self, "azure_ad_authentication_settings")
+
+    @azure_ad_authentication_settings.setter
+    def azure_ad_authentication_settings(self, value: Optional[pulumi.Input['AADAuthenticationSettingsArgs']]):
+        pulumi.set(self, "azure_ad_authentication_settings", value)
 
     @property
     @pulumi.getter(name="sqlConnectivityUpdateSettings")
@@ -1947,6 +2077,10 @@ if not MYPY:
         """
         Disk configuration to apply to SQL Server.
         """
+        enable_storage_config_blade: NotRequired[pulumi.Input[bool]]
+        """
+        Enable SQL IaaS Agent storage configuration blade in Azure Portal.
+        """
         sql_data_settings: NotRequired[pulumi.Input['SQLStorageSettingsArgsDict']]
         """
         SQL Server Data Storage Settings.
@@ -1974,6 +2108,7 @@ elif False:
 class StorageConfigurationSettingsArgs:
     def __init__(__self__, *,
                  disk_configuration_type: Optional[pulumi.Input[Union[str, 'DiskConfigurationType']]] = None,
+                 enable_storage_config_blade: Optional[pulumi.Input[bool]] = None,
                  sql_data_settings: Optional[pulumi.Input['SQLStorageSettingsArgs']] = None,
                  sql_log_settings: Optional[pulumi.Input['SQLStorageSettingsArgs']] = None,
                  sql_system_db_on_data_disk: Optional[pulumi.Input[bool]] = None,
@@ -1982,6 +2117,7 @@ class StorageConfigurationSettingsArgs:
         """
         Storage Configurations for SQL Data, Log and TempDb.
         :param pulumi.Input[Union[str, 'DiskConfigurationType']] disk_configuration_type: Disk configuration to apply to SQL Server.
+        :param pulumi.Input[bool] enable_storage_config_blade: Enable SQL IaaS Agent storage configuration blade in Azure Portal.
         :param pulumi.Input['SQLStorageSettingsArgs'] sql_data_settings: SQL Server Data Storage Settings.
         :param pulumi.Input['SQLStorageSettingsArgs'] sql_log_settings: SQL Server Log Storage Settings.
         :param pulumi.Input[bool] sql_system_db_on_data_disk: SQL Server SystemDb Storage on DataPool if true.
@@ -1990,6 +2126,10 @@ class StorageConfigurationSettingsArgs:
         """
         if disk_configuration_type is not None:
             pulumi.set(__self__, "disk_configuration_type", disk_configuration_type)
+        if enable_storage_config_blade is None:
+            enable_storage_config_blade = False
+        if enable_storage_config_blade is not None:
+            pulumi.set(__self__, "enable_storage_config_blade", enable_storage_config_blade)
         if sql_data_settings is not None:
             pulumi.set(__self__, "sql_data_settings", sql_data_settings)
         if sql_log_settings is not None:
@@ -2012,6 +2152,18 @@ class StorageConfigurationSettingsArgs:
     @disk_configuration_type.setter
     def disk_configuration_type(self, value: Optional[pulumi.Input[Union[str, 'DiskConfigurationType']]]):
         pulumi.set(self, "disk_configuration_type", value)
+
+    @property
+    @pulumi.getter(name="enableStorageConfigBlade")
+    def enable_storage_config_blade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable SQL IaaS Agent storage configuration blade in Azure Portal.
+        """
+        return pulumi.get(self, "enable_storage_config_blade")
+
+    @enable_storage_config_blade.setter
+    def enable_storage_config_blade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_storage_config_blade", value)
 
     @property
     @pulumi.getter(name="sqlDataSettings")
@@ -2072,6 +2224,62 @@ class StorageConfigurationSettingsArgs:
     @storage_workload_type.setter
     def storage_workload_type(self, value: Optional[pulumi.Input[Union[str, 'StorageWorkloadType']]]):
         pulumi.set(self, "storage_workload_type", value)
+
+
+if not MYPY:
+    class VirtualMachineIdentityArgsDict(TypedDict):
+        """
+        Virtual Machine Identity details used for Sql IaaS extension configurations.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM Resource Id of the identity. Only required when UserAssigned identity is selected.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'VmIdentityType']]]
+        """
+        Identity type of the virtual machine. Specify None to opt-out of Managed Identities.
+        """
+elif False:
+    VirtualMachineIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VirtualMachineIdentityArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'VmIdentityType']]] = None):
+        """
+        Virtual Machine Identity details used for Sql IaaS extension configurations.
+        :param pulumi.Input[str] resource_id: ARM Resource Id of the identity. Only required when UserAssigned identity is selected.
+        :param pulumi.Input[Union[str, 'VmIdentityType']] type: Identity type of the virtual machine. Specify None to opt-out of Managed Identities.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM Resource Id of the identity. Only required when UserAssigned identity is selected.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'VmIdentityType']]]:
+        """
+        Identity type of the virtual machine. Specify None to opt-out of Managed Identities.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'VmIdentityType']]]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:
@@ -2175,6 +2383,10 @@ if not MYPY:
         """
         Optional path for fileshare witness.
         """
+        is_sql_service_account_gmsa: NotRequired[pulumi.Input[bool]]
+        """
+        The flag to check if SQL service account is GMSA.
+        """
         ou_path: NotRequired[pulumi.Input[str]]
         """
         Organizational Unit path in which the nodes and cluster will be present.
@@ -2202,6 +2414,7 @@ class WsfcDomainProfileArgs:
                  cluster_subnet_type: Optional[pulumi.Input[Union[str, 'ClusterSubnetType']]] = None,
                  domain_fqdn: Optional[pulumi.Input[str]] = None,
                  file_share_witness_path: Optional[pulumi.Input[str]] = None,
+                 is_sql_service_account_gmsa: Optional[pulumi.Input[bool]] = None,
                  ou_path: Optional[pulumi.Input[str]] = None,
                  sql_service_account: Optional[pulumi.Input[str]] = None,
                  storage_account_primary_key: Optional[pulumi.Input[str]] = None,
@@ -2213,6 +2426,7 @@ class WsfcDomainProfileArgs:
         :param pulumi.Input[Union[str, 'ClusterSubnetType']] cluster_subnet_type: Cluster subnet type.
         :param pulumi.Input[str] domain_fqdn: Fully qualified name of the domain.
         :param pulumi.Input[str] file_share_witness_path: Optional path for fileshare witness.
+        :param pulumi.Input[bool] is_sql_service_account_gmsa: The flag to check if SQL service account is GMSA.
         :param pulumi.Input[str] ou_path: Organizational Unit path in which the nodes and cluster will be present.
         :param pulumi.Input[str] sql_service_account: Account name under which SQL service will run on all participating SQL virtual machines in the cluster.
         :param pulumi.Input[str] storage_account_primary_key: Primary key of the witness storage account.
@@ -2228,6 +2442,8 @@ class WsfcDomainProfileArgs:
             pulumi.set(__self__, "domain_fqdn", domain_fqdn)
         if file_share_witness_path is not None:
             pulumi.set(__self__, "file_share_witness_path", file_share_witness_path)
+        if is_sql_service_account_gmsa is not None:
+            pulumi.set(__self__, "is_sql_service_account_gmsa", is_sql_service_account_gmsa)
         if ou_path is not None:
             pulumi.set(__self__, "ou_path", ou_path)
         if sql_service_account is not None:
@@ -2296,6 +2512,18 @@ class WsfcDomainProfileArgs:
     @file_share_witness_path.setter
     def file_share_witness_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_share_witness_path", value)
+
+    @property
+    @pulumi.getter(name="isSqlServiceAccountGmsa")
+    def is_sql_service_account_gmsa(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag to check if SQL service account is GMSA.
+        """
+        return pulumi.get(self, "is_sql_service_account_gmsa")
+
+    @is_sql_service_account_gmsa.setter
+    def is_sql_service_account_gmsa(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_sql_service_account_gmsa", value)
 
     @property
     @pulumi.getter(name="ouPath")

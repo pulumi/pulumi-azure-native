@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.CognitiveServices
     {
         /// <summary>
         /// Gets the specified EncryptionScope associated with the Cognitive Services account.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Task<GetEncryptionScopeResult> InvokeAsync(GetEncryptionScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionScopeResult>("azure-native:cognitiveservices:getEncryptionScope", args ?? new GetEncryptionScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified EncryptionScope associated with the Cognitive Services account.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure-native:cognitiveservices:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified EncryptionScope associated with the Cognitive Services account.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure-native:cognitiveservices:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());

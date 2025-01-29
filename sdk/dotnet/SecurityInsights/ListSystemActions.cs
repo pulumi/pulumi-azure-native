@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// List of actions for a business application system.
-        /// Azure REST API version: 2024-04-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Other available API versions: 2024-04-01-preview.
         /// </summary>
         public static Task<ListSystemActionsResult> InvokeAsync(ListSystemActionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSystemActionsResult>("azure-native:securityinsights:listSystemActions", args ?? new ListSystemActionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of actions for a business application system.
-        /// Azure REST API version: 2024-04-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Other available API versions: 2024-04-01-preview.
         /// </summary>
         public static Output<ListSystemActionsResult> Invoke(ListSystemActionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSystemActionsResult>("azure-native:securityinsights:listSystemActions", args ?? new ListSystemActionsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of actions for a business application system.
-        /// Azure REST API version: 2024-04-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Other available API versions: 2024-04-01-preview.
         /// </summary>
         public static Output<ListSystemActionsResult> Invoke(ListSystemActionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListSystemActionsResult>("azure-native:securityinsights:listSystemActions", args ?? new ListSystemActionsInvokeArgs(), options.WithDefaults());

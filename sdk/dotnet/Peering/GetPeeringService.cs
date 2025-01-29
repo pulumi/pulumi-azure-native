@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// Gets an existing peering service with the specified name under the given subscription and resource group.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
         /// </summary>
         public static Task<GetPeeringServiceResult> InvokeAsync(GetPeeringServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// Gets an existing peering service with the specified name under the given subscription and resource group.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
         /// </summary>
         public static Output<GetPeeringServiceResult> Invoke(GetPeeringServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// Gets an existing peering service with the specified name under the given subscription and resource group.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
         /// </summary>
         public static Output<GetPeeringServiceResult> Invoke(GetPeeringServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceInvokeArgs(), options.WithDefaults());

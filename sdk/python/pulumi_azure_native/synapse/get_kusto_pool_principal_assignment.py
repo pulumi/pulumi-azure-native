@@ -191,6 +191,8 @@ def get_kusto_pool_principal_assignment(kusto_pool_name: Optional[str] = None,
     Gets a Kusto pool principalAssignment.
     Azure REST API version: 2021-06-01-preview.
 
+    Other available API versions: 2021-04-01-preview.
+
 
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str principal_assignment_name: The name of the Kusto principalAssignment.
@@ -226,6 +228,8 @@ def get_kusto_pool_principal_assignment_output(kusto_pool_name: Optional[pulumi.
     """
     Gets a Kusto pool principalAssignment.
     Azure REST API version: 2021-06-01-preview.
+
+    Other available API versions: 2021-04-01-preview.
 
 
     :param str kusto_pool_name: The name of the Kusto pool.

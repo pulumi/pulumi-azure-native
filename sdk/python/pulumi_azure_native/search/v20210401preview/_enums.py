@@ -8,11 +8,14 @@ __all__ = [
     'AadAuthFailureMode',
     'HostingMode',
     'IdentityType',
+    'PrivateLinkServiceConnectionStatus',
     'PublicNetworkAccess',
     'SearchBypass',
     'SearchDisabledDataExfiltrationOption',
     'SearchEncryptionWithCmk',
     'SearchSemanticSearch',
+    'SharedPrivateLinkResourceProvisioningState',
+    'SharedPrivateLinkResourceStatus',
     'SkuName',
 ]
 
@@ -64,6 +67,28 @@ class IdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     """
     Indicates that system-assigned identity for the search service will be enabled along with the assignment of one or more user assigned identities.
+    """
+
+
+class PrivateLinkServiceConnectionStatus(str, Enum):
+    """
+    Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+    """
+    PENDING = "Pending"
+    """
+    The private endpoint connection has been created and is pending approval.
+    """
+    APPROVED = "Approved"
+    """
+    The private endpoint connection is approved and is ready for use.
+    """
+    REJECTED = "Rejected"
+    """
+    The private endpoint connection has been rejected and cannot be used.
+    """
+    DISCONNECTED = "Disconnected"
+    """
+    The private endpoint connection has been removed from the service.
     """
 
 
@@ -138,6 +163,54 @@ class SearchSemanticSearch(str, Enum):
     STANDARD = "standard"
     """
     Enables semantic search on a search service as a billable feature, with higher throughput and volume of semantic search queries.
+    """
+
+
+class SharedPrivateLinkResourceProvisioningState(str, Enum):
+    """
+    The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded, Incomplete or other yet to be documented value.
+    """
+    UPDATING = "Updating"
+    """
+    The shared private link resource is in the process of being created along with other resources for it to be fully functional.
+    """
+    DELETING = "Deleting"
+    """
+    The shared private link resource is in the process of being deleted.
+    """
+    FAILED = "Failed"
+    """
+    The shared private link resource has failed to be provisioned or deleted.
+    """
+    SUCCEEDED = "Succeeded"
+    """
+    The shared private link resource has finished provisioning and is ready for approval.
+    """
+    INCOMPLETE = "Incomplete"
+    """
+    Provisioning request for the shared private link resource has been accepted but the process of creation has not commenced yet.
+    """
+
+
+class SharedPrivateLinkResourceStatus(str, Enum):
+    """
+    Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected or other yet to be documented value.
+    """
+    PENDING = "Pending"
+    """
+    The shared private link resource has been created and is pending approval.
+    """
+    APPROVED = "Approved"
+    """
+    The shared private link resource is approved and is ready for use.
+    """
+    REJECTED = "Rejected"
+    """
+    The shared private link resource has been rejected and cannot be used.
+    """
+    DISCONNECTED = "Disconnected"
+    """
+    The shared private link resource has been removed from the service.
     """
 
 

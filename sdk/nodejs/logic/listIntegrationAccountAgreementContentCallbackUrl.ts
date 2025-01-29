@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the content callback url.
  * Azure REST API version: 2019-05-01.
+ *
+ * Other available API versions: 2018-07-01-preview.
  */
 export function listIntegrationAccountAgreementContentCallbackUrl(args: ListIntegrationAccountAgreementContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountAgreementContentCallbackUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,6 +79,8 @@ export interface ListIntegrationAccountAgreementContentCallbackUrlResult {
 /**
  * Get the content callback url.
  * Azure REST API version: 2019-05-01.
+ *
+ * Other available API versions: 2018-07-01-preview.
  */
 export function listIntegrationAccountAgreementContentCallbackUrlOutput(args: ListIntegrationAccountAgreementContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIntegrationAccountAgreementContentCallbackUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

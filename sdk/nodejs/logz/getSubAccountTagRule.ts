@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
  * Azure REST API version: 2022-01-01-preview.
+ *
+ * Other available API versions: 2020-10-01, 2020-10-01-preview.
  */
 export function getSubAccountTagRule(args: GetSubAccountTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSubAccountTagRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,6 +67,8 @@ export interface GetSubAccountTagRuleResult {
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
  * Azure REST API version: 2022-01-01-preview.
+ *
+ * Other available API versions: 2020-10-01, 2020-10-01-preview.
  */
 export function getSubAccountTagRuleOutput(args: GetSubAccountTagRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubAccountTagRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

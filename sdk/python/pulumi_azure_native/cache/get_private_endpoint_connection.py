@@ -116,14 +116,14 @@ def get_private_endpoint_connection(cache_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the redis cache.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-11-01.
 
-    Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+    Other available API versions: 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
 
 
     :param str cache_name: The name of the Redis cache.
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['cacheName'] = cache_name
@@ -145,14 +145,14 @@ def get_private_endpoint_connection_output(cache_name: Optional[pulumi.Input[str
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the redis cache.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-11-01.
 
-    Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+    Other available API versions: 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
 
 
     :param str cache_name: The name of the Redis cache.
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['cacheName'] = cache_name

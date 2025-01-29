@@ -160,9 +160,20 @@ utilities.lazyLoad(exports, ["TemplateSpecVersion"], () => require("./templateSp
 export * from "../types/enums/resources";
 
 // Export sub-modules:
+import * as v20190501 from "./v20190501";
+import * as v20190510 from "./v20190510";
 import * as v20190601preview from "./v20190601preview";
+import * as v20190701 from "./v20190701";
+import * as v20190801 from "./v20190801";
+import * as v20191001 from "./v20191001";
 import * as v20191001preview from "./v20191001preview";
+import * as v20200601 from "./v20200601";
+import * as v20200801 from "./v20200801";
 import * as v20201001 from "./v20201001";
+import * as v20210101 from "./v20210101";
+import * as v20210301preview from "./v20210301preview";
+import * as v20210401 from "./v20210401";
+import * as v20210501 from "./v20210501";
 import * as v20220201 from "./v20220201";
 import * as v20220801preview from "./v20220801preview";
 import * as v20220901 from "./v20220901";
@@ -173,9 +184,20 @@ import * as v20240701 from "./v20240701";
 import * as v20241101 from "./v20241101";
 
 export {
+    v20190501,
+    v20190510,
     v20190601preview,
+    v20190701,
+    v20190801,
+    v20191001,
     v20191001preview,
+    v20200601,
+    v20200801,
     v20201001,
+    v20210101,
+    v20210301preview,
+    v20210401,
+    v20210501,
     v20220201,
     v20220801preview,
     v20220901,

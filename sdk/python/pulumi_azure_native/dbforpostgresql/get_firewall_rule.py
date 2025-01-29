@@ -59,7 +59,7 @@ class GetFirewallRuleResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -116,9 +116,9 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallRuleResult:
     """
     List all the firewall rules in a given server.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2024-08-01.
 
-    Other available API versions: 2017-12-01, 2020-10-05-privatepreview, 2022-11-08, 2023-03-01-preview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    Other available API versions: 2020-02-14-preview, 2020-02-14-privatepreview, 2021-04-10-privatepreview, 2021-06-01, 2021-06-01-preview, 2021-06-15-privatepreview, 2022-01-20-preview, 2022-03-08-preview, 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview.
 
 
     :param str firewall_rule_name: The name of the server firewall rule.
@@ -145,9 +145,9 @@ def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     List all the firewall rules in a given server.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2024-08-01.
 
-    Other available API versions: 2017-12-01, 2020-10-05-privatepreview, 2022-11-08, 2023-03-01-preview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    Other available API versions: 2020-02-14-preview, 2020-02-14-privatepreview, 2021-04-10-privatepreview, 2021-06-01, 2021-06-01-preview, 2021-06-15-privatepreview, 2022-01-20-preview, 2022-03-08-preview, 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview.
 
 
     :param str firewall_rule_name: The name of the server firewall rule.

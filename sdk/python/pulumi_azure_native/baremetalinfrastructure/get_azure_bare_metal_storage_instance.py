@@ -27,13 +27,16 @@ class GetAzureBareMetalStorageInstanceResult:
     """
     AzureBareMetalStorageInstance info on Azure (ARM properties and AzureBareMetalStorage properties)
     """
-    def __init__(__self__, azure_bare_metal_storage_instance_unique_identifier=None, id=None, location=None, name=None, storage_properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_bare_metal_storage_instance_unique_identifier=None, id=None, identity=None, location=None, name=None, storage_properties=None, system_data=None, tags=None, type=None):
         if azure_bare_metal_storage_instance_unique_identifier and not isinstance(azure_bare_metal_storage_instance_unique_identifier, str):
             raise TypeError("Expected argument 'azure_bare_metal_storage_instance_unique_identifier' to be a str")
         pulumi.set(__self__, "azure_bare_metal_storage_instance_unique_identifier", azure_bare_metal_storage_instance_unique_identifier)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -65,9 +68,17 @@ class GetAzureBareMetalStorageInstanceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.AzureBareMetalStorageInstanceIdentityResponse']:
+        """
+        The identity of Azure Bare Metal Storage Instance, if configured.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -97,7 +108,7 @@ class GetAzureBareMetalStorageInstanceResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -126,6 +137,7 @@ class AwaitableGetAzureBareMetalStorageInstanceResult(GetAzureBareMetalStorageIn
         return GetAzureBareMetalStorageInstanceResult(
             azure_bare_metal_storage_instance_unique_identifier=self.azure_bare_metal_storage_instance_unique_identifier,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             storage_properties=self.storage_properties,
@@ -138,13 +150,13 @@ def get_azure_bare_metal_storage_instance(azure_bare_metal_storage_instance_name
                                           resource_group_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureBareMetalStorageInstanceResult:
     """
-    Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
-    Azure REST API version: 2023-04-06.
+    Gets an Azure Bare Metal Storage instance for the specified subscription, resource group, and instance name.
+    Azure REST API version: 2024-08-01-preview.
 
-    Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
+    Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview.
 
 
-    :param str azure_bare_metal_storage_instance_name: Name of the AzureBareMetalStorage on Azure instance.
+    :param str azure_bare_metal_storage_instance_name: Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -156,6 +168,7 @@ def get_azure_bare_metal_storage_instance(azure_bare_metal_storage_instance_name
     return AwaitableGetAzureBareMetalStorageInstanceResult(
         azure_bare_metal_storage_instance_unique_identifier=pulumi.get(__ret__, 'azure_bare_metal_storage_instance_unique_identifier'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         storage_properties=pulumi.get(__ret__, 'storage_properties'),
@@ -166,13 +179,13 @@ def get_azure_bare_metal_storage_instance_output(azure_bare_metal_storage_instan
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureBareMetalStorageInstanceResult]:
     """
-    Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
-    Azure REST API version: 2023-04-06.
+    Gets an Azure Bare Metal Storage instance for the specified subscription, resource group, and instance name.
+    Azure REST API version: 2024-08-01-preview.
 
-    Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
+    Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview.
 
 
-    :param str azure_bare_metal_storage_instance_name: Name of the AzureBareMetalStorage on Azure instance.
+    :param str azure_bare_metal_storage_instance_name: Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -183,6 +196,7 @@ def get_azure_bare_metal_storage_instance_output(azure_bare_metal_storage_instan
     return __ret__.apply(lambda __response__: GetAzureBareMetalStorageInstanceResult(
         azure_bare_metal_storage_instance_unique_identifier=pulumi.get(__response__, 'azure_bare_metal_storage_instance_unique_identifier'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         storage_properties=pulumi.get(__response__, 'storage_properties'),

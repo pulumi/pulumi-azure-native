@@ -129,6 +129,8 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
     Get a management lock by scope.
     Azure REST API version: 2020-05-01.
 
+    Other available API versions: 2017-04-01.
+
 
     :param str lock_name: The name of lock.
     :param str scope: The scope for the lock. 
@@ -153,6 +155,8 @@ def get_management_lock_by_scope_output(lock_name: Optional[pulumi.Input[str]] =
     """
     Get a management lock by scope.
     Azure REST API version: 2020-05-01.
+
+    Other available API versions: 2017-04-01.
 
 
     :param str lock_name: The name of lock.

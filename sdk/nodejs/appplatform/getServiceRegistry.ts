@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Service Registry and its properties.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2022-01-01-preview, 2022-03-01-preview, 2022-04-01, 2022-05-01-preview, 2022-09-01-preview, 2022-11-01-preview, 2022-12-01, 2023-01-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview.
  */
 export function getServiceRegistry(args: GetServiceRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,9 +64,9 @@ export interface GetServiceRegistryResult {
 }
 /**
  * Get the Service Registry and its properties.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2022-01-01-preview, 2022-03-01-preview, 2022-04-01, 2022-05-01-preview, 2022-09-01-preview, 2022-11-01-preview, 2022-12-01, 2023-01-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview.
  */
 export function getServiceRegistryOutput(args: GetServiceRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

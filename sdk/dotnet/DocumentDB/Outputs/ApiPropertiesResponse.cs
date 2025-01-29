@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
     public sealed class ApiPropertiesResponse
     {
         /// <summary>
-        /// Describes the ServerVersion of an a MongoDB account.
+        /// Describes the version of the MongoDB account.
         /// </summary>
         public readonly string? ServerVersion;
 

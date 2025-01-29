@@ -16,111 +16,15 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ReportPropertiesArgs',
-    'ReportPropertiesArgsDict',
     'ResourceMetadataArgs',
     'ResourceMetadataArgsDict',
     'ScopingAnswerArgs',
     'ScopingAnswerArgsDict',
+    'StorageInfoArgs',
+    'StorageInfoArgsDict',
 ]
 
 MYPY = False
-
-if not MYPY:
-    class ReportPropertiesArgsDict(TypedDict):
-        """
-        Report's properties.
-        """
-        resources: pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgsDict']]]
-        """
-        List of resource data.
-        """
-        time_zone: pulumi.Input[str]
-        """
-        Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
-        An example of valid timezone id is "Pacific Standard Time".
-        """
-        trigger_time: pulumi.Input[str]
-        """
-        Report collection trigger time.
-        """
-        offer_guid: NotRequired[pulumi.Input[str]]
-        """
-        Report offer Guid.
-        """
-elif False:
-    ReportPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ReportPropertiesArgs:
-    def __init__(__self__, *,
-                 resources: pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]],
-                 time_zone: pulumi.Input[str],
-                 trigger_time: pulumi.Input[str],
-                 offer_guid: Optional[pulumi.Input[str]] = None):
-        """
-        Report's properties.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]] resources: List of resource data.
-        :param pulumi.Input[str] time_zone: Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
-               An example of valid timezone id is "Pacific Standard Time".
-        :param pulumi.Input[str] trigger_time: Report collection trigger time.
-        :param pulumi.Input[str] offer_guid: Report offer Guid.
-        """
-        pulumi.set(__self__, "resources", resources)
-        pulumi.set(__self__, "time_zone", time_zone)
-        pulumi.set(__self__, "trigger_time", trigger_time)
-        if offer_guid is not None:
-            pulumi.set(__self__, "offer_guid", offer_guid)
-
-    @property
-    @pulumi.getter
-    def resources(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]]:
-        """
-        List of resource data.
-        """
-        return pulumi.get(self, "resources")
-
-    @resources.setter
-    def resources(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]]):
-        pulumi.set(self, "resources", value)
-
-    @property
-    @pulumi.getter(name="timeZone")
-    def time_zone(self) -> pulumi.Input[str]:
-        """
-        Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
-        An example of valid timezone id is "Pacific Standard Time".
-        """
-        return pulumi.get(self, "time_zone")
-
-    @time_zone.setter
-    def time_zone(self, value: pulumi.Input[str]):
-        pulumi.set(self, "time_zone", value)
-
-    @property
-    @pulumi.getter(name="triggerTime")
-    def trigger_time(self) -> pulumi.Input[str]:
-        """
-        Report collection trigger time.
-        """
-        return pulumi.get(self, "trigger_time")
-
-    @trigger_time.setter
-    def trigger_time(self, value: pulumi.Input[str]):
-        pulumi.set(self, "trigger_time", value)
-
-    @property
-    @pulumi.getter(name="offerGuid")
-    def offer_guid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Report offer Guid.
-        """
-        return pulumi.get(self, "offer_guid")
-
-    @offer_guid.setter
-    def offer_guid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "offer_guid", value)
-
 
 if not MYPY:
     class ResourceMetadataArgsDict(TypedDict):
@@ -131,21 +35,21 @@ if not MYPY:
         """
         Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
         """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Account Id. For example - the AWS account id.
+        """
         resource_kind: NotRequired[pulumi.Input[str]]
         """
         Resource kind.
         """
-        resource_name: NotRequired[pulumi.Input[str]]
+        resource_origin: NotRequired[pulumi.Input[Union[str, 'ResourceOrigin']]]
         """
-        Resource name.
+        Resource Origin.
         """
         resource_type: NotRequired[pulumi.Input[str]]
         """
-        Resource type.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        Resource's tag type.
+        Resource type. e.g. "Microsoft.Compute/virtualMachines"
         """
 elif False:
     ResourceMetadataArgsDict: TypeAlias = Mapping[str, Any]
@@ -154,27 +58,27 @@ elif False:
 class ResourceMetadataArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
                  resource_kind: Optional[pulumi.Input[str]] = None,
-                 resource_name: Optional[pulumi.Input[str]] = None,
-                 resource_type: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 resource_origin: Optional[pulumi.Input[Union[str, 'ResourceOrigin']]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None):
         """
         Single resource Id's metadata.
         :param pulumi.Input[str] resource_id: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
+        :param pulumi.Input[str] account_id: Account Id. For example - the AWS account id.
         :param pulumi.Input[str] resource_kind: Resource kind.
-        :param pulumi.Input[str] resource_name: Resource name.
-        :param pulumi.Input[str] resource_type: Resource type.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource's tag type.
+        :param pulumi.Input[Union[str, 'ResourceOrigin']] resource_origin: Resource Origin.
+        :param pulumi.Input[str] resource_type: Resource type. e.g. "Microsoft.Compute/virtualMachines"
         """
         pulumi.set(__self__, "resource_id", resource_id)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if resource_kind is not None:
             pulumi.set(__self__, "resource_kind", resource_kind)
-        if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+        if resource_origin is not None:
+            pulumi.set(__self__, "resource_origin", resource_origin)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -189,6 +93,18 @@ class ResourceMetadataArgs:
         pulumi.set(self, "resource_id", value)
 
     @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Account Id. For example - the AWS account id.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
     @pulumi.getter(name="resourceKind")
     def resource_kind(self) -> Optional[pulumi.Input[str]]:
         """
@@ -201,40 +117,28 @@ class ResourceMetadataArgs:
         pulumi.set(self, "resource_kind", value)
 
     @property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="resourceOrigin")
+    def resource_origin(self) -> Optional[pulumi.Input[Union[str, 'ResourceOrigin']]]:
         """
-        Resource name.
+        Resource Origin.
         """
-        return pulumi.get(self, "resource_name")
+        return pulumi.get(self, "resource_origin")
 
-    @resource_name.setter
-    def resource_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_name", value)
+    @resource_origin.setter
+    def resource_origin(self, value: Optional[pulumi.Input[Union[str, 'ResourceOrigin']]]):
+        pulumi.set(self, "resource_origin", value)
 
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource type.
+        Resource type. e.g. "Microsoft.Compute/virtualMachines"
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
     def resource_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_type", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource's tag type.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
 
 
 if not MYPY:
@@ -289,5 +193,101 @@ class ScopingAnswerArgs:
     @question_id.setter
     def question_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "question_id", value)
+
+
+if not MYPY:
+    class StorageInfoArgsDict(TypedDict):
+        """
+        The information of 'bring your own storage' account binding to the report
+        """
+        account_name: NotRequired[pulumi.Input[str]]
+        """
+        'bring your own storage' account name
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The region of 'bring your own storage' account
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        The resourceGroup which 'bring your own storage' account belongs to
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        The subscription id which 'bring your own storage' account belongs to
+        """
+elif False:
+    StorageInfoArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageInfoArgs:
+    def __init__(__self__, *,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None):
+        """
+        The information of 'bring your own storage' account binding to the report
+        :param pulumi.Input[str] account_name: 'bring your own storage' account name
+        :param pulumi.Input[str] location: The region of 'bring your own storage' account
+        :param pulumi.Input[str] resource_group: The resourceGroup which 'bring your own storage' account belongs to
+        :param pulumi.Input[str] subscription_id: The subscription id which 'bring your own storage' account belongs to
+        """
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        'bring your own storage' account name
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The region of 'bring your own storage' account
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resourceGroup which 'bring your own storage' account belongs to
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subscription id which 'bring your own storage' account belongs to
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
 
 

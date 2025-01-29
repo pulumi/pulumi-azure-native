@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Define the SAP Instance resource.
- * Azure REST API version: 2023-10-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  */
 export class SapInstance extends pulumi.CustomResource {
     /**

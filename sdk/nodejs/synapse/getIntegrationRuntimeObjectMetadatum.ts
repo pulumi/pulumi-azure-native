@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get object metadata from an integration runtime
  * Azure REST API version: 2021-06-01.
  *
- * Other available API versions: 2021-06-01-preview.
+ * Other available API versions: 2021-03-01, 2021-04-01-preview, 2021-05-01, 2021-06-01-preview.
  */
 export function getIntegrationRuntimeObjectMetadatum(args: GetIntegrationRuntimeObjectMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeObjectMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,7 +59,7 @@ export interface GetIntegrationRuntimeObjectMetadatumResult {
  * Get object metadata from an integration runtime
  * Azure REST API version: 2021-06-01.
  *
- * Other available API versions: 2021-06-01-preview.
+ * Other available API versions: 2021-03-01, 2021-04-01-preview, 2021-05-01, 2021-06-01-preview.
  */
 export function getIntegrationRuntimeObjectMetadatumOutput(args: GetIntegrationRuntimeObjectMetadatumOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationRuntimeObjectMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

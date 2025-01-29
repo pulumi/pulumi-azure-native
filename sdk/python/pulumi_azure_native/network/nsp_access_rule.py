@@ -34,6 +34,7 @@ class NspAccessRuleArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -50,6 +51,7 @@ class NspAccessRuleArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the access rule that is unique within a profile. This name can be used to access the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] phone_numbers: Outbound rules phone number format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_tags: Inbound rules service tag names.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]] subscriptions: List of subscription ids
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -74,6 +76,8 @@ class NspAccessRuleArgs:
             pulumi.set(__self__, "name", name)
         if phone_numbers is not None:
             pulumi.set(__self__, "phone_numbers", phone_numbers)
+        if service_tags is not None:
+            pulumi.set(__self__, "service_tags", service_tags)
         if subscriptions is not None:
             pulumi.set(__self__, "subscriptions", subscriptions)
         if tags is not None:
@@ -224,6 +228,18 @@ class NspAccessRuleArgs:
         pulumi.set(self, "phone_numbers", value)
 
     @property
+    @pulumi.getter(name="serviceTags")
+    def service_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Inbound rules service tag names.
+        """
+        return pulumi.get(self, "service_tags")
+
+    @service_tags.setter
+    def service_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "service_tags", value)
+
+    @property
     @pulumi.getter
     def subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]]]:
         """
@@ -265,14 +281,15 @@ class NspAccessRule(pulumi.CustomResource):
                  phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionIdArgs', 'SubscriptionIdArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The NSP access rule resource
-        Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 2.x: 2021-02-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        Other available API versions: 2021-02-01-preview, 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,6 +305,7 @@ class NspAccessRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] phone_numbers: Outbound rules phone number format.
         :param pulumi.Input[str] profile_name: The name of the NSP profile.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_tags: Inbound rules service tag names.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionIdArgs', 'SubscriptionIdArgsDict']]]] subscriptions: List of subscription ids
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -299,9 +317,9 @@ class NspAccessRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The NSP access rule resource
-        Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 2.x: 2021-02-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        Other available API versions: 2021-02-01-preview, 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NspAccessRuleArgs args: The arguments to use to populate this resource's properties.
@@ -330,6 +348,7 @@ class NspAccessRule(pulumi.CustomResource):
                  phone_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionIdArgs', 'SubscriptionIdArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -359,6 +378,7 @@ class NspAccessRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["service_tags"] = service_tags
             __props__.__dict__["subscriptions"] = subscriptions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["network_security_perimeters"] = None
@@ -397,6 +417,7 @@ class NspAccessRule(pulumi.CustomResource):
         __props__.__dict__["network_security_perimeters"] = None
         __props__.__dict__["phone_numbers"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["service_tags"] = None
         __props__.__dict__["subscriptions"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -473,6 +494,14 @@ class NspAccessRule(pulumi.CustomResource):
         The provisioning state of the scope assignment resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serviceTags")
+    def service_tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Inbound rules service tag names.
+        """
+        return pulumi.get(self, "service_tags")
 
     @property
     @pulumi.getter

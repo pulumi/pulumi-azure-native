@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.FluidRelay
         /// <summary>
         /// The set of available keys for this server.
         /// Azure REST API version: 2022-06-01.
+        /// 
+        /// Other available API versions: 2022-04-21, 2022-05-11, 2022-05-26.
         /// </summary>
         public static Task<ListFluidRelayServerKeysResult> InvokeAsync(ListFluidRelayServerKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListFluidRelayServerKeysResult>("azure-native:fluidrelay:listFluidRelayServerKeys", args ?? new ListFluidRelayServerKeysArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.FluidRelay
         /// <summary>
         /// The set of available keys for this server.
         /// Azure REST API version: 2022-06-01.
+        /// 
+        /// Other available API versions: 2022-04-21, 2022-05-11, 2022-05-26.
         /// </summary>
         public static Output<ListFluidRelayServerKeysResult> Invoke(ListFluidRelayServerKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFluidRelayServerKeysResult>("azure-native:fluidrelay:listFluidRelayServerKeys", args ?? new ListFluidRelayServerKeysInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.FluidRelay
         /// <summary>
         /// The set of available keys for this server.
         /// Azure REST API version: 2022-06-01.
+        /// 
+        /// Other available API versions: 2022-04-21, 2022-05-11, 2022-05-26.
         /// </summary>
         public static Output<ListFluidRelayServerKeysResult> Invoke(ListFluidRelayServerKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListFluidRelayServerKeysResult>("azure-native:fluidrelay:listFluidRelayServerKeys", args ?? new ListFluidRelayServerKeysInvokeArgs(), options.WithDefaults());

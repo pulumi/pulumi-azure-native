@@ -12,28 +12,28 @@ namespace Pulumi.AzureNative.AVS
     public static class GetPlacementPolicy
     {
         /// <summary>
-        /// A vSphere Distributed Resource Scheduler (DRS) placement policy
-        /// Azure REST API version: 2022-05-01.
+        /// Get a PlacementPolicy
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2021-12-01, 2022-05-01, 2023-03-01.
         /// </summary>
         public static Task<GetPlacementPolicyResult> InvokeAsync(GetPlacementPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementPolicyResult>("azure-native:avs:getPlacementPolicy", args ?? new GetPlacementPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A vSphere Distributed Resource Scheduler (DRS) placement policy
-        /// Azure REST API version: 2022-05-01.
+        /// Get a PlacementPolicy
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2021-12-01, 2022-05-01, 2023-03-01.
         /// </summary>
         public static Output<GetPlacementPolicyResult> Invoke(GetPlacementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementPolicyResult>("azure-native:avs:getPlacementPolicy", args ?? new GetPlacementPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A vSphere Distributed Resource Scheduler (DRS) placement policy
-        /// Azure REST API version: 2022-05-01.
+        /// Get a PlacementPolicy
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2021-12-01, 2022-05-01, 2023-03-01.
         /// </summary>
         public static Output<GetPlacementPolicyResult> Invoke(GetPlacementPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementPolicyResult>("azure-native:avs:getPlacementPolicy", args ?? new GetPlacementPolicyInvokeArgs(), options.WithDefaults());
@@ -43,13 +43,13 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetPlacementPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the cluster in the private cloud
+        /// Name of the cluster
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy
+        /// Name of the placement policy.
         /// </summary>
         [Input("placementPolicyName", required: true)]
         public string PlacementPolicyName { get; set; } = null!;
@@ -75,13 +75,13 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetPlacementPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the cluster in the private cloud
+        /// Name of the cluster
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy
+        /// Name of the placement policy.
         /// </summary>
         [Input("placementPolicyName", required: true)]
         public Input<string> PlacementPolicyName { get; set; } = null!;
@@ -109,35 +109,56 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetPlacementPolicyResult
     {
         /// <summary>
-        /// Resource ID.
+        /// Display name of the placement policy
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// placement policy properties
+        /// The provisioning state
         /// </summary>
-        public readonly Union<Outputs.VmHostPlacementPolicyPropertiesResponse, Outputs.VmVmPlacementPolicyPropertiesResponse> Properties;
+        public readonly string ProvisioningState;
         /// <summary>
-        /// Resource type.
+        /// Whether the placement policy is enabled or disabled
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetPlacementPolicyResult(
+            string? displayName,
+
             string id,
 
             string name,
 
-            Union<Outputs.VmHostPlacementPolicyPropertiesResponse, Outputs.VmVmPlacementPolicyPropertiesResponse> properties,
+            string provisioningState,
+
+            string? state,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            DisplayName = displayName;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            State = state;
+            SystemData = systemData;
             Type = type;
         }
     }

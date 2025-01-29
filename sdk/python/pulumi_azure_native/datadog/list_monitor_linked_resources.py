@@ -67,9 +67,9 @@ def list_monitor_linked_resources(monitor_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMonitorLinkedResourcesResult:
     """
     Response of a list operation.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2023-10-20.
 
-    Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+    Other available API versions: 2021-03-01, 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07.
 
 
     :param str monitor_name: Monitor resource name
@@ -89,9 +89,9 @@ def list_monitor_linked_resources_output(monitor_name: Optional[pulumi.Input[str
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMonitorLinkedResourcesResult]:
     """
     Response of a list operation.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2023-10-20.
 
-    Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+    Other available API versions: 2021-03-01, 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07.
 
 
     :param str monitor_name: Monitor resource name

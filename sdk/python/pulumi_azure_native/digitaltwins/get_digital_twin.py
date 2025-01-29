@@ -201,6 +201,8 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
     Get DigitalTwinsInstances resource.
     Azure REST API version: 2023-01-31.
 
+    Other available API versions: 2020-12-01, 2021-06-30-preview, 2022-05-31, 2022-10-31.
+
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param str resource_name: The name of the DigitalTwinsInstance.
@@ -231,6 +233,8 @@ def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[str]] = N
     """
     Get DigitalTwinsInstances resource.
     Azure REST API version: 2023-01-31.
+
+    Other available API versions: 2020-12-01, 2021-06-30-preview, 2022-05-31, 2022-10-31.
 
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.

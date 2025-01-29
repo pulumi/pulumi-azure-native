@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Linked Subscription information.
- * Azure REST API version: 2020-06-01-preview. Prior API version in Azure Native 1.x: 2020-06-01-preview.
+ * Azure REST API version: 2020-06-01-preview. Prior API version in Azure Native 2.x: 2020-06-01-preview.
  */
 export class LinkedSubscription extends pulumi.CustomResource {
     /**

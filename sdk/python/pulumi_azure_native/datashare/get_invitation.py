@@ -217,6 +217,8 @@ def get_invitation(account_name: Optional[str] = None,
     Get an invitation in a share
     Azure REST API version: 2021-08-01.
 
+    Other available API versions: 2020-09-01, 2020-10-01-preview.
+
 
     :param str account_name: The name of the share account.
     :param str invitation_name: The name of the invitation.
@@ -254,6 +256,8 @@ def get_invitation_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Get an invitation in a share
     Azure REST API version: 2021-08-01.
+
+    Other available API versions: 2020-09-01, 2020-10-01-preview.
 
 
     :param str account_name: The name of the share account.

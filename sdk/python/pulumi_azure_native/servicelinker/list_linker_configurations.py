@@ -55,9 +55,9 @@ def list_linker_configurations(linker_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLinkerConfigurationsResult:
     """
     list source configurations for a Linker.
-    Azure REST API version: 2022-11-01-preview.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+    Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2022-05-01, 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview.
 
 
     :param str linker_name: The name Linker resource.
@@ -76,9 +76,9 @@ def list_linker_configurations_output(linker_name: Optional[pulumi.Input[str]] =
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLinkerConfigurationsResult]:
     """
     list source configurations for a Linker.
-    Azure REST API version: 2022-11-01-preview.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+    Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2022-05-01, 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview.
 
 
     :param str linker_name: The name Linker resource.

@@ -50,10 +50,14 @@ utilities.lazyLoad(exports, ["GuestConfigurationHCRPAssignment"], () => require(
 export * from "../types/enums/guestconfiguration";
 
 // Export sub-modules:
+import * as v20200625 from "./v20200625";
+import * as v20210125 from "./v20210125";
 import * as v20220125 from "./v20220125";
 import * as v20240405 from "./v20240405";
 
 export {
+    v20200625,
+    v20210125,
     v20220125,
     v20240405,
 };

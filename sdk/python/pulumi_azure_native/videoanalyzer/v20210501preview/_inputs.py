@@ -18,12 +18,20 @@ from ._enums import *
 __all__ = [
     'AccountEncryptionArgs',
     'AccountEncryptionArgsDict',
+    'EccTokenKeyArgs',
+    'EccTokenKeyArgsDict',
+    'JwtAuthenticationArgs',
+    'JwtAuthenticationArgsDict',
     'KeyVaultPropertiesArgs',
     'KeyVaultPropertiesArgsDict',
     'ResourceIdentityArgs',
     'ResourceIdentityArgsDict',
+    'RsaTokenKeyArgs',
+    'RsaTokenKeyArgsDict',
     'StorageAccountArgs',
     'StorageAccountArgsDict',
+    'TokenClaimArgs',
+    'TokenClaimArgsDict',
     'VideoAnalyzerIdentityArgs',
     'VideoAnalyzerIdentityArgsDict',
 ]
@@ -106,6 +114,238 @@ class AccountEncryptionArgs:
 
 
 if not MYPY:
+    class EccTokenKeyArgsDict(TypedDict):
+        """
+        Required validation properties for tokens generated with Elliptical Curve algorithm.
+        """
+        alg: pulumi.Input[Union[str, 'AccessPolicyEccAlgo']]
+        """
+        Elliptical curve algorithm to be used: ES256, ES384 or ES512.
+        """
+        kid: pulumi.Input[str]
+        """
+        JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
+        """
+        x: pulumi.Input[str]
+        """
+        X coordinate.
+        """
+        y: pulumi.Input[str]
+        """
+        Y coordinate.
+        """
+elif False:
+    EccTokenKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EccTokenKeyArgs:
+    def __init__(__self__, *,
+                 alg: pulumi.Input[Union[str, 'AccessPolicyEccAlgo']],
+                 kid: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 x: pulumi.Input[str],
+                 y: pulumi.Input[str]):
+        """
+        Required validation properties for tokens generated with Elliptical Curve algorithm.
+        :param pulumi.Input[Union[str, 'AccessPolicyEccAlgo']] alg: Elliptical curve algorithm to be used: ES256, ES384 or ES512.
+        :param pulumi.Input[str] kid: JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
+        :param pulumi.Input[str] type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
+        :param pulumi.Input[str] x: X coordinate.
+        :param pulumi.Input[str] y: Y coordinate.
+        """
+        pulumi.set(__self__, "alg", alg)
+        pulumi.set(__self__, "kid", kid)
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EccTokenKey')
+        pulumi.set(__self__, "x", x)
+        pulumi.set(__self__, "y", y)
+
+    @property
+    @pulumi.getter
+    def alg(self) -> pulumi.Input[Union[str, 'AccessPolicyEccAlgo']]:
+        """
+        Elliptical curve algorithm to be used: ES256, ES384 or ES512.
+        """
+        return pulumi.get(self, "alg")
+
+    @alg.setter
+    def alg(self, value: pulumi.Input[Union[str, 'AccessPolicyEccAlgo']]):
+        pulumi.set(self, "alg", value)
+
+    @property
+    @pulumi.getter
+    def kid(self) -> pulumi.Input[str]:
+        """
+        JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
+        """
+        return pulumi.get(self, "kid")
+
+    @kid.setter
+    def kid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kid", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def x(self) -> pulumi.Input[str]:
+        """
+        X coordinate.
+        """
+        return pulumi.get(self, "x")
+
+    @x.setter
+    def x(self, value: pulumi.Input[str]):
+        pulumi.set(self, "x", value)
+
+    @property
+    @pulumi.getter
+    def y(self) -> pulumi.Input[str]:
+        """
+        Y coordinate.
+        """
+        return pulumi.get(self, "y")
+
+    @y.setter
+    def y(self, value: pulumi.Input[str]):
+        pulumi.set(self, "y", value)
+
+
+if not MYPY:
+    class JwtAuthenticationArgsDict(TypedDict):
+        """
+        Properties for access validation based on JSON Web Tokens (JWT).
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
+        """
+        audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of expected token audiences. Token audience is valid if it matches at least one of the given values.
+        """
+        claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['TokenClaimArgsDict']]]]
+        """
+        List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
+        """
+        issuers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
+        """
+        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['EccTokenKeyArgsDict', 'RsaTokenKeyArgsDict']]]]]
+        """
+        List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
+        """
+elif False:
+    JwtAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JwtAuthenticationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 claims: Optional[pulumi.Input[Sequence[pulumi.Input['TokenClaimArgs']]]] = None,
+                 issuers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EccTokenKeyArgs', 'RsaTokenKeyArgs']]]]] = None):
+        """
+        Properties for access validation based on JSON Web Tokens (JWT).
+        :param pulumi.Input[str] type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: List of expected token audiences. Token audience is valid if it matches at least one of the given values.
+        :param pulumi.Input[Sequence[pulumi.Input['TokenClaimArgs']]] claims: List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] issuers: List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EccTokenKeyArgs', 'RsaTokenKeyArgs']]]] keys: List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
+        """
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.JwtAuthentication')
+        if audiences is not None:
+            pulumi.set(__self__, "audiences", audiences)
+        if claims is not None:
+            pulumi.set(__self__, "claims", claims)
+        if issuers is not None:
+            pulumi.set(__self__, "issuers", issuers)
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of expected token audiences. Token audience is valid if it matches at least one of the given values.
+        """
+        return pulumi.get(self, "audiences")
+
+    @audiences.setter
+    def audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "audiences", value)
+
+    @property
+    @pulumi.getter
+    def claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TokenClaimArgs']]]]:
+        """
+        List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
+        """
+        return pulumi.get(self, "claims")
+
+    @claims.setter
+    def claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TokenClaimArgs']]]]):
+        pulumi.set(self, "claims", value)
+
+    @property
+    @pulumi.getter
+    def issuers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
+        """
+        return pulumi.get(self, "issuers")
+
+    @issuers.setter
+    def issuers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "issuers", value)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['EccTokenKeyArgs', 'RsaTokenKeyArgs']]]]]:
+        """
+        List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
+        """
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EccTokenKeyArgs', 'RsaTokenKeyArgs']]]]]):
+        pulumi.set(self, "keys", value)
+
+
+if not MYPY:
     class KeyVaultPropertiesArgsDict(TypedDict):
         """
         The details for accessing the encryption keys in Key Vault.
@@ -176,6 +416,120 @@ class ResourceIdentityArgs:
 
 
 if not MYPY:
+    class RsaTokenKeyArgsDict(TypedDict):
+        """
+        Required validation properties for tokens generated with RSA algorithm.
+        """
+        alg: pulumi.Input[Union[str, 'AccessPolicyRsaAlgo']]
+        """
+        RSA algorithm to be used: RS256, RS384 or RS512.
+        """
+        e: pulumi.Input[str]
+        """
+        RSA public key exponent.
+        """
+        kid: pulumi.Input[str]
+        """
+        JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
+        """
+        n: pulumi.Input[str]
+        """
+        RSA public key modulus.
+        """
+        type: pulumi.Input[str]
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
+        """
+elif False:
+    RsaTokenKeyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RsaTokenKeyArgs:
+    def __init__(__self__, *,
+                 alg: pulumi.Input[Union[str, 'AccessPolicyRsaAlgo']],
+                 e: pulumi.Input[str],
+                 kid: pulumi.Input[str],
+                 n: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        Required validation properties for tokens generated with RSA algorithm.
+        :param pulumi.Input[Union[str, 'AccessPolicyRsaAlgo']] alg: RSA algorithm to be used: RS256, RS384 or RS512.
+        :param pulumi.Input[str] e: RSA public key exponent.
+        :param pulumi.Input[str] kid: JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
+        :param pulumi.Input[str] n: RSA public key modulus.
+        :param pulumi.Input[str] type: The discriminator for derived types.
+               Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
+        """
+        pulumi.set(__self__, "alg", alg)
+        pulumi.set(__self__, "e", e)
+        pulumi.set(__self__, "kid", kid)
+        pulumi.set(__self__, "n", n)
+        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.RsaTokenKey')
+
+    @property
+    @pulumi.getter
+    def alg(self) -> pulumi.Input[Union[str, 'AccessPolicyRsaAlgo']]:
+        """
+        RSA algorithm to be used: RS256, RS384 or RS512.
+        """
+        return pulumi.get(self, "alg")
+
+    @alg.setter
+    def alg(self, value: pulumi.Input[Union[str, 'AccessPolicyRsaAlgo']]):
+        pulumi.set(self, "alg", value)
+
+    @property
+    @pulumi.getter
+    def e(self) -> pulumi.Input[str]:
+        """
+        RSA public key exponent.
+        """
+        return pulumi.get(self, "e")
+
+    @e.setter
+    def e(self, value: pulumi.Input[str]):
+        pulumi.set(self, "e", value)
+
+    @property
+    @pulumi.getter
+    def kid(self) -> pulumi.Input[str]:
+        """
+        JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
+        """
+        return pulumi.get(self, "kid")
+
+    @kid.setter
+    def kid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kid", value)
+
+    @property
+    @pulumi.getter
+    def n(self) -> pulumi.Input[str]:
+        """
+        RSA public key modulus.
+        """
+        return pulumi.get(self, "n")
+
+    @n.setter
+    def n(self, value: pulumi.Input[str]):
+        pulumi.set(self, "n", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
     class StorageAccountArgsDict(TypedDict):
         """
         The details about the associated storage account.
@@ -229,6 +583,60 @@ class StorageAccountArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+
+if not MYPY:
+    class TokenClaimArgsDict(TypedDict):
+        """
+        Properties for expected token claims.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the claim which must be present on the token.
+        """
+        value: pulumi.Input[str]
+        """
+        Expected value of the claim to be present on the token.
+        """
+elif False:
+    TokenClaimArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TokenClaimArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Properties for expected token claims.
+        :param pulumi.Input[str] name: Name of the claim which must be present on the token.
+        :param pulumi.Input[str] value: Expected value of the claim to be present on the token.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the claim which must be present on the token.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Expected value of the claim to be present on the token.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

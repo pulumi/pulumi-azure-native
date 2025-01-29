@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetAuthorizationResult',
@@ -26,7 +27,7 @@ class GetAuthorizationResult:
     """
     ExpressRoute Circuit Authorization
     """
-    def __init__(__self__, express_route_authorization_id=None, express_route_authorization_key=None, express_route_id=None, id=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, express_route_authorization_id=None, express_route_authorization_key=None, express_route_id=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if express_route_authorization_id and not isinstance(express_route_authorization_id, str):
             raise TypeError("Expected argument 'express_route_authorization_id' to be a str")
         pulumi.set(__self__, "express_route_authorization_id", express_route_authorization_id)
@@ -45,6 +46,9 @@ class GetAuthorizationResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -77,7 +81,7 @@ class GetAuthorizationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -85,7 +89,7 @@ class GetAuthorizationResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -93,15 +97,23 @@ class GetAuthorizationResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The state of the  ExpressRoute Circuit Authorization provisioning
+        The state of the ExpressRoute Circuit Authorization provisioning
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -118,6 +130,7 @@ class AwaitableGetAuthorizationResult(GetAuthorizationResult):
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -126,13 +139,13 @@ def get_authorization(authorization_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationResult:
     """
-    ExpressRoute Circuit Authorization
-    Azure REST API version: 2022-05-01.
+    Get a ExpressRouteAuthorization
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2020-03-20, 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
 
 
-    :param str authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud
+    :param str authorization_name: Name of the ExpressRoute Circuit Authorization
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -150,19 +163,20 @@ def get_authorization(authorization_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_authorization_output(authorization_name: Optional[pulumi.Input[str]] = None,
                              private_cloud_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationResult]:
     """
-    ExpressRoute Circuit Authorization
-    Azure REST API version: 2022-05-01.
+    Get a ExpressRouteAuthorization
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2020-03-20, 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
 
 
-    :param str authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud
+    :param str authorization_name: Name of the ExpressRoute Circuit Authorization
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -179,4 +193,5 @@ def get_authorization_output(authorization_name: Optional[pulumi.Input[str]] = N
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

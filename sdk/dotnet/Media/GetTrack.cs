@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of a Track in the Asset
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2021-11-01, 2022-08-01.
         /// </summary>
         public static Task<GetTrackResult> InvokeAsync(GetTrackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrackResult>("azure-native:media:getTrack", args ?? new GetTrackArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of a Track in the Asset
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2021-11-01, 2022-08-01.
         /// </summary>
         public static Output<GetTrackResult> Invoke(GetTrackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrackResult>("azure-native:media:getTrack", args ?? new GetTrackInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of a Track in the Asset
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2021-11-01, 2022-08-01.
         /// </summary>
         public static Output<GetTrackResult> Invoke(GetTrackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrackResult>("azure-native:media:getTrack", args ?? new GetTrackInvokeArgs(), options.WithDefaults());

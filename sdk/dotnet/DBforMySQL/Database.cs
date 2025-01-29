@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
     /// Represents a Database.
-    /// Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
+    /// Azure REST API version: 2023-12-30. Prior API version in Azure Native 2.x: 2022-01-01.
     /// 
-    /// Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+    /// Other available API versions: 2020-07-01-preview, 2020-07-01-privatepreview, 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-01-01, 2023-06-01-preview, 2023-06-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Database")]
     public partial class Database : global::Pulumi.CustomResource
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

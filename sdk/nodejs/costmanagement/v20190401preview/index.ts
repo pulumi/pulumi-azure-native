@@ -15,6 +15,26 @@ export const getBudget: typeof import("./getBudget").getBudget = null as any;
 export const getBudgetOutput: typeof import("./getBudget").getBudgetOutput = null as any;
 utilities.lazyLoad(exports, ["getBudget","getBudgetOutput"], () => require("./getBudget"));
 
+export { GetViewArgs, GetViewResult, GetViewOutputArgs } from "./getView";
+export const getView: typeof import("./getView").getView = null as any;
+export const getViewOutput: typeof import("./getView").getViewOutput = null as any;
+utilities.lazyLoad(exports, ["getView","getViewOutput"], () => require("./getView"));
+
+export { GetViewByScopeArgs, GetViewByScopeResult, GetViewByScopeOutputArgs } from "./getViewByScope";
+export const getViewByScope: typeof import("./getViewByScope").getViewByScope = null as any;
+export const getViewByScopeOutput: typeof import("./getViewByScope").getViewByScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getViewByScope","getViewByScopeOutput"], () => require("./getViewByScope"));
+
+export { ViewArgs } from "./view";
+export type View = import("./view").View;
+export const View: typeof import("./view").View = null as any;
+utilities.lazyLoad(exports, ["View"], () => require("./view"));
+
+export { ViewByScopeArgs } from "./viewByScope";
+export type ViewByScope = import("./viewByScope").ViewByScope;
+export const ViewByScope: typeof import("./viewByScope").ViewByScope = null as any;
+utilities.lazyLoad(exports, ["ViewByScope"], () => require("./viewByScope"));
+
 
 // Export enums:
 export * from "../../types/enums/costmanagement/v20190401preview";
@@ -25,6 +45,10 @@ const _module = {
         switch (type) {
             case "azure-native:costmanagement/v20190401preview:Budget":
                 return new Budget(name, <any>undefined, { urn })
+            case "azure-native:costmanagement/v20190401preview:View":
+                return new View(name, <any>undefined, { urn })
+            case "azure-native:costmanagement/v20190401preview:ViewByScope":
+                return new ViewByScope(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

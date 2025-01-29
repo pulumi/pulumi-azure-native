@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class CorsPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// allow credential or not
+        /// Specifies whether the resource allows credentials
         /// </summary>
         [Input("allowCredentials")]
         public Input<bool>? AllowCredentials { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.App.Inputs
         private InputList<string>? _allowedHeaders;
 
         /// <summary>
-        /// allowed HTTP headers
+        /// Specifies the content for the access-control-allow-headers header
         /// </summary>
         public InputList<string> AllowedHeaders
         {
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.App.Inputs
         private InputList<string>? _allowedMethods;
 
         /// <summary>
-        /// allowed HTTP methods
+        /// Specifies the content for the access-control-allow-methods header
         /// </summary>
         public InputList<string> AllowedMethods
         {
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.App.Inputs
         private InputList<string>? _allowedOrigins;
 
         /// <summary>
-        /// allowed origins
+        /// Specifies the content for the access-control-allow-origins header
         /// </summary>
         public InputList<string> AllowedOrigins
         {
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.App.Inputs
         private InputList<string>? _exposeHeaders;
 
         /// <summary>
-        /// expose HTTP headers 
+        /// Specifies the content for the access-control-expose-headers header 
         /// </summary>
         public InputList<string> ExposeHeaders
         {
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.App.Inputs
         }
 
         /// <summary>
-        /// max time client can cache the result
+        /// Specifies the content for the access-control-max-age header
         /// </summary>
         [Input("maxAge")]
         public Input<int>? MaxAge { get; set; }

@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20210301 from "./v20210301";
 import * as v20210401preview from "./v20210401preview";
+import * as v20211001 from "./v20211001";
 import * as v20220501preview from "./v20220501preview";
 import * as v20221001preview from "./v20221001preview";
 import * as v20231101preview from "./v20231101preview";
@@ -14,7 +16,9 @@ import * as v20240715preview from "./v20240715preview";
 import * as v20241201preview from "./v20241201preview";
 
 export {
+    v20210301,
     v20210401preview,
+    v20211001,
     v20220501preview,
     v20221001preview,
     v20231101preview,
@@ -35,6 +39,36 @@ export const AuthenticationMethod = {
  * The mode of client authentication.
  */
 export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
+
+export const AutoUpgradeOptions = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
+ */
+export type AutoUpgradeOptions = (typeof AutoUpgradeOptions)[keyof typeof AutoUpgradeOptions];
+
+export const AzureHybridBenefit = {
+    True: "True",
+    False: "False",
+    NotApplicable: "NotApplicable",
+} as const;
+
+/**
+ * Indicates whether Azure Hybrid Benefit is opted in
+ */
+export type AzureHybridBenefit = (typeof AzureHybridBenefit)[keyof typeof AzureHybridBenefit];
+
+export const ConnectedClusterKind = {
+    ProvisionedCluster: "ProvisionedCluster",
+} as const;
+
+/**
+ * The kind of connected cluster.
+ */
+export type ConnectedClusterKind = (typeof ConnectedClusterKind)[keyof typeof ConnectedClusterKind];
 
 export const PrivateLinkState = {
     Enabled: "Enabled",

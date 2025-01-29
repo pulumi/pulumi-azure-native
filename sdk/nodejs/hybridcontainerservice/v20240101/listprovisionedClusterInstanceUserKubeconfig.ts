@@ -10,14 +10,14 @@ import * as utilities from "../../utilities";
 /**
  * Lists the user credentials of the provisioned cluster (can only be used within private network)
  */
-export function listprovisionedClusterInstanceUserKubeconfig(args: ListprovisionedClusterInstanceUserKubeconfigArgs, opts?: pulumi.InvokeOptions): Promise<ListprovisionedClusterInstanceUserKubeconfigResult> {
+export function listProvisionedClusterInstanceUserKubeconfig(args: ListProvisionedClusterInstanceUserKubeconfigArgs, opts?: pulumi.InvokeOptions): Promise<ListProvisionedClusterInstanceUserKubeconfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20240101:listprovisionedClusterInstanceUserKubeconfig", {
+    return pulumi.runtime.invoke("azure-native:hybridcontainerservice/v20240101:listProvisionedClusterInstanceUserKubeconfig", {
         "connectedClusterResourceUri": args.connectedClusterResourceUri,
     }, opts);
 }
 
-export interface ListprovisionedClusterInstanceUserKubeconfigArgs {
+export interface ListProvisionedClusterInstanceUserKubeconfigArgs {
     /**
      * The fully qualified Azure Resource Manager identifier of the connected cluster resource.
      */
@@ -27,7 +27,7 @@ export interface ListprovisionedClusterInstanceUserKubeconfigArgs {
 /**
  * The list kubeconfig result response.
  */
-export interface ListprovisionedClusterInstanceUserKubeconfigResult {
+export interface ListProvisionedClusterInstanceUserKubeconfigResult {
     readonly error?: outputs.hybridcontainerservice.v20240101.ListCredentialResponseResponseError;
     /**
      * Operation Id
@@ -50,14 +50,14 @@ export interface ListprovisionedClusterInstanceUserKubeconfigResult {
 /**
  * Lists the user credentials of the provisioned cluster (can only be used within private network)
  */
-export function listprovisionedClusterInstanceUserKubeconfigOutput(args: ListprovisionedClusterInstanceUserKubeconfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListprovisionedClusterInstanceUserKubeconfigResult> {
+export function listProvisionedClusterInstanceUserKubeconfigOutput(args: ListProvisionedClusterInstanceUserKubeconfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListProvisionedClusterInstanceUserKubeconfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20240101:listprovisionedClusterInstanceUserKubeconfig", {
+    return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20240101:listProvisionedClusterInstanceUserKubeconfig", {
         "connectedClusterResourceUri": args.connectedClusterResourceUri,
     }, opts);
 }
 
-export interface ListprovisionedClusterInstanceUserKubeconfigOutputArgs {
+export interface ListProvisionedClusterInstanceUserKubeconfigOutputArgs {
     /**
      * The fully qualified Azure Resource Manager identifier of the connected cluster resource.
      */

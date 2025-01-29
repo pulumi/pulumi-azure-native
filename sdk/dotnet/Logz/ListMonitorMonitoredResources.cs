@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Logz
         /// <summary>
         /// Response of a list operation.
         /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview.
         /// </summary>
         public static Task<ListMonitorMonitoredResourcesResult> InvokeAsync(ListMonitorMonitoredResourcesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitorMonitoredResourcesResult>("azure-native:logz:listMonitorMonitoredResources", args ?? new ListMonitorMonitoredResourcesArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Logz
         /// <summary>
         /// Response of a list operation.
         /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview.
         /// </summary>
         public static Output<ListMonitorMonitoredResourcesResult> Invoke(ListMonitorMonitoredResourcesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorMonitoredResourcesResult>("azure-native:logz:listMonitorMonitoredResources", args ?? new ListMonitorMonitoredResourcesInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Logz
         /// <summary>
         /// Response of a list operation.
         /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview.
         /// </summary>
         public static Output<ListMonitorMonitoredResourcesResult> Invoke(ListMonitorMonitoredResourcesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorMonitoredResourcesResult>("azure-native:logz:listMonitorMonitoredResources", args ?? new ListMonitorMonitoredResourcesInvokeArgs(), options.WithDefaults());

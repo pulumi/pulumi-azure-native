@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Logz
         /// <summary>
         /// Response of a list VM Host Update Operation.
         /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview.
         /// </summary>
         public static Task<ListSubAccountVMHostsResult> InvokeAsync(ListSubAccountVMHostsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSubAccountVMHostsResult>("azure-native:logz:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Logz
         /// <summary>
         /// Response of a list VM Host Update Operation.
         /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview.
         /// </summary>
         public static Output<ListSubAccountVMHostsResult> Invoke(ListSubAccountVMHostsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSubAccountVMHostsResult>("azure-native:logz:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Logz
         /// <summary>
         /// Response of a list VM Host Update Operation.
         /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview.
         /// </summary>
         public static Output<ListSubAccountVMHostsResult> Invoke(ListSubAccountVMHostsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListSubAccountVMHostsResult>("azure-native:logz:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsInvokeArgs(), options.WithDefaults());

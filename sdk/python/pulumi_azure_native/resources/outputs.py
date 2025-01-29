@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ActionOnUnmanageResponse',
     'AliasPathMetadataResponse',
     'AliasPathResponse',
     'AliasPatternResponse',
@@ -24,11 +25,12 @@ __all__ = [
     'ApiProfileResponse',
     'BasicDependencyResponse',
     'ContainerConfigurationResponse',
+    'ContainerGroupSubnetIdResponse',
     'DebugSettingResponse',
     'DenySettingsResponse',
     'DependencyResponse',
+    'DeploymentParameterResponse',
     'DeploymentPropertiesExtendedResponse',
-    'DeploymentStackPropertiesResponseActionOnUnmanage',
     'DeploymentStacksDebugSettingResponse',
     'DeploymentStacksParametersLinkResponse',
     'EnvironmentVariableResponse',
@@ -38,6 +40,8 @@ __all__ = [
     'ExtendedLocationResponse',
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
+    'KeyVaultParameterReferenceResponse',
+    'KeyVaultReferenceResponse',
     'LinkedTemplateArtifactResponse',
     'ManagedResourceReferenceResponse',
     'ManagedServiceIdentityResponse',
@@ -60,6 +64,71 @@ __all__ = [
     'UserAssignedIdentityResponse',
     'ZoneMappingResponse',
 ]
+
+@pulumi.output_type
+class ActionOnUnmanageResponse(dict):
+    """
+    Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managementGroups":
+            suggest = "management_groups"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionOnUnmanageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionOnUnmanageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionOnUnmanageResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resources: str,
+                 management_groups: Optional[str] = None,
+                 resource_groups: Optional[str] = None):
+        """
+        Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+        :param str resources: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        :param str management_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        :param str resource_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        pulumi.set(__self__, "resources", resources)
+        if management_groups is not None:
+            pulumi.set(__self__, "management_groups", management_groups)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> str:
+        """
+        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Optional[str]:
+        """
+        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        return pulumi.get(self, "management_groups")
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[str]:
+        """
+        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        return pulumi.get(self, "resource_groups")
+
 
 @pulumi.output_type
 class AliasPathMetadataResponse(dict):
@@ -439,6 +508,8 @@ class ContainerConfigurationResponse(dict):
         suggest = None
         if key == "containerGroupName":
             suggest = "container_group_name"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ContainerConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
@@ -452,13 +523,17 @@ class ContainerConfigurationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 container_group_name: Optional[str] = None):
+                 container_group_name: Optional[str] = None,
+                 subnet_ids: Optional[Sequence['outputs.ContainerGroupSubnetIdResponse']] = None):
         """
         Settings to customize ACI container instance.
         :param str container_group_name: Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
+        :param Sequence['ContainerGroupSubnetIdResponse'] subnet_ids: The subnet resource IDs for a container group.
         """
         if container_group_name is not None:
             pulumi.set(__self__, "container_group_name", container_group_name)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="containerGroupName")
@@ -467,6 +542,48 @@ class ContainerConfigurationResponse(dict):
         Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
         """
         return pulumi.get(self, "container_group_name")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence['outputs.ContainerGroupSubnetIdResponse']]:
+        """
+        The subnet resource IDs for a container group.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
+class ContainerGroupSubnetIdResponse(dict):
+    """
+    Container group subnet information.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: Optional[str] = None):
+        """
+        Container group subnet information.
+        :param str id: Resource ID of subnet.
+        :param str name: Friendly name for the subnet.
+        """
+        pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID of subnet.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Friendly name for the subnet.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -512,7 +629,7 @@ class DebugSettingResponse(dict):
 @pulumi.output_type
 class DenySettingsResponse(dict):
     """
-    Defines how resources deployed by the deployment stack are locked.
+    Defines how resources deployed by the Deployment stack are locked.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -541,9 +658,9 @@ class DenySettingsResponse(dict):
                  excluded_actions: Optional[Sequence[str]] = None,
                  excluded_principals: Optional[Sequence[str]] = None):
         """
-        Defines how resources deployed by the deployment stack are locked.
-        :param str mode: denySettings Mode.
-        :param bool apply_to_child_scopes: DenySettings will be applied to child scopes.
+        Defines how resources deployed by the Deployment stack are locked.
+        :param str mode: denySettings Mode that defines denied actions.
+        :param bool apply_to_child_scopes: DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
         :param Sequence[str] excluded_actions: List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*\\/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
         :param Sequence[str] excluded_principals: List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
         """
@@ -559,7 +676,7 @@ class DenySettingsResponse(dict):
     @pulumi.getter
     def mode(self) -> str:
         """
-        denySettings Mode.
+        denySettings Mode that defines denied actions.
         """
         return pulumi.get(self, "mode")
 
@@ -567,7 +684,7 @@ class DenySettingsResponse(dict):
     @pulumi.getter(name="applyToChildScopes")
     def apply_to_child_scopes(self) -> Optional[bool]:
         """
-        DenySettings will be applied to child scopes.
+        DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
         """
         return pulumi.get(self, "apply_to_child_scopes")
 
@@ -666,6 +783,53 @@ class DependencyResponse(dict):
         The dependency resource type.
         """
         return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
+class DeploymentParameterResponse(dict):
+    """
+    Deployment parameter for the template.
+    """
+    def __init__(__self__, *,
+                 reference: Optional['outputs.KeyVaultParameterReferenceResponse'] = None,
+                 type: Optional[str] = None,
+                 value: Optional[Any] = None):
+        """
+        Deployment parameter for the template.
+        :param 'KeyVaultParameterReferenceResponse' reference: Azure Key Vault parameter reference.
+        :param str type: Type of the value.
+        :param Any value: Input value to the parameter.
+        """
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def reference(self) -> Optional['outputs.KeyVaultParameterReferenceResponse']:
+        """
+        Azure Key Vault parameter reference.
+        """
+        return pulumi.get(self, "reference")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the value.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        Input value to the parameter.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -897,71 +1061,6 @@ class DeploymentPropertiesExtendedResponse(dict):
         Array of validated resources.
         """
         return pulumi.get(self, "validated_resources")
-
-
-@pulumi.output_type
-class DeploymentStackPropertiesResponseActionOnUnmanage(dict):
-    """
-    Defines the behavior of resources that are not managed immediately after the stack is updated.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "managementGroups":
-            suggest = "management_groups"
-        elif key == "resourceGroups":
-            suggest = "resource_groups"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeploymentStackPropertiesResponseActionOnUnmanage. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DeploymentStackPropertiesResponseActionOnUnmanage.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DeploymentStackPropertiesResponseActionOnUnmanage.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 resources: str,
-                 management_groups: Optional[str] = None,
-                 resource_groups: Optional[str] = None):
-        """
-        Defines the behavior of resources that are not managed immediately after the stack is updated.
-        :param str resources: Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        :param str management_groups: Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        :param str resource_groups: Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        pulumi.set(__self__, "resources", resources)
-        if management_groups is not None:
-            pulumi.set(__self__, "management_groups", management_groups)
-        if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
-
-    @property
-    @pulumi.getter
-    def resources(self) -> str:
-        """
-        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        return pulumi.get(self, "resources")
-
-    @property
-    @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Optional[str]:
-        """
-        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        return pulumi.get(self, "management_groups")
-
-    @property
-    @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[str]:
-        """
-        Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-        """
-        return pulumi.get(self, "resource_groups")
 
 
 @pulumi.output_type
@@ -1237,7 +1336,7 @@ class ErrorDetailResponse(dict):
 @pulumi.output_type
 class ErrorResponseResponse(dict):
     """
-    Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+    Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1257,37 +1356,28 @@ class ErrorResponseResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 additional_info: Optional[Sequence['outputs.ErrorAdditionalInfoResponse']] = None,
-                 code: Optional[str] = None,
-                 details: Optional[Sequence['outputs.ErrorResponseResponse']] = None,
-                 error: Optional['outputs.ErrorDetailResponse'] = None,
-                 message: Optional[str] = None,
-                 target: Optional[str] = None):
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: str,
+                 details: Sequence['outputs.ErrorResponseResponse'],
+                 message: str,
+                 target: str):
         """
-        Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+        Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param str code: The error code.
         :param Sequence['ErrorResponseResponse'] details: The error details.
-        :param 'ErrorDetailResponse' error: The error object.
         :param str message: The error message.
         :param str target: The error target.
         """
-        if additional_info is not None:
-            pulumi.set(__self__, "additional_info", additional_info)
-        if code is not None:
-            pulumi.set(__self__, "code", code)
-        if details is not None:
-            pulumi.set(__self__, "details", details)
-        if error is not None:
-            pulumi.set(__self__, "error", error)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
 
     @property
     @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> Optional[Sequence['outputs.ErrorAdditionalInfoResponse']]:
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
         """
         The error additional info.
         """
@@ -1295,7 +1385,7 @@ class ErrorResponseResponse(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[str]:
+    def code(self) -> str:
         """
         The error code.
         """
@@ -1303,7 +1393,7 @@ class ErrorResponseResponse(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[Sequence['outputs.ErrorResponseResponse']]:
+    def details(self) -> Sequence['outputs.ErrorResponseResponse']:
         """
         The error details.
         """
@@ -1311,15 +1401,7 @@ class ErrorResponseResponse(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.ErrorDetailResponse']:
-        """
-        The error object.
-        """
-        return pulumi.get(self, "error")
-
-    @property
-    @pulumi.getter
-    def message(self) -> Optional[str]:
+    def message(self) -> str:
         """
         The error message.
         """
@@ -1327,7 +1409,7 @@ class ErrorResponseResponse(dict):
 
     @property
     @pulumi.getter
-    def target(self) -> Optional[str]:
+    def target(self) -> str:
         """
         The error target.
         """
@@ -1496,6 +1578,94 @@ class IdentityResponseUserAssignedIdentities(dict):
 
 
 @pulumi.output_type
+class KeyVaultParameterReferenceResponse(dict):
+    """
+    Azure Key Vault parameter reference.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVault":
+            suggest = "key_vault"
+        elif key == "secretName":
+            suggest = "secret_name"
+        elif key == "secretVersion":
+            suggest = "secret_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultParameterReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultParameterReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultParameterReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault: 'outputs.KeyVaultReferenceResponse',
+                 secret_name: str,
+                 secret_version: Optional[str] = None):
+        """
+        Azure Key Vault parameter reference.
+        :param 'KeyVaultReferenceResponse' key_vault: Azure Key Vault reference.
+        :param str secret_name: Azure Key Vault secret name.
+        :param str secret_version: Azure Key Vault secret version.
+        """
+        pulumi.set(__self__, "key_vault", key_vault)
+        pulumi.set(__self__, "secret_name", secret_name)
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
+
+    @property
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> 'outputs.KeyVaultReferenceResponse':
+        """
+        Azure Key Vault reference.
+        """
+        return pulumi.get(self, "key_vault")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Azure Key Vault secret name.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[str]:
+        """
+        Azure Key Vault secret version.
+        """
+        return pulumi.get(self, "secret_version")
+
+
+@pulumi.output_type
+class KeyVaultReferenceResponse(dict):
+    """
+    Azure Key Vault reference.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Azure Key Vault reference.
+        :param str id: Azure Key Vault resourceId.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure Key Vault resourceId.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class LinkedTemplateArtifactResponse(dict):
     """
     Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
@@ -1562,11 +1732,9 @@ class ManagedResourceReferenceResponse(dict):
         """
         pulumi.set(__self__, "id", id)
         if deny_status is None:
-            deny_status = 'None'
+            deny_status = 'none'
         if deny_status is not None:
             pulumi.set(__self__, "deny_status", deny_status)
-        if status is None:
-            status = 'None'
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -2224,15 +2392,15 @@ class ResourceGroupPropertiesResponse(dict):
 @pulumi.output_type
 class ResourceReferenceExtendedResponse(dict):
     """
-    The resource Id extended model.
+    The resourceId extended model. This is used to document failed resources with a resourceId and a corresponding error.
     """
     def __init__(__self__, *,
                  id: str,
-                 error: Optional['outputs.ErrorResponseResponse'] = None):
+                 error: Optional['outputs.ErrorDetailResponse'] = None):
         """
-        The resource Id extended model.
+        The resourceId extended model. This is used to document failed resources with a resourceId and a corresponding error.
         :param str id: The resourceId of a resource managed by the deployment stack.
-        :param 'ErrorResponseResponse' error: Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+        :param 'ErrorDetailResponse' error: The error detail.
         """
         pulumi.set(__self__, "id", id)
         if error is not None:
@@ -2248,9 +2416,9 @@ class ResourceReferenceExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def error(self) -> Optional['outputs.ErrorResponseResponse']:
+    def error(self) -> Optional['outputs.ErrorDetailResponse']:
         """
-        Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+        The error detail.
         """
         return pulumi.get(self, "error")
 
@@ -2258,12 +2426,12 @@ class ResourceReferenceExtendedResponse(dict):
 @pulumi.output_type
 class ResourceReferenceResponse(dict):
     """
-    The resource Id model.
+    The resourceId model.
     """
     def __init__(__self__, *,
                  id: str):
         """
-        The resource Id model.
+        The resourceId model.
         :param str id: The resourceId of a resource managed by the deployment stack.
         """
         pulumi.set(__self__, "id", id)

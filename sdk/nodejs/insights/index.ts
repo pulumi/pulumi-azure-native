@@ -120,16 +120,6 @@ export const getDataCollectionRuleAssociation: typeof import("./getDataCollectio
 export const getDataCollectionRuleAssociationOutput: typeof import("./getDataCollectionRuleAssociation").getDataCollectionRuleAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getDataCollectionRuleAssociation","getDataCollectionRuleAssociationOutput"], () => require("./getDataCollectionRuleAssociation"));
 
-export { GetDiagnosticServiceTokenReadOnlyArgs, GetDiagnosticServiceTokenReadOnlyResult, GetDiagnosticServiceTokenReadOnlyOutputArgs } from "./getDiagnosticServiceTokenReadOnly";
-export const getDiagnosticServiceTokenReadOnly: typeof import("./getDiagnosticServiceTokenReadOnly").getDiagnosticServiceTokenReadOnly = null as any;
-export const getDiagnosticServiceTokenReadOnlyOutput: typeof import("./getDiagnosticServiceTokenReadOnly").getDiagnosticServiceTokenReadOnlyOutput = null as any;
-utilities.lazyLoad(exports, ["getDiagnosticServiceTokenReadOnly","getDiagnosticServiceTokenReadOnlyOutput"], () => require("./getDiagnosticServiceTokenReadOnly"));
-
-export { GetDiagnosticServiceTokenReadWriteArgs, GetDiagnosticServiceTokenReadWriteResult, GetDiagnosticServiceTokenReadWriteOutputArgs } from "./getDiagnosticServiceTokenReadWrite";
-export const getDiagnosticServiceTokenReadWrite: typeof import("./getDiagnosticServiceTokenReadWrite").getDiagnosticServiceTokenReadWrite = null as any;
-export const getDiagnosticServiceTokenReadWriteOutput: typeof import("./getDiagnosticServiceTokenReadWrite").getDiagnosticServiceTokenReadWriteOutput = null as any;
-utilities.lazyLoad(exports, ["getDiagnosticServiceTokenReadWrite","getDiagnosticServiceTokenReadWriteOutput"], () => require("./getDiagnosticServiceTokenReadWrite"));
-
 export { GetDiagnosticSettingArgs, GetDiagnosticSettingResult, GetDiagnosticSettingOutputArgs } from "./getDiagnosticSetting";
 export const getDiagnosticSetting: typeof import("./getDiagnosticSetting").getDiagnosticSetting = null as any;
 export const getDiagnosticSettingOutput: typeof import("./getDiagnosticSetting").getDiagnosticSettingOutput = null as any;
@@ -330,6 +320,7 @@ utilities.lazyLoad(exports, ["WorkbookTemplate"], () => require("./workbookTempl
 export * from "../types/enums/insights";
 
 // Export sub-modules:
+import * as v20150401 from "./v20150401";
 import * as v20150501 from "./v20150501";
 import * as v20160301 from "./v20160301";
 import * as v20170401 from "./v20170401";
@@ -339,7 +330,12 @@ import * as v20180301 from "./v20180301";
 import * as v20180416 from "./v20180416";
 import * as v20180501preview from "./v20180501preview";
 import * as v20180601preview from "./v20180601preview";
+import * as v20180617preview from "./v20180617preview";
+import * as v20180901 from "./v20180901";
+import * as v20190301 from "./v20190301";
+import * as v20190601 from "./v20190601";
 import * as v20191017preview from "./v20191017preview";
+import * as v20191101preview from "./v20191101preview";
 import * as v20200101preview from "./v20200101preview";
 import * as v20200202 from "./v20200202";
 import * as v20200202preview from "./v20200202preview";
@@ -349,13 +345,17 @@ import * as v20200501preview from "./v20200501preview";
 import * as v20200602preview from "./v20200602preview";
 import * as v20201001 from "./v20201001";
 import * as v20201005preview from "./v20201005preview";
+import * as v20201020 from "./v20201020";
 import * as v20201120 from "./v20201120";
+import * as v20210201preview from "./v20210201preview";
 import * as v20210303preview from "./v20210303preview";
 import * as v20210308 from "./v20210308";
+import * as v20210401 from "./v20210401";
 import * as v20210501preview from "./v20210501preview";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801 from "./v20210801";
 import * as v20210901 from "./v20210901";
+import * as v20210901preview from "./v20210901preview";
 import * as v20211014 from "./v20211014";
 import * as v20220401 from "./v20220401";
 import * as v20220601 from "./v20220601";
@@ -364,6 +364,7 @@ import * as v20220801preview from "./v20220801preview";
 import * as v20221001 from "./v20221001";
 import * as v20230101 from "./v20230101";
 import * as v20230101preview from "./v20230101preview";
+import * as v20230301preview from "./v20230301preview";
 import * as v20230311 from "./v20230311";
 import * as v20230315preview from "./v20230315preview";
 import * as v20230501preview from "./v20230501preview";
@@ -375,6 +376,7 @@ import * as v20240101preview from "./v20240101preview";
 import * as v20241001preview from "./v20241001preview";
 
 export {
+    v20150401,
     v20150501,
     v20160301,
     v20170401,
@@ -384,7 +386,12 @@ export {
     v20180416,
     v20180501preview,
     v20180601preview,
+    v20180617preview,
+    v20180901,
+    v20190301,
+    v20190601,
     v20191017preview,
+    v20191101preview,
     v20200101preview,
     v20200202,
     v20200202preview,
@@ -394,13 +401,17 @@ export {
     v20200602preview,
     v20201001,
     v20201005preview,
+    v20201020,
     v20201120,
+    v20210201preview,
     v20210303preview,
     v20210308,
+    v20210401,
     v20210501preview,
     v20210701preview,
     v20210801,
     v20210901,
+    v20210901preview,
     v20211014,
     v20220401,
     v20220601,
@@ -409,6 +420,7 @@ export {
     v20221001,
     v20230101,
     v20230101preview,
+    v20230301preview,
     v20230311,
     v20230315preview,
     v20230501preview,

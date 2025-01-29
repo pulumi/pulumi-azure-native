@@ -67,9 +67,9 @@ def list_remediation_deployments_at_subscription(remediation_name: Optional[str]
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListRemediationDeploymentsAtSubscriptionResult:
     """
     Gets all deployments for a remediation at subscription scope.
-    Azure REST API version: 2021-10-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2024-10-01.
+    Other available API versions: 2019-07-01, 2021-10-01.
 
 
     :param str remediation_name: The name of the remediation.
@@ -89,9 +89,9 @@ def list_remediation_deployments_at_subscription_output(remediation_name: Option
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRemediationDeploymentsAtSubscriptionResult]:
     """
     Gets all deployments for a remediation at subscription scope.
-    Azure REST API version: 2021-10-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2024-10-01.
+    Other available API versions: 2019-07-01, 2021-10-01.
 
 
     :param str remediation_name: The name of the remediation.

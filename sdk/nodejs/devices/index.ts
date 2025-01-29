@@ -100,10 +100,23 @@ utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./priv
 export * from "../types/enums/devices";
 
 // Export sub-modules:
+import * as v20200301 from "./v20200301";
 import * as v20200401 from "./v20200401";
+import * as v20200615 from "./v20200615";
+import * as v20200710preview from "./v20200710preview";
+import * as v20200801 from "./v20200801";
+import * as v20200831 from "./v20200831";
+import * as v20200831preview from "./v20200831preview";
 import * as v20200901preview from "./v20200901preview";
+import * as v20210201preview from "./v20210201preview";
 import * as v20210303preview from "./v20210303preview";
+import * as v20210331 from "./v20210331";
+import * as v20210701 from "./v20210701";
+import * as v20210701preview from "./v20210701preview";
+import * as v20210702 from "./v20210702";
+import * as v20210702preview from "./v20210702preview";
 import * as v20211015 from "./v20211015";
+import * as v20220205 from "./v20220205";
 import * as v20220430preview from "./v20220430preview";
 import * as v20221115preview from "./v20221115preview";
 import * as v20221212 from "./v20221212";
@@ -113,10 +126,23 @@ import * as v20230630preview from "./v20230630preview";
 import * as v20250201preview from "./v20250201preview";
 
 export {
+    v20200301,
     v20200401,
+    v20200615,
+    v20200710preview,
+    v20200801,
+    v20200831,
+    v20200831preview,
     v20200901preview,
+    v20210201preview,
     v20210303preview,
+    v20210331,
+    v20210701,
+    v20210701preview,
+    v20210702,
+    v20210702preview,
     v20211015,
+    v20220205,
     v20220430preview,
     v20221115preview,
     v20221212,

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// </summary>
         public readonly string? FabricPeeringEnabled;
         /// <summary>
-        /// The list of pools of IP addresses that can be allocated to Load Balancer services.
+        /// The list of pools of IP addresses that can be allocated to load balancer services.
         /// </summary>
         public readonly ImmutableArray<Outputs.IpAddressPoolResponse> IpAddressPools;
 

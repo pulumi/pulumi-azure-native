@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
  * Azure REST API version: 2022-10-01.
+ *
+ * Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
  */
 export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredAsnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,6 +66,8 @@ export interface GetRegisteredAsnResult {
 /**
  * Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
  * Azure REST API version: 2022-10-01.
+ *
+ * Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
  */
 export function getRegisteredAsnOutput(args: GetRegisteredAsnOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegisteredAsnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

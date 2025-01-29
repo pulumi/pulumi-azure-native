@@ -9,10 +9,12 @@ from ._enums import *
 from .application import *
 from .cluster import *
 from .cluster_pool import *
+from .cluster_pool_cluster import *
 from .get_application import *
 from .get_cluster import *
 from .get_cluster_gateway_settings import *
 from .get_cluster_pool import *
+from .get_cluster_pool_cluster import *
 from .get_private_endpoint_connection import *
 from .private_endpoint_connection import *
 from ._inputs import *
@@ -20,6 +22,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.hdinsight.v20180601preview as __v20180601preview
+    v20180601preview = __v20180601preview
     import pulumi_azure_native.hdinsight.v20210601 as __v20210601
     v20210601 = __v20210601
     import pulumi_azure_native.hdinsight.v20230415preview as __v20230415preview
@@ -35,6 +39,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.hdinsight.v20240801preview as __v20240801preview
     v20240801preview = __v20240801preview
 else:
+    v20180601preview = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20180601preview')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20210601')
     v20230415preview = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20230415preview')
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.hdinsight.v20230601preview')

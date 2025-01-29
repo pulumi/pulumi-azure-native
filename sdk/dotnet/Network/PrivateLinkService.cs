@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Private link service resource.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// 
-    /// Other available API versions: 2019-08-01, 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Other available API versions: 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateLinkService")]
     public partial class PrivateLinkService : global::Pulumi.CustomResource
@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("autoApproval")]
         public Output<Outputs.PrivateLinkServicePropertiesResponseAutoApproval?> AutoApproval { get; private set; } = null!;
+
+        /// <summary>
+        /// The destination IP address of the private link service.
+        /// </summary>
+        [Output("destinationIPAddress")]
+        public Output<string?> DestinationIPAddress { get; private set; } = null!;
 
         /// <summary>
         /// Whether the private link service is enabled for proxy protocol or not.
@@ -199,6 +205,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("autoApproval")]
         public Input<Inputs.PrivateLinkServicePropertiesAutoApprovalArgs>? AutoApproval { get; set; }
+
+        /// <summary>
+        /// The destination IP address of the private link service.
+        /// </summary>
+        [Input("destinationIPAddress")]
+        public Input<string>? DestinationIPAddress { get; set; }
 
         /// <summary>
         /// Whether the private link service is enabled for proxy protocol or not.

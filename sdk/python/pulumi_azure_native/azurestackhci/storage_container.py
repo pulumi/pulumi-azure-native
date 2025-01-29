@@ -22,32 +22,43 @@ __all__ = ['StorageContainerArgs', 'StorageContainer']
 @pulumi.input_type
 class StorageContainerArgs:
     def __init__(__self__, *,
+                 path: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 path: Optional[pulumi.Input[str]] = None,
                  storage_container_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StorageContainer resource.
+        :param pulumi.Input[str] path: Path of the storage container on the disk
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] path: Path of the storage container on the disk
         :param pulumi.Input[str] storage_container_name: Name of the storage container
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
         if storage_container_name is not None:
             pulumi.set(__self__, "storage_container_name", storage_container_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Path of the storage container on the disk
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -84,18 +95,6 @@ class StorageContainerArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        Path of the storage container on the disk
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter(name="storageContainerName")
@@ -136,9 +135,9 @@ class StorageContainer(pulumi.CustomResource):
                  __props__=None):
         """
         The storage container resource definition.
-        Azure REST API version: 2022-12-15-preview.
+        Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,9 +156,9 @@ class StorageContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage container resource definition.
-        Azure REST API version: 2022-12-15-preview.
+        Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param StorageContainerArgs args: The arguments to use to populate this resource's properties.
@@ -193,6 +192,8 @@ class StorageContainer(pulumi.CustomResource):
 
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
+            if path is None and not opts.urn:
+                raise TypeError("Missing required property 'path'")
             __props__.__dict__["path"] = path
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -265,7 +266,7 @@ class StorageContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> pulumi.Output[Optional[str]]:
+    def path(self) -> pulumi.Output[str]:
         """
         Path of the storage container on the disk
         """

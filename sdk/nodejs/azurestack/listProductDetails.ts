@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Returns the extended properties of a product.
  * Azure REST API version: 2022-06-01.
  *
- * Other available API versions: 2020-06-01-preview.
+ * Other available API versions: 2017-06-01, 2020-06-01-preview.
  */
 export function listProductDetails(args: ListProductDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListProductDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,7 +90,7 @@ export interface ListProductDetailsResult {
  * Returns the extended properties of a product.
  * Azure REST API version: 2022-06-01.
  *
- * Other available API versions: 2020-06-01-preview.
+ * Other available API versions: 2017-06-01, 2020-06-01-preview.
  */
 export function listProductDetailsOutput(args: ListProductDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListProductDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

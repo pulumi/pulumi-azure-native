@@ -76,10 +76,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
     public sealed class GetWorkbookResult
     {
         /// <summary>
-        /// Workbook category, as defined by the user at creation time.
-        /// </summary>
-        public readonly string Category;
-        /// <summary>
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
@@ -96,46 +92,20 @@ namespace Pulumi.AzureNative.Insights.V20150501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Configuration of this particular workbook. Configuration data is a string containing valid JSON
+        /// Metadata describing a web test for an Azure resource.
         /// </summary>
-        public readonly string SerializedData;
-        /// <summary>
-        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-        /// </summary>
-        public readonly string SharedTypeKind;
-        /// <summary>
-        /// Optional resourceId for a source resource.
-        /// </summary>
-        public readonly string? SourceResourceId;
+        public readonly Outputs.WorkbookPropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Date and time in UTC of the last modification that was made to this workbook definition.
-        /// </summary>
-        public readonly string TimeModified;
-        /// <summary>
         /// Azure resource type
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Unique user id of the specific user that owns this workbook.
-        /// </summary>
-        public readonly string UserId;
-        /// <summary>
-        /// This instance's version of the data model. This can change as new features are added that can be marked workbook.
-        /// </summary>
-        public readonly string? Version;
-        /// <summary>
-        /// Internally assigned unique id of the workbook definition.
-        /// </summary>
-        public readonly string WorkbookId;
 
         [OutputConstructor]
         private GetWorkbookResult(
-            string category,
-
             string id,
 
             string? kind,
@@ -144,38 +114,19 @@ namespace Pulumi.AzureNative.Insights.V20150501
 
             string name,
 
-            string serializedData,
-
-            string sharedTypeKind,
-
-            string? sourceResourceId,
+            Outputs.WorkbookPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 
-            string timeModified,
-
-            string type,
-
-            string userId,
-
-            string? version,
-
-            string workbookId)
+            string type)
         {
-            Category = category;
             Id = id;
             Kind = kind;
             Location = location;
             Name = name;
-            SerializedData = serializedData;
-            SharedTypeKind = sharedTypeKind;
-            SourceResourceId = sourceResourceId;
+            Properties = properties;
             Tags = tags;
-            TimeModified = timeModified;
             Type = type;
-            UserId = userId;
-            Version = version;
-            WorkbookId = workbookId;
         }
     }
 }

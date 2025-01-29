@@ -123,6 +123,8 @@ def get_energy_service(resource_group_name: Optional[str] = None,
     Returns oep resource for a given name.
     Azure REST API version: 2022-04-04-preview.
 
+    Other available API versions: 2021-06-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The resource name.
@@ -147,6 +149,8 @@ def get_energy_service_output(resource_group_name: Optional[pulumi.Input[str]] =
     """
     Returns oep resource for a given name.
     Azure REST API version: 2022-04-04-preview.
+
+    Other available API versions: 2021-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

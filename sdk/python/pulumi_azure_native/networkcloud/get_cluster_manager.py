@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterManagerResult:
-    def __init__(__self__, analytics_workspace_id=None, availability_zones=None, cluster_versions=None, detailed_status=None, detailed_status_message=None, fabric_controller_id=None, id=None, location=None, managed_resource_group_configuration=None, manager_extended_location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, vm_size=None):
+    def __init__(__self__, analytics_workspace_id=None, availability_zones=None, cluster_versions=None, detailed_status=None, detailed_status_message=None, fabric_controller_id=None, id=None, identity=None, location=None, managed_resource_group_configuration=None, manager_extended_location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, vm_size=None):
         if analytics_workspace_id and not isinstance(analytics_workspace_id, str):
             raise TypeError("Expected argument 'analytics_workspace_id' to be a str")
         pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
@@ -46,6 +46,9 @@ class GetClusterManagerResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -129,6 +132,14 @@ class GetClusterManagerResult:
         Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity of the cluster manager.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -216,6 +227,7 @@ class AwaitableGetClusterManagerResult(GetClusterManagerResult):
             detailed_status_message=self.detailed_status_message,
             fabric_controller_id=self.fabric_controller_id,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             managed_resource_group_configuration=self.managed_resource_group_configuration,
             manager_extended_location=self.manager_extended_location,
@@ -232,9 +244,9 @@ def get_cluster_manager(cluster_manager_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterManagerResult:
     """
     Get the properties of the provided cluster manager.
-    Azure REST API version: 2023-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
 
 
     :param str cluster_manager_name: The name of the cluster manager.
@@ -254,6 +266,7 @@ def get_cluster_manager(cluster_manager_name: Optional[str] = None,
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
         fabric_controller_id=pulumi.get(__ret__, 'fabric_controller_id'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         managed_resource_group_configuration=pulumi.get(__ret__, 'managed_resource_group_configuration'),
         manager_extended_location=pulumi.get(__ret__, 'manager_extended_location'),
@@ -268,9 +281,9 @@ def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterManagerResult]:
     """
     Get the properties of the provided cluster manager.
-    Azure REST API version: 2023-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
 
 
     :param str cluster_manager_name: The name of the cluster manager.
@@ -289,6 +302,7 @@ def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]]
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
         fabric_controller_id=pulumi.get(__response__, 'fabric_controller_id'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         managed_resource_group_configuration=pulumi.get(__response__, 'managed_resource_group_configuration'),
         manager_extended_location=pulumi.get(__response__, 'manager_extended_location'),

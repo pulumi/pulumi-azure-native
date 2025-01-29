@@ -2,13 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * A global reach connection resource
- * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
  */
 export class GlobalReachConnection extends pulumi.CustomResource {
     /**
@@ -38,11 +41,13 @@ export class GlobalReachConnection extends pulumi.CustomResource {
     }
 
     /**
-     * The network used for global reach carved out from the original network block provided for the private cloud
+     * The network used for global reach carved out from the original network block
+     * provided for the private cloud
      */
     public /*out*/ readonly addressPrefix!: pulumi.Output<string>;
     /**
-     * Authorization key from the peer express route used for the global reach connection
+     * Authorization key from the peer express route used for the global reach
+     * connection
      */
     public readonly authorizationKey!: pulumi.Output<string | undefined>;
     /**
@@ -50,15 +55,17 @@ export class GlobalReachConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly circuitConnectionStatus!: pulumi.Output<string>;
     /**
-     * The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+     * The ID of the Private Cloud's ExpressRoute Circuit that is participating in the
+     * global reach connection
      */
     public readonly expressRouteId!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Identifier of the ExpressRoute Circuit to peer with in the global reach connection
+     * Identifier of the ExpressRoute Circuit to peer with in the global reach
+     * connection
      */
     public readonly peerExpressRouteCircuit!: pulumi.Output<string | undefined>;
     /**
@@ -66,7 +73,11 @@ export class GlobalReachConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -97,6 +108,7 @@ export class GlobalReachConnection extends pulumi.CustomResource {
             resourceInputs["circuitConnectionStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["addressPrefix"] = undefined /*out*/;
@@ -106,6 +118,7 @@ export class GlobalReachConnection extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["peerExpressRouteCircuit"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -120,23 +133,26 @@ export class GlobalReachConnection extends pulumi.CustomResource {
  */
 export interface GlobalReachConnectionArgs {
     /**
-     * Authorization key from the peer express route used for the global reach connection
+     * Authorization key from the peer express route used for the global reach
+     * connection
      */
     authorizationKey?: pulumi.Input<string>;
     /**
-     * The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+     * The ID of the Private Cloud's ExpressRoute Circuit that is participating in the
+     * global reach connection
      */
     expressRouteId?: pulumi.Input<string>;
     /**
-     * Name of the global reach connection in the private cloud
+     * Name of the global reach connection
      */
     globalReachConnectionName?: pulumi.Input<string>;
     /**
-     * Identifier of the ExpressRoute Circuit to peer with in the global reach connection
+     * Identifier of the ExpressRoute Circuit to peer with in the global reach
+     * connection
      */
     peerExpressRouteCircuit?: pulumi.Input<string>;
     /**
-     * The name of the private cloud.
+     * Name of the private cloud
      */
     privateCloudName: pulumi.Input<string>;
     /**

@@ -8,12 +8,14 @@ __all__ = [
     'AgentPoolMode',
     'AgentPoolType',
     'AutoUpgradeNodeImageSelectionType',
+    'BackendPoolType',
     'Code',
     'ConnectionStatus',
     'Expander',
     'ExtendedLocationTypes',
     'GPUInstanceProfile',
     'IpFamily',
+    'IstioIngressGatewayMode',
     'KeyVaultNetworkAccessTypes',
     'KubeletDiskType',
     'KubernetesSupportPlan',
@@ -22,24 +24,29 @@ __all__ = [
     'ManagedClusterSKUName',
     'ManagedClusterSKUTier',
     'ManagedClusterUpgradeType',
+    'ManagedServiceIdentityType',
     'NetworkDataplane',
     'NetworkMode',
     'NetworkPlugin',
     'NetworkPluginMode',
     'NetworkPolicy',
+    'NodeImageSelectionType',
+    'NodeOSUpgradeChannel',
     'OSDiskType',
     'OSSKU',
     'OSType',
-    'OpenShiftAgentPoolProfileRole',
-    'OpenShiftContainerServiceVMSize',
     'Operator',
     'OutboundType',
+    'Protocol',
     'PublicNetworkAccess',
     'ResourceIdentityType',
+    'RestrictionLevel',
     'ScaleDownMode',
     'ScaleSetEvictionPolicy',
     'ScaleSetPriority',
+    'ServiceMeshMode',
     'SnapshotType',
+    'Type',
     'UpgradeChannel',
     'WeekDay',
     'WorkloadRuntime',
@@ -85,6 +92,20 @@ class AutoUpgradeNodeImageSelectionType(str, Enum):
     CONSISTENT = "Consistent"
     """
     The image versions to upgrade nodes to are selected as described below: for each node pool in managed clusters affected by the update run, the system selects the latest image version such that it is available across all other node pools (in all other clusters) of the same image type. As a result, all node pools of the same image type will be upgraded to the same image version. For example, if the latest image version for image type 'AKSUbuntu-1804gen2containerd' is 'AKSUbuntu-1804gen2containerd-2021.10.12' for a node pool in cluster A in region X, and is 'AKSUbuntu-1804gen2containerd-2021.10.17' for a node pool in cluster B in region Y, the system will upgrade both node pools to image version 'AKSUbuntu-1804gen2containerd-2021.10.12'.
+    """
+
+
+class BackendPoolType(str, Enum):
+    """
+    The type of the managed inbound Load Balancer BackendPool.
+    """
+    NODE_IP_CONFIGURATION = "NodeIPConfiguration"
+    """
+    The type of the managed inbound Load Balancer BackendPool. https://cloud-provider-azure.sigs.k8s.io/topics/loadbalancer/#configure-load-balancer-backend.
+    """
+    NODE_IP = "NodeIP"
+    """
+    The type of the managed inbound Load Balancer BackendPool. https://cloud-provider-azure.sigs.k8s.io/topics/loadbalancer/#configure-load-balancer-backend.
     """
 
 
@@ -158,6 +179,20 @@ class IpFamily(str, Enum):
     """
     I_PV4 = "IPv4"
     I_PV6 = "IPv6"
+
+
+class IstioIngressGatewayMode(str, Enum):
+    """
+    Mode of an ingress gateway.
+    """
+    EXTERNAL = "External"
+    """
+    The ingress gateway is assigned a public IP address and is publicly accessible.
+    """
+    INTERNAL = "Internal"
+    """
+    The ingress gateway is assigned an internal IP address and cannot is accessed publicly.
+    """
 
 
 class KeyVaultNetworkAccessTypes(str, Enum):
@@ -264,6 +299,20 @@ class ManagedClusterUpgradeType(str, Enum):
     """
     NodeImageOnly upgrades only the node images of the target ManagedClusters. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to NOT be set.
     """
+    CONTROL_PLANE_ONLY = "ControlPlaneOnly"
+    """
+    ControlPlaneOnly upgrades only targets the KubernetesVersion of the ManagedClusters and will not be applied to the AgentPool. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to be set.
+    """
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
 class NetworkDataplane(str, Enum):
@@ -326,6 +375,10 @@ class NetworkPolicy(str, Enum):
     """
     Network policy used for building the Kubernetes network.
     """
+    NONE = "none"
+    """
+    Network policies will not be enforced. This is the default value when NetworkPolicy is not specified.
+    """
     CALICO = "calico"
     """
     Use Calico network policies. See [differences between Azure and Calico policies](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities) for more information.
@@ -337,6 +390,46 @@ class NetworkPolicy(str, Enum):
     CILIUM = "cilium"
     """
     Use Cilium to enforce network policies. This requires networkDataplane to be 'cilium'.
+    """
+
+
+class NodeImageSelectionType(str, Enum):
+    """
+    The node image upgrade type.
+    """
+    LATEST = "Latest"
+    """
+    Use the latest image version when upgrading nodes. Clusters may use different image versions (e.g., 'AKSUbuntu-1804gen2containerd-2021.10.12' and 'AKSUbuntu-1804gen2containerd-2021.10.19') because, for example, the latest available version is different in different regions.
+    """
+    CONSISTENT = "Consistent"
+    """
+    The image versions to upgrade nodes to are selected as described below: for each node pool in managed clusters affected by the update run, the system selects the latest image version such that it is available across all other node pools (in all other clusters) of the same image type. As a result, all node pools of the same image type will be upgraded to the same image version. For example, if the latest image version for image type 'AKSUbuntu-1804gen2containerd' is 'AKSUbuntu-1804gen2containerd-2021.10.12' for a node pool in cluster A in region X, and is 'AKSUbuntu-1804gen2containerd-2021.10.17' for a node pool in cluster B in region Y, the system will upgrade both node pools to image version 'AKSUbuntu-1804gen2containerd-2021.10.12'.
+    """
+    CUSTOM = "Custom"
+    """
+    Upgrade the nodes to the custom image versions. When set, update run will use node image versions provided in customNodeImageVersions to upgrade the nodes. If set, customNodeImageVersions must not be empty.
+    """
+
+
+class NodeOSUpgradeChannel(str, Enum):
+    """
+    Manner in which the OS on your nodes is updated. The default is NodeImage.
+    """
+    NONE = "None"
+    """
+    No attempt to update your machines OS will be made either by OS or by rolling VHDs. This means you are responsible for your security updates
+    """
+    UNMANAGED = "Unmanaged"
+    """
+    OS updates will be applied automatically through the OS built-in patching infrastructure. Newly scaled in machines will be unpatched initially and will be patched at some point by the OS's infrastructure. Behavior of this option depends on the OS in question. Ubuntu and Mariner apply security patches through unattended upgrade roughly once a day around 06:00 UTC. Windows does not apply security patches automatically and so for them this option is equivalent to None till further notice
+    """
+    NODE_IMAGE = "NodeImage"
+    """
+    AKS will update the nodes with a newly patched VHD containing security fixes and bugfixes on a weekly cadence. With the VHD update machines will be rolling reimaged to that VHD following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option as AKS hosts the images.
+    """
+    SECURITY_PATCH = "SecurityPatch"
+    """
+    AKS downloads and updates the nodes with tested security updates. These updates honor the maintenance window settings and produce a new VHD that is used on new nodes. On some occasions it's not possible to apply the updates in place, in such cases the existing nodes will also be re-imaged to the newly produced VHD in order to apply the changes. This option incurs an extra cost of hosting the new Security Patch VHDs in your resource group for just in time consumption.
     """
 
 
@@ -382,57 +475,16 @@ class OSSKU(str, Enum):
 
 class OSType(str, Enum):
     """
-    OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+    The operating system type. The default is Linux.
     """
     LINUX = "Linux"
+    """
+    Use Linux.
+    """
     WINDOWS = "Windows"
-
-
-class OpenShiftAgentPoolProfileRole(str, Enum):
     """
-    Define the role of the AgentPoolProfile.
+    Use Windows.
     """
-    COMPUTE = "compute"
-    INFRA = "infra"
-
-
-class OpenShiftContainerServiceVMSize(str, Enum):
-    """
-    Size of agent VMs.
-    """
-    STANDARD_D2S_V3 = "Standard_D2s_v3"
-    STANDARD_D4S_V3 = "Standard_D4s_v3"
-    STANDARD_D8S_V3 = "Standard_D8s_v3"
-    STANDARD_D16S_V3 = "Standard_D16s_v3"
-    STANDARD_D32S_V3 = "Standard_D32s_v3"
-    STANDARD_D64S_V3 = "Standard_D64s_v3"
-    STANDARD_DS4_V2 = "Standard_DS4_v2"
-    STANDARD_DS5_V2 = "Standard_DS5_v2"
-    STANDARD_F8S_V2 = "Standard_F8s_v2"
-    STANDARD_F16S_V2 = "Standard_F16s_v2"
-    STANDARD_F32S_V2 = "Standard_F32s_v2"
-    STANDARD_F64S_V2 = "Standard_F64s_v2"
-    STANDARD_F72S_V2 = "Standard_F72s_v2"
-    STANDARD_F8S = "Standard_F8s"
-    STANDARD_F16S = "Standard_F16s"
-    STANDARD_E4S_V3 = "Standard_E4s_v3"
-    STANDARD_E8S_V3 = "Standard_E8s_v3"
-    STANDARD_E16S_V3 = "Standard_E16s_v3"
-    STANDARD_E20S_V3 = "Standard_E20s_v3"
-    STANDARD_E32S_V3 = "Standard_E32s_v3"
-    STANDARD_E64S_V3 = "Standard_E64s_v3"
-    STANDARD_GS2 = "Standard_GS2"
-    STANDARD_GS3 = "Standard_GS3"
-    STANDARD_GS4 = "Standard_GS4"
-    STANDARD_GS5 = "Standard_GS5"
-    STANDARD_DS12_V2 = "Standard_DS12_v2"
-    STANDARD_DS13_V2 = "Standard_DS13_v2"
-    STANDARD_DS14_V2 = "Standard_DS14_v2"
-    STANDARD_DS15_V2 = "Standard_DS15_v2"
-    STANDARD_L4S = "Standard_L4s"
-    STANDARD_L8S = "Standard_L8s"
-    STANDARD_L16S = "Standard_L16s"
-    STANDARD_L32S = "Standard_L32s"
 
 
 class Operator(str, Enum):
@@ -479,6 +531,20 @@ class OutboundType(str, Enum):
     """
 
 
+class Protocol(str, Enum):
+    """
+    The network protocol of the port.
+    """
+    TCP = "TCP"
+    """
+    TCP protocol.
+    """
+    UDP = "UDP"
+    """
+    UDP protocol.
+    """
+
+
 class PublicNetworkAccess(str, Enum):
     """
     Allow or deny public network access for AKS
@@ -502,6 +568,20 @@ class ResourceIdentityType(str, Enum):
     NONE = "None"
     """
     Do not use a managed identity for the Managed Cluster, service principal will be used instead.
+    """
+
+
+class RestrictionLevel(str, Enum):
+    """
+    The restriction level applied to the cluster's node resource group. If not specified, the default is 'Unrestricted'
+    """
+    UNRESTRICTED = "Unrestricted"
+    """
+    All RBAC permissions are allowed on the managed node resource group
+    """
+    READ_ONLY = "ReadOnly"
+    """
+    Only */read RBAC permissions allowed on the managed node resource group
     """
 
 
@@ -547,6 +627,20 @@ class ScaleSetPriority(str, Enum):
     """
 
 
+class ServiceMeshMode(str, Enum):
+    """
+    Mode of the service mesh.
+    """
+    ISTIO = "Istio"
+    """
+    Istio deployed as an AKS addon.
+    """
+    DISABLED = "Disabled"
+    """
+    Mesh is disabled.
+    """
+
+
 class SnapshotType(str, Enum):
     """
     The type of a snapshot. The default is NodePool.
@@ -554,6 +648,32 @@ class SnapshotType(str, Enum):
     NODE_POOL = "NodePool"
     """
     The snapshot is a snapshot of a node pool.
+    """
+
+
+class Type(str, Enum):
+    """
+    Specifies on which week of the month the dayOfWeek applies.
+    """
+    FIRST = "First"
+    """
+    First week of the month.
+    """
+    SECOND = "Second"
+    """
+    Second week of the month.
+    """
+    THIRD = "Third"
+    """
+    Third week of the month.
+    """
+    FOURTH = "Fourth"
+    """
+    Fourth week of the month.
+    """
+    LAST = "Last"
+    """
+    Last week of the month.
     """
 
 
@@ -575,7 +695,7 @@ class UpgradeChannel(str, Enum):
     """
     NODE_IMAGE = "node-image"
     """
-    Automatically upgrade the node image to the latest version available. Microsoft provides patches and new images for image nodes frequently (usually weekly), but your running nodes won't get the new images unless you do a node image upgrade. Turning on the node-image channel will automatically update your node images whenever a new version is available.
+    Automatically upgrade the node image to the latest version available. Consider using nodeOSUpgradeChannel instead as that allows you to configure node OS patching separate from Kubernetes version patching
     """
     NONE = "none"
     """

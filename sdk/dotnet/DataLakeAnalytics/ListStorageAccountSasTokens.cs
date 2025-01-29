@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
         /// Azure REST API version: 2019-11-01-preview.
+        /// 
+        /// Other available API versions: 2016-11-01.
         /// </summary>
         public static Task<ListStorageAccountSasTokensResult> InvokeAsync(ListStorageAccountSasTokensArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
         /// Azure REST API version: 2019-11-01-preview.
+        /// 
+        /// Other available API versions: 2016-11-01.
         /// </summary>
         public static Output<ListStorageAccountSasTokensResult> Invoke(ListStorageAccountSasTokensInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
         /// Azure REST API version: 2019-11-01-preview.
+        /// 
+        /// Other available API versions: 2016-11-01.
         /// </summary>
         public static Output<ListStorageAccountSasTokensResult> Invoke(ListStorageAccountSasTokensInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountSasTokensResult>("azure-native:datalakeanalytics:listStorageAccountSasTokens", args ?? new ListStorageAccountSasTokensInvokeArgs(), options.WithDefaults());

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Container App Secrets Collection ARM resource.
-        /// Azure REST API version: 2023-01-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01.
         /// </summary>
         public static Task<ListContainerAppSecretsResult> InvokeAsync(ListContainerAppSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListContainerAppSecretsResult>("azure-native:web:listContainerAppSecrets", args ?? new ListContainerAppSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container App Secrets Collection ARM resource.
-        /// Azure REST API version: 2023-01-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01.
         /// </summary>
         public static Output<ListContainerAppSecretsResult> Invoke(ListContainerAppSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListContainerAppSecretsResult>("azure-native:web:listContainerAppSecrets", args ?? new ListContainerAppSecretsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container App Secrets Collection ARM resource.
-        /// Azure REST API version: 2023-01-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01.
         /// </summary>
         public static Output<ListContainerAppSecretsResult> Invoke(ListContainerAppSecretsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListContainerAppSecretsResult>("azure-native:web:listContainerAppSecrets", args ?? new ListContainerAppSecretsInvokeArgs(), options.WithDefaults());

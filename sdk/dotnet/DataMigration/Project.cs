@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// A project resource
-    /// Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
+    /// Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2021-06-30.
     /// 
-    /// Other available API versions: 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
+    /// Other available API versions: 2018-04-19, 2018-07-15-preview, 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Field that defines the Azure active directory application info, used to connect to the target Azure resource
+        /// </summary>
+        [Output("azureAuthenticationInfo")]
+        public Output<Outputs.AzureActiveDirectoryAppResponse?> AzureAuthenticationInfo { get; private set; } = null!;
+
         /// <summary>
         /// UTC Date and time when project was created
         /// </summary>
@@ -31,14 +37,14 @@ namespace Pulumi.AzureNative.DataMigration
         public Output<ImmutableArray<Outputs.DatabaseInfoResponse>> DatabasesInfo { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location.
+        /// HTTP strong entity tag value. This is ignored if submitted.
         /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        [Output("etag")]
+        public Output<string?> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource name.
-        /// </summary>
+        [Output("location")]
+        public Output<string?> Location { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -60,15 +66,9 @@ namespace Pulumi.AzureNative.DataMigration
         [Output("sourcePlatform")]
         public Output<string> SourcePlatform { get; private set; } = null!;
 
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -84,9 +84,6 @@ namespace Pulumi.AzureNative.DataMigration
         [Output("targetPlatform")]
         public Output<string> TargetPlatform { get; private set; } = null!;
 
-        /// <summary>
-        /// Resource type.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -148,6 +145,12 @@ namespace Pulumi.AzureNative.DataMigration
 
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Field that defines the Azure active directory application info, used to connect to the target Azure resource
+        /// </summary>
+        [Input("azureAuthenticationInfo")]
+        public Input<Inputs.AzureActiveDirectoryAppArgs>? AzureAuthenticationInfo { get; set; }
+
         [Input("databasesInfo")]
         private InputList<Inputs.DatabaseInfoArgs>? _databasesInfo;
 
@@ -166,9 +169,6 @@ namespace Pulumi.AzureNative.DataMigration
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
-        /// <summary>
-        /// Resource location.
-        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
@@ -198,10 +198,6 @@ namespace Pulumi.AzureNative.DataMigration
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Description of a namespace resource.
- * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2017-04-01, 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -76,6 +76,10 @@ export class Namespace extends pulumi.CustomResource {
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+     */
+    public readonly premiumMessagingPartitions!: pulumi.Output<number | undefined>;
     /**
      * List of private endpoint connections.
      */
@@ -142,6 +146,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["premiumMessagingPartitions"] = args ? args.premiumMessagingPartitions : undefined;
             resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
             resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -167,6 +172,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["minimumTlsVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["premiumMessagingPartitions"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
@@ -219,6 +225,10 @@ export interface NamespaceArgs {
      */
     namespaceName?: pulumi.Input<string>;
     /**
+     * The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+     */
+    premiumMessagingPartitions?: pulumi.Input<number>;
+    /**
      * List of private endpoint connections.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
@@ -228,7 +238,7 @@ export interface NamespaceArgs {
      */
     publicNetworkAccess?: pulumi.Input<string | enums.servicebus.PublicNetworkAccess>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

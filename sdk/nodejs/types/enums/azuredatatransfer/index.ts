@@ -36,6 +36,17 @@ export const Direction = {
  */
 export type Direction = (typeof Direction)[keyof typeof Direction];
 
+export const FlowBillingTier = {
+    BlobTransport: "BlobTransport",
+    Standard: "Standard",
+    Premium: "Premium",
+} as const;
+
+/**
+ * Billing tier for this messaging flow
+ */
+export type FlowBillingTier = (typeof FlowBillingTier)[keyof typeof FlowBillingTier];
+
 export const FlowStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -55,6 +66,10 @@ export const FlowType = {
     MicrosoftInternal: "MicrosoftInternal",
     BasicFiles: "BasicFiles",
     Data: "Data",
+    Standard: "Standard",
+    StreamingVideo: "StreamingVideo",
+    Opaque: "Opaque",
+    MissionOpaqueXML: "MissionOpaqueXML",
 } as const;
 
 /**
@@ -84,6 +99,16 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
+export const SchemaDirection = {
+    Send: "Send",
+    Receive: "Receive",
+} as const;
+
+/**
+ * The direction of the schema.
+ */
+export type SchemaDirection = (typeof SchemaDirection)[keyof typeof SchemaDirection];
+
 export const SchemaStatus = {
     New: "New",
     Approved: "Approved",
@@ -93,3 +118,24 @@ export const SchemaStatus = {
  * Status of the schema
  */
 export type SchemaStatus = (typeof SchemaStatus)[keyof typeof SchemaStatus];
+
+export const SchemaType = {
+    Xsd: "Xsd",
+    Zip: "Zip",
+} as const;
+
+/**
+ * The Schema Type
+ */
+export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
+
+export const StreamProtocol = {
+    UDP: "UDP",
+    SRT: "SRT",
+    RTP: "RTP",
+} as const;
+
+/**
+ * The protocol of the stream
+ */
+export type StreamProtocol = (typeof StreamProtocol)[keyof typeof StreamProtocol];

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
     /// Gets or sets the DB2 provider properties.
     /// </summary>
     [OutputType]
-    public sealed class DB2ProviderInstancePropertiesResponse
+    public sealed class Db2ProviderInstancePropertiesResponse
     {
         /// <summary>
         /// Gets or sets the db2 database name.
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         public readonly string? SslPreference;
 
         [OutputConstructor]
-        private DB2ProviderInstancePropertiesResponse(
+        private Db2ProviderInstancePropertiesResponse(
             string? dbName,
 
             string? dbPassword,

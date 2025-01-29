@@ -10,14 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
-    /// The Private Endpoint Connection resource.
-    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
+    /// The private endpoint connection resource.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
     /// 
-    /// Other available API versions: 2022-09-01.
+    /// Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The group ids for the private endpoint resource.
+        /// </summary>
+        [Output("groupIds")]
+        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -25,7 +31,7 @@ namespace Pulumi.AzureNative.StorageSync
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource of private end point.
+        /// The private endpoint resource.
         /// </summary>
         [Output("privateEndpoint")]
         public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
@@ -107,7 +113,7 @@ namespace Pulumi.AzureNative.StorageSync
     public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection associated with the Azure resource
+        /// The name of the private endpoint connection associated with the Azure resource.
         /// </summary>
         [Input("privateEndpointConnectionName")]
         public Input<string>? PrivateEndpointConnectionName { get; set; }

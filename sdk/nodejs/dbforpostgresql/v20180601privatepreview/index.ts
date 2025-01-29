@@ -5,23 +5,23 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+export { GetSingleServerPrivateEndpointConnectionArgs, GetSingleServerPrivateEndpointConnectionResult, GetSingleServerPrivateEndpointConnectionOutputArgs } from "./getSingleServerPrivateEndpointConnection";
+export const getSingleServerPrivateEndpointConnection: typeof import("./getSingleServerPrivateEndpointConnection").getSingleServerPrivateEndpointConnection = null as any;
+export const getSingleServerPrivateEndpointConnectionOutput: typeof import("./getSingleServerPrivateEndpointConnection").getSingleServerPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServerPrivateEndpointConnection","getSingleServerPrivateEndpointConnectionOutput"], () => require("./getSingleServerPrivateEndpointConnection"));
 
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+export { SingleServerPrivateEndpointConnectionArgs } from "./singleServerPrivateEndpointConnection";
+export type SingleServerPrivateEndpointConnection = import("./singleServerPrivateEndpointConnection").SingleServerPrivateEndpointConnection;
+export const SingleServerPrivateEndpointConnection: typeof import("./singleServerPrivateEndpointConnection").SingleServerPrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["SingleServerPrivateEndpointConnection"], () => require("./singleServerPrivateEndpointConnection"));
 
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql/v20180601privatepreview:SingleServerPrivateEndpointConnection":
+                return new SingleServerPrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

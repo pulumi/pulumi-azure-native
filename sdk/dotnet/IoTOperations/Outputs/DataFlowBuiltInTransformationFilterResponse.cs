@@ -11,10 +11,10 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// DataFlow BuiltIn Transformation filter properties
+    /// Dataflow BuiltIn Transformation filter properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowBuiltInTransformationFilterResponse
+    public sealed class DataflowBuiltInTransformationFilterResponse
     {
         /// <summary>
         /// A user provided optional description of the filter.
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         public readonly string? Type;
 
         [OutputConstructor]
-        private DataFlowBuiltInTransformationFilterResponse(
+        private DataflowBuiltInTransformationFilterResponse(
             string? description,
 
             string expression,

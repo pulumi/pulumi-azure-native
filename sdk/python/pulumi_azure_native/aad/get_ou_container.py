@@ -226,6 +226,8 @@ def get_ou_container(domain_service_name: Optional[str] = None,
     Get OuContainer in DomainService instance.
     Azure REST API version: 2022-12-01.
 
+    Other available API versions: 2021-03-01, 2021-05-01, 2022-09-01.
+
 
     :param str domain_service_name: The name of the domain service.
     :param str ou_container_name: The name of the OuContainer.
@@ -261,6 +263,8 @@ def get_ou_container_output(domain_service_name: Optional[pulumi.Input[str]] = N
     """
     Get OuContainer in DomainService instance.
     Azure REST API version: 2022-12-01.
+
+    Other available API versions: 2021-03-01, 2021-05-01, 2022-09-01.
 
 
     :param str domain_service_name: The name of the domain service.

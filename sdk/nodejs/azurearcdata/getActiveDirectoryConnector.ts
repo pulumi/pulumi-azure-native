@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves an Active Directory connector resource
- * Azure REST API version: 2023-01-15-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Other available API versions: 2022-03-01-preview, 2022-06-15-preview, 2023-01-15-preview, 2024-05-01-preview.
  */
 export function getActiveDirectoryConnector(args: GetActiveDirectoryConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetActiveDirectoryConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,9 +64,9 @@ export interface GetActiveDirectoryConnectorResult {
 }
 /**
  * Retrieves an Active Directory connector resource
- * Azure REST API version: 2023-01-15-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Other available API versions: 2022-03-01-preview, 2022-06-15-preview, 2023-01-15-preview, 2024-05-01-preview.
  */
 export function getActiveDirectoryConnectorOutput(args: GetActiveDirectoryConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActiveDirectoryConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

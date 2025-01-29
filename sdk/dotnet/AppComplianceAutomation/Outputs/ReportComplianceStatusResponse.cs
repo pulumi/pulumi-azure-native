@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.Outputs
         /// <summary>
         /// The Microsoft 365 certification name.
         /// </summary>
-        public readonly Outputs.OverviewStatusResponse? M365;
+        public readonly Outputs.OverviewStatusResponse M365;
 
         [OutputConstructor]
-        private ReportComplianceStatusResponse(Outputs.OverviewStatusResponse? m365)
+        private ReportComplianceStatusResponse(Outputs.OverviewStatusResponse m365)
         {
             M365 = m365;
         }

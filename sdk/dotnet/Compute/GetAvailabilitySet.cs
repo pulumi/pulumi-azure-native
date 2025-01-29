@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about an availability set.
-        /// Azure REST API version: 2023-03-01.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01.
         /// </summary>
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure-native:compute:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about an availability set.
-        /// Azure REST API version: 2023-03-01.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01.
         /// </summary>
         public static Output<GetAvailabilitySetResult> Invoke(GetAvailabilitySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure-native:compute:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about an availability set.
-        /// Azure REST API version: 2023-03-01.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01.
         /// </summary>
         public static Output<GetAvailabilitySetResult> Invoke(GetAvailabilitySetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure-native:compute:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithDefaults());
@@ -109,6 +109,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.SubResourceResponse? ProximityPlacementGroup;
         /// <summary>
+        /// Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
+        /// </summary>
+        public readonly Outputs.ScheduledEventsPolicyResponse? ScheduledEventsPolicy;
+        /// <summary>
         /// Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
@@ -143,6 +147,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.SubResourceResponse? proximityPlacementGroup,
 
+            Outputs.ScheduledEventsPolicyResponse? scheduledEventsPolicy,
+
             Outputs.SkuResponse? sku,
 
             ImmutableArray<Outputs.InstanceViewStatusResponse> statuses,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.Compute
             PlatformFaultDomainCount = platformFaultDomainCount;
             PlatformUpdateDomainCount = platformUpdateDomainCount;
             ProximityPlacementGroup = proximityPlacementGroup;
+            ScheduledEventsPolicy = scheduledEventsPolicy;
             Sku = sku;
             Statuses = statuses;
             Tags = tags;

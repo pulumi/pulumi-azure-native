@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified job.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-12-01.
  *
- * Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+ * Other available API versions: 2020-11-01, 2021-03-01, 2021-05-01, 2021-08-01-preview, 2021-12-01, 2022-02-01, 2022-09-01, 2022-10-01, 2022-12-01, 2023-03-01, 2024-02-01-preview, 2024-03-01-preview.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +45,10 @@ export interface GetJobResult {
      * Reason for cancellation.
      */
     readonly cancellationReason: string;
+    /**
+     * Name of the stage where delay might be present.
+     */
+    readonly delayedStage: string;
     /**
      * Delivery Info of Job.
      */
@@ -136,9 +140,9 @@ export interface GetJobResult {
 }
 /**
  * Gets information about the specified job.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-12-01.
  *
- * Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+ * Other available API versions: 2020-11-01, 2021-03-01, 2021-05-01, 2021-08-01-preview, 2021-12-01, 2022-02-01, 2022-09-01, 2022-10-01, 2022-12-01, 2023-03-01, 2024-02-01-preview, 2024-03-01-preview.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Gets the sku details for the given resource type and sku name.
         /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
         /// </summary>
         public static Task<GetSkusResult> InvokeAsync(GetSkusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSkusResult>("azure-native:providerhub:getSkus", args ?? new GetSkusArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Gets the sku details for the given resource type and sku name.
         /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
         /// </summary>
         public static Output<GetSkusResult> Invoke(GetSkusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSkusResult>("azure-native:providerhub:getSkus", args ?? new GetSkusInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// Gets the sku details for the given resource type and sku name.
         /// Azure REST API version: 2021-09-01-preview.
+        /// 
+        /// Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
         /// </summary>
         public static Output<GetSkusResult> Invoke(GetSkusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSkusResult>("azure-native:providerhub:getSkus", args ?? new GetSkusInvokeArgs(), options.WithDefaults());

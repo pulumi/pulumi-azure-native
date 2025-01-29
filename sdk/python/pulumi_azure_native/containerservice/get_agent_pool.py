@@ -27,10 +27,13 @@ class GetAgentPoolResult:
     """
     Agent Pool.
     """
-    def __init__(__self__, availability_zones=None, count=None, creation_data=None, current_orchestrator_version=None, enable_auto_scaling=None, enable_encryption_at_host=None, enable_fips=None, enable_node_public_ip=None, enable_ultra_ssd=None, gpu_instance_profile=None, host_group_id=None, id=None, kubelet_config=None, kubelet_disk_type=None, linux_os_config=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_sku=None, os_type=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_down_mode=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, workload_runtime=None):
+    def __init__(__self__, availability_zones=None, capacity_reservation_group_id=None, count=None, creation_data=None, current_orchestrator_version=None, e_tag=None, enable_auto_scaling=None, enable_encryption_at_host=None, enable_fips=None, enable_node_public_ip=None, enable_ultra_ssd=None, gpu_instance_profile=None, host_group_id=None, id=None, kubelet_config=None, kubelet_disk_type=None, linux_os_config=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, network_profile=None, node_image_version=None, node_labels=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_sku=None, os_type=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_down_mode=None, scale_set_eviction_policy=None, scale_set_priority=None, security_profile=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, windows_profile=None, workload_runtime=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
+        if capacity_reservation_group_id and not isinstance(capacity_reservation_group_id, str):
+            raise TypeError("Expected argument 'capacity_reservation_group_id' to be a str")
+        pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if count and not isinstance(count, int):
             raise TypeError("Expected argument 'count' to be a int")
         pulumi.set(__self__, "count", count)
@@ -40,6 +43,9 @@ class GetAgentPoolResult:
         if current_orchestrator_version and not isinstance(current_orchestrator_version, str):
             raise TypeError("Expected argument 'current_orchestrator_version' to be a str")
         pulumi.set(__self__, "current_orchestrator_version", current_orchestrator_version)
+        if e_tag and not isinstance(e_tag, str):
+            raise TypeError("Expected argument 'e_tag' to be a str")
+        pulumi.set(__self__, "e_tag", e_tag)
         if enable_auto_scaling and not isinstance(enable_auto_scaling, bool):
             raise TypeError("Expected argument 'enable_auto_scaling' to be a bool")
         pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
@@ -88,6 +94,9 @@ class GetAgentPoolResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_profile and not isinstance(network_profile, dict):
+            raise TypeError("Expected argument 'network_profile' to be a dict")
+        pulumi.set(__self__, "network_profile", network_profile)
         if node_image_version and not isinstance(node_image_version, str):
             raise TypeError("Expected argument 'node_image_version' to be a str")
         pulumi.set(__self__, "node_image_version", node_image_version)
@@ -136,6 +145,9 @@ class GetAgentPoolResult:
         if scale_set_priority and not isinstance(scale_set_priority, str):
             raise TypeError("Expected argument 'scale_set_priority' to be a str")
         pulumi.set(__self__, "scale_set_priority", scale_set_priority)
+        if security_profile and not isinstance(security_profile, dict):
+            raise TypeError("Expected argument 'security_profile' to be a dict")
+        pulumi.set(__self__, "security_profile", security_profile)
         if spot_max_price and not isinstance(spot_max_price, float):
             raise TypeError("Expected argument 'spot_max_price' to be a float")
         pulumi.set(__self__, "spot_max_price", spot_max_price)
@@ -154,6 +166,9 @@ class GetAgentPoolResult:
         if vnet_subnet_id and not isinstance(vnet_subnet_id, str):
             raise TypeError("Expected argument 'vnet_subnet_id' to be a str")
         pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+        if windows_profile and not isinstance(windows_profile, dict):
+            raise TypeError("Expected argument 'windows_profile' to be a dict")
+        pulumi.set(__self__, "windows_profile", windows_profile)
         if workload_runtime and not isinstance(workload_runtime, str):
             raise TypeError("Expected argument 'workload_runtime' to be a str")
         pulumi.set(__self__, "workload_runtime", workload_runtime)
@@ -165,6 +180,14 @@ class GetAgentPoolResult:
         The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
         """
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupID")
+    def capacity_reservation_group_id(self) -> Optional[str]:
+        """
+        AKS will associate the specified agent pool with the Capacity Reservation Group.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
 
     @property
     @pulumi.getter
@@ -189,6 +212,14 @@ class GetAgentPoolResult:
         If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
         """
         return pulumi.get(self, "current_orchestrator_version")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> str:
+        """
+        Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
+        """
+        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter(name="enableAutoScaling")
@@ -319,6 +350,14 @@ class GetAgentPoolResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional['outputs.AgentPoolNetworkProfileResponse']:
+        """
+        Network-related settings of an agent pool.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
     @pulumi.getter(name="nodeImageVersion")
     def node_image_version(self) -> str:
         """
@@ -447,6 +486,14 @@ class GetAgentPoolResult:
         return pulumi.get(self, "scale_set_priority")
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional['outputs.AgentPoolSecurityProfileResponse']:
+        """
+        The security settings of an agent pool.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @property
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[float]:
         """
@@ -495,6 +542,14 @@ class GetAgentPoolResult:
         return pulumi.get(self, "vnet_subnet_id")
 
     @property
+    @pulumi.getter(name="windowsProfile")
+    def windows_profile(self) -> Optional['outputs.AgentPoolWindowsProfileResponse']:
+        """
+        The Windows agent pool's specific profile.
+        """
+        return pulumi.get(self, "windows_profile")
+
+    @property
     @pulumi.getter(name="workloadRuntime")
     def workload_runtime(self) -> Optional[str]:
         """
@@ -510,9 +565,11 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             yield self
         return GetAgentPoolResult(
             availability_zones=self.availability_zones,
+            capacity_reservation_group_id=self.capacity_reservation_group_id,
             count=self.count,
             creation_data=self.creation_data,
             current_orchestrator_version=self.current_orchestrator_version,
+            e_tag=self.e_tag,
             enable_auto_scaling=self.enable_auto_scaling,
             enable_encryption_at_host=self.enable_encryption_at_host,
             enable_fips=self.enable_fips,
@@ -529,6 +586,7 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             min_count=self.min_count,
             mode=self.mode,
             name=self.name,
+            network_profile=self.network_profile,
             node_image_version=self.node_image_version,
             node_labels=self.node_labels,
             node_public_ip_prefix_id=self.node_public_ip_prefix_id,
@@ -545,12 +603,14 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             scale_down_mode=self.scale_down_mode,
             scale_set_eviction_policy=self.scale_set_eviction_policy,
             scale_set_priority=self.scale_set_priority,
+            security_profile=self.security_profile,
             spot_max_price=self.spot_max_price,
             tags=self.tags,
             type=self.type,
             upgrade_settings=self.upgrade_settings,
             vm_size=self.vm_size,
             vnet_subnet_id=self.vnet_subnet_id,
+            windows_profile=self.windows_profile,
             workload_runtime=self.workload_runtime)
 
 
@@ -560,9 +620,9 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolResult:
     """
     Agent Pool.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2020-06-01, 2021-02-01, 2021-08-01, 2022-04-02-preview, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview.
+    Other available API versions: 2019-06-01, 2019-08-01, 2019-10-01, 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-02-preview.
 
 
     :param str agent_pool_name: The name of the agent pool.
@@ -578,9 +638,11 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
 
     return AwaitableGetAgentPoolResult(
         availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        capacity_reservation_group_id=pulumi.get(__ret__, 'capacity_reservation_group_id'),
         count=pulumi.get(__ret__, 'count'),
         creation_data=pulumi.get(__ret__, 'creation_data'),
         current_orchestrator_version=pulumi.get(__ret__, 'current_orchestrator_version'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
         enable_auto_scaling=pulumi.get(__ret__, 'enable_auto_scaling'),
         enable_encryption_at_host=pulumi.get(__ret__, 'enable_encryption_at_host'),
         enable_fips=pulumi.get(__ret__, 'enable_fips'),
@@ -597,6 +659,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         min_count=pulumi.get(__ret__, 'min_count'),
         mode=pulumi.get(__ret__, 'mode'),
         name=pulumi.get(__ret__, 'name'),
+        network_profile=pulumi.get(__ret__, 'network_profile'),
         node_image_version=pulumi.get(__ret__, 'node_image_version'),
         node_labels=pulumi.get(__ret__, 'node_labels'),
         node_public_ip_prefix_id=pulumi.get(__ret__, 'node_public_ip_prefix_id'),
@@ -613,12 +676,14 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         scale_down_mode=pulumi.get(__ret__, 'scale_down_mode'),
         scale_set_eviction_policy=pulumi.get(__ret__, 'scale_set_eviction_policy'),
         scale_set_priority=pulumi.get(__ret__, 'scale_set_priority'),
+        security_profile=pulumi.get(__ret__, 'security_profile'),
         spot_max_price=pulumi.get(__ret__, 'spot_max_price'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         upgrade_settings=pulumi.get(__ret__, 'upgrade_settings'),
         vm_size=pulumi.get(__ret__, 'vm_size'),
         vnet_subnet_id=pulumi.get(__ret__, 'vnet_subnet_id'),
+        windows_profile=pulumi.get(__ret__, 'windows_profile'),
         workload_runtime=pulumi.get(__ret__, 'workload_runtime'))
 def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -626,9 +691,9 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentPoolResult]:
     """
     Agent Pool.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2020-06-01, 2021-02-01, 2021-08-01, 2022-04-02-preview, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview.
+    Other available API versions: 2019-06-01, 2019-08-01, 2019-10-01, 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-02-preview.
 
 
     :param str agent_pool_name: The name of the agent pool.
@@ -643,9 +708,11 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice:getAgentPool', __args__, opts=opts, typ=GetAgentPoolResult)
     return __ret__.apply(lambda __response__: GetAgentPoolResult(
         availability_zones=pulumi.get(__response__, 'availability_zones'),
+        capacity_reservation_group_id=pulumi.get(__response__, 'capacity_reservation_group_id'),
         count=pulumi.get(__response__, 'count'),
         creation_data=pulumi.get(__response__, 'creation_data'),
         current_orchestrator_version=pulumi.get(__response__, 'current_orchestrator_version'),
+        e_tag=pulumi.get(__response__, 'e_tag'),
         enable_auto_scaling=pulumi.get(__response__, 'enable_auto_scaling'),
         enable_encryption_at_host=pulumi.get(__response__, 'enable_encryption_at_host'),
         enable_fips=pulumi.get(__response__, 'enable_fips'),
@@ -662,6 +729,7 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
         min_count=pulumi.get(__response__, 'min_count'),
         mode=pulumi.get(__response__, 'mode'),
         name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
         node_image_version=pulumi.get(__response__, 'node_image_version'),
         node_labels=pulumi.get(__response__, 'node_labels'),
         node_public_ip_prefix_id=pulumi.get(__response__, 'node_public_ip_prefix_id'),
@@ -678,10 +746,12 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
         scale_down_mode=pulumi.get(__response__, 'scale_down_mode'),
         scale_set_eviction_policy=pulumi.get(__response__, 'scale_set_eviction_policy'),
         scale_set_priority=pulumi.get(__response__, 'scale_set_priority'),
+        security_profile=pulumi.get(__response__, 'security_profile'),
         spot_max_price=pulumi.get(__response__, 'spot_max_price'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         upgrade_settings=pulumi.get(__response__, 'upgrade_settings'),
         vm_size=pulumi.get(__response__, 'vm_size'),
         vnet_subnet_id=pulumi.get(__response__, 'vnet_subnet_id'),
+        windows_profile=pulumi.get(__response__, 'windows_profile'),
         workload_runtime=pulumi.get(__response__, 'workload_runtime')))

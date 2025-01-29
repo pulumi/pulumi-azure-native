@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Automanage
         /// <summary>
         /// Get information about a configuration profile assignment
         /// Azure REST API version: 2022-05-04.
+        /// 
+        /// Other available API versions: 2021-04-30-preview.
         /// </summary>
         public static Task<GetConfigurationProfileHCRPAssignmentResult> InvokeAsync(GetConfigurationProfileHCRPAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileHCRPAssignmentResult>("azure-native:automanage:getConfigurationProfileHCRPAssignment", args ?? new GetConfigurationProfileHCRPAssignmentArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Automanage
         /// <summary>
         /// Get information about a configuration profile assignment
         /// Azure REST API version: 2022-05-04.
+        /// 
+        /// Other available API versions: 2021-04-30-preview.
         /// </summary>
         public static Output<GetConfigurationProfileHCRPAssignmentResult> Invoke(GetConfigurationProfileHCRPAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileHCRPAssignmentResult>("azure-native:automanage:getConfigurationProfileHCRPAssignment", args ?? new GetConfigurationProfileHCRPAssignmentInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Automanage
         /// <summary>
         /// Get information about a configuration profile assignment
         /// Azure REST API version: 2022-05-04.
+        /// 
+        /// Other available API versions: 2021-04-30-preview.
         /// </summary>
         public static Output<GetConfigurationProfileHCRPAssignmentResult> Invoke(GetConfigurationProfileHCRPAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileHCRPAssignmentResult>("azure-native:automanage:getConfigurationProfileHCRPAssignment", args ?? new GetConfigurationProfileHCRPAssignmentInvokeArgs(), options.WithDefaults());

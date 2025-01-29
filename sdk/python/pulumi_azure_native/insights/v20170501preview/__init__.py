@@ -5,6 +5,8 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from .diagnostic_setting import *
+from .get_diagnostic_setting import *
 from .get_subscription_diagnostic_setting import *
 from .list_diagnostic_settings_category import *
 from .subscription_diagnostic_setting import *

@@ -141,6 +141,8 @@ def get_registered_prefix(peering_name: Optional[str] = None,
     Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
     Azure REST API version: 2022-10-01.
 
+    Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
+
 
     :param str peering_name: The name of the peering.
     :param str registered_prefix_name: The name of the registered prefix.
@@ -169,6 +171,8 @@ def get_registered_prefix_output(peering_name: Optional[pulumi.Input[str]] = Non
     """
     Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
     Azure REST API version: 2022-10-01.
+
+    Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
 
 
     :param str peering_name: The name of the peering.

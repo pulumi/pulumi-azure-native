@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a GlobalRulestackResource
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-01-19-preview.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
  */
 export function getGlobalRulestack(args: GetGlobalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,9 +94,9 @@ export interface GetGlobalRulestackResult {
 }
 /**
  * Get a GlobalRulestackResource
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-01-19-preview.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
  */
 export function getGlobalRulestackOutput(args: GetGlobalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// Get a given CloudEndpoint.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2022-09-01.
+        /// Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
         /// </summary>
         public static Task<GetCloudEndpointResult> InvokeAsync(GetCloudEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudEndpointResult>("azure-native:storagesync:getCloudEndpoint", args ?? new GetCloudEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a given CloudEndpoint.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2022-09-01.
+        /// Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
         /// </summary>
         public static Output<GetCloudEndpointResult> Invoke(GetCloudEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudEndpointResult>("azure-native:storagesync:getCloudEndpoint", args ?? new GetCloudEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a given CloudEndpoint.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2022-09-01.
+        /// Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
         /// </summary>
         public static Output<GetCloudEndpointResult> Invoke(GetCloudEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudEndpointResult>("azure-native:storagesync:getCloudEndpoint", args ?? new GetCloudEndpointInvokeArgs(), options.WithDefaults());
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>

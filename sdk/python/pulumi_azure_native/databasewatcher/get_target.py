@@ -68,7 +68,7 @@ class GetTargetResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -152,9 +152,9 @@ def get_target(resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetResult:
     """
     Get a Target
-    Azure REST API version: 2023-09-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -184,9 +184,9 @@ def get_target_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetResult]:
     """
     Get a Target
-    Azure REST API version: 2023-09-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

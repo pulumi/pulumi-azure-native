@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the specified token.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-11-01-preview.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2019-05-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Task<GetTokenResult> InvokeAsync(GetTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTokenResult>("azure-native:containerregistry:getToken", args ?? new GetTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified token.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-11-01-preview.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2019-05-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetTokenResult> Invoke(GetTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTokenResult>("azure-native:containerregistry:getToken", args ?? new GetTokenInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified token.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-11-01-preview.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2019-05-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetTokenResult> Invoke(GetTokenInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTokenResult>("azure-native:containerregistry:getToken", args ?? new GetTokenInvokeArgs(), options.WithDefaults());

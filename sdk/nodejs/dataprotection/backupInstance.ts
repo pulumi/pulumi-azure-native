@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * BackupInstance Resource
- * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-01-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01.
+ * Other available API versions: 2021-01-01, 2021-02-01-preview, 2021-06-01-preview, 2021-07-01, 2021-10-01-preview, 2021-12-01-preview, 2022-01-01, 2022-02-01-preview, 2022-03-01, 2022-03-31-preview, 2022-04-01, 2022-05-01, 2022-09-01-preview, 2022-10-01-preview, 2022-11-01-preview, 2022-12-01, 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01.
  */
 export class BackupInstance extends pulumi.CustomResource {
     /**

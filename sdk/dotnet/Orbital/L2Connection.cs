@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Orbital
 {
     /// <summary>
     /// Connects an edge site to an orbital gateway and describes what layer 2 traffic to forward between them.
-    /// Azure REST API version: 2024-03-01-preview.
+    /// Azure REST API version: 2024-03-01-preview. Prior API version in Azure Native 2.x: 2024-03-01-preview.
     /// 
     /// Other available API versions: 2024-03-01.
     /// </summary>
@@ -35,6 +35,12 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         [Output("groundStation")]
         public Output<Outputs.L2ConnectionsPropertiesResponseGroundStation> GroundStation { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the partner router to establish a connection to within the ground station.
+        /// </summary>
+        [Output("groundStationPartnerRouter")]
+        public Output<Outputs.L2ConnectionsPropertiesResponseGroundStationPartnerRouter> GroundStationPartnerRouter { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -135,6 +141,12 @@ namespace Pulumi.AzureNative.Orbital
         public Input<Inputs.L2ConnectionsPropertiesGroundStationArgs> GroundStation { get; set; } = null!;
 
         /// <summary>
+        /// The name of the partner router to establish a connection to within the ground station.
+        /// </summary>
+        [Input("groundStationPartnerRouter", required: true)]
+        public Input<Inputs.L2ConnectionsPropertiesGroundStationPartnerRouterArgs> GroundStationPartnerRouter { get; set; } = null!;
+
+        /// <summary>
         /// L2 Connection name.
         /// </summary>
         [Input("l2ConnectionName")]
@@ -147,7 +159,7 @@ namespace Pulumi.AzureNative.Orbital
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+        /// The unique name of the partner router that cross-connects with the Orbital Edge Router at the edge site.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

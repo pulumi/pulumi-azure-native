@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
- * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2020-01-01-preview, 2021-01-01-preview, 2021-05-01, 2021-07-01-preview, 2021-11-01-preview, 2022-01-01, 2022-02-01-preview, 2022-06-01-preview, 2022-08-01-preview, 2022-10-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
  */
 export class NodeType extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class NodeType extends pulumi.CustomResource {
      */
     public readonly additionalDataDisks!: pulumi.Output<outputs.servicefabric.VmssDataDiskResponse[] | undefined>;
     /**
+     * Specifies the settings for any additional secondary network interfaces to attach to the node type.
+     */
+    public readonly additionalNetworkInterfaceConfigurations!: pulumi.Output<outputs.servicefabric.AdditionalNetworkInterfaceConfigurationResponse[] | undefined>;
+    /**
      * The range of ports from which cluster assigned port to Service Fabric applications.
      */
     public readonly applicationPorts!: pulumi.Output<outputs.servicefabric.EndpointRangeDescriptionResponse | undefined>;
@@ -52,6 +56,10 @@ export class NodeType extends pulumi.CustomResource {
      * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
      */
     public readonly capacities!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
+     */
+    public readonly computerNamePrefix!: pulumi.Output<string | undefined>;
     /**
      * Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
      */
@@ -65,6 +73,10 @@ export class NodeType extends pulumi.CustomResource {
      */
     public readonly dataDiskType!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the resource id of the DSCP configuration to apply to the node type network interface.
+     */
+    public readonly dscpConfigurationId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies whether the network interface is accelerated networking-enabled.
      */
     public readonly enableAcceleratedNetworking!: pulumi.Output<boolean | undefined>;
@@ -73,9 +85,13 @@ export class NodeType extends pulumi.CustomResource {
      */
     public readonly enableEncryptionAtHost!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies whether each node is allocated its own public IP address. This is only supported on secondary node types with custom Load Balancers.
+     * Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
      */
     public readonly enableNodePublicIP!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
+     */
+    public readonly enableNodePublicIPv6!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
      */
@@ -117,6 +133,10 @@ export class NodeType extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
+     */
+    public readonly natConfigurations!: pulumi.Output<outputs.servicefabric.NodeTypeNatConfigResponse[] | undefined>;
+    /**
      * Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
      */
     public readonly natGatewayId!: pulumi.Output<string | undefined>;
@@ -137,9 +157,13 @@ export class NodeType extends pulumi.CustomResource {
      */
     public readonly secureBootEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+     * Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
      */
     public readonly securityType!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
+     */
+    public readonly serviceArtifactReferenceId!: pulumi.Output<string | undefined>;
     /**
      * The node type sku.
      */
@@ -257,15 +281,19 @@ export class NodeType extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vmInstanceCount'");
             }
             resourceInputs["additionalDataDisks"] = args ? args.additionalDataDisks : undefined;
+            resourceInputs["additionalNetworkInterfaceConfigurations"] = args ? args.additionalNetworkInterfaceConfigurations : undefined;
             resourceInputs["applicationPorts"] = args ? args.applicationPorts : undefined;
             resourceInputs["capacities"] = args ? args.capacities : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["computerNamePrefix"] = args ? args.computerNamePrefix : undefined;
             resourceInputs["dataDiskLetter"] = args ? args.dataDiskLetter : undefined;
             resourceInputs["dataDiskSizeGB"] = args ? args.dataDiskSizeGB : undefined;
             resourceInputs["dataDiskType"] = args ? args.dataDiskType : undefined;
+            resourceInputs["dscpConfigurationId"] = args ? args.dscpConfigurationId : undefined;
             resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
             resourceInputs["enableEncryptionAtHost"] = (args ? args.enableEncryptionAtHost : undefined) ?? false;
             resourceInputs["enableNodePublicIP"] = args ? args.enableNodePublicIP : undefined;
+            resourceInputs["enableNodePublicIPv6"] = args ? args.enableNodePublicIPv6 : undefined;
             resourceInputs["enableOverProvisioning"] = args ? args.enableOverProvisioning : undefined;
             resourceInputs["ephemeralPorts"] = args ? args.ephemeralPorts : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
@@ -275,6 +303,7 @@ export class NodeType extends pulumi.CustomResource {
             resourceInputs["isSpotVM"] = args ? args.isSpotVM : undefined;
             resourceInputs["isStateless"] = (args ? args.isStateless : undefined) ?? false;
             resourceInputs["multiplePlacementGroups"] = (args ? args.multiplePlacementGroups : undefined) ?? false;
+            resourceInputs["natConfigurations"] = args ? args.natConfigurations : undefined;
             resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
             resourceInputs["networkSecurityRules"] = args ? args.networkSecurityRules : undefined;
             resourceInputs["nodeTypeName"] = args ? args.nodeTypeName : undefined;
@@ -282,6 +311,7 @@ export class NodeType extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["secureBootEnabled"] = args ? args.secureBootEnabled : undefined;
             resourceInputs["securityType"] = args ? args.securityType : undefined;
+            resourceInputs["serviceArtifactReferenceId"] = args ? args.serviceArtifactReferenceId : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["spotRestoreTimeout"] = args ? args.spotRestoreTimeout : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
@@ -309,14 +339,18 @@ export class NodeType extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["additionalDataDisks"] = undefined /*out*/;
+            resourceInputs["additionalNetworkInterfaceConfigurations"] = undefined /*out*/;
             resourceInputs["applicationPorts"] = undefined /*out*/;
             resourceInputs["capacities"] = undefined /*out*/;
+            resourceInputs["computerNamePrefix"] = undefined /*out*/;
             resourceInputs["dataDiskLetter"] = undefined /*out*/;
             resourceInputs["dataDiskSizeGB"] = undefined /*out*/;
             resourceInputs["dataDiskType"] = undefined /*out*/;
+            resourceInputs["dscpConfigurationId"] = undefined /*out*/;
             resourceInputs["enableAcceleratedNetworking"] = undefined /*out*/;
             resourceInputs["enableEncryptionAtHost"] = undefined /*out*/;
             resourceInputs["enableNodePublicIP"] = undefined /*out*/;
+            resourceInputs["enableNodePublicIPv6"] = undefined /*out*/;
             resourceInputs["enableOverProvisioning"] = undefined /*out*/;
             resourceInputs["ephemeralPorts"] = undefined /*out*/;
             resourceInputs["evictionPolicy"] = undefined /*out*/;
@@ -327,12 +361,14 @@ export class NodeType extends pulumi.CustomResource {
             resourceInputs["isStateless"] = undefined /*out*/;
             resourceInputs["multiplePlacementGroups"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["natConfigurations"] = undefined /*out*/;
             resourceInputs["natGatewayId"] = undefined /*out*/;
             resourceInputs["networkSecurityRules"] = undefined /*out*/;
             resourceInputs["placementProperties"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["secureBootEnabled"] = undefined /*out*/;
             resourceInputs["securityType"] = undefined /*out*/;
+            resourceInputs["serviceArtifactReferenceId"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["spotRestoreTimeout"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
@@ -373,6 +409,10 @@ export interface NodeTypeArgs {
      */
     additionalDataDisks?: pulumi.Input<pulumi.Input<inputs.servicefabric.VmssDataDiskArgs>[]>;
     /**
+     * Specifies the settings for any additional secondary network interfaces to attach to the node type.
+     */
+    additionalNetworkInterfaceConfigurations?: pulumi.Input<pulumi.Input<inputs.servicefabric.AdditionalNetworkInterfaceConfigurationArgs>[]>;
+    /**
      * The range of ports from which cluster assigned port to Service Fabric applications.
      */
     applicationPorts?: pulumi.Input<inputs.servicefabric.EndpointRangeDescriptionArgs>;
@@ -384,6 +424,10 @@ export interface NodeTypeArgs {
      * The name of the cluster resource.
      */
     clusterName: pulumi.Input<string>;
+    /**
+     * Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
+     */
+    computerNamePrefix?: pulumi.Input<string>;
     /**
      * Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
      */
@@ -397,6 +441,10 @@ export interface NodeTypeArgs {
      */
     dataDiskType?: pulumi.Input<string | enums.servicefabric.DiskType>;
     /**
+     * Specifies the resource id of the DSCP configuration to apply to the node type network interface.
+     */
+    dscpConfigurationId?: pulumi.Input<string>;
+    /**
      * Specifies whether the network interface is accelerated networking-enabled.
      */
     enableAcceleratedNetworking?: pulumi.Input<boolean>;
@@ -405,9 +453,13 @@ export interface NodeTypeArgs {
      */
     enableEncryptionAtHost?: pulumi.Input<boolean>;
     /**
-     * Specifies whether each node is allocated its own public IP address. This is only supported on secondary node types with custom Load Balancers.
+     * Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
      */
     enableNodePublicIP?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
+     */
+    enableNodePublicIPv6?: pulumi.Input<boolean>;
     /**
      * Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
      */
@@ -445,6 +497,10 @@ export interface NodeTypeArgs {
      */
     multiplePlacementGroups?: pulumi.Input<boolean>;
     /**
+     * Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
+     */
+    natConfigurations?: pulumi.Input<pulumi.Input<inputs.servicefabric.NodeTypeNatConfigArgs>[]>;
+    /**
      * Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
      */
     natGatewayId?: pulumi.Input<string>;
@@ -469,9 +525,13 @@ export interface NodeTypeArgs {
      */
     secureBootEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+     * Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
      */
     securityType?: pulumi.Input<string | enums.servicefabric.SecurityType>;
+    /**
+     * Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
+     */
+    serviceArtifactReferenceId?: pulumi.Input<string>;
     /**
      * The node type sku.
      */

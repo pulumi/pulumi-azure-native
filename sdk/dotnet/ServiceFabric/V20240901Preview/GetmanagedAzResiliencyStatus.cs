@@ -9,29 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceFabric.V20240901Preview
 {
-    public static class GetmanagedAzResiliencyStatus
+    public static class GetManagedAzResiliencyStatus
     {
         /// <summary>
         /// Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
         /// </summary>
-        public static Task<GetmanagedAzResiliencyStatusResult> InvokeAsync(GetmanagedAzResiliencyStatusArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetmanagedAzResiliencyStatusResult>("azure-native:servicefabric/v20240901preview:getmanagedAzResiliencyStatus", args ?? new GetmanagedAzResiliencyStatusArgs(), options.WithDefaults());
+        public static Task<GetManagedAzResiliencyStatusResult> InvokeAsync(GetManagedAzResiliencyStatusArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedAzResiliencyStatusResult>("azure-native:servicefabric/v20240901preview:getManagedAzResiliencyStatus", args ?? new GetManagedAzResiliencyStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
         /// </summary>
-        public static Output<GetmanagedAzResiliencyStatusResult> Invoke(GetmanagedAzResiliencyStatusInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetmanagedAzResiliencyStatusResult>("azure-native:servicefabric/v20240901preview:getmanagedAzResiliencyStatus", args ?? new GetmanagedAzResiliencyStatusInvokeArgs(), options.WithDefaults());
+        public static Output<GetManagedAzResiliencyStatusResult> Invoke(GetManagedAzResiliencyStatusInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedAzResiliencyStatusResult>("azure-native:servicefabric/v20240901preview:getManagedAzResiliencyStatus", args ?? new GetManagedAzResiliencyStatusInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
         /// </summary>
-        public static Output<GetmanagedAzResiliencyStatusResult> Invoke(GetmanagedAzResiliencyStatusInvokeArgs args, InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetmanagedAzResiliencyStatusResult>("azure-native:servicefabric/v20240901preview:getmanagedAzResiliencyStatus", args ?? new GetmanagedAzResiliencyStatusInvokeArgs(), options.WithDefaults());
+        public static Output<GetManagedAzResiliencyStatusResult> Invoke(GetManagedAzResiliencyStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedAzResiliencyStatusResult>("azure-native:servicefabric/v20240901preview:getManagedAzResiliencyStatus", args ?? new GetManagedAzResiliencyStatusInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetmanagedAzResiliencyStatusArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedAzResiliencyStatusArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -45,13 +45,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20240901Preview
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetmanagedAzResiliencyStatusArgs()
+        public GetManagedAzResiliencyStatusArgs()
         {
         }
-        public static new GetmanagedAzResiliencyStatusArgs Empty => new GetmanagedAzResiliencyStatusArgs();
+        public static new GetManagedAzResiliencyStatusArgs Empty => new GetManagedAzResiliencyStatusArgs();
     }
 
-    public sealed class GetmanagedAzResiliencyStatusInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedAzResiliencyStatusInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -65,15 +65,15 @@ namespace Pulumi.AzureNative.ServiceFabric.V20240901Preview
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetmanagedAzResiliencyStatusInvokeArgs()
+        public GetManagedAzResiliencyStatusInvokeArgs()
         {
         }
-        public static new GetmanagedAzResiliencyStatusInvokeArgs Empty => new GetmanagedAzResiliencyStatusInvokeArgs();
+        public static new GetManagedAzResiliencyStatusInvokeArgs Empty => new GetManagedAzResiliencyStatusInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetmanagedAzResiliencyStatusResult
+    public sealed class GetManagedAzResiliencyStatusResult
     {
         /// <summary>
         /// List of Managed VM Sizes for Service Fabric Managed Clusters.
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20240901Preview
         public readonly bool IsClusterZoneResilient;
 
         [OutputConstructor]
-        private GetmanagedAzResiliencyStatusResult(
+        private GetManagedAzResiliencyStatusResult(
             ImmutableArray<Outputs.ResourceAzStatusResponse> baseResourceStatus,
 
             bool isClusterZoneResilient)

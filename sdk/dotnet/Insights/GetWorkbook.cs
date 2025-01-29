@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get a single workbook by its resourceName.
-        /// Azure REST API version: 2022-04-01.
+        /// Azure REST API version: 2023-06-01.
         /// 
-        /// Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
+        /// Other available API versions: 2015-05-01, 2018-06-17-preview, 2020-10-20, 2021-03-08, 2021-08-01, 2022-04-01.
         /// </summary>
         public static Task<GetWorkbookResult> InvokeAsync(GetWorkbookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkbookResult>("azure-native:insights:getWorkbook", args ?? new GetWorkbookArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single workbook by its resourceName.
-        /// Azure REST API version: 2022-04-01.
+        /// Azure REST API version: 2023-06-01.
         /// 
-        /// Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
+        /// Other available API versions: 2015-05-01, 2018-06-17-preview, 2020-10-20, 2021-03-08, 2021-08-01, 2022-04-01.
         /// </summary>
         public static Output<GetWorkbookResult> Invoke(GetWorkbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkbookResult>("azure-native:insights:getWorkbook", args ?? new GetWorkbookInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single workbook by its resourceName.
-        /// Azure REST API version: 2022-04-01.
+        /// Azure REST API version: 2023-06-01.
         /// 
-        /// Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
+        /// Other available API versions: 2015-05-01, 2018-06-17-preview, 2020-10-20, 2021-03-08, 2021-08-01, 2022-04-01.
         /// </summary>
         public static Output<GetWorkbookResult> Invoke(GetWorkbookInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkbookResult>("azure-native:insights:getWorkbook", args ?? new GetWorkbookInvokeArgs(), options.WithDefaults());
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Insights
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the workbook resource. The value must be an UUID.
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.Insights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the workbook resource. The value must be an UUID.
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;

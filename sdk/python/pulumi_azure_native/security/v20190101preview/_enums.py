@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ActionType',
+    'AssessmentStatusCode',
     'AssessmentType',
     'Categories',
     'EventSource',
@@ -14,6 +15,7 @@ __all__ = [
     'PropertyType',
     'RuleState',
     'Severity',
+    'Source',
     'Threats',
     'UserImpact',
 ]
@@ -26,6 +28,24 @@ class ActionType(str, Enum):
     LOGIC_APP = "LogicApp"
     EVENT_HUB = "EventHub"
     WORKSPACE = "Workspace"
+
+
+class AssessmentStatusCode(str, Enum):
+    """
+    Programmatic code for the status of the assessment
+    """
+    HEALTHY = "Healthy"
+    """
+    The resource is healthy
+    """
+    UNHEALTHY = "Unhealthy"
+    """
+    The resource has a security issue that needs to be addressed
+    """
+    NOT_APPLICABLE = "NotApplicable"
+    """
+    Assessment for this resource did not happen
+    """
 
 
 class AssessmentType(str, Enum):
@@ -151,6 +171,24 @@ class Severity(str, Enum):
     LOW = "Low"
     MEDIUM = "Medium"
     HIGH = "High"
+
+
+class Source(str, Enum):
+    """
+    The platform where the assessed resource resides
+    """
+    AZURE = "Azure"
+    """
+    Resource is in Azure
+    """
+    ON_PREMISE = "OnPremise"
+    """
+    Resource in an on premise machine connected to Azure cloud
+    """
+    ON_PREMISE_SQL = "OnPremiseSql"
+    """
+    SQL Resource in an on premise machine connected to Azure cloud
+    """
 
 
 class Threats(str, Enum):

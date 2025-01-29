@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Details of an Update run
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
  *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2022-12-01, 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview.
  */
 export class UpdateRun extends pulumi.CustomResource {
     /**
@@ -56,6 +56,10 @@ export class UpdateRun extends pulumi.CustomResource {
      * Error message, specified if the step is in a failed state.
      */
     public readonly errorMessage!: pulumi.Output<string | undefined>;
+    /**
+     * Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
+     */
+    public readonly expectedExecutionTime!: pulumi.Output<string | undefined>;
     /**
      * Timestamp of the most recently completed step in the update run.
      */
@@ -130,6 +134,7 @@ export class UpdateRun extends pulumi.CustomResource {
             resourceInputs["duration"] = args ? args.duration : undefined;
             resourceInputs["endTimeUtc"] = args ? args.endTimeUtc : undefined;
             resourceInputs["errorMessage"] = args ? args.errorMessage : undefined;
+            resourceInputs["expectedExecutionTime"] = args ? args.expectedExecutionTime : undefined;
             resourceInputs["lastUpdatedTime"] = args ? args.lastUpdatedTime : undefined;
             resourceInputs["lastUpdatedTimeUtc"] = args ? args.lastUpdatedTimeUtc : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -150,6 +155,7 @@ export class UpdateRun extends pulumi.CustomResource {
             resourceInputs["duration"] = undefined /*out*/;
             resourceInputs["endTimeUtc"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
+            resourceInputs["expectedExecutionTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTimeUtc"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -194,6 +200,10 @@ export interface UpdateRunArgs {
      * Error message, specified if the step is in a failed state.
      */
     errorMessage?: pulumi.Input<string>;
+    /**
+     * Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
+     */
+    expectedExecutionTime?: pulumi.Input<string>;
     /**
      * Timestamp of the most recently completed step in the update run.
      */

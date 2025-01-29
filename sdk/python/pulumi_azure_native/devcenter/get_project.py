@@ -27,7 +27,10 @@ class GetProjectResult:
     """
     Represents a project resource.
     """
-    def __init__(__self__, description=None, dev_center_id=None, dev_center_uri=None, id=None, location=None, max_dev_boxes_per_user=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, catalog_settings=None, description=None, dev_center_id=None, dev_center_uri=None, display_name=None, id=None, identity=None, location=None, max_dev_boxes_per_user=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if catalog_settings and not isinstance(catalog_settings, dict):
+            raise TypeError("Expected argument 'catalog_settings' to be a dict")
+        pulumi.set(__self__, "catalog_settings", catalog_settings)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -37,9 +40,15 @@ class GetProjectResult:
         if dev_center_uri and not isinstance(dev_center_uri, str):
             raise TypeError("Expected argument 'dev_center_uri' to be a str")
         pulumi.set(__self__, "dev_center_uri", dev_center_uri)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -61,6 +70,14 @@ class GetProjectResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="catalogSettings")
+    def catalog_settings(self) -> Optional['outputs.ProjectCatalogSettingsResponse']:
+        """
+        Settings to be used when associating a project with a catalog.
+        """
+        return pulumi.get(self, "catalog_settings")
 
     @property
     @pulumi.getter
@@ -87,12 +104,28 @@ class GetProjectResult:
         return pulumi.get(self, "dev_center_uri")
 
     @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the project.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Managed identity properties
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -157,10 +190,13 @@ class AwaitableGetProjectResult(GetProjectResult):
         if False:
             yield self
         return GetProjectResult(
+            catalog_settings=self.catalog_settings,
             description=self.description,
             dev_center_id=self.dev_center_id,
             dev_center_uri=self.dev_center_uri,
+            display_name=self.display_name,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             max_dev_boxes_per_user=self.max_dev_boxes_per_user,
             name=self.name,
@@ -175,9 +211,9 @@ def get_project(project_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     Gets a specific project.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2022-08-01-preview, 2022-09-01-preview, 2022-10-12-preview, 2022-11-11-preview, 2023-01-01-preview, 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str project_name: The name of the project.
@@ -190,10 +226,13 @@ def get_project(project_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
+        catalog_settings=pulumi.get(__ret__, 'catalog_settings'),
         description=pulumi.get(__ret__, 'description'),
         dev_center_id=pulumi.get(__ret__, 'dev_center_id'),
         dev_center_uri=pulumi.get(__ret__, 'dev_center_uri'),
+        display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         max_dev_boxes_per_user=pulumi.get(__ret__, 'max_dev_boxes_per_user'),
         name=pulumi.get(__ret__, 'name'),
@@ -206,9 +245,9 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Gets a specific project.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2022-08-01-preview, 2022-09-01-preview, 2022-10-12-preview, 2022-11-11-preview, 2023-01-01-preview, 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str project_name: The name of the project.
@@ -220,10 +259,13 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getProject', __args__, opts=opts, typ=GetProjectResult)
     return __ret__.apply(lambda __response__: GetProjectResult(
+        catalog_settings=pulumi.get(__response__, 'catalog_settings'),
         description=pulumi.get(__response__, 'description'),
         dev_center_id=pulumi.get(__response__, 'dev_center_id'),
         dev_center_uri=pulumi.get(__response__, 'dev_center_uri'),
+        display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         max_dev_boxes_per_user=pulumi.get(__response__, 'max_dev_boxes_per_user'),
         name=pulumi.get(__response__, 'name'),

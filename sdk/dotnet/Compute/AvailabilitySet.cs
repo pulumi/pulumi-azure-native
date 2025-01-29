@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    /// Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:AvailabilitySet")]
     public partial class AvailabilitySet : global::Pulumi.CustomResource
@@ -47,6 +47,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("proximityPlacementGroup")]
         public Output<Outputs.SubResourceResponse?> ProximityPlacementGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
+        /// </summary>
+        [Output("scheduledEventsPolicy")]
+        public Output<Outputs.ScheduledEventsPolicyResponse?> ScheduledEventsPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
@@ -186,6 +192,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
+        /// </summary>
+        [Input("scheduledEventsPolicy")]
+        public Input<Inputs.ScheduledEventsPolicyArgs>? ScheduledEventsPolicy { get; set; }
 
         /// <summary>
         /// Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.

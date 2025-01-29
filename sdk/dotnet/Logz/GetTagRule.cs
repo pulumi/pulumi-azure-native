@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Logz
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
         /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview.
         /// </summary>
         public static Task<GetTagRuleResult> InvokeAsync(GetTagRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagRuleResult>("azure-native:logz:getTagRule", args ?? new GetTagRuleArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Logz
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
         /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview.
         /// </summary>
         public static Output<GetTagRuleResult> Invoke(GetTagRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagRuleResult>("azure-native:logz:getTagRule", args ?? new GetTagRuleInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Logz
         /// <summary>
         /// Capture logs and metrics of Azure resources based on ARM tags.
         /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview.
         /// </summary>
         public static Output<GetTagRuleResult> Invoke(GetTagRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagRuleResult>("azure-native:logz:getTagRule", args ?? new GetTagRuleInvokeArgs(), options.WithDefaults());

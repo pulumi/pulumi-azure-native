@@ -23,6 +23,7 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 api_key_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['QuantumWorkspaceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderArgs']]]] = None,
@@ -31,7 +32,8 @@ class WorkspaceArgs:
                  workspace_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[bool] api_key_enabled: Indicator of enablement of the Quantum workspace Api keys.
         :param pulumi.Input['QuantumWorkspaceIdentityArgs'] identity: Managed Identity information.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['ProviderArgs']]] providers: List of Providers selected for this Workspace
@@ -40,6 +42,8 @@ class WorkspaceArgs:
         :param pulumi.Input[str] workspace_name: The name of the quantum workspace resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if api_key_enabled is not None:
+            pulumi.set(__self__, "api_key_enabled", api_key_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -57,13 +61,25 @@ class WorkspaceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="apiKeyEnabled")
+    def api_key_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicator of enablement of the Quantum workspace Api keys.
+        """
+        return pulumi.get(self, "api_key_enabled")
+
+    @api_key_enabled.setter
+    def api_key_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "api_key_enabled", value)
 
     @property
     @pulumi.getter
@@ -143,6 +159,7 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_key_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['QuantumWorkspaceIdentityArgs', 'QuantumWorkspaceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderArgs', 'ProviderArgsDict']]]]] = None,
@@ -153,16 +170,17 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         The resource proxy definition object for quantum workspace.
-        Azure REST API version: 2022-01-10-preview. Prior API version in Azure Native 1.x: 2019-11-04-preview.
+        Azure REST API version: 2023-11-13-preview. Prior API version in Azure Native 2.x: 2022-01-10-preview.
 
-        Other available API versions: 2023-11-13-preview.
+        Other available API versions: 2019-11-04-preview, 2022-01-10-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] api_key_enabled: Indicator of enablement of the Quantum workspace Api keys.
         :param pulumi.Input[Union['QuantumWorkspaceIdentityArgs', 'QuantumWorkspaceIdentityArgsDict']] identity: Managed Identity information.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProviderArgs', 'ProviderArgsDict']]]] providers: List of Providers selected for this Workspace
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_account: ARM Resource Id of the storage account associated with this workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the quantum workspace resource.
@@ -175,9 +193,9 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource proxy definition object for quantum workspace.
-        Azure REST API version: 2022-01-10-preview. Prior API version in Azure Native 1.x: 2019-11-04-preview.
+        Azure REST API version: 2023-11-13-preview. Prior API version in Azure Native 2.x: 2022-01-10-preview.
 
-        Other available API versions: 2023-11-13-preview.
+        Other available API versions: 2019-11-04-preview, 2022-01-10-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -194,6 +212,7 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_key_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[Union['QuantumWorkspaceIdentityArgs', 'QuantumWorkspaceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderArgs', 'ProviderArgsDict']]]]] = None,
@@ -210,6 +229,7 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+            __props__.__dict__["api_key_enabled"] = api_key_enabled
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["providers"] = providers
@@ -249,6 +269,7 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+        __props__.__dict__["api_key_enabled"] = None
         __props__.__dict__["endpoint_uri"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
@@ -261,6 +282,14 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["usable"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="apiKeyEnabled")
+    def api_key_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicator of enablement of the Quantum workspace Api keys.
+        """
+        return pulumi.get(self, "api_key_enabled")
 
     @property
     @pulumi.getter(name="endpointUri")
@@ -322,7 +351,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        System metadata
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

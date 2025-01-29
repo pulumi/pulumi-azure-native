@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly Outputs.SqlConnectionInfoResponse ConnectionInfo;
         /// <summary>
+        /// encrypted key for secure fields
+        /// </summary>
+        public readonly string? EncryptedKeyForSecureFields;
+        /// <summary>
         /// List of database names to collect tables for
         /// </summary>
         public readonly ImmutableArray<string> SelectedDatabases;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         private GetUserTablesSqlTaskInputResponse(
             Outputs.SqlConnectionInfoResponse connectionInfo,
 
+            string? encryptedKeyForSecureFields,
+
             ImmutableArray<string> selectedDatabases)
         {
             ConnectionInfo = connectionInfo;
+            EncryptedKeyForSecureFields = encryptedKeyForSecureFields;
             SelectedDatabases = selectedDatabases;
         }
     }

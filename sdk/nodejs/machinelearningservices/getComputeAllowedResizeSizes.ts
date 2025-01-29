@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns supported virtual machine sizes for resize
- * Azure REST API version: 2023-08-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-07-01-preview.
  */
 export function getComputeAllowedResizeSizes(args: GetComputeAllowedResizeSizesArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeAllowedResizeSizesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,9 +48,9 @@ export interface GetComputeAllowedResizeSizesResult {
 }
 /**
  * Returns supported virtual machine sizes for resize
- * Azure REST API version: 2023-08-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-07-01-preview.
  */
 export function getComputeAllowedResizeSizesOutput(args: GetComputeAllowedResizeSizesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComputeAllowedResizeSizesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

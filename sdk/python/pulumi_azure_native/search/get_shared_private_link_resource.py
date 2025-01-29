@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetSharedPrivateLinkResourceResult:
     """
-    Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+    Describes a Shared Private Link Resource managed by the search service.
     """
     def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
@@ -61,7 +61,7 @@ class GetSharedPrivateLinkResourceResult:
     @pulumi.getter
     def properties(self) -> 'outputs.SharedPrivateLinkResourcePropertiesResponse':
         """
-        Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+        Describes the properties of a Shared Private Link Resource managed by the search service.
         """
         return pulumi.get(self, "properties")
 
@@ -92,14 +92,14 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedPrivateLinkResourceResult:
     """
     Gets the details of the shared private link resource managed by the search service in the given resource group.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+    Other available API versions: 2020-08-01, 2020-08-01-preview, 2021-04-01-preview, 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
-    :param str shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+    :param str search_service_name: The name of the search service associated with the specified resource group.
+    :param str shared_private_link_resource_name: The name of the shared private link resource managed by the search service within the specified resource group.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -119,14 +119,14 @@ def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharedPrivateLinkResourceResult]:
     """
     Gets the details of the shared private link resource managed by the search service in the given resource group.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+    Other available API versions: 2020-08-01, 2020-08-01-preview, 2021-04-01-preview, 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
-    :param str shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+    :param str search_service_name: The name of the search service associated with the specified resource group.
+    :param str shared_private_link_resource_name: The name of the shared private link resource managed by the search service within the specified resource group.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name

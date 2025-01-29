@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Role definition.
- * Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+ * Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 2.x: 2022-05-01-preview.
+ *
+ * Other available API versions: 2018-01-01-preview, 2022-04-01.
  */
 export class RoleDefinition extends pulumi.CustomResource {
     /**

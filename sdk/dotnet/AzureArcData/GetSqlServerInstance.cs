@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AzureArcData
     {
         /// <summary>
         /// Retrieves a SQL Server Instance resource
-        /// Azure REST API version: 2023-01-15-preview.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2021-06-01-preview, 2021-07-01-preview, 2021-08-01, 2021-11-01, 2022-03-01-preview, 2022-06-15-preview, 2023-01-15-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetSqlServerInstanceResult> InvokeAsync(GetSqlServerInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a SQL Server Instance resource
-        /// Azure REST API version: 2023-01-15-preview.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2021-06-01-preview, 2021-07-01-preview, 2021-08-01, 2021-11-01, 2022-03-01-preview, 2022-06-15-preview, 2023-01-15-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetSqlServerInstanceResult> Invoke(GetSqlServerInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a SQL Server Instance resource
-        /// Azure REST API version: 2023-01-15-preview.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2021-06-01-preview, 2021-07-01-preview, 2021-08-01, 2021-11-01, 2022-03-01-preview, 2022-06-15-preview, 2023-01-15-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetSqlServerInstanceResult> Invoke(GetSqlServerInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceInvokeArgs(), options.WithDefaults());

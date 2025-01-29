@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { CassandraClusterArgs } from "./cassandraCluster";
+export type CassandraCluster = import("./cassandraCluster").CassandraCluster;
+export const CassandraCluster: typeof import("./cassandraCluster").CassandraCluster = null as any;
+utilities.lazyLoad(exports, ["CassandraCluster"], () => require("./cassandraCluster"));
+
+export { CassandraDataCenterArgs } from "./cassandraDataCenter";
+export type CassandraDataCenter = import("./cassandraDataCenter").CassandraDataCenter;
+export const CassandraDataCenter: typeof import("./cassandraDataCenter").CassandraDataCenter = null as any;
+utilities.lazyLoad(exports, ["CassandraDataCenter"], () => require("./cassandraDataCenter"));
+
 export { CassandraResourceCassandraKeyspaceArgs } from "./cassandraResourceCassandraKeyspace";
 export type CassandraResourceCassandraKeyspace = import("./cassandraResourceCassandraKeyspace").CassandraResourceCassandraKeyspace;
 export const CassandraResourceCassandraKeyspace: typeof import("./cassandraResourceCassandraKeyspace").CassandraResourceCassandraKeyspace = null as any;
@@ -24,6 +34,16 @@ export { DatabaseAccountArgs } from "./databaseAccount";
 export type DatabaseAccount = import("./databaseAccount").DatabaseAccount;
 export const DatabaseAccount: typeof import("./databaseAccount").DatabaseAccount = null as any;
 utilities.lazyLoad(exports, ["DatabaseAccount"], () => require("./databaseAccount"));
+
+export { GetCassandraClusterArgs, GetCassandraClusterResult, GetCassandraClusterOutputArgs } from "./getCassandraCluster";
+export const getCassandraCluster: typeof import("./getCassandraCluster").getCassandraCluster = null as any;
+export const getCassandraClusterOutput: typeof import("./getCassandraCluster").getCassandraClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCassandraCluster","getCassandraClusterOutput"], () => require("./getCassandraCluster"));
+
+export { GetCassandraDataCenterArgs, GetCassandraDataCenterResult, GetCassandraDataCenterOutputArgs } from "./getCassandraDataCenter";
+export const getCassandraDataCenter: typeof import("./getCassandraDataCenter").getCassandraDataCenter = null as any;
+export const getCassandraDataCenterOutput: typeof import("./getCassandraDataCenter").getCassandraDataCenterOutput = null as any;
+utilities.lazyLoad(exports, ["getCassandraDataCenter","getCassandraDataCenterOutput"], () => require("./getCassandraDataCenter"));
 
 export { GetCassandraResourceCassandraKeyspaceArgs, GetCassandraResourceCassandraKeyspaceResult, GetCassandraResourceCassandraKeyspaceOutputArgs } from "./getCassandraResourceCassandraKeyspace";
 export const getCassandraResourceCassandraKeyspace: typeof import("./getCassandraResourceCassandraKeyspace").getCassandraResourceCassandraKeyspace = null as any;
@@ -80,6 +100,31 @@ export const getMongoDBResourceMongoDBDatabase: typeof import("./getMongoDBResou
 export const getMongoDBResourceMongoDBDatabaseOutput: typeof import("./getMongoDBResourceMongoDBDatabase").getMongoDBResourceMongoDBDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getMongoDBResourceMongoDBDatabase","getMongoDBResourceMongoDBDatabaseOutput"], () => require("./getMongoDBResourceMongoDBDatabase"));
 
+export { GetMongoDBResourceMongoRoleDefinitionArgs, GetMongoDBResourceMongoRoleDefinitionResult, GetMongoDBResourceMongoRoleDefinitionOutputArgs } from "./getMongoDBResourceMongoRoleDefinition";
+export const getMongoDBResourceMongoRoleDefinition: typeof import("./getMongoDBResourceMongoRoleDefinition").getMongoDBResourceMongoRoleDefinition = null as any;
+export const getMongoDBResourceMongoRoleDefinitionOutput: typeof import("./getMongoDBResourceMongoRoleDefinition").getMongoDBResourceMongoRoleDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getMongoDBResourceMongoRoleDefinition","getMongoDBResourceMongoRoleDefinitionOutput"], () => require("./getMongoDBResourceMongoRoleDefinition"));
+
+export { GetMongoDBResourceMongoUserDefinitionArgs, GetMongoDBResourceMongoUserDefinitionResult, GetMongoDBResourceMongoUserDefinitionOutputArgs } from "./getMongoDBResourceMongoUserDefinition";
+export const getMongoDBResourceMongoUserDefinition: typeof import("./getMongoDBResourceMongoUserDefinition").getMongoDBResourceMongoUserDefinition = null as any;
+export const getMongoDBResourceMongoUserDefinitionOutput: typeof import("./getMongoDBResourceMongoUserDefinition").getMongoDBResourceMongoUserDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getMongoDBResourceMongoUserDefinition","getMongoDBResourceMongoUserDefinitionOutput"], () => require("./getMongoDBResourceMongoUserDefinition"));
+
+export { GetNotebookWorkspaceArgs, GetNotebookWorkspaceResult, GetNotebookWorkspaceOutputArgs } from "./getNotebookWorkspace";
+export const getNotebookWorkspace: typeof import("./getNotebookWorkspace").getNotebookWorkspace = null as any;
+export const getNotebookWorkspaceOutput: typeof import("./getNotebookWorkspace").getNotebookWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNotebookWorkspace","getNotebookWorkspaceOutput"], () => require("./getNotebookWorkspace"));
+
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+
 export { GetSqlResourceSqlContainerArgs, GetSqlResourceSqlContainerResult, GetSqlResourceSqlContainerOutputArgs } from "./getSqlResourceSqlContainer";
 export const getSqlResourceSqlContainer: typeof import("./getSqlResourceSqlContainer").getSqlResourceSqlContainer = null as any;
 export const getSqlResourceSqlContainerOutput: typeof import("./getSqlResourceSqlContainer").getSqlResourceSqlContainerOutput = null as any;
@@ -89,6 +134,16 @@ export { GetSqlResourceSqlDatabaseArgs, GetSqlResourceSqlDatabaseResult, GetSqlR
 export const getSqlResourceSqlDatabase: typeof import("./getSqlResourceSqlDatabase").getSqlResourceSqlDatabase = null as any;
 export const getSqlResourceSqlDatabaseOutput: typeof import("./getSqlResourceSqlDatabase").getSqlResourceSqlDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlResourceSqlDatabase","getSqlResourceSqlDatabaseOutput"], () => require("./getSqlResourceSqlDatabase"));
+
+export { GetSqlResourceSqlRoleAssignmentArgs, GetSqlResourceSqlRoleAssignmentResult, GetSqlResourceSqlRoleAssignmentOutputArgs } from "./getSqlResourceSqlRoleAssignment";
+export const getSqlResourceSqlRoleAssignment: typeof import("./getSqlResourceSqlRoleAssignment").getSqlResourceSqlRoleAssignment = null as any;
+export const getSqlResourceSqlRoleAssignmentOutput: typeof import("./getSqlResourceSqlRoleAssignment").getSqlResourceSqlRoleAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlResourceSqlRoleAssignment","getSqlResourceSqlRoleAssignmentOutput"], () => require("./getSqlResourceSqlRoleAssignment"));
+
+export { GetSqlResourceSqlRoleDefinitionArgs, GetSqlResourceSqlRoleDefinitionResult, GetSqlResourceSqlRoleDefinitionOutputArgs } from "./getSqlResourceSqlRoleDefinition";
+export const getSqlResourceSqlRoleDefinition: typeof import("./getSqlResourceSqlRoleDefinition").getSqlResourceSqlRoleDefinition = null as any;
+export const getSqlResourceSqlRoleDefinitionOutput: typeof import("./getSqlResourceSqlRoleDefinition").getSqlResourceSqlRoleDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlResourceSqlRoleDefinition","getSqlResourceSqlRoleDefinitionOutput"], () => require("./getSqlResourceSqlRoleDefinition"));
 
 export { GetSqlResourceSqlStoredProcedureArgs, GetSqlResourceSqlStoredProcedureResult, GetSqlResourceSqlStoredProcedureOutputArgs } from "./getSqlResourceSqlStoredProcedure";
 export const getSqlResourceSqlStoredProcedure: typeof import("./getSqlResourceSqlStoredProcedure").getSqlResourceSqlStoredProcedure = null as any;
@@ -140,6 +195,11 @@ export const listMongoClusterConnectionStrings: typeof import("./listMongoCluste
 export const listMongoClusterConnectionStringsOutput: typeof import("./listMongoClusterConnectionStrings").listMongoClusterConnectionStringsOutput = null as any;
 utilities.lazyLoad(exports, ["listMongoClusterConnectionStrings","listMongoClusterConnectionStringsOutput"], () => require("./listMongoClusterConnectionStrings"));
 
+export { ListNotebookWorkspaceConnectionInfoArgs, ListNotebookWorkspaceConnectionInfoResult, ListNotebookWorkspaceConnectionInfoOutputArgs } from "./listNotebookWorkspaceConnectionInfo";
+export const listNotebookWorkspaceConnectionInfo: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfo = null as any;
+export const listNotebookWorkspaceConnectionInfoOutput: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfoOutput = null as any;
+utilities.lazyLoad(exports, ["listNotebookWorkspaceConnectionInfo","listNotebookWorkspaceConnectionInfoOutput"], () => require("./listNotebookWorkspaceConnectionInfo"));
+
 export { MongoClusterArgs } from "./mongoCluster";
 export type MongoCluster = import("./mongoCluster").MongoCluster;
 export const MongoCluster: typeof import("./mongoCluster").MongoCluster = null as any;
@@ -160,6 +220,31 @@ export type MongoDBResourceMongoDBDatabase = import("./mongoDBResourceMongoDBDat
 export const MongoDBResourceMongoDBDatabase: typeof import("./mongoDBResourceMongoDBDatabase").MongoDBResourceMongoDBDatabase = null as any;
 utilities.lazyLoad(exports, ["MongoDBResourceMongoDBDatabase"], () => require("./mongoDBResourceMongoDBDatabase"));
 
+export { MongoDBResourceMongoRoleDefinitionArgs } from "./mongoDBResourceMongoRoleDefinition";
+export type MongoDBResourceMongoRoleDefinition = import("./mongoDBResourceMongoRoleDefinition").MongoDBResourceMongoRoleDefinition;
+export const MongoDBResourceMongoRoleDefinition: typeof import("./mongoDBResourceMongoRoleDefinition").MongoDBResourceMongoRoleDefinition = null as any;
+utilities.lazyLoad(exports, ["MongoDBResourceMongoRoleDefinition"], () => require("./mongoDBResourceMongoRoleDefinition"));
+
+export { MongoDBResourceMongoUserDefinitionArgs } from "./mongoDBResourceMongoUserDefinition";
+export type MongoDBResourceMongoUserDefinition = import("./mongoDBResourceMongoUserDefinition").MongoDBResourceMongoUserDefinition;
+export const MongoDBResourceMongoUserDefinition: typeof import("./mongoDBResourceMongoUserDefinition").MongoDBResourceMongoUserDefinition = null as any;
+utilities.lazyLoad(exports, ["MongoDBResourceMongoUserDefinition"], () => require("./mongoDBResourceMongoUserDefinition"));
+
+export { NotebookWorkspaceArgs } from "./notebookWorkspace";
+export type NotebookWorkspace = import("./notebookWorkspace").NotebookWorkspace;
+export const NotebookWorkspace: typeof import("./notebookWorkspace").NotebookWorkspace = null as any;
+utilities.lazyLoad(exports, ["NotebookWorkspace"], () => require("./notebookWorkspace"));
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
+export { ServiceArgs } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+
 export { SqlResourceSqlContainerArgs } from "./sqlResourceSqlContainer";
 export type SqlResourceSqlContainer = import("./sqlResourceSqlContainer").SqlResourceSqlContainer;
 export const SqlResourceSqlContainer: typeof import("./sqlResourceSqlContainer").SqlResourceSqlContainer = null as any;
@@ -169,6 +254,16 @@ export { SqlResourceSqlDatabaseArgs } from "./sqlResourceSqlDatabase";
 export type SqlResourceSqlDatabase = import("./sqlResourceSqlDatabase").SqlResourceSqlDatabase;
 export const SqlResourceSqlDatabase: typeof import("./sqlResourceSqlDatabase").SqlResourceSqlDatabase = null as any;
 utilities.lazyLoad(exports, ["SqlResourceSqlDatabase"], () => require("./sqlResourceSqlDatabase"));
+
+export { SqlResourceSqlRoleAssignmentArgs } from "./sqlResourceSqlRoleAssignment";
+export type SqlResourceSqlRoleAssignment = import("./sqlResourceSqlRoleAssignment").SqlResourceSqlRoleAssignment;
+export const SqlResourceSqlRoleAssignment: typeof import("./sqlResourceSqlRoleAssignment").SqlResourceSqlRoleAssignment = null as any;
+utilities.lazyLoad(exports, ["SqlResourceSqlRoleAssignment"], () => require("./sqlResourceSqlRoleAssignment"));
+
+export { SqlResourceSqlRoleDefinitionArgs } from "./sqlResourceSqlRoleDefinition";
+export type SqlResourceSqlRoleDefinition = import("./sqlResourceSqlRoleDefinition").SqlResourceSqlRoleDefinition;
+export const SqlResourceSqlRoleDefinition: typeof import("./sqlResourceSqlRoleDefinition").SqlResourceSqlRoleDefinition = null as any;
+utilities.lazyLoad(exports, ["SqlResourceSqlRoleDefinition"], () => require("./sqlResourceSqlRoleDefinition"));
 
 export { SqlResourceSqlStoredProcedureArgs } from "./sqlResourceSqlStoredProcedure";
 export type SqlResourceSqlStoredProcedure = import("./sqlResourceSqlStoredProcedure").SqlResourceSqlStoredProcedure;
@@ -198,6 +293,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:documentdb/v20230315preview:CassandraCluster":
+                return new CassandraCluster(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20230315preview:CassandraDataCenter":
+                return new CassandraDataCenter(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20230315preview:CassandraResourceCassandraKeyspace":
                 return new CassandraResourceCassandraKeyspace(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20230315preview:CassandraResourceCassandraTable":
@@ -220,10 +319,24 @@ const _module = {
                 return new MongoDBResourceMongoDBCollection(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBDatabase":
                 return new MongoDBResourceMongoDBDatabase(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20230315preview:MongoDBResourceMongoRoleDefinition":
+                return new MongoDBResourceMongoRoleDefinition(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20230315preview:MongoDBResourceMongoUserDefinition":
+                return new MongoDBResourceMongoUserDefinition(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20230315preview:NotebookWorkspace":
+                return new NotebookWorkspace(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20230315preview:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20230315preview:Service":
+                return new Service(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20230315preview:SqlResourceSqlContainer":
                 return new SqlResourceSqlContainer(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20230315preview:SqlResourceSqlDatabase":
                 return new SqlResourceSqlDatabase(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20230315preview:SqlResourceSqlRoleAssignment":
+                return new SqlResourceSqlRoleAssignment(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20230315preview:SqlResourceSqlRoleDefinition":
+                return new SqlResourceSqlRoleDefinition(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20230315preview:SqlResourceSqlStoredProcedure":
                 return new SqlResourceSqlStoredProcedure(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20230315preview:SqlResourceSqlTrigger":

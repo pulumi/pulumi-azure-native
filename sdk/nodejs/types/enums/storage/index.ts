@@ -2,12 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20210101 from "./v20210101";
+import * as v20210201 from "./v20210201";
+import * as v20210401 from "./v20210401";
+import * as v20210601 from "./v20210601";
+import * as v20210801 from "./v20210801";
+import * as v20210901 from "./v20210901";
+import * as v20220501 from "./v20220501";
 import * as v20220901 from "./v20220901";
 import * as v20230101 from "./v20230101";
 import * as v20230401 from "./v20230401";
 import * as v20230501 from "./v20230501";
 
 export {
+    v20210101,
+    v20210201,
+    v20210401,
+    v20210601,
+    v20210801,
+    v20210901,
+    v20220501,
     v20220901,
     v20230101,
     v20230401,
@@ -18,6 +32,7 @@ export const AccessTier = {
     Hot: "Hot",
     Cool: "Cool",
     Premium: "Premium",
+    Cold: "Cold",
 } as const;
 
 /**
@@ -74,6 +89,8 @@ export const AllowedMethods = {
     OPTIONS: "OPTIONS",
     PUT: "PUT",
     PATCH: "PATCH",
+    CONNECT: "CONNECT",
+    TRACE: "TRACE",
 } as const;
 
 export type AllowedMethods = (typeof AllowedMethods)[keyof typeof AllowedMethods];
@@ -202,10 +219,11 @@ export type EncryptionScopeState = (typeof EncryptionScopeState)[keyof typeof En
 
 export const ExpirationAction = {
     Log: "Log",
+    Block: "Block",
 } as const;
 
 /**
- * The SAS expiration action. Can only be Log.
+ * The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
  */
 export type ExpirationAction = (typeof ExpirationAction)[keyof typeof ExpirationAction];
 
@@ -315,6 +333,7 @@ export const MinimumTlsVersion = {
     TLS1_0: "TLS1_0",
     TLS1_1: "TLS1_1",
     TLS1_2: "TLS1_2",
+    TLS1_3: "TLS1_3",
 } as const;
 
 /**
@@ -382,10 +401,11 @@ export type PublicAccess = (typeof PublicAccess)[keyof typeof PublicAccess];
 export const PublicNetworkAccess = {
     Enabled: "Enabled",
     Disabled: "Disabled",
+    SecuredByPerimeter: "SecuredByPerimeter",
 } as const;
 
 /**
- * Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+ * Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 

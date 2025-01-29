@@ -196,6 +196,9 @@ export * from "../types/enums/cdn";
 
 // Export sub-modules:
 import * as v20200901 from "./v20200901";
+import * as v20210601 from "./v20210601";
+import * as v20220501preview from "./v20220501preview";
+import * as v20221101preview from "./v20221101preview";
 import * as v20230501 from "./v20230501";
 import * as v20230701preview from "./v20230701preview";
 import * as v20240201 from "./v20240201";
@@ -205,6 +208,9 @@ import * as v20240901 from "./v20240901";
 
 export {
     v20200901,
+    v20210601,
+    v20220501preview,
+    v20221101preview,
     v20230501,
     v20230701preview,
     v20240201,

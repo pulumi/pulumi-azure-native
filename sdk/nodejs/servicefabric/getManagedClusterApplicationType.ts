@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
- * Azure REST API version: 2023-03-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2021-01-01-preview, 2021-05-01, 2021-07-01-preview, 2021-11-01-preview, 2022-01-01, 2022-02-01-preview, 2022-06-01-preview, 2022-08-01-preview, 2022-10-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
  */
 export function getManagedClusterApplicationType(args: GetManagedClusterApplicationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterApplicationTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,9 +72,9 @@ export interface GetManagedClusterApplicationTypeResult {
 }
 /**
  * Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
- * Azure REST API version: 2023-03-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2021-01-01-preview, 2021-05-01, 2021-07-01-preview, 2021-11-01-preview, 2022-01-01, 2022-02-01-preview, 2022-06-01-preview, 2022-08-01-preview, 2022-10-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
  */
 export function getManagedClusterApplicationTypeOutput(args: GetManagedClusterApplicationTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterApplicationTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

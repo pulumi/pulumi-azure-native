@@ -15,10 +15,10 @@ else:
 from .. import _utilities
 from . import outputs
 
-__all__ = ['SAPDatabaseInstanceArgs', 'SAPDatabaseInstance']
+__all__ = ['SapDatabaseInstanceArgs', 'SapDatabaseInstance']
 
 @pulumi.input_type
-class SAPDatabaseInstanceArgs:
+class SapDatabaseInstanceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sap_virtual_instance_name: pulumi.Input[str],
@@ -26,7 +26,7 @@ class SAPDatabaseInstanceArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a SAPDatabaseInstance resource.
+        The set of arguments for constructing a SapDatabaseInstance resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[str] database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.
@@ -103,7 +103,7 @@ class SAPDatabaseInstanceArgs:
         pulumi.set(self, "tags", value)
 
 
-class SAPDatabaseInstance(pulumi.CustomResource):
+class SapDatabaseInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -116,9 +116,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
                  __props__=None):
         """
         Define the Database resource.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
-
-        Other available API versions: 2023-10-01-preview.
+        Azure REST API version: 2024-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,21 +130,19 @@ class SAPDatabaseInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SAPDatabaseInstanceArgs,
+                 args: SapDatabaseInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the Database resource.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
-
-        Other available API versions: 2023-10-01-preview.
+        Azure REST API version: 2024-09-01.
 
         :param str resource_name: The name of the resource.
-        :param SAPDatabaseInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param SapDatabaseInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SAPDatabaseInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SapDatabaseInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -167,7 +163,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SAPDatabaseInstanceArgs.__new__(SAPDatabaseInstanceArgs)
+            __props__ = SapDatabaseInstanceArgs.__new__(SapDatabaseInstanceArgs)
 
             __props__.__dict__["database_instance_name"] = database_instance_name
             __props__.__dict__["location"] = location
@@ -190,10 +186,10 @@ class SAPDatabaseInstance(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_details"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:SAPDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:SAPDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:SAPDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SAPDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20240901:SAPDatabaseInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:SapDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:SapDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:SapDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SapDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20240901:SapDatabaseInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        super(SAPDatabaseInstance, __self__).__init__(
-            'azure-native:workloads:SAPDatabaseInstance',
+        super(SapDatabaseInstance, __self__).__init__(
+            'azure-native:workloads:SapDatabaseInstance',
             resource_name,
             __props__,
             opts)
@@ -201,9 +197,9 @@ class SAPDatabaseInstance(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'SAPDatabaseInstance':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'SapDatabaseInstance':
         """
-        Get an existing SAPDatabaseInstance resource's state with the given name, id, and optional extra
+        Get an existing SapDatabaseInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -212,7 +208,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = SAPDatabaseInstanceArgs.__new__(SAPDatabaseInstanceArgs)
+        __props__ = SapDatabaseInstanceArgs.__new__(SapDatabaseInstanceArgs)
 
         __props__.__dict__["database_sid"] = None
         __props__.__dict__["database_type"] = None
@@ -228,7 +224,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["vm_details"] = None
-        return SAPDatabaseInstance(resource_name, opts=opts, __props__=__props__)
+        return SapDatabaseInstance(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="databaseSid")

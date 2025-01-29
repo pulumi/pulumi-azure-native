@@ -103,6 +103,8 @@ def get_skus_nested_resource_type_third(nested_resource_type_first: Optional[str
     Gets the sku details for the given resource type and sku name.
     Azure REST API version: 2021-09-01-preview.
 
+    Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
+
 
     :param str nested_resource_type_first: The first child resource type.
     :param str nested_resource_type_second: The second child resource type.
@@ -137,6 +139,8 @@ def get_skus_nested_resource_type_third_output(nested_resource_type_first: Optio
     """
     Gets the sku details for the given resource type and sku name.
     Azure REST API version: 2021-09-01-preview.
+
+    Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
 
 
     :param str nested_resource_type_first: The first child resource type.

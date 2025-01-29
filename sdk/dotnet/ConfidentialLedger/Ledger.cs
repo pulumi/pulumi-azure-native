@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.ConfidentialLedger
 {
     /// <summary>
     /// Confidential Ledger. Contains the properties of Confidential Ledger Resource.
-    /// Azure REST API version: 2022-05-13. Prior API version in Azure Native 1.x: 2020-12-01-preview.
+    /// Azure REST API version: 2023-06-28-preview. Prior API version in Azure Native 2.x: 2022-05-13.
     /// 
-    /// Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+    /// Other available API versions: 2020-12-01-preview, 2021-05-13-preview, 2022-05-13, 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:confidentialledger:Ledger")]
     public partial class Ledger : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Azure location where the Confidential Ledger is running.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -37,19 +37,19 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         public Output<Outputs.LedgerPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Additional tags for Confidential Ledger
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         public Input<string>? LedgerName { get; set; }
 
         /// <summary>
-        /// The Azure location where the Confidential Ledger is running.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         public Input<Inputs.LedgerPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Additional tags for Confidential Ledger
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2021-01-01, 2021-02-01, 2021-04-01, 2021-06-01, 2021-08-01, 2021-09-01, 2022-05-01, 2022-09-01, 2023-01-01, 2023-04-01.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:storage:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2021-01-01, 2021-02-01, 2021-04-01, 2021-06-01, 2021-08-01, 2021-09-01, 2022-05-01, 2022-09-01, 2023-01-01, 2023-04-01.
         /// </summary>
         public static Output<GetStorageAccountResult> Invoke(GetStorageAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:storage:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2021-01-01, 2021-02-01, 2021-04-01, 2021-06-01, 2021-08-01, 2021-09-01, 2022-05-01, 2022-09-01, 2023-01-01, 2023-04-01.
         /// </summary>
         public static Output<GetStorageAccountResult> Invoke(GetStorageAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:storage:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithDefaults());
@@ -101,11 +101,15 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly string AccessTier;
         /// <summary>
-        /// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        /// If customer initiated account migration is in progress, the value will be true else it will be null.
+        /// </summary>
+        public readonly bool AccountMigrationInProgress;
+        /// <summary>
+        /// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is false for this property.
         /// </summary>
         public readonly bool? AllowBlobPublicAccess;
         /// <summary>
-        /// Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
+        /// Allow or disallow cross AAD tenant object replication. Set this property to true for new or existing accounts only if object replication policies will involve storage accounts in different AAD tenants. The default interpretation is false for new accounts to follow best security practices by default.
         /// </summary>
         public readonly bool? AllowCrossTenantReplication;
         /// <summary>
@@ -140,6 +144,10 @@ namespace Pulumi.AzureNative.Storage
         /// Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
         /// </summary>
         public readonly string? DnsEndpointType;
+        /// <summary>
+        /// Enables extended group support with local users feature, if set to true
+        /// </summary>
+        public readonly bool? EnableExtendedGroups;
         /// <summary>
         /// Allows https traffic only to storage service if sets to true.
         /// </summary>
@@ -188,6 +196,10 @@ namespace Pulumi.AzureNative.Storage
         /// Enables Secure File Transfer Protocol, if set to true
         /// </summary>
         public readonly bool? IsSftpEnabled;
+        /// <summary>
+        /// This property will be set to true or false on an event of ongoing migration. Default value is null.
+        /// </summary>
+        public readonly bool IsSkuConversionBlocked;
         /// <summary>
         /// Storage account keys creation time.
         /// </summary>
@@ -241,7 +253,7 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        /// Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account.
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
@@ -289,6 +301,8 @@ namespace Pulumi.AzureNative.Storage
         private GetStorageAccountResult(
             string accessTier,
 
+            bool accountMigrationInProgress,
+
             bool? allowBlobPublicAccess,
 
             bool? allowCrossTenantReplication,
@@ -308,6 +322,8 @@ namespace Pulumi.AzureNative.Storage
             bool? defaultToOAuthAuthentication,
 
             string? dnsEndpointType,
+
+            bool? enableExtendedGroups,
 
             bool? enableHttpsTrafficOnly,
 
@@ -332,6 +348,8 @@ namespace Pulumi.AzureNative.Storage
             bool? isLocalUserEnabled,
 
             bool? isSftpEnabled,
+
+            bool isSkuConversionBlocked,
 
             Outputs.KeyCreationTimeResponse keyCreationTime,
 
@@ -382,6 +400,7 @@ namespace Pulumi.AzureNative.Storage
             string type)
         {
             AccessTier = accessTier;
+            AccountMigrationInProgress = accountMigrationInProgress;
             AllowBlobPublicAccess = allowBlobPublicAccess;
             AllowCrossTenantReplication = allowCrossTenantReplication;
             AllowSharedKeyAccess = allowSharedKeyAccess;
@@ -392,6 +411,7 @@ namespace Pulumi.AzureNative.Storage
             CustomDomain = customDomain;
             DefaultToOAuthAuthentication = defaultToOAuthAuthentication;
             DnsEndpointType = dnsEndpointType;
+            EnableExtendedGroups = enableExtendedGroups;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             EnableNfsV3 = enableNfsV3;
             Encryption = encryption;
@@ -404,6 +424,7 @@ namespace Pulumi.AzureNative.Storage
             IsHnsEnabled = isHnsEnabled;
             IsLocalUserEnabled = isLocalUserEnabled;
             IsSftpEnabled = isSftpEnabled;
+            IsSkuConversionBlocked = isSkuConversionBlocked;
             KeyCreationTime = keyCreationTime;
             KeyPolicy = keyPolicy;
             Kind = kind;

@@ -2,10 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20210901preview from "./v20210901preview";
+import * as v20201001 from "./v20201001";
+import * as v20210101preview from "./v20210101preview";
+import * as v20210901 from "./v20210901";
 import * as v20220101 from "./v20220101";
+import * as v20220301 from "./v20220301";
+import * as v20220501 from "./v20220501";
 import * as v20220901 from "./v20220901";
+import * as v20221001 from "./v20221001";
+import * as v20221201 from "./v20221201";
 import * as v20221215preview from "./v20221215preview";
+import * as v20230201 from "./v20230201";
 import * as v20230301 from "./v20230301";
 import * as v20230601 from "./v20230601";
 import * as v20230701preview from "./v20230701preview";
@@ -25,10 +32,17 @@ import * as v20241001preview from "./v20241001preview";
 import * as v20241201preview from "./v20241201preview";
 
 export {
-    v20210901preview,
+    v20201001,
+    v20210101preview,
+    v20210901,
     v20220101,
+    v20220301,
+    v20220501,
     v20220901,
+    v20221001,
+    v20221201,
     v20221215preview,
+    v20230201,
     v20230301,
     v20230601,
     v20230701preview,
@@ -60,7 +74,13 @@ export const AvailabilityType = {
 export type AvailabilityType = (typeof AvailabilityType)[keyof typeof AvailabilityType];
 
 export const CloudInitDataSource = {
+    /**
+     * NoCloud is used as the datasource
+     */
     NoCloud: "NoCloud",
+    /**
+     * Azure is used as the datasource
+     */
     Azure: "Azure",
 } as const;
 
@@ -81,7 +101,7 @@ export const ComplianceAssignmentType = {
 } as const;
 
 /**
- * Secured Core Compliance Assignment
+ * WDAC Compliance Assignment
  */
 export type ComplianceAssignmentType = (typeof ComplianceAssignmentType)[keyof typeof ComplianceAssignmentType];
 
@@ -101,6 +121,18 @@ export const DeploymentMode = {
  */
 export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
 
+export const DeviceKind = {
+    /**
+     * Arc-enabled edge device with HCI OS.
+     */
+    HCI: "HCI",
+} as const;
+
+/**
+ * Device kind to support polymorphic resource.
+ */
+export type DeviceKind = (typeof DeviceKind)[keyof typeof DeviceKind];
+
 export const DiagnosticLevel = {
     Off: "Off",
     Basic: "Basic",
@@ -113,7 +145,13 @@ export const DiagnosticLevel = {
 export type DiagnosticLevel = (typeof DiagnosticLevel)[keyof typeof DiagnosticLevel];
 
 export const DiskFileFormat = {
+    /**
+     * VHDX file format
+     */
     Vhdx: "vhdx",
+    /**
+     * VHD file format
+     */
     Vhd: "vhd",
 } as const;
 
@@ -121,6 +159,30 @@ export const DiskFileFormat = {
  * The format of the actual VHD file [vhd, vhdx]
  */
 export type DiskFileFormat = (typeof DiskFileFormat)[keyof typeof DiskFileFormat];
+
+export const EceSecrets = {
+    /**
+     * AzureStackLCMUserCredential used for LCM operations for AzureStackHCI cluster.
+     */
+    AzureStackLCMUserCredential: "AzureStackLCMUserCredential",
+    /**
+     * DefaultARBApplication used to manage Azure Arc resource bridge (ARB) for AzureStackHCI cluster.
+     */
+    DefaultARBApplication: "DefaultARBApplication",
+    /**
+     * LocalAdminCredential used for admin operations for AzureStackHCI cluster.
+     */
+    LocalAdminCredential: "LocalAdminCredential",
+    /**
+     * WitnessStorageKey used for setting up a cloud witness for AzureStackHCI cluster.
+     */
+    WitnessStorageKey: "WitnessStorageKey",
+} as const;
+
+/**
+ * Secret name expected for Enterprise Cloud Engine (ECE) deployment.
+ */
+export type EceSecrets = (typeof EceSecrets)[keyof typeof EceSecrets];
 
 export const EdgeDeviceKind = {
     /**
@@ -143,6 +205,22 @@ export const ExtendedLocationTypes = {
  */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
 
+export const GpuAssignmentTypeEnum = {
+    /**
+     * Attach Graphics Processing Unit (GPU) using Discrete Device Assignment (DDA)
+     */
+    GpuDDA: "GpuDDA",
+    /**
+     * Attach Graphics Processing Unit (GPU) using GPU Partitioning
+     */
+    GpuP: "GpuP",
+} as const;
+
+/**
+ * GPU assignment type
+ */
+export type GpuAssignmentTypeEnum = (typeof GpuAssignmentTypeEnum)[keyof typeof GpuAssignmentTypeEnum];
+
 export const HciEdgeDeviceJobType = {
     /**
      * Job to collect logs from the device.
@@ -160,7 +238,13 @@ export const HciEdgeDeviceJobType = {
 export type HciEdgeDeviceJobType = (typeof HciEdgeDeviceJobType)[keyof typeof HciEdgeDeviceJobType];
 
 export const HyperVGeneration = {
+    /**
+     * Generation 1 (V1) hypervisor
+     */
     V1: "V1",
+    /**
+     * Generation 2 (V2) hypervisor
+     */
     V2: "V2",
 } as const;
 
@@ -170,12 +254,18 @@ export const HyperVGeneration = {
 export type HyperVGeneration = (typeof HyperVGeneration)[keyof typeof HyperVGeneration];
 
 export const IPPoolTypeEnum = {
+    /**
+     * Virtual Machine IP Pool
+     */
     Vm: "vm",
+    /**
+     * VIP Pool
+     */
     Vippool: "vippool",
 } as const;
 
 /**
- * ip pool type
+ * Type of the IP Pool [vm, vippool]
  */
 export type IPPoolTypeEnum = (typeof IPPoolTypeEnum)[keyof typeof IPPoolTypeEnum];
 
@@ -193,7 +283,7 @@ export const ManagedServiceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**
@@ -219,14 +309,36 @@ export const NetworkTypeEnum = {
 export type NetworkTypeEnum = (typeof NetworkTypeEnum)[keyof typeof NetworkTypeEnum];
 
 export const OperatingSystemTypes = {
-    Linux: "Linux",
+    /**
+     * Windows operating system
+     */
     Windows: "Windows",
+    /**
+     * Linux operating system
+     */
+    Linux: "Linux",
 } as const;
 
 /**
- * This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
+ * This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: Windows, Linux.
  */
 export type OperatingSystemTypes = (typeof OperatingSystemTypes)[keyof typeof OperatingSystemTypes];
+
+export const OperationType = {
+    /**
+     * Cluster provisioning operation.
+     */
+    ClusterProvisioning: "ClusterProvisioning",
+    /**
+     * Cluster upgrade operation.
+     */
+    ClusterUpgrade: "ClusterUpgrade",
+} as const;
+
+/**
+ * The intended operation for a cluster.
+ */
+export type OperationType = (typeof OperationType)[keyof typeof OperationType];
 
 export const OsTypeEnum = {
     Linux: "Linux",
@@ -238,19 +350,18 @@ export const OsTypeEnum = {
  */
 export type OsTypeEnum = (typeof OsTypeEnum)[keyof typeof OsTypeEnum];
 
-export const PrivateIPAllocationMethodEnum = {
-    Dynamic: "Dynamic",
-    Static: "Static",
-} as const;
-
-/**
- * PrivateIPAllocationMethod - The private IP address allocation method. Possible values include: 'Static', 'Dynamic'
- */
-export type PrivateIPAllocationMethodEnum = (typeof PrivateIPAllocationMethodEnum)[keyof typeof PrivateIPAllocationMethodEnum];
-
 export const ProvisioningAction = {
+    /**
+     * Install guest agent
+     */
     Install: "install",
+    /**
+     * Uninstall guest agent
+     */
     Uninstall: "uninstall",
+    /**
+     * Repair guest agent
+     */
     Repair: "repair",
 } as const;
 
@@ -303,6 +414,18 @@ export const ResourceIdentityType = {
  * The identity type.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const SecurityEncryptionType = {
+    /**
+     * Non-persisted TPM encryption type
+     */
+    NonPersistedTPM: "NonPersistedTPM",
+} as const;
+
+/**
+ * Specifies the EncryptionType of the managed disk. It is set to NonPersistedTPM for not persisting firmware state in the VMGuestState blob. NOTE: It can be set for only Confidential VMs.
+ */
+export type SecurityEncryptionType = (typeof SecurityEncryptionType)[keyof typeof SecurityEncryptionType];
 
 export const SecurityRuleAccess = {
     /**
@@ -361,7 +484,13 @@ export const SecurityRuleProtocol = {
 export type SecurityRuleProtocol = (typeof SecurityRuleProtocol)[keyof typeof SecurityRuleProtocol];
 
 export const SecurityTypes = {
+    /**
+     * Trusted Launch security type
+     */
     TrustedLaunch: "TrustedLaunch",
+    /**
+     * Confidential VM security type
+     */
     ConfidentialVM: "ConfidentialVM",
 } as const;
 
@@ -369,6 +498,15 @@ export const SecurityTypes = {
  * Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.
  */
 export type SecurityTypes = (typeof SecurityTypes)[keyof typeof SecurityTypes];
+
+export const ServiceName = {
+    WAC: "WAC",
+} as const;
+
+/**
+ * Name of the service.
+ */
+export type ServiceName = (typeof ServiceName)[keyof typeof ServiceName];
 
 export const SoftwareAssuranceIntent = {
     Enable: "Enable",
@@ -379,16 +517,6 @@ export const SoftwareAssuranceIntent = {
  * Customer Intent for Software Assurance Benefit.
  */
 export type SoftwareAssuranceIntent = (typeof SoftwareAssuranceIntent)[keyof typeof SoftwareAssuranceIntent];
-
-export const SoftwareAssuranceStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Status of the Software Assurance for the cluster.
- */
-export type SoftwareAssuranceStatus = (typeof SoftwareAssuranceStatus)[keyof typeof SoftwareAssuranceStatus];
 
 export const State = {
     HasPrerequisite: "HasPrerequisite",
@@ -409,6 +537,7 @@ export const State = {
     ReadyToInstall: "ReadyToInstall",
     ScanInProgress: "ScanInProgress",
     ScanFailed: "ScanFailed",
+    AdditionalContentRequired: "AdditionalContentRequired",
 } as const;
 
 /**
@@ -445,31 +574,103 @@ export const UpdateSummariesPropertiesState = {
 export type UpdateSummariesPropertiesState = (typeof UpdateSummariesPropertiesState)[keyof typeof UpdateSummariesPropertiesState];
 
 export const VmSizeEnum = {
+    /**
+     * Default virtual machine size
+     */
     Default: "Default",
+    /**
+     * Standard A2 v2 virtual machine size
+     */
     Standard_A2_v2: "Standard_A2_v2",
+    /**
+     * Standard A4 v2 virtual machine size
+     */
     Standard_A4_v2: "Standard_A4_v2",
+    /**
+     * Standard D2s v3 virtual machine size
+     */
     Standard_D2s_v3: "Standard_D2s_v3",
+    /**
+     * Standard D4s v3 virtual machine size
+     */
     Standard_D4s_v3: "Standard_D4s_v3",
+    /**
+     * Standard D8s v3 virtual machine size
+     */
     Standard_D8s_v3: "Standard_D8s_v3",
+    /**
+     * Standard D16s v3 virtual machine size
+     */
     Standard_D16s_v3: "Standard_D16s_v3",
+    /**
+     * Standard D32s v3 virtual machine size
+     */
     Standard_D32s_v3: "Standard_D32s_v3",
+    /**
+     * Standard DS2 v2 virtual machine size
+     */
     Standard_DS2_v2: "Standard_DS2_v2",
+    /**
+     * Standard DS3 v2 virtual machine size
+     */
     Standard_DS3_v2: "Standard_DS3_v2",
+    /**
+     * Standard DS4 v2 virtual machine size
+     */
     Standard_DS4_v2: "Standard_DS4_v2",
+    /**
+     * Standard DS5 v2 virtual machine size
+     */
     Standard_DS5_v2: "Standard_DS5_v2",
+    /**
+     * Standard DS13 v2 virtual machine size
+     */
     Standard_DS13_v2: "Standard_DS13_v2",
+    /**
+     * Standard K8S v1 virtual machine size
+     */
     Standard_K8S_v1: "Standard_K8S_v1",
+    /**
+     * Standard K8S2 v1 virtual machine size
+     */
     Standard_K8S2_v1: "Standard_K8S2_v1",
+    /**
+     * Standard K8S3 v1 virtual machine size
+     */
     Standard_K8S3_v1: "Standard_K8S3_v1",
+    /**
+     * Standard K8S4 v1 virtual machine size
+     */
     Standard_K8S4_v1: "Standard_K8S4_v1",
+    /**
+     * Standard NK6 virtual machine size
+     */
     Standard_NK6: "Standard_NK6",
+    /**
+     * Standard NK12 virtual machine size
+     */
     Standard_NK12: "Standard_NK12",
+    /**
+     * Standard NV6 virtual machine size
+     */
     Standard_NV6: "Standard_NV6",
+    /**
+     * Standard NV12 virtual machine size
+     */
     Standard_NV12: "Standard_NV12",
+    /**
+     * Standard K8S5 v1 virtual machine size
+     */
     Standard_K8S5_v1: "Standard_K8S5_v1",
+    /**
+     * Custom virtual machine size
+     */
     Custom: "Custom",
 } as const;
 
+/**
+ * Enum of VM Sizes
+ */
 export type VmSizeEnum = (typeof VmSizeEnum)[keyof typeof VmSizeEnum];
 
 export const WindowsServerSubscription = {

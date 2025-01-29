@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// An Log Analytics QueryPack definition.
-    /// Azure REST API version: 2019-09-01. Prior API version in Azure Native 1.x: 2019-09-01.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2019-09-01.
     /// 
-    /// Other available API versions: 2019-09-01-preview, 2023-09-01.
+    /// Other available API versions: 2019-09-01, 2019-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:QueryPack")]
     public partial class QueryPack : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -43,7 +43,13 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<string> QueryPackId { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -61,7 +67,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<string> TimeModified { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -118,7 +124,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     public sealed class QueryPackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -139,7 +145,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

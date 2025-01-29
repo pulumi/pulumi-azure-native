@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the gallery image definition that you want to create or update.
-    /// Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
+    /// Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
     /// 
-    /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    /// Other available API versions: 2020-09-30, 2021-07-01, 2021-10-01, 2022-01-03, 2022-03-03, 2022-08-03, 2023-07-03.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryImage")]
     public partial class GalleryImage : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Optional. Must be set to true if the gallery image features are being updated.
+        /// </summary>
+        [Output("allowUpdateImage")]
+        public Output<bool?> AllowUpdateImage { get; private set; } = null!;
+
         /// <summary>
         /// The architecture of the image. Applicable to OS disks only.
         /// </summary>
@@ -85,7 +91,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<string> OsState { get; private set; } = null!;
 
         /// <summary>
-        /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+        /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
         /// </summary>
         [Output("osType")]
         public Output<string> OsType { get; private set; } = null!;
@@ -193,6 +199,12 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GalleryImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Optional. Must be set to true if the gallery image features are being updated.
+        /// </summary>
+        [Input("allowUpdateImage")]
+        public Input<bool>? AllowUpdateImage { get; set; }
+
+        /// <summary>
         /// The architecture of the image. Applicable to OS disks only.
         /// </summary>
         [Input("architecture")]
@@ -271,7 +283,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<Pulumi.AzureNative.Compute.OperatingSystemStateTypes> OsState { get; set; } = null!;
 
         /// <summary>
-        /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+        /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
         /// </summary>
         [Input("osType", required: true)]
         public Input<Pulumi.AzureNative.Compute.OperatingSystemTypes> OsType { get; set; } = null!;

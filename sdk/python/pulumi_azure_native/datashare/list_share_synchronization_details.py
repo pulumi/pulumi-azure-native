@@ -82,6 +82,8 @@ def list_share_synchronization_details(account_name: Optional[str] = None,
     List synchronization details
     Azure REST API version: 2021-08-01.
 
+    Other available API versions: 2020-09-01, 2020-10-01-preview.
+
 
     :param str account_name: The name of the share account.
     :param str consumer_email: Email of the user who created the synchronization
@@ -140,6 +142,8 @@ def list_share_synchronization_details_output(account_name: Optional[pulumi.Inpu
     """
     List synchronization details
     Azure REST API version: 2021-08-01.
+
+    Other available API versions: 2020-09-01, 2020-10-01-preview.
 
 
     :param str account_name: The name of the share account.

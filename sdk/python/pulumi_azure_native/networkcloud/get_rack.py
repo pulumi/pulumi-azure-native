@@ -220,9 +220,9 @@ def get_rack(rack_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRackResult:
     """
     Get properties of the provided rack.
-    Azure REST API version: 2023-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
 
 
     :param str rack_name: The name of the rack.
@@ -255,9 +255,9 @@ def get_rack_output(rack_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRackResult]:
     """
     Get properties of the provided rack.
-    Azure REST API version: 2023-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
 
 
     :param str rack_name: The name of the rack.

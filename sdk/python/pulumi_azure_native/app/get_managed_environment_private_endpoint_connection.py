@@ -140,9 +140,9 @@ def get_managed_environment_private_endpoint_connection(environment_name: Option
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedEnvironmentPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
-    Azure REST API version: 2024-02-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
-    Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2024-02-02-preview, 2024-08-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -171,9 +171,9 @@ def get_managed_environment_private_endpoint_connection_output(environment_name:
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedEnvironmentPrivateEndpointConnectionResult]:
     """
     The Private Endpoint Connection resource.
-    Azure REST API version: 2024-02-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
-    Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2024-02-02-preview, 2024-08-02-preview.
 
 
     :param str environment_name: Name of the Managed Environment.

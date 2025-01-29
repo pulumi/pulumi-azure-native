@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The storage container resource definition.
- * Azure REST API version: 2022-12-15-preview.
+ * Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-10-01-preview.
  */
 export class StorageContainer extends pulumi.CustomResource {
     /**
@@ -55,7 +55,7 @@ export class StorageContainer extends pulumi.CustomResource {
     /**
      * Path of the storage container on the disk
      */
-    public readonly path!: pulumi.Output<string | undefined>;
+    public readonly path!: pulumi.Output<string>;
     /**
      * Provisioning state of the storage container.
      */
@@ -88,6 +88,9 @@ export class StorageContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.path === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'path'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -135,7 +138,7 @@ export interface StorageContainerArgs {
     /**
      * Path of the storage container on the disk
      */
-    path?: pulumi.Input<string>;
+    path: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

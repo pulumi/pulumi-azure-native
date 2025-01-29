@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
-        /// Azure REST API version: 2023-03-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2021-01-01-preview, 2021-05-01, 2021-07-01-preview, 2021-11-01-preview, 2022-01-01, 2022-02-01-preview, 2022-06-01-preview, 2022-08-01-preview, 2022-10-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Task<GetManagedClusterApplicationTypeVersionResult> InvokeAsync(GetManagedClusterApplicationTypeVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterApplicationTypeVersionResult>("azure-native:servicefabric:getManagedClusterApplicationTypeVersion", args ?? new GetManagedClusterApplicationTypeVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
-        /// Azure REST API version: 2023-03-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2021-01-01-preview, 2021-05-01, 2021-07-01-preview, 2021-11-01-preview, 2022-01-01, 2022-02-01-preview, 2022-06-01-preview, 2022-08-01-preview, 2022-10-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetManagedClusterApplicationTypeVersionResult> Invoke(GetManagedClusterApplicationTypeVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterApplicationTypeVersionResult>("azure-native:servicefabric:getManagedClusterApplicationTypeVersion", args ?? new GetManagedClusterApplicationTypeVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
-        /// Azure REST API version: 2023-03-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2021-01-01-preview, 2021-05-01, 2021-07-01-preview, 2021-11-01-preview, 2022-01-01, 2022-02-01-preview, 2022-06-01-preview, 2022-08-01-preview, 2022-10-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetManagedClusterApplicationTypeVersionResult> Invoke(GetManagedClusterApplicationTypeVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterApplicationTypeVersionResult>("azure-native:servicefabric:getManagedClusterApplicationTypeVersion", args ?? new GetManagedClusterApplicationTypeVersionInvokeArgs(), options.WithDefaults());

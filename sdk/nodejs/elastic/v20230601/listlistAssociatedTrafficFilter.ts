@@ -10,15 +10,15 @@ import * as utilities from "../../utilities";
 /**
  * List of elastic traffic filters in the account
  */
-export function listlistAssociatedTrafficFilter(args: ListlistAssociatedTrafficFilterArgs, opts?: pulumi.InvokeOptions): Promise<ListlistAssociatedTrafficFilterResult> {
+export function listListAssociatedTrafficFilter(args: ListListAssociatedTrafficFilterArgs, opts?: pulumi.InvokeOptions): Promise<ListListAssociatedTrafficFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:elastic/v20230601:listlistAssociatedTrafficFilter", {
+    return pulumi.runtime.invoke("azure-native:elastic/v20230601:listListAssociatedTrafficFilter", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface ListlistAssociatedTrafficFilterArgs {
+export interface ListListAssociatedTrafficFilterArgs {
     /**
      * Monitor resource name
      */
@@ -32,7 +32,7 @@ export interface ListlistAssociatedTrafficFilterArgs {
 /**
  * List of elastic traffic filters in the account
  */
-export interface ListlistAssociatedTrafficFilterResult {
+export interface ListListAssociatedTrafficFilterResult {
     /**
      * List of elastic traffic filters in the account
      */
@@ -41,15 +41,15 @@ export interface ListlistAssociatedTrafficFilterResult {
 /**
  * List of elastic traffic filters in the account
  */
-export function listlistAssociatedTrafficFilterOutput(args: ListlistAssociatedTrafficFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListlistAssociatedTrafficFilterResult> {
+export function listListAssociatedTrafficFilterOutput(args: ListListAssociatedTrafficFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListListAssociatedTrafficFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:elastic/v20230601:listlistAssociatedTrafficFilter", {
+    return pulumi.runtime.invokeOutput("azure-native:elastic/v20230601:listListAssociatedTrafficFilter", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface ListlistAssociatedTrafficFilterOutputArgs {
+export interface ListListAssociatedTrafficFilterOutputArgs {
     /**
      * Monitor resource name
      */

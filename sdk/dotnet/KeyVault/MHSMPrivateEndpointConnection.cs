@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.KeyVault
 {
     /// <summary>
     /// Private endpoint connection resource.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-06-01-preview.
+    /// Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// 
-    /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+    /// Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-10-01, 2021-11-01-preview, 2022-02-01-preview, 2022-07-01, 2022-11-01, 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:MHSMPrivateEndpointConnection")]
     public partial class MHSMPrivateEndpointConnection : global::Pulumi.CustomResource
@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.KeyVault
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities)
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The supported Azure location where the managed HSM Pool should be created.
@@ -138,6 +144,12 @@ namespace Pulumi.AzureNative.KeyVault
 
     public sealed class MHSMPrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities)
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
         /// <summary>
         /// The supported Azure location where the managed HSM Pool should be created.
         /// </summary>

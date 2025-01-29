@@ -100,14 +100,20 @@ utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
 export * from "../types/enums/confluent";
 
 // Export sub-modules:
+import * as v20200301 from "./v20200301";
 import * as v20200301preview from "./v20200301preview";
+import * as v20210301preview from "./v20210301preview";
+import * as v20210901preview from "./v20210901preview";
 import * as v20211201 from "./v20211201";
 import * as v20230822 from "./v20230822";
 import * as v20240213 from "./v20240213";
 import * as v20240701 from "./v20240701";
 
 export {
+    v20200301,
     v20200301preview,
+    v20210301preview,
+    v20210901preview,
     v20211201,
     v20230822,
     v20240213,

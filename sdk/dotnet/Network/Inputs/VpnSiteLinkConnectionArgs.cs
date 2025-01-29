@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("connectionBandwidth")]
         public Input<int>? ConnectionBandwidth { get; set; }
 
+        /// <summary>
+        /// Dead Peer Detection timeout in seconds for VpnLink connection.
+        /// </summary>
+        [Input("dpdTimeoutSeconds")]
+        public Input<int>? DpdTimeoutSeconds { get; set; }
+
         [Input("egressNatRules")]
         private InputList<Inputs.SubResourceArgs>? _egressNatRules;
 

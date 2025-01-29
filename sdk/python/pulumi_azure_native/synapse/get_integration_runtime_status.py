@@ -70,7 +70,7 @@ def get_integration_runtime_status(integration_runtime_name: Optional[str] = Non
     Get the integration runtime status
     Azure REST API version: 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
+    Other available API versions: 2021-03-01, 2021-04-01-preview, 2021-05-01, 2021-06-01-preview.
 
 
     :param str integration_runtime_name: Integration runtime name
@@ -95,7 +95,7 @@ def get_integration_runtime_status_output(integration_runtime_name: Optional[pul
     Get the integration runtime status
     Azure REST API version: 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
+    Other available API versions: 2021-03-01, 2021-04-01-preview, 2021-05-01, 2021-06-01-preview.
 
 
     :param str integration_runtime_name: Integration runtime name

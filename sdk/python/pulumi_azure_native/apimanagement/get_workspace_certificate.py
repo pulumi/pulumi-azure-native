@@ -129,9 +129,9 @@ def get_workspace_certificate(certificate_id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceCertificateResult:
     """
     Gets the details of the certificate specified by its identifier.
-    Azure REST API version: 2023-09-01-preview.
+    Azure REST API version: 2024-06-01-preview.
 
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-09-01-preview, 2024-05-01.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -162,9 +162,9 @@ def get_workspace_certificate_output(certificate_id: Optional[pulumi.Input[str]]
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceCertificateResult]:
     """
     Gets the details of the certificate specified by its identifier.
-    Azure REST API version: 2023-09-01-preview.
+    Azure REST API version: 2024-06-01-preview.
 
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-09-01-preview, 2024-05-01.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.

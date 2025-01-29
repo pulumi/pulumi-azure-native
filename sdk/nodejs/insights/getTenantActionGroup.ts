@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a tenant action group.
  * Azure REST API version: 2023-05-01-preview.
+ *
+ * Other available API versions: 2023-03-01-preview.
  */
 export function getTenantActionGroup(args: GetTenantActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantActionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,6 +88,8 @@ export interface GetTenantActionGroupResult {
 /**
  * Get a tenant action group.
  * Azure REST API version: 2023-05-01-preview.
+ *
+ * Other available API versions: 2023-03-01-preview.
  */
 export function getTenantActionGroupOutput(args: GetTenantActionGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTenantActionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

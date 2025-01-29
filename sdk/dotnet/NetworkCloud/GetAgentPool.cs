@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided Kubernetes cluster agent pool.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetAgentPoolResult> InvokeAsync(GetAgentPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgentPoolResult>("azure-native:networkcloud:getAgentPool", args ?? new GetAgentPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided Kubernetes cluster agent pool.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:networkcloud:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided Kubernetes cluster agent pool.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:networkcloud:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());

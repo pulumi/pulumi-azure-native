@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// Get a share 
         /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Other available API versions: 2020-09-01, 2020-10-01-preview.
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure-native:datashare:getShare", args ?? new GetShareArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// Get a share 
         /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Other available API versions: 2020-09-01, 2020-10-01-preview.
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:datashare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// Get a share 
         /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Other available API versions: 2020-09-01, 2020-10-01-preview.
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure-native:datashare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());

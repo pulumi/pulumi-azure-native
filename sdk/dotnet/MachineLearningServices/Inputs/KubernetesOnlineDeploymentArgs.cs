@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<Inputs.ContainerResourceRequirementsArgs>? ContainerResourceRequirements { get; set; }
 
         /// <summary>
+        /// The mdc configuration, we disable mdc when it's null.
+        /// </summary>
+        [Input("dataCollector")]
+        public Input<Inputs.DataCollectorArgs>? DataCollector { get; set; }
+
+        /// <summary>
         /// Description of the endpoint deployment.
         /// </summary>
         [Input("description")]
@@ -71,7 +77,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         }
 
         /// <summary>
-        /// Compute instance type.
+        /// Compute instance type. Default: Standard_F4s_v2.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -131,6 +137,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         {
             AppInsightsEnabled = false;
             EgressPublicNetworkAccess = "Enabled";
+            InstanceType = "Standard_F4s_v2";
         }
         public static new KubernetesOnlineDeploymentArgs Empty => new KubernetesOnlineDeploymentArgs();
     }

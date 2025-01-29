@@ -27,7 +27,7 @@ class GetPrivateEndpointConnectionResult:
     """
     A private endpoint connection
     """
-    def __init__(__self__, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, type=None):
+    def __init__(__self__, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, system_data=None, type=None):
         if group_ids and not isinstance(group_ids, list):
             raise TypeError("Expected argument 'group_ids' to be a list")
         pulumi.set(__self__, "group_ids", group_ids)
@@ -43,6 +43,9 @@ class GetPrivateEndpointConnectionResult:
         if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
             raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -59,7 +62,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -88,10 +91,18 @@ class GetPrivateEndpointConnectionResult:
         return pulumi.get(self, "private_link_service_connection_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -107,6 +118,7 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             name=self.name,
             private_endpoint=self.private_endpoint,
             private_link_service_connection_state=self.private_link_service_connection_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -116,9 +128,9 @@ def get_private_endpoint_connection(automation_account_name: Optional[str] = Non
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets a private endpoint connection.
-    Azure REST API version: 2020-01-13-preview.
+    Azure REST API version: 2023-05-15-preview.
 
-    Other available API versions: 2023-05-15-preview, 2024-10-23.
+    Other available API versions: 2020-01-13-preview, 2024-10-23.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -138,6 +150,7 @@ def get_private_endpoint_connection(automation_account_name: Optional[str] = Non
         name=pulumi.get(__ret__, 'name'),
         private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
         private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_private_endpoint_connection_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                            private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
@@ -145,9 +158,9 @@ def get_private_endpoint_connection_output(automation_account_name: Optional[pul
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets a private endpoint connection.
-    Azure REST API version: 2020-01-13-preview.
+    Azure REST API version: 2023-05-15-preview.
 
-    Other available API versions: 2023-05-15-preview, 2024-10-23.
+    Other available API versions: 2020-01-13-preview, 2024-10-23.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -166,4 +179,5 @@ def get_private_endpoint_connection_output(automation_account_name: Optional[pul
         name=pulumi.get(__response__, 'name'),
         private_endpoint=pulumi.get(__response__, 'private_endpoint'),
         private_link_service_connection_state=pulumi.get(__response__, 'private_link_service_connection_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified virtual network gateway by resource group.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayResult> InvokeAsync(GetVirtualNetworkGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayResult>("azure-native:network:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified virtual network gateway by resource group.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayResult> Invoke(GetVirtualNetworkGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayResult>("azure-native:network:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified virtual network gateway by resource group.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayResult> Invoke(GetVirtualNetworkGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayResult>("azure-native:network:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayInvokeArgs(), options.WithDefaults());
@@ -101,6 +101,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly bool? AllowVirtualWanTraffic;
         /// <summary>
+        /// Autoscale configuration for virutal network gateway
+        /// </summary>
+        public readonly Outputs.VirtualNetworkGatewayAutoScaleConfigurationResponse? AutoScaleConfiguration;
+        /// <summary>
         /// Virtual network gateway's BGP speaker settings.
         /// </summary>
         public readonly Outputs.BgpSettingsResponse? BgpSettings;
@@ -149,6 +153,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The identity of the virtual network gateway, if configured.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The IP address allocated by the gateway to which dns requests can be sent.
         /// </summary>
         public readonly string InboundDnsForwardingEndpoint;
@@ -172,6 +180,10 @@ namespace Pulumi.AzureNative.Network
         /// The provisioning state of the virtual network gateway resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
+        /// </summary>
+        public readonly string? ResiliencyModel;
         /// <summary>
         /// The resource GUID property of the virtual network gateway resource.
         /// </summary>
@@ -219,6 +231,8 @@ namespace Pulumi.AzureNative.Network
 
             bool? allowVirtualWanTraffic,
 
+            Outputs.VirtualNetworkGatewayAutoScaleConfigurationResponse? autoScaleConfiguration,
+
             Outputs.BgpSettingsResponse? bgpSettings,
 
             Outputs.AddressSpaceResponse? customRoutes,
@@ -243,6 +257,8 @@ namespace Pulumi.AzureNative.Network
 
             string? id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
             string inboundDnsForwardingEndpoint,
 
             ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse> ipConfigurations,
@@ -254,6 +270,8 @@ namespace Pulumi.AzureNative.Network
             ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse> natRules,
 
             string provisioningState,
+
+            string? resiliencyModel,
 
             string resourceGuid,
 
@@ -277,6 +295,7 @@ namespace Pulumi.AzureNative.Network
             AdminState = adminState;
             AllowRemoteVnetTraffic = allowRemoteVnetTraffic;
             AllowVirtualWanTraffic = allowVirtualWanTraffic;
+            AutoScaleConfiguration = autoScaleConfiguration;
             BgpSettings = bgpSettings;
             CustomRoutes = customRoutes;
             DisableIPSecReplayProtection = disableIPSecReplayProtection;
@@ -289,12 +308,14 @@ namespace Pulumi.AzureNative.Network
             GatewayDefaultSite = gatewayDefaultSite;
             GatewayType = gatewayType;
             Id = id;
+            Identity = identity;
             InboundDnsForwardingEndpoint = inboundDnsForwardingEndpoint;
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
             NatRules = natRules;
             ProvisioningState = provisioningState;
+            ResiliencyModel = resiliencyModel;
             ResourceGuid = resourceGuid;
             Sku = sku;
             Tags = tags;

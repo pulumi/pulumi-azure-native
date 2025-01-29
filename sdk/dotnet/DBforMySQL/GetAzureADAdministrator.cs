@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Gets information about an azure ad administrator.
-        /// Azure REST API version: 2022-01-01.
+        /// Azure REST API version: 2023-12-30.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        /// Other available API versions: 2021-12-01-preview, 2022-01-01, 2023-06-01-preview, 2023-06-30.
         /// </summary>
         public static Task<GetAzureADAdministratorResult> InvokeAsync(GetAzureADAdministratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureADAdministratorResult>("azure-native:dbformysql:getAzureADAdministrator", args ?? new GetAzureADAdministratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about an azure ad administrator.
-        /// Azure REST API version: 2022-01-01.
+        /// Azure REST API version: 2023-12-30.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        /// Other available API versions: 2021-12-01-preview, 2022-01-01, 2023-06-01-preview, 2023-06-30.
         /// </summary>
         public static Output<GetAzureADAdministratorResult> Invoke(GetAzureADAdministratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureADAdministratorResult>("azure-native:dbformysql:getAzureADAdministrator", args ?? new GetAzureADAdministratorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about an azure ad administrator.
-        /// Azure REST API version: 2022-01-01.
+        /// Azure REST API version: 2023-12-30.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        /// Other available API versions: 2021-12-01-preview, 2022-01-01, 2023-06-01-preview, 2023-06-30.
         /// </summary>
         public static Output<GetAzureADAdministratorResult> Invoke(GetAzureADAdministratorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureADAdministratorResult>("azure-native:dbformysql:getAzureADAdministrator", args ?? new GetAzureADAdministratorInvokeArgs(), options.WithDefaults());
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string? AdministratorType;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string? Sid;
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

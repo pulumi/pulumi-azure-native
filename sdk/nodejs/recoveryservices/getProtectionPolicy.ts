@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
  * operation. Status of the operation can be fetched using GetPolicyOperationResult API.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+ * Other available API versions: 2020-10-01, 2020-12-01, 2021-01-01, 2021-02-01, 2021-02-01-preview, 2021-02-10, 2021-03-01, 2021-04-01, 2021-06-01, 2021-07-01, 2021-08-01, 2021-10-01, 2021-12-01, 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-06-01-preview, 2022-09-01-preview, 2022-09-30-preview, 2022-10-01, 2023-01-01, 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview.
  */
 export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,9 +74,9 @@ export interface GetProtectionPolicyResult {
 /**
  * Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
  * operation. Status of the operation can be fetched using GetPolicyOperationResult API.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+ * Other available API versions: 2020-10-01, 2020-12-01, 2021-01-01, 2021-02-01, 2021-02-01-preview, 2021-02-10, 2021-03-01, 2021-04-01, 2021-06-01, 2021-07-01, 2021-08-01, 2021-10-01, 2021-12-01, 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-06-01-preview, 2022-09-01-preview, 2022-09-30-preview, 2022-10-01, 2023-01-01, 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview.
  */
 export function getProtectionPolicyOutput(args: GetProtectionPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProtectionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

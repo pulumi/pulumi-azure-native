@@ -12,28 +12,28 @@ namespace Pulumi.AzureNative.EventGrid
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// Get a specific private endpoint connection under a topic, domain, or partner namespace.
-        /// Azure REST API version: 2022-06-15.
+        /// Get a specific private endpoint connection under a topic, domain, or partner namespace or namespace.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:eventgrid:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a specific private endpoint connection under a topic, domain, or partner namespace.
-        /// Azure REST API version: 2022-06-15.
+        /// Get a specific private endpoint connection under a topic, domain, or partner namespace or namespace.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:eventgrid:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a specific private endpoint connection under a topic, domain, or partner namespace.
-        /// Azure REST API version: 2022-06-15.
+        /// Get a specific private endpoint connection under a topic, domain, or partner namespace or namespace.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:eventgrid:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -43,13 +43,13 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetPrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
+        /// The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
         /// </summary>
         [Input("parentName", required: true)]
         public string ParentName { get; set; } = null!;
 
         /// <summary>
-        /// The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\'.
+        /// The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\' or \'namespaces\'.
         /// </summary>
         [Input("parentType", required: true)]
         public string ParentType { get; set; } = null!;
@@ -75,13 +75,13 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetPrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
+        /// The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
         /// </summary>
         [Input("parentName", required: true)]
         public Input<string> ParentName { get; set; } = null!;
 
         /// <summary>
-        /// The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\'.
+        /// The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\' or \'namespaces\'.
         /// </summary>
         [Input("parentType", required: true)]
         public Input<string> ParentType { get; set; } = null!;

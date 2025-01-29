@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets all deployments for a remediation at management group scope.
- * Azure REST API version: 2021-10-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2024-10-01.
+ * Other available API versions: 2019-07-01, 2021-10-01.
  */
 export function listRemediationDeploymentsAtManagementGroup(args: ListRemediationDeploymentsAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,9 +57,9 @@ export interface ListRemediationDeploymentsAtManagementGroupResult {
 }
 /**
  * Gets all deployments for a remediation at management group scope.
- * Azure REST API version: 2021-10-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2024-10-01.
+ * Other available API versions: 2019-07-01, 2021-10-01.
  */
 export function listRemediationDeploymentsAtManagementGroupOutput(args: ListRemediationDeploymentsAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRemediationDeploymentsAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

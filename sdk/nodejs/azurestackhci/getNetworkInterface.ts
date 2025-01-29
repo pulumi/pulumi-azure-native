@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a network interface
- * Azure REST API version: 2022-12-15-preview.
+ * Azure REST API version: 2024-08-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-10-01-preview.
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,7 +45,7 @@ export interface GetNetworkInterfaceResult {
      */
     readonly extendedLocation?: outputs.azurestackhci.ExtendedLocationResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -64,6 +64,10 @@ export interface GetNetworkInterfaceResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * NetworkSecurityGroup - Network Security Group attached to the network interface.
+     */
+    readonly networkSecurityGroup?: outputs.azurestackhci.NetworkSecurityGroupArmReferenceResponse;
     /**
      * Provisioning state of the network interface.
      */
@@ -87,9 +91,9 @@ export interface GetNetworkInterfaceResult {
 }
 /**
  * Gets a network interface
- * Azure REST API version: 2022-12-15-preview.
+ * Azure REST API version: 2024-08-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-10-01-preview.
  */
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

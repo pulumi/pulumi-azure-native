@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.StoragePool
         /// Get an iSCSI Target.
         /// Azure REST API version: 2021-08-01.
         /// 
-        /// Other available API versions: 2020-03-15-preview.
+        /// Other available API versions: 2020-03-15-preview, 2021-04-01-preview.
         /// </summary>
         public static Task<GetIscsiTargetResult> InvokeAsync(GetIscsiTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIscsiTargetResult>("azure-native:storagepool:getIscsiTarget", args ?? new GetIscsiTargetArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.StoragePool
         /// Get an iSCSI Target.
         /// Azure REST API version: 2021-08-01.
         /// 
-        /// Other available API versions: 2020-03-15-preview.
+        /// Other available API versions: 2020-03-15-preview, 2021-04-01-preview.
         /// </summary>
         public static Output<GetIscsiTargetResult> Invoke(GetIscsiTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIscsiTargetResult>("azure-native:storagepool:getIscsiTarget", args ?? new GetIscsiTargetInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.StoragePool
         /// Get an iSCSI Target.
         /// Azure REST API version: 2021-08-01.
         /// 
-        /// Other available API versions: 2020-03-15-preview.
+        /// Other available API versions: 2020-03-15-preview, 2021-04-01-preview.
         /// </summary>
         public static Output<GetIscsiTargetResult> Invoke(GetIscsiTargetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIscsiTargetResult>("azure-native:storagepool:getIscsiTarget", args ?? new GetIscsiTargetInvokeArgs(), options.WithDefaults());

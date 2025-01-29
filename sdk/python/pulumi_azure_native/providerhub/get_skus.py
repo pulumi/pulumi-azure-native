@@ -100,6 +100,8 @@ def get_skus(provider_namespace: Optional[str] = None,
     Gets the sku details for the given resource type and sku name.
     Azure REST API version: 2021-09-01-preview.
 
+    Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
+
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.
     :param str resource_type: The resource type.
@@ -125,6 +127,8 @@ def get_skus_output(provider_namespace: Optional[pulumi.Input[str]] = None,
     """
     Gets the sku details for the given resource type and sku name.
     Azure REST API version: 2021-09-01-preview.
+
+    Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
 
 
     :param str provider_namespace: The name of the resource provider hosted within ProviderHub.

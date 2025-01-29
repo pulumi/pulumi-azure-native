@@ -38,33 +38,13 @@ export class NetworkVirtualApplianceConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Network Virtual Appliance ASN.
-     */
-    public readonly asn!: pulumi.Output<number | undefined>;
-    /**
-     * List of bgpPeerAddresses for the NVA instances
-     */
-    public readonly bgpPeerAddress!: pulumi.Output<string[] | undefined>;
-    /**
-     * Enable internet security.
-     */
-    public readonly enableInternetSecurity!: pulumi.Output<boolean | undefined>;
-    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The provisioning state of the NetworkVirtualApplianceConnection resource.
+     * Properties of the express route connection.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The Routing Configuration indicating the associated and propagated route tables on this connection.
-     */
-    public readonly routingConfiguration!: pulumi.Output<outputs.network.v20240101.RoutingConfigurationResponse | undefined>;
-    /**
-     * Unique identifier for the connection.
-     */
-    public readonly tunnelIdentifier!: pulumi.Output<number | undefined>;
+    public readonly properties!: pulumi.Output<outputs.network.v20240101.NetworkVirtualApplianceConnectionPropertiesResponse>;
 
     /**
      * Create a NetworkVirtualApplianceConnection resource with the given unique name, arguments, and options.
@@ -83,25 +63,15 @@ export class NetworkVirtualApplianceConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["asn"] = args ? args.asn : undefined;
-            resourceInputs["bgpPeerAddress"] = args ? args.bgpPeerAddress : undefined;
             resourceInputs["connectionName"] = args ? args.connectionName : undefined;
-            resourceInputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
-            resourceInputs["tunnelIdentifier"] = args ? args.tunnelIdentifier : undefined;
-            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            resourceInputs["asn"] = undefined /*out*/;
-            resourceInputs["bgpPeerAddress"] = undefined /*out*/;
-            resourceInputs["enableInternetSecurity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["routingConfiguration"] = undefined /*out*/;
-            resourceInputs["tunnelIdentifier"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20230601:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20230901:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20231101:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20240301:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20240501:NetworkVirtualApplianceConnection" }] };
@@ -115,21 +85,9 @@ export class NetworkVirtualApplianceConnection extends pulumi.CustomResource {
  */
 export interface NetworkVirtualApplianceConnectionArgs {
     /**
-     * Network Virtual Appliance ASN.
-     */
-    asn?: pulumi.Input<number>;
-    /**
-     * List of bgpPeerAddresses for the NVA instances
-     */
-    bgpPeerAddress?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * The name of the NVA connection.
      */
     connectionName?: pulumi.Input<string>;
-    /**
-     * Enable internet security.
-     */
-    enableInternetSecurity?: pulumi.Input<boolean>;
     /**
      * Resource ID.
      */
@@ -143,15 +101,11 @@ export interface NetworkVirtualApplianceConnectionArgs {
      */
     networkVirtualApplianceName: pulumi.Input<string>;
     /**
+     * Properties of the express route connection.
+     */
+    properties?: pulumi.Input<inputs.network.v20240101.NetworkVirtualApplianceConnectionPropertiesArgs>;
+    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The Routing Configuration indicating the associated and propagated route tables on this connection.
-     */
-    routingConfiguration?: pulumi.Input<inputs.network.v20240101.RoutingConfigurationArgs>;
-    /**
-     * Unique identifier for the connection.
-     */
-    tunnelIdentifier?: pulumi.Input<number>;
 }

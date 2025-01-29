@@ -24,6 +24,9 @@ __all__ = [
 
 @pulumi.output_type
 class GetIncidentTaskResult:
+    """
+    Describes incident task properties
+    """
     def __init__(__self__, created_by=None, created_time_utc=None, description=None, etag=None, id=None, last_modified_by=None, last_modified_time_utc=None, name=None, status=None, system_data=None, title=None, type=None):
         if created_by and not isinstance(created_by, dict):
             raise TypeError("Expected argument 'created_by' to be a dict")
@@ -129,6 +132,9 @@ class GetIncidentTaskResult:
     @property
     @pulumi.getter
     def status(self) -> str:
+        """
+        The status of the task
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -183,9 +189,9 @@ def get_incident_task(incident_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentTaskResult:
     """
     Gets an incident task.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+    Other available API versions: 2022-12-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview.
 
 
     :param str incident_id: Incident ID
@@ -221,9 +227,9 @@ def get_incident_task_output(incident_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIncidentTaskResult]:
     """
     Gets an incident task.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+    Other available API versions: 2022-12-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview.
 
 
     :param str incident_id: Incident ID

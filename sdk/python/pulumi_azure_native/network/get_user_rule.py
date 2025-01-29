@@ -217,7 +217,7 @@ def get_user_rule(configuration_name: Optional[str] = None,
     Gets a user rule.
     Azure REST API version: 2022-04-01-preview.
 
-    Other available API versions: 2021-05-01-preview.
+    Other available API versions: 2021-02-01-preview, 2022-02-01-preview.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -260,7 +260,7 @@ def get_user_rule_output(configuration_name: Optional[pulumi.Input[str]] = None,
     Gets a user rule.
     Azure REST API version: 2022-04-01-preview.
 
-    Other available API versions: 2021-05-01-preview.
+    Other available API versions: 2021-02-01-preview, 2022-02-01-preview.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.

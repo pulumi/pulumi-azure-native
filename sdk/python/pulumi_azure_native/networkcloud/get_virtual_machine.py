@@ -227,7 +227,7 @@ class GetVirtualMachineResult:
     @pulumi.getter(name="memorySizeGB")
     def memory_size_gb(self) -> float:
         """
-        The memory size of the virtual machine in GB.
+        The memory size of the virtual machine. Allocations are measured in gibibytes.
         """
         return pulumi.get(self, "memory_size_gb")
 
@@ -412,9 +412,9 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
     Get properties of the provided virtual machine.
-    Azure REST API version: 2023-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -463,9 +463,9 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Get properties of the provided virtual machine.
-    Azure REST API version: 2023-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

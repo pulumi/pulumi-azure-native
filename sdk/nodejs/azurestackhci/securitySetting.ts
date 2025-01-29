@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Security settings proxy resource
- * Azure REST API version: 2023-11-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-11-01-preview.
  *
- * Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview.
  */
 export class SecuritySetting extends pulumi.CustomResource {
     /**
@@ -57,6 +57,10 @@ export class SecuritySetting extends pulumi.CustomResource {
      */
     public /*out*/ readonly securityComplianceStatus!: pulumi.Output<outputs.azurestackhci.SecurityComplianceStatusResponse>;
     /**
+     * SMB encryption for intra-cluster traffic Compliance Assignment
+     */
+    public readonly smbEncryptionForIntraClusterTrafficComplianceAssignment!: pulumi.Output<string | undefined>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
@@ -64,6 +68,10 @@ export class SecuritySetting extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * WDAC Compliance Assignment
+     */
+    public readonly wdacComplianceAssignment!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SecuritySetting resource with the given unique name, arguments, and options.
@@ -86,6 +94,8 @@ export class SecuritySetting extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["securedCoreComplianceAssignment"] = (args ? args.securedCoreComplianceAssignment : undefined) ?? "Audit";
             resourceInputs["securitySettingsName"] = args ? args.securitySettingsName : undefined;
+            resourceInputs["smbEncryptionForIntraClusterTrafficComplianceAssignment"] = (args ? args.smbEncryptionForIntraClusterTrafficComplianceAssignment : undefined) ?? "Audit";
+            resourceInputs["wdacComplianceAssignment"] = (args ? args.wdacComplianceAssignment : undefined) ?? "Audit";
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["securityComplianceStatus"] = undefined /*out*/;
@@ -96,8 +106,10 @@ export class SecuritySetting extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["securedCoreComplianceAssignment"] = undefined /*out*/;
             resourceInputs["securityComplianceStatus"] = undefined /*out*/;
+            resourceInputs["smbEncryptionForIntraClusterTrafficComplianceAssignment"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["wdacComplianceAssignment"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20231101preview:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240101:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240215preview:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240401:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240901preview:SecuritySetting" }, { type: "azure-native:azurestackhci/v20241201preview:SecuritySetting" }] };
@@ -126,4 +138,12 @@ export interface SecuritySettingArgs {
      * Name of security setting
      */
     securitySettingsName?: pulumi.Input<string>;
+    /**
+     * SMB encryption for intra-cluster traffic Compliance Assignment
+     */
+    smbEncryptionForIntraClusterTrafficComplianceAssignment?: pulumi.Input<string | enums.azurestackhci.ComplianceAssignmentType>;
+    /**
+     * WDAC Compliance Assignment
+     */
+    wdacComplianceAssignment?: pulumi.Input<string | enums.azurestackhci.ComplianceAssignmentType>;
 }

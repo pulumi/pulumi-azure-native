@@ -118,6 +118,8 @@ def get_configuration_profile_hciassignment(cluster_name: Optional[str] = None,
     Get information about a configuration profile assignment
     Azure REST API version: 2022-05-04.
 
+    Other available API versions: 2021-04-30-preview.
+
 
     :param str cluster_name: The name of the Arc machine.
     :param str configuration_profile_assignment_name: The configuration profile assignment name.
@@ -144,6 +146,8 @@ def get_configuration_profile_hciassignment_output(cluster_name: Optional[pulumi
     """
     Get information about a configuration profile assignment
     Azure REST API version: 2022-05-04.
+
+    Other available API versions: 2021-04-30-preview.
 
 
     :param str cluster_name: The name of the Arc machine.

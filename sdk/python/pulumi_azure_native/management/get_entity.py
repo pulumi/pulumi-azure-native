@@ -86,9 +86,9 @@ def get_entity(filter: Optional[str] = None,
     """
     List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
 
-    Azure REST API version: 2021-04-01.
+    Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2020-05-01, 2020-10-01, 2023-04-01.
+    Other available API versions: 2020-05-01, 2020-10-01, 2021-04-01.
 
 
     :param str filter: The filter parameter allows you to filter on the the name or display name fields. You can check for equality on the name field (e.g. name eq '{entityName}')  and you can check for substrings on either the name or display name fields(e.g. contains(name, '{substringToSearch}'), contains(displayName, '{substringToSearch')). Note that the '{entityName}' and '{substringToSearch}' fields are checked case insensitively.
@@ -134,9 +134,9 @@ def get_entity_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
     """
     List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
 
-    Azure REST API version: 2021-04-01.
+    Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2020-05-01, 2020-10-01, 2023-04-01.
+    Other available API versions: 2020-05-01, 2020-10-01, 2021-04-01.
 
 
     :param str filter: The filter parameter allows you to filter on the the name or display name fields. You can check for equality on the name field (e.g. name eq '{entityName}')  and you can check for substrings on either the name or display name fields(e.g. contains(name, '{substringToSearch}'), contains(displayName, '{substringToSearch')). Note that the '{entityName}' and '{substringToSearch}' fields are checked case insensitively.

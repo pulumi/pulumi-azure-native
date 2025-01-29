@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2020-09-01, 2021-06-01, 2022-05-01-preview, 2022-11-01-preview, 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Task<GetAFDEndpointResult> InvokeAsync(GetAFDEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAFDEndpointResult>("azure-native:cdn:getAFDEndpoint", args ?? new GetAFDEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2020-09-01, 2021-06-01, 2022-05-01-preview, 2022-11-01-preview, 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetAFDEndpointResult> Invoke(GetAFDEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDEndpointResult>("azure-native:cdn:getAFDEndpoint", args ?? new GetAFDEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2020-09-01, 2021-06-01, 2022-05-01-preview, 2022-11-01-preview, 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetAFDEndpointResult> Invoke(GetAFDEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDEndpointResult>("azure-native:cdn:getAFDEndpoint", args ?? new GetAFDEndpointInvokeArgs(), options.WithDefaults());

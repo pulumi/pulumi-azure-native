@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Security
         /// Get a security assessment on your scanned resource
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2020-01-01.
+        /// Other available API versions: 2019-01-01-preview, 2020-01-01.
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:security:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Security
         /// Get a security assessment on your scanned resource
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2020-01-01.
+        /// Other available API versions: 2019-01-01-preview, 2020-01-01.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Security
         /// Get a security assessment on your scanned resource
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2020-01-01.
+        /// Other available API versions: 2019-01-01-preview, 2020-01-01.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());

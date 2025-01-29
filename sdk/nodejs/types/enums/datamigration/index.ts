@@ -2,14 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20180419 from "./v20180419";
+import * as v20180715preview from "./v20180715preview";
 import * as v20210630 from "./v20210630";
 import * as v20211030preview from "./v20211030preview";
+import * as v20220130preview from "./v20220130preview";
 import * as v20220330preview from "./v20220330preview";
 import * as v20230715preview from "./v20230715preview";
 
 export {
+    v20180419,
+    v20180715preview,
     v20210630,
     v20211030preview,
+    v20220130preview,
     v20220330preview,
     v20230715preview,
 };
@@ -100,6 +106,7 @@ export const ResourceType = {
     SqlMi: "SqlMi",
     SqlVm: "SqlVm",
     SqlDb: "SqlDb",
+    MongoToCosmosDbMongo: "MongoToCosmosDbMongo",
 } as const;
 
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
@@ -109,6 +116,7 @@ export const ServerLevelPermissionsGroup = {
     MigrationFromSqlServerToAzureDB: "MigrationFromSqlServerToAzureDB",
     MigrationFromSqlServerToAzureMI: "MigrationFromSqlServerToAzureMI",
     MigrationFromMySQLToAzureDBForMySQL: "MigrationFromMySQLToAzureDBForMySQL",
+    MigrationFromSqlServerToAzureVM: "MigrationFromSqlServerToAzureVM",
 } as const;
 
 /**
@@ -140,6 +148,52 @@ export const SsisStoreType = {
 } as const;
 
 /**
- * The SSIS store type of source, only SSIS catalog is supported now in DMS
+ * The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
  */
 export type SsisStoreType = (typeof SsisStoreType)[keyof typeof SsisStoreType];
+
+export const TaskType = {
+    Connect_MongoDb: "Connect.MongoDb",
+    ConnectToSource_SqlServer: "ConnectToSource.SqlServer",
+    ConnectToSource_SqlServer_Sync: "ConnectToSource.SqlServer.Sync",
+    ConnectToSource_PostgreSql_Sync: "ConnectToSource.PostgreSql.Sync",
+    ConnectToSource_MySql: "ConnectToSource.MySql",
+    ConnectToSource_Oracle_Sync: "ConnectToSource.Oracle.Sync",
+    ConnectToTarget_SqlDb: "ConnectToTarget.SqlDb",
+    ConnectToTarget_SqlDb_Sync: "ConnectToTarget.SqlDb.Sync",
+    ConnectToTarget_AzureDbForPostgreSql_Sync: "ConnectToTarget.AzureDbForPostgreSql.Sync",
+    ConnectToTarget_Oracle_AzureDbForPostgreSql_Sync: "ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync",
+    ConnectToTarget_AzureSqlDbMI: "ConnectToTarget.AzureSqlDbMI",
+    ConnectToTarget_AzureSqlDbMI_Sync_LRS: "ConnectToTarget.AzureSqlDbMI.Sync.LRS",
+    ConnectToTarget_AzureDbForMySql: "ConnectToTarget.AzureDbForMySql",
+    GetUserTables_Sql: "GetUserTables.Sql",
+    GetUserTables_AzureSqlDb_Sync: "GetUserTables.AzureSqlDb.Sync",
+    GetUserTablesOracle: "GetUserTablesOracle",
+    GetUserTablesPostgreSql: "GetUserTablesPostgreSql",
+    GetUserTablesMySql: "GetUserTablesMySql",
+    Migrate_MongoDb: "Migrate.MongoDb",
+    Migrate_SqlServer_AzureSqlDbMI: "Migrate.SqlServer.AzureSqlDbMI",
+    Migrate_SqlServer_AzureSqlDbMI_Sync_LRS: "Migrate.SqlServer.AzureSqlDbMI.Sync.LRS",
+    Migrate_SqlServer_SqlDb: "Migrate.SqlServer.SqlDb",
+    Migrate_SqlServer_AzureSqlDb_Sync: "Migrate.SqlServer.AzureSqlDb.Sync",
+    Migrate_MySql_AzureDbForMySql_Sync: "Migrate.MySql.AzureDbForMySql.Sync",
+    Migrate_MySql_AzureDbForMySql: "Migrate.MySql.AzureDbForMySql",
+    Migrate_PostgreSql_AzureDbForPostgreSql_SyncV2: "Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2",
+    Migrate_Oracle_AzureDbForPostgreSql_Sync: "Migrate.Oracle.AzureDbForPostgreSql.Sync",
+    ValidateMigrationInput_SqlServer_SqlDb_Sync: "ValidateMigrationInput.SqlServer.SqlDb.Sync",
+    ValidateMigrationInput_SqlServer_AzureSqlDbMI: "ValidateMigrationInput.SqlServer.AzureSqlDbMI",
+    ValidateMigrationInput_SqlServer_AzureSqlDbMI_Sync_LRS: "ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS",
+    Validate_MongoDb: "Validate.MongoDb",
+    Validate_Oracle_AzureDbPostgreSql_Sync: "Validate.Oracle.AzureDbPostgreSql.Sync",
+    GetTDECertificates_Sql: "GetTDECertificates.Sql",
+    Migrate_Ssis: "Migrate.Ssis",
+    Service_Check_OCI: "Service.Check.OCI",
+    Service_Upload_OCI: "Service.Upload.OCI",
+    Service_Install_OCI: "Service.Install.OCI",
+    MigrateSchemaSqlServerSqlDb: "MigrateSchemaSqlServerSqlDb",
+} as const;
+
+/**
+ * Task type.
+ */
+export type TaskType = (typeof TaskType)[keyof typeof TaskType];

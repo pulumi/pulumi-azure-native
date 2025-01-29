@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
     public sealed class TopicsConfigurationResponse
     {
         /// <summary>
+        /// List of custom domain configurations for the namespace.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CustomDomainConfigurationResponse> CustomDomains;
+        /// <summary>
         /// The hostname for the topics configuration. This is a read-only property.
         /// </summary>
         public readonly string Hostname;
 
         [OutputConstructor]
-        private TopicsConfigurationResponse(string hostname)
+        private TopicsConfigurationResponse(
+            ImmutableArray<Outputs.CustomDomainConfigurationResponse> customDomains,
+
+            string hostname)
         {
+            CustomDomains = customDomains;
             Hostname = hostname;
         }
     }

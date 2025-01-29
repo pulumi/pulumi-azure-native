@@ -178,7 +178,7 @@ def list_product_details(product_name: Optional[str] = None,
     Returns the extended properties of a product.
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2020-06-01-preview.
+    Other available API versions: 2017-06-01, 2020-06-01-preview.
 
 
     :param str product_name: Name of the product.
@@ -212,7 +212,7 @@ def list_product_details_output(product_name: Optional[pulumi.Input[str]] = None
     Returns the extended properties of a product.
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2020-06-01-preview.
+    Other available API versions: 2017-06-01, 2020-06-01-preview.
 
 
     :param str product_name: Name of the product.

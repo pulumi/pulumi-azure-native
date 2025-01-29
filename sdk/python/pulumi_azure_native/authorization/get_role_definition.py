@@ -189,6 +189,8 @@ def get_role_definition(role_definition_id: Optional[str] = None,
     Get role definition by ID (GUID).
     Azure REST API version: 2022-05-01-preview.
 
+    Other available API versions: 2018-01-01-preview, 2022-04-01.
+
 
     :param str role_definition_id: The ID of the role definition.
     :param str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
@@ -218,6 +220,8 @@ def get_role_definition_output(role_definition_id: Optional[pulumi.Input[str]] =
     """
     Get role definition by ID (GUID).
     Azure REST API version: 2022-05-01-preview.
+
+    Other available API versions: 2018-01-01-preview, 2022-04-01.
 
 
     :param str role_definition_id: The ID of the role definition.

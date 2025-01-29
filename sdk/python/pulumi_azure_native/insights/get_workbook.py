@@ -272,14 +272,14 @@ def get_workbook(can_fetch_content: Optional[bool] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkbookResult:
     """
     Get a single workbook by its resourceName.
-    Azure REST API version: 2022-04-01.
+    Azure REST API version: 2023-06-01.
 
-    Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
+    Other available API versions: 2015-05-01, 2018-06-17-preview, 2020-10-20, 2021-03-08, 2021-08-01, 2022-04-01.
 
 
     :param bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str resource_name: The name of the resource.
+    :param str resource_name: The name of the workbook resource. The value must be an UUID.
     """
     __args__ = dict()
     __args__['canFetchContent'] = can_fetch_content
@@ -314,14 +314,14 @@ def get_workbook_output(can_fetch_content: Optional[pulumi.Input[Optional[bool]]
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkbookResult]:
     """
     Get a single workbook by its resourceName.
-    Azure REST API version: 2022-04-01.
+    Azure REST API version: 2023-06-01.
 
-    Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
+    Other available API versions: 2015-05-01, 2018-06-17-preview, 2020-10-20, 2021-03-08, 2021-08-01, 2022-04-01.
 
 
     :param bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str resource_name: The name of the resource.
+    :param str resource_name: The name of the workbook resource. The value must be an UUID.
     """
     __args__ = dict()
     __args__['canFetchContent'] = can_fetch_content

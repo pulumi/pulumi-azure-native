@@ -5,17 +5,23 @@
 from enum import Enum
 
 __all__ = [
+    'ApplicationSharingPolicy',
     'BatchLoggingLevel',
     'BatchOutputAction',
     'ClassificationModels',
     'ClassificationMultilabelPrimaryMetrics',
     'ClassificationPrimaryMetrics',
+    'ClusterPurpose',
+    'ComputeInstanceAuthorizationType',
+    'ComputeType',
+    'ContainerType',
     'CredentialsType',
     'DataType',
     'DatastoreType',
     'DistributionType',
     'EarlyTerminationPolicyType',
     'EgressPublicNetworkAccessType',
+    'EncryptionStatus',
     'EndpointAuthMode',
     'EndpointComputeType',
     'FeatureLags',
@@ -32,6 +38,7 @@ __all__ = [
     'JobOutputType',
     'JobType',
     'LearningRateScheduler',
+    'LoadBalancerType',
     'LogVerbosity',
     'ManagedServiceIdentityType',
     'ModelSize',
@@ -39,13 +46,17 @@ __all__ = [
     'NCrossValidationsMode',
     'ObjectDetectionPrimaryMetrics',
     'OperatingSystemType',
+    'OsType',
     'OutputDeliveryMode',
+    'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
     'PublicNetworkAccessType',
     'RandomSamplingAlgorithmRule',
     'RecurrenceFrequency',
     'ReferenceType',
     'RegressionModels',
     'RegressionPrimaryMetrics',
+    'RemoteLoginPortPublicAccess',
     'SamplingAlgorithmType',
     'ScaleType',
     'ScheduleStatus',
@@ -55,6 +66,7 @@ __all__ = [
     'ServiceDataAccessAuthIdentity',
     'ShortSeriesHandlingConfiguration',
     'SkuTier',
+    'SshPublicAccess',
     'StackMetaLearnerType',
     'StochasticOptimizer',
     'TargetAggregationFunction',
@@ -64,8 +76,17 @@ __all__ = [
     'UseStl',
     'ValidationMetricType',
     'ValueFormat',
+    'VmPriority',
     'Weekday',
 ]
+
+
+class ApplicationSharingPolicy(str, Enum):
+    """
+    Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+    """
+    PERSONAL = "Personal"
+    SHARED = "Shared"
 
 
 class BatchLoggingLevel(str, Enum):
@@ -219,6 +240,46 @@ class ClassificationPrimaryMetrics(str, Enum):
     """
 
 
+class ClusterPurpose(str, Enum):
+    """
+    Intended usage of the cluster
+    """
+    FAST_PROD = "FastProd"
+    DENSE_PROD = "DenseProd"
+    DEV_TEST = "DevTest"
+
+
+class ComputeInstanceAuthorizationType(str, Enum):
+    """
+    The Compute Instance Authorization type. Available values are personal (default).
+    """
+    PERSONAL = "personal"
+
+
+class ComputeType(str, Enum):
+    """
+    The type of compute
+    """
+    AKS = "AKS"
+    KUBERNETES = "Kubernetes"
+    AML_COMPUTE = "AmlCompute"
+    COMPUTE_INSTANCE = "ComputeInstance"
+    DATA_FACTORY = "DataFactory"
+    VIRTUAL_MACHINE = "VirtualMachine"
+    HD_INSIGHT = "HDInsight"
+    DATABRICKS = "Databricks"
+    DATA_LAKE_ANALYTICS = "DataLakeAnalytics"
+    SYNAPSE_SPARK = "SynapseSpark"
+
+
+class ContainerType(str, Enum):
+    """
+    The type of container to retrieve logs from.
+    """
+    STORAGE_INITIALIZER = "StorageInitializer"
+    INFERENCE_SERVER = "InferenceServer"
+
+
 class CredentialsType(str, Enum):
     """
     [Required] Credential type used to authentication with storage.
@@ -273,6 +334,14 @@ class EarlyTerminationPolicyType(str, Enum):
 class EgressPublicNetworkAccessType(str, Enum):
     """
     If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class EncryptionStatus(str, Enum):
+    """
+    Indicates whether or not the encryption is enabled for the workspace.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
@@ -558,6 +627,14 @@ class LearningRateScheduler(str, Enum):
     """
 
 
+class LoadBalancerType(str, Enum):
+    """
+    Load Balancer Type
+    """
+    PUBLIC_IP = "PublicIp"
+    INTERNAL_LOAD_BALANCER = "InternalLoadBalancer"
+
+
 class LogVerbosity(str, Enum):
     """
     Log verbosity for the job.
@@ -668,12 +745,39 @@ class OperatingSystemType(str, Enum):
     WINDOWS = "Windows"
 
 
+class OsType(str, Enum):
+    """
+    Compute OS Type
+    """
+    LINUX = "Linux"
+    WINDOWS = "Windows"
+
+
 class OutputDeliveryMode(str, Enum):
     """
     Output Asset Delivery Mode.
     """
     READ_WRITE_MOUNT = "ReadWriteMount"
     UPLOAD = "Upload"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+    DISCONNECTED = "Disconnected"
+    TIMEOUT = "Timeout"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether requests from Public Network are allowed.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class PublicNetworkAccessType(str, Enum):
@@ -801,6 +905,15 @@ class RegressionPrimaryMetrics(str, Enum):
     """
 
 
+class RemoteLoginPortPublicAccess(str, Enum):
+    """
+    State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    NOT_SPECIFIED = "NotSpecified"
+
+
 class SamplingAlgorithmType(str, Enum):
     """
     [Required] The algorithm used for generating hyperparameter values, along with configuration properties
@@ -920,6 +1033,14 @@ class SkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
+
+
+class SshPublicAccess(str, Enum):
+    """
+    State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class StackMetaLearnerType(str, Enum):
@@ -1106,6 +1227,14 @@ class ValueFormat(str, Enum):
     format for the workspace connection value
     """
     JSON = "JSON"
+
+
+class VmPriority(str, Enum):
+    """
+    Virtual Machine priority
+    """
+    DEDICATED = "Dedicated"
+    LOW_PRIORITY = "LowPriority"
 
 
 class Weekday(str, Enum):

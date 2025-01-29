@@ -27,7 +27,7 @@ class GetContentTemplateResult:
     """
     Template resource definition.
     """
-    def __init__(__self__, author=None, categories=None, content_id=None, content_kind=None, content_schema_version=None, custom_version=None, dependencies=None, display_name=None, etag=None, first_publish_date=None, icon=None, id=None, last_publish_date=None, main_template=None, name=None, package_id=None, package_kind=None, package_name=None, preview_images=None, preview_images_dark=None, providers=None, source=None, support=None, system_data=None, threat_analysis_tactics=None, threat_analysis_techniques=None, type=None, version=None):
+    def __init__(__self__, author=None, categories=None, content_id=None, content_kind=None, content_product_id=None, content_schema_version=None, custom_version=None, dependant_templates=None, dependencies=None, display_name=None, etag=None, first_publish_date=None, icon=None, id=None, is_deprecated=None, last_publish_date=None, main_template=None, name=None, package_id=None, package_kind=None, package_name=None, package_version=None, preview_images=None, preview_images_dark=None, providers=None, source=None, support=None, system_data=None, threat_analysis_tactics=None, threat_analysis_techniques=None, type=None, version=None):
         if author and not isinstance(author, dict):
             raise TypeError("Expected argument 'author' to be a dict")
         pulumi.set(__self__, "author", author)
@@ -40,12 +40,18 @@ class GetContentTemplateResult:
         if content_kind and not isinstance(content_kind, str):
             raise TypeError("Expected argument 'content_kind' to be a str")
         pulumi.set(__self__, "content_kind", content_kind)
+        if content_product_id and not isinstance(content_product_id, str):
+            raise TypeError("Expected argument 'content_product_id' to be a str")
+        pulumi.set(__self__, "content_product_id", content_product_id)
         if content_schema_version and not isinstance(content_schema_version, str):
             raise TypeError("Expected argument 'content_schema_version' to be a str")
         pulumi.set(__self__, "content_schema_version", content_schema_version)
         if custom_version and not isinstance(custom_version, str):
             raise TypeError("Expected argument 'custom_version' to be a str")
         pulumi.set(__self__, "custom_version", custom_version)
+        if dependant_templates and not isinstance(dependant_templates, list):
+            raise TypeError("Expected argument 'dependant_templates' to be a list")
+        pulumi.set(__self__, "dependant_templates", dependant_templates)
         if dependencies and not isinstance(dependencies, dict):
             raise TypeError("Expected argument 'dependencies' to be a dict")
         pulumi.set(__self__, "dependencies", dependencies)
@@ -64,6 +70,9 @@ class GetContentTemplateResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_deprecated and not isinstance(is_deprecated, str):
+            raise TypeError("Expected argument 'is_deprecated' to be a str")
+        pulumi.set(__self__, "is_deprecated", is_deprecated)
         if last_publish_date and not isinstance(last_publish_date, str):
             raise TypeError("Expected argument 'last_publish_date' to be a str")
         pulumi.set(__self__, "last_publish_date", last_publish_date)
@@ -82,6 +91,9 @@ class GetContentTemplateResult:
         if package_name and not isinstance(package_name, str):
             raise TypeError("Expected argument 'package_name' to be a str")
         pulumi.set(__self__, "package_name", package_name)
+        if package_version and not isinstance(package_version, str):
+            raise TypeError("Expected argument 'package_version' to be a str")
+        pulumi.set(__self__, "package_version", package_version)
         if preview_images and not isinstance(preview_images, list):
             raise TypeError("Expected argument 'preview_images' to be a list")
         pulumi.set(__self__, "preview_images", preview_images)
@@ -146,6 +158,14 @@ class GetContentTemplateResult:
         return pulumi.get(self, "content_kind")
 
     @property
+    @pulumi.getter(name="contentProductId")
+    def content_product_id(self) -> str:
+        """
+        Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
+        """
+        return pulumi.get(self, "content_product_id")
+
+    @property
     @pulumi.getter(name="contentSchemaVersion")
     def content_schema_version(self) -> Optional[str]:
         """
@@ -160,6 +180,14 @@ class GetContentTemplateResult:
         The custom version of the content. A optional free text
         """
         return pulumi.get(self, "custom_version")
+
+    @property
+    @pulumi.getter(name="dependantTemplates")
+    def dependant_templates(self) -> Sequence['outputs.TemplatePropertiesResponse']:
+        """
+        Dependant templates. Expandable.
+        """
+        return pulumi.get(self, "dependant_templates")
 
     @property
     @pulumi.getter
@@ -210,6 +238,14 @@ class GetContentTemplateResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> str:
+        """
+        Flag indicates if this template is deprecated
+        """
+        return pulumi.get(self, "is_deprecated")
+
+    @property
     @pulumi.getter(name="lastPublishDate")
     def last_publish_date(self) -> Optional[str]:
         """
@@ -221,7 +257,7 @@ class GetContentTemplateResult:
     @pulumi.getter(name="mainTemplate")
     def main_template(self) -> Optional[Any]:
         """
-        The JSON of the ARM template to deploy active content
+        The JSON of the ARM template to deploy active content. Expandable.
         """
         return pulumi.get(self, "main_template")
 
@@ -256,6 +292,14 @@ class GetContentTemplateResult:
         the name of the package contains this template
         """
         return pulumi.get(self, "package_name")
+
+    @property
+    @pulumi.getter(name="packageVersion")
+    def package_version(self) -> str:
+        """
+        Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
+        """
+        return pulumi.get(self, "package_version")
 
     @property
     @pulumi.getter(name="previewImages")
@@ -348,20 +392,24 @@ class AwaitableGetContentTemplateResult(GetContentTemplateResult):
             categories=self.categories,
             content_id=self.content_id,
             content_kind=self.content_kind,
+            content_product_id=self.content_product_id,
             content_schema_version=self.content_schema_version,
             custom_version=self.custom_version,
+            dependant_templates=self.dependant_templates,
             dependencies=self.dependencies,
             display_name=self.display_name,
             etag=self.etag,
             first_publish_date=self.first_publish_date,
             icon=self.icon,
             id=self.id,
+            is_deprecated=self.is_deprecated,
             last_publish_date=self.last_publish_date,
             main_template=self.main_template,
             name=self.name,
             package_id=self.package_id,
             package_kind=self.package_kind,
             package_name=self.package_name,
+            package_version=self.package_version,
             preview_images=self.preview_images,
             preview_images_dark=self.preview_images_dark,
             providers=self.providers,
@@ -380,9 +428,12 @@ def get_content_template(resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentTemplateResult:
     """
     Gets a template byt its identifier.
-    Azure REST API version: 2023-06-01-preview.
+    Expandable properties:
+    - properties/mainTemplate
+    - properties/dependantTemplates
+      Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -401,20 +452,24 @@ def get_content_template(resource_group_name: Optional[str] = None,
         categories=pulumi.get(__ret__, 'categories'),
         content_id=pulumi.get(__ret__, 'content_id'),
         content_kind=pulumi.get(__ret__, 'content_kind'),
+        content_product_id=pulumi.get(__ret__, 'content_product_id'),
         content_schema_version=pulumi.get(__ret__, 'content_schema_version'),
         custom_version=pulumi.get(__ret__, 'custom_version'),
+        dependant_templates=pulumi.get(__ret__, 'dependant_templates'),
         dependencies=pulumi.get(__ret__, 'dependencies'),
         display_name=pulumi.get(__ret__, 'display_name'),
         etag=pulumi.get(__ret__, 'etag'),
         first_publish_date=pulumi.get(__ret__, 'first_publish_date'),
         icon=pulumi.get(__ret__, 'icon'),
         id=pulumi.get(__ret__, 'id'),
+        is_deprecated=pulumi.get(__ret__, 'is_deprecated'),
         last_publish_date=pulumi.get(__ret__, 'last_publish_date'),
         main_template=pulumi.get(__ret__, 'main_template'),
         name=pulumi.get(__ret__, 'name'),
         package_id=pulumi.get(__ret__, 'package_id'),
         package_kind=pulumi.get(__ret__, 'package_kind'),
         package_name=pulumi.get(__ret__, 'package_name'),
+        package_version=pulumi.get(__ret__, 'package_version'),
         preview_images=pulumi.get(__ret__, 'preview_images'),
         preview_images_dark=pulumi.get(__ret__, 'preview_images_dark'),
         providers=pulumi.get(__ret__, 'providers'),
@@ -431,9 +486,12 @@ def get_content_template_output(resource_group_name: Optional[pulumi.Input[str]]
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContentTemplateResult]:
     """
     Gets a template byt its identifier.
-    Azure REST API version: 2023-06-01-preview.
+    Expandable properties:
+    - properties/mainTemplate
+    - properties/dependantTemplates
+      Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -451,20 +509,24 @@ def get_content_template_output(resource_group_name: Optional[pulumi.Input[str]]
         categories=pulumi.get(__response__, 'categories'),
         content_id=pulumi.get(__response__, 'content_id'),
         content_kind=pulumi.get(__response__, 'content_kind'),
+        content_product_id=pulumi.get(__response__, 'content_product_id'),
         content_schema_version=pulumi.get(__response__, 'content_schema_version'),
         custom_version=pulumi.get(__response__, 'custom_version'),
+        dependant_templates=pulumi.get(__response__, 'dependant_templates'),
         dependencies=pulumi.get(__response__, 'dependencies'),
         display_name=pulumi.get(__response__, 'display_name'),
         etag=pulumi.get(__response__, 'etag'),
         first_publish_date=pulumi.get(__response__, 'first_publish_date'),
         icon=pulumi.get(__response__, 'icon'),
         id=pulumi.get(__response__, 'id'),
+        is_deprecated=pulumi.get(__response__, 'is_deprecated'),
         last_publish_date=pulumi.get(__response__, 'last_publish_date'),
         main_template=pulumi.get(__response__, 'main_template'),
         name=pulumi.get(__response__, 'name'),
         package_id=pulumi.get(__response__, 'package_id'),
         package_kind=pulumi.get(__response__, 'package_kind'),
         package_name=pulumi.get(__response__, 'package_name'),
+        package_version=pulumi.get(__response__, 'package_version'),
         preview_images=pulumi.get(__response__, 'preview_images'),
         preview_images_dark=pulumi.get(__response__, 'preview_images_dark'),
         providers=pulumi.get(__response__, 'providers'),

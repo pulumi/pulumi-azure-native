@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Returns the specified product.
  * Azure REST API version: 2022-06-01.
  *
- * Other available API versions: 2020-06-01-preview.
+ * Other available API versions: 2017-06-01, 2020-06-01-preview.
  */
 export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,7 +63,7 @@ export interface GetCustomerSubscriptionResult {
  * Returns the specified product.
  * Azure REST API version: 2022-06-01.
  *
- * Other available API versions: 2020-06-01-preview.
+ * Other available API versions: 2017-06-01, 2020-06-01-preview.
  */
 export function getCustomerSubscriptionOutput(args: GetCustomerSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomerSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

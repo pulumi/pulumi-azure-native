@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Maintenance
     {
         /// <summary>
         /// Maintenance configuration record type
-        /// Azure REST API version: 2022-11-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2020-04-01, 2020-07-01-preview, 2021-04-01-preview, 2021-05-01, 2021-09-01-preview, 2022-07-01-preview, 2022-11-01-preview, 2023-04-01, 2023-09-01-preview.
         /// </summary>
         public static Task<GetMaintenanceConfigurationResult> InvokeAsync(GetMaintenanceConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-native:maintenance:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Maintenance configuration record type
-        /// Azure REST API version: 2022-11-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2020-04-01, 2020-07-01-preview, 2021-04-01-preview, 2021-05-01, 2021-09-01-preview, 2022-07-01-preview, 2022-11-01-preview, 2023-04-01, 2023-09-01-preview.
         /// </summary>
         public static Output<GetMaintenanceConfigurationResult> Invoke(GetMaintenanceConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceConfigurationResult>("azure-native:maintenance:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Maintenance configuration record type
-        /// Azure REST API version: 2022-11-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2020-04-01, 2020-07-01-preview, 2021-04-01-preview, 2021-05-01, 2021-09-01-preview, 2022-07-01-preview, 2022-11-01-preview, 2023-04-01, 2023-09-01-preview.
         /// </summary>
         public static Output<GetMaintenanceConfigurationResult> Invoke(GetMaintenanceConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceConfigurationResult>("azure-native:maintenance:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationInvokeArgs(), options.WithDefaults());
@@ -121,10 +121,6 @@ namespace Pulumi.AzureNative.Maintenance
         /// </summary>
         public readonly string? Namespace;
         /// <summary>
-        /// Override Properties for the maintenance Configuration.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.MaintenanceOverridePropertiesResponse> Overrides;
-        /// <summary>
         /// Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday] [Optional Offset(No. of days)]. Offset value must be between -6 to 6 inclusive. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday, recurEvery: Month Last Sunday Offset-3, recurEvery: Month Third Sunday Offset6.
         /// </summary>
         public readonly string? RecurEvery;
@@ -173,8 +169,6 @@ namespace Pulumi.AzureNative.Maintenance
 
             string? @namespace,
 
-            ImmutableArray<Outputs.MaintenanceOverridePropertiesResponse> overrides,
-
             string? recurEvery,
 
             string? startDateTime,
@@ -198,7 +192,6 @@ namespace Pulumi.AzureNative.Maintenance
             MaintenanceScope = maintenanceScope;
             Name = name;
             Namespace = @namespace;
-            Overrides = overrides;
             RecurEvery = recurEvery;
             StartDateTime = startDateTime;
             SystemData = systemData;

@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Private Endpoint Connection resource.
- * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
+ * The private endpoint connection resource.
+ * Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
  *
- * Other available API versions: 2022-09-01.
+ * Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -41,11 +41,15 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The group ids for the private endpoint resource.
+     */
+    public /*out*/ readonly groupIds!: pulumi.Output<string[]>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource of private end point.
+     * The private endpoint resource.
      */
     public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.storagesync.PrivateEndpointResponse | undefined>;
     /**
@@ -89,12 +93,14 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
@@ -114,7 +120,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface PrivateEndpointConnectionArgs {
     /**
-     * The name of the private endpoint connection associated with the Azure resource
+     * The name of the private endpoint connection associated with the Azure resource.
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**

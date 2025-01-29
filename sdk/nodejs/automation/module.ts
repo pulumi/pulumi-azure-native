@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the module type.
- * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
+ * Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2022-08-08.
  *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23.
  */
 export class Module extends pulumi.CustomResource {
     /**
@@ -41,15 +41,11 @@ export class Module extends pulumi.CustomResource {
     }
 
     /**
-     * Gets or sets the activity count of the module.
+     * Gets the activity count of the module.
      */
     public /*out*/ readonly activityCount!: pulumi.Output<number | undefined>;
     /**
-     * Gets or sets the contentLink of the module.
-     */
-    public readonly contentLink!: pulumi.Output<outputs.automation.ContentLinkResponse | undefined>;
-    /**
-     * Gets or sets the creation time.
+     * Gets the creation time.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
     /**
@@ -57,23 +53,23 @@ export class Module extends pulumi.CustomResource {
      */
     public /*out*/ readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Gets or sets the error info of the module.
+     * Gets the error info of the module.
      */
     public /*out*/ readonly error!: pulumi.Output<outputs.automation.ModuleErrorInfoResponse | undefined>;
     /**
-     * Gets or sets the etag of the resource.
+     * Gets the etag of the resource.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
-     * Gets or sets type of module, if its composite or not.
+     * Gets type of module, if its composite or not.
      */
     public /*out*/ readonly isComposite!: pulumi.Output<boolean | undefined>;
     /**
-     * Gets or sets the isGlobal flag of the module.
+     * Gets the isGlobal flag of the module.
      */
     public /*out*/ readonly isGlobal!: pulumi.Output<boolean | undefined>;
     /**
-     * Gets or sets the last modified time.
+     * Gets the last modified time.
      */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
     /**
@@ -85,11 +81,11 @@ export class Module extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the provisioning state of the module.
+     * Gets the provisioning state of the module.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
-     * Gets or sets the size in bytes of the module.
+     * Gets the size in bytes of the module.
      */
     public /*out*/ readonly sizeInBytes!: pulumi.Output<number | undefined>;
     /**
@@ -101,7 +97,7 @@ export class Module extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Gets or sets the version of the module.
+     * Gets the version of the module.
      */
     public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
@@ -146,7 +142,6 @@ export class Module extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["activityCount"] = undefined /*out*/;
-            resourceInputs["contentLink"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;
@@ -178,11 +173,11 @@ export interface ModuleArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * Gets or sets the module content link.
+     * Sets the hash.
      */
     contentLink: pulumi.Input<inputs.automation.ContentLinkArgs>;
     /**
-     * Gets or sets the location of the resource.
+     * Sets the location of the resource.
      */
     location?: pulumi.Input<string>;
     /**
@@ -190,7 +185,7 @@ export interface ModuleArgs {
      */
     moduleName?: pulumi.Input<string>;
     /**
-     * Gets or sets name of the resource.
+     * Sets name of the resource.
      */
     name?: pulumi.Input<string>;
     /**
@@ -198,7 +193,7 @@ export interface ModuleArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Gets or sets the tags attached to the resource.
+     * Sets the tags attached to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

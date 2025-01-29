@@ -23,6 +23,8 @@ class UpdateSummaryArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 current_oem_version: Optional[pulumi.Input[str]] = None,
+                 current_sbe_version: Optional[pulumi.Input[str]] = None,
                  current_version: Optional[pulumi.Input[str]] = None,
                  hardware_model: Optional[pulumi.Input[str]] = None,
                  health_check_date: Optional[pulumi.Input[str]] = None,
@@ -35,6 +37,8 @@ class UpdateSummaryArgs:
         The set of arguments for constructing a UpdateSummary resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] current_oem_version: Current OEM Version.
+        :param pulumi.Input[str] current_sbe_version: Current Sbe version of the stamp.
         :param pulumi.Input[str] current_version: Current Solution Bundle version of the stamp.
         :param pulumi.Input[str] hardware_model: Name of the hardware model.
         :param pulumi.Input[str] health_check_date: Last time the package-specific checks were run.
@@ -46,6 +50,10 @@ class UpdateSummaryArgs:
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if current_oem_version is not None:
+            pulumi.set(__self__, "current_oem_version", current_oem_version)
+        if current_sbe_version is not None:
+            pulumi.set(__self__, "current_sbe_version", current_sbe_version)
         if current_version is not None:
             pulumi.set(__self__, "current_version", current_version)
         if hardware_model is not None:
@@ -86,6 +94,30 @@ class UpdateSummaryArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="currentOemVersion")
+    def current_oem_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Current OEM Version.
+        """
+        return pulumi.get(self, "current_oem_version")
+
+    @current_oem_version.setter
+    def current_oem_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_oem_version", value)
+
+    @property
+    @pulumi.getter(name="currentSbeVersion")
+    def current_sbe_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Current Sbe version of the stamp.
+        """
+        return pulumi.get(self, "current_sbe_version")
+
+    @current_sbe_version.setter
+    def current_sbe_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_sbe_version", value)
 
     @property
     @pulumi.getter(name="currentVersion")
@@ -190,6 +222,8 @@ class UpdateSummary(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 current_oem_version: Optional[pulumi.Input[str]] = None,
+                 current_sbe_version: Optional[pulumi.Input[str]] = None,
                  current_version: Optional[pulumi.Input[str]] = None,
                  hardware_model: Optional[pulumi.Input[str]] = None,
                  health_check_date: Optional[pulumi.Input[str]] = None,
@@ -202,13 +236,15 @@ class UpdateSummary(pulumi.CustomResource):
                  __props__=None):
         """
         Get the update summaries for the cluster
-        Azure REST API version: 2023-03-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
-        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Other available API versions: 2022-12-01, 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
+        :param pulumi.Input[str] current_oem_version: Current OEM Version.
+        :param pulumi.Input[str] current_sbe_version: Current Sbe version of the stamp.
         :param pulumi.Input[str] current_version: Current Solution Bundle version of the stamp.
         :param pulumi.Input[str] hardware_model: Name of the hardware model.
         :param pulumi.Input[str] health_check_date: Last time the package-specific checks were run.
@@ -227,9 +263,9 @@ class UpdateSummary(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Get the update summaries for the cluster
-        Azure REST API version: 2023-03-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
-        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Other available API versions: 2022-12-01, 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param UpdateSummaryArgs args: The arguments to use to populate this resource's properties.
@@ -247,6 +283,8 @@ class UpdateSummary(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 current_oem_version: Optional[pulumi.Input[str]] = None,
+                 current_sbe_version: Optional[pulumi.Input[str]] = None,
                  current_version: Optional[pulumi.Input[str]] = None,
                  hardware_model: Optional[pulumi.Input[str]] = None,
                  health_check_date: Optional[pulumi.Input[str]] = None,
@@ -268,6 +306,8 @@ class UpdateSummary(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["current_oem_version"] = current_oem_version
+            __props__.__dict__["current_sbe_version"] = current_sbe_version
             __props__.__dict__["current_version"] = current_version
             __props__.__dict__["hardware_model"] = hardware_model
             __props__.__dict__["health_check_date"] = health_check_date
@@ -307,6 +347,8 @@ class UpdateSummary(pulumi.CustomResource):
 
         __props__ = UpdateSummaryArgs.__new__(UpdateSummaryArgs)
 
+        __props__.__dict__["current_oem_version"] = None
+        __props__.__dict__["current_sbe_version"] = None
         __props__.__dict__["current_version"] = None
         __props__.__dict__["hardware_model"] = None
         __props__.__dict__["health_check_date"] = None
@@ -320,6 +362,22 @@ class UpdateSummary(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return UpdateSummary(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="currentOemVersion")
+    def current_oem_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Current OEM Version.
+        """
+        return pulumi.get(self, "current_oem_version")
+
+    @property
+    @pulumi.getter(name="currentSbeVersion")
+    def current_sbe_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Current Sbe version of the stamp.
+        """
+        return pulumi.get(self, "current_sbe_version")
 
     @property
     @pulumi.getter(name="currentVersion")

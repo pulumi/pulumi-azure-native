@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class OracleConnectionInfoResponse
     {
         /// <summary>
+        /// Authentication type to use for connection
+        /// </summary>
+        public readonly string? Authentication;
+        /// <summary>
         /// EZConnect or TNSName connection string.
         /// </summary>
         public readonly string DataSource;
@@ -24,6 +28,18 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// Password credential.
         /// </summary>
         public readonly string? Password;
+        /// <summary>
+        /// port for server
+        /// </summary>
+        public readonly int? Port;
+        /// <summary>
+        /// name of the server
+        /// </summary>
+        public readonly string? ServerName;
+        /// <summary>
+        /// server version
+        /// </summary>
+        public readonly string? ServerVersion;
         /// <summary>
         /// Type of connection info
         /// Expected value is 'OracleConnectionInfo'.
@@ -36,16 +52,28 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private OracleConnectionInfoResponse(
+            string? authentication,
+
             string dataSource,
 
             string? password,
+
+            int? port,
+
+            string? serverName,
+
+            string? serverVersion,
 
             string type,
 
             string? userName)
         {
+            Authentication = authentication;
             DataSource = dataSource;
             Password = password;
+            Port = port;
+            ServerName = serverName;
+            ServerVersion = serverVersion;
             Type = type;
             UserName = userName;
         }

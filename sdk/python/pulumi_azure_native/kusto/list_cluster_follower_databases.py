@@ -55,13 +55,13 @@ def list_cluster_follower_databases(cluster_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterFollowerDatabasesResult:
     """
     Returns a list of databases that are owned by this cluster and were followed by another cluster.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
-    Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+    Other available API versions: 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15.
 
 
     :param str cluster_name: The name of the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -76,13 +76,13 @@ def list_cluster_follower_databases_output(cluster_name: Optional[pulumi.Input[s
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClusterFollowerDatabasesResult]:
     """
     Returns a list of databases that are owned by this cluster and were followed by another cluster.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
-    Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+    Other available API versions: 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15.
 
 
     :param str cluster_name: The name of the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name

@@ -138,6 +138,8 @@ def get_storage_space_retrieve(resource_group_name: Optional[str] = None,
     Gets the Hybrid AKS storage space object
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2022-05-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_spaces_name: Parameter for the name of the storage object
@@ -163,6 +165,8 @@ def get_storage_space_retrieve_output(resource_group_name: Optional[pulumi.Input
     """
     Gets the Hybrid AKS storage space object
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2022-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

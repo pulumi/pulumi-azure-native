@@ -2,7 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20210114preview from "./v20210114preview";
 import * as v20210201preview from "./v20210201preview";
+import * as v20210309preview from "./v20210309preview";
+import * as v20210401preview from "./v20210401preview";
+import * as v20210712 from "./v20210712";
+import * as v20210903preview from "./v20210903preview";
 import * as v20220210preview from "./v20220210preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20220909 from "./v20220909";
@@ -18,7 +23,12 @@ import * as v20240408preview from "./v20240408preview";
 import * as v20240808preview from "./v20240808preview";
 
 export {
+    v20210114preview,
     v20210201preview,
+    v20210309preview,
+    v20210401preview,
+    v20210712,
+    v20210903preview,
     v20220210preview,
     v20220401preview,
     v20220909,
@@ -98,6 +108,18 @@ export const HostPoolType = {
  */
 export type HostPoolType = (typeof HostPoolType)[keyof typeof HostPoolType];
 
+export const HostpoolPublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    EnabledForSessionHostsOnly: "EnabledForSessionHostsOnly",
+    EnabledForClientsOnly: "EnabledForClientsOnly",
+} as const;
+
+/**
+ * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+ */
+export type HostpoolPublicNetworkAccess = (typeof HostpoolPublicNetworkAccess)[keyof typeof HostpoolPublicNetworkAccess];
+
 export const LoadBalancerType = {
     BreadthFirst: "BreadthFirst",
     DepthFirst: "DepthFirst",
@@ -150,6 +172,16 @@ export const PrivateEndpointServiceConnectionStatus = {
  * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const RegistrationTokenOperation = {
     Delete: "Delete",

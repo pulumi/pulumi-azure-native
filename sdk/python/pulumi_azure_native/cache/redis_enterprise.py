@@ -26,6 +26,7 @@ class RedisEnterpriseArgs:
                  sku: pulumi.Input['EnterpriseSkuArgs'],
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input['ClusterPropertiesEncryptionArgs']] = None,
+                 high_availability: Optional[pulumi.Input[Union[str, 'HighAvailability']]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
@@ -35,11 +36,12 @@ class RedisEnterpriseArgs:
         The set of arguments for constructing a RedisEnterprise resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['EnterpriseSkuArgs'] sku: The SKU to create, which affects price, performance, and features.
-        :param pulumi.Input[str] cluster_name: The name of the RedisEnterprise cluster.
+        :param pulumi.Input[str] cluster_name: The name of the Redis Enterprise cluster.
         :param pulumi.Input['ClusterPropertiesEncryptionArgs'] encryption: Encryption-at-rest configuration for the cluster.
+        :param pulumi.Input[Union[str, 'HighAvailability']] high_availability: Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'
+        :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Availability Zones where this cluster will be deployed.
         """
@@ -49,6 +51,8 @@ class RedisEnterpriseArgs:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if high_availability is not None:
+            pulumi.set(__self__, "high_availability", high_availability)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -88,7 +92,7 @@ class RedisEnterpriseArgs:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the RedisEnterprise cluster.
+        The name of the Redis Enterprise cluster.
         """
         return pulumi.get(self, "cluster_name")
 
@@ -107,6 +111,18 @@ class RedisEnterpriseArgs:
     @encryption.setter
     def encryption(self, value: Optional[pulumi.Input['ClusterPropertiesEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter(name="highAvailability")
+    def high_availability(self) -> Optional[pulumi.Input[Union[str, 'HighAvailability']]]:
+        """
+        Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
+        """
+        return pulumi.get(self, "high_availability")
+
+    @high_availability.setter
+    def high_availability(self, value: Optional[pulumi.Input[Union[str, 'HighAvailability']]]):
+        pulumi.set(self, "high_availability", value)
 
     @property
     @pulumi.getter
@@ -136,7 +152,7 @@ class RedisEnterpriseArgs:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[pulumi.Input[Union[str, 'TlsVersion']]]:
         """
-        The minimum TLS version for the cluster to support, e.g. '1.2'
+        The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -176,6 +192,7 @@ class RedisEnterprise(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[Union['ClusterPropertiesEncryptionArgs', 'ClusterPropertiesEncryptionArgsDict']]] = None,
+                 high_availability: Optional[pulumi.Input[Union[str, 'HighAvailability']]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
@@ -185,18 +202,19 @@ class RedisEnterprise(pulumi.CustomResource):
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Describes the RedisEnterprise cluster
-        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
+        Describes the Redis Enterprise cluster
+        Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2023-03-01-preview.
 
-        Other available API versions: 2020-10-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+        Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_name: The name of the RedisEnterprise cluster.
+        :param pulumi.Input[str] cluster_name: The name of the Redis Enterprise cluster.
         :param pulumi.Input[Union['ClusterPropertiesEncryptionArgs', 'ClusterPropertiesEncryptionArgsDict']] encryption: Encryption-at-rest configuration for the cluster.
+        :param pulumi.Input[Union[str, 'HighAvailability']] high_availability: Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'
+        :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['EnterpriseSkuArgs', 'EnterpriseSkuArgsDict']] sku: The SKU to create, which affects price, performance, and features.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -209,10 +227,10 @@ class RedisEnterprise(pulumi.CustomResource):
                  args: RedisEnterpriseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Describes the RedisEnterprise cluster
-        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
+        Describes the Redis Enterprise cluster
+        Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2023-03-01-preview.
 
-        Other available API versions: 2020-10-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+        Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-10-01.
 
         :param str resource_name: The name of the resource.
         :param RedisEnterpriseArgs args: The arguments to use to populate this resource's properties.
@@ -231,6 +249,7 @@ class RedisEnterprise(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[Union['ClusterPropertiesEncryptionArgs', 'ClusterPropertiesEncryptionArgsDict']]] = None,
+                 high_availability: Optional[pulumi.Input[Union[str, 'HighAvailability']]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
@@ -249,6 +268,7 @@ class RedisEnterprise(pulumi.CustomResource):
 
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["high_availability"] = high_availability
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
@@ -261,12 +281,13 @@ class RedisEnterprise(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones
             __props__.__dict__["host_name"] = None
+            __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["redis_version"] = None
+            __props__.__dict__["redundancy_mode"] = None
             __props__.__dict__["resource_state"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210201preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210301:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210801:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20220101:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20221101preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230701:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230801preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20231001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20231101:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240201:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240601preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20240901preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20241001:RedisEnterprise")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -293,17 +314,19 @@ class RedisEnterprise(pulumi.CustomResource):
         __props__ = RedisEnterpriseArgs.__new__(RedisEnterpriseArgs)
 
         __props__.__dict__["encryption"] = None
+        __props__.__dict__["high_availability"] = None
         __props__.__dict__["host_name"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["minimum_tls_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["redis_version"] = None
+        __props__.__dict__["redundancy_mode"] = None
         __props__.__dict__["resource_state"] = None
         __props__.__dict__["sku"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["zones"] = None
@@ -316,6 +339,14 @@ class RedisEnterprise(pulumi.CustomResource):
         Encryption-at-rest configuration for the cluster.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="highAvailability")
+    def high_availability(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
+        """
+        return pulumi.get(self, "high_availability")
 
     @property
     @pulumi.getter(name="hostName")
@@ -335,6 +366,14 @@ class RedisEnterprise(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def kind(self) -> pulumi.Output[str]:
+        """
+        Distinguishes the kind of cluster. Read-only.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
@@ -345,7 +384,7 @@ class RedisEnterprise(pulumi.CustomResource):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The minimum TLS version for the cluster to support, e.g. '1.2'
+        The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -361,7 +400,7 @@ class RedisEnterprise(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
-        List of private endpoint connections associated with the specified RedisEnterprise cluster
+        List of private endpoint connections associated with the specified Redis Enterprise cluster
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -382,6 +421,14 @@ class RedisEnterprise(pulumi.CustomResource):
         return pulumi.get(self, "redis_version")
 
     @property
+    @pulumi.getter(name="redundancyMode")
+    def redundancy_mode(self) -> pulumi.Output[str]:
+        """
+        Explains the current redundancy strategy of the cluster, which affects the expected SLA.
+        """
+        return pulumi.get(self, "redundancy_mode")
+
+    @property
     @pulumi.getter(name="resourceState")
     def resource_state(self) -> pulumi.Output[str]:
         """
@@ -396,14 +443,6 @@ class RedisEnterprise(pulumi.CustomResource):
         The SKU to create, which affects price, performance, and features.
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

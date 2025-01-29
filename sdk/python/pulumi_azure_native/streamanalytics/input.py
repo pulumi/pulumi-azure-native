@@ -118,9 +118,9 @@ class Input(pulumi.CustomResource):
                  __props__=None):
         """
         An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
 
-        Other available API versions: 2021-10-01-preview.
+        Other available API versions: 2016-03-01, 2017-04-01-preview, 2021-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,9 +138,9 @@ class Input(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
 
-        Other available API versions: 2021-10-01-preview.
+        Other available API versions: 2016-03-01, 2017-04-01-preview, 2021-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param InputInitArgs args: The arguments to use to populate this resource's properties.

@@ -63,6 +63,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.SweepJobLimitsResponse? Limits;
         /// <summary>
+        /// Notification setting for the job
+        /// </summary>
+        public readonly Outputs.NotificationSettingResponse? NotificationSetting;
+        /// <summary>
         /// [Required] Optimization objective.
         /// </summary>
         public readonly Outputs.ObjectiveResponse Objective;
@@ -74,6 +78,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// The asset property dictionary.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
+        /// <summary>
+        /// Queue settings for the job
+        /// </summary>
+        public readonly Outputs.QueueSettingsResponse? QueueSettings;
         /// <summary>
         /// [Required] The hyperparameter sampling algorithm
         /// </summary>
@@ -124,11 +132,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.SweepJobLimitsResponse? limits,
 
+            Outputs.NotificationSettingResponse? notificationSetting,
+
             Outputs.ObjectiveResponse objective,
 
             ImmutableDictionary<string, object>? outputs,
 
             ImmutableDictionary<string, string>? properties,
+
+            Outputs.QueueSettingsResponse? queueSettings,
 
             object samplingAlgorithm,
 
@@ -153,9 +165,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             IsArchived = isArchived;
             JobType = jobType;
             Limits = limits;
+            NotificationSetting = notificationSetting;
             Objective = objective;
             Outputs = outputs;
             Properties = properties;
+            QueueSettings = queueSettings;
             SamplingAlgorithm = samplingAlgorithm;
             SearchSpace = searchSpace;
             Services = services;

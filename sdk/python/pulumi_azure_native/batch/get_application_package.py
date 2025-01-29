@@ -26,7 +26,7 @@ class GetApplicationPackageResult:
     """
     An application package which represents a particular version of an application.
     """
-    def __init__(__self__, etag=None, format=None, id=None, last_activation_time=None, name=None, state=None, storage_url=None, storage_url_expiry=None, type=None):
+    def __init__(__self__, etag=None, format=None, id=None, last_activation_time=None, name=None, state=None, storage_url=None, storage_url_expiry=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -51,6 +51,9 @@ class GetApplicationPackageResult:
         if storage_url_expiry and not isinstance(storage_url_expiry, str):
             raise TypeError("Expected argument 'storage_url_expiry' to be a str")
         pulumi.set(__self__, "storage_url_expiry", storage_url_expiry)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -121,6 +124,14 @@ class GetApplicationPackageResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource.
@@ -142,6 +153,7 @@ class AwaitableGetApplicationPackageResult(GetApplicationPackageResult):
             state=self.state,
             storage_url=self.storage_url,
             storage_url_expiry=self.storage_url_expiry,
+            tags=self.tags,
             type=self.type)
 
 
@@ -152,9 +164,9 @@ def get_application_package(account_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationPackageResult:
     """
     Gets information about the specified application package.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01, 2022-10-01, 2023-05-01, 2023-11-01, 2024-02-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -179,6 +191,7 @@ def get_application_package(account_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         storage_url=pulumi.get(__ret__, 'storage_url'),
         storage_url_expiry=pulumi.get(__ret__, 'storage_url_expiry'),
+        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_application_package_output(account_name: Optional[pulumi.Input[str]] = None,
                                    application_name: Optional[pulumi.Input[str]] = None,
@@ -187,9 +200,9 @@ def get_application_package_output(account_name: Optional[pulumi.Input[str]] = N
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationPackageResult]:
     """
     Gets information about the specified application package.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01, 2022-10-01, 2023-05-01, 2023-11-01, 2024-02-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -213,4 +226,5 @@ def get_application_package_output(account_name: Optional[pulumi.Input[str]] = N
         state=pulumi.get(__response__, 'state'),
         storage_url=pulumi.get(__response__, 'storage_url'),
         storage_url_expiry=pulumi.get(__response__, 'storage_url_expiry'),
+        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

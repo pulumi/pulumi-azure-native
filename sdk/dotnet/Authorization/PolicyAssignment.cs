@@ -11,13 +11,25 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The policy assignment.
-    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-06-01.
     /// 
-    /// Other available API versions: 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-01-01.
+    /// Other available API versions: 2017-06-01-preview, 2018-03-01, 2018-05-01, 2019-01-01, 2019-06-01, 2019-09-01, 2020-03-01, 2020-09-01, 2021-06-01, 2022-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyAssignment")]
     public partial class PolicyAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        /// </summary>
+        [Output("assignmentType")]
+        public Output<string?> AssignmentType { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the policy definition to use.
+        /// </summary>
+        [Output("definitionVersion")]
+        public Output<string?> DefinitionVersion { get; private set; } = null!;
+
         /// <summary>
         /// This message will be part of response in case of policy violation.
         /// </summary>
@@ -31,6 +43,12 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
+        /// </summary>
+        [Output("effectiveDefinitionVersion")]
+        public Output<string> EffectiveDefinitionVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
         /// </summary>
         [Output("enforcementMode")]
@@ -41,6 +59,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
+        /// </summary>
+        [Output("latestDefinitionVersion")]
+        public Output<string> LatestDefinitionVersion { get; private set; } = null!;
 
         /// <summary>
         /// The location of the policy assignment. Only required when utilizing managed identity.
@@ -179,6 +203,18 @@ namespace Pulumi.AzureNative.Authorization
 
     public sealed class PolicyAssignmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        /// </summary>
+        [Input("assignmentType")]
+        public InputUnion<string, Pulumi.AzureNative.Authorization.AssignmentType>? AssignmentType { get; set; }
+
+        /// <summary>
+        /// The version of the policy definition to use.
+        /// </summary>
+        [Input("definitionVersion")]
+        public Input<string>? DefinitionVersion { get; set; }
+
         /// <summary>
         /// This message will be part of response in case of policy violation.
         /// </summary>

@@ -98,7 +98,9 @@ class RegisteredAsn(pulumi.CustomResource):
                  __props__=None):
         """
         The customer's ASN that is registered by the peering service provider.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2022-10-01.
+
+        Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,7 +117,9 @@ class RegisteredAsn(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The customer's ASN that is registered by the peering service provider.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2022-10-01.
+
+        Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param RegisteredAsnArgs args: The arguments to use to populate this resource's properties.

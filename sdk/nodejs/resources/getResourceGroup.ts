@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a resource group.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2019-05-01, 2019-05-10, 2019-07-01, 2019-08-01, 2019-10-01, 2020-06-01, 2020-08-01, 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01.
  */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,9 +62,9 @@ export interface GetResourceGroupResult {
 }
 /**
  * Gets a resource group.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Other available API versions: 2019-05-01, 2019-05-10, 2019-07-01, 2019-08-01, 2019-10-01, 2020-06-01, 2020-08-01, 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01.
  */
 export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

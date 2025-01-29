@@ -2,6 +2,29 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ConditionOperator = {
+    Equals: "Equals",
+    GreaterThan: "GreaterThan",
+    GreaterThanOrEqual: "GreaterThanOrEqual",
+    LessThan: "LessThan",
+    LessThanOrEqual: "LessThanOrEqual",
+} as const;
+
+/**
+ * The criteria operator. Relevant and required only for rules of the kind LogAlert.
+ */
+export type ConditionOperator = (typeof ConditionOperator)[keyof typeof ConditionOperator];
+
+export const DimensionOperator = {
+    Include: "Include",
+    Exclude: "Exclude",
+} as const;
+
+/**
+ * Operator for dimension values
+ */
+export type DimensionOperator = (typeof DimensionOperator)[keyof typeof DimensionOperator];
+
 export const Kind = {
     User: "user",
     Shared: "shared",
@@ -23,3 +46,16 @@ export const ManagedServiceIdentityType = {
  * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
+export const TimeAggregation = {
+    Count: "Count",
+    Average: "Average",
+    Minimum: "Minimum",
+    Maximum: "Maximum",
+    Total: "Total",
+} as const;
+
+/**
+ * Aggregation type. Relevant and required only for rules of the kind LogAlert.
+ */
+export type TimeAggregation = (typeof TimeAggregation)[keyof typeof TimeAggregation];

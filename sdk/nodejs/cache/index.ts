@@ -15,10 +15,15 @@ export type AccessPolicyAssignment = import("./accessPolicyAssignment").AccessPo
 export const AccessPolicyAssignment: typeof import("./accessPolicyAssignment").AccessPolicyAssignment = null as any;
 utilities.lazyLoad(exports, ["AccessPolicyAssignment"], () => require("./accessPolicyAssignment"));
 
-export { DatabaseArgs } from "./database";
-export type Database = import("./database").Database;
-export const Database: typeof import("./database").Database = null as any;
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+export { EnterpriseAccessPolicyAssignmentArgs } from "./enterpriseAccessPolicyAssignment";
+export type EnterpriseAccessPolicyAssignment = import("./enterpriseAccessPolicyAssignment").EnterpriseAccessPolicyAssignment;
+export const EnterpriseAccessPolicyAssignment: typeof import("./enterpriseAccessPolicyAssignment").EnterpriseAccessPolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["EnterpriseAccessPolicyAssignment"], () => require("./enterpriseAccessPolicyAssignment"));
+
+export { EnterpriseDatabaseArgs } from "./enterpriseDatabase";
+export type EnterpriseDatabase = import("./enterpriseDatabase").EnterpriseDatabase;
+export const EnterpriseDatabase: typeof import("./enterpriseDatabase").EnterpriseDatabase = null as any;
+utilities.lazyLoad(exports, ["EnterpriseDatabase"], () => require("./enterpriseDatabase"));
 
 export { EnterprisePrivateEndpointConnectionArgs } from "./enterprisePrivateEndpointConnection";
 export type EnterprisePrivateEndpointConnection = import("./enterprisePrivateEndpointConnection").EnterprisePrivateEndpointConnection;
@@ -40,10 +45,15 @@ export const getAccessPolicyAssignment: typeof import("./getAccessPolicyAssignme
 export const getAccessPolicyAssignmentOutput: typeof import("./getAccessPolicyAssignment").getAccessPolicyAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getAccessPolicyAssignment","getAccessPolicyAssignmentOutput"], () => require("./getAccessPolicyAssignment"));
 
-export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
-export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
-export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+export { GetEnterpriseAccessPolicyAssignmentArgs, GetEnterpriseAccessPolicyAssignmentResult, GetEnterpriseAccessPolicyAssignmentOutputArgs } from "./getEnterpriseAccessPolicyAssignment";
+export const getEnterpriseAccessPolicyAssignment: typeof import("./getEnterpriseAccessPolicyAssignment").getEnterpriseAccessPolicyAssignment = null as any;
+export const getEnterpriseAccessPolicyAssignmentOutput: typeof import("./getEnterpriseAccessPolicyAssignment").getEnterpriseAccessPolicyAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterpriseAccessPolicyAssignment","getEnterpriseAccessPolicyAssignmentOutput"], () => require("./getEnterpriseAccessPolicyAssignment"));
+
+export { GetEnterpriseDatabaseArgs, GetEnterpriseDatabaseResult, GetEnterpriseDatabaseOutputArgs } from "./getEnterpriseDatabase";
+export const getEnterpriseDatabase: typeof import("./getEnterpriseDatabase").getEnterpriseDatabase = null as any;
+export const getEnterpriseDatabaseOutput: typeof import("./getEnterpriseDatabase").getEnterpriseDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterpriseDatabase","getEnterpriseDatabaseOutput"], () => require("./getEnterpriseDatabase"));
 
 export { GetEnterprisePrivateEndpointConnectionArgs, GetEnterprisePrivateEndpointConnectionResult, GetEnterprisePrivateEndpointConnectionOutputArgs } from "./getEnterprisePrivateEndpointConnection";
 export const getEnterprisePrivateEndpointConnection: typeof import("./getEnterprisePrivateEndpointConnection").getEnterprisePrivateEndpointConnection = null as any;
@@ -85,10 +95,10 @@ export type LinkedServer = import("./linkedServer").LinkedServer;
 export const LinkedServer: typeof import("./linkedServer").LinkedServer = null as any;
 utilities.lazyLoad(exports, ["LinkedServer"], () => require("./linkedServer"));
 
-export { ListDatabaseKeysArgs, ListDatabaseKeysResult, ListDatabaseKeysOutputArgs } from "./listDatabaseKeys";
-export const listDatabaseKeys: typeof import("./listDatabaseKeys").listDatabaseKeys = null as any;
-export const listDatabaseKeysOutput: typeof import("./listDatabaseKeys").listDatabaseKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listDatabaseKeys","listDatabaseKeysOutput"], () => require("./listDatabaseKeys"));
+export { ListEnterpriseDatabaseKeysArgs, ListEnterpriseDatabaseKeysResult, ListEnterpriseDatabaseKeysOutputArgs } from "./listEnterpriseDatabaseKeys";
+export const listEnterpriseDatabaseKeys: typeof import("./listEnterpriseDatabaseKeys").listEnterpriseDatabaseKeys = null as any;
+export const listEnterpriseDatabaseKeysOutput: typeof import("./listEnterpriseDatabaseKeys").listEnterpriseDatabaseKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listEnterpriseDatabaseKeys","listEnterpriseDatabaseKeysOutput"], () => require("./listEnterpriseDatabaseKeys"));
 
 export { ListRedisKeysArgs, ListRedisKeysResult, ListRedisKeysOutputArgs } from "./listRedisKeys";
 export const listRedisKeys: typeof import("./listRedisKeys").listRedisKeys = null as any;
@@ -122,6 +132,15 @@ export * from "../types/enums/cache";
 // Export sub-modules:
 import * as v20200601 from "./v20200601";
 import * as v20201001preview from "./v20201001preview";
+import * as v20201201 from "./v20201201";
+import * as v20210201preview from "./v20210201preview";
+import * as v20210301 from "./v20210301";
+import * as v20210601 from "./v20210601";
+import * as v20210801 from "./v20210801";
+import * as v20220101 from "./v20220101";
+import * as v20220501 from "./v20220501";
+import * as v20220601 from "./v20220601";
+import * as v20221101preview from "./v20221101preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230401 from "./v20230401";
 import * as v20230501preview from "./v20230501preview";
@@ -142,6 +161,15 @@ import * as v20241101 from "./v20241101";
 export {
     v20200601,
     v20201001preview,
+    v20201201,
+    v20210201preview,
+    v20210301,
+    v20210601,
+    v20210801,
+    v20220101,
+    v20220501,
+    v20220601,
+    v20221101preview,
     v20230301preview,
     v20230401,
     v20230501preview,
@@ -168,8 +196,10 @@ const _module = {
                 return new AccessPolicy(name, <any>undefined, { urn })
             case "azure-native:cache:AccessPolicyAssignment":
                 return new AccessPolicyAssignment(name, <any>undefined, { urn })
-            case "azure-native:cache:Database":
-                return new Database(name, <any>undefined, { urn })
+            case "azure-native:cache:EnterpriseAccessPolicyAssignment":
+                return new EnterpriseAccessPolicyAssignment(name, <any>undefined, { urn })
+            case "azure-native:cache:EnterpriseDatabase":
+                return new EnterpriseDatabase(name, <any>undefined, { urn })
             case "azure-native:cache:EnterprisePrivateEndpointConnection":
                 return new EnterprisePrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:cache:FirewallRule":

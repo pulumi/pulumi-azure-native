@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// Gets the collector policy in a specified Traffic Collector
         /// Azure REST API version: 2022-11-01.
         /// 
-        /// Other available API versions: 2022-05-01.
+        /// Other available API versions: 2021-09-01-preview, 2022-05-01, 2022-08-01.
         /// </summary>
         public static Task<GetCollectorPolicyResult> InvokeAsync(GetCollectorPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCollectorPolicyResult>("azure-native:networkfunction:getCollectorPolicy", args ?? new GetCollectorPolicyArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// Gets the collector policy in a specified Traffic Collector
         /// Azure REST API version: 2022-11-01.
         /// 
-        /// Other available API versions: 2022-05-01.
+        /// Other available API versions: 2021-09-01-preview, 2022-05-01, 2022-08-01.
         /// </summary>
         public static Output<GetCollectorPolicyResult> Invoke(GetCollectorPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCollectorPolicyResult>("azure-native:networkfunction:getCollectorPolicy", args ?? new GetCollectorPolicyInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// Gets the collector policy in a specified Traffic Collector
         /// Azure REST API version: 2022-11-01.
         /// 
-        /// Other available API versions: 2022-05-01.
+        /// Other available API versions: 2021-09-01-preview, 2022-05-01, 2022-08-01.
         /// </summary>
         public static Output<GetCollectorPolicyResult> Invoke(GetCollectorPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCollectorPolicyResult>("azure-native:networkfunction:getCollectorPolicy", args ?? new GetCollectorPolicyInvokeArgs(), options.WithDefaults());

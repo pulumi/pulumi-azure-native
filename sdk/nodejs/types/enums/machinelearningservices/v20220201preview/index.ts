@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ApplicationSharingPolicy = {
+    Personal: "Personal",
+    Shared: "Shared",
+} as const;
+
+/**
+ * Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+ */
+export type ApplicationSharingPolicy = (typeof ApplicationSharingPolicy)[keyof typeof ApplicationSharingPolicy];
+
 export const BatchLoggingLevel = {
     Info: "Info",
     Warning: "Warning",
@@ -163,6 +173,54 @@ export const ClassificationPrimaryMetrics = {
  */
 export type ClassificationPrimaryMetrics = (typeof ClassificationPrimaryMetrics)[keyof typeof ClassificationPrimaryMetrics];
 
+export const ClusterPurpose = {
+    FastProd: "FastProd",
+    DenseProd: "DenseProd",
+    DevTest: "DevTest",
+} as const;
+
+/**
+ * Intended usage of the cluster
+ */
+export type ClusterPurpose = (typeof ClusterPurpose)[keyof typeof ClusterPurpose];
+
+export const ComputeInstanceAuthorizationType = {
+    Personal: "personal",
+} as const;
+
+/**
+ * The Compute Instance Authorization type. Available values are personal (default).
+ */
+export type ComputeInstanceAuthorizationType = (typeof ComputeInstanceAuthorizationType)[keyof typeof ComputeInstanceAuthorizationType];
+
+export const ComputeType = {
+    AKS: "AKS",
+    Kubernetes: "Kubernetes",
+    AmlCompute: "AmlCompute",
+    ComputeInstance: "ComputeInstance",
+    DataFactory: "DataFactory",
+    VirtualMachine: "VirtualMachine",
+    HDInsight: "HDInsight",
+    Databricks: "Databricks",
+    DataLakeAnalytics: "DataLakeAnalytics",
+    SynapseSpark: "SynapseSpark",
+} as const;
+
+/**
+ * The type of compute
+ */
+export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
+
+export const ContainerType = {
+    StorageInitializer: "StorageInitializer",
+    InferenceServer: "InferenceServer",
+} as const;
+
+/**
+ * The type of container to retrieve logs from.
+ */
+export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
+
 export const CredentialsType = {
     AccountKey: "AccountKey",
     Certificate: "Certificate",
@@ -233,6 +291,16 @@ export const EgressPublicNetworkAccessType = {
  * If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
  */
 export type EgressPublicNetworkAccessType = (typeof EgressPublicNetworkAccessType)[keyof typeof EgressPublicNetworkAccessType];
+
+export const EncryptionStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether or not the encryption is enabled for the workspace.
+ */
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
 
 export const EndpointAuthMode = {
     AMLToken: "AMLToken",
@@ -546,6 +614,16 @@ export const LearningRateScheduler = {
  */
 export type LearningRateScheduler = (typeof LearningRateScheduler)[keyof typeof LearningRateScheduler];
 
+export const LoadBalancerType = {
+    PublicIp: "PublicIp",
+    InternalLoadBalancer: "InternalLoadBalancer",
+} as const;
+
+/**
+ * Load Balancer Type
+ */
+export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
+
 export const LogVerbosity = {
     /**
      * No logs emitted.
@@ -670,6 +748,16 @@ export const OperatingSystemType = {
  */
 export type OperatingSystemType = (typeof OperatingSystemType)[keyof typeof OperatingSystemType];
 
+export const OsType = {
+    Linux: "Linux",
+    Windows: "Windows",
+} as const;
+
+/**
+ * Compute OS Type
+ */
+export type OsType = (typeof OsType)[keyof typeof OsType];
+
 export const OutputDeliveryMode = {
     ReadWriteMount: "ReadWriteMount",
     Upload: "Upload",
@@ -679,6 +767,29 @@ export const OutputDeliveryMode = {
  * Output Asset Delivery Mode.
  */
 export type OutputDeliveryMode = (typeof OutputDeliveryMode)[keyof typeof OutputDeliveryMode];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+    Timeout: "Timeout",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether requests from Public Network are allowed.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const PublicNetworkAccessType = {
     Enabled: "Enabled",
@@ -816,6 +927,17 @@ export const RegressionPrimaryMetrics = {
  * Primary metric for regression task.
  */
 export type RegressionPrimaryMetrics = (typeof RegressionPrimaryMetrics)[keyof typeof RegressionPrimaryMetrics];
+
+export const RemoteLoginPortPublicAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    NotSpecified: "NotSpecified",
+} as const;
+
+/**
+ * State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
+ */
+export type RemoteLoginPortPublicAccess = (typeof RemoteLoginPortPublicAccess)[keyof typeof RemoteLoginPortPublicAccess];
 
 export const SamplingAlgorithmType = {
     Grid: "Grid",
@@ -955,6 +1077,16 @@ export const SkuTier = {
  * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+
+export const SshPublicAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+ */
+export type SshPublicAccess = (typeof SshPublicAccess)[keyof typeof SshPublicAccess];
 
 export const StackMetaLearnerType = {
     None: "None",
@@ -1159,6 +1291,16 @@ export const ValueFormat = {
  * format for the workspace connection value
  */
 export type ValueFormat = (typeof ValueFormat)[keyof typeof ValueFormat];
+
+export const VmPriority = {
+    Dedicated: "Dedicated",
+    LowPriority: "LowPriority",
+} as const;
+
+/**
+ * Virtual Machine priority
+ */
+export type VmPriority = (typeof VmPriority)[keyof typeof VmPriority];
 
 export const Weekday = {
     /**

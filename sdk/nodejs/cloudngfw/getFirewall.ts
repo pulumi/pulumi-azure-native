@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a FirewallResource
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-01-19-preview.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
  */
 export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,6 +61,10 @@ export interface GetFirewallResult {
      */
     readonly isPanoramaManaged?: string;
     /**
+     * Strata Cloud Managed: Default is False. Default will be CloudSec managed
+     */
+    readonly isStrataCloudManaged?: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -93,6 +97,10 @@ export interface GetFirewallResult {
      */
     readonly provisioningState: string;
     /**
+     * Strata Cloud Manager Configuration, only applicable if Strata Cloud Manager is selected.
+     */
+    readonly strataCloudManagerConfig?: outputs.cloudngfw.StrataCloudManagerConfigResponse;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.cloudngfw.SystemDataResponse;
@@ -107,9 +115,9 @@ export interface GetFirewallResult {
 }
 /**
  * Get a FirewallResource
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-01-19-preview.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
  */
 export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -18,14 +18,24 @@ from ._enums import *
 
 __all__ = [
     'BucketDefinitionResponse',
+    'ComplianceStatusResponse',
     'DependsOnDefinitionResponse',
+    'ErrorAdditionalInfoResponse',
+    'ErrorDetailResponse',
+    'ExtensionResponseAksAssignedIdentity',
+    'ExtensionStatusResponse',
     'GitRepositoryDefinitionResponse',
+    'HelmOperatorPropertiesResponse',
     'HelmReleasePropertiesDefinitionResponse',
+    'IdentityResponse',
     'KustomizationDefinitionResponse',
     'ObjectReferenceDefinitionResponse',
     'ObjectStatusConditionDefinitionResponse',
     'ObjectStatusDefinitionResponse',
     'RepositoryRefDefinitionResponse',
+    'ScopeClusterResponse',
+    'ScopeNamespaceResponse',
+    'ScopeResponse',
     'SystemDataResponse',
 ]
 
@@ -156,6 +166,85 @@ class BucketDefinitionResponse(dict):
 
 
 @pulumi.output_type
+class ComplianceStatusResponse(dict):
+    """
+    Compliance Status details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "complianceState":
+            suggest = "compliance_state"
+        elif key == "lastConfigApplied":
+            suggest = "last_config_applied"
+        elif key == "messageLevel":
+            suggest = "message_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComplianceStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComplianceStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComplianceStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compliance_state: str,
+                 last_config_applied: Optional[str] = None,
+                 message: Optional[str] = None,
+                 message_level: Optional[str] = None):
+        """
+        Compliance Status details
+        :param str compliance_state: The compliance state of the configuration.
+        :param str last_config_applied: Datetime the configuration was last applied.
+        :param str message: Message from when the configuration was applied.
+        :param str message_level: Level of the message.
+        """
+        pulumi.set(__self__, "compliance_state", compliance_state)
+        if last_config_applied is not None:
+            pulumi.set(__self__, "last_config_applied", last_config_applied)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if message_level is not None:
+            pulumi.set(__self__, "message_level", message_level)
+
+    @property
+    @pulumi.getter(name="complianceState")
+    def compliance_state(self) -> str:
+        """
+        The compliance state of the configuration.
+        """
+        return pulumi.get(self, "compliance_state")
+
+    @property
+    @pulumi.getter(name="lastConfigApplied")
+    def last_config_applied(self) -> Optional[str]:
+        """
+        Datetime the configuration was last applied.
+        """
+        return pulumi.get(self, "last_config_applied")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Message from when the configuration was applied.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="messageLevel")
+    def message_level(self) -> Optional[str]:
+        """
+        Level of the message.
+        """
+        return pulumi.get(self, "message_level")
+
+
+@pulumi.output_type
 class DependsOnDefinitionResponse(dict):
     """
     Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization
@@ -193,6 +282,276 @@ class DependsOnDefinitionResponse(dict):
         Name of the kustomization to claim dependency on
         """
         return pulumi.get(self, "kustomization_name")
+
+
+@pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: str):
+        """
+        The resource management error additional info.
+        :param Any info: The additional info.
+        :param str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: str,
+                 target: str):
+        """
+        The error detail.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param str message: The error message.
+        :param str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class ExtensionResponseAksAssignedIdentity(dict):
+    """
+    Identity of the Extension resource in an AKS cluster
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtensionResponseAksAssignedIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtensionResponseAksAssignedIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtensionResponseAksAssignedIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Identity of the Extension resource in an AKS cluster
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ExtensionStatusResponse(dict):
+    """
+    Status from the extension.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayStatus":
+            suggest = "display_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtensionStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtensionStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtensionStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 display_status: Optional[str] = None,
+                 level: Optional[str] = None,
+                 message: Optional[str] = None,
+                 time: Optional[str] = None):
+        """
+        Status from the extension.
+        :param str code: Status code provided by the Extension
+        :param str display_status: Short description of status of the extension.
+        :param str level: Level of the status.
+        :param str message: Detailed message of the status from the Extension.
+        :param str time: DateLiteral (per ISO8601) noting the time of installation status.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if display_status is not None:
+            pulumi.set(__self__, "display_status", display_status)
+        if level is None:
+            level = 'Information'
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        Status code provided by the Extension
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="displayStatus")
+    def display_status(self) -> Optional[str]:
+        """
+        Short description of status of the extension.
+        """
+        return pulumi.get(self, "display_status")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        Level of the status.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Detailed message of the status from the Extension.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[str]:
+        """
+        DateLiteral (per ISO8601) noting the time of installation status.
+        """
+        return pulumi.get(self, "time")
 
 
 @pulumi.output_type
@@ -336,6 +695,60 @@ class GitRepositoryDefinitionResponse(dict):
 
 
 @pulumi.output_type
+class HelmOperatorPropertiesResponse(dict):
+    """
+    Properties for Helm operator.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "chartValues":
+            suggest = "chart_values"
+        elif key == "chartVersion":
+            suggest = "chart_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HelmOperatorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HelmOperatorPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HelmOperatorPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chart_values: Optional[str] = None,
+                 chart_version: Optional[str] = None):
+        """
+        Properties for Helm operator.
+        :param str chart_values: Values override for the operator Helm chart.
+        :param str chart_version: Version of the operator Helm chart.
+        """
+        if chart_values is not None:
+            pulumi.set(__self__, "chart_values", chart_values)
+        if chart_version is not None:
+            pulumi.set(__self__, "chart_version", chart_version)
+
+    @property
+    @pulumi.getter(name="chartValues")
+    def chart_values(self) -> Optional[str]:
+        """
+        Values override for the operator Helm chart.
+        """
+        return pulumi.get(self, "chart_values")
+
+    @property
+    @pulumi.getter(name="chartVersion")
+    def chart_version(self) -> Optional[str]:
+        """
+        Version of the operator Helm chart.
+        """
+        return pulumi.get(self, "chart_version")
+
+
+@pulumi.output_type
 class HelmReleasePropertiesDefinitionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -425,6 +838,70 @@ class HelmReleasePropertiesDefinitionResponse(dict):
         Number of times that the HelmRelease failed to upgrade
         """
         return pulumi.get(self, "upgrade_failure_count")
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -853,6 +1330,121 @@ class RepositoryRefDefinitionResponse(dict):
         The git repository tag name to checkout. This takes precedence over branch.
         """
         return pulumi.get(self, "tag")
+
+
+@pulumi.output_type
+class ScopeClusterResponse(dict):
+    """
+    Specifies that the scope of the extension is Cluster
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "releaseNamespace":
+            suggest = "release_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScopeClusterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScopeClusterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScopeClusterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 release_namespace: Optional[str] = None):
+        """
+        Specifies that the scope of the extension is Cluster
+        :param str release_namespace: Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
+        """
+        if release_namespace is not None:
+            pulumi.set(__self__, "release_namespace", release_namespace)
+
+    @property
+    @pulumi.getter(name="releaseNamespace")
+    def release_namespace(self) -> Optional[str]:
+        """
+        Namespace where the extension Release must be placed, for a Cluster scoped extension.  If this namespace does not exist, it will be created
+        """
+        return pulumi.get(self, "release_namespace")
+
+
+@pulumi.output_type
+class ScopeNamespaceResponse(dict):
+    """
+    Specifies that the scope of the extension is Namespace
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetNamespace":
+            suggest = "target_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScopeNamespaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScopeNamespaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScopeNamespaceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_namespace: Optional[str] = None):
+        """
+        Specifies that the scope of the extension is Namespace
+        :param str target_namespace: Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
+        """
+        if target_namespace is not None:
+            pulumi.set(__self__, "target_namespace", target_namespace)
+
+    @property
+    @pulumi.getter(name="targetNamespace")
+    def target_namespace(self) -> Optional[str]:
+        """
+        Namespace where the extension will be created for an Namespace scoped extension.  If this namespace does not exist, it will be created
+        """
+        return pulumi.get(self, "target_namespace")
+
+
+@pulumi.output_type
+class ScopeResponse(dict):
+    """
+    Scope of the extension. It can be either Cluster or Namespace; but not both.
+    """
+    def __init__(__self__, *,
+                 cluster: Optional['outputs.ScopeClusterResponse'] = None,
+                 namespace: Optional['outputs.ScopeNamespaceResponse'] = None):
+        """
+        Scope of the extension. It can be either Cluster or Namespace; but not both.
+        :param 'ScopeClusterResponse' cluster: Specifies that the scope of the extension is Cluster
+        :param 'ScopeNamespaceResponse' namespace: Specifies that the scope of the extension is Namespace
+        """
+        if cluster is not None:
+            pulumi.set(__self__, "cluster", cluster)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def cluster(self) -> Optional['outputs.ScopeClusterResponse']:
+        """
+        Specifies that the scope of the extension is Cluster
+        """
+        return pulumi.get(self, "cluster")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional['outputs.ScopeNamespaceResponse']:
+        """
+        Specifies that the scope of the extension is Namespace
+        """
+        return pulumi.get(self, "namespace")
 
 
 @pulumi.output_type

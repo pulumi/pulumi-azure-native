@@ -106,6 +106,8 @@ def get_vendor_sku_preview(preview_subscription: Optional[str] = None,
     Gets the preview information of a vendor sku.
     Azure REST API version: 2022-01-01-preview.
 
+    Other available API versions: 2020-01-01-preview, 2021-05-01.
+
 
     :param str preview_subscription: Preview subscription ID.
     :param str sku_name: The name of the vendor sku.
@@ -131,6 +133,8 @@ def get_vendor_sku_preview_output(preview_subscription: Optional[pulumi.Input[st
     """
     Gets the preview information of a vendor sku.
     Azure REST API version: 2022-01-01-preview.
+
+    Other available API versions: 2020-01-01-preview, 2021-05-01.
 
 
     :param str preview_subscription: Preview subscription ID.

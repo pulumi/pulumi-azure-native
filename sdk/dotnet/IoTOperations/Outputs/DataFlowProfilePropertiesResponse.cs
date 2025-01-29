@@ -11,10 +11,10 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// DataFlowProfile Resource properties
+    /// DataflowProfile Resource properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowProfilePropertiesResponse
+    public sealed class DataflowProfilePropertiesResponse
     {
         /// <summary>
         /// Spec defines the desired identities of NBC diagnostics settings.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         public readonly string ProvisioningState;
 
         [OutputConstructor]
-        private DataFlowProfilePropertiesResponse(
+        private DataflowProfilePropertiesResponse(
             Outputs.ProfileDiagnosticsResponse? diagnostics,
 
             int? instanceCount,

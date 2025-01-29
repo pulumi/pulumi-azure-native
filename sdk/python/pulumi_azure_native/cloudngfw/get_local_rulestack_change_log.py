@@ -78,9 +78,9 @@ def get_local_rulestack_change_log(local_rulestack_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalRulestackChangeLogResult:
     """
     Get changelog
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-01-19-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
 
 
     :param str local_rulestack_name: LocalRulestack resource name
@@ -101,9 +101,9 @@ def get_local_rulestack_change_log_output(local_rulestack_name: Optional[pulumi.
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalRulestackChangeLogResult]:
     """
     Get changelog
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-01-19-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
 
 
     :param str local_rulestack_name: LocalRulestack resource name

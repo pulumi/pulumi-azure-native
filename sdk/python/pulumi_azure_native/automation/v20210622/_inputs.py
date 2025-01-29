@@ -13,13 +13,268 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
+from ._enums import *
 
 __all__ = [
+    'EncryptionPropertiesIdentityArgs',
+    'EncryptionPropertiesIdentityArgsDict',
+    'EncryptionPropertiesArgs',
+    'EncryptionPropertiesArgsDict',
+    'IdentityArgs',
+    'IdentityArgsDict',
+    'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'RunAsCredentialAssociationPropertyArgs',
     'RunAsCredentialAssociationPropertyArgsDict',
+    'SkuArgs',
+    'SkuArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class EncryptionPropertiesIdentityArgsDict(TypedDict):
+        """
+        User identity used for CMK.
+        """
+        user_assigned_identity: NotRequired[Any]
+        """
+        The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    EncryptionPropertiesIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EncryptionPropertiesIdentityArgs:
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[Any] = None):
+        """
+        User identity used for CMK.
+        :param Any user_assigned_identity: The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[Any]:
+        """
+        The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[Any]):
+        pulumi.set(self, "user_assigned_identity", value)
+
+
+if not MYPY:
+    class EncryptionPropertiesArgsDict(TypedDict):
+        """
+        The encryption settings for automation account
+        """
+        identity: NotRequired[pulumi.Input['EncryptionPropertiesIdentityArgsDict']]
+        """
+        User identity used for CMK.
+        """
+        key_source: NotRequired[pulumi.Input['EncryptionKeySourceType']]
+        """
+        Encryption Key Source
+        """
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        Key vault properties.
+        """
+elif False:
+    EncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EncryptionPropertiesArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input['EncryptionPropertiesIdentityArgs']] = None,
+                 key_source: Optional[pulumi.Input['EncryptionKeySourceType']] = None,
+                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
+        """
+        The encryption settings for automation account
+        :param pulumi.Input['EncryptionPropertiesIdentityArgs'] identity: User identity used for CMK.
+        :param pulumi.Input['EncryptionKeySourceType'] key_source: Encryption Key Source
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Key vault properties.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['EncryptionPropertiesIdentityArgs']]:
+        """
+        User identity used for CMK.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['EncryptionPropertiesIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[pulumi.Input['EncryptionKeySourceType']]:
+        """
+        Encryption Key Source
+        """
+        return pulumi.get(self, "key_source")
+
+    @key_source.setter
+    def key_source(self, value: Optional[pulumi.Input['EncryptionKeySourceType']]):
+        pulumi.set(self, "key_source", value)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+        """
+        Key vault properties.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
+
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Identity for the resource.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Settings concerning key vault encryption for a configuration store.
+        """
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of key used to encrypt data.
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        The key version of the key used to encrypt data.
+        """
+        keyvault_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the key vault key used to encrypt data.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_version: Optional[pulumi.Input[str]] = None,
+                 keyvault_uri: Optional[pulumi.Input[str]] = None):
+        """
+        Settings concerning key vault encryption for a configuration store.
+        :param pulumi.Input[str] key_name: The name of key used to encrypt data.
+        :param pulumi.Input[str] key_version: The key version of the key used to encrypt data.
+        :param pulumi.Input[str] keyvault_uri: The URI of the key vault key used to encrypt data.
+        """
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+        if keyvault_uri is not None:
+            pulumi.set(__self__, "keyvault_uri", keyvault_uri)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of key used to encrypt data.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key version of the key used to encrypt data.
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_version", value)
+
+    @property
+    @pulumi.getter(name="keyvaultUri")
+    def keyvault_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the key vault key used to encrypt data.
+        """
+        return pulumi.get(self, "keyvault_uri")
+
+    @keyvault_uri.setter
+    def keyvault_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "keyvault_uri", value)
+
 
 if not MYPY:
     class RunAsCredentialAssociationPropertyArgsDict(TypedDict):
@@ -55,5 +310,80 @@ class RunAsCredentialAssociationPropertyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The account SKU.
+        """
+        name: pulumi.Input[Union[str, 'SkuNameEnum']]
+        """
+        Gets or sets the SKU name of the account.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Gets or sets the SKU capacity.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SKU family.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Union[str, 'SkuNameEnum']],
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 family: Optional[pulumi.Input[str]] = None):
+        """
+        The account SKU.
+        :param pulumi.Input[Union[str, 'SkuNameEnum']] name: Gets or sets the SKU name of the account.
+        :param pulumi.Input[int] capacity: Gets or sets the SKU capacity.
+        :param pulumi.Input[str] family: Gets or sets the SKU family.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Union[str, 'SkuNameEnum']]:
+        """
+        Gets or sets the SKU name of the account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Union[str, 'SkuNameEnum']]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets the SKU capacity.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the SKU family.
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "family", value)
 
 

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Returns an Application Insights component.
  * Azure REST API version: 2020-02-02.
  *
- * Other available API versions: 2020-02-02-preview.
+ * Other available API versions: 2015-05-01, 2018-05-01-preview, 2020-02-02-preview.
  */
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -165,7 +165,7 @@ export interface GetComponentResult {
  * Returns an Application Insights component.
  * Azure REST API version: 2020-02-02.
  *
- * Other available API versions: 2020-02-02-preview.
+ * Other available API versions: 2015-05-01, 2018-05-01-preview, 2020-02-02-preview.
  */
 export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

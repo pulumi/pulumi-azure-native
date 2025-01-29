@@ -18,12 +18,28 @@ from ._enums import *
 __all__ = [
     'BudgetTimePeriodArgs',
     'BudgetTimePeriodArgsDict',
+    'KpiPropertiesArgs',
+    'KpiPropertiesArgsDict',
     'NotificationArgs',
     'NotificationArgsDict',
+    'PivotPropertiesArgs',
+    'PivotPropertiesArgsDict',
+    'ReportConfigAggregationArgs',
+    'ReportConfigAggregationArgsDict',
     'ReportConfigComparisonExpressionArgs',
     'ReportConfigComparisonExpressionArgsDict',
+    'ReportConfigDatasetConfigurationArgs',
+    'ReportConfigDatasetConfigurationArgsDict',
+    'ReportConfigDatasetArgs',
+    'ReportConfigDatasetArgsDict',
     'ReportConfigFilterArgs',
     'ReportConfigFilterArgsDict',
+    'ReportConfigGroupingArgs',
+    'ReportConfigGroupingArgsDict',
+    'ReportConfigSortingArgs',
+    'ReportConfigSortingArgsDict',
+    'ReportConfigTimePeriodArgs',
+    'ReportConfigTimePeriodArgsDict',
 ]
 
 MYPY = False
@@ -81,6 +97,82 @@ class BudgetTimePeriodArgs:
     @end_date.setter
     def end_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "end_date", value)
+
+
+if not MYPY:
+    class KpiPropertiesArgsDict(TypedDict):
+        """
+        Each KPI must contain a 'type' and 'enabled' key.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        show the KPI in the UI?
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of resource related to metric (budget).
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'KpiTypeType']]]
+        """
+        KPI type (Forecast, Budget).
+        """
+elif False:
+    KpiPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KpiPropertiesArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'KpiTypeType']]] = None):
+        """
+        Each KPI must contain a 'type' and 'enabled' key.
+        :param pulumi.Input[bool] enabled: show the KPI in the UI?
+        :param pulumi.Input[str] id: ID of resource related to metric (budget).
+        :param pulumi.Input[Union[str, 'KpiTypeType']] type: KPI type (Forecast, Budget).
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        show the KPI in the UI?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of resource related to metric (budget).
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'KpiTypeType']]]:
+        """
+        KPI type (Forecast, Budget).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'KpiTypeType']]]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:
@@ -216,6 +308,116 @@ class NotificationArgs:
 
 
 if not MYPY:
+    class PivotPropertiesArgsDict(TypedDict):
+        """
+        Each pivot must contain a 'type' and 'name'.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Data field to show in view.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'PivotTypeType']]]
+        """
+        Data type to show in view.
+        """
+elif False:
+    PivotPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PivotPropertiesArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'PivotTypeType']]] = None):
+        """
+        Each pivot must contain a 'type' and 'name'.
+        :param pulumi.Input[str] name: Data field to show in view.
+        :param pulumi.Input[Union[str, 'PivotTypeType']] type: Data type to show in view.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data field to show in view.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'PivotTypeType']]]:
+        """
+        Data type to show in view.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'PivotTypeType']]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class ReportConfigAggregationArgsDict(TypedDict):
+        """
+        The aggregation expression to be used in the report.
+        """
+        function: pulumi.Input[Union[str, 'FunctionType']]
+        """
+        The name of the aggregation function to use.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to aggregate.
+        """
+elif False:
+    ReportConfigAggregationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ReportConfigAggregationArgs:
+    def __init__(__self__, *,
+                 function: pulumi.Input[Union[str, 'FunctionType']],
+                 name: pulumi.Input[str]):
+        """
+        The aggregation expression to be used in the report.
+        :param pulumi.Input[Union[str, 'FunctionType']] function: The name of the aggregation function to use.
+        :param pulumi.Input[str] name: The name of the column to aggregate.
+        """
+        pulumi.set(__self__, "function", function)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def function(self) -> pulumi.Input[Union[str, 'FunctionType']]:
+        """
+        The name of the aggregation function to use.
+        """
+        return pulumi.get(self, "function")
+
+    @function.setter
+    def function(self, value: pulumi.Input[Union[str, 'FunctionType']]):
+        pulumi.set(self, "function", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the column to aggregate.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
     class ReportConfigComparisonExpressionArgsDict(TypedDict):
         """
         The comparison expression to be used in the report.
@@ -286,6 +488,178 @@ class ReportConfigComparisonExpressionArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class ReportConfigDatasetConfigurationArgsDict(TypedDict):
+        """
+        The configuration of dataset in the report.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+elif False:
+    ReportConfigDatasetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ReportConfigDatasetConfigurationArgs:
+    def __init__(__self__, *,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The configuration of dataset in the report.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "columns", value)
+
+
+if not MYPY:
+    class ReportConfigDatasetArgsDict(TypedDict):
+        """
+        The definition of data present in the report.
+        """
+        aggregation: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgsDict']]]]
+        """
+        Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        """
+        configuration: NotRequired[pulumi.Input['ReportConfigDatasetConfigurationArgsDict']]
+        """
+        Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        """
+        filter: NotRequired[pulumi.Input['ReportConfigFilterArgsDict']]
+        """
+        Has filter expression to use in the report.
+        """
+        granularity: NotRequired[pulumi.Input[Union[str, 'GranularityType']]]
+        """
+        The granularity of rows in the report.
+        """
+        grouping: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportConfigGroupingArgsDict']]]]
+        """
+        Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        """
+        sorting: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgsDict']]]]
+        """
+        Array of order by expression to use in the report.
+        """
+elif False:
+    ReportConfigDatasetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ReportConfigDatasetArgs:
+    def __init__(__self__, *,
+                 aggregation: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]]] = None,
+                 configuration: Optional[pulumi.Input['ReportConfigDatasetConfigurationArgs']] = None,
+                 filter: Optional[pulumi.Input['ReportConfigFilterArgs']] = None,
+                 granularity: Optional[pulumi.Input[Union[str, 'GranularityType']]] = None,
+                 grouping: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigGroupingArgs']]]] = None,
+                 sorting: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgs']]]] = None):
+        """
+        The definition of data present in the report.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        :param pulumi.Input['ReportConfigDatasetConfigurationArgs'] configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        :param pulumi.Input['ReportConfigFilterArgs'] filter: Has filter expression to use in the report.
+        :param pulumi.Input[Union[str, 'GranularityType']] granularity: The granularity of rows in the report.
+        :param pulumi.Input[Sequence[pulumi.Input['ReportConfigGroupingArgs']]] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        :param pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgs']]] sorting: Array of order by expression to use in the report.
+        """
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if granularity is not None:
+            pulumi.set(__self__, "granularity", granularity)
+        if grouping is not None:
+            pulumi.set(__self__, "grouping", grouping)
+        if sorting is not None:
+            pulumi.set(__self__, "sorting", sorting)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]]]:
+        """
+        Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]]]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['ReportConfigDatasetConfigurationArgs']]:
+        """
+        Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['ReportConfigDatasetConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['ReportConfigFilterArgs']]:
+        """
+        Has filter expression to use in the report.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['ReportConfigFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter
+    def granularity(self) -> Optional[pulumi.Input[Union[str, 'GranularityType']]]:
+        """
+        The granularity of rows in the report.
+        """
+        return pulumi.get(self, "granularity")
+
+    @granularity.setter
+    def granularity(self, value: Optional[pulumi.Input[Union[str, 'GranularityType']]]):
+        pulumi.set(self, "granularity", value)
+
+    @property
+    @pulumi.getter
+    def grouping(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigGroupingArgs']]]]:
+        """
+        Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        """
+        return pulumi.get(self, "grouping")
+
+    @grouping.setter
+    def grouping(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigGroupingArgs']]]]):
+        pulumi.set(self, "grouping", value)
+
+    @property
+    @pulumi.getter
+    def sorting(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgs']]]]:
+        """
+        Array of order by expression to use in the report.
+        """
+        return pulumi.get(self, "sorting")
+
+    @sorting.setter
+    def sorting(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgs']]]]):
+        pulumi.set(self, "sorting", value)
 
 
 if not MYPY:
@@ -402,5 +776,168 @@ class ReportConfigFilterArgs:
     @tag.setter
     def tag(self, value: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]):
         pulumi.set(self, "tag", value)
+
+
+if not MYPY:
+    class ReportConfigGroupingArgsDict(TypedDict):
+        """
+        The group by expression to be used in the report.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to group. This version supports subscription lowest possible grain.
+        """
+        type: pulumi.Input[Union[str, 'ReportConfigColumnType']]
+        """
+        Has type of the column to group.
+        """
+elif False:
+    ReportConfigGroupingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ReportConfigGroupingArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'ReportConfigColumnType']]):
+        """
+        The group by expression to be used in the report.
+        :param pulumi.Input[str] name: The name of the column to group. This version supports subscription lowest possible grain.
+        :param pulumi.Input[Union[str, 'ReportConfigColumnType']] type: Has type of the column to group.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the column to group. This version supports subscription lowest possible grain.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ReportConfigColumnType']]:
+        """
+        Has type of the column to group.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ReportConfigColumnType']]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class ReportConfigSortingArgsDict(TypedDict):
+        """
+        The order by expression to be used in the report.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the column to sort.
+        """
+        direction: NotRequired[pulumi.Input[str]]
+        """
+        Direction of sort.
+        """
+elif False:
+    ReportConfigSortingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ReportConfigSortingArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 direction: Optional[pulumi.Input[str]] = None):
+        """
+        The order by expression to be used in the report.
+        :param pulumi.Input[str] name: The name of the column to sort.
+        :param pulumi.Input[str] direction: Direction of sort.
+        """
+        pulumi.set(__self__, "name", name)
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the column to sort.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[pulumi.Input[str]]:
+        """
+        Direction of sort.
+        """
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "direction", value)
+
+
+if not MYPY:
+    class ReportConfigTimePeriodArgsDict(TypedDict):
+        """
+        The start and end date for pulling data for the report.
+        """
+        from_: pulumi.Input[str]
+        """
+        The start date to pull data from.
+        """
+        to: pulumi.Input[str]
+        """
+        The end date to pull data to.
+        """
+elif False:
+    ReportConfigTimePeriodArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ReportConfigTimePeriodArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input[str],
+                 to: pulumi.Input[str]):
+        """
+        The start and end date for pulling data for the report.
+        :param pulumi.Input[str] from_: The start date to pull data from.
+        :param pulumi.Input[str] to: The end date to pull data to.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[str]:
+        """
+        The start date to pull data from.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[str]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[str]:
+        """
+        The end date to pull data to.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[str]):
+        pulumi.set(self, "to", value)
 
 

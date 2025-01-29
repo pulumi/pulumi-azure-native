@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ScVmm
     {
         /// <summary>
         /// Implements VirtualNetwork GET method.
-        /// Azure REST API version: 2022-05-21-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Other available API versions: 2020-06-05-preview, 2022-05-21-preview, 2023-10-07, 2024-06-01.
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:scvmm:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements VirtualNetwork GET method.
-        /// Azure REST API version: 2022-05-21-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Other available API versions: 2020-06-05-preview, 2022-05-21-preview, 2023-10-07, 2024-06-01.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:scvmm:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements VirtualNetwork GET method.
-        /// Azure REST API version: 2022-05-21-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Other available API versions: 2020-06-05-preview, 2022-05-21-preview, 2023-10-07, 2024-06-01.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:scvmm:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());

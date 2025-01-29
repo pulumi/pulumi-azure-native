@@ -5,96 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { DnsForwardingRulesetArgs } from "./dnsForwardingRuleset";
-export type DnsForwardingRuleset = import("./dnsForwardingRuleset").DnsForwardingRuleset;
-export const DnsForwardingRuleset: typeof import("./dnsForwardingRuleset").DnsForwardingRuleset = null as any;
-utilities.lazyLoad(exports, ["DnsForwardingRuleset"], () => require("./dnsForwardingRuleset"));
-
-export { DnsResolverArgs } from "./dnsResolver";
-export type DnsResolver = import("./dnsResolver").DnsResolver;
-export const DnsResolver: typeof import("./dnsResolver").DnsResolver = null as any;
-utilities.lazyLoad(exports, ["DnsResolver"], () => require("./dnsResolver"));
-
-export { DnsResolverDomainListArgs } from "./dnsResolverDomainList";
-export type DnsResolverDomainList = import("./dnsResolverDomainList").DnsResolverDomainList;
-export const DnsResolverDomainList: typeof import("./dnsResolverDomainList").DnsResolverDomainList = null as any;
-utilities.lazyLoad(exports, ["DnsResolverDomainList"], () => require("./dnsResolverDomainList"));
-
-export { DnsResolverPolicyArgs } from "./dnsResolverPolicy";
-export type DnsResolverPolicy = import("./dnsResolverPolicy").DnsResolverPolicy;
-export const DnsResolverPolicy: typeof import("./dnsResolverPolicy").DnsResolverPolicy = null as any;
-utilities.lazyLoad(exports, ["DnsResolverPolicy"], () => require("./dnsResolverPolicy"));
-
-export { DnsResolverPolicyVirtualNetworkLinkArgs } from "./dnsResolverPolicyVirtualNetworkLink";
-export type DnsResolverPolicyVirtualNetworkLink = import("./dnsResolverPolicyVirtualNetworkLink").DnsResolverPolicyVirtualNetworkLink;
-export const DnsResolverPolicyVirtualNetworkLink: typeof import("./dnsResolverPolicyVirtualNetworkLink").DnsResolverPolicyVirtualNetworkLink = null as any;
-utilities.lazyLoad(exports, ["DnsResolverPolicyVirtualNetworkLink"], () => require("./dnsResolverPolicyVirtualNetworkLink"));
-
-export { DnsSecurityRuleArgs } from "./dnsSecurityRule";
-export type DnsSecurityRule = import("./dnsSecurityRule").DnsSecurityRule;
-export const DnsSecurityRule: typeof import("./dnsSecurityRule").DnsSecurityRule = null as any;
-utilities.lazyLoad(exports, ["DnsSecurityRule"], () => require("./dnsSecurityRule"));
-
-export { DnssecConfigArgs } from "./dnssecConfig";
-export type DnssecConfig = import("./dnssecConfig").DnssecConfig;
-export const DnssecConfig: typeof import("./dnssecConfig").DnssecConfig = null as any;
-utilities.lazyLoad(exports, ["DnssecConfig"], () => require("./dnssecConfig"));
-
-export { ForwardingRuleArgs } from "./forwardingRule";
-export type ForwardingRule = import("./forwardingRule").ForwardingRule;
-export const ForwardingRule: typeof import("./forwardingRule").ForwardingRule = null as any;
-utilities.lazyLoad(exports, ["ForwardingRule"], () => require("./forwardingRule"));
-
-export { GetDnsForwardingRulesetArgs, GetDnsForwardingRulesetResult, GetDnsForwardingRulesetOutputArgs } from "./getDnsForwardingRuleset";
-export const getDnsForwardingRuleset: typeof import("./getDnsForwardingRuleset").getDnsForwardingRuleset = null as any;
-export const getDnsForwardingRulesetOutput: typeof import("./getDnsForwardingRuleset").getDnsForwardingRulesetOutput = null as any;
-utilities.lazyLoad(exports, ["getDnsForwardingRuleset","getDnsForwardingRulesetOutput"], () => require("./getDnsForwardingRuleset"));
-
-export { GetDnsResolverArgs, GetDnsResolverResult, GetDnsResolverOutputArgs } from "./getDnsResolver";
-export const getDnsResolver: typeof import("./getDnsResolver").getDnsResolver = null as any;
-export const getDnsResolverOutput: typeof import("./getDnsResolver").getDnsResolverOutput = null as any;
-utilities.lazyLoad(exports, ["getDnsResolver","getDnsResolverOutput"], () => require("./getDnsResolver"));
-
-export { GetDnsResolverDomainListArgs, GetDnsResolverDomainListResult, GetDnsResolverDomainListOutputArgs } from "./getDnsResolverDomainList";
-export const getDnsResolverDomainList: typeof import("./getDnsResolverDomainList").getDnsResolverDomainList = null as any;
-export const getDnsResolverDomainListOutput: typeof import("./getDnsResolverDomainList").getDnsResolverDomainListOutput = null as any;
-utilities.lazyLoad(exports, ["getDnsResolverDomainList","getDnsResolverDomainListOutput"], () => require("./getDnsResolverDomainList"));
-
-export { GetDnsResolverPolicyArgs, GetDnsResolverPolicyResult, GetDnsResolverPolicyOutputArgs } from "./getDnsResolverPolicy";
-export const getDnsResolverPolicy: typeof import("./getDnsResolverPolicy").getDnsResolverPolicy = null as any;
-export const getDnsResolverPolicyOutput: typeof import("./getDnsResolverPolicy").getDnsResolverPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getDnsResolverPolicy","getDnsResolverPolicyOutput"], () => require("./getDnsResolverPolicy"));
-
-export { GetDnsResolverPolicyVirtualNetworkLinkArgs, GetDnsResolverPolicyVirtualNetworkLinkResult, GetDnsResolverPolicyVirtualNetworkLinkOutputArgs } from "./getDnsResolverPolicyVirtualNetworkLink";
-export const getDnsResolverPolicyVirtualNetworkLink: typeof import("./getDnsResolverPolicyVirtualNetworkLink").getDnsResolverPolicyVirtualNetworkLink = null as any;
-export const getDnsResolverPolicyVirtualNetworkLinkOutput: typeof import("./getDnsResolverPolicyVirtualNetworkLink").getDnsResolverPolicyVirtualNetworkLinkOutput = null as any;
-utilities.lazyLoad(exports, ["getDnsResolverPolicyVirtualNetworkLink","getDnsResolverPolicyVirtualNetworkLinkOutput"], () => require("./getDnsResolverPolicyVirtualNetworkLink"));
-
-export { GetDnsResourceReferenceByTarResourcesArgs, GetDnsResourceReferenceByTarResourcesResult, GetDnsResourceReferenceByTarResourcesOutputArgs } from "./getDnsResourceReferenceByTarResources";
-export const getDnsResourceReferenceByTarResources: typeof import("./getDnsResourceReferenceByTarResources").getDnsResourceReferenceByTarResources = null as any;
-export const getDnsResourceReferenceByTarResourcesOutput: typeof import("./getDnsResourceReferenceByTarResources").getDnsResourceReferenceByTarResourcesOutput = null as any;
-utilities.lazyLoad(exports, ["getDnsResourceReferenceByTarResources","getDnsResourceReferenceByTarResourcesOutput"], () => require("./getDnsResourceReferenceByTarResources"));
-
-export { GetDnsSecurityRuleArgs, GetDnsSecurityRuleResult, GetDnsSecurityRuleOutputArgs } from "./getDnsSecurityRule";
-export const getDnsSecurityRule: typeof import("./getDnsSecurityRule").getDnsSecurityRule = null as any;
-export const getDnsSecurityRuleOutput: typeof import("./getDnsSecurityRule").getDnsSecurityRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getDnsSecurityRule","getDnsSecurityRuleOutput"], () => require("./getDnsSecurityRule"));
-
-export { GetDnssecConfigArgs, GetDnssecConfigResult, GetDnssecConfigOutputArgs } from "./getDnssecConfig";
-export const getDnssecConfig: typeof import("./getDnssecConfig").getDnssecConfig = null as any;
-export const getDnssecConfigOutput: typeof import("./getDnssecConfig").getDnssecConfigOutput = null as any;
-utilities.lazyLoad(exports, ["getDnssecConfig","getDnssecConfigOutput"], () => require("./getDnssecConfig"));
-
-export { GetForwardingRuleArgs, GetForwardingRuleResult, GetForwardingRuleOutputArgs } from "./getForwardingRule";
-export const getForwardingRule: typeof import("./getForwardingRule").getForwardingRule = null as any;
-export const getForwardingRuleOutput: typeof import("./getForwardingRule").getForwardingRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getForwardingRule","getForwardingRuleOutput"], () => require("./getForwardingRule"));
-
-export { GetInboundEndpointArgs, GetInboundEndpointResult, GetInboundEndpointOutputArgs } from "./getInboundEndpoint";
-export const getInboundEndpoint: typeof import("./getInboundEndpoint").getInboundEndpoint = null as any;
-export const getInboundEndpointOutput: typeof import("./getInboundEndpoint").getInboundEndpointOutput = null as any;
-utilities.lazyLoad(exports, ["getInboundEndpoint","getInboundEndpointOutput"], () => require("./getInboundEndpoint"));
-
 export { GetNetworkSecurityPerimeterArgs, GetNetworkSecurityPerimeterResult, GetNetworkSecurityPerimeterOutputArgs } from "./getNetworkSecurityPerimeter";
 export const getNetworkSecurityPerimeter: typeof import("./getNetworkSecurityPerimeter").getNetworkSecurityPerimeter = null as any;
 export const getNetworkSecurityPerimeterOutput: typeof import("./getNetworkSecurityPerimeter").getNetworkSecurityPerimeterOutput = null as any;
@@ -119,46 +29,6 @@ export { GetNspProfileArgs, GetNspProfileResult, GetNspProfileOutputArgs } from 
 export const getNspProfile: typeof import("./getNspProfile").getNspProfile = null as any;
 export const getNspProfileOutput: typeof import("./getNspProfile").getNspProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getNspProfile","getNspProfileOutput"], () => require("./getNspProfile"));
-
-export { GetOutboundEndpointArgs, GetOutboundEndpointResult, GetOutboundEndpointOutputArgs } from "./getOutboundEndpoint";
-export const getOutboundEndpoint: typeof import("./getOutboundEndpoint").getOutboundEndpoint = null as any;
-export const getOutboundEndpointOutput: typeof import("./getOutboundEndpoint").getOutboundEndpointOutput = null as any;
-utilities.lazyLoad(exports, ["getOutboundEndpoint","getOutboundEndpointOutput"], () => require("./getOutboundEndpoint"));
-
-export { GetPrivateResolverVirtualNetworkLinkArgs, GetPrivateResolverVirtualNetworkLinkResult, GetPrivateResolverVirtualNetworkLinkOutputArgs } from "./getPrivateResolverVirtualNetworkLink";
-export const getPrivateResolverVirtualNetworkLink: typeof import("./getPrivateResolverVirtualNetworkLink").getPrivateResolverVirtualNetworkLink = null as any;
-export const getPrivateResolverVirtualNetworkLinkOutput: typeof import("./getPrivateResolverVirtualNetworkLink").getPrivateResolverVirtualNetworkLinkOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateResolverVirtualNetworkLink","getPrivateResolverVirtualNetworkLinkOutput"], () => require("./getPrivateResolverVirtualNetworkLink"));
-
-export { GetRecordSetArgs, GetRecordSetResult, GetRecordSetOutputArgs } from "./getRecordSet";
-export const getRecordSet: typeof import("./getRecordSet").getRecordSet = null as any;
-export const getRecordSetOutput: typeof import("./getRecordSet").getRecordSetOutput = null as any;
-utilities.lazyLoad(exports, ["getRecordSet","getRecordSetOutput"], () => require("./getRecordSet"));
-
-export { GetZoneArgs, GetZoneResult, GetZoneOutputArgs } from "./getZone";
-export const getZone: typeof import("./getZone").getZone = null as any;
-export const getZoneOutput: typeof import("./getZone").getZoneOutput = null as any;
-utilities.lazyLoad(exports, ["getZone","getZoneOutput"], () => require("./getZone"));
-
-export { InboundEndpointArgs } from "./inboundEndpoint";
-export type InboundEndpoint = import("./inboundEndpoint").InboundEndpoint;
-export const InboundEndpoint: typeof import("./inboundEndpoint").InboundEndpoint = null as any;
-utilities.lazyLoad(exports, ["InboundEndpoint"], () => require("./inboundEndpoint"));
-
-export { ListDnsForwardingRulesetByVirtualNetworkArgs, ListDnsForwardingRulesetByVirtualNetworkResult, ListDnsForwardingRulesetByVirtualNetworkOutputArgs } from "./listDnsForwardingRulesetByVirtualNetwork";
-export const listDnsForwardingRulesetByVirtualNetwork: typeof import("./listDnsForwardingRulesetByVirtualNetwork").listDnsForwardingRulesetByVirtualNetwork = null as any;
-export const listDnsForwardingRulesetByVirtualNetworkOutput: typeof import("./listDnsForwardingRulesetByVirtualNetwork").listDnsForwardingRulesetByVirtualNetworkOutput = null as any;
-utilities.lazyLoad(exports, ["listDnsForwardingRulesetByVirtualNetwork","listDnsForwardingRulesetByVirtualNetworkOutput"], () => require("./listDnsForwardingRulesetByVirtualNetwork"));
-
-export { ListDnsResolverByVirtualNetworkArgs, ListDnsResolverByVirtualNetworkResult, ListDnsResolverByVirtualNetworkOutputArgs } from "./listDnsResolverByVirtualNetwork";
-export const listDnsResolverByVirtualNetwork: typeof import("./listDnsResolverByVirtualNetwork").listDnsResolverByVirtualNetwork = null as any;
-export const listDnsResolverByVirtualNetworkOutput: typeof import("./listDnsResolverByVirtualNetwork").listDnsResolverByVirtualNetworkOutput = null as any;
-utilities.lazyLoad(exports, ["listDnsResolverByVirtualNetwork","listDnsResolverByVirtualNetworkOutput"], () => require("./listDnsResolverByVirtualNetwork"));
-
-export { ListDnsResolverPolicyByVirtualNetworkArgs, ListDnsResolverPolicyByVirtualNetworkResult, ListDnsResolverPolicyByVirtualNetworkOutputArgs } from "./listDnsResolverPolicyByVirtualNetwork";
-export const listDnsResolverPolicyByVirtualNetwork: typeof import("./listDnsResolverPolicyByVirtualNetwork").listDnsResolverPolicyByVirtualNetwork = null as any;
-export const listDnsResolverPolicyByVirtualNetworkOutput: typeof import("./listDnsResolverPolicyByVirtualNetwork").listDnsResolverPolicyByVirtualNetworkOutput = null as any;
-utilities.lazyLoad(exports, ["listDnsResolverPolicyByVirtualNetwork","listDnsResolverPolicyByVirtualNetworkOutput"], () => require("./listDnsResolverPolicyByVirtualNetwork"));
 
 export { NetworkSecurityPerimeterArgs } from "./networkSecurityPerimeter";
 export type NetworkSecurityPerimeter = import("./networkSecurityPerimeter").NetworkSecurityPerimeter;
@@ -185,26 +55,6 @@ export type NspProfile = import("./nspProfile").NspProfile;
 export const NspProfile: typeof import("./nspProfile").NspProfile = null as any;
 utilities.lazyLoad(exports, ["NspProfile"], () => require("./nspProfile"));
 
-export { OutboundEndpointArgs } from "./outboundEndpoint";
-export type OutboundEndpoint = import("./outboundEndpoint").OutboundEndpoint;
-export const OutboundEndpoint: typeof import("./outboundEndpoint").OutboundEndpoint = null as any;
-utilities.lazyLoad(exports, ["OutboundEndpoint"], () => require("./outboundEndpoint"));
-
-export { PrivateResolverVirtualNetworkLinkArgs } from "./privateResolverVirtualNetworkLink";
-export type PrivateResolverVirtualNetworkLink = import("./privateResolverVirtualNetworkLink").PrivateResolverVirtualNetworkLink;
-export const PrivateResolverVirtualNetworkLink: typeof import("./privateResolverVirtualNetworkLink").PrivateResolverVirtualNetworkLink = null as any;
-utilities.lazyLoad(exports, ["PrivateResolverVirtualNetworkLink"], () => require("./privateResolverVirtualNetworkLink"));
-
-export { RecordSetArgs } from "./recordSet";
-export type RecordSet = import("./recordSet").RecordSet;
-export const RecordSet: typeof import("./recordSet").RecordSet = null as any;
-utilities.lazyLoad(exports, ["RecordSet"], () => require("./recordSet"));
-
-export { ZoneArgs } from "./zone";
-export type Zone = import("./zone").Zone;
-export const Zone: typeof import("./zone").Zone = null as any;
-utilities.lazyLoad(exports, ["Zone"], () => require("./zone"));
-
 
 // Export enums:
 export * from "../../types/enums/network/v20230701preview";
@@ -213,24 +63,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:network/v20230701preview:DnsForwardingRuleset":
-                return new DnsForwardingRuleset(name, <any>undefined, { urn })
-            case "azure-native:network/v20230701preview:DnsResolver":
-                return new DnsResolver(name, <any>undefined, { urn })
-            case "azure-native:network/v20230701preview:DnsResolverDomainList":
-                return new DnsResolverDomainList(name, <any>undefined, { urn })
-            case "azure-native:network/v20230701preview:DnsResolverPolicy":
-                return new DnsResolverPolicy(name, <any>undefined, { urn })
-            case "azure-native:network/v20230701preview:DnsResolverPolicyVirtualNetworkLink":
-                return new DnsResolverPolicyVirtualNetworkLink(name, <any>undefined, { urn })
-            case "azure-native:network/v20230701preview:DnsSecurityRule":
-                return new DnsSecurityRule(name, <any>undefined, { urn })
-            case "azure-native:network/v20230701preview:DnssecConfig":
-                return new DnssecConfig(name, <any>undefined, { urn })
-            case "azure-native:network/v20230701preview:ForwardingRule":
-                return new ForwardingRule(name, <any>undefined, { urn })
-            case "azure-native:network/v20230701preview:InboundEndpoint":
-                return new InboundEndpoint(name, <any>undefined, { urn })
             case "azure-native:network/v20230701preview:NetworkSecurityPerimeter":
                 return new NetworkSecurityPerimeter(name, <any>undefined, { urn })
             case "azure-native:network/v20230701preview:NspAccessRule":
@@ -241,14 +73,6 @@ const _module = {
                 return new NspLink(name, <any>undefined, { urn })
             case "azure-native:network/v20230701preview:NspProfile":
                 return new NspProfile(name, <any>undefined, { urn })
-            case "azure-native:network/v20230701preview:OutboundEndpoint":
-                return new OutboundEndpoint(name, <any>undefined, { urn })
-            case "azure-native:network/v20230701preview:PrivateResolverVirtualNetworkLink":
-                return new PrivateResolverVirtualNetworkLink(name, <any>undefined, { urn })
-            case "azure-native:network/v20230701preview:RecordSet":
-                return new RecordSet(name, <any>undefined, { urn })
-            case "azure-native:network/v20230701preview:Zone":
-                return new Zone(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

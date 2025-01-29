@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-01-01-preview.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
  *
- * Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+ * Other available API versions: 2019-01-01-preview, 2021-09-01-preview, 2021-10-01, 2021-10-01-preview, 2022-01-01-preview, 2022-04-01-preview, 2022-05-01-preview, 2022-06-01-preview, 2022-07-01-preview, 2022-08-01, 2022-08-01-preview, 2022-09-01-preview, 2022-10-01-preview, 2022-11-01, 2022-11-01-preview, 2022-12-01-preview, 2023-02-01, 2023-02-01-preview, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview.
  */
 export class AutomationRule extends pulumi.CustomResource {
     /**
@@ -42,7 +42,7 @@ export class AutomationRule extends pulumi.CustomResource {
     /**
      * The actions to execute when the automation rule is triggered.
      */
-    public readonly actions!: pulumi.Output<(outputs.securityinsights.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.AutomationRuleRunPlaybookActionResponse)[]>;
+    public readonly actions!: pulumi.Output<(outputs.securityinsights.AutomationRuleAddIncidentTaskActionResponse | outputs.securityinsights.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.AutomationRuleRunPlaybookActionResponse)[]>;
     /**
      * Information on the client (user or application) that made some action
      */
@@ -160,7 +160,7 @@ export interface AutomationRuleArgs {
     /**
      * The actions to execute when the automation rule is triggered.
      */
-    actions: pulumi.Input<pulumi.Input<inputs.securityinsights.AutomationRuleModifyPropertiesActionArgs | inputs.securityinsights.AutomationRuleRunPlaybookActionArgs>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.securityinsights.AutomationRuleAddIncidentTaskActionArgs | inputs.securityinsights.AutomationRuleModifyPropertiesActionArgs | inputs.securityinsights.AutomationRuleRunPlaybookActionArgs>[]>;
     /**
      * Automation rule ID
      */

@@ -16,19 +16,1431 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AKSPropertiesArgs',
+    'AKSPropertiesArgsDict',
+    'AKSArgs',
+    'AKSArgsDict',
+    'AksNetworkingConfigurationArgs',
+    'AksNetworkingConfigurationArgsDict',
+    'AmlComputePropertiesArgs',
+    'AmlComputePropertiesArgsDict',
+    'AmlComputeArgs',
+    'AmlComputeArgsDict',
+    'AssignedUserArgs',
+    'AssignedUserArgsDict',
+    'ComputeInstancePropertiesArgs',
+    'ComputeInstancePropertiesArgsDict',
+    'ComputeInstanceSshSettingsArgs',
+    'ComputeInstanceSshSettingsArgsDict',
+    'ComputeInstanceArgs',
+    'ComputeInstanceArgsDict',
+    'DataFactoryArgs',
+    'DataFactoryArgsDict',
+    'DataLakeAnalyticsPropertiesArgs',
+    'DataLakeAnalyticsPropertiesArgsDict',
+    'DataLakeAnalyticsArgs',
+    'DataLakeAnalyticsArgsDict',
+    'DatabricksPropertiesArgs',
+    'DatabricksPropertiesArgsDict',
+    'DatabricksArgs',
+    'DatabricksArgsDict',
     'EncryptionPropertyArgs',
     'EncryptionPropertyArgsDict',
+    'HDInsightPropertiesArgs',
+    'HDInsightPropertiesArgsDict',
+    'HDInsightArgs',
+    'HDInsightArgsDict',
     'IdentityArgs',
     'IdentityArgsDict',
     'KeyVaultPropertiesArgs',
     'KeyVaultPropertiesArgsDict',
+    'PersonalComputeInstanceSettingsArgs',
+    'PersonalComputeInstanceSettingsArgsDict',
+    'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
+    'ResourceIdArgs',
+    'ResourceIdArgsDict',
+    'ScaleSettingsArgs',
+    'ScaleSettingsArgsDict',
     'SharedPrivateLinkResourceArgs',
     'SharedPrivateLinkResourceArgsDict',
     'SkuArgs',
     'SkuArgsDict',
+    'SslConfigurationArgs',
+    'SslConfigurationArgsDict',
+    'UserAccountCredentialsArgs',
+    'UserAccountCredentialsArgsDict',
+    'VirtualMachinePropertiesArgs',
+    'VirtualMachinePropertiesArgsDict',
+    'VirtualMachineSshCredentialsArgs',
+    'VirtualMachineSshCredentialsArgsDict',
+    'VirtualMachineArgs',
+    'VirtualMachineArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AKSPropertiesArgsDict(TypedDict):
+        """
+        AKS properties
+        """
+        agent_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of agents
+        """
+        agent_vm_size: NotRequired[pulumi.Input[str]]
+        """
+        Agent virtual machine size
+        """
+        aks_networking_configuration: NotRequired[pulumi.Input['AksNetworkingConfigurationArgsDict']]
+        """
+        AKS networking configuration for vnet
+        """
+        cluster_fqdn: NotRequired[pulumi.Input[str]]
+        """
+        Cluster full qualified domain name
+        """
+        ssl_configuration: NotRequired[pulumi.Input['SslConfigurationArgsDict']]
+        """
+        SSL configuration
+        """
+elif False:
+    AKSPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AKSPropertiesArgs:
+    def __init__(__self__, *,
+                 agent_count: Optional[pulumi.Input[int]] = None,
+                 agent_vm_size: Optional[pulumi.Input[str]] = None,
+                 aks_networking_configuration: Optional[pulumi.Input['AksNetworkingConfigurationArgs']] = None,
+                 cluster_fqdn: Optional[pulumi.Input[str]] = None,
+                 ssl_configuration: Optional[pulumi.Input['SslConfigurationArgs']] = None):
+        """
+        AKS properties
+        :param pulumi.Input[int] agent_count: Number of agents
+        :param pulumi.Input[str] agent_vm_size: Agent virtual machine size
+        :param pulumi.Input['AksNetworkingConfigurationArgs'] aks_networking_configuration: AKS networking configuration for vnet
+        :param pulumi.Input[str] cluster_fqdn: Cluster full qualified domain name
+        :param pulumi.Input['SslConfigurationArgs'] ssl_configuration: SSL configuration
+        """
+        if agent_count is not None:
+            pulumi.set(__self__, "agent_count", agent_count)
+        if agent_vm_size is not None:
+            pulumi.set(__self__, "agent_vm_size", agent_vm_size)
+        if aks_networking_configuration is not None:
+            pulumi.set(__self__, "aks_networking_configuration", aks_networking_configuration)
+        if cluster_fqdn is not None:
+            pulumi.set(__self__, "cluster_fqdn", cluster_fqdn)
+        if ssl_configuration is not None:
+            pulumi.set(__self__, "ssl_configuration", ssl_configuration)
+
+    @property
+    @pulumi.getter(name="agentCount")
+    def agent_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of agents
+        """
+        return pulumi.get(self, "agent_count")
+
+    @agent_count.setter
+    def agent_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "agent_count", value)
+
+    @property
+    @pulumi.getter(name="agentVmSize")
+    def agent_vm_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Agent virtual machine size
+        """
+        return pulumi.get(self, "agent_vm_size")
+
+    @agent_vm_size.setter
+    def agent_vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_vm_size", value)
+
+    @property
+    @pulumi.getter(name="aksNetworkingConfiguration")
+    def aks_networking_configuration(self) -> Optional[pulumi.Input['AksNetworkingConfigurationArgs']]:
+        """
+        AKS networking configuration for vnet
+        """
+        return pulumi.get(self, "aks_networking_configuration")
+
+    @aks_networking_configuration.setter
+    def aks_networking_configuration(self, value: Optional[pulumi.Input['AksNetworkingConfigurationArgs']]):
+        pulumi.set(self, "aks_networking_configuration", value)
+
+    @property
+    @pulumi.getter(name="clusterFqdn")
+    def cluster_fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cluster full qualified domain name
+        """
+        return pulumi.get(self, "cluster_fqdn")
+
+    @cluster_fqdn.setter
+    def cluster_fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_fqdn", value)
+
+    @property
+    @pulumi.getter(name="sslConfiguration")
+    def ssl_configuration(self) -> Optional[pulumi.Input['SslConfigurationArgs']]:
+        """
+        SSL configuration
+        """
+        return pulumi.get(self, "ssl_configuration")
+
+    @ssl_configuration.setter
+    def ssl_configuration(self, value: Optional[pulumi.Input['SslConfigurationArgs']]):
+        pulumi.set(self, "ssl_configuration", value)
+
+
+if not MYPY:
+    class AKSArgsDict(TypedDict):
+        """
+        A Machine Learning compute based on AKS.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'AKS'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        properties: NotRequired[pulumi.Input['AKSPropertiesArgsDict']]
+        """
+        AKS properties
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    AKSArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AKSArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['AKSPropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A Machine Learning compute based on AKS.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'AKS'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input['AKSPropertiesArgs'] properties: AKS properties
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'AKS')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'AKS'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['AKSPropertiesArgs']]:
+        """
+        AKS properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['AKSPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class AksNetworkingConfigurationArgsDict(TypedDict):
+        """
+        Advance configuration for AKS networking
+        """
+        dns_service_ip: NotRequired[pulumi.Input[str]]
+        """
+        An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+        """
+        docker_bridge_cidr: NotRequired[pulumi.Input[str]]
+        """
+        A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+        """
+        service_cidr: NotRequired[pulumi.Input[str]]
+        """
+        A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        Virtual network subnet resource ID the compute nodes belong to
+        """
+elif False:
+    AksNetworkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AksNetworkingConfigurationArgs:
+    def __init__(__self__, *,
+                 dns_service_ip: Optional[pulumi.Input[str]] = None,
+                 docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
+                 service_cidr: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Advance configuration for AKS networking
+        :param pulumi.Input[str] dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+        :param pulumi.Input[str] docker_bridge_cidr: A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+        :param pulumi.Input[str] service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+        :param pulumi.Input[str] subnet_id: Virtual network subnet resource ID the compute nodes belong to
+        """
+        if dns_service_ip is not None:
+            pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+        if docker_bridge_cidr is not None:
+            pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+        if service_cidr is not None:
+            pulumi.set(__self__, "service_cidr", service_cidr)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="dnsServiceIP")
+    def dns_service_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+        """
+        return pulumi.get(self, "dns_service_ip")
+
+    @dns_service_ip.setter
+    def dns_service_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_service_ip", value)
+
+    @property
+    @pulumi.getter(name="dockerBridgeCidr")
+    def docker_bridge_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+        """
+        return pulumi.get(self, "docker_bridge_cidr")
+
+    @docker_bridge_cidr.setter
+    def docker_bridge_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_bridge_cidr", value)
+
+    @property
+    @pulumi.getter(name="serviceCidr")
+    def service_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+        """
+        return pulumi.get(self, "service_cidr")
+
+    @service_cidr.setter
+    def service_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_cidr", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Virtual network subnet resource ID the compute nodes belong to
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
+if not MYPY:
+    class AmlComputePropertiesArgsDict(TypedDict):
+        """
+        AML Compute properties
+        """
+        os_type: NotRequired[pulumi.Input[Union[str, 'OsType']]]
+        """
+        Compute OS Type
+        """
+        remote_login_port_public_access: NotRequired[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]]
+        """
+        State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
+        """
+        scale_settings: NotRequired[pulumi.Input['ScaleSettingsArgsDict']]
+        """
+        Scale settings for AML Compute
+        """
+        subnet: NotRequired[pulumi.Input['ResourceIdArgsDict']]
+        """
+        Virtual network subnet resource ID the compute nodes belong to.
+        """
+        user_account_credentials: NotRequired[pulumi.Input['UserAccountCredentialsArgsDict']]
+        """
+        Credentials for an administrator user account that will be created on each compute node.
+        """
+        vm_priority: NotRequired[pulumi.Input[Union[str, 'VmPriority']]]
+        """
+        Virtual Machine priority
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Machine Size
+        """
+elif False:
+    AmlComputePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AmlComputePropertiesArgs:
+    def __init__(__self__, *,
+                 os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
+                 remote_login_port_public_access: Optional[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]] = None,
+                 scale_settings: Optional[pulumi.Input['ScaleSettingsArgs']] = None,
+                 subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
+                 user_account_credentials: Optional[pulumi.Input['UserAccountCredentialsArgs']] = None,
+                 vm_priority: Optional[pulumi.Input[Union[str, 'VmPriority']]] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None):
+        """
+        AML Compute properties
+        :param pulumi.Input[Union[str, 'OsType']] os_type: Compute OS Type
+        :param pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']] remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
+        :param pulumi.Input['ScaleSettingsArgs'] scale_settings: Scale settings for AML Compute
+        :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
+        :param pulumi.Input['UserAccountCredentialsArgs'] user_account_credentials: Credentials for an administrator user account that will be created on each compute node.
+        :param pulumi.Input[Union[str, 'VmPriority']] vm_priority: Virtual Machine priority
+        :param pulumi.Input[str] vm_size: Virtual Machine Size
+        """
+        if os_type is None:
+            os_type = 'Linux'
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if remote_login_port_public_access is None:
+            remote_login_port_public_access = 'NotSpecified'
+        if remote_login_port_public_access is not None:
+            pulumi.set(__self__, "remote_login_port_public_access", remote_login_port_public_access)
+        if scale_settings is not None:
+            pulumi.set(__self__, "scale_settings", scale_settings)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if user_account_credentials is not None:
+            pulumi.set(__self__, "user_account_credentials", user_account_credentials)
+        if vm_priority is not None:
+            pulumi.set(__self__, "vm_priority", vm_priority)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OsType']]]:
+        """
+        Compute OS Type
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OsType']]]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="remoteLoginPortPublicAccess")
+    def remote_login_port_public_access(self) -> Optional[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]]:
+        """
+        State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
+        """
+        return pulumi.get(self, "remote_login_port_public_access")
+
+    @remote_login_port_public_access.setter
+    def remote_login_port_public_access(self, value: Optional[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]]):
+        pulumi.set(self, "remote_login_port_public_access", value)
+
+    @property
+    @pulumi.getter(name="scaleSettings")
+    def scale_settings(self) -> Optional[pulumi.Input['ScaleSettingsArgs']]:
+        """
+        Scale settings for AML Compute
+        """
+        return pulumi.get(self, "scale_settings")
+
+    @scale_settings.setter
+    def scale_settings(self, value: Optional[pulumi.Input['ScaleSettingsArgs']]):
+        pulumi.set(self, "scale_settings", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['ResourceIdArgs']]:
+        """
+        Virtual network subnet resource ID the compute nodes belong to.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['ResourceIdArgs']]):
+        pulumi.set(self, "subnet", value)
+
+    @property
+    @pulumi.getter(name="userAccountCredentials")
+    def user_account_credentials(self) -> Optional[pulumi.Input['UserAccountCredentialsArgs']]:
+        """
+        Credentials for an administrator user account that will be created on each compute node.
+        """
+        return pulumi.get(self, "user_account_credentials")
+
+    @user_account_credentials.setter
+    def user_account_credentials(self, value: Optional[pulumi.Input['UserAccountCredentialsArgs']]):
+        pulumi.set(self, "user_account_credentials", value)
+
+    @property
+    @pulumi.getter(name="vmPriority")
+    def vm_priority(self) -> Optional[pulumi.Input[Union[str, 'VmPriority']]]:
+        """
+        Virtual Machine priority
+        """
+        return pulumi.get(self, "vm_priority")
+
+    @vm_priority.setter
+    def vm_priority(self, value: Optional[pulumi.Input[Union[str, 'VmPriority']]]):
+        pulumi.set(self, "vm_priority", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Virtual Machine Size
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_size", value)
+
+
+if not MYPY:
+    class AmlComputeArgsDict(TypedDict):
+        """
+        An Azure Machine Learning compute.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'AmlCompute'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        properties: NotRequired[pulumi.Input['AmlComputePropertiesArgsDict']]
+        """
+        AML Compute properties
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    AmlComputeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AmlComputeArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['AmlComputePropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        An Azure Machine Learning compute.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'AmlCompute'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input['AmlComputePropertiesArgs'] properties: AML Compute properties
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'AmlCompute')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'AmlCompute'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['AmlComputePropertiesArgs']]:
+        """
+        AML Compute properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['AmlComputePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class AssignedUserArgsDict(TypedDict):
+        """
+        A user that can be assigned to a compute instance.
+        """
+        object_id: pulumi.Input[str]
+        """
+        User’s AAD Object Id.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        User’s AAD Tenant Id.
+        """
+elif False:
+    AssignedUserArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AssignedUserArgs:
+    def __init__(__self__, *,
+                 object_id: pulumi.Input[str],
+                 tenant_id: pulumi.Input[str]):
+        """
+        A user that can be assigned to a compute instance.
+        :param pulumi.Input[str] object_id: User’s AAD Object Id.
+        :param pulumi.Input[str] tenant_id: User’s AAD Tenant Id.
+        """
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Input[str]:
+        """
+        User’s AAD Object Id.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[str]:
+        """
+        User’s AAD Tenant Id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class ComputeInstancePropertiesArgsDict(TypedDict):
+        """
+        Compute Instance properties
+        """
+        application_sharing_policy: NotRequired[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]]
+        """
+        Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+        """
+        compute_instance_authorization_type: NotRequired[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]]
+        """
+        The Compute Instance Authorization type. Available values are personal (default).
+        """
+        personal_compute_instance_settings: NotRequired[pulumi.Input['PersonalComputeInstanceSettingsArgsDict']]
+        """
+        Settings for a personal compute instance.
+        """
+        ssh_settings: NotRequired[pulumi.Input['ComputeInstanceSshSettingsArgsDict']]
+        """
+        Specifies policy and settings for SSH access.
+        """
+        subnet: NotRequired[pulumi.Input['ResourceIdArgsDict']]
+        """
+        Virtual network subnet resource ID the compute nodes belong to.
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Machine Size
+        """
+elif False:
+    ComputeInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ComputeInstancePropertiesArgs:
+    def __init__(__self__, *,
+                 application_sharing_policy: Optional[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]] = None,
+                 compute_instance_authorization_type: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]] = None,
+                 personal_compute_instance_settings: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']] = None,
+                 ssh_settings: Optional[pulumi.Input['ComputeInstanceSshSettingsArgs']] = None,
+                 subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None):
+        """
+        Compute Instance properties
+        :param pulumi.Input[Union[str, 'ApplicationSharingPolicy']] application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+        :param pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']] compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
+        :param pulumi.Input['PersonalComputeInstanceSettingsArgs'] personal_compute_instance_settings: Settings for a personal compute instance.
+        :param pulumi.Input['ComputeInstanceSshSettingsArgs'] ssh_settings: Specifies policy and settings for SSH access.
+        :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
+        :param pulumi.Input[str] vm_size: Virtual Machine Size
+        """
+        if application_sharing_policy is None:
+            application_sharing_policy = 'Shared'
+        if application_sharing_policy is not None:
+            pulumi.set(__self__, "application_sharing_policy", application_sharing_policy)
+        if compute_instance_authorization_type is None:
+            compute_instance_authorization_type = 'personal'
+        if compute_instance_authorization_type is not None:
+            pulumi.set(__self__, "compute_instance_authorization_type", compute_instance_authorization_type)
+        if personal_compute_instance_settings is not None:
+            pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
+        if ssh_settings is not None:
+            pulumi.set(__self__, "ssh_settings", ssh_settings)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter(name="applicationSharingPolicy")
+    def application_sharing_policy(self) -> Optional[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]]:
+        """
+        Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+        """
+        return pulumi.get(self, "application_sharing_policy")
+
+    @application_sharing_policy.setter
+    def application_sharing_policy(self, value: Optional[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]]):
+        pulumi.set(self, "application_sharing_policy", value)
+
+    @property
+    @pulumi.getter(name="computeInstanceAuthorizationType")
+    def compute_instance_authorization_type(self) -> Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]]:
+        """
+        The Compute Instance Authorization type. Available values are personal (default).
+        """
+        return pulumi.get(self, "compute_instance_authorization_type")
+
+    @compute_instance_authorization_type.setter
+    def compute_instance_authorization_type(self, value: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]]):
+        pulumi.set(self, "compute_instance_authorization_type", value)
+
+    @property
+    @pulumi.getter(name="personalComputeInstanceSettings")
+    def personal_compute_instance_settings(self) -> Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']]:
+        """
+        Settings for a personal compute instance.
+        """
+        return pulumi.get(self, "personal_compute_instance_settings")
+
+    @personal_compute_instance_settings.setter
+    def personal_compute_instance_settings(self, value: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']]):
+        pulumi.set(self, "personal_compute_instance_settings", value)
+
+    @property
+    @pulumi.getter(name="sshSettings")
+    def ssh_settings(self) -> Optional[pulumi.Input['ComputeInstanceSshSettingsArgs']]:
+        """
+        Specifies policy and settings for SSH access.
+        """
+        return pulumi.get(self, "ssh_settings")
+
+    @ssh_settings.setter
+    def ssh_settings(self, value: Optional[pulumi.Input['ComputeInstanceSshSettingsArgs']]):
+        pulumi.set(self, "ssh_settings", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['ResourceIdArgs']]:
+        """
+        Virtual network subnet resource ID the compute nodes belong to.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['ResourceIdArgs']]):
+        pulumi.set(self, "subnet", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Virtual Machine Size
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_size", value)
+
+
+if not MYPY:
+    class ComputeInstanceSshSettingsArgsDict(TypedDict):
+        """
+        Specifies policy and settings for SSH access.
+        """
+        admin_public_key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+        """
+        ssh_public_access: NotRequired[pulumi.Input[Union[str, 'SshPublicAccess']]]
+        """
+        State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+        """
+elif False:
+    ComputeInstanceSshSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ComputeInstanceSshSettingsArgs:
+    def __init__(__self__, *,
+                 admin_public_key: Optional[pulumi.Input[str]] = None,
+                 ssh_public_access: Optional[pulumi.Input[Union[str, 'SshPublicAccess']]] = None):
+        """
+        Specifies policy and settings for SSH access.
+        :param pulumi.Input[str] admin_public_key: Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+        :param pulumi.Input[Union[str, 'SshPublicAccess']] ssh_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+        """
+        if admin_public_key is not None:
+            pulumi.set(__self__, "admin_public_key", admin_public_key)
+        if ssh_public_access is None:
+            ssh_public_access = 'Disabled'
+        if ssh_public_access is not None:
+            pulumi.set(__self__, "ssh_public_access", ssh_public_access)
+
+    @property
+    @pulumi.getter(name="adminPublicKey")
+    def admin_public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+        """
+        return pulumi.get(self, "admin_public_key")
+
+    @admin_public_key.setter
+    def admin_public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_public_key", value)
+
+    @property
+    @pulumi.getter(name="sshPublicAccess")
+    def ssh_public_access(self) -> Optional[pulumi.Input[Union[str, 'SshPublicAccess']]]:
+        """
+        State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+        """
+        return pulumi.get(self, "ssh_public_access")
+
+    @ssh_public_access.setter
+    def ssh_public_access(self, value: Optional[pulumi.Input[Union[str, 'SshPublicAccess']]]):
+        pulumi.set(self, "ssh_public_access", value)
+
+
+if not MYPY:
+    class ComputeInstanceArgsDict(TypedDict):
+        """
+        An Azure Machine Learning compute instance.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'ComputeInstance'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        properties: NotRequired[pulumi.Input['ComputeInstancePropertiesArgsDict']]
+        """
+        Compute Instance properties
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    ComputeInstanceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ComputeInstanceArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['ComputeInstancePropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        An Azure Machine Learning compute instance.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'ComputeInstance'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input['ComputeInstancePropertiesArgs'] properties: Compute Instance properties
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'ComputeInstance')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'ComputeInstance'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['ComputeInstancePropertiesArgs']]:
+        """
+        Compute Instance properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ComputeInstancePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class DataFactoryArgsDict(TypedDict):
+        """
+        A DataFactory compute.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'DataFactory'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    DataFactoryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataFactoryArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A DataFactory compute.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'DataFactory'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'DataFactory')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'DataFactory'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class DataLakeAnalyticsPropertiesArgsDict(TypedDict):
+        data_lake_store_account_name: NotRequired[pulumi.Input[str]]
+        """
+        DataLake Store Account Name
+        """
+elif False:
+    DataLakeAnalyticsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataLakeAnalyticsPropertiesArgs:
+    def __init__(__self__, *,
+                 data_lake_store_account_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] data_lake_store_account_name: DataLake Store Account Name
+        """
+        if data_lake_store_account_name is not None:
+            pulumi.set(__self__, "data_lake_store_account_name", data_lake_store_account_name)
+
+    @property
+    @pulumi.getter(name="dataLakeStoreAccountName")
+    def data_lake_store_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        DataLake Store Account Name
+        """
+        return pulumi.get(self, "data_lake_store_account_name")
+
+    @data_lake_store_account_name.setter
+    def data_lake_store_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_lake_store_account_name", value)
+
+
+if not MYPY:
+    class DataLakeAnalyticsArgsDict(TypedDict):
+        """
+        A DataLakeAnalytics compute.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'DataLakeAnalytics'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        properties: NotRequired[pulumi.Input['DataLakeAnalyticsPropertiesArgsDict']]
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    DataLakeAnalyticsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataLakeAnalyticsArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['DataLakeAnalyticsPropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A DataLakeAnalytics compute.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'DataLakeAnalytics'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'DataLakeAnalytics')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'DataLakeAnalytics'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['DataLakeAnalyticsPropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['DataLakeAnalyticsPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class DatabricksPropertiesArgsDict(TypedDict):
+        databricks_access_token: NotRequired[pulumi.Input[str]]
+        """
+        Databricks access token
+        """
+elif False:
+    DatabricksPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DatabricksPropertiesArgs:
+    def __init__(__self__, *,
+                 databricks_access_token: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] databricks_access_token: Databricks access token
+        """
+        if databricks_access_token is not None:
+            pulumi.set(__self__, "databricks_access_token", databricks_access_token)
+
+    @property
+    @pulumi.getter(name="databricksAccessToken")
+    def databricks_access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Databricks access token
+        """
+        return pulumi.get(self, "databricks_access_token")
+
+    @databricks_access_token.setter
+    def databricks_access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "databricks_access_token", value)
+
+
+if not MYPY:
+    class DatabricksArgsDict(TypedDict):
+        """
+        A DataFactory compute.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'Databricks'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        properties: NotRequired[pulumi.Input['DatabricksPropertiesArgsDict']]
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    DatabricksArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DatabricksArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['DatabricksPropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A DataFactory compute.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'Databricks'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'Databricks')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'Databricks'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['DatabricksPropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['DatabricksPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
 
 if not MYPY:
     class EncryptionPropertyArgsDict(TypedDict):
@@ -78,6 +1490,189 @@ class EncryptionPropertyArgs:
     @status.setter
     def status(self, value: pulumi.Input[Union[str, 'EncryptionStatus']]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class HDInsightPropertiesArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        """
+        Public IP address of the master node of the cluster.
+        """
+        administrator_account: NotRequired[pulumi.Input['VirtualMachineSshCredentialsArgsDict']]
+        """
+        Admin credentials for master node of the cluster
+        """
+        ssh_port: NotRequired[pulumi.Input[int]]
+        """
+        Port open for ssh connections on the master node of the cluster.
+        """
+elif False:
+    HDInsightPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HDInsightPropertiesArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None,
+                 administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
+                 ssh_port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] address: Public IP address of the master node of the cluster.
+        :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for master node of the cluster
+        :param pulumi.Input[int] ssh_port: Port open for ssh connections on the master node of the cluster.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if administrator_account is not None:
+            pulumi.set(__self__, "administrator_account", administrator_account)
+        if ssh_port is not None:
+            pulumi.set(__self__, "ssh_port", ssh_port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public IP address of the master node of the cluster.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter(name="administratorAccount")
+    def administrator_account(self) -> Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]:
+        """
+        Admin credentials for master node of the cluster
+        """
+        return pulumi.get(self, "administrator_account")
+
+    @administrator_account.setter
+    def administrator_account(self, value: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]):
+        pulumi.set(self, "administrator_account", value)
+
+    @property
+    @pulumi.getter(name="sshPort")
+    def ssh_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port open for ssh connections on the master node of the cluster.
+        """
+        return pulumi.get(self, "ssh_port")
+
+    @ssh_port.setter
+    def ssh_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ssh_port", value)
+
+
+if not MYPY:
+    class HDInsightArgsDict(TypedDict):
+        """
+        A HDInsight compute.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'HDInsight'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        properties: NotRequired[pulumi.Input['HDInsightPropertiesArgsDict']]
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    HDInsightArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HDInsightArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['HDInsightPropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A HDInsight compute.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'HDInsight'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'HDInsight')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'HDInsight'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['HDInsightPropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['HDInsightPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 if not MYPY:
@@ -203,6 +1798,230 @@ class KeyVaultPropertiesArgs:
     @identity_client_id.setter
     def identity_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identity_client_id", value)
+
+
+if not MYPY:
+    class PersonalComputeInstanceSettingsArgsDict(TypedDict):
+        """
+        Settings for a personal compute instance.
+        """
+        assigned_user: NotRequired[pulumi.Input['AssignedUserArgsDict']]
+        """
+        A user explicitly assigned to a personal compute instance.
+        """
+elif False:
+    PersonalComputeInstanceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PersonalComputeInstanceSettingsArgs:
+    def __init__(__self__, *,
+                 assigned_user: Optional[pulumi.Input['AssignedUserArgs']] = None):
+        """
+        Settings for a personal compute instance.
+        :param pulumi.Input['AssignedUserArgs'] assigned_user: A user explicitly assigned to a personal compute instance.
+        """
+        if assigned_user is not None:
+            pulumi.set(__self__, "assigned_user", assigned_user)
+
+    @property
+    @pulumi.getter(name="assignedUser")
+    def assigned_user(self) -> Optional[pulumi.Input['AssignedUserArgs']]:
+        """
+        A user explicitly assigned to a personal compute instance.
+        """
+        return pulumi.get(self, "assigned_user")
+
+    @assigned_user.setter
+    def assigned_user(self, value: Optional[pulumi.Input['AssignedUserArgs']]):
+        pulumi.set(self, "assigned_user", value)
+
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class ResourceIdArgsDict(TypedDict):
+        """
+        Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        """
+        id: pulumi.Input[str]
+        """
+        The ID of the resource
+        """
+elif False:
+    ResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceIdArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        :param pulumi.Input[str] id: The ID of the resource
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the resource
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class ScaleSettingsArgsDict(TypedDict):
+        """
+        scale settings for AML Compute
+        """
+        max_node_count: pulumi.Input[int]
+        """
+        Max number of nodes to use
+        """
+        min_node_count: NotRequired[pulumi.Input[int]]
+        """
+        Min number of nodes to use
+        """
+        node_idle_time_before_scale_down: NotRequired[pulumi.Input[str]]
+        """
+        Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
+        """
+elif False:
+    ScaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScaleSettingsArgs:
+    def __init__(__self__, *,
+                 max_node_count: pulumi.Input[int],
+                 min_node_count: Optional[pulumi.Input[int]] = None,
+                 node_idle_time_before_scale_down: Optional[pulumi.Input[str]] = None):
+        """
+        scale settings for AML Compute
+        :param pulumi.Input[int] max_node_count: Max number of nodes to use
+        :param pulumi.Input[int] min_node_count: Min number of nodes to use
+        :param pulumi.Input[str] node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
+        """
+        pulumi.set(__self__, "max_node_count", max_node_count)
+        if min_node_count is None:
+            min_node_count = 0
+        if min_node_count is not None:
+            pulumi.set(__self__, "min_node_count", min_node_count)
+        if node_idle_time_before_scale_down is not None:
+            pulumi.set(__self__, "node_idle_time_before_scale_down", node_idle_time_before_scale_down)
+
+    @property
+    @pulumi.getter(name="maxNodeCount")
+    def max_node_count(self) -> pulumi.Input[int]:
+        """
+        Max number of nodes to use
+        """
+        return pulumi.get(self, "max_node_count")
+
+    @max_node_count.setter
+    def max_node_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_node_count", value)
+
+    @property
+    @pulumi.getter(name="minNodeCount")
+    def min_node_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Min number of nodes to use
+        """
+        return pulumi.get(self, "min_node_count")
+
+    @min_node_count.setter
+    def min_node_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_node_count", value)
+
+    @property
+    @pulumi.getter(name="nodeIdleTimeBeforeScaleDown")
+    def node_idle_time_before_scale_down(self) -> Optional[pulumi.Input[str]]:
+        """
+        Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
+        """
+        return pulumi.get(self, "node_idle_time_before_scale_down")
+
+    @node_idle_time_before_scale_down.setter
+    def node_idle_time_before_scale_down(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_idle_time_before_scale_down", value)
 
 
 if not MYPY:
@@ -371,5 +2190,475 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+
+if not MYPY:
+    class SslConfigurationArgsDict(TypedDict):
+        """
+        The ssl configuration for scoring
+        """
+        cert: NotRequired[pulumi.Input[str]]
+        """
+        Cert data
+        """
+        cname: NotRequired[pulumi.Input[str]]
+        """
+        CNAME of the cert
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        Key data
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Enable or disable ssl for scoring
+        """
+elif False:
+    SslConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SslConfigurationArgs:
+    def __init__(__self__, *,
+                 cert: Optional[pulumi.Input[str]] = None,
+                 cname: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        The ssl configuration for scoring
+        :param pulumi.Input[str] cert: Cert data
+        :param pulumi.Input[str] cname: CNAME of the cert
+        :param pulumi.Input[str] key: Key data
+        :param pulumi.Input[str] status: Enable or disable ssl for scoring
+        """
+        if cert is not None:
+            pulumi.set(__self__, "cert", cert)
+        if cname is not None:
+            pulumi.set(__self__, "cname", cname)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def cert(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cert data
+        """
+        return pulumi.get(self, "cert")
+
+    @cert.setter
+    def cert(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cert", value)
+
+    @property
+    @pulumi.getter
+    def cname(self) -> Optional[pulumi.Input[str]]:
+        """
+        CNAME of the cert
+        """
+        return pulumi.get(self, "cname")
+
+    @cname.setter
+    def cname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cname", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key data
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or disable ssl for scoring
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class UserAccountCredentialsArgsDict(TypedDict):
+        """
+        Settings for user account that gets created on each on the nodes of a compute.
+        """
+        admin_user_name: pulumi.Input[str]
+        """
+        Name of the administrator user account which can be used to SSH to nodes.
+        """
+        admin_user_password: NotRequired[pulumi.Input[str]]
+        """
+        Password of the administrator user account.
+        """
+        admin_user_ssh_public_key: NotRequired[pulumi.Input[str]]
+        """
+        SSH public key of the administrator user account.
+        """
+elif False:
+    UserAccountCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAccountCredentialsArgs:
+    def __init__(__self__, *,
+                 admin_user_name: pulumi.Input[str],
+                 admin_user_password: Optional[pulumi.Input[str]] = None,
+                 admin_user_ssh_public_key: Optional[pulumi.Input[str]] = None):
+        """
+        Settings for user account that gets created on each on the nodes of a compute.
+        :param pulumi.Input[str] admin_user_name: Name of the administrator user account which can be used to SSH to nodes.
+        :param pulumi.Input[str] admin_user_password: Password of the administrator user account.
+        :param pulumi.Input[str] admin_user_ssh_public_key: SSH public key of the administrator user account.
+        """
+        pulumi.set(__self__, "admin_user_name", admin_user_name)
+        if admin_user_password is not None:
+            pulumi.set(__self__, "admin_user_password", admin_user_password)
+        if admin_user_ssh_public_key is not None:
+            pulumi.set(__self__, "admin_user_ssh_public_key", admin_user_ssh_public_key)
+
+    @property
+    @pulumi.getter(name="adminUserName")
+    def admin_user_name(self) -> pulumi.Input[str]:
+        """
+        Name of the administrator user account which can be used to SSH to nodes.
+        """
+        return pulumi.get(self, "admin_user_name")
+
+    @admin_user_name.setter
+    def admin_user_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "admin_user_name", value)
+
+    @property
+    @pulumi.getter(name="adminUserPassword")
+    def admin_user_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password of the administrator user account.
+        """
+        return pulumi.get(self, "admin_user_password")
+
+    @admin_user_password.setter
+    def admin_user_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_user_password", value)
+
+    @property
+    @pulumi.getter(name="adminUserSshPublicKey")
+    def admin_user_ssh_public_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        SSH public key of the administrator user account.
+        """
+        return pulumi.get(self, "admin_user_ssh_public_key")
+
+    @admin_user_ssh_public_key.setter
+    def admin_user_ssh_public_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_user_ssh_public_key", value)
+
+
+if not MYPY:
+    class VirtualMachinePropertiesArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        """
+        Public IP address of the virtual machine.
+        """
+        administrator_account: NotRequired[pulumi.Input['VirtualMachineSshCredentialsArgsDict']]
+        """
+        Admin credentials for virtual machine
+        """
+        ssh_port: NotRequired[pulumi.Input[int]]
+        """
+        Port open for ssh connections.
+        """
+        virtual_machine_size: NotRequired[pulumi.Input[str]]
+        """
+        Virtual Machine size
+        """
+elif False:
+    VirtualMachinePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VirtualMachinePropertiesArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None,
+                 administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
+                 ssh_port: Optional[pulumi.Input[int]] = None,
+                 virtual_machine_size: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] address: Public IP address of the virtual machine.
+        :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for virtual machine
+        :param pulumi.Input[int] ssh_port: Port open for ssh connections.
+        :param pulumi.Input[str] virtual_machine_size: Virtual Machine size
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if administrator_account is not None:
+            pulumi.set(__self__, "administrator_account", administrator_account)
+        if ssh_port is not None:
+            pulumi.set(__self__, "ssh_port", ssh_port)
+        if virtual_machine_size is not None:
+            pulumi.set(__self__, "virtual_machine_size", virtual_machine_size)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public IP address of the virtual machine.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter(name="administratorAccount")
+    def administrator_account(self) -> Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]:
+        """
+        Admin credentials for virtual machine
+        """
+        return pulumi.get(self, "administrator_account")
+
+    @administrator_account.setter
+    def administrator_account(self, value: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]):
+        pulumi.set(self, "administrator_account", value)
+
+    @property
+    @pulumi.getter(name="sshPort")
+    def ssh_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port open for ssh connections.
+        """
+        return pulumi.get(self, "ssh_port")
+
+    @ssh_port.setter
+    def ssh_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ssh_port", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineSize")
+    def virtual_machine_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Virtual Machine size
+        """
+        return pulumi.get(self, "virtual_machine_size")
+
+    @virtual_machine_size.setter
+    def virtual_machine_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_size", value)
+
+
+if not MYPY:
+    class VirtualMachineSshCredentialsArgsDict(TypedDict):
+        """
+        Admin credentials for virtual machine
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password of admin account
+        """
+        private_key_data: NotRequired[pulumi.Input[str]]
+        """
+        Private key data
+        """
+        public_key_data: NotRequired[pulumi.Input[str]]
+        """
+        Public key data
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Username of admin account
+        """
+elif False:
+    VirtualMachineSshCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VirtualMachineSshCredentialsArgs:
+    def __init__(__self__, *,
+                 password: Optional[pulumi.Input[str]] = None,
+                 private_key_data: Optional[pulumi.Input[str]] = None,
+                 public_key_data: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Admin credentials for virtual machine
+        :param pulumi.Input[str] password: Password of admin account
+        :param pulumi.Input[str] private_key_data: Private key data
+        :param pulumi.Input[str] public_key_data: Public key data
+        :param pulumi.Input[str] username: Username of admin account
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if private_key_data is not None:
+            pulumi.set(__self__, "private_key_data", private_key_data)
+        if public_key_data is not None:
+            pulumi.set(__self__, "public_key_data", public_key_data)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password of admin account
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="privateKeyData")
+    def private_key_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private key data
+        """
+        return pulumi.get(self, "private_key_data")
+
+    @private_key_data.setter
+    def private_key_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_key_data", value)
+
+    @property
+    @pulumi.getter(name="publicKeyData")
+    def public_key_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public key data
+        """
+        return pulumi.get(self, "public_key_data")
+
+    @public_key_data.setter
+    def public_key_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_key_data", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username of admin account
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+if not MYPY:
+    class VirtualMachineArgsDict(TypedDict):
+        """
+        A Machine Learning compute based on Azure Virtual Machines.
+        """
+        compute_type: pulumi.Input[str]
+        """
+        The type of compute
+        Expected value is 'VirtualMachine'.
+        """
+        compute_location: NotRequired[pulumi.Input[str]]
+        """
+        Location for the underlying compute
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the Machine Learning compute.
+        """
+        properties: NotRequired[pulumi.Input['VirtualMachinePropertiesArgsDict']]
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        ARM resource id of the underlying compute
+        """
+elif False:
+    VirtualMachineArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VirtualMachineArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['VirtualMachinePropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A Machine Learning compute based on Azure Virtual Machines.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'VirtualMachine'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'VirtualMachine')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'VirtualMachine'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['VirtualMachinePropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['VirtualMachinePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 

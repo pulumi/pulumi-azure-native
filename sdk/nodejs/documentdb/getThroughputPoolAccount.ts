@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
- * Azure REST API version: 2023-11-15-preview.
+ * Azure REST API version: 2024-12-01-preview.
  *
- * Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
  */
 export function getThroughputPoolAccount(args: GetThroughputPoolAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetThroughputPoolAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,9 +76,9 @@ export interface GetThroughputPoolAccountResult {
 }
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
- * Azure REST API version: 2023-11-15-preview.
+ * Azure REST API version: 2024-12-01-preview.
  *
- * Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
  */
 export function getThroughputPoolAccountOutput(args: GetThroughputPoolAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThroughputPoolAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

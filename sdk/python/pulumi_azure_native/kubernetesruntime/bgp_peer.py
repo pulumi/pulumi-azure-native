@@ -114,7 +114,7 @@ class BgpPeer(pulumi.CustomResource):
                  __props__=None):
         """
         A BgpPeer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
-        Azure REST API version: 2024-03-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2024-03-01.
 
         Other available API versions: 2023-10-01-preview.
 
@@ -134,7 +134,7 @@ class BgpPeer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A BgpPeer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
-        Azure REST API version: 2024-03-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2024-03-01.
 
         Other available API versions: 2023-10-01-preview.
 

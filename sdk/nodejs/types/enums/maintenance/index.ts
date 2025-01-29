@@ -2,12 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20200401 from "./v20200401";
+import * as v20200701preview from "./v20200701preview";
+import * as v20210401preview from "./v20210401preview";
+import * as v20210501 from "./v20210501";
+import * as v20210901preview from "./v20210901preview";
+import * as v20220701preview from "./v20220701preview";
 import * as v20221101preview from "./v20221101preview";
 import * as v20230401 from "./v20230401";
 import * as v20230901preview from "./v20230901preview";
 import * as v20231001preview from "./v20231001preview";
 
 export {
+    v20200401,
+    v20200701preview,
+    v20210401preview,
+    v20210501,
+    v20210901preview,
+    v20220701preview,
     v20221101preview,
     v20230401,
     v20230901preview,
@@ -70,16 +82,6 @@ export const TagOperators = {
  * Filter VMs by Any or All specified tags.
  */
 export type TagOperators = (typeof TagOperators)[keyof typeof TagOperators];
-
-export const TaskScope = {
-    Global: "Global",
-    Resource: "Resource",
-} as const;
-
-/**
- * Global Task execute once when schedule trigger. Resource task execute for each VM.
- */
-export type TaskScope = (typeof TaskScope)[keyof typeof TaskScope];
 
 export const Visibility = {
     /**

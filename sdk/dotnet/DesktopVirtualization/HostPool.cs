@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a HostPool definition.
-    /// Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+    /// Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
     /// 
-    /// Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+    /// Other available API versions: 2021-01-14-preview, 2021-02-01-preview, 2021-03-09-preview, 2021-04-01-preview, 2021-07-12, 2021-09-03-preview, 2022-02-10-preview, 2022-04-01-preview, 2022-09-09, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:HostPool")]
     public partial class HostPool : global::Pulumi.CustomResource
@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Output("agentUpdate")]
         public Output<Outputs.AgentUpdatePropertiesResponse?> AgentUpdate { get; private set; } = null!;
+
+        /// <summary>
+        /// List of App Attach Package links.
+        /// </summary>
+        [Output("appAttachPackageReferences")]
+        public Output<ImmutableArray<string>> AppAttachPackageReferences { get; private set; } = null!;
 
         /// <summary>
         /// List of applicationGroup links.
@@ -70,7 +76,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -85,7 +91,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
@@ -125,6 +131,18 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Output("preferredAppGroupType")]
         public Output<string> PreferredAppGroupType { get; private set; } = null!;
+
+        /// <summary>
+        /// List of private endpoint connection associated with the specified resource
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The registration info of HostPool.
@@ -172,7 +190,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<bool?> StartVMOnConnect { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -315,7 +333,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Input<Inputs.ResourceModelWithAllowedPropertySetIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -358,6 +376,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Input("preferredAppGroupType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.PreferredAppGroupType> PreferredAppGroupType { get; set; } = null!;
+
+        /// <summary>
+        /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.DesktopVirtualization.HostpoolPublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The registration info of HostPool.

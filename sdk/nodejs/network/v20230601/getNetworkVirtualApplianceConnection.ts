@@ -39,18 +39,6 @@ export interface GetNetworkVirtualApplianceConnectionArgs {
  */
 export interface GetNetworkVirtualApplianceConnectionResult {
     /**
-     * Network Virtual Appliance ASN.
-     */
-    readonly asn?: number;
-    /**
-     * List of bgpPeerAddresses for the NVA instances
-     */
-    readonly bgpPeerAddress?: string[];
-    /**
-     * Enable internet security.
-     */
-    readonly enableInternetSecurity?: boolean;
-    /**
      * Resource ID.
      */
     readonly id?: string;
@@ -59,17 +47,9 @@ export interface GetNetworkVirtualApplianceConnectionResult {
      */
     readonly name?: string;
     /**
-     * The provisioning state of the NetworkVirtualApplianceConnection resource.
+     * Properties of the express route connection.
      */
-    readonly provisioningState: string;
-    /**
-     * The Routing Configuration indicating the associated and propagated route tables on this connection.
-     */
-    readonly routingConfiguration?: outputs.network.v20230601.RoutingConfigurationResponse;
-    /**
-     * Unique identifier for the connection.
-     */
-    readonly tunnelIdentifier?: number;
+    readonly properties: outputs.network.v20230601.NetworkVirtualApplianceConnectionPropertiesResponse;
 }
 /**
  * Retrieves the details of specified NVA connection.

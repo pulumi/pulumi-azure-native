@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['ManagedInstanceLongTermRetentionPolicyArgs', 'ManagedInstanceLongTermRetentionPolicy']
 
@@ -22,6 +23,7 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
                  database_name: pulumi.Input[str],
                  managed_instance_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 backup_storage_access_tier: Optional[pulumi.Input[Union[str, 'BackupStorageAccessTier']]] = None,
                  monthly_retention: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  week_of_year: Optional[pulumi.Input[int]] = None,
@@ -32,6 +34,7 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[Union[str, 'BackupStorageAccessTier']] backup_storage_access_tier: The BackupStorageAccessTier for the LTR backups
         :param pulumi.Input[str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format.
         :param pulumi.Input[str] policy_name: The policy name. Should always be Default.
         :param pulumi.Input[int] week_of_year: The week of year to take the yearly backup in an ISO 8601 format.
@@ -41,6 +44,8 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "managed_instance_name", managed_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if backup_storage_access_tier is not None:
+            pulumi.set(__self__, "backup_storage_access_tier", backup_storage_access_tier)
         if monthly_retention is not None:
             pulumi.set(__self__, "monthly_retention", monthly_retention)
         if policy_name is not None:
@@ -87,6 +92,18 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="backupStorageAccessTier")
+    def backup_storage_access_tier(self) -> Optional[pulumi.Input[Union[str, 'BackupStorageAccessTier']]]:
+        """
+        The BackupStorageAccessTier for the LTR backups
+        """
+        return pulumi.get(self, "backup_storage_access_tier")
+
+    @backup_storage_access_tier.setter
+    def backup_storage_access_tier(self, value: Optional[pulumi.Input[Union[str, 'BackupStorageAccessTier']]]):
+        pulumi.set(self, "backup_storage_access_tier", value)
 
     @property
     @pulumi.getter(name="monthlyRetention")
@@ -154,6 +171,7 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 backup_storage_access_tier: Optional[pulumi.Input[Union[str, 'BackupStorageAccessTier']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  monthly_retention: Optional[pulumi.Input[str]] = None,
@@ -165,12 +183,13 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         A long term retention policy.
-        Azure REST API version: 2022-11-01-preview.
+        Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2022-11-01-preview.
 
-        Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[str, 'BackupStorageAccessTier']] backup_storage_access_tier: The BackupStorageAccessTier for the LTR backups
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format.
@@ -188,9 +207,9 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A long term retention policy.
-        Azure REST API version: 2022-11-01-preview.
+        Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2022-11-01-preview.
 
-        Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceLongTermRetentionPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -207,6 +226,7 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 backup_storage_access_tier: Optional[pulumi.Input[Union[str, 'BackupStorageAccessTier']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  monthly_retention: Optional[pulumi.Input[str]] = None,
@@ -224,6 +244,7 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedInstanceLongTermRetentionPolicyArgs.__new__(ManagedInstanceLongTermRetentionPolicyArgs)
 
+            __props__.__dict__["backup_storage_access_tier"] = backup_storage_access_tier
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
@@ -264,6 +285,7 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
 
         __props__ = ManagedInstanceLongTermRetentionPolicyArgs.__new__(ManagedInstanceLongTermRetentionPolicyArgs)
 
+        __props__.__dict__["backup_storage_access_tier"] = None
         __props__.__dict__["monthly_retention"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
@@ -271,6 +293,14 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
         __props__.__dict__["weekly_retention"] = None
         __props__.__dict__["yearly_retention"] = None
         return ManagedInstanceLongTermRetentionPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="backupStorageAccessTier")
+    def backup_storage_access_tier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The BackupStorageAccessTier for the LTR backups
+        """
+        return pulumi.get(self, "backup_storage_access_tier")
 
     @property
     @pulumi.getter(name="monthlyRetention")

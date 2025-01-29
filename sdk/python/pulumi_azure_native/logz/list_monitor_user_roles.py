@@ -70,6 +70,8 @@ def list_monitor_user_roles(email_address: Optional[str] = None,
     Response for list of user's role for Logz.io account.
     Azure REST API version: 2022-01-01-preview.
 
+    Other available API versions: 2020-10-01, 2020-10-01-preview.
+
 
     :param str email_address: Email of the user used by Logz for contacting them if needed
     :param str monitor_name: Monitor resource name
@@ -92,6 +94,8 @@ def list_monitor_user_roles_output(email_address: Optional[pulumi.Input[Optional
     """
     Response for list of user's role for Logz.io account.
     Azure REST API version: 2022-01-01-preview.
+
+    Other available API versions: 2020-10-01, 2020-10-01-preview.
 
 
     :param str email_address: Email of the user used by Logz for contacting them if needed

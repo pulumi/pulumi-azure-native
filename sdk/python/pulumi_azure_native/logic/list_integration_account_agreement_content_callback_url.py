@@ -121,6 +121,8 @@ def list_integration_account_agreement_content_callback_url(agreement_name: Opti
     Get the content callback url.
     Azure REST API version: 2019-05-01.
 
+    Other available API versions: 2018-07-01-preview.
+
 
     :param str agreement_name: The integration account agreement name.
     :param str integration_account_name: The integration account name.
@@ -153,6 +155,8 @@ def list_integration_account_agreement_content_callback_url_output(agreement_nam
     """
     Get the content callback url.
     Azure REST API version: 2019-05-01.
+
+    Other available API versions: 2018-07-01-preview.
 
 
     :param str agreement_name: The integration account agreement name.

@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class FleetHubProfileResponse
     {
         /// <summary>
+        /// The agent profile for the Fleet hub.
+        /// </summary>
+        public readonly Outputs.AgentProfileResponse? AgentProfile;
+        /// <summary>
+        /// The access profile for the Fleet hub API server.
+        /// </summary>
+        public readonly Outputs.APIServerAccessProfileResponse? ApiServerAccessProfile;
+        /// <summary>
         /// DNS prefix used to create the FQDN for the Fleet hub.
         /// </summary>
         public readonly string? DnsPrefix;
@@ -28,18 +36,31 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// The Kubernetes version of the Fleet hub.
         /// </summary>
         public readonly string KubernetesVersion;
+        /// <summary>
+        /// The Azure Portal FQDN of the Fleet hub.
+        /// </summary>
+        public readonly string PortalFqdn;
 
         [OutputConstructor]
         private FleetHubProfileResponse(
+            Outputs.AgentProfileResponse? agentProfile,
+
+            Outputs.APIServerAccessProfileResponse? apiServerAccessProfile,
+
             string? dnsPrefix,
 
             string fqdn,
 
-            string kubernetesVersion)
+            string kubernetesVersion,
+
+            string portalFqdn)
         {
+            AgentProfile = agentProfile;
+            ApiServerAccessProfile = apiServerAccessProfile;
             DnsPrefix = dnsPrefix;
             Fqdn = fqdn;
             KubernetesVersion = kubernetesVersion;
+            PortalFqdn = portalFqdn;
         }
     }
 }

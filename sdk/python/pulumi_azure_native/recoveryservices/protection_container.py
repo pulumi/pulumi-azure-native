@@ -168,9 +168,9 @@ class ProtectionContainer(pulumi.CustomResource):
                  __props__=None):
         """
         Base class for container with backup items. Containers with specific workloads are derived from this class.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        Other available API versions: 2020-10-01, 2020-12-01, 2021-01-01, 2021-02-01, 2021-02-01-preview, 2021-02-10, 2021-03-01, 2021-04-01, 2021-06-01, 2021-07-01, 2021-08-01, 2021-10-01, 2021-12-01, 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-06-01-preview, 2022-09-01-preview, 2022-09-30-preview, 2022-10-01, 2023-01-01, 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,9 +191,9 @@ class ProtectionContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Base class for container with backup items. Containers with specific workloads are derived from this class.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        Other available API versions: 2020-10-01, 2020-12-01, 2021-01-01, 2021-02-01, 2021-02-01-preview, 2021-02-10, 2021-03-01, 2021-04-01, 2021-06-01, 2021-07-01, 2021-08-01, 2021-10-01, 2021-12-01, 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-06-01-preview, 2022-09-01-preview, 2022-09-30-preview, 2022-10-01, 2023-01-01, 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview.
 
         :param str resource_name: The name of the resource.
         :param ProtectionContainerArgs args: The arguments to use to populate this resource's properties.

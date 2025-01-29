@@ -109,6 +109,7 @@ export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
 
 export const ClusterUpdateStrategyType = {
     Rack: "Rack",
+    PauseAfterRack: "PauseAfterRack",
 } as const;
 
 /**
@@ -211,6 +212,28 @@ export const L3NetworkConfigurationIpamEnabled = {
  * The indication of whether this network will or will not perform IP address management and allocate IP addresses when attached.
  */
 export type L3NetworkConfigurationIpamEnabled = (typeof L3NetworkConfigurationIpamEnabled)[keyof typeof L3NetworkConfigurationIpamEnabled];
+
+export const ManagedServiceIdentitySelectorType = {
+    SystemAssignedIdentity: "SystemAssignedIdentity",
+    UserAssignedIdentity: "UserAssignedIdentity",
+} as const;
+
+/**
+ * The type of managed identity that is being selected.
+ */
+export type ManagedServiceIdentitySelectorType = (typeof ManagedServiceIdentitySelectorType)[keyof typeof ManagedServiceIdentitySelectorType];
+
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const OsDiskCreateOption = {
     Ephemeral: "Ephemeral",

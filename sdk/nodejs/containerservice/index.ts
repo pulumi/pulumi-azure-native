@@ -75,11 +75,6 @@ export const getManagedClusterSnapshot: typeof import("./getManagedClusterSnapsh
 export const getManagedClusterSnapshotOutput: typeof import("./getManagedClusterSnapshot").getManagedClusterSnapshotOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedClusterSnapshot","getManagedClusterSnapshotOutput"], () => require("./getManagedClusterSnapshot"));
 
-export { GetOpenShiftManagedClusterArgs, GetOpenShiftManagedClusterResult, GetOpenShiftManagedClusterOutputArgs } from "./getOpenShiftManagedCluster";
-export const getOpenShiftManagedCluster: typeof import("./getOpenShiftManagedCluster").getOpenShiftManagedCluster = null as any;
-export const getOpenShiftManagedClusterOutput: typeof import("./getOpenShiftManagedCluster").getOpenShiftManagedClusterOutput = null as any;
-utilities.lazyLoad(exports, ["getOpenShiftManagedCluster","getOpenShiftManagedClusterOutput"], () => require("./getOpenShiftManagedCluster"));
-
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -145,11 +140,6 @@ export type ManagedClusterSnapshot = import("./managedClusterSnapshot").ManagedC
 export const ManagedClusterSnapshot: typeof import("./managedClusterSnapshot").ManagedClusterSnapshot = null as any;
 utilities.lazyLoad(exports, ["ManagedClusterSnapshot"], () => require("./managedClusterSnapshot"));
 
-export { OpenShiftManagedClusterArgs } from "./openShiftManagedCluster";
-export type OpenShiftManagedCluster = import("./openShiftManagedCluster").OpenShiftManagedCluster;
-export const OpenShiftManagedCluster: typeof import("./openShiftManagedCluster").OpenShiftManagedCluster = null as any;
-utilities.lazyLoad(exports, ["OpenShiftManagedCluster"], () => require("./openShiftManagedCluster"));
-
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
@@ -175,17 +165,60 @@ utilities.lazyLoad(exports, ["UpdateRun"], () => require("./updateRun"));
 export * from "../types/enums/containerservice";
 
 // Export sub-modules:
+import * as v20190430 from "./v20190430";
 import * as v20190601 from "./v20190601";
+import * as v20190801 from "./v20190801";
+import * as v20190930preview from "./v20190930preview";
+import * as v20191001 from "./v20191001";
 import * as v20191027preview from "./v20191027preview";
+import * as v20191101 from "./v20191101";
+import * as v20200101 from "./v20200101";
+import * as v20200201 from "./v20200201";
 import * as v20200301 from "./v20200301";
+import * as v20200401 from "./v20200401";
 import * as v20200601 from "./v20200601";
+import * as v20200701 from "./v20200701";
+import * as v20200901 from "./v20200901";
+import * as v20201101 from "./v20201101";
+import * as v20201201 from "./v20201201";
 import * as v20210201 from "./v20210201";
+import * as v20210301 from "./v20210301";
 import * as v20210501 from "./v20210501";
+import * as v20210701 from "./v20210701";
 import * as v20210801 from "./v20210801";
+import * as v20210901 from "./v20210901";
+import * as v20211001 from "./v20211001";
+import * as v20211101preview from "./v20211101preview";
+import * as v20220101 from "./v20220101";
+import * as v20220102preview from "./v20220102preview";
+import * as v20220201 from "./v20220201";
+import * as v20220202preview from "./v20220202preview";
+import * as v20220301 from "./v20220301";
+import * as v20220302preview from "./v20220302preview";
+import * as v20220401 from "./v20220401";
 import * as v20220402preview from "./v20220402preview";
+import * as v20220502preview from "./v20220502preview";
+import * as v20220601 from "./v20220601";
+import * as v20220602preview from "./v20220602preview";
+import * as v20220701 from "./v20220701";
 import * as v20220702preview from "./v20220702preview";
+import * as v20220802preview from "./v20220802preview";
+import * as v20220803preview from "./v20220803preview";
+import * as v20220901 from "./v20220901";
+import * as v20220902preview from "./v20220902preview";
+import * as v20221002preview from "./v20221002preview";
+import * as v20221101 from "./v20221101";
+import * as v20221102preview from "./v20221102preview";
+import * as v20230101 from "./v20230101";
+import * as v20230102preview from "./v20230102preview";
+import * as v20230201 from "./v20230201";
+import * as v20230202preview from "./v20230202preview";
+import * as v20230301 from "./v20230301";
+import * as v20230302preview from "./v20230302preview";
 import * as v20230315preview from "./v20230315preview";
 import * as v20230401 from "./v20230401";
+import * as v20230402preview from "./v20230402preview";
+import * as v20230501 from "./v20230501";
 import * as v20230502preview from "./v20230502preview";
 import * as v20230601 from "./v20230601";
 import * as v20230602preview from "./v20230602preview";
@@ -219,17 +252,60 @@ import * as v20240901 from "./v20240901";
 import * as v20240902preview from "./v20240902preview";
 
 export {
+    v20190430,
     v20190601,
+    v20190801,
+    v20190930preview,
+    v20191001,
     v20191027preview,
+    v20191101,
+    v20200101,
+    v20200201,
     v20200301,
+    v20200401,
     v20200601,
+    v20200701,
+    v20200901,
+    v20201101,
+    v20201201,
     v20210201,
+    v20210301,
     v20210501,
+    v20210701,
     v20210801,
+    v20210901,
+    v20211001,
+    v20211101preview,
+    v20220101,
+    v20220102preview,
+    v20220201,
+    v20220202preview,
+    v20220301,
+    v20220302preview,
+    v20220401,
     v20220402preview,
+    v20220502preview,
+    v20220601,
+    v20220602preview,
+    v20220701,
     v20220702preview,
+    v20220802preview,
+    v20220803preview,
+    v20220901,
+    v20220902preview,
+    v20221002preview,
+    v20221101,
+    v20221102preview,
+    v20230101,
+    v20230102preview,
+    v20230201,
+    v20230202preview,
+    v20230301,
+    v20230302preview,
     v20230315preview,
     v20230401,
+    v20230402preview,
+    v20230501,
     v20230502preview,
     v20230601,
     v20230602preview,
@@ -285,8 +361,6 @@ const _module = {
                 return new ManagedCluster(name, <any>undefined, { urn })
             case "azure-native:containerservice:ManagedClusterSnapshot":
                 return new ManagedClusterSnapshot(name, <any>undefined, { urn })
-            case "azure-native:containerservice:OpenShiftManagedCluster":
-                return new OpenShiftManagedCluster(name, <any>undefined, { urn })
             case "azure-native:containerservice:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:containerservice:Snapshot":

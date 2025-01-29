@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
     /// <summary>
     /// Service Account Token for BrokerAuthentication
     /// </summary>
-    public sealed class DataFlowEndpointAuthenticationServiceAccountTokenArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointAuthenticationServiceAccountTokenArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Audience of the service account. Optional, defaults to the broker internal service account audience.
@@ -21,9 +21,9 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         [Input("audience", required: true)]
         public Input<string> Audience { get; set; } = null!;
 
-        public DataFlowEndpointAuthenticationServiceAccountTokenArgs()
+        public DataflowEndpointAuthenticationServiceAccountTokenArgs()
         {
         }
-        public static new DataFlowEndpointAuthenticationServiceAccountTokenArgs Empty => new DataFlowEndpointAuthenticationServiceAccountTokenArgs();
+        public static new DataflowEndpointAuthenticationServiceAccountTokenArgs Empty => new DataflowEndpointAuthenticationServiceAccountTokenArgs();
     }
 }

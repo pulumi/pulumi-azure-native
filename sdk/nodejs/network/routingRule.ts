@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Network routing rule.
- * Azure REST API version: 2024-03-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-03-01.
  *
- * Other available API versions: 2024-05-01.
+ * Other available API versions: 2024-03-01.
  */
 export class RoutingRule extends pulumi.CustomResource {
     /**

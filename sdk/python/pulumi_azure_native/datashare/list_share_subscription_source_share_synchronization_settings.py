@@ -71,6 +71,8 @@ def list_share_subscription_source_share_synchronization_settings(account_name: 
     Get synchronization settings set on a share
     Azure REST API version: 2021-08-01.
 
+    Other available API versions: 2020-09-01, 2020-10-01-preview.
+
 
     :param str account_name: The name of the share account.
     :param str resource_group_name: The resource group name.
@@ -96,6 +98,8 @@ def list_share_subscription_source_share_synchronization_settings_output(account
     """
     Get synchronization settings set on a share
     Azure REST API version: 2021-08-01.
+
+    Other available API versions: 2020-09-01, 2020-10-01-preview.
 
 
     :param str account_name: The name of the share account.

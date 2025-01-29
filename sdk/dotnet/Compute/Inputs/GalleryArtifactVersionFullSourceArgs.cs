@@ -22,10 +22,16 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<string>? CommunityGalleryImageId { get; set; }
 
         /// <summary>
-        /// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
+        /// The id of the gallery artifact version source.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The resource Id of the source virtual machine.  Only required when capturing a virtual machine to source this Gallery Image Version.
+        /// </summary>
+        [Input("virtualMachineId")]
+        public Input<string>? VirtualMachineId { get; set; }
 
         public GalleryArtifactVersionFullSourceArgs()
         {

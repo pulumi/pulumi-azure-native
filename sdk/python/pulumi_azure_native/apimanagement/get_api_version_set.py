@@ -139,9 +139,9 @@ def get_api_version_set(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiVersionSetResult:
     """
     Gets the details of the Api Version Set specified by its identifier.
-    Azure REST API version: 2022-08-01.
+    Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2017-03-01, 2018-01-01, 2018-06-01-preview, 2019-01-01, 2019-12-01, 2019-12-01-preview, 2020-06-01-preview, 2020-12-01, 2021-01-01-preview, 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -170,9 +170,9 @@ def get_api_version_set_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiVersionSetResult]:
     """
     Gets the details of the Api Version Set specified by its identifier.
-    Azure REST API version: 2022-08-01.
+    Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2017-03-01, 2018-01-01, 2018-06-01-preview, 2019-01-01, 2019-12-01, 2019-12-01-preview, 2020-06-01-preview, 2020-12-01, 2021-01-01-preview, 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

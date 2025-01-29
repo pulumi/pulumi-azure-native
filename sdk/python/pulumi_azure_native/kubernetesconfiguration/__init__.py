@@ -23,24 +23,42 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.kubernetesconfiguration.v20200701preview as __v20200701preview
     v20200701preview = __v20200701preview
+    import pulumi_azure_native.kubernetesconfiguration.v20201001preview as __v20201001preview
+    v20201001preview = __v20201001preview
+    import pulumi_azure_native.kubernetesconfiguration.v20210301 as __v20210301
+    v20210301 = __v20210301
+    import pulumi_azure_native.kubernetesconfiguration.v20210501preview as __v20210501preview
+    v20210501preview = __v20210501preview
+    import pulumi_azure_native.kubernetesconfiguration.v20210901 as __v20210901
+    v20210901 = __v20210901
     import pulumi_azure_native.kubernetesconfiguration.v20211101preview as __v20211101preview
     v20211101preview = __v20211101preview
     import pulumi_azure_native.kubernetesconfiguration.v20220101preview as __v20220101preview
     v20220101preview = __v20220101preview
+    import pulumi_azure_native.kubernetesconfiguration.v20220301 as __v20220301
+    v20220301 = __v20220301
     import pulumi_azure_native.kubernetesconfiguration.v20220402preview as __v20220402preview
     v20220402preview = __v20220402preview
     import pulumi_azure_native.kubernetesconfiguration.v20220701 as __v20220701
     v20220701 = __v20220701
+    import pulumi_azure_native.kubernetesconfiguration.v20221101 as __v20221101
+    v20221101 = __v20221101
     import pulumi_azure_native.kubernetesconfiguration.v20230501 as __v20230501
     v20230501 = __v20230501
     import pulumi_azure_native.kubernetesconfiguration.v20240401preview as __v20240401preview
     v20240401preview = __v20240401preview
 else:
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20200701preview')
+    v20201001preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20201001preview')
+    v20210301 = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20210301')
+    v20210501preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20210501preview')
+    v20210901 = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20210901')
     v20211101preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20211101preview')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20220101preview')
+    v20220301 = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20220301')
     v20220402preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20220402preview')
     v20220701 = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20220701')
+    v20221101 = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20221101')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20230501')
     v20240401preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20240401preview')
 

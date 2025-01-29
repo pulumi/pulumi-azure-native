@@ -82,11 +82,8 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot.V20240401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20240401preview:springbootsite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazurespringboot:Springbootsite" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot:springbootsite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20230101preview:Springbootsite" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20230101preview:springbootsite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

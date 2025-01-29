@@ -24,6 +24,10 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Caching behavior for the requests
         /// </summary>
         public readonly string QueryStringBehavior;
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'.
+        /// </summary>
         public readonly string TypeName;
 
         [OutputConstructor]

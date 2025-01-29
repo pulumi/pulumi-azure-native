@@ -226,7 +226,7 @@ def get_integration_account_schema(integration_account_name: Optional[str] = Non
     Gets an integration account schema.
     Azure REST API version: 2019-05-01.
 
-    Other available API versions: 2015-08-01-preview.
+    Other available API versions: 2015-08-01-preview, 2018-07-01-preview.
 
 
     :param str integration_account_name: The integration account name.
@@ -264,7 +264,7 @@ def get_integration_account_schema_output(integration_account_name: Optional[pul
     Gets an integration account schema.
     Azure REST API version: 2019-05-01.
 
-    Other available API versions: 2015-08-01-preview.
+    Other available API versions: 2015-08-01-preview, 2018-07-01-preview.
 
 
     :param str integration_account_name: The integration account name.

@@ -106,6 +106,8 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
     Gets the details of the specified registration assignment.
     Azure REST API version: 2022-10-01.
 
+    Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
+
 
     :param bool expand_registration_definition: The flag indicating whether to return the registration definition details along with the registration assignment details.
     :param str registration_assignment_id: The GUID of the registration assignment.
@@ -131,6 +133,8 @@ def get_registration_assignment_output(expand_registration_definition: Optional[
     """
     Gets the details of the specified registration assignment.
     Azure REST API version: 2022-10-01.
+
+    Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
 
 
     :param bool expand_registration_definition: The flag indicating whether to return the registration definition details along with the registration assignment details.

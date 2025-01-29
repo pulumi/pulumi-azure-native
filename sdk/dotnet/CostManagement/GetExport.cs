@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// The operation to get the export for the defined scope by export name.
-        /// Azure REST API version: 2023-03-01.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        /// Other available API versions: 2019-01-01, 2019-09-01, 2019-10-01, 2019-11-01, 2020-06-01, 2020-12-01-preview, 2021-01-01, 2021-10-01, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the export for the defined scope by export name.
-        /// Azure REST API version: 2023-03-01.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        /// Other available API versions: 2019-01-01, 2019-09-01, 2019-10-01, 2019-11-01, 2020-06-01, 2020-12-01-preview, 2021-01-01, 2021-10-01, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the export for the defined scope by export name.
-        /// Azure REST API version: 2023-03-01.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        /// Other available API versions: 2019-01-01, 2019-09-01, 2019-10-01, 2019-11-01, 2020-06-01, 2020-12-01-preview, 2021-01-01, 2021-10-01, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
@@ -117,6 +117,14 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The managed identity associated with Export
+        /// </summary>
+        public readonly Outputs.SystemAssignedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// The location of the Export's managed identity. Only required when utilizing managed identity.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -153,6 +161,10 @@ namespace Pulumi.AzureNative.CostManagement
 
             string id,
 
+            Outputs.SystemAssignedServiceIdentityResponse? identity,
+
+            string? location,
+
             string name,
 
             string nextRunTimeEstimate,
@@ -170,6 +182,8 @@ namespace Pulumi.AzureNative.CostManagement
             ETag = eTag;
             Format = format;
             Id = id;
+            Identity = identity;
+            Location = location;
             Name = name;
             NextRunTimeEstimate = nextRunTimeEstimate;
             PartitionData = partitionData;

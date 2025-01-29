@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the Wiki for a Product specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetProductWikiResult> InvokeAsync(GetProductWikiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductWikiResult>("azure-native:apimanagement:getProductWiki", args ?? new GetProductWikiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Wiki for a Product specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetProductWikiResult> Invoke(GetProductWikiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductWikiResult>("azure-native:apimanagement:getProductWiki", args ?? new GetProductWikiInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Wiki for a Product specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetProductWikiResult> Invoke(GetProductWikiInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductWikiResult>("azure-native:apimanagement:getProductWiki", args ?? new GetProductWikiInvokeArgs(), options.WithDefaults());

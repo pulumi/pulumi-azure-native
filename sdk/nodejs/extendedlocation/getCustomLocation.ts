@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the customLocation with a specified resource group and name.
- * Azure REST API version: 2021-08-15.
+ * Azure REST API version: 2021-08-31-preview.
  *
- * Other available API versions: 2021-08-31-preview.
+ * Other available API versions: 2021-03-15-preview, 2021-08-15.
  */
 export function getCustomLocation(args: GetCustomLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,9 +95,9 @@ export interface GetCustomLocationResult {
 }
 /**
  * Gets the details of the customLocation with a specified resource group and name.
- * Azure REST API version: 2021-08-15.
+ * Azure REST API version: 2021-08-31-preview.
  *
- * Other available API versions: 2021-08-31-preview.
+ * Other available API versions: 2021-03-15-preview, 2021-08-15.
  */
 export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

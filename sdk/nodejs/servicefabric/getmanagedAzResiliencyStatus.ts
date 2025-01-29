@@ -9,19 +9,19 @@ import * as utilities from "../utilities";
 
 /**
  * Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
- * Azure REST API version: 2023-03-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2022-02-01-preview, 2022-06-01-preview, 2022-08-01-preview, 2022-10-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
  */
-export function getmanagedAzResiliencyStatus(args: GetmanagedAzResiliencyStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagedAzResiliencyStatusResult> {
+export function getManagedAzResiliencyStatus(args: GetManagedAzResiliencyStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedAzResiliencyStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:servicefabric:getmanagedAzResiliencyStatus", {
+    return pulumi.runtime.invoke("azure-native:servicefabric:getManagedAzResiliencyStatus", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetmanagedAzResiliencyStatusArgs {
+export interface GetManagedAzResiliencyStatusArgs {
     /**
      * The name of the cluster resource.
      */
@@ -35,7 +35,7 @@ export interface GetmanagedAzResiliencyStatusArgs {
 /**
  * Describes the result of the request to list Managed VM Sizes for Service Fabric Managed Clusters.
  */
-export interface GetmanagedAzResiliencyStatusResult {
+export interface GetManagedAzResiliencyStatusResult {
     /**
      * List of Managed VM Sizes for Service Fabric Managed Clusters.
      */
@@ -47,19 +47,19 @@ export interface GetmanagedAzResiliencyStatusResult {
 }
 /**
  * Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
- * Azure REST API version: 2023-03-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2022-02-01-preview, 2022-06-01-preview, 2022-08-01-preview, 2022-10-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
  */
-export function getmanagedAzResiliencyStatusOutput(args: GetmanagedAzResiliencyStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetmanagedAzResiliencyStatusResult> {
+export function getManagedAzResiliencyStatusOutput(args: GetManagedAzResiliencyStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedAzResiliencyStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicefabric:getmanagedAzResiliencyStatus", {
+    return pulumi.runtime.invokeOutput("azure-native:servicefabric:getManagedAzResiliencyStatus", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetmanagedAzResiliencyStatusOutputArgs {
+export interface GetManagedAzResiliencyStatusOutputArgs {
     /**
      * The name of the cluster resource.
      */

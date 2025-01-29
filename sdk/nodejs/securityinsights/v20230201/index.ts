@@ -20,6 +20,16 @@ export type Action = import("./action").Action;
 export const Action: typeof import("./action").Action = null as any;
 utilities.lazyLoad(exports, ["Action"], () => require("./action"));
 
+export { AnomalySecurityMLAnalyticsSettingsArgs } from "./anomalySecurityMLAnalyticsSettings";
+export type AnomalySecurityMLAnalyticsSettings = import("./anomalySecurityMLAnalyticsSettings").AnomalySecurityMLAnalyticsSettings;
+export const AnomalySecurityMLAnalyticsSettings: typeof import("./anomalySecurityMLAnalyticsSettings").AnomalySecurityMLAnalyticsSettings = null as any;
+utilities.lazyLoad(exports, ["AnomalySecurityMLAnalyticsSettings"], () => require("./anomalySecurityMLAnalyticsSettings"));
+
+export { ASCDataConnectorArgs } from "./ascdataConnector";
+export type ASCDataConnector = import("./ascdataConnector").ASCDataConnector;
+export const ASCDataConnector: typeof import("./ascdataConnector").ASCDataConnector = null as any;
+utilities.lazyLoad(exports, ["ASCDataConnector"], () => require("./ascdataConnector"));
+
 export { AutomationRuleArgs } from "./automationRule";
 export type AutomationRule = import("./automationRule").AutomationRule;
 export const AutomationRule: typeof import("./automationRule").AutomationRule = null as any;
@@ -35,6 +45,11 @@ export type Bookmark = import("./bookmark").Bookmark;
 export const Bookmark: typeof import("./bookmark").Bookmark = null as any;
 utilities.lazyLoad(exports, ["Bookmark"], () => require("./bookmark"));
 
+export { FusionAlertRuleArgs } from "./fusionAlertRule";
+export type FusionAlertRule = import("./fusionAlertRule").FusionAlertRule;
+export const FusionAlertRule: typeof import("./fusionAlertRule").FusionAlertRule = null as any;
+utilities.lazyLoad(exports, ["FusionAlertRule"], () => require("./fusionAlertRule"));
+
 export { GetAADDataConnectorArgs, GetAADDataConnectorResult, GetAADDataConnectorOutputArgs } from "./getAADDataConnector";
 export const getAADDataConnector: typeof import("./getAADDataConnector").getAADDataConnector = null as any;
 export const getAADDataConnectorOutput: typeof import("./getAADDataConnector").getAADDataConnectorOutput = null as any;
@@ -45,10 +60,20 @@ export const getAATPDataConnector: typeof import("./getAATPDataConnector").getAA
 export const getAATPDataConnectorOutput: typeof import("./getAATPDataConnector").getAATPDataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getAATPDataConnector","getAATPDataConnectorOutput"], () => require("./getAATPDataConnector"));
 
+export { GetASCDataConnectorArgs, GetASCDataConnectorResult, GetASCDataConnectorOutputArgs } from "./getASCDataConnector";
+export const getASCDataConnector: typeof import("./getASCDataConnector").getASCDataConnector = null as any;
+export const getASCDataConnectorOutput: typeof import("./getASCDataConnector").getASCDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getASCDataConnector","getASCDataConnectorOutput"], () => require("./getASCDataConnector"));
+
 export { GetActionArgs, GetActionResult, GetActionOutputArgs } from "./getAction";
 export const getAction: typeof import("./getAction").getAction = null as any;
 export const getActionOutput: typeof import("./getAction").getActionOutput = null as any;
 utilities.lazyLoad(exports, ["getAction","getActionOutput"], () => require("./getAction"));
+
+export { GetAnomalySecurityMLAnalyticsSettingsArgs, GetAnomalySecurityMLAnalyticsSettingsResult, GetAnomalySecurityMLAnalyticsSettingsOutputArgs } from "./getAnomalySecurityMLAnalyticsSettings";
+export const getAnomalySecurityMLAnalyticsSettings: typeof import("./getAnomalySecurityMLAnalyticsSettings").getAnomalySecurityMLAnalyticsSettings = null as any;
+export const getAnomalySecurityMLAnalyticsSettingsOutput: typeof import("./getAnomalySecurityMLAnalyticsSettings").getAnomalySecurityMLAnalyticsSettingsOutput = null as any;
+utilities.lazyLoad(exports, ["getAnomalySecurityMLAnalyticsSettings","getAnomalySecurityMLAnalyticsSettingsOutput"], () => require("./getAnomalySecurityMLAnalyticsSettings"));
 
 export { GetAutomationRuleArgs, GetAutomationRuleResult, GetAutomationRuleOutputArgs } from "./getAutomationRule";
 export const getAutomationRule: typeof import("./getAutomationRule").getAutomationRule = null as any;
@@ -64,6 +89,11 @@ export { GetBookmarkArgs, GetBookmarkResult, GetBookmarkOutputArgs } from "./get
 export const getBookmark: typeof import("./getBookmark").getBookmark = null as any;
 export const getBookmarkOutput: typeof import("./getBookmark").getBookmarkOutput = null as any;
 utilities.lazyLoad(exports, ["getBookmark","getBookmarkOutput"], () => require("./getBookmark"));
+
+export { GetFusionAlertRuleArgs, GetFusionAlertRuleResult, GetFusionAlertRuleOutputArgs } from "./getFusionAlertRule";
+export const getFusionAlertRule: typeof import("./getFusionAlertRule").getFusionAlertRule = null as any;
+export const getFusionAlertRuleOutput: typeof import("./getFusionAlertRule").getFusionAlertRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getFusionAlertRule","getFusionAlertRuleOutput"], () => require("./getFusionAlertRule"));
 
 export { GetIncidentArgs, GetIncidentResult, GetIncidentOutputArgs } from "./getIncident";
 export const getIncident: typeof import("./getIncident").getIncident = null as any;
@@ -95,10 +125,20 @@ export const getMetadata: typeof import("./getMetadata").getMetadata = null as a
 export const getMetadataOutput: typeof import("./getMetadata").getMetadataOutput = null as any;
 utilities.lazyLoad(exports, ["getMetadata","getMetadataOutput"], () => require("./getMetadata"));
 
+export { GetMicrosoftSecurityIncidentCreationAlertRuleArgs, GetMicrosoftSecurityIncidentCreationAlertRuleResult, GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs } from "./getMicrosoftSecurityIncidentCreationAlertRule";
+export const getMicrosoftSecurityIncidentCreationAlertRule: typeof import("./getMicrosoftSecurityIncidentCreationAlertRule").getMicrosoftSecurityIncidentCreationAlertRule = null as any;
+export const getMicrosoftSecurityIncidentCreationAlertRuleOutput: typeof import("./getMicrosoftSecurityIncidentCreationAlertRule").getMicrosoftSecurityIncidentCreationAlertRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getMicrosoftSecurityIncidentCreationAlertRule","getMicrosoftSecurityIncidentCreationAlertRuleOutput"], () => require("./getMicrosoftSecurityIncidentCreationAlertRule"));
+
 export { GetOfficeDataConnectorArgs, GetOfficeDataConnectorResult, GetOfficeDataConnectorOutputArgs } from "./getOfficeDataConnector";
 export const getOfficeDataConnector: typeof import("./getOfficeDataConnector").getOfficeDataConnector = null as any;
 export const getOfficeDataConnectorOutput: typeof import("./getOfficeDataConnector").getOfficeDataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getOfficeDataConnector","getOfficeDataConnectorOutput"], () => require("./getOfficeDataConnector"));
+
+export { GetScheduledAlertRuleArgs, GetScheduledAlertRuleResult, GetScheduledAlertRuleOutputArgs } from "./getScheduledAlertRule";
+export const getScheduledAlertRule: typeof import("./getScheduledAlertRule").getScheduledAlertRule = null as any;
+export const getScheduledAlertRuleOutput: typeof import("./getScheduledAlertRule").getScheduledAlertRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledAlertRule","getScheduledAlertRuleOutput"], () => require("./getScheduledAlertRule"));
 
 export { GetSentinelOnboardingStateArgs, GetSentinelOnboardingStateResult, GetSentinelOnboardingStateOutputArgs } from "./getSentinelOnboardingState";
 export const getSentinelOnboardingState: typeof import("./getSentinelOnboardingState").getSentinelOnboardingState = null as any;
@@ -155,10 +195,20 @@ export type Metadata = import("./metadata").Metadata;
 export const Metadata: typeof import("./metadata").Metadata = null as any;
 utilities.lazyLoad(exports, ["Metadata"], () => require("./metadata"));
 
+export { MicrosoftSecurityIncidentCreationAlertRuleArgs } from "./microsoftSecurityIncidentCreationAlertRule";
+export type MicrosoftSecurityIncidentCreationAlertRule = import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule;
+export const MicrosoftSecurityIncidentCreationAlertRule: typeof import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule = null as any;
+utilities.lazyLoad(exports, ["MicrosoftSecurityIncidentCreationAlertRule"], () => require("./microsoftSecurityIncidentCreationAlertRule"));
+
 export { OfficeDataConnectorArgs } from "./officeDataConnector";
 export type OfficeDataConnector = import("./officeDataConnector").OfficeDataConnector;
 export const OfficeDataConnector: typeof import("./officeDataConnector").OfficeDataConnector = null as any;
 utilities.lazyLoad(exports, ["OfficeDataConnector"], () => require("./officeDataConnector"));
+
+export { ScheduledAlertRuleArgs } from "./scheduledAlertRule";
+export type ScheduledAlertRule = import("./scheduledAlertRule").ScheduledAlertRule;
+export const ScheduledAlertRule: typeof import("./scheduledAlertRule").ScheduledAlertRule = null as any;
+utilities.lazyLoad(exports, ["ScheduledAlertRule"], () => require("./scheduledAlertRule"));
 
 export { SentinelOnboardingStateArgs } from "./sentinelOnboardingState";
 export type SentinelOnboardingState = import("./sentinelOnboardingState").SentinelOnboardingState;
@@ -197,14 +247,20 @@ const _module = {
                 return new AADDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:AATPDataConnector":
                 return new AATPDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20230201:ASCDataConnector":
+                return new ASCDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:Action":
                 return new Action(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20230201:AnomalySecurityMLAnalyticsSettings":
+                return new AnomalySecurityMLAnalyticsSettings(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:AutomationRule":
                 return new AutomationRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:AwsCloudTrailDataConnector":
                 return new AwsCloudTrailDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20230201:FusionAlertRule":
+                return new FusionAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:Incident":
                 return new Incident(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:IncidentComment":
@@ -217,8 +273,12 @@ const _module = {
                 return new MDATPDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:Metadata":
                 return new Metadata(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20230201:MicrosoftSecurityIncidentCreationAlertRule":
+                return new MicrosoftSecurityIncidentCreationAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:OfficeDataConnector":
                 return new OfficeDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20230201:ScheduledAlertRule":
+                return new ScheduledAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:SentinelOnboardingState":
                 return new SentinelOnboardingState(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20230201:TIDataConnector":

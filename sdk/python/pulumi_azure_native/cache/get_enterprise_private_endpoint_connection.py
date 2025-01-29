@@ -27,7 +27,7 @@ class GetEnterprisePrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
     """
-    def __init__(__self__, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,9 +43,6 @@ class GetEnterprisePrivateEndpointConnectionResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -91,14 +88,6 @@ class GetEnterprisePrivateEndpointConnectionResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -118,7 +107,6 @@ class AwaitableGetEnterprisePrivateEndpointConnectionResult(GetEnterprisePrivate
             private_endpoint=self.private_endpoint,
             private_link_service_connection_state=self.private_link_service_connection_state,
             provisioning_state=self.provisioning_state,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -127,13 +115,13 @@ def get_enterprise_private_endpoint_connection(cluster_name: Optional[str] = Non
                                                resource_group_name: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnterprisePrivateEndpointConnectionResult:
     """
-    Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-    Azure REST API version: 2023-03-01-preview.
+    Gets the specified private endpoint connection associated with the Redis Enterprise cluster.
+    Azure REST API version: 2024-09-01-preview.
 
-    Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-10-01.
 
 
-    :param str cluster_name: The name of the RedisEnterprise cluster.
+    :param str cluster_name: The name of the Redis Enterprise cluster.
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -150,20 +138,19 @@ def get_enterprise_private_endpoint_connection(cluster_name: Optional[str] = Non
         private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
         private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_enterprise_private_endpoint_connection_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                                       private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterprisePrivateEndpointConnectionResult]:
     """
-    Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-    Azure REST API version: 2023-03-01-preview.
+    Gets the specified private endpoint connection associated with the Redis Enterprise cluster.
+    Azure REST API version: 2024-09-01-preview.
 
-    Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-10-01.
 
 
-    :param str cluster_name: The name of the RedisEnterprise cluster.
+    :param str cluster_name: The name of the Redis Enterprise cluster.
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -179,5 +166,4 @@ def get_enterprise_private_endpoint_connection_output(cluster_name: Optional[pul
         private_endpoint=pulumi.get(__response__, 'private_endpoint'),
         private_link_service_connection_state=pulumi.get(__response__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

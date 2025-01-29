@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of an event subscription of a namespace topic.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
         /// </summary>
         public static Task<GetNamespaceTopicEventSubscriptionResult> InvokeAsync(GetNamespaceTopicEventSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceTopicEventSubscriptionResult>("azure-native:eventgrid:getNamespaceTopicEventSubscription", args ?? new GetNamespaceTopicEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of an event subscription of a namespace topic.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetNamespaceTopicEventSubscriptionResult> Invoke(GetNamespaceTopicEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicEventSubscriptionResult>("azure-native:eventgrid:getNamespaceTopicEventSubscription", args ?? new GetNamespaceTopicEventSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of an event subscription of a namespace topic.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetNamespaceTopicEventSubscriptionResult> Invoke(GetNamespaceTopicEventSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicEventSubscriptionResult>("azure-native:eventgrid:getNamespaceTopicEventSubscription", args ?? new GetNamespaceTopicEventSubscriptionInvokeArgs(), options.WithDefaults());
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetNamespaceTopicEventSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        /// Name of the event subscription to be found.
         /// </summary>
         [Input("eventSubscriptionName", required: true)]
         public string EventSubscriptionName { get; set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetNamespaceTopicEventSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        /// Name of the event subscription to be found.
         /// </summary>
         [Input("eventSubscriptionName", required: true)]
         public Input<string> EventSubscriptionName { get; set; } = null!;
@@ -117,6 +117,10 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? EventDeliverySchema;
         /// <summary>
+        /// Expiration time of the event subscription.
+        /// </summary>
+        public readonly string? ExpirationTimeUtc;
+        /// <summary>
         /// Information about the filter for the event subscription.
         /// </summary>
         public readonly Outputs.FiltersConfigurationResponse? FiltersConfiguration;
@@ -133,9 +137,13 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system metadata relating to Event Subscription resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Tags relating to Event Subscription resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -147,6 +155,8 @@ namespace Pulumi.AzureNative.EventGrid
 
             string? eventDeliverySchema,
 
+            string? expirationTimeUtc,
+
             Outputs.FiltersConfigurationResponse? filtersConfiguration,
 
             string id,
@@ -157,15 +167,19 @@ namespace Pulumi.AzureNative.EventGrid
 
             Outputs.SystemDataResponse systemData,
 
+            ImmutableDictionary<string, string>? tags,
+
             string type)
         {
             DeliveryConfiguration = deliveryConfiguration;
             EventDeliverySchema = eventDeliverySchema;
+            ExpirationTimeUtc = expirationTimeUtc;
             FiltersConfiguration = filtersConfiguration;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             SystemData = systemData;
+            Tags = tags;
             Type = type;
         }
     }

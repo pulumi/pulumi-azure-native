@@ -153,7 +153,7 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
                  __props__=None):
         """
         Data Manager For Agriculture ARM Resource.
-        Azure REST API version: 2023-06-01-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,7 +173,7 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Data Manager For Agriculture ARM Resource.
-        Azure REST API version: 2023-06-01-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DataManagerForAgricultureResourceArgs args: The arguments to use to populate this resource's properties.

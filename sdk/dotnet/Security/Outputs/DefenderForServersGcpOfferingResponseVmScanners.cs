@@ -17,17 +17,17 @@ namespace Pulumi.AzureNative.Security.Outputs
     public sealed class DefenderForServersGcpOfferingResponseVmScanners
     {
         /// <summary>
-        /// configuration for Microsoft Defender for Server VM scanning
+        /// Configuration for VM scanning
         /// </summary>
-        public readonly Outputs.DefenderForServersGcpOfferingResponseConfigurationConfigurationConfiguration? Configuration;
+        public readonly Outputs.VmScannersBaseResponseConfiguration? Configuration;
         /// <summary>
-        /// Is Microsoft Defender for Server VM scanning enabled
+        /// Is VM scanning enabled
         /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]
         private DefenderForServersGcpOfferingResponseVmScanners(
-            Outputs.DefenderForServersGcpOfferingResponseConfigurationConfigurationConfiguration? configuration,
+            Outputs.VmScannersBaseResponseConfiguration? configuration,
 
             bool? enabled)
         {

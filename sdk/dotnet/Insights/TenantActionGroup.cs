@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// A tenant action group resource.
-    /// Azure REST API version: 2023-05-01-preview.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 2.x: 2023-05-01-preview.
+    /// 
+    /// Other available API versions: 2023-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:TenantActionGroup")]
     public partial class TenantActionGroup : global::Pulumi.CustomResource

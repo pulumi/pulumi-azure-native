@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * List the two keys used to publish to a partner namespace.
- * Azure REST API version: 2022-06-15.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2020-04-01-preview, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export function listPartnerNamespaceSharedAccessKeys(args: ListPartnerNamespaceSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListPartnerNamespaceSharedAccessKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,9 +44,9 @@ export interface ListPartnerNamespaceSharedAccessKeysResult {
 }
 /**
  * List the two keys used to publish to a partner namespace.
- * Azure REST API version: 2022-06-15.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2020-04-01-preview, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export function listPartnerNamespaceSharedAccessKeysOutput(args: ListPartnerNamespaceSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPartnerNamespaceSharedAccessKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// support info for firewall.
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
         /// </summary>
         public static Task<GetFirewallSupportInfoResult> InvokeAsync(GetFirewallSupportInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallSupportInfoResult>("azure-native:cloudngfw:getFirewallSupportInfo", args ?? new GetFirewallSupportInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// support info for firewall.
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
         /// </summary>
         public static Output<GetFirewallSupportInfoResult> Invoke(GetFirewallSupportInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallSupportInfoResult>("azure-native:cloudngfw:getFirewallSupportInfo", args ?? new GetFirewallSupportInfoInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// support info for firewall.
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
         /// </summary>
         public static Output<GetFirewallSupportInfoResult> Invoke(GetFirewallSupportInfoInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallSupportInfoResult>("azure-native:cloudngfw:getFirewallSupportInfo", args ?? new GetFirewallSupportInfoInvokeArgs(), options.WithDefaults());

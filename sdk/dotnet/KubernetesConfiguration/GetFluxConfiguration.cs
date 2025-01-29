@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Gets details of the Flux Configuration.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
+        /// Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2022-03-01, 2022-07-01, 2022-11-01, 2024-04-01-preview.
         /// </summary>
         public static Task<GetFluxConfigurationResult> InvokeAsync(GetFluxConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration:getFluxConfiguration", args ?? new GetFluxConfigurationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Gets details of the Flux Configuration.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
+        /// Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2022-03-01, 2022-07-01, 2022-11-01, 2024-04-01-preview.
         /// </summary>
         public static Output<GetFluxConfigurationResult> Invoke(GetFluxConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration:getFluxConfiguration", args ?? new GetFluxConfigurationInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Gets details of the Flux Configuration.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
+        /// Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2022-03-01, 2022-07-01, 2022-11-01, 2024-04-01-preview.
         /// </summary>
         public static Output<GetFluxConfigurationResult> Invoke(GetFluxConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration:getFluxConfiguration", args ?? new GetFluxConfigurationInvokeArgs(), options.WithDefaults());

@@ -118,6 +118,8 @@ def get_integration_account_batch_configuration(batch_configuration_name: Option
     Get a batch configuration for an integration account.
     Azure REST API version: 2019-05-01.
 
+    Other available API versions: 2016-06-01, 2018-07-01-preview.
+
 
     :param str batch_configuration_name: The batch configuration name.
     :param str integration_account_name: The integration account name.
@@ -144,6 +146,8 @@ def get_integration_account_batch_configuration_output(batch_configuration_name:
     """
     Get a batch configuration for an integration account.
     Azure REST API version: 2019-05-01.
+
+    Other available API versions: 2016-06-01, 2018-07-01-preview.
 
 
     :param str batch_configuration_name: The batch configuration name.

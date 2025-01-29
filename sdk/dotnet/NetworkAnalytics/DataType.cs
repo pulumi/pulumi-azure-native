@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetworkAnalytics
 {
     /// <summary>
     /// The data type resource.
-    /// Azure REST API version: 2023-11-15.
+    /// Azure REST API version: 2023-11-15. Prior API version in Azure Native 2.x: 2023-11-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkanalytics:DataType")]
     public partial class DataType : global::Pulumi.CustomResource

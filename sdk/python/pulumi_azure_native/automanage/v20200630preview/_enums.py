@@ -5,11 +5,20 @@
 from enum import Enum
 
 __all__ = [
+    'ConfigurationProfile',
     'EnableRealTimeProtection',
     'ResourceIdentityType',
     'RunScheduledScan',
     'ScanType',
 ]
+
+
+class ConfigurationProfile(str, Enum):
+    """
+    A value indicating configuration profile.
+    """
+    AZURE_VIRTUAL_MACHINE_BEST_PRACTICES_DEV_TEST = "Azure virtual machine best practices – Dev/Test"
+    AZURE_VIRTUAL_MACHINE_BEST_PRACTICES_PRODUCTION = "Azure virtual machine best practices – Production"
 
 
 class EnableRealTimeProtection(str, Enum):

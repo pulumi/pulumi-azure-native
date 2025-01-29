@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a AssessmentProject
-        /// Azure REST API version: 2023-03-15.
+        /// Azure REST API version: 2023-09-09-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Task<GetAssessmentProjectsOperationResult> InvokeAsync(GetAssessmentProjectsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentProjectsOperationResult>("azure-native:migrate:getAssessmentProjectsOperation", args ?? new GetAssessmentProjectsOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AssessmentProject
-        /// Azure REST API version: 2023-03-15.
+        /// Azure REST API version: 2023-09-09-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsOperationResult> Invoke(GetAssessmentProjectsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsOperationResult>("azure-native:migrate:getAssessmentProjectsOperation", args ?? new GetAssessmentProjectsOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AssessmentProject
-        /// Azure REST API version: 2023-03-15.
+        /// Azure REST API version: 2023-09-09-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsOperationResult> Invoke(GetAssessmentProjectsOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsOperationResult>("azure-native:migrate:getAssessmentProjectsOperation", args ?? new GetAssessmentProjectsOperationInvokeArgs(), options.WithDefaults());
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public readonly string? CustomerWorkspaceLocation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>

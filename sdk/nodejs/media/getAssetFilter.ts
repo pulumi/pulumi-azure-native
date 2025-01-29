@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the details of an Asset Filter associated with the specified Asset.
  * Azure REST API version: 2023-01-01.
+ *
+ * Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
  */
 export function getAssetFilter(args: GetAssetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,6 +78,8 @@ export interface GetAssetFilterResult {
 /**
  * Get the details of an Asset Filter associated with the specified Asset.
  * Azure REST API version: 2023-01-01.
+ *
+ * Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
  */
 export function getAssetFilterOutput(args: GetAssetFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

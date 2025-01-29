@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * List of countries for Rulestack
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-01-19-preview.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
  */
 export function listLocalRulestackCountries(args: ListLocalRulestackCountriesArgs, opts?: pulumi.InvokeOptions): Promise<ListLocalRulestackCountriesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,9 +51,9 @@ export interface ListLocalRulestackCountriesResult {
 }
 /**
  * List of countries for Rulestack
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-01-19-preview.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
  */
 export function listLocalRulestackCountriesOutput(args: ListLocalRulestackCountriesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLocalRulestackCountriesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

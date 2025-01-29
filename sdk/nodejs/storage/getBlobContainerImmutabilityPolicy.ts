@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2021-01-01, 2021-02-01, 2021-04-01, 2021-06-01, 2021-08-01, 2021-09-01, 2022-05-01, 2022-09-01, 2023-01-01, 2023-04-01.
  */
 export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutabilityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerImmutabilityPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,9 +78,9 @@ export interface GetBlobContainerImmutabilityPolicyResult {
 }
 /**
  * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2021-01-01, 2021-02-01, 2021-04-01, 2021-06-01, 2021-08-01, 2021-09-01, 2022-05-01, 2022-09-01, 2023-01-01, 2023-04-01.
  */
 export function getBlobContainerImmutabilityPolicyOutput(args: GetBlobContainerImmutabilityPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobContainerImmutabilityPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

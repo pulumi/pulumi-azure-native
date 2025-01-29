@@ -164,9 +164,9 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInventoryItemResult:
     """
     Shows an inventory item.
-    Azure REST API version: 2022-05-21-preview.
+    Azure REST API version: 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2020-06-05-preview, 2022-05-21-preview, 2023-10-07, 2024-06-01.
 
 
     :param str inventory_item_name: Name of the inventoryItem.
@@ -197,9 +197,9 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInventoryItemResult]:
     """
     Shows an inventory item.
-    Azure REST API version: 2022-05-21-preview.
+    Azure REST API version: 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2020-06-05-preview, 2022-05-21-preview, 2023-10-07, 2024-06-01.
 
 
     :param str inventory_item_name: Name of the inventoryItem.

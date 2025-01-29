@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AzureFleet
     {
         /// <summary>
         /// Get a Fleet
-        /// Azure REST API version: 2024-05-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// 
-        /// Other available API versions: 2023-11-01-preview, 2024-11-01.
+        /// Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("azure-native:azurefleet:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Fleet
-        /// Azure REST API version: 2024-05-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// 
-        /// Other available API versions: 2023-11-01-preview, 2024-11-01.
+        /// Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:azurefleet:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Fleet
-        /// Azure REST API version: 2024-05-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// 
-        /// Other available API versions: 2023-11-01-preview, 2024-11-01.
+        /// Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:azurefleet:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.AzureFleet
     [OutputType]
     public sealed class GetFleetResult
     {
+        /// <summary>
+        /// Represents the configuration for additional locations where Fleet resources may be deployed.
+        /// </summary>
+        public readonly Outputs.AdditionalLocationsProfileResponse? AdditionalLocationsProfile;
         /// <summary>
         /// Compute Profile to use for running user's workloads.
         /// </summary>
@@ -141,6 +145,10 @@ namespace Pulumi.AzureNative.AzureFleet
         /// </summary>
         public readonly string UniqueId;
         /// <summary>
+        /// Attribute based Fleet.
+        /// </summary>
+        public readonly Outputs.VMAttributesResponse? VmAttributes;
+        /// <summary>
         /// List of VM sizes supported for Compute Fleet
         /// </summary>
         public readonly ImmutableArray<Outputs.VmSizeProfileResponse> VmSizesProfile;
@@ -151,6 +159,8 @@ namespace Pulumi.AzureNative.AzureFleet
 
         [OutputConstructor]
         private GetFleetResult(
+            Outputs.AdditionalLocationsProfileResponse? additionalLocationsProfile,
+
             Outputs.ComputeProfileResponse computeProfile,
 
             string id,
@@ -179,10 +189,13 @@ namespace Pulumi.AzureNative.AzureFleet
 
             string uniqueId,
 
+            Outputs.VMAttributesResponse? vmAttributes,
+
             ImmutableArray<Outputs.VmSizeProfileResponse> vmSizesProfile,
 
             ImmutableArray<string> zones)
         {
+            AdditionalLocationsProfile = additionalLocationsProfile;
             ComputeProfile = computeProfile;
             Id = id;
             Identity = identity;
@@ -197,6 +210,7 @@ namespace Pulumi.AzureNative.AzureFleet
             TimeCreated = timeCreated;
             Type = type;
             UniqueId = uniqueId;
+            VmAttributes = vmAttributes;
             VmSizesProfile = vmSizesProfile;
             Zones = zones;
         }

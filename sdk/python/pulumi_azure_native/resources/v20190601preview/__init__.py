@@ -6,7 +6,9 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_template_spec import *
 from .get_template_spec_version import *
+from .template_spec import *
 from .template_spec_version import *
 from ._inputs import *
 from . import outputs

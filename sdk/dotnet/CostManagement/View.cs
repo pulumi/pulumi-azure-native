@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// States and configurations of Cost Analysis.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01.
+    /// Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-03-01.
     /// 
-    /// Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+    /// Other available API versions: 2019-04-01-preview, 2019-11-01, 2020-06-01, 2021-10-01, 2022-08-01-preview, 2022-10-01, 2022-10-01-preview, 2022-10-05-preview, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:View")]
     public partial class View : global::Pulumi.CustomResource

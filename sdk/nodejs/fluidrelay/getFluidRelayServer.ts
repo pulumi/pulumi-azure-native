@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A FluidRelay Server.
  * Azure REST API version: 2022-06-01.
  *
- * Other available API versions: 2021-06-15-preview.
+ * Other available API versions: 2021-03-12-preview, 2021-06-15-preview, 2021-08-30-preview, 2021-09-10-preview, 2022-02-15, 2022-04-21, 2022-05-11, 2022-05-26.
  */
 export function getFluidRelayServer(args: GetFluidRelayServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFluidRelayServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +89,7 @@ export interface GetFluidRelayServerResult {
  * A FluidRelay Server.
  * Azure REST API version: 2022-06-01.
  *
- * Other available API versions: 2021-06-15-preview.
+ * Other available API versions: 2021-03-12-preview, 2021-06-15-preview, 2021-08-30-preview, 2021-09-10-preview, 2022-02-15, 2022-04-21, 2022-05-11, 2022-05-26.
  */
 export function getFluidRelayServerOutput(args: GetFluidRelayServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFluidRelayServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

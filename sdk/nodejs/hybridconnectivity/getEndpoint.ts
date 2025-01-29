@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the endpoint to the resource.
- * Azure REST API version: 2023-03-15.
+ * Azure REST API version: 2024-12-01.
  *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Other available API versions: 2021-10-06-preview, 2022-05-01-preview, 2023-03-15.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,9 +83,9 @@ export interface GetEndpointResult {
 }
 /**
  * Gets the endpoint to the resource.
- * Azure REST API version: 2023-03-15.
+ * Azure REST API version: 2024-12-01.
  *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Other available API versions: 2021-10-06-preview, 2022-05-01-preview, 2023-03-15.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

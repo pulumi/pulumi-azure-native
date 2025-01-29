@@ -53,6 +53,22 @@ export const EnableSubvolumes = {
  */
 export type EnableSubvolumes = (typeof EnableSubvolumes)[keyof typeof EnableSubvolumes];
 
+export const EncryptionType = {
+    /**
+     * EncryptionType Single, volumes will use single encryption at rest
+     */
+    Single: "Single",
+    /**
+     * EncryptionType Double, volumes will use double encryption at rest
+     */
+    Double: "Double",
+} as const;
+
+/**
+ * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
 export const EndpointType = {
     Src: "src",
     Dst: "dst",
@@ -78,6 +94,22 @@ export const NetworkFeatures = {
  * Basic network, or Standard features available to the volume.
  */
 export type NetworkFeatures = (typeof NetworkFeatures)[keyof typeof NetworkFeatures];
+
+export const QosType = {
+    /**
+     * qos type Auto
+     */
+    Auto: "Auto",
+    /**
+     * qos type Manual
+     */
+    Manual: "Manual",
+} as const;
+
+/**
+ * The qos type of the pool
+ */
+export type QosType = (typeof QosType)[keyof typeof QosType];
 
 export const ReplicationSchedule = {
     ReplicationSchedule_10minutely: "_10minutely",

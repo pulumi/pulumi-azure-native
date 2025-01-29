@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Management
 {
     /// <summary>
     /// The management group details.
-    /// Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2020-05-01.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 2.x: 2021-04-01.
     /// 
-    /// Other available API versions: 2023-04-01.
+    /// Other available API versions: 2020-05-01, 2020-10-01, 2021-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:management:ManagementGroup")]
     public partial class ManagementGroup : global::Pulumi.CustomResource

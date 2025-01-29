@@ -15,6 +15,12 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.virtualmachineimages.v20200214 as __v20200214
+    v20200214 = __v20200214
+    import pulumi_azure_native.virtualmachineimages.v20211001 as __v20211001
+    v20211001 = __v20211001
+    import pulumi_azure_native.virtualmachineimages.v20220214 as __v20220214
+    v20220214 = __v20220214
     import pulumi_azure_native.virtualmachineimages.v20220701 as __v20220701
     v20220701 = __v20220701
     import pulumi_azure_native.virtualmachineimages.v20230701 as __v20230701
@@ -22,6 +28,9 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.virtualmachineimages.v20240201 as __v20240201
     v20240201 = __v20240201
 else:
+    v20200214 = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages.v20200214')
+    v20211001 = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages.v20211001')
+    v20220214 = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages.v20220214')
     v20220701 = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages.v20220701')
     v20230701 = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages.v20230701')
     v20240201 = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages.v20240201')

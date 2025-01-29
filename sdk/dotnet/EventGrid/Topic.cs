@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// EventGrid Topic
-    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
+    /// Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2022-06-15.
     /// 
-    /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    /// Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Topic")]
     public partial class Topic : global::Pulumi.CustomResource
@@ -35,6 +35,19 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+        /// subscriber to view different types of events that are published.
+        /// </summary>
+        [Output("eventTypeInfo")]
+        public Output<Outputs.EventTypeInfoResponse?> EventTypeInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// Extended location of the resource.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// Identity information for the resource.
@@ -61,6 +74,12 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<Outputs.JsonInputSchemaMappingResponse?> InputSchemaMapping { get; private set; } = null!;
 
         /// <summary>
+        /// Kind of the resource.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Output("location")]
@@ -73,11 +92,20 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string> MetricResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// Minimum TLS version of the publisher allowed to publish to this topic
+        /// </summary>
+        [Output("minimumTlsVersionAllowed")]
+        public Output<string?> MinimumTlsVersionAllowed { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
@@ -95,7 +123,13 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to Topic resource.
+        /// The Sku pricing tier for the topic.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.ResourceSkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -193,6 +227,19 @@ namespace Pulumi.AzureNative.EventGrid
         public Input<bool>? DisableLocalAuth { get; set; }
 
         /// <summary>
+        /// Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+        /// subscriber to view different types of events that are published.
+        /// </summary>
+        [Input("eventTypeInfo")]
+        public Input<Inputs.EventTypeInfoArgs>? EventTypeInfo { get; set; }
+
+        /// <summary>
+        /// Extended location of the resource.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
+        /// <summary>
         /// Identity information for the resource.
         /// </summary>
         [Input("identity")]
@@ -223,10 +270,22 @@ namespace Pulumi.AzureNative.EventGrid
         public Input<Inputs.JsonInputSchemaMappingArgs>? InputSchemaMapping { get; set; }
 
         /// <summary>
+        /// Kind of the resource.
+        /// </summary>
+        [Input("kind")]
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.ResourceKind>? Kind { get; set; }
+
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Minimum TLS version of the publisher allowed to publish to this topic
+        /// </summary>
+        [Input("minimumTlsVersionAllowed")]
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.TlsVersion>? MinimumTlsVersionAllowed { get; set; }
 
         /// <summary>
         /// This determines if traffic is allowed over public network. By default it is enabled. 
@@ -240,6 +299,12 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Sku pricing tier for the topic.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.ResourceSkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -263,6 +328,7 @@ namespace Pulumi.AzureNative.EventGrid
         {
             DisableLocalAuth = false;
             InputSchema = "EventGridSchema";
+            Kind = "Azure";
             PublicNetworkAccess = "Enabled";
         }
         public static new TopicArgs Empty => new TopicArgs();

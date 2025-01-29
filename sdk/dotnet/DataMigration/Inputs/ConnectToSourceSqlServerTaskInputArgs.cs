@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public Input<bool>? CollectTdeCertificateInfo { get; set; }
 
         /// <summary>
+        /// encrypted key for secure fields
+        /// </summary>
+        [Input("encryptedKeyForSecureFields")]
+        public Input<string>? EncryptedKeyForSecureFields { get; set; }
+
+        /// <summary>
         /// Connection information for Source SQL Server
         /// </summary>
         [Input("sourceConnectionInfo", required: true)]

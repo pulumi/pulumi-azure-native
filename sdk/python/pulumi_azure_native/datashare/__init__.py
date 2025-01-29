@@ -80,11 +80,14 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.datashare.v20200901 as __v20200901
+    v20200901 = __v20200901
     import pulumi_azure_native.datashare.v20201001preview as __v20201001preview
     v20201001preview = __v20201001preview
     import pulumi_azure_native.datashare.v20210801 as __v20210801
     v20210801 = __v20210801
 else:
+    v20200901 = _utilities.lazy_import('pulumi_azure_native.datashare.v20200901')
     v20201001preview = _utilities.lazy_import('pulumi_azure_native.datashare.v20201001preview')
     v20210801 = _utilities.lazy_import('pulumi_azure_native.datashare.v20210801')
 

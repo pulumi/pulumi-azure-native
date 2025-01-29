@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Purview.Inputs
         /// The status.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNative.Purview.Status>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Purview.PrivateEndpointConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

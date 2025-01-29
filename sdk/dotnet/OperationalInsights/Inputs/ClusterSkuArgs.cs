@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
     public sealed class ClusterSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The capacity value
+        /// The capacity reservation level in Gigabytes for this cluster.
         /// </summary>
         [Input("capacity")]
         public Input<double>? Capacity { get; set; }
 
         /// <summary>
-        /// The name of the SKU.
+        /// The SKU (tier) of a cluster.
         /// </summary>
         [Input("name")]
         public InputUnion<string, Pulumi.AzureNative.OperationalInsights.ClusterSkuNameEnum>? Name { get; set; }

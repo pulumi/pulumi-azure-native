@@ -35,6 +35,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.scvmm.v20200605preview as __v20200605preview
+    v20200605preview = __v20200605preview
     import pulumi_azure_native.scvmm.v20220521preview as __v20220521preview
     v20220521preview = __v20220521preview
     import pulumi_azure_native.scvmm.v20230401preview as __v20230401preview
@@ -44,6 +46,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.scvmm.v20240601 as __v20240601
     v20240601 = __v20240601
 else:
+    v20200605preview = _utilities.lazy_import('pulumi_azure_native.scvmm.v20200605preview')
     v20220521preview = _utilities.lazy_import('pulumi_azure_native.scvmm.v20220521preview')
     v20230401preview = _utilities.lazy_import('pulumi_azure_native.scvmm.v20230401preview')
     v20231007 = _utilities.lazy_import('pulumi_azure_native.scvmm.v20231007')

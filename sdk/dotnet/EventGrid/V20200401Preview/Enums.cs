@@ -8,6 +8,176 @@ using Pulumi;
 namespace Pulumi.AzureNative.EventGrid.V20200401Preview
 {
     /// <summary>
+    /// The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdvancedFilterOperatorType : IEquatable<AdvancedFilterOperatorType>
+    {
+        private readonly string _value;
+
+        private AdvancedFilterOperatorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AdvancedFilterOperatorType NumberIn { get; } = new AdvancedFilterOperatorType("NumberIn");
+        public static AdvancedFilterOperatorType NumberNotIn { get; } = new AdvancedFilterOperatorType("NumberNotIn");
+        public static AdvancedFilterOperatorType NumberLessThan { get; } = new AdvancedFilterOperatorType("NumberLessThan");
+        public static AdvancedFilterOperatorType NumberGreaterThan { get; } = new AdvancedFilterOperatorType("NumberGreaterThan");
+        public static AdvancedFilterOperatorType NumberLessThanOrEquals { get; } = new AdvancedFilterOperatorType("NumberLessThanOrEquals");
+        public static AdvancedFilterOperatorType NumberGreaterThanOrEquals { get; } = new AdvancedFilterOperatorType("NumberGreaterThanOrEquals");
+        public static AdvancedFilterOperatorType BoolEquals { get; } = new AdvancedFilterOperatorType("BoolEquals");
+        public static AdvancedFilterOperatorType StringIn { get; } = new AdvancedFilterOperatorType("StringIn");
+        public static AdvancedFilterOperatorType StringNotIn { get; } = new AdvancedFilterOperatorType("StringNotIn");
+        public static AdvancedFilterOperatorType StringBeginsWith { get; } = new AdvancedFilterOperatorType("StringBeginsWith");
+        public static AdvancedFilterOperatorType StringEndsWith { get; } = new AdvancedFilterOperatorType("StringEndsWith");
+        public static AdvancedFilterOperatorType StringContains { get; } = new AdvancedFilterOperatorType("StringContains");
+
+        public static bool operator ==(AdvancedFilterOperatorType left, AdvancedFilterOperatorType right) => left.Equals(right);
+        public static bool operator !=(AdvancedFilterOperatorType left, AdvancedFilterOperatorType right) => !left.Equals(right);
+
+        public static explicit operator string(AdvancedFilterOperatorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdvancedFilterOperatorType other && Equals(other);
+        public bool Equals(AdvancedFilterOperatorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the endpoint for the dead letter destination
+    /// </summary>
+    [EnumType]
+    public readonly struct DeadLetterEndPointType : IEquatable<DeadLetterEndPointType>
+    {
+        private readonly string _value;
+
+        private DeadLetterEndPointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeadLetterEndPointType StorageBlob { get; } = new DeadLetterEndPointType("StorageBlob");
+
+        public static bool operator ==(DeadLetterEndPointType left, DeadLetterEndPointType right) => left.Equals(right);
+        public static bool operator !=(DeadLetterEndPointType left, DeadLetterEndPointType right) => !left.Equals(right);
+
+        public static explicit operator string(DeadLetterEndPointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeadLetterEndPointType other && Equals(other);
+        public bool Equals(DeadLetterEndPointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the endpoint for the event subscription destination.
+    /// </summary>
+    [EnumType]
+    public readonly struct EndpointType : IEquatable<EndpointType>
+    {
+        private readonly string _value;
+
+        private EndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EndpointType WebHook { get; } = new EndpointType("WebHook");
+        public static EndpointType EventHub { get; } = new EndpointType("EventHub");
+        public static EndpointType StorageQueue { get; } = new EndpointType("StorageQueue");
+        public static EndpointType HybridConnection { get; } = new EndpointType("HybridConnection");
+        public static EndpointType ServiceBusQueue { get; } = new EndpointType("ServiceBusQueue");
+        public static EndpointType ServiceBusTopic { get; } = new EndpointType("ServiceBusTopic");
+        public static EndpointType AzureFunction { get; } = new EndpointType("AzureFunction");
+
+        public static bool operator ==(EndpointType left, EndpointType right) => left.Equals(right);
+        public static bool operator !=(EndpointType left, EndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(EndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EndpointType other && Equals(other);
+        public bool Equals(EndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The event delivery schema for the event subscription.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventDeliverySchema : IEquatable<EventDeliverySchema>
+    {
+        private readonly string _value;
+
+        private EventDeliverySchema(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventDeliverySchema EventGridSchema { get; } = new EventDeliverySchema("EventGridSchema");
+        public static EventDeliverySchema CustomInputSchema { get; } = new EventDeliverySchema("CustomInputSchema");
+        public static EventDeliverySchema CloudEventSchemaV1_0 { get; } = new EventDeliverySchema("CloudEventSchemaV1_0");
+
+        public static bool operator ==(EventDeliverySchema left, EventDeliverySchema right) => left.Equals(right);
+        public static bool operator !=(EventDeliverySchema left, EventDeliverySchema right) => !left.Equals(right);
+
+        public static explicit operator string(EventDeliverySchema value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventDeliverySchema other && Equals(other);
+        public bool Equals(EventDeliverySchema other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSubscriptionIdentityType : IEquatable<EventSubscriptionIdentityType>
+    {
+        private readonly string _value;
+
+        private EventSubscriptionIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSubscriptionIdentityType SystemAssigned { get; } = new EventSubscriptionIdentityType("SystemAssigned");
+        public static EventSubscriptionIdentityType UserAssigned { get; } = new EventSubscriptionIdentityType("UserAssigned");
+
+        public static bool operator ==(EventSubscriptionIdentityType left, EventSubscriptionIdentityType right) => left.Equals(right);
+        public static bool operator !=(EventSubscriptionIdentityType left, EventSubscriptionIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(EventSubscriptionIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSubscriptionIdentityType other && Equals(other);
+        public bool Equals(EventSubscriptionIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
     /// </summary>
     [EnumType]
@@ -125,6 +295,38 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IpActionType other && Equals(other);
         public bool Equals(IpActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Visibility state of the partner registration.
+    /// </summary>
+    [EnumType]
+    public readonly struct PartnerRegistrationVisibilityState : IEquatable<PartnerRegistrationVisibilityState>
+    {
+        private readonly string _value;
+
+        private PartnerRegistrationVisibilityState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnerRegistrationVisibilityState Hidden { get; } = new PartnerRegistrationVisibilityState("Hidden");
+        public static PartnerRegistrationVisibilityState PublicPreview { get; } = new PartnerRegistrationVisibilityState("PublicPreview");
+        public static PartnerRegistrationVisibilityState GenerallyAvailable { get; } = new PartnerRegistrationVisibilityState("GenerallyAvailable");
+
+        public static bool operator ==(PartnerRegistrationVisibilityState left, PartnerRegistrationVisibilityState right) => left.Equals(right);
+        public static bool operator !=(PartnerRegistrationVisibilityState left, PartnerRegistrationVisibilityState right) => !left.Equals(right);
+
+        public static explicit operator string(PartnerRegistrationVisibilityState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnerRegistrationVisibilityState other && Equals(other);
+        public bool Equals(PartnerRegistrationVisibilityState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

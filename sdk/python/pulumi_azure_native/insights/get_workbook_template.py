@@ -165,6 +165,8 @@ def get_workbook_template(resource_group_name: Optional[str] = None,
     Get a single workbook template by its resourceName.
     Azure REST API version: 2020-11-20.
 
+    Other available API versions: 2019-10-17-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
@@ -192,6 +194,8 @@ def get_workbook_template_output(resource_group_name: Optional[pulumi.Input[str]
     """
     Get a single workbook template by its resourceName.
     Azure REST API version: 2020-11-20.
+
+    Other available API versions: 2019-10-17-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

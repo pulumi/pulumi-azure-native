@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of an Asset Filter associated with the specified Asset.
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
         /// </summary>
         public static Task<GetAssetFilterResult> InvokeAsync(GetAssetFilterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetFilterResult>("azure-native:media:getAssetFilter", args ?? new GetAssetFilterArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of an Asset Filter associated with the specified Asset.
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
         /// </summary>
         public static Output<GetAssetFilterResult> Invoke(GetAssetFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetFilterResult>("azure-native:media:getAssetFilter", args ?? new GetAssetFilterInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of an Asset Filter associated with the specified Asset.
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
         /// </summary>
         public static Output<GetAssetFilterResult> Invoke(GetAssetFilterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetFilterResult>("azure-native:media:getAssetFilter", args ?? new GetAssetFilterInvokeArgs(), options.WithDefaults());

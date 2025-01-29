@@ -27,7 +27,7 @@ class GetPacketCaptureResult:
     """
     Packet capture session resource.
     """
-    def __init__(__self__, bytes_to_capture_per_packet=None, capture_start_time=None, id=None, name=None, network_interfaces=None, provisioning_state=None, reason=None, status=None, system_data=None, time_limit_in_seconds=None, total_bytes_per_session=None, type=None):
+    def __init__(__self__, bytes_to_capture_per_packet=None, capture_start_time=None, id=None, name=None, network_interfaces=None, output_files=None, provisioning_state=None, reason=None, status=None, system_data=None, time_limit_in_seconds=None, total_bytes_per_session=None, type=None):
         if bytes_to_capture_per_packet and not isinstance(bytes_to_capture_per_packet, float):
             raise TypeError("Expected argument 'bytes_to_capture_per_packet' to be a float")
         pulumi.set(__self__, "bytes_to_capture_per_packet", bytes_to_capture_per_packet)
@@ -43,6 +43,9 @@ class GetPacketCaptureResult:
         if network_interfaces and not isinstance(network_interfaces, list):
             raise TypeError("Expected argument 'network_interfaces' to be a list")
         pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if output_files and not isinstance(output_files, list):
+            raise TypeError("Expected argument 'output_files' to be a list")
+        pulumi.set(__self__, "output_files", output_files)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -104,6 +107,14 @@ class GetPacketCaptureResult:
         List of network interfaces to capture on.
         """
         return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="outputFiles")
+    def output_files(self) -> Sequence[str]:
+        """
+        The list of output files of a packet capture session.
+        """
+        return pulumi.get(self, "output_files")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -173,6 +184,7 @@ class AwaitableGetPacketCaptureResult(GetPacketCaptureResult):
             id=self.id,
             name=self.name,
             network_interfaces=self.network_interfaces,
+            output_files=self.output_files,
             provisioning_state=self.provisioning_state,
             reason=self.reason,
             status=self.status,
@@ -188,9 +200,9 @@ def get_packet_capture(packet_capture_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCaptureResult:
     """
     Gets information about the specified packet capture session.
-    Azure REST API version: 2023-06-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2023-06-01, 2023-09-01, 2024-02-01.
 
 
     :param str packet_capture_name: The name of the packet capture session.
@@ -210,6 +222,7 @@ def get_packet_capture(packet_capture_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        output_files=pulumi.get(__ret__, 'output_files'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         reason=pulumi.get(__ret__, 'reason'),
         status=pulumi.get(__ret__, 'status'),
@@ -223,9 +236,9 @@ def get_packet_capture_output(packet_capture_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPacketCaptureResult]:
     """
     Gets information about the specified packet capture session.
-    Azure REST API version: 2023-06-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2023-06-01, 2023-09-01, 2024-02-01.
 
 
     :param str packet_capture_name: The name of the packet capture session.
@@ -244,6 +257,7 @@ def get_packet_capture_output(packet_capture_name: Optional[pulumi.Input[str]] =
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         network_interfaces=pulumi.get(__response__, 'network_interfaces'),
+        output_files=pulumi.get(__response__, 'output_files'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         reason=pulumi.get(__response__, 'reason'),
         status=pulumi.get(__response__, 'status'),

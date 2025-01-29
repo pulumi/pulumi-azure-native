@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// Get private endpoint connection properties for the given private endpoint.
         /// Azure REST API version: 2023-01-31.
         /// 
-        /// Other available API versions: 2020-12-01.
+        /// Other available API versions: 2020-12-01, 2021-06-30-preview, 2022-05-31, 2022-10-31.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:digitaltwins:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// Get private endpoint connection properties for the given private endpoint.
         /// Azure REST API version: 2023-01-31.
         /// 
-        /// Other available API versions: 2020-12-01.
+        /// Other available API versions: 2020-12-01, 2021-06-30-preview, 2022-05-31, 2022-10-31.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:digitaltwins:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// Get private endpoint connection properties for the given private endpoint.
         /// Azure REST API version: 2023-01-31.
         /// 
-        /// Other available API versions: 2020-12-01.
+        /// Other available API versions: 2020-12-01, 2021-06-30-preview, 2022-05-31, 2022-10-31.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:digitaltwins:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

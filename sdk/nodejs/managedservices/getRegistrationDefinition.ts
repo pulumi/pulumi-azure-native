@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the registration definition details.
  * Azure REST API version: 2022-10-01.
+ *
+ * Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
  */
 export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,6 +64,8 @@ export interface GetRegistrationDefinitionResult {
 /**
  * Gets the registration definition details.
  * Azure REST API version: 2022-10-01.
+ *
+ * Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
  */
 export function getRegistrationDefinitionOutput(args: GetRegistrationDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

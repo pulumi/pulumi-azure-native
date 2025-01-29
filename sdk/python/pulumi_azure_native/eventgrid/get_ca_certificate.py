@@ -116,7 +116,7 @@ class GetCaCertificateResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to the CaCertificate resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -152,9 +152,9 @@ def get_ca_certificate(ca_certificate_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCaCertificateResult:
     """
     Get properties of a CA certificate.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str ca_certificate_name: Name of the CA certificate.
@@ -184,9 +184,9 @@ def get_ca_certificate_output(ca_certificate_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCaCertificateResult]:
     """
     Get properties of a CA certificate.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str ca_certificate_name: Name of the CA certificate.

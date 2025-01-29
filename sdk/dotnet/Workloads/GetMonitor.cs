@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01-preview.
         /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
+        /// Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-04-01, 2023-10-01-preview, 2023-12-01-preview.
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("azure-native:workloads:getMonitor", args ?? new GetMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01-preview.
         /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
+        /// Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-04-01, 2023-10-01-preview, 2023-12-01-preview.
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:workloads:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01-preview.
         /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
+        /// Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-04-01, 2023-10-01-preview, 2023-12-01-preview.
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:workloads:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
@@ -89,17 +89,21 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string? AppLocation;
         /// <summary>
+        /// App service plan configuration
+        /// </summary>
+        public readonly Outputs.AppServicePlanConfigurationResponse? AppServicePlanConfiguration;
+        /// <summary>
         /// Defines the SAP monitor errors.
         /// </summary>
-        public readonly Outputs.MonitorPropertiesResponseErrors Errors;
+        public readonly Outputs.ErrorDetailResponse Errors;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// [currently not in use] Managed service identity(user assigned identities)
+        /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.UserAssignedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -111,7 +115,7 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Managed resource group configuration
         /// </summary>
-        public readonly Outputs.ManagedRGConfigurationResponse? ManagedResourceGroupConfiguration;
+        public readonly Outputs.ManagedResourceGroupConfigurationResponse? ManagedResourceGroupConfiguration;
         /// <summary>
         /// The subnet which the SAP monitor will be deployed in
         /// </summary>
@@ -157,17 +161,19 @@ namespace Pulumi.AzureNative.Workloads
         private GetMonitorResult(
             string? appLocation,
 
-            Outputs.MonitorPropertiesResponseErrors errors,
+            Outputs.AppServicePlanConfigurationResponse? appServicePlanConfiguration,
+
+            Outputs.ErrorDetailResponse errors,
 
             string id,
 
-            Outputs.UserAssignedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
             string? logAnalyticsWorkspaceArmId,
 
-            Outputs.ManagedRGConfigurationResponse? managedResourceGroupConfiguration,
+            Outputs.ManagedResourceGroupConfigurationResponse? managedResourceGroupConfiguration,
 
             string? monitorSubnet,
 
@@ -190,6 +196,7 @@ namespace Pulumi.AzureNative.Workloads
             string? zoneRedundancyPreference)
         {
             AppLocation = appLocation;
+            AppServicePlanConfiguration = appServicePlanConfiguration;
             Errors = errors;
             Id = id;
             Identity = identity;

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Logic
 {
     /// <summary>
     /// The integration account partner.
-    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
     /// 
-    /// Other available API versions: 2015-08-01-preview.
+    /// Other available API versions: 2015-08-01-preview, 2018-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountPartner")]
     public partial class IntegrationAccountPartner : global::Pulumi.CustomResource

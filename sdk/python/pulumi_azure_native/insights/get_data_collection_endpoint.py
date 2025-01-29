@@ -271,9 +271,9 @@ def get_data_collection_endpoint(data_collection_endpoint_name: Optional[str] = 
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCollectionEndpointResult:
     """
     Definition of ARM tracked top level resource.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2023-03-11.
 
-    Other available API versions: 2023-03-11.
+    Other available API versions: 2021-04-01, 2021-09-01-preview, 2022-06-01.
 
 
     :param str data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
@@ -310,9 +310,9 @@ def get_data_collection_endpoint_output(data_collection_endpoint_name: Optional[
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCollectionEndpointResult]:
     """
     Definition of ARM tracked top level resource.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2023-03-11.
 
-    Other available API versions: 2023-03-11.
+    Other available API versions: 2021-04-01, 2021-09-01-preview, 2022-06-01.
 
 
     :param str data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.

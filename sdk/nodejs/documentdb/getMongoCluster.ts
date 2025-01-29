@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a mongo cluster.
- * Azure REST API version: 2023-03-15-preview.
+ * Azure REST API version: 2024-02-15-preview.
  *
- * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview.
  */
 export function getMongoCluster(args: GetMongoClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,9 +91,9 @@ export interface GetMongoClusterResult {
 }
 /**
  * Gets information about a mongo cluster.
- * Azure REST API version: 2023-03-15-preview.
+ * Azure REST API version: 2024-02-15-preview.
  *
- * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview.
  */
 export function getMongoClusterOutput(args: GetMongoClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMongoClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

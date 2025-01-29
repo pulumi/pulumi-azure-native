@@ -27,7 +27,7 @@ class GetVirtualMachineInstanceResult:
     """
     The virtual machine instance resource definition.
     """
-    def __init__(__self__, extended_location=None, guest_agent_install_status=None, hardware_profile=None, id=None, identity=None, instance_view=None, name=None, network_profile=None, os_profile=None, provisioning_state=None, resource_uid=None, security_profile=None, status=None, storage_profile=None, system_data=None, type=None, vm_id=None):
+    def __init__(__self__, extended_location=None, guest_agent_install_status=None, hardware_profile=None, http_proxy_config=None, id=None, identity=None, instance_view=None, name=None, network_profile=None, os_profile=None, provisioning_state=None, resource_uid=None, security_profile=None, status=None, storage_profile=None, system_data=None, type=None, vm_id=None):
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -37,6 +37,9 @@ class GetVirtualMachineInstanceResult:
         if hardware_profile and not isinstance(hardware_profile, dict):
             raise TypeError("Expected argument 'hardware_profile' to be a dict")
         pulumi.set(__self__, "hardware_profile", hardware_profile)
+        if http_proxy_config and not isinstance(http_proxy_config, dict):
+            raise TypeError("Expected argument 'http_proxy_config' to be a dict")
+        pulumi.set(__self__, "http_proxy_config", http_proxy_config)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -98,25 +101,33 @@ class GetVirtualMachineInstanceResult:
 
     @property
     @pulumi.getter(name="hardwareProfile")
-    def hardware_profile(self) -> Optional['outputs.VirtualMachineInstancePropertiesResponseHardwareProfile']:
+    def hardware_profile(self) -> Optional['outputs.VirtualMachineInstancePropertiesHardwareProfileResponse']:
         """
         HardwareProfile - Specifies the hardware settings for the virtual machine instance.
         """
         return pulumi.get(self, "hardware_profile")
 
     @property
+    @pulumi.getter(name="httpProxyConfig")
+    def http_proxy_config(self) -> Optional['outputs.HttpProxyConfigurationResponse']:
+        """
+        HTTP Proxy configuration for the VM.
+        """
+        return pulumi.get(self, "http_proxy_config")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        Identity for the resource.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -138,7 +149,7 @@ class GetVirtualMachineInstanceResult:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional['outputs.VirtualMachineInstancePropertiesResponseNetworkProfile']:
+    def network_profile(self) -> Optional['outputs.VirtualMachineInstancePropertiesNetworkProfileResponse']:
         """
         NetworkProfile - describes the network configuration the virtual machine instance
         """
@@ -146,7 +157,7 @@ class GetVirtualMachineInstanceResult:
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional['outputs.VirtualMachineInstancePropertiesResponseOsProfile']:
+    def os_profile(self) -> Optional['outputs.VirtualMachineInstancePropertiesOsProfileResponse']:
         """
         OsProfile - describes the configuration of the operating system and sets login data
         """
@@ -170,7 +181,7 @@ class GetVirtualMachineInstanceResult:
 
     @property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> Optional['outputs.VirtualMachineInstancePropertiesResponseSecurityProfile']:
+    def security_profile(self) -> Optional['outputs.VirtualMachineInstancePropertiesSecurityProfileResponse']:
         """
         SecurityProfile - Specifies the security settings for the virtual machine instance.
         """
@@ -186,7 +197,7 @@ class GetVirtualMachineInstanceResult:
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional['outputs.VirtualMachineInstancePropertiesResponseStorageProfile']:
+    def storage_profile(self) -> Optional['outputs.VirtualMachineInstancePropertiesStorageProfileResponse']:
         """
         StorageProfile - contains information about the disks and storage information for the virtual machine instance
         """
@@ -226,6 +237,7 @@ class AwaitableGetVirtualMachineInstanceResult(GetVirtualMachineInstanceResult):
             extended_location=self.extended_location,
             guest_agent_install_status=self.guest_agent_install_status,
             hardware_profile=self.hardware_profile,
+            http_proxy_config=self.http_proxy_config,
             id=self.id,
             identity=self.identity,
             instance_view=self.instance_view,
@@ -246,12 +258,12 @@ def get_virtual_machine_instance(resource_uri: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineInstanceResult:
     """
     Gets a virtual machine instance
-    Azure REST API version: 2023-07-01-preview.
+    Azure REST API version: 2024-08-01-preview.
 
-    Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-10-01-preview.
 
 
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
@@ -262,6 +274,7 @@ def get_virtual_machine_instance(resource_uri: Optional[str] = None,
         extended_location=pulumi.get(__ret__, 'extended_location'),
         guest_agent_install_status=pulumi.get(__ret__, 'guest_agent_install_status'),
         hardware_profile=pulumi.get(__ret__, 'hardware_profile'),
+        http_proxy_config=pulumi.get(__ret__, 'http_proxy_config'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         instance_view=pulumi.get(__ret__, 'instance_view'),
@@ -280,12 +293,12 @@ def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineInstanceResult]:
     """
     Gets a virtual machine instance
-    Azure REST API version: 2023-07-01-preview.
+    Azure REST API version: 2024-08-01-preview.
 
-    Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-10-01-preview.
 
 
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
@@ -295,6 +308,7 @@ def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]
         extended_location=pulumi.get(__response__, 'extended_location'),
         guest_agent_install_status=pulumi.get(__response__, 'guest_agent_install_status'),
         hardware_profile=pulumi.get(__response__, 'hardware_profile'),
+        http_proxy_config=pulumi.get(__response__, 'http_proxy_config'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         instance_view=pulumi.get(__response__, 'instance_view'),

@@ -152,9 +152,9 @@ class CollectorPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Collector policy resource.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-05-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
-        Other available API versions: 2022-05-01.
+        Other available API versions: 2021-09-01-preview, 2022-05-01, 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,9 +174,9 @@ class CollectorPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Collector policy resource.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-05-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
-        Other available API versions: 2022-05-01.
+        Other available API versions: 2021-09-01-preview, 2022-05-01, 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param CollectorPolicyArgs args: The arguments to use to populate this resource's properties.

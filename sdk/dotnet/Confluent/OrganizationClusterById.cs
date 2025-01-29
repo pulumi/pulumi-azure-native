@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Confluent
 {
     /// <summary>
     /// Details of cluster record
-    /// Azure REST API version: 2024-07-01.
+    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2024-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:confluent:OrganizationClusterById")]
     public partial class OrganizationClusterById : global::Pulumi.CustomResource

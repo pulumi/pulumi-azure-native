@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// DataFlowEndpoint Authentication X509 properties
+    /// DataflowEndpoint Authentication X509 properties
     /// </summary>
-    public sealed class DataFlowEndpointAuthenticationX509Args : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointAuthenticationX509Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Secret reference of the X.509 certificate.
@@ -21,9 +21,9 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         [Input("secretRef", required: true)]
         public Input<string> SecretRef { get; set; } = null!;
 
-        public DataFlowEndpointAuthenticationX509Args()
+        public DataflowEndpointAuthenticationX509Args()
         {
         }
-        public static new DataFlowEndpointAuthenticationX509Args Empty => new DataFlowEndpointAuthenticationX509Args();
+        public static new DataflowEndpointAuthenticationX509Args Empty => new DataflowEndpointAuthenticationX509Args();
     }
 }

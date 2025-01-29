@@ -3,13 +3,17 @@
 
 // Export sub-modules:
 import * as v20190505preview from "./v20190505preview";
+import * as v20190601 from "./v20190601";
 import * as v20210401 from "./v20210401";
 import * as v20210808 from "./v20210808";
+import * as v20210808preview from "./v20210808preview";
 
 export {
     v20190505preview,
+    v20190601,
     v20210401,
     v20210808,
+    v20210808preview,
 };
 
 export const ActionRuleStatus = {

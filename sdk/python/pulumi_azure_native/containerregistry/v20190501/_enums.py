@@ -10,6 +10,8 @@ __all__ = [
     'PolicyStatus',
     'SkuName',
     'TrustPolicyType',
+    'WebhookAction',
+    'WebhookStatus',
 ]
 
 
@@ -51,3 +53,19 @@ class TrustPolicyType(str, Enum):
     The type of trust policy.
     """
     NOTARY = "Notary"
+
+
+class WebhookAction(str, Enum):
+    PUSH = "push"
+    DELETE = "delete"
+    QUARANTINE = "quarantine"
+    CHART_PUSH = "chart_push"
+    CHART_DELETE = "chart_delete"
+
+
+class WebhookStatus(str, Enum):
+    """
+    The status of the webhook at the time the operation was called.
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"

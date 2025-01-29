@@ -106,6 +106,8 @@ def get_content_key_policy_properties_with_secrets(account_name: Optional[str] =
     Get a Content Key Policy including secret values
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
+
 
     :param str account_name: The Media Services account name.
     :param str content_key_policy_name: The Content Key Policy name.
@@ -131,6 +133,8 @@ def get_content_key_policy_properties_with_secrets_output(account_name: Optional
     """
     Get a Content Key Policy including secret values
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
 
 
     :param str account_name: The Media Services account name.

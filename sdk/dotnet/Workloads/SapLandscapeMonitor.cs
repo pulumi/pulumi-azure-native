@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// configuration associated with SAP Landscape Monitor Dashboard.
-    /// Azure REST API version: 2023-04-01.
+    /// Azure REST API version: 2024-02-01-preview. Prior API version in Azure Native 2.x: 2023-04-01.
     /// 
-    /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+    /// Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-10-01-preview, 2023-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SapLandscapeMonitor")]
     public partial class SapLandscapeMonitor : global::Pulumi.CustomResource
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Gets or sets the SID groupings by landscape and Environment.
         /// </summary>
         [Output("grouping")]
-        public Output<Outputs.SapLandscapeMonitorPropertiesResponseGrouping?> Grouping { get; private set; } = null!;
+        public Output<Outputs.SapLandscapeMonitorPropertiesGroupingResponse?> Grouping { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource

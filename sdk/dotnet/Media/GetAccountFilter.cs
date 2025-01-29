@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of an Account Filter in the Media Services account.
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
         /// </summary>
         public static Task<GetAccountFilterResult> InvokeAsync(GetAccountFilterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountFilterResult>("azure-native:media:getAccountFilter", args ?? new GetAccountFilterArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of an Account Filter in the Media Services account.
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
         /// </summary>
         public static Output<GetAccountFilterResult> Invoke(GetAccountFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountFilterResult>("azure-native:media:getAccountFilter", args ?? new GetAccountFilterInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of an Account Filter in the Media Services account.
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
         /// </summary>
         public static Output<GetAccountFilterResult> Invoke(GetAccountFilterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountFilterResult>("azure-native:media:getAccountFilter", args ?? new GetAccountFilterInvokeArgs(), options.WithDefaults());

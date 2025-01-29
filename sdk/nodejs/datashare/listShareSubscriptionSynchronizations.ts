@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * List synchronizations of a share subscription
  * Azure REST API version: 2021-08-01.
+ *
+ * Other available API versions: 2020-09-01, 2020-10-01-preview.
  */
 export function listShareSubscriptionSynchronizations(args: ListShareSubscriptionSynchronizationsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSubscriptionSynchronizationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,6 +68,8 @@ export interface ListShareSubscriptionSynchronizationsResult {
 /**
  * List synchronizations of a share subscription
  * Azure REST API version: 2021-08-01.
+ *
+ * Other available API versions: 2020-09-01, 2020-10-01-preview.
  */
 export function listShareSubscriptionSynchronizationsOutput(args: ListShareSubscriptionSynchronizationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListShareSubscriptionSynchronizationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.PolicyInsights
     {
         /// <summary>
         /// Gets an existing attestation at resource group scope.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2024-10-01.
+        /// Other available API versions: 2021-01-01, 2022-09-01.
         /// </summary>
         public static Task<GetAttestationAtResourceGroupResult> InvokeAsync(GetAttestationAtResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceGroupResult>("azure-native:policyinsights:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing attestation at resource group scope.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2024-10-01.
+        /// Other available API versions: 2021-01-01, 2022-09-01.
         /// </summary>
         public static Output<GetAttestationAtResourceGroupResult> Invoke(GetAttestationAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceGroupResult>("azure-native:policyinsights:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing attestation at resource group scope.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2024-10-01.
+        /// Other available API versions: 2021-01-01, 2022-09-01.
         /// </summary>
         public static Output<GetAttestationAtResourceGroupResult> Invoke(GetAttestationAtResourceGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceGroupResult>("azure-native:policyinsights:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupInvokeArgs(), options.WithDefaults());

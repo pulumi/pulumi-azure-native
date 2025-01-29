@@ -151,9 +151,9 @@ def get_postgres_instance(postgres_instance_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPostgresInstanceResult:
     """
     Retrieves a postgres Instance resource
-    Azure REST API version: 2023-01-15-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2021-06-01-preview, 2021-07-01-preview, 2022-03-01-preview, 2022-06-15-preview, 2023-01-15-preview, 2024-05-01-preview.
 
 
     :param str postgres_instance_name: Name of Postgres Instance
@@ -180,9 +180,9 @@ def get_postgres_instance_output(postgres_instance_name: Optional[pulumi.Input[s
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPostgresInstanceResult]:
     """
     Retrieves a postgres Instance resource
-    Azure REST API version: 2023-01-15-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2021-06-01-preview, 2021-07-01-preview, 2022-03-01-preview, 2022-06-15-preview, 2023-01-15-preview, 2024-05-01-preview.
 
 
     :param str postgres_instance_name: Name of Postgres Instance

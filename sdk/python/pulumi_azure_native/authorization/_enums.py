@@ -9,6 +9,7 @@ __all__ = [
     'AccessReviewRecurrenceRangeType',
     'AccessReviewResult',
     'AssignmentScopeValidation',
+    'AssignmentType',
     'DefaultDecisionType',
     'EnforcementMode',
     'ExemptionCategory',
@@ -63,6 +64,16 @@ class AssignmentScopeValidation(str, Enum):
     """
     This option will bypass the validation the exemption scope is at or under the policy assignment scope.
     """
+
+
+class AssignmentType(str, Enum):
+    """
+    The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    SYSTEM = "System"
+    SYSTEM_HIDDEN = "SystemHidden"
+    CUSTOM = "Custom"
 
 
 class DefaultDecisionType(str, Enum):

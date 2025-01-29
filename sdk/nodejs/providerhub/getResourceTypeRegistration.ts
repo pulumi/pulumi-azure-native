@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a resource type details in the given subscription and provider.
  * Azure REST API version: 2021-09-01-preview.
+ *
+ * Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
  */
 export function getResourceTypeRegistration(args: GetResourceTypeRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTypeRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,6 +54,8 @@ export interface GetResourceTypeRegistrationResult {
 /**
  * Gets a resource type details in the given subscription and provider.
  * Azure REST API version: 2021-09-01-preview.
+ *
+ * Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
  */
 export function getResourceTypeRegistrationOutput(args: GetResourceTypeRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceTypeRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -2,12 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20201208 from "./v20201208";
 import * as v20201208preview from "./v20201208preview";
+import * as v20210610 from "./v20210610";
+import * as v20210824 from "./v20210824";
+import * as v20220808 from "./v20220808";
 import * as v20230501 from "./v20230501";
 import * as v20240201 from "./v20240201";
 
 export {
+    v20201208,
     v20201208preview,
+    v20210610,
+    v20210824,
+    v20220808,
     v20230501,
     v20240201,
 };
@@ -29,6 +37,7 @@ export const SkuName = {
     S1: "S1",
     C0: "C0",
     PES: "PES",
+    C1: "C1",
 } as const;
 
 /**

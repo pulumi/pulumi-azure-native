@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Response for Volume request.
- * Azure REST API version: 2021-11-20-preview. Prior API version in Azure Native 1.x: 2021-11-20-preview.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2021-11-20-preview.
  *
- * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview.
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -45,27 +45,31 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly creationData!: pulumi.Output<outputs.elasticsan.SourceCreationDataResponse | undefined>;
     /**
-     * Azure resource name.
+     * Parent resource information.
+     */
+    public readonly managedBy!: pulumi.Output<outputs.elasticsan.ManagedByInfoResponse | undefined>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * State of the operation on the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
      * Volume size.
      */
-    public readonly sizeGiB!: pulumi.Output<number | undefined>;
+    public readonly sizeGiB!: pulumi.Output<number>;
     /**
      * Storage target information
      */
     public /*out*/ readonly storageTarget!: pulumi.Output<outputs.elasticsan.IscsiTargetInfoResponse>;
     /**
-     * Resource metadata required by ARM RPC
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.elasticsan.SystemDataResponse>;
     /**
-     * Azure resource tags.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Azure resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -90,28 +94,33 @@ export class Volume extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.sizeGiB === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sizeGiB'");
+            }
             if ((!args || args.volumeGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeGroupName'");
             }
             resourceInputs["creationData"] = args ? args.creationData : undefined;
             resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
+            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sizeGiB"] = args ? args.sizeGiB : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumeGroupName"] = args ? args.volumeGroupName : undefined;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["storageTarget"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumeId"] = undefined /*out*/;
         } else {
             resourceInputs["creationData"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sizeGiB"] = undefined /*out*/;
             resourceInputs["storageTarget"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumeId"] = undefined /*out*/;
         }
@@ -135,17 +144,17 @@ export interface VolumeArgs {
      */
     elasticSanName: pulumi.Input<string>;
     /**
+     * Parent resource information.
+     */
+    managedBy?: pulumi.Input<inputs.elasticsan.ManagedByInfoArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
      * Volume size.
      */
-    sizeGiB?: pulumi.Input<number>;
-    /**
-     * Azure resource tags.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    sizeGiB: pulumi.Input<number>;
     /**
      * The name of the VolumeGroup.
      */

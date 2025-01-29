@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.FluidRelay
         /// A FluidRelay Server.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2021-06-15-preview.
+        /// Other available API versions: 2021-03-12-preview, 2021-06-15-preview, 2021-08-30-preview, 2021-09-10-preview, 2022-02-15, 2022-04-21, 2022-05-11, 2022-05-26.
         /// </summary>
         public static Task<GetFluidRelayServerResult> InvokeAsync(GetFluidRelayServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.FluidRelay
         /// A FluidRelay Server.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2021-06-15-preview.
+        /// Other available API versions: 2021-03-12-preview, 2021-06-15-preview, 2021-08-30-preview, 2021-09-10-preview, 2022-02-15, 2022-04-21, 2022-05-11, 2022-05-26.
         /// </summary>
         public static Output<GetFluidRelayServerResult> Invoke(GetFluidRelayServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.FluidRelay
         /// A FluidRelay Server.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2021-06-15-preview.
+        /// Other available API versions: 2021-03-12-preview, 2021-06-15-preview, 2021-08-30-preview, 2021-09-10-preview, 2022-02-15, 2022-04-21, 2022-05-11, 2022-05-26.
         /// </summary>
         public static Output<GetFluidRelayServerResult> Invoke(GetFluidRelayServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerInvokeArgs(), options.WithDefaults());

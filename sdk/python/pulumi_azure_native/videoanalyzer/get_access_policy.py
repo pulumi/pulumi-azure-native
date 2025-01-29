@@ -118,6 +118,8 @@ def get_access_policy(access_policy_name: Optional[str] = None,
     Retrieves an existing access policy resource with the given name.
     Azure REST API version: 2021-11-01-preview.
 
+    Other available API versions: 2021-05-01-preview.
+
 
     :param str access_policy_name: The Access Policy name.
     :param str account_name: The Azure Video Analyzer account name.
@@ -144,6 +146,8 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
     """
     Retrieves an existing access policy resource with the given name.
     Azure REST API version: 2021-11-01-preview.
+
+    Other available API versions: 2021-05-01-preview.
 
 
     :param str access_policy_name: The Access Policy name.

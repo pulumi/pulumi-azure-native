@@ -2,11 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20200101preview from "./v20200101preview";
+import * as v20210501 from "./v20210501";
 import * as v20220101preview from "./v20220101preview";
 import * as v20230901 from "./v20230901";
 import * as v20240415 from "./v20240415";
 
 export {
+    v20200101preview,
+    v20210501,
     v20220101preview,
     v20230901,
     v20240415,
@@ -88,6 +92,16 @@ export const AzureOperatorNexusArtifactType = {
  * The artifact type.
  */
 export type AzureOperatorNexusArtifactType = (typeof AzureOperatorNexusArtifactType)[keyof typeof AzureOperatorNexusArtifactType];
+
+export const BackingResourcePublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The artifact store backing resource network access type
+ */
+export type BackingResourcePublicNetworkAccess = (typeof BackingResourcePublicNetworkAccess)[keyof typeof BackingResourcePublicNetworkAccess];
 
 export const ConfigurationGroupValueConfigurationType = {
     Unknown: "Unknown",
@@ -185,6 +199,17 @@ export const NFVIType = {
  * The NFVI type.
  */
 export type NFVIType = (typeof NFVIType)[keyof typeof NFVIType];
+
+export const NetworkFunctionConfigurationType = {
+    Unknown: "Unknown",
+    Secret: "Secret",
+    Open: "Open",
+} as const;
+
+/**
+ * The value which indicates if NF  values are secrets
+ */
+export type NetworkFunctionConfigurationType = (typeof NetworkFunctionConfigurationType)[keyof typeof NetworkFunctionConfigurationType];
 
 export const NetworkFunctionRoleConfigurationType = {
     Unknown: "Unknown",

@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a datasource instance.
- * Azure REST API version: 2020-08-01.
+ * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2015-11-01-preview, 2023-09-01.
+ * Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01.
  */
 export function getDataSource(args: GetDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,9 +69,9 @@ export interface GetDataSourceResult {
 }
 /**
  * Gets a datasource instance.
- * Azure REST API version: 2020-08-01.
+ * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2015-11-01-preview, 2023-09-01.
+ * Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01.
  */
 export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

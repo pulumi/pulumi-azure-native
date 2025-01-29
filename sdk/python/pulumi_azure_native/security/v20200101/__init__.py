@@ -7,7 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .assessment import *
+from .assessment_metadata_in_subscription import *
 from .get_assessment import *
+from .get_assessment_metadata_in_subscription import *
 from .get_jit_network_access_policy import *
 from .get_server_vulnerability_assessment import *
 from .jit_network_access_policy import *

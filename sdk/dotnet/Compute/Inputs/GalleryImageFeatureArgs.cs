@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The minimum gallery image version which supports this feature.
+        /// </summary>
+        [Input("startsAtVersion")]
+        public Input<string>? StartsAtVersion { get; set; }
+
+        /// <summary>
         /// The value of the gallery image feature.
         /// </summary>
         [Input("value")]

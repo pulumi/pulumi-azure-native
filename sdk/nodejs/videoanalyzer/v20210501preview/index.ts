@@ -5,6 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { AccessPolicyArgs } from "./accessPolicy";
+export type AccessPolicy = import("./accessPolicy").AccessPolicy;
+export const AccessPolicy: typeof import("./accessPolicy").AccessPolicy = null as any;
+utilities.lazyLoad(exports, ["AccessPolicy"], () => require("./accessPolicy"));
+
+export { EdgeModuleArgs } from "./edgeModule";
+export type EdgeModule = import("./edgeModule").EdgeModule;
+export const EdgeModule: typeof import("./edgeModule").EdgeModule = null as any;
+utilities.lazyLoad(exports, ["EdgeModule"], () => require("./edgeModule"));
+
+export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
+export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
+export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
+
+export { GetEdgeModuleArgs, GetEdgeModuleResult, GetEdgeModuleOutputArgs } from "./getEdgeModule";
+export const getEdgeModule: typeof import("./getEdgeModule").getEdgeModule = null as any;
+export const getEdgeModuleOutput: typeof import("./getEdgeModule").getEdgeModuleOutput = null as any;
+utilities.lazyLoad(exports, ["getEdgeModule","getEdgeModuleOutput"], () => require("./getEdgeModule"));
+
 export { GetVideoArgs, GetVideoResult, GetVideoOutputArgs } from "./getVideo";
 export const getVideo: typeof import("./getVideo").getVideo = null as any;
 export const getVideoOutput: typeof import("./getVideo").getVideoOutput = null as any;
@@ -14,6 +34,11 @@ export { GetVideoAnalyzerArgs, GetVideoAnalyzerResult, GetVideoAnalyzerOutputArg
 export const getVideoAnalyzer: typeof import("./getVideoAnalyzer").getVideoAnalyzer = null as any;
 export const getVideoAnalyzerOutput: typeof import("./getVideoAnalyzer").getVideoAnalyzerOutput = null as any;
 utilities.lazyLoad(exports, ["getVideoAnalyzer","getVideoAnalyzerOutput"], () => require("./getVideoAnalyzer"));
+
+export { ListEdgeModuleProvisioningTokenArgs, ListEdgeModuleProvisioningTokenResult, ListEdgeModuleProvisioningTokenOutputArgs } from "./listEdgeModuleProvisioningToken";
+export const listEdgeModuleProvisioningToken: typeof import("./listEdgeModuleProvisioningToken").listEdgeModuleProvisioningToken = null as any;
+export const listEdgeModuleProvisioningTokenOutput: typeof import("./listEdgeModuleProvisioningToken").listEdgeModuleProvisioningTokenOutput = null as any;
+utilities.lazyLoad(exports, ["listEdgeModuleProvisioningToken","listEdgeModuleProvisioningTokenOutput"], () => require("./listEdgeModuleProvisioningToken"));
 
 export { ListVideoStreamingTokenArgs, ListVideoStreamingTokenResult, ListVideoStreamingTokenOutputArgs } from "./listVideoStreamingToken";
 export const listVideoStreamingToken: typeof import("./listVideoStreamingToken").listVideoStreamingToken = null as any;
@@ -38,6 +63,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:videoanalyzer/v20210501preview:AccessPolicy":
+                return new AccessPolicy(name, <any>undefined, { urn })
+            case "azure-native:videoanalyzer/v20210501preview:EdgeModule":
+                return new EdgeModule(name, <any>undefined, { urn })
             case "azure-native:videoanalyzer/v20210501preview:Video":
                 return new Video(name, <any>undefined, { urn })
             case "azure-native:videoanalyzer/v20210501preview:VideoAnalyzer":

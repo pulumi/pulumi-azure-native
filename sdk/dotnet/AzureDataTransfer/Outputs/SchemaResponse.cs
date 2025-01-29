@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string? Content;
         /// <summary>
+        /// The direction of the schema.
+        /// </summary>
+        public readonly string? Direction;
+        /// <summary>
         /// ID associated with this schema
         /// </summary>
         public readonly string? Id;
@@ -32,6 +36,14 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// Name of the schema
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The Schema Type
+        /// </summary>
+        public readonly string? SchemaType;
+        /// <summary>
+        /// Uri containing SAS token for the zipped schema
+        /// </summary>
+        public readonly string? SchemaUri;
         /// <summary>
         /// Status of the schema
         /// </summary>
@@ -43,16 +55,25 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
 
             string? content,
 
+            string? direction,
+
             string? id,
 
             string? name,
+
+            string? schemaType,
+
+            string? schemaUri,
 
             string? status)
         {
             ConnectionId = connectionId;
             Content = content;
+            Direction = direction;
             Id = id;
             Name = name;
+            SchemaType = schemaType;
+            SchemaUri = schemaUri;
             Status = status;
         }
     }

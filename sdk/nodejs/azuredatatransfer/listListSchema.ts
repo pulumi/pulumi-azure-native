@@ -9,19 +9,22 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the schemas for the specified connection in a pipeline.
- * Azure REST API version: 2023-10-11-preview.
+ * Azure REST API version: 2024-09-27.
  *
- * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+ * Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11.
  */
 export function listListSchema(args: ListListSchemaArgs, opts?: pulumi.InvokeOptions): Promise<ListListSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azuredatatransfer:listListSchema", {
         "connectionId": args.connectionId,
         "content": args.content,
+        "direction": args.direction,
         "id": args.id,
         "name": args.name,
         "pipelineName": args.pipelineName,
         "resourceGroupName": args.resourceGroupName,
+        "schemaType": args.schemaType,
+        "schemaUri": args.schemaUri,
         "status": args.status,
     }, opts);
 }
@@ -35,6 +38,10 @@ export interface ListListSchemaArgs {
      * Content of the schema
      */
     content?: string;
+    /**
+     * The direction of the schema.
+     */
+    direction?: string | enums.azuredatatransfer.SchemaDirection;
     /**
      * ID associated with this schema
      */
@@ -52,6 +59,14 @@ export interface ListListSchemaArgs {
      */
     resourceGroupName: string;
     /**
+     * The Schema Type
+     */
+    schemaType?: string | enums.azuredatatransfer.SchemaType;
+    /**
+     * Uri containing SAS token for the zipped schema
+     */
+    schemaUri?: string;
+    /**
      * Status of the schema
      */
     status?: string | enums.azuredatatransfer.SchemaStatus;
@@ -68,19 +83,22 @@ export interface ListListSchemaResult {
 }
 /**
  * Lists the schemas for the specified connection in a pipeline.
- * Azure REST API version: 2023-10-11-preview.
+ * Azure REST API version: 2024-09-27.
  *
- * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+ * Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11.
  */
 export function listListSchemaOutput(args: ListListSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListListSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:listListSchema", {
         "connectionId": args.connectionId,
         "content": args.content,
+        "direction": args.direction,
         "id": args.id,
         "name": args.name,
         "pipelineName": args.pipelineName,
         "resourceGroupName": args.resourceGroupName,
+        "schemaType": args.schemaType,
+        "schemaUri": args.schemaUri,
         "status": args.status,
     }, opts);
 }
@@ -94,6 +112,10 @@ export interface ListListSchemaOutputArgs {
      * Content of the schema
      */
     content?: pulumi.Input<string>;
+    /**
+     * The direction of the schema.
+     */
+    direction?: pulumi.Input<string | enums.azuredatatransfer.SchemaDirection>;
     /**
      * ID associated with this schema
      */
@@ -110,6 +132,14 @@ export interface ListListSchemaOutputArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Schema Type
+     */
+    schemaType?: pulumi.Input<string | enums.azuredatatransfer.SchemaType>;
+    /**
+     * Uri containing SAS token for the zipped schema
+     */
+    schemaUri?: pulumi.Input<string>;
     /**
      * Status of the schema
      */

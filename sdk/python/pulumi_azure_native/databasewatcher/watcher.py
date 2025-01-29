@@ -24,6 +24,7 @@ class WatcherArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  datastore: Optional[pulumi.Input['DatastoreArgs']] = None,
+                 default_alert_rule_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -32,6 +33,7 @@ class WatcherArgs:
         The set of arguments for constructing a Watcher resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['DatastoreArgs'] datastore: The data store for collected monitoring data.
+        :param pulumi.Input[str] default_alert_rule_identity_resource_id: The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -40,6 +42,8 @@ class WatcherArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if datastore is not None:
             pulumi.set(__self__, "datastore", datastore)
+        if default_alert_rule_identity_resource_id is not None:
+            pulumi.set(__self__, "default_alert_rule_identity_resource_id", default_alert_rule_identity_resource_id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -72,6 +76,18 @@ class WatcherArgs:
     @datastore.setter
     def datastore(self, value: Optional[pulumi.Input['DatastoreArgs']]):
         pulumi.set(self, "datastore", value)
+
+    @property
+    @pulumi.getter(name="defaultAlertRuleIdentityResourceId")
+    def default_alert_rule_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+        """
+        return pulumi.get(self, "default_alert_rule_identity_resource_id")
+
+    @default_alert_rule_identity_resource_id.setter
+    def default_alert_rule_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_alert_rule_identity_resource_id", value)
 
     @property
     @pulumi.getter
@@ -128,6 +144,7 @@ class Watcher(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore: Optional[pulumi.Input[Union['DatastoreArgs', 'DatastoreArgsDict']]] = None,
+                 default_alert_rule_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -136,13 +153,14 @@ class Watcher(pulumi.CustomResource):
                  __props__=None):
         """
         The DatabaseWatcherProviderHub resource.
-        Azure REST API version: 2023-09-01-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
-        Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DatastoreArgs', 'DatastoreArgsDict']] datastore: The data store for collected monitoring data.
+        :param pulumi.Input[str] default_alert_rule_identity_resource_id: The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -157,9 +175,9 @@ class Watcher(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The DatabaseWatcherProviderHub resource.
-        Azure REST API version: 2023-09-01-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
-        Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02.
 
         :param str resource_name: The name of the resource.
         :param WatcherArgs args: The arguments to use to populate this resource's properties.
@@ -177,6 +195,7 @@ class Watcher(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore: Optional[pulumi.Input[Union['DatastoreArgs', 'DatastoreArgsDict']]] = None,
+                 default_alert_rule_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -192,6 +211,7 @@ class Watcher(pulumi.CustomResource):
             __props__ = WatcherArgs.__new__(WatcherArgs)
 
             __props__.__dict__["datastore"] = datastore
+            __props__.__dict__["default_alert_rule_identity_resource_id"] = default_alert_rule_identity_resource_id
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -229,6 +249,7 @@ class Watcher(pulumi.CustomResource):
         __props__ = WatcherArgs.__new__(WatcherArgs)
 
         __props__.__dict__["datastore"] = None
+        __props__.__dict__["default_alert_rule_identity_resource_id"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -246,6 +267,14 @@ class Watcher(pulumi.CustomResource):
         The data store for collected monitoring data.
         """
         return pulumi.get(self, "datastore")
+
+    @property
+    @pulumi.getter(name="defaultAlertRuleIdentityResourceId")
+    def default_alert_rule_identity_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+        """
+        return pulumi.get(self, "default_alert_rule_identity_resource_id")
 
     @property
     @pulumi.getter

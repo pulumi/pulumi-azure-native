@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_software_update_configuration_by_name import *
+from .get_source_control import *
 from .software_update_configuration_by_name import *
+from .source_control import *
 from ._inputs import *
 from . import outputs

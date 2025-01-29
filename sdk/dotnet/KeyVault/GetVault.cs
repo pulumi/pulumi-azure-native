@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.KeyVault
     {
         /// <summary>
         /// Gets the specified Azure key vault.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Other available API versions: 2019-09-01, 2020-04-01-preview, 2021-04-01-preview, 2021-06-01-preview, 2021-10-01, 2021-11-01-preview, 2022-02-01-preview, 2022-07-01, 2022-11-01, 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview.
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:keyvault:getVault", args ?? new GetVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Azure key vault.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Other available API versions: 2019-09-01, 2020-04-01-preview, 2021-04-01-preview, 2021-06-01-preview, 2021-10-01, 2021-11-01-preview, 2022-02-01-preview, 2022-07-01, 2022-11-01, 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview.
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:keyvault:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Azure key vault.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Other available API versions: 2019-09-01, 2020-04-01-preview, 2021-04-01-preview, 2021-06-01-preview, 2021-10-01, 2021-11-01-preview, 2022-02-01-preview, 2022-07-01, 2022-11-01, 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview.
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:keyvault:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());

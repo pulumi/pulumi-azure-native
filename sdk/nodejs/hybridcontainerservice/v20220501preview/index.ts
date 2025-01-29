@@ -25,6 +25,16 @@ export const getProvisionedCluster: typeof import("./getProvisionedCluster").get
 export const getProvisionedClusterOutput: typeof import("./getProvisionedCluster").getProvisionedClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getProvisionedCluster","getProvisionedClusterOutput"], () => require("./getProvisionedCluster"));
 
+export { GetStorageSpaceRetrieveArgs, GetStorageSpaceRetrieveResult, GetStorageSpaceRetrieveOutputArgs } from "./getStorageSpaceRetrieve";
+export const getStorageSpaceRetrieve: typeof import("./getStorageSpaceRetrieve").getStorageSpaceRetrieve = null as any;
+export const getStorageSpaceRetrieveOutput: typeof import("./getStorageSpaceRetrieve").getStorageSpaceRetrieveOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageSpaceRetrieve","getStorageSpaceRetrieveOutput"], () => require("./getStorageSpaceRetrieve"));
+
+export { GetVirtualNetworkRetrieveArgs, GetVirtualNetworkRetrieveResult, GetVirtualNetworkRetrieveOutputArgs } from "./getVirtualNetworkRetrieve";
+export const getVirtualNetworkRetrieve: typeof import("./getVirtualNetworkRetrieve").getVirtualNetworkRetrieve = null as any;
+export const getVirtualNetworkRetrieveOutput: typeof import("./getVirtualNetworkRetrieve").getVirtualNetworkRetrieveOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetworkRetrieve","getVirtualNetworkRetrieveOutput"], () => require("./getVirtualNetworkRetrieve"));
+
 export { HybridIdentityMetadatumArgs } from "./hybridIdentityMetadatum";
 export type HybridIdentityMetadatum = import("./hybridIdentityMetadatum").HybridIdentityMetadatum;
 export const HybridIdentityMetadatum: typeof import("./hybridIdentityMetadatum").HybridIdentityMetadatum = null as any;
@@ -34,6 +44,16 @@ export { ProvisionedClusterArgs } from "./provisionedCluster";
 export type ProvisionedCluster = import("./provisionedCluster").ProvisionedCluster;
 export const ProvisionedCluster: typeof import("./provisionedCluster").ProvisionedCluster = null as any;
 utilities.lazyLoad(exports, ["ProvisionedCluster"], () => require("./provisionedCluster"));
+
+export { StorageSpaceRetrieveArgs } from "./storageSpaceRetrieve";
+export type StorageSpaceRetrieve = import("./storageSpaceRetrieve").StorageSpaceRetrieve;
+export const StorageSpaceRetrieve: typeof import("./storageSpaceRetrieve").StorageSpaceRetrieve = null as any;
+utilities.lazyLoad(exports, ["StorageSpaceRetrieve"], () => require("./storageSpaceRetrieve"));
+
+export { VirtualNetworkRetrieveArgs } from "./virtualNetworkRetrieve";
+export type VirtualNetworkRetrieve = import("./virtualNetworkRetrieve").VirtualNetworkRetrieve;
+export const VirtualNetworkRetrieve: typeof import("./virtualNetworkRetrieve").VirtualNetworkRetrieve = null as any;
+utilities.lazyLoad(exports, ["VirtualNetworkRetrieve"], () => require("./virtualNetworkRetrieve"));
 
 
 // Export enums:
@@ -49,6 +69,10 @@ const _module = {
                 return new HybridIdentityMetadatum(name, <any>undefined, { urn })
             case "azure-native:hybridcontainerservice/v20220501preview:ProvisionedCluster":
                 return new ProvisionedCluster(name, <any>undefined, { urn })
+            case "azure-native:hybridcontainerservice/v20220501preview:StorageSpaceRetrieve":
+                return new StorageSpaceRetrieve(name, <any>undefined, { urn })
+            case "azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve":
+                return new VirtualNetworkRetrieve(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

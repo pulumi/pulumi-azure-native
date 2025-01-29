@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A flow log resource.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// 
-    /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Other available API versions: 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:FlowLog")]
     public partial class FlowLog : global::Pulumi.CustomResource
@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
+        /// </summary>
+        [Output("enabledFilteringCriteria")]
+        public Output<string?> EnabledFilteringCriteria { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -41,6 +47,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("format")]
         public Output<Outputs.FlowLogFormatParametersResponse?> Format { get; private set; } = null!;
+
+        /// <summary>
+        /// FlowLog resource Managed Identity
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -178,6 +190,12 @@ namespace Pulumi.AzureNative.Network
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
+        /// </summary>
+        [Input("enabledFilteringCriteria")]
+        public Input<string>? EnabledFilteringCriteria { get; set; }
+
+        /// <summary>
         /// Parameters that define the configuration of traffic analytics.
         /// </summary>
         [Input("flowAnalyticsConfiguration")]
@@ -200,6 +218,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// FlowLog resource Managed Identity
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Resource location.

@@ -27,7 +27,7 @@ class GetPacketCoreDataPlaneResult:
     """
     Packet core data plane resource. Must be created in the same location as its parent packet core control plane.
     """
-    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, user_plane_access_interface=None):
+    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, user_plane_access_interface=None, user_plane_access_virtual_ipv4_addresses=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +52,9 @@ class GetPacketCoreDataPlaneResult:
         if user_plane_access_interface and not isinstance(user_plane_access_interface, dict):
             raise TypeError("Expected argument 'user_plane_access_interface' to be a dict")
         pulumi.set(__self__, "user_plane_access_interface", user_plane_access_interface)
+        if user_plane_access_virtual_ipv4_addresses and not isinstance(user_plane_access_virtual_ipv4_addresses, list):
+            raise TypeError("Expected argument 'user_plane_access_virtual_ipv4_addresses' to be a list")
+        pulumi.set(__self__, "user_plane_access_virtual_ipv4_addresses", user_plane_access_virtual_ipv4_addresses)
 
     @property
     @pulumi.getter
@@ -117,6 +120,14 @@ class GetPacketCoreDataPlaneResult:
         """
         return pulumi.get(self, "user_plane_access_interface")
 
+    @property
+    @pulumi.getter(name="userPlaneAccessVirtualIpv4Addresses")
+    def user_plane_access_virtual_ipv4_addresses(self) -> Optional[Sequence[str]]:
+        """
+        The virtual IP address(es) for the user plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to forward traffic for this address to the control plane access interface on the active or standby node. In non-HA system this list should be omitted or empty.
+        """
+        return pulumi.get(self, "user_plane_access_virtual_ipv4_addresses")
+
 
 class AwaitableGetPacketCoreDataPlaneResult(GetPacketCoreDataPlaneResult):
     # pylint: disable=using-constant-test
@@ -131,7 +142,8 @@ class AwaitableGetPacketCoreDataPlaneResult(GetPacketCoreDataPlaneResult):
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
-            user_plane_access_interface=self.user_plane_access_interface)
+            user_plane_access_interface=self.user_plane_access_interface,
+            user_plane_access_virtual_ipv4_addresses=self.user_plane_access_virtual_ipv4_addresses)
 
 
 def get_packet_core_data_plane(packet_core_control_plane_name: Optional[str] = None,
@@ -140,9 +152,9 @@ def get_packet_core_data_plane(packet_core_control_plane_name: Optional[str] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCoreDataPlaneResult:
     """
     Gets information about the specified packet core data plane.
-    Azure REST API version: 2023-06-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.
@@ -164,16 +176,17 @@ def get_packet_core_data_plane(packet_core_control_plane_name: Optional[str] = N
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
-        user_plane_access_interface=pulumi.get(__ret__, 'user_plane_access_interface'))
+        user_plane_access_interface=pulumi.get(__ret__, 'user_plane_access_interface'),
+        user_plane_access_virtual_ipv4_addresses=pulumi.get(__ret__, 'user_plane_access_virtual_ipv4_addresses'))
 def get_packet_core_data_plane_output(packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                                       packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPacketCoreDataPlaneResult]:
     """
     Gets information about the specified packet core data plane.
-    Azure REST API version: 2023-06-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-06-01, 2023-09-01, 2024-02-01.
 
 
     :param str packet_core_control_plane_name: The name of the packet core control plane.
@@ -194,4 +207,5 @@ def get_packet_core_data_plane_output(packet_core_control_plane_name: Optional[p
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
-        user_plane_access_interface=pulumi.get(__response__, 'user_plane_access_interface')))
+        user_plane_access_interface=pulumi.get(__response__, 'user_plane_access_interface'),
+        user_plane_access_virtual_ipv4_addresses=pulumi.get(__response__, 'user_plane_access_virtual_ipv4_addresses')))

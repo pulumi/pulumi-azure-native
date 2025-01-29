@@ -141,6 +141,8 @@ def get_job(job_name: Optional[str] = None,
     Gets information about an existing job.
     Azure REST API version: 2021-01-01.
 
+    Other available API versions: 2020-08-01.
+
 
     :param str job_name: The name of the import/export job.
     :param str resource_group_name: The resource group name uniquely identifies the resource group within the user subscription.
@@ -166,6 +168,8 @@ def get_job_output(job_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about an existing job.
     Azure REST API version: 2021-01-01.
+
+    Other available API versions: 2020-08-01.
 
 
     :param str job_name: The name of the import/export job.

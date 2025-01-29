@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Gets an existing delivery rule within a rule set.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2020-09-01, 2021-06-01, 2022-05-01-preview, 2022-11-01-preview, 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-native:cdn:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing delivery rule within a rule set.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2020-09-01, 2021-06-01, 2022-05-01-preview, 2022-11-01-preview, 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:cdn:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing delivery rule within a rule set.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2020-09-01, 2021-06-01, 2022-05-01-preview, 2022-11-01-preview, 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:cdn:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());

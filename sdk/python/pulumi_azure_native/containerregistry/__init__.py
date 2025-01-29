@@ -55,14 +55,32 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.containerregistry.v20170301 as __v20170301
     v20170301 = __v20170301
+    import pulumi_azure_native.containerregistry.v20171001 as __v20171001
+    v20171001 = __v20171001
     import pulumi_azure_native.containerregistry.v20180901 as __v20180901
     v20180901 = __v20180901
     import pulumi_azure_native.containerregistry.v20190401 as __v20190401
     v20190401 = __v20190401
     import pulumi_azure_native.containerregistry.v20190501 as __v20190501
     v20190501 = __v20190501
+    import pulumi_azure_native.containerregistry.v20190501preview as __v20190501preview
+    v20190501preview = __v20190501preview
     import pulumi_azure_native.containerregistry.v20190601preview as __v20190601preview
     v20190601preview = __v20190601preview
+    import pulumi_azure_native.containerregistry.v20191201preview as __v20191201preview
+    v20191201preview = __v20191201preview
+    import pulumi_azure_native.containerregistry.v20201101preview as __v20201101preview
+    v20201101preview = __v20201101preview
+    import pulumi_azure_native.containerregistry.v20210601preview as __v20210601preview
+    v20210601preview = __v20210601preview
+    import pulumi_azure_native.containerregistry.v20210801preview as __v20210801preview
+    v20210801preview = __v20210801preview
+    import pulumi_azure_native.containerregistry.v20210901 as __v20210901
+    v20210901 = __v20210901
+    import pulumi_azure_native.containerregistry.v20211201preview as __v20211201preview
+    v20211201preview = __v20211201preview
+    import pulumi_azure_native.containerregistry.v20220201preview as __v20220201preview
+    v20220201preview = __v20220201preview
     import pulumi_azure_native.containerregistry.v20221201 as __v20221201
     v20221201 = __v20221201
     import pulumi_azure_native.containerregistry.v20230101preview as __v20230101preview
@@ -79,10 +97,19 @@ if typing.TYPE_CHECKING:
     v20241101preview = __v20241101preview
 else:
     v20170301 = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20170301')
+    v20171001 = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20171001')
     v20180901 = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20180901')
     v20190401 = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20190401')
     v20190501 = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20190501')
+    v20190501preview = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20190501preview')
     v20190601preview = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20190601preview')
+    v20191201preview = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20191201preview')
+    v20201101preview = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20201101preview')
+    v20210601preview = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20210601preview')
+    v20210801preview = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20210801preview')
+    v20210901 = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20210901')
+    v20211201preview = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20211201preview')
+    v20220201preview = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20220201preview')
     v20221201 = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20221201')
     v20230101preview = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20230101preview')
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.containerregistry.v20230601preview')

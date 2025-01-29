@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The cost allocation rule model definition
- * Azure REST API version: 2020-03-01-preview. Prior API version in Azure Native 1.x: 2020-03-01-preview.
+ * Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2020-03-01-preview.
  *
- * Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Other available API versions: 2020-03-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
  */
 export class CostAllocationRule extends pulumi.CustomResource {
     /**

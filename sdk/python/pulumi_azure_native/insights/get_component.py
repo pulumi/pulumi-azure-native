@@ -417,7 +417,7 @@ def get_component(resource_group_name: Optional[str] = None,
     Returns an Application Insights component.
     Azure REST API version: 2020-02-02.
 
-    Other available API versions: 2020-02-02-preview.
+    Other available API versions: 2015-05-01, 2018-05-01-preview, 2020-02-02-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -468,7 +468,7 @@ def get_component_output(resource_group_name: Optional[pulumi.Input[str]] = None
     Returns an Application Insights component.
     Azure REST API version: 2020-02-02.
 
-    Other available API versions: 2020-02-02-preview.
+    Other available API versions: 2015-05-01, 2018-05-01-preview, 2020-02-02-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

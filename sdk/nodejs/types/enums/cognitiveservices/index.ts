@@ -3,6 +3,11 @@
 
 // Export sub-modules:
 import * as v20170418 from "./v20170418";
+import * as v20210430 from "./v20210430";
+import * as v20211001 from "./v20211001";
+import * as v20220301 from "./v20220301";
+import * as v20221001 from "./v20221001";
+import * as v20221201 from "./v20221201";
 import * as v20230501 from "./v20230501";
 import * as v20231001preview from "./v20231001preview";
 import * as v20240401preview from "./v20240401preview";
@@ -11,6 +16,11 @@ import * as v20241001 from "./v20241001";
 
 export {
     v20170418,
+    v20210430,
+    v20211001,
+    v20220301,
+    v20221001,
+    v20221201,
     v20230501,
     v20231001preview,
     v20240401preview,
@@ -18,7 +28,17 @@ export {
     v20241001,
 };
 
-export const AllowedContentLevel = {
+export const ByPassSelection = {
+    None: "None",
+    AzureServices: "AzureServices",
+} as const;
+
+/**
+ * Setting for trusted services.
+ */
+export type ByPassSelection = (typeof ByPassSelection)[keyof typeof ByPassSelection];
+
+export const ContentLevel = {
     Low: "Low",
     Medium: "Medium",
     High: "High",
@@ -27,7 +47,7 @@ export const AllowedContentLevel = {
 /**
  * Level at which content is filtered.
  */
-export type AllowedContentLevel = (typeof AllowedContentLevel)[keyof typeof AllowedContentLevel];
+export type ContentLevel = (typeof ContentLevel)[keyof typeof ContentLevel];
 
 export const DeploymentModelVersionUpgradeOption = {
     OnceNewDefaultVersionAvailable: "OnceNewDefaultVersionAvailable",
@@ -127,10 +147,11 @@ export const RaiPolicyMode = {
     Default: "Default",
     Deferred: "Deferred",
     Blocking: "Blocking",
+    Asynchronous_filter: "Asynchronous_filter",
 } as const;
 
 /**
- * Content Filters mode.
+ * Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
  */
 export type RaiPolicyMode = (typeof RaiPolicyMode)[keyof typeof RaiPolicyMode];
 

@@ -118,6 +118,8 @@ def list_web_app_hybrid_connection_keys(name: Optional[str] = None,
     Gets the send key name and value for a Hybrid Connection.
     Azure REST API version: 2018-11-01.
 
+    Other available API versions: 2016-08-01, 2018-02-01.
+
 
     :param str name: The name of the web app.
     :param str namespace_name: The namespace for this hybrid connection.
@@ -147,6 +149,8 @@ def list_web_app_hybrid_connection_keys_output(name: Optional[pulumi.Input[str]]
     """
     Gets the send key name and value for a Hybrid Connection.
     Azure REST API version: 2018-11-01.
+
+    Other available API versions: 2016-08-01, 2018-02-01.
 
 
     :param str name: The name of the web app.

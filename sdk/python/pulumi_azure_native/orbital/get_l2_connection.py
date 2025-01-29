@@ -27,7 +27,7 @@ class GetL2ConnectionResult:
     """
     Connects an edge site to an orbital gateway and describes what layer 2 traffic to forward between them.
     """
-    def __init__(__self__, circuit_id=None, edge_site=None, ground_station=None, id=None, location=None, name=None, system_data=None, tags=None, type=None, vlan_id=None):
+    def __init__(__self__, circuit_id=None, edge_site=None, ground_station=None, ground_station_partner_router=None, id=None, location=None, name=None, system_data=None, tags=None, type=None, vlan_id=None):
         if circuit_id and not isinstance(circuit_id, str):
             raise TypeError("Expected argument 'circuit_id' to be a str")
         pulumi.set(__self__, "circuit_id", circuit_id)
@@ -37,6 +37,9 @@ class GetL2ConnectionResult:
         if ground_station and not isinstance(ground_station, dict):
             raise TypeError("Expected argument 'ground_station' to be a dict")
         pulumi.set(__self__, "ground_station", ground_station)
+        if ground_station_partner_router and not isinstance(ground_station_partner_router, dict):
+            raise TypeError("Expected argument 'ground_station_partner_router' to be a dict")
+        pulumi.set(__self__, "ground_station_partner_router", ground_station_partner_router)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -82,6 +85,14 @@ class GetL2ConnectionResult:
         A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
         """
         return pulumi.get(self, "ground_station")
+
+    @property
+    @pulumi.getter(name="groundStationPartnerRouter")
+    def ground_station_partner_router(self) -> 'outputs.L2ConnectionsPropertiesResponseGroundStationPartnerRouter':
+        """
+        The name of the partner router to establish a connection to within the ground station.
+        """
+        return pulumi.get(self, "ground_station_partner_router")
 
     @property
     @pulumi.getter
@@ -149,6 +160,7 @@ class AwaitableGetL2ConnectionResult(GetL2ConnectionResult):
             circuit_id=self.circuit_id,
             edge_site=self.edge_site,
             ground_station=self.ground_station,
+            ground_station_partner_router=self.ground_station_partner_router,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -181,6 +193,7 @@ def get_l2_connection(l2_connection_name: Optional[str] = None,
         circuit_id=pulumi.get(__ret__, 'circuit_id'),
         edge_site=pulumi.get(__ret__, 'edge_site'),
         ground_station=pulumi.get(__ret__, 'ground_station'),
+        ground_station_partner_router=pulumi.get(__ret__, 'ground_station_partner_router'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -210,6 +223,7 @@ def get_l2_connection_output(l2_connection_name: Optional[pulumi.Input[str]] = N
         circuit_id=pulumi.get(__response__, 'circuit_id'),
         edge_site=pulumi.get(__response__, 'edge_site'),
         ground_station=pulumi.get(__response__, 'ground_station'),
+        ground_station_partner_router=pulumi.get(__response__, 'ground_station_partner_router'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

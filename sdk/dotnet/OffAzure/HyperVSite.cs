@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.OffAzure
 {
     /// <summary>
     /// Site REST Resource.
-    /// Azure REST API version: 2020-07-07. Prior API version in Azure Native 1.x: 2020-01-01.
+    /// Azure REST API version: 2020-07-07. Prior API version in Azure Native 2.x: 2020-07-07.
+    /// 
+    /// Other available API versions: 2020-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:HyperVSite")]
     public partial class HyperVSite : global::Pulumi.CustomResource

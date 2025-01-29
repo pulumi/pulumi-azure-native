@@ -130,9 +130,9 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        The identity of the resource.
+        Resource's identity.
         """
         return pulumi.get(self, "identity")
 
@@ -247,9 +247,9 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Gets a Log Analytics cluster instance.
-    Azure REST API version: 2021-06-01.
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
+    Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2022-10-01.
 
 
     :param str cluster_name: Name of the Log Analytics Cluster.
@@ -284,9 +284,9 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Gets a Log Analytics cluster instance.
-    Azure REST API version: 2021-06-01.
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
+    Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2022-10-01.
 
 
     :param str cluster_name: Name of the Log Analytics Cluster.

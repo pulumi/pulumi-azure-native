@@ -13,8 +13,14 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
     /// <summary>
     /// Azure Data Explorer endpoint properties
     /// </summary>
-    public sealed class DataFlowEndpointDataExplorerArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointDataExplorerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Authentication configuration. NOTE - only authentication property is allowed per entry.
+        /// </summary>
+        [Input("authentication", required: true)]
+        public Input<Inputs.DataflowEndpointDataExplorerAuthenticationArgs> Authentication { get; set; } = null!;
+
         /// <summary>
         /// Azure Data Explorer endpoint batching configuration.
         /// </summary>
@@ -33,9 +39,9 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
-        public DataFlowEndpointDataExplorerArgs()
+        public DataflowEndpointDataExplorerArgs()
         {
         }
-        public static new DataFlowEndpointDataExplorerArgs Empty => new DataFlowEndpointDataExplorerArgs();
+        public static new DataflowEndpointDataExplorerArgs Empty => new DataflowEndpointDataExplorerArgs();
     }
 }

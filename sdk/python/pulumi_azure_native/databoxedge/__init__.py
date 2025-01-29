@@ -47,14 +47,22 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.databoxedge.v20201201 as __v20201201
+    v20201201 = __v20201201
     import pulumi_azure_native.databoxedge.v20210201 as __v20210201
     v20210201 = __v20210201
     import pulumi_azure_native.databoxedge.v20210201preview as __v20210201preview
     v20210201preview = __v20210201preview
+    import pulumi_azure_native.databoxedge.v20210601 as __v20210601
+    v20210601 = __v20210601
+    import pulumi_azure_native.databoxedge.v20210601preview as __v20210601preview
+    v20210601preview = __v20210601preview
     import pulumi_azure_native.databoxedge.v20220301 as __v20220301
     v20220301 = __v20220301
     import pulumi_azure_native.databoxedge.v20220401preview as __v20220401preview
     v20220401preview = __v20220401preview
+    import pulumi_azure_native.databoxedge.v20221201preview as __v20221201preview
+    v20221201preview = __v20221201preview
     import pulumi_azure_native.databoxedge.v20230101preview as __v20230101preview
     v20230101preview = __v20230101preview
     import pulumi_azure_native.databoxedge.v20230701 as __v20230701
@@ -62,10 +70,14 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.databoxedge.v20231201 as __v20231201
     v20231201 = __v20231201
 else:
+    v20201201 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20201201')
     v20210201 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20210201')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20210201preview')
+    v20210601 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20210601')
+    v20210601preview = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20210601preview')
     v20220301 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20220301')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20220401preview')
+    v20221201preview = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20221201preview')
     v20230101preview = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20230101preview')
     v20230701 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20230701')
     v20231201 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20231201')

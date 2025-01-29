@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AccessControlRulesMode',
+    'AllocationStrategy',
     'Architecture',
     'CachingTypes',
     'CloudServiceSlotType',
@@ -28,12 +29,14 @@ __all__ = [
     'DiskEncryptionSetType',
     'DiskSecurityTypes',
     'DiskStorageAccountTypes',
+    'DomainNameLabelScopeTypes',
     'EdgeZoneStorageAccountType',
     'EncryptionType',
     'EndpointAccess',
     'EndpointTypes',
     'ExtendedLocationTypes',
     'GalleryApplicationCustomActionParameterType',
+    'GalleryApplicationScriptRebootBehavior',
     'GalleryExtendedLocationType',
     'GallerySharingPermissionTypes',
     'HostCaching',
@@ -45,14 +48,18 @@ __all__ = [
     'LinuxPatchAssessmentMode',
     'LinuxVMGuestPatchAutomaticByPlatformRebootSetting',
     'LinuxVMGuestPatchMode',
+    'Mode',
     'NetworkAccessPolicy',
     'NetworkApiVersion',
+    'NetworkInterfaceAuxiliaryMode',
+    'NetworkInterfaceAuxiliarySku',
     'OperatingSystemStateTypes',
     'OperatingSystemTypes',
     'OrchestrationMode',
     'PassNames',
     'PrivateEndpointServiceConnectionStatus',
     'ProtocolTypes',
+    'ProvisionedBandwidthCopyOption',
     'ProximityPlacementGroupType',
     'PublicIPAddressSkuName',
     'PublicIPAddressSkuTier',
@@ -69,6 +76,8 @@ __all__ = [
     'StatusLevelTypes',
     'StorageAccountType',
     'StorageAccountTypes',
+    'UefiKeyType',
+    'UefiSignatureTemplateName',
     'UpgradeMode',
     'VirtualMachineEvictionPolicyTypes',
     'VirtualMachinePriorityTypes',
@@ -77,6 +86,7 @@ __all__ = [
     'WindowsPatchAssessmentMode',
     'WindowsVMGuestPatchAutomaticByPlatformRebootSetting',
     'WindowsVMGuestPatchMode',
+    'ZonalPlatformFaultDomainAlignMode',
 ]
 
 
@@ -87,6 +97,14 @@ class AccessControlRulesMode(str, Enum):
     AUDIT = "Audit"
     ENFORCE = "Enforce"
     DISABLED = "Disabled"
+
+
+class AllocationStrategy(str, Enum):
+    """
+    Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated.
+    """
+    LOWEST_PRICE = "LowestPrice"
+    CAPACITY_OPTIMIZED = "CapacityOptimized"
 
 
 class Architecture(str, Enum):
@@ -203,10 +221,11 @@ class DiffDiskOptions(str, Enum):
 
 class DiffDiskPlacement(str, Enum):
     """
-    Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+    Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk,** **NvmeDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** or **NvmeDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk. Minimum api-version for NvmeDisk: 2024-03-01.
     """
     CACHE_DISK = "CacheDisk"
     RESOURCE_DISK = "ResourceDisk"
+    NVME_DISK = "NvmeDisk"
 
 
 class DiskControllerTypes(str, Enum):
@@ -261,15 +280,21 @@ class DiskCreateOption(str, Enum):
     """
     Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in both disk and VM guest state
     """
+    COPY_FROM_SAN_SNAPSHOT = "CopyFromSanSnapshot"
+    """
+    Create a new disk by exporting from elastic san volume snapshot
+    """
 
 
 class DiskCreateOptionTypes(str, Enum):
     """
-    Specifies how the virtual machine should be created. Possible values are: **Attach.** This value is used when you are using a specialized disk to create the virtual machine. **FromImage.** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
+    Specifies how the virtual machine disk should be created. Possible values are **Attach:** This value is used when you are using a specialized disk to create the virtual machine. **FromImage:** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
     """
     FROM_IMAGE = "FromImage"
     EMPTY = "Empty"
     ATTACH = "Attach"
+    COPY = "Copy"
+    RESTORE = "Restore"
 
 
 class DiskDeleteOptionTypes(str, Enum):
@@ -282,7 +307,7 @@ class DiskDeleteOptionTypes(str, Enum):
 
 class DiskDetachOptionTypes(str, Enum):
     """
-    Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview** mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+    Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
     """
     FORCE_DETACH = "ForceDetach"
 
@@ -335,6 +360,10 @@ class DiskSecurityTypes(str, Enum):
     """
     Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a customer managed key
     """
+    CONFIDENTIAL_V_M_NON_PERSISTED_TPM = "ConfidentialVM_NonPersistedTPM"
+    """
+    Indicates Confidential VM disk with a ephemeral vTPM. vTPM state is not persisted across VM reboots.
+    """
 
 
 class DiskStorageAccountTypes(str, Enum):
@@ -369,6 +398,16 @@ class DiskStorageAccountTypes(str, Enum):
     """
     Premium SSD v2 locally redundant storage. Best for production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput.
     """
+
+
+class DomainNameLabelScopeTypes(str, Enum):
+    """
+    The Domain name label scope.The concatenation of the hashed domain name label that generated according to the policy from domain name label scope and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+    """
+    TENANT_REUSE = "TenantReuse"
+    SUBSCRIPTION_REUSE = "SubscriptionReuse"
+    RESOURCE_GROUP_REUSE = "ResourceGroupReuse"
+    NO_REUSE = "NoReuse"
 
 
 class EdgeZoneStorageAccountType(str, Enum):
@@ -431,6 +470,14 @@ class GalleryApplicationCustomActionParameterType(str, Enum):
     LOG_OUTPUT_BLOB = "LogOutputBlob"
 
 
+class GalleryApplicationScriptRebootBehavior(str, Enum):
+    """
+    Optional. The action to be taken with regards to install/update/remove of the gallery application in the event of a reboot.
+    """
+    NONE = "None"
+    RERUN = "Rerun"
+
+
 class GalleryExtendedLocationType(str, Enum):
     """
     It is type of the extended location.
@@ -441,7 +488,7 @@ class GalleryExtendedLocationType(str, Enum):
 
 class GallerySharingPermissionTypes(str, Enum):
     """
-    This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups** <br><br> **Community**
+    This property allows you to specify the permission of sharing gallery. Possible values are: **Private,** **Groups,** **Community.**
     """
     PRIVATE = "Private"
     GROUPS = "Groups"
@@ -525,6 +572,14 @@ class LinuxVMGuestPatchMode(str, Enum):
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
 
 
+class Mode(str, Enum):
+    """
+    Specifies the mode that ProxyAgent will execute on if the feature is enabled. ProxyAgent will start to audit or monitor but not enforce access control over requests to host endpoints in Audit mode, while in Enforce mode it will enforce access control. The default value is Enforce mode.
+    """
+    AUDIT = "Audit"
+    ENFORCE = "Enforce"
+
+
 class NetworkAccessPolicy(str, Enum):
     """
     Policy for accessing the disk via network.
@@ -548,6 +603,26 @@ class NetworkApiVersion(str, Enum):
     specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
     """
     NETWORK_API_VERSION_2020_11_01 = "2020-11-01"
+
+
+class NetworkInterfaceAuxiliaryMode(str, Enum):
+    """
+    Specifies whether the Auxiliary mode is enabled for the Network Interface resource.
+    """
+    NONE = "None"
+    ACCELERATED_CONNECTIONS = "AcceleratedConnections"
+    FLOATING = "Floating"
+
+
+class NetworkInterfaceAuxiliarySku(str, Enum):
+    """
+    Specifies whether the Auxiliary sku is enabled for the Network Interface resource.
+    """
+    NONE = "None"
+    A1 = "A1"
+    A2 = "A2"
+    A4 = "A4"
+    A8 = "A8"
 
 
 class OperatingSystemStateTypes(str, Enum):
@@ -602,6 +677,14 @@ class ProtocolTypes(str, Enum):
     """
     HTTP = "Http"
     HTTPS = "Https"
+
+
+class ProvisionedBandwidthCopyOption(str, Enum):
+    """
+    If this field is set on a snapshot and createOption is CopyStart, the snapshot will be copied at a quicker speed.
+    """
+    NONE = "None"
+    ENHANCED = "Enhanced"
 
 
 class ProximityPlacementGroupType(str, Enum):
@@ -697,10 +780,11 @@ class RestorePointEncryptionType(str, Enum):
 
 class SecurityEncryptionTypes(str, Enum):
     """
-    Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. **Note:** It can be set for only Confidential VMs.
+    Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob.. **Note:** It can be set for only Confidential VMs.
     """
     VM_GUEST_STATE_ONLY = "VMGuestStateOnly"
     DISK_WITH_VM_GUEST_STATE = "DiskWithVMGuestState"
+    NON_PERSISTED_TPM = "NonPersistedTPM"
 
 
 class SecurityTypes(str, Enum):
@@ -767,6 +851,23 @@ class StorageAccountTypes(str, Enum):
     PREMIUM_ZRS = "Premium_ZRS"
     STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
     PREMIUM_V2_LRS = "PremiumV2_LRS"
+
+
+class UefiKeyType(str, Enum):
+    """
+    The type of key signature.
+    """
+    SHA256 = "sha256"
+    X509 = "x509"
+
+
+class UefiSignatureTemplateName(str, Enum):
+    """
+    The name of the signature template that contains default UEFI keys.
+    """
+    NO_SIGNATURE_TEMPLATE = "NoSignatureTemplate"
+    MICROSOFT_UEFI_CERTIFICATE_AUTHORITY_TEMPLATE = "MicrosoftUefiCertificateAuthorityTemplate"
+    MICROSOFT_WINDOWS_TEMPLATE = "MicrosoftWindowsTemplate"
 
 
 class UpgradeMode(str, Enum):
@@ -998,3 +1099,11 @@ class WindowsVMGuestPatchMode(str, Enum):
     MANUAL = "Manual"
     AUTOMATIC_BY_OS = "AutomaticByOS"
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
+
+
+class ZonalPlatformFaultDomainAlignMode(str, Enum):
+    """
+    Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
+    """
+    ALIGNED = "Aligned"
+    UNALIGNED = "Unaligned"

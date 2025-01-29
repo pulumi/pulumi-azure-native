@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.Web.V20220901
 {
     /// <summary>
+    /// ActiveRevisionsMode controls how active revisions are handled for the Container app:
+    /// &lt;list&gt;&lt;item&gt;Multiple: multiple revisions can be active. If no value if provided, this is the default&lt;/item&gt;&lt;item&gt;Single: Only one revision can be active at a time. Revision weights can not be used in this mode&lt;/item&gt;&lt;/list&gt;
+    /// </summary>
+    [EnumType]
+    public readonly struct ActiveRevisionsMode : IEquatable<ActiveRevisionsMode>
+    {
+        private readonly string _value;
+
+        private ActiveRevisionsMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActiveRevisionsMode Multiple { get; } = new ActiveRevisionsMode("multiple");
+        public static ActiveRevisionsMode Single { get; } = new ActiveRevisionsMode("single");
+
+        public static bool operator ==(ActiveRevisionsMode left, ActiveRevisionsMode right) => left.Equals(right);
+        public static bool operator !=(ActiveRevisionsMode left, ActiveRevisionsMode right) => !left.Equals(right);
+
+        public static explicit operator string(ActiveRevisionsMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActiveRevisionsMode other && Equals(other);
+        public bool Equals(ActiveRevisionsMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Predefined action to be taken.
     /// </summary>
     [EnumType]
@@ -487,6 +519,38 @@ namespace Pulumi.AzureNative.Web.V20220901
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HostType other && Equals(other);
         public bool Equals(HostType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Ingress transport protocol
+    /// </summary>
+    [EnumType]
+    public readonly struct IngressTransportMethod : IEquatable<IngressTransportMethod>
+    {
+        private readonly string _value;
+
+        private IngressTransportMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IngressTransportMethod Auto { get; } = new IngressTransportMethod("auto");
+        public static IngressTransportMethod Http { get; } = new IngressTransportMethod("http");
+        public static IngressTransportMethod Http2 { get; } = new IngressTransportMethod("http2");
+
+        public static bool operator ==(IngressTransportMethod left, IngressTransportMethod right) => left.Equals(right);
+        public static bool operator !=(IngressTransportMethod left, IngressTransportMethod right) => !left.Equals(right);
+
+        public static explicit operator string(IngressTransportMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IngressTransportMethod other && Equals(other);
+        public bool Equals(IngressTransportMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

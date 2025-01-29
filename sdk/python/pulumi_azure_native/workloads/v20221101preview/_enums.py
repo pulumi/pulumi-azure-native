@@ -5,13 +5,84 @@
 from enum import Enum
 
 __all__ = [
+    'ConfigurationType',
+    'DiskSkuName',
+    'ManagedServiceIdentityType',
+    'NamingPatternType',
+    'OSType',
+    'RoutingPreference',
+    'SAPConfigurationType',
     'SAPDatabaseScaleMethod',
     'SAPDatabaseType',
     'SAPDeploymentType',
     'SAPEnvironmentType',
     'SAPHighAvailabilityType',
     'SAPProductType',
+    'SAPSoftwareInstallationType',
+    'SslPreference',
 ]
+
+
+class ConfigurationType(str, Enum):
+    """
+    The type of file share config.
+    """
+    SKIP = "Skip"
+    CREATE_AND_MOUNT = "CreateAndMount"
+    MOUNT = "Mount"
+
+
+class DiskSkuName(str, Enum):
+    """
+    Defines the disk sku name.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    PREMIUM_LRS = "Premium_LRS"
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    PREMIUM_ZRS = "Premium_ZRS"
+    STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
+    PREMIUM_V2_LRS = "PremiumV2_LRS"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of manage identity
+    """
+    NONE = "None"
+    USER_ASSIGNED = "UserAssigned"
+
+
+class NamingPatternType(str, Enum):
+    """
+    The pattern type to be used for resource naming.
+    """
+    FULL_RESOURCE_NAME = "FullResourceName"
+
+
+class OSType(str, Enum):
+    """
+    The OS Type
+    """
+    LINUX = "Linux"
+    WINDOWS = "Windows"
+
+
+class RoutingPreference(str, Enum):
+    """
+    Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
+    """
+    DEFAULT = "Default"
+    ROUTE_ALL = "RouteAll"
+
+
+class SAPConfigurationType(str, Enum):
+    """
+    The configuration Type.
+    """
+    DEPLOYMENT = "Deployment"
+    DISCOVERY = "Discovery"
+    DEPLOYMENT_WITH_OS_CONFIG = "DeploymentWithOSConfig"
 
 
 class SAPDatabaseScaleMethod(str, Enum):
@@ -60,3 +131,21 @@ class SAPProductType(str, Enum):
     ECC = "ECC"
     S4_HANA = "S4HANA"
     OTHER = "Other"
+
+
+class SAPSoftwareInstallationType(str, Enum):
+    """
+    The SAP software installation Type.
+    """
+    SERVICE_INITIATED = "ServiceInitiated"
+    SAP_INSTALL_WITHOUT_OS_CONFIG = "SAPInstallWithoutOSConfig"
+    EXTERNAL = "External"
+
+
+class SslPreference(str, Enum):
+    """
+    Gets or sets certificate preference if secure communication is enabled.
+    """
+    DISABLED = "Disabled"
+    ROOT_CERTIFICATE = "RootCertificate"
+    SERVER_CERTIFICATE = "ServerCertificate"

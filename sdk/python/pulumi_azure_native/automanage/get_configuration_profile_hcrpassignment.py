@@ -118,6 +118,8 @@ def get_configuration_profile_hcrpassignment(configuration_profile_assignment_na
     Get information about a configuration profile assignment
     Azure REST API version: 2022-05-04.
 
+    Other available API versions: 2021-04-30-preview.
+
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.
     :param str machine_name: The name of the Arc machine.
@@ -144,6 +146,8 @@ def get_configuration_profile_hcrpassignment_output(configuration_profile_assign
     """
     Get information about a configuration profile assignment
     Azure REST API version: 2022-05-04.
+
+    Other available API versions: 2021-04-30-preview.
 
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.

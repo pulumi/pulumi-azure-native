@@ -102,6 +102,37 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// Sticky Session Affinity
+    /// </summary>
+    [EnumType]
+    public readonly struct Affinity : IEquatable<Affinity>
+    {
+        private readonly string _value;
+
+        private Affinity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Affinity Sticky { get; } = new Affinity("sticky");
+        public static Affinity None { get; } = new Affinity("none");
+
+        public static bool operator ==(Affinity left, Affinity right) => left.Equals(right);
+        public static bool operator !=(Affinity left, Affinity right) => !left.Equals(right);
+
+        public static explicit operator string(Affinity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Affinity other && Equals(other);
+        public bool Equals(Affinity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Tells Dapr which protocol your application is using. Valid options are http and grpc. Default is http
     /// </summary>
     [EnumType]
@@ -270,7 +301,6 @@ namespace Pulumi.AzureNative.App
         }
 
         public static DotNetComponentType AspireDashboard { get; } = new DotNetComponentType("AspireDashboard");
-        public static DotNetComponentType AspireResourceServerApi { get; } = new DotNetComponentType("AspireResourceServerApi");
 
         public static bool operator ==(DotNetComponentType left, DotNetComponentType right) => left.Equals(right);
         public static bool operator !=(DotNetComponentType left, DotNetComponentType right) => !left.Equals(right);
@@ -380,6 +410,37 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// Use to select the lifecycle stages of a Session Pool during which the Managed Identity should be available.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentitySettingsLifeCycle : IEquatable<IdentitySettingsLifeCycle>
+    {
+        private readonly string _value;
+
+        private IdentitySettingsLifeCycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentitySettingsLifeCycle None { get; } = new IdentitySettingsLifeCycle("None");
+        public static IdentitySettingsLifeCycle Main { get; } = new IdentitySettingsLifeCycle("Main");
+
+        public static bool operator ==(IdentitySettingsLifeCycle left, IdentitySettingsLifeCycle right) => left.Equals(right);
+        public static bool operator !=(IdentitySettingsLifeCycle left, IdentitySettingsLifeCycle right) => !left.Equals(right);
+
+        public static explicit operator string(IdentitySettingsLifeCycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentitySettingsLifeCycle other && Equals(other);
+        public bool Equals(IdentitySettingsLifeCycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.
     /// </summary>
     [EnumType]
@@ -460,6 +521,8 @@ namespace Pulumi.AzureNative.App
         public static JavaComponentType SpringBootAdmin { get; } = new JavaComponentType("SpringBootAdmin");
         public static JavaComponentType SpringCloudEureka { get; } = new JavaComponentType("SpringCloudEureka");
         public static JavaComponentType SpringCloudConfig { get; } = new JavaComponentType("SpringCloudConfig");
+        public static JavaComponentType SpringCloudGateway { get; } = new JavaComponentType("SpringCloudGateway");
+        public static JavaComponentType Nacos { get; } = new JavaComponentType("Nacos");
 
         public static bool operator ==(JavaComponentType left, JavaComponentType right) => left.Equals(right);
         public static bool operator !=(JavaComponentType left, JavaComponentType right) => !left.Equals(right);
@@ -534,37 +597,6 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedCertificateDomainControlValidation other && Equals(other);
         public bool Equals(ManagedCertificateDomainControlValidation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Outbound type for the cluster
-    /// </summary>
-    [EnumType]
-    public readonly struct ManagedEnvironmentOutBoundType : IEquatable<ManagedEnvironmentOutBoundType>
-    {
-        private readonly string _value;
-
-        private ManagedEnvironmentOutBoundType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ManagedEnvironmentOutBoundType LoadBalancer { get; } = new ManagedEnvironmentOutBoundType("LoadBalancer");
-        public static ManagedEnvironmentOutBoundType UserDefinedRouting { get; } = new ManagedEnvironmentOutBoundType("UserDefinedRouting");
-
-        public static bool operator ==(ManagedEnvironmentOutBoundType left, ManagedEnvironmentOutBoundType right) => left.Equals(right);
-        public static bool operator !=(ManagedEnvironmentOutBoundType left, ManagedEnvironmentOutBoundType right) => !left.Equals(right);
-
-        public static explicit operator string(ManagedEnvironmentOutBoundType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ManagedEnvironmentOutBoundType other && Equals(other);
-        public bool Equals(ManagedEnvironmentOutBoundType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -724,43 +756,6 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SessionNetworkStatus other && Equals(other);
         public bool Equals(SessionNetworkStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Name of the Sku.
-    /// </summary>
-    [EnumType]
-    public readonly struct SkuName : IEquatable<SkuName>
-    {
-        private readonly string _value;
-
-        private SkuName(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Consumption SKU of Managed Environment.
-        /// </summary>
-        public static SkuName Consumption { get; } = new SkuName("Consumption");
-        /// <summary>
-        /// Premium SKU of Managed Environment.
-        /// </summary>
-        public static SkuName Premium { get; } = new SkuName("Premium");
-
-        public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
-        public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
-
-        public static explicit operator string(SkuName value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
-        public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

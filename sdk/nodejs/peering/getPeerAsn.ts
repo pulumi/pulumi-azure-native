@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the peer ASN with the specified name under the given subscription.
  * Azure REST API version: 2022-10-01.
  *
- * Other available API versions: 2021-01-01.
+ * Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
  */
 export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,7 +68,7 @@ export interface GetPeerAsnResult {
  * Gets the peer ASN with the specified name under the given subscription.
  * Azure REST API version: 2022-10-01.
  *
- * Other available API versions: 2021-01-01.
+ * Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
  */
 export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPeerAsnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

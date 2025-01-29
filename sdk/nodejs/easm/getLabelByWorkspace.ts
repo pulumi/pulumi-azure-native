@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns a label in the given workspace.
  * Azure REST API version: 2023-04-01-preview.
+ *
+ * Other available API versions: 2022-04-01-preview.
  */
 export function getLabelByWorkspace(args: GetLabelByWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelByWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,6 +73,8 @@ export interface GetLabelByWorkspaceResult {
 /**
  * Returns a label in the given workspace.
  * Azure REST API version: 2023-04-01-preview.
+ *
+ * Other available API versions: 2022-04-01-preview.
  */
 export function getLabelByWorkspaceOutput(args: GetLabelByWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabelByWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

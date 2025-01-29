@@ -151,9 +151,9 @@ def get_prefix_list_global_rulestack(global_rulestack_name: Optional[str] = None
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixListGlobalRulestackResult:
     """
     Get a PrefixListGlobalRulestackResource
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-01-19-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name
@@ -180,9 +180,9 @@ def get_prefix_list_global_rulestack_output(global_rulestack_name: Optional[pulu
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrefixListGlobalRulestackResult]:
     """
     Get a PrefixListGlobalRulestackResource
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-01-19-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01, 2023-09-01-preview, 2023-10-10-preview, 2024-02-07-preview.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name

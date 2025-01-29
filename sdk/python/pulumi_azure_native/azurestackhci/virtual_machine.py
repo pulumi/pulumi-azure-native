@@ -221,7 +221,7 @@ class VirtualMachine(pulumi.CustomResource):
                  __props__=None):
         """
         The virtual machine resource definition.
-        Azure REST API version: 2022-12-15-preview.
+        Azure REST API version: 2022-12-15-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,7 +245,7 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The virtual machine resource definition.
-        Azure REST API version: 2022-12-15-preview.
+        Azure REST API version: 2022-12-15-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.

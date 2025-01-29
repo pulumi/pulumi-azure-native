@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Container App.
-        /// Azure REST API version: 2023-01-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01.
         /// </summary>
         public static Task<GetContainerAppResult> InvokeAsync(GetContainerAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppResult>("azure-native:web:getContainerApp", args ?? new GetContainerAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container App.
-        /// Azure REST API version: 2023-01-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01.
         /// </summary>
         public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:web:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container App.
-        /// Azure REST API version: 2023-01-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01.
         /// </summary>
         public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:web:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         public readonly string? Kind;
         /// <summary>

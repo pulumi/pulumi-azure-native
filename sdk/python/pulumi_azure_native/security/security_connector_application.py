@@ -132,7 +132,7 @@ class SecurityConnectorApplication(pulumi.CustomResource):
                  __props__=None):
         """
         Security Application over a given scope
-        Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 1.x: 2022-07-01-preview.
+        Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 2.x: 2022-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,7 +151,7 @@ class SecurityConnectorApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Security Application over a given scope
-        Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 1.x: 2022-07-01-preview.
+        Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 2.x: 2022-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SecurityConnectorApplicationArgs args: The arguments to use to populate this resource's properties.

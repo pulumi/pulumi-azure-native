@@ -6,13 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AccessRuleDirection',
-    'ActionType',
     'AssociationAccessMode',
-    'BlockResponseCode',
-    'DnsSecurityRuleState',
-    'ForwardingRuleState',
-    'IpAllocationMethod',
-    'ZoneType',
 ]
 
 
@@ -24,15 +18,6 @@ class AccessRuleDirection(str, Enum):
     OUTBOUND = "Outbound"
 
 
-class ActionType(str, Enum):
-    """
-    The type of action to take.
-    """
-    ALLOW = "Allow"
-    ALERT = "Alert"
-    BLOCK = "Block"
-
-
 class AssociationAccessMode(str, Enum):
     """
     Access mode on the association.
@@ -40,42 +25,3 @@ class AssociationAccessMode(str, Enum):
     LEARNING = "Learning"
     ENFORCED = "Enforced"
     AUDIT = "Audit"
-
-
-class BlockResponseCode(str, Enum):
-    """
-    The response code for block actions.
-    """
-    SERVFAIL = "SERVFAIL"
-
-
-class DnsSecurityRuleState(str, Enum):
-    """
-    The state of DNS security rule.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class ForwardingRuleState(str, Enum):
-    """
-    The state of forwarding rule.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class IpAllocationMethod(str, Enum):
-    """
-    Private IP address allocation method.
-    """
-    STATIC = "Static"
-    DYNAMIC = "Dynamic"
-
-
-class ZoneType(str, Enum):
-    """
-    The type of this DNS zone (Public or Private).
-    """
-    PUBLIC = "Public"
-    PRIVATE = "Private"

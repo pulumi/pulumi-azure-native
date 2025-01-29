@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ManagedServices
         /// <summary>
         /// Gets the details of the specified registration assignment.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
         /// </summary>
         public static Task<GetRegistrationAssignmentResult> InvokeAsync(GetRegistrationAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ManagedServices
         /// <summary>
         /// Gets the details of the specified registration assignment.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
         /// </summary>
         public static Output<GetRegistrationAssignmentResult> Invoke(GetRegistrationAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.ManagedServices
         /// <summary>
         /// Gets the details of the specified registration assignment.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
         /// </summary>
         public static Output<GetRegistrationAssignmentResult> Invoke(GetRegistrationAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentInvokeArgs(), options.WithDefaults());

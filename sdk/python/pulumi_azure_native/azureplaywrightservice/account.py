@@ -22,8 +22,9 @@ __all__ = ['AccountArgs', 'Account']
 class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 local_auth: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  regional_affinity: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
                  reporting: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
                  scalable_execution: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
@@ -31,24 +32,29 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] account_name: Name of account.
+        :param pulumi.Input[Union[str, 'EnablementStatus']] local_auth: When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: Name of account
         :param pulumi.Input[Union[str, 'EnablementStatus']] regional_affinity: This property sets the connection region for Playwright client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
         :param pulumi.Input[Union[str, 'EnablementStatus']] reporting: When enabled, this feature allows the workspace to upload and display test results, including artifacts like traces and screenshots, in the Playwright portal. This enables faster and more efficient troubleshooting.
         :param pulumi.Input[Union[str, 'EnablementStatus']] scalable_execution: When enabled, Playwright client workers can connect to cloud-hosted browsers. This can increase the number of parallel workers for a test run, significantly minimizing test completion durations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if local_auth is None:
+            local_auth = 'Disabled'
+        if local_auth is not None:
+            pulumi.set(__self__, "local_auth", local_auth)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if regional_affinity is None:
             regional_affinity = 'Enabled'
         if regional_affinity is not None:
             pulumi.set(__self__, "regional_affinity", regional_affinity)
         if reporting is None:
-            reporting = 'Disabled'
+            reporting = 'Enabled'
         if reporting is not None:
             pulumi.set(__self__, "reporting", reporting)
         if scalable_execution is None:
@@ -71,6 +77,30 @@ class AccountArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="localAuth")
+    def local_auth(self) -> Optional[pulumi.Input[Union[str, 'EnablementStatus']]]:
+        """
+        When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        """
+        return pulumi.get(self, "local_auth")
+
+    @local_auth.setter
+    def local_auth(self, value: Optional[pulumi.Input[Union[str, 'EnablementStatus']]]):
+        pulumi.set(self, "local_auth", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -81,18 +111,6 @@ class AccountArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of account
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="regionalAffinity")
@@ -148,8 +166,9 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 local_auth: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  regional_affinity: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
                  reporting: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -157,15 +176,16 @@ class Account(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        An account resource
-        Azure REST API version: 2023-10-01-preview.
+        A Playwright service account resource.
+        Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
-        Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
+        Other available API versions: 2023-10-01-preview, 2024-02-01-preview, 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_name: Name of account.
+        :param pulumi.Input[Union[str, 'EnablementStatus']] local_auth: When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: Name of account
         :param pulumi.Input[Union[str, 'EnablementStatus']] regional_affinity: This property sets the connection region for Playwright client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
         :param pulumi.Input[Union[str, 'EnablementStatus']] reporting: When enabled, this feature allows the workspace to upload and display test results, including artifacts like traces and screenshots, in the Playwright portal. This enables faster and more efficient troubleshooting.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -179,10 +199,10 @@ class Account(pulumi.CustomResource):
                  args: AccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An account resource
-        Azure REST API version: 2023-10-01-preview.
+        A Playwright service account resource.
+        Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
-        Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
+        Other available API versions: 2023-10-01-preview, 2024-02-01-preview, 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -199,8 +219,9 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 local_auth: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  regional_affinity: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
                  reporting: Optional[pulumi.Input[Union[str, 'EnablementStatus']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -215,13 +236,16 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
+            __props__.__dict__["account_name"] = account_name
+            if local_auth is None:
+                local_auth = 'Disabled'
+            __props__.__dict__["local_auth"] = local_auth
             __props__.__dict__["location"] = location
-            __props__.__dict__["name"] = name
             if regional_affinity is None:
                 regional_affinity = 'Enabled'
             __props__.__dict__["regional_affinity"] = regional_affinity
             if reporting is None:
-                reporting = 'Disabled'
+                reporting = 'Enabled'
             __props__.__dict__["reporting"] = reporting
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -231,6 +255,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["scalable_execution"] = scalable_execution
             __props__.__dict__["tags"] = tags
             __props__.__dict__["dashboard_uri"] = None
+            __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -259,6 +284,7 @@ class Account(pulumi.CustomResource):
         __props__ = AccountArgs.__new__(AccountArgs)
 
         __props__.__dict__["dashboard_uri"] = None
+        __props__.__dict__["local_auth"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -277,6 +303,14 @@ class Account(pulumi.CustomResource):
         The Playwright testing dashboard URI for the account resource.
         """
         return pulumi.get(self, "dashboard_uri")
+
+    @property
+    @pulumi.getter(name="localAuth")
+    def local_auth(self) -> pulumi.Output[Optional[str]]:
+        """
+        When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        """
+        return pulumi.get(self, "local_auth")
 
     @property
     @pulumi.getter

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get all delivery attributes for an event subscription of a namespace topic.
- * Azure REST API version: 2023-12-15-preview.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getNamespaceTopicEventSubscriptionDeliveryAttributes(args: GetNamespaceTopicEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,7 +25,7 @@ export function getNamespaceTopicEventSubscriptionDeliveryAttributes(args: GetNa
 
 export interface GetNamespaceTopicEventSubscriptionDeliveryAttributesArgs {
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription.
      */
     eventSubscriptionName: string;
     /**
@@ -53,9 +53,9 @@ export interface GetNamespaceTopicEventSubscriptionDeliveryAttributesResult {
 }
 /**
  * Get all delivery attributes for an event subscription of a namespace topic.
- * Azure REST API version: 2023-12-15-preview.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getNamespaceTopicEventSubscriptionDeliveryAttributesOutput(args: GetNamespaceTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,7 +69,7 @@ export function getNamespaceTopicEventSubscriptionDeliveryAttributesOutput(args:
 
 export interface GetNamespaceTopicEventSubscriptionDeliveryAttributesOutputArgs {
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription.
      */
     eventSubscriptionName: pulumi.Input<string>;
     /**

@@ -190,6 +190,8 @@ def get_interface_endpoint(expand: Optional[str] = None,
     Gets the specified interface endpoint by resource group.
     Azure REST API version: 2019-02-01.
 
+    Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01.
+
 
     :param str expand: Expands referenced resources.
     :param str interface_endpoint_name: The name of the interface endpoint.
@@ -222,6 +224,8 @@ def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] 
     """
     Gets the specified interface endpoint by resource group.
     Azure REST API version: 2019-02-01.
+
+    Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01.
 
 
     :param str expand: Expands referenced resources.

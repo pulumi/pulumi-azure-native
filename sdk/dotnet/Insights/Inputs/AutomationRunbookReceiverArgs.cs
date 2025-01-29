@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public Input<bool> IsGlobalRunbook { get; set; } = null!;
 
         /// <summary>
+        /// The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        /// </summary>
+        [Input("managedIdentity")]
+        public Input<string>? ManagedIdentity { get; set; }
+
+        /// <summary>
         /// Indicates name of the webhook.
         /// </summary>
         [Input("name")]

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The private endpoint connection of an IotHub
- * Azure REST API version: 2022-04-30-preview. Prior API version in Azure Native 1.x: 2020-08-31.
+ * Azure REST API version: 2023-06-30. Prior API version in Azure Native 2.x: 2022-04-30-preview.
  *
- * Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+ * Other available API versions: 2020-03-01, 2020-04-01, 2020-06-15, 2020-07-10-preview, 2020-08-01, 2020-08-31, 2020-08-31-preview, 2021-02-01-preview, 2021-03-03-preview, 2021-03-31, 2021-07-01, 2021-07-01-preview, 2021-07-02, 2021-07-02-preview, 2022-04-30-preview, 2022-11-15-preview, 2023-06-30-preview.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

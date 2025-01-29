@@ -27,7 +27,7 @@ class GetGalleryResult:
     """
     Specifies information about the Shared Image Gallery that you want to create or update.
     """
-    def __init__(__self__, description=None, id=None, identifier=None, location=None, name=None, provisioning_state=None, sharing_profile=None, sharing_status=None, soft_delete_policy=None, tags=None, type=None):
+    def __init__(__self__, description=None, id=None, identifier=None, identity=None, location=None, name=None, provisioning_state=None, sharing_profile=None, sharing_status=None, soft_delete_policy=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -37,6 +37,9 @@ class GetGalleryResult:
         if identifier and not isinstance(identifier, dict):
             raise TypeError("Expected argument 'identifier' to be a dict")
         pulumi.set(__self__, "identifier", identifier)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -85,6 +88,14 @@ class GetGalleryResult:
         Describes the gallery unique name.
         """
         return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.GalleryIdentityResponse']:
+        """
+        The identity of the gallery, if configured.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -160,6 +171,7 @@ class AwaitableGetGalleryResult(GetGalleryResult):
             description=self.description,
             id=self.id,
             identifier=self.identifier,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -177,9 +189,9 @@ def get_gallery(expand: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryResult:
     """
     Retrieves information about a Shared Image Gallery.
-    Azure REST API version: 2022-03-03.
+    Azure REST API version: 2024-03-03.
 
-    Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    Other available API versions: 2020-09-30, 2021-07-01, 2021-10-01, 2022-01-03, 2022-03-03, 2022-08-03, 2023-07-03.
 
 
     :param str expand: The expand query option to apply on the operation.
@@ -199,6 +211,7 @@ def get_gallery(expand: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         identifier=pulumi.get(__ret__, 'identifier'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -214,9 +227,9 @@ def get_gallery_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryResult]:
     """
     Retrieves information about a Shared Image Gallery.
-    Azure REST API version: 2022-03-03.
+    Azure REST API version: 2024-03-03.
 
-    Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    Other available API versions: 2020-09-30, 2021-07-01, 2021-10-01, 2022-01-03, 2022-03-03, 2022-08-03, 2023-07-03.
 
 
     :param str expand: The expand query option to apply on the operation.
@@ -235,6 +248,7 @@ def get_gallery_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         identifier=pulumi.get(__response__, 'identifier'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the resource description of the specified Event Hubs Cluster.
- * Azure REST API version: 2022-10-01-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Other available API versions: 2018-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,6 +57,10 @@ export interface GetClusterResult {
      */
     readonly name: string;
     /**
+     * Provisioning state of the Cluster.
+     */
+    readonly provisioningState: string;
+    /**
      * Properties of the cluster SKU.
      */
     readonly sku?: outputs.eventhub.ClusterSkuResponse;
@@ -87,9 +91,9 @@ export interface GetClusterResult {
 }
 /**
  * Gets the resource description of the specified Event Hubs Cluster.
- * Azure REST API version: 2022-10-01-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Other available API versions: 2018-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -225,7 +225,7 @@ def get_disk_pool(disk_pool_name: Optional[str] = None,
     Get a Disk pool.
     Azure REST API version: 2021-08-01.
 
-    Other available API versions: 2020-03-15-preview.
+    Other available API versions: 2020-03-15-preview, 2021-04-01-preview.
 
 
     :param str disk_pool_name: The name of the Disk Pool.
@@ -260,7 +260,7 @@ def get_disk_pool_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
     Get a Disk pool.
     Azure REST API version: 2021-08-01.
 
-    Other available API versions: 2020-03-15-preview.
+    Other available API versions: 2020-03-15-preview, 2021-04-01-preview.
 
 
     :param str disk_pool_name: The name of the Disk Pool.

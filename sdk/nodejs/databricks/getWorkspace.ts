@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the workspace.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview.
+ * Other available API versions: 2018-04-01, 2021-04-01-preview, 2022-04-01-preview, 2023-02-01, 2023-09-15-preview, 2024-09-01-preview.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * Access Connector Resource that is going to be associated with Databricks Workspace
+     */
+    readonly accessConnector?: outputs.databricks.WorkspacePropertiesResponseAccessConnector;
+    /**
      * The workspace provider authorizations.
      */
     readonly authorizations?: outputs.databricks.WorkspaceProviderAuthorizationResponse[];
@@ -49,6 +53,14 @@ export interface GetWorkspaceResult {
      */
     readonly createdDateTime: string;
     /**
+     * Properties for Default Catalog configuration during workspace creation.
+     */
+    readonly defaultCatalog?: outputs.databricks.DefaultCatalogPropertiesResponse;
+    /**
+     * Gets or Sets Default Storage Firewall configuration information
+     */
+    readonly defaultStorageFirewall?: string;
+    /**
      * The resource Id of the managed disk encryption set.
      */
     readonly diskEncryptionSetId: string;
@@ -57,9 +69,17 @@ export interface GetWorkspaceResult {
      */
     readonly encryption?: outputs.databricks.WorkspacePropertiesResponseEncryption;
     /**
+     * Contains settings related to the Enhanced Security and Compliance Add-On.
+     */
+    readonly enhancedSecurityCompliance?: outputs.databricks.EnhancedSecurityComplianceDefinitionResponse;
+    /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * Indicates whether unity catalog enabled for the workspace or not.
+     */
+    readonly isUcEnabled: boolean;
     /**
      * The geo-location where the resource lives
      */
@@ -135,9 +155,9 @@ export interface GetWorkspaceResult {
 }
 /**
  * Gets the workspace.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview.
+ * Other available API versions: 2018-04-01, 2021-04-01-preview, 2022-04-01-preview, 2023-02-01, 2023-09-15-preview, 2024-09-01-preview.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

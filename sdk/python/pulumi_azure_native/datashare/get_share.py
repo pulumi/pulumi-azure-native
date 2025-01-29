@@ -178,6 +178,8 @@ def get_share(account_name: Optional[str] = None,
     Get a share
     Azure REST API version: 2021-08-01.
 
+    Other available API versions: 2020-09-01, 2020-10-01-preview.
+
 
     :param str account_name: The name of the share account.
     :param str resource_group_name: The resource group name.
@@ -209,6 +211,8 @@ def get_share_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Get a share
     Azure REST API version: 2021-08-01.
+
+    Other available API versions: 2020-09-01, 2020-10-01-preview.
 
 
     :param str account_name: The name of the share account.

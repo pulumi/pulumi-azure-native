@@ -41,6 +41,7 @@ __all__ = [
     'ClusterResourceResponseProperties',
     'ColumnResponse',
     'CompositePathResponse',
+    'ComputedPropertyResponse',
     'ConflictResolutionPolicyResponse',
     'ConnectionStringResponse',
     'ConsistencyPolicyResponse',
@@ -56,7 +57,6 @@ __all__ = [
     'DatabaseRestoreResourceResponse',
     'ExcludedPathResponse',
     'FailoverPolicyResponse',
-    'FirewallRulePropertiesResponse',
     'GraphAPIComputeRegionalServiceResourceResponse',
     'GraphAPIComputeServiceResourcePropertiesResponse',
     'GraphResourceGetPropertiesResponseOptions',
@@ -92,6 +92,7 @@ __all__ = [
     'PrivateLinkServiceConnectionStatePropertyResponse',
     'PrivilegeResponse',
     'PrivilegeResponseResource',
+    'ResourceRestoreParametersResponse',
     'RestoreParametersResponse',
     'RoleResponse',
     'SeedNodeResponse',
@@ -110,6 +111,9 @@ __all__ = [
     'TableGetPropertiesResponseResource',
     'UniqueKeyPolicyResponse',
     'UniqueKeyResponse',
+    'VectorEmbeddingPolicyResponse',
+    'VectorEmbeddingResponse',
+    'VectorIndexResponse',
     'VirtualNetworkRuleResponse',
 ]
 
@@ -214,7 +218,7 @@ class ApiPropertiesResponse(dict):
     def __init__(__self__, *,
                  server_version: Optional[str] = None):
         """
-        :param str server_version: Describes the ServerVersion of an a MongoDB account.
+        :param str server_version: Describes the version of the MongoDB account.
         """
         if server_version is not None:
             pulumi.set(__self__, "server_version", server_version)
@@ -223,7 +227,7 @@ class ApiPropertiesResponse(dict):
     @pulumi.getter(name="serverVersion")
     def server_version(self) -> Optional[str]:
         """
-        Describes the ServerVersion of an a MongoDB account.
+        Describes the version of the MongoDB account.
         """
         return pulumi.get(self, "server_version")
 
@@ -1277,10 +1281,14 @@ class ClusterResourceResponseProperties(dict):
         suggest = None
         if key == "gossipCertificates":
             suggest = "gossip_certificates"
+        elif key == "privateLinkResourceId":
+            suggest = "private_link_resource_id"
         elif key == "seedNodes":
             suggest = "seed_nodes"
         elif key == "authenticationMethod":
             suggest = "authentication_method"
+        elif key == "azureConnectionMethod":
+            suggest = "azure_connection_method"
         elif key == "cassandraAuditLoggingEnabled":
             suggest = "cassandra_audit_logging_enabled"
         elif key == "cassandraVersion":
@@ -1319,8 +1327,10 @@ class ClusterResourceResponseProperties(dict):
 
     def __init__(__self__, *,
                  gossip_certificates: Sequence['outputs.CertificateResponse'],
+                 private_link_resource_id: str,
                  seed_nodes: Sequence['outputs.SeedNodeResponse'],
                  authentication_method: Optional[str] = None,
+                 azure_connection_method: Optional[str] = None,
                  cassandra_audit_logging_enabled: Optional[bool] = None,
                  cassandra_version: Optional[str] = None,
                  client_certificates: Optional[Sequence['outputs.CertificateResponse']] = None,
@@ -1337,8 +1347,10 @@ class ClusterResourceResponseProperties(dict):
         """
         Properties of a managed Cassandra cluster.
         :param Sequence['CertificateResponse'] gossip_certificates: List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.
+        :param str private_link_resource_id: If the Connection Method is VPN, this is the Id of the private link resource that the datacenters need to connect to.
         :param Sequence['SeedNodeResponse'] seed_nodes: List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
         :param str authentication_method: Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+        :param str azure_connection_method: How to connect to the azure services needed for running the cluster
         :param bool cassandra_audit_logging_enabled: Whether Cassandra audit logging is enabled
         :param str cassandra_version: Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
         :param Sequence['CertificateResponse'] client_certificates: List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.
@@ -1354,9 +1366,12 @@ class ClusterResourceResponseProperties(dict):
         :param bool repair_enabled: Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
         """
         pulumi.set(__self__, "gossip_certificates", gossip_certificates)
+        pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
         pulumi.set(__self__, "seed_nodes", seed_nodes)
         if authentication_method is not None:
             pulumi.set(__self__, "authentication_method", authentication_method)
+        if azure_connection_method is not None:
+            pulumi.set(__self__, "azure_connection_method", azure_connection_method)
         if cassandra_audit_logging_enabled is not None:
             pulumi.set(__self__, "cassandra_audit_logging_enabled", cassandra_audit_logging_enabled)
         if cassandra_version is not None:
@@ -1393,6 +1408,14 @@ class ClusterResourceResponseProperties(dict):
         return pulumi.get(self, "gossip_certificates")
 
     @property
+    @pulumi.getter(name="privateLinkResourceId")
+    def private_link_resource_id(self) -> str:
+        """
+        If the Connection Method is VPN, this is the Id of the private link resource that the datacenters need to connect to.
+        """
+        return pulumi.get(self, "private_link_resource_id")
+
+    @property
     @pulumi.getter(name="seedNodes")
     def seed_nodes(self) -> Sequence['outputs.SeedNodeResponse']:
         """
@@ -1407,6 +1430,14 @@ class ClusterResourceResponseProperties(dict):
         Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
         """
         return pulumi.get(self, "authentication_method")
+
+    @property
+    @pulumi.getter(name="azureConnectionMethod")
+    def azure_connection_method(self) -> Optional[str]:
+        """
+        How to connect to the azure services needed for running the cluster
+        """
+        return pulumi.get(self, "azure_connection_method")
 
     @property
     @pulumi.getter(name="cassandraAuditLoggingEnabled")
@@ -1577,6 +1608,41 @@ class CompositePathResponse(dict):
         The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         """
         return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ComputedPropertyResponse(dict):
+    """
+    The definition of a computed property
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 query: Optional[str] = None):
+        """
+        The definition of a computed property
+        :param str name: The name of a computed property, for example - "cp_lowerName"
+        :param str query: The query that evaluates the value for computed property, for example - "SELECT VALUE LOWER(c.name) FROM c"
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of a computed property, for example - "cp_lowerName"
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[str]:
+        """
+        The query that evaluates the value for computed property, for example - "SELECT VALUE LOWER(c.name) FROM c"
+        """
+        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -2039,6 +2105,8 @@ class DataCenterResourceResponseProperties(dict):
             suggest = "managed_disk_customer_key_uri"
         elif key == "nodeCount":
             suggest = "node_count"
+        elif key == "privateEndpointIpAddress":
+            suggest = "private_endpoint_ip_address"
         elif key == "provisionError":
             suggest = "provision_error"
         elif key == "provisioningState":
@@ -2068,6 +2136,7 @@ class DataCenterResourceResponseProperties(dict):
                  disk_sku: Optional[str] = None,
                  managed_disk_customer_key_uri: Optional[str] = None,
                  node_count: Optional[int] = None,
+                 private_endpoint_ip_address: Optional[str] = None,
                  provision_error: Optional['outputs.CassandraErrorResponse'] = None,
                  provisioning_state: Optional[str] = None,
                  sku: Optional[str] = None):
@@ -2085,6 +2154,7 @@ class DataCenterResourceResponseProperties(dict):
         :param str disk_sku: Disk SKU used for data centers. Default value is P30.
         :param str managed_disk_customer_key_uri: Key uri to use for encryption of managed disks. Ensure the system assigned identity of the cluster has been assigned appropriate permissions(key get/wrap/unwrap permissions) on the key.
         :param int node_count: The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
+        :param str private_endpoint_ip_address: Ip of the VPN Endpoint for this data center.
         :param 'CassandraErrorResponse' provision_error: Error related to resource provisioning.
         :param str provisioning_state: The status of the resource at the time the operation was called.
         :param str sku: Virtual Machine SKU used for data centers. Default value is Standard_DS14_v2
@@ -2112,6 +2182,8 @@ class DataCenterResourceResponseProperties(dict):
             pulumi.set(__self__, "managed_disk_customer_key_uri", managed_disk_customer_key_uri)
         if node_count is not None:
             pulumi.set(__self__, "node_count", node_count)
+        if private_endpoint_ip_address is not None:
+            pulumi.set(__self__, "private_endpoint_ip_address", private_endpoint_ip_address)
         if provision_error is not None:
             pulumi.set(__self__, "provision_error", provision_error)
         if provisioning_state is not None:
@@ -2214,6 +2286,14 @@ class DataCenterResourceResponseProperties(dict):
         The number of nodes the data center should have. This is the desired number. After it is set, it may take some time for the data center to be scaled to match. To monitor the number of nodes and their status, use the fetchNodeStatus method on the cluster.
         """
         return pulumi.get(self, "node_count")
+
+    @property
+    @pulumi.getter(name="privateEndpointIpAddress")
+    def private_endpoint_ip_address(self) -> Optional[str]:
+        """
+        Ip of the VPN Endpoint for this data center.
+        """
+        return pulumi.get(self, "private_endpoint_ip_address")
 
     @property
     @pulumi.getter(name="provisionError")
@@ -2660,71 +2740,6 @@ class FailoverPolicyResponse(dict):
 
 
 @pulumi.output_type
-class FirewallRulePropertiesResponse(dict):
-    """
-    The properties of a mongo cluster firewall rule.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "endIpAddress":
-            suggest = "end_ip_address"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "startIpAddress":
-            suggest = "start_ip_address"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FirewallRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FirewallRulePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FirewallRulePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 end_ip_address: str,
-                 provisioning_state: str,
-                 start_ip_address: str):
-        """
-        The properties of a mongo cluster firewall rule.
-        :param str end_ip_address: The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        :param str provisioning_state: The provisioning state of the firewall rule.
-        :param str start_ip_address: The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
-
-    @property
-    @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> str:
-        """
-        The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        """
-        return pulumi.get(self, "end_ip_address")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the firewall rule.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> str:
-        """
-        The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
-        """
-        return pulumi.get(self, "start_ip_address")
-
-
-@pulumi.output_type
 class GraphAPIComputeRegionalServiceResourceResponse(dict):
     """
     Resource for a regional service location.
@@ -3030,21 +3045,48 @@ class GremlinDatabaseGetPropertiesResponseOptions(dict):
 
 @pulumi.output_type
 class GremlinDatabaseGetPropertiesResponseResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createMode":
+            suggest = "create_mode"
+        elif key == "restoreParameters":
+            suggest = "restore_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GremlinDatabaseGetPropertiesResponseResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GremlinDatabaseGetPropertiesResponseResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GremlinDatabaseGetPropertiesResponseResource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  id: str,
                  rid: str,
-                 ts: float):
+                 ts: float,
+                 create_mode: Optional[str] = None,
+                 restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB Gremlin database
         :param str rid: A system generated property. A unique identifier.
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param str create_mode: Enum to indicate the mode of resource creation.
+        :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
         pulumi.set(__self__, "ts", ts)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
 
     @property
     @pulumi.getter
@@ -3077,6 +3119,22 @@ class GremlinDatabaseGetPropertiesResponseResource(dict):
         A system generated property that denotes the last updated timestamp of the resource.
         """
         return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional['outputs.ResourceRestoreParametersResponse']:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
 
 
 @pulumi.output_type
@@ -3190,12 +3248,16 @@ class GremlinGraphGetPropertiesResponseResource(dict):
             suggest = "analytical_storage_ttl"
         elif key == "conflictResolutionPolicy":
             suggest = "conflict_resolution_policy"
+        elif key == "createMode":
+            suggest = "create_mode"
         elif key == "defaultTtl":
             suggest = "default_ttl"
         elif key == "indexingPolicy":
             suggest = "indexing_policy"
         elif key == "partitionKey":
             suggest = "partition_key"
+        elif key == "restoreParameters":
+            suggest = "restore_parameters"
         elif key == "uniqueKeyPolicy":
             suggest = "unique_key_policy"
 
@@ -3217,9 +3279,11 @@ class GremlinGraphGetPropertiesResponseResource(dict):
                  ts: float,
                  analytical_storage_ttl: Optional[float] = None,
                  conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
+                 create_mode: Optional[str] = None,
                  default_ttl: Optional[int] = None,
                  indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
                  partition_key: Optional['outputs.ContainerPartitionKeyResponse'] = None,
+                 restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
                  unique_key_policy: Optional['outputs.UniqueKeyPolicyResponse'] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
@@ -3228,9 +3292,11 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
         :param float analytical_storage_ttl: Analytical TTL.
         :param 'ConflictResolutionPolicyResponse' conflict_resolution_policy: The conflict resolution policy for the graph.
+        :param str create_mode: Enum to indicate the mode of resource creation.
         :param int default_ttl: Default time to live
         :param 'IndexingPolicyResponse' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
         :param 'ContainerPartitionKeyResponse' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         :param 'UniqueKeyPolicyResponse' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """
         pulumi.set(__self__, "etag", etag)
@@ -3241,12 +3307,16 @@ class GremlinGraphGetPropertiesResponseResource(dict):
             pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if conflict_resolution_policy is not None:
             pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
         if indexing_policy is not None:
             pulumi.set(__self__, "indexing_policy", indexing_policy)
         if partition_key is not None:
             pulumi.set(__self__, "partition_key", partition_key)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
         if unique_key_policy is not None:
             pulumi.set(__self__, "unique_key_policy", unique_key_policy)
 
@@ -3299,6 +3369,14 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         return pulumi.get(self, "conflict_resolution_policy")
 
     @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @property
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[int]:
         """
@@ -3321,6 +3399,14 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         The configuration of the partition key to be used for partitioning data into multiple partitions
         """
         return pulumi.get(self, "partition_key")
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional['outputs.ResourceRestoreParametersResponse']:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
 
     @property
     @pulumi.getter(name="uniqueKeyPolicy")
@@ -3452,6 +3538,8 @@ class IndexingPolicyResponse(dict):
             suggest = "indexing_mode"
         elif key == "spatialIndexes":
             suggest = "spatial_indexes"
+        elif key == "vectorIndexes":
+            suggest = "vector_indexes"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IndexingPolicyResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3470,7 +3558,8 @@ class IndexingPolicyResponse(dict):
                  excluded_paths: Optional[Sequence['outputs.ExcludedPathResponse']] = None,
                  included_paths: Optional[Sequence['outputs.IncludedPathResponse']] = None,
                  indexing_mode: Optional[str] = None,
-                 spatial_indexes: Optional[Sequence['outputs.SpatialSpecResponse']] = None):
+                 spatial_indexes: Optional[Sequence['outputs.SpatialSpecResponse']] = None,
+                 vector_indexes: Optional[Sequence['outputs.VectorIndexResponse']] = None):
         """
         Cosmos DB indexing policy
         :param bool automatic: Indicates if the indexing policy is automatic
@@ -3479,6 +3568,7 @@ class IndexingPolicyResponse(dict):
         :param Sequence['IncludedPathResponse'] included_paths: List of paths to include in the indexing
         :param str indexing_mode: Indicates the indexing mode.
         :param Sequence['SpatialSpecResponse'] spatial_indexes: List of spatial specifics
+        :param Sequence['VectorIndexResponse'] vector_indexes: List of paths to include in the vector indexing
         """
         if automatic is not None:
             pulumi.set(__self__, "automatic", automatic)
@@ -3494,6 +3584,8 @@ class IndexingPolicyResponse(dict):
             pulumi.set(__self__, "indexing_mode", indexing_mode)
         if spatial_indexes is not None:
             pulumi.set(__self__, "spatial_indexes", spatial_indexes)
+        if vector_indexes is not None:
+            pulumi.set(__self__, "vector_indexes", vector_indexes)
 
     @property
     @pulumi.getter
@@ -3542,6 +3634,14 @@ class IndexingPolicyResponse(dict):
         List of spatial specifics
         """
         return pulumi.get(self, "spatial_indexes")
+
+    @property
+    @pulumi.getter(name="vectorIndexes")
+    def vector_indexes(self) -> Optional[Sequence['outputs.VectorIndexResponse']]:
+        """
+        List of paths to include in the vector indexing
+        """
+        return pulumi.get(self, "vector_indexes")
 
 
 @pulumi.output_type
@@ -4082,6 +4182,10 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
         suggest = None
         if key == "analyticalStorageTtl":
             suggest = "analytical_storage_ttl"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "restoreParameters":
+            suggest = "restore_parameters"
         elif key == "shardKey":
             suggest = "shard_key"
 
@@ -4102,7 +4206,9 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
                  rid: str,
                  ts: float,
                  analytical_storage_ttl: Optional[int] = None,
+                 create_mode: Optional[str] = None,
                  indexes: Optional[Sequence['outputs.MongoIndexResponse']] = None,
+                 restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
                  shard_key: Optional[Mapping[str, str]] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
@@ -4110,7 +4216,9 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
         :param str rid: A system generated property. A unique identifier.
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
         :param int analytical_storage_ttl: Analytical TTL.
+        :param str create_mode: Enum to indicate the mode of resource creation.
         :param Sequence['MongoIndexResponse'] indexes: List of index keys
+        :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         :param Mapping[str, str] shard_key: A key-value pair of shard keys to be applied for the request.
         """
         pulumi.set(__self__, "etag", etag)
@@ -4119,8 +4227,12 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
         pulumi.set(__self__, "ts", ts)
         if analytical_storage_ttl is not None:
             pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
         if shard_key is not None:
             pulumi.set(__self__, "shard_key", shard_key)
 
@@ -4165,12 +4277,28 @@ class MongoDBCollectionGetPropertiesResponseResource(dict):
         return pulumi.get(self, "analytical_storage_ttl")
 
     @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @property
     @pulumi.getter
     def indexes(self) -> Optional[Sequence['outputs.MongoIndexResponse']]:
         """
         List of index keys
         """
         return pulumi.get(self, "indexes")
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional['outputs.ResourceRestoreParametersResponse']:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
 
     @property
     @pulumi.getter(name="shardKey")
@@ -4231,21 +4359,48 @@ class MongoDBDatabaseGetPropertiesResponseOptions(dict):
 
 @pulumi.output_type
 class MongoDBDatabaseGetPropertiesResponseResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createMode":
+            suggest = "create_mode"
+        elif key == "restoreParameters":
+            suggest = "restore_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoDBDatabaseGetPropertiesResponseResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoDBDatabaseGetPropertiesResponseResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoDBDatabaseGetPropertiesResponseResource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  id: str,
                  rid: str,
-                 ts: float):
+                 ts: float,
+                 create_mode: Optional[str] = None,
+                 restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB MongoDB database
         :param str rid: A system generated property. A unique identifier.
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param str create_mode: Enum to indicate the mode of resource creation.
+        :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
         pulumi.set(__self__, "ts", ts)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
 
     @property
     @pulumi.getter
@@ -4278,6 +4433,22 @@ class MongoDBDatabaseGetPropertiesResponseResource(dict):
         A system generated property that denotes the last updated timestamp of the resource.
         """
         return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional['outputs.ResourceRestoreParametersResponse']:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
 
 
 @pulumi.output_type
@@ -4955,6 +5126,74 @@ class PrivilegeResponseResource(dict):
 
 
 @pulumi.output_type
+class ResourceRestoreParametersResponse(dict):
+    """
+    Parameters to indicate the information about the restore.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restoreSource":
+            suggest = "restore_source"
+        elif key == "restoreTimestampInUtc":
+            suggest = "restore_timestamp_in_utc"
+        elif key == "restoreWithTtlDisabled":
+            suggest = "restore_with_ttl_disabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceRestoreParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceRestoreParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceRestoreParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 restore_source: Optional[str] = None,
+                 restore_timestamp_in_utc: Optional[str] = None,
+                 restore_with_ttl_disabled: Optional[bool] = None):
+        """
+        Parameters to indicate the information about the restore.
+        :param str restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        :param str restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
+        :param bool restore_with_ttl_disabled: Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
+        """
+        if restore_source is not None:
+            pulumi.set(__self__, "restore_source", restore_source)
+        if restore_timestamp_in_utc is not None:
+            pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+        if restore_with_ttl_disabled is not None:
+            pulumi.set(__self__, "restore_with_ttl_disabled", restore_with_ttl_disabled)
+
+    @property
+    @pulumi.getter(name="restoreSource")
+    def restore_source(self) -> Optional[str]:
+        """
+        The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        """
+        return pulumi.get(self, "restore_source")
+
+    @property
+    @pulumi.getter(name="restoreTimestampInUtc")
+    def restore_timestamp_in_utc(self) -> Optional[str]:
+        """
+        Time to which the account has to be restored (ISO-8601 format).
+        """
+        return pulumi.get(self, "restore_timestamp_in_utc")
+
+    @property
+    @pulumi.getter(name="restoreWithTtlDisabled")
+    def restore_with_ttl_disabled(self) -> Optional[bool]:
+        """
+        Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
+        """
+        return pulumi.get(self, "restore_with_ttl_disabled")
+
+
+@pulumi.output_type
 class RestoreParametersResponse(dict):
     """
     Parameters to indicate the information about the restore.
@@ -4972,6 +5211,8 @@ class RestoreParametersResponse(dict):
             suggest = "restore_source"
         elif key == "restoreTimestampInUtc":
             suggest = "restore_timestamp_in_utc"
+        elif key == "restoreWithTtlDisabled":
+            suggest = "restore_with_ttl_disabled"
         elif key == "tablesToRestore":
             suggest = "tables_to_restore"
 
@@ -4992,6 +5233,7 @@ class RestoreParametersResponse(dict):
                  restore_mode: Optional[str] = None,
                  restore_source: Optional[str] = None,
                  restore_timestamp_in_utc: Optional[str] = None,
+                 restore_with_ttl_disabled: Optional[bool] = None,
                  tables_to_restore: Optional[Sequence[str]] = None):
         """
         Parameters to indicate the information about the restore.
@@ -5000,6 +5242,7 @@ class RestoreParametersResponse(dict):
         :param str restore_mode: Describes the mode of the restore.
         :param str restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         :param str restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
+        :param bool restore_with_ttl_disabled: Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
         :param Sequence[str] tables_to_restore: List of specific tables available for restore.
         """
         if databases_to_restore is not None:
@@ -5012,6 +5255,8 @@ class RestoreParametersResponse(dict):
             pulumi.set(__self__, "restore_source", restore_source)
         if restore_timestamp_in_utc is not None:
             pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+        if restore_with_ttl_disabled is not None:
+            pulumi.set(__self__, "restore_with_ttl_disabled", restore_with_ttl_disabled)
         if tables_to_restore is not None:
             pulumi.set(__self__, "tables_to_restore", tables_to_restore)
 
@@ -5054,6 +5299,14 @@ class RestoreParametersResponse(dict):
         Time to which the account has to be restored (ISO-8601 format).
         """
         return pulumi.get(self, "restore_timestamp_in_utc")
+
+    @property
+    @pulumi.getter(name="restoreWithTtlDisabled")
+    def restore_with_ttl_disabled(self) -> Optional[bool]:
+        """
+        Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
+        """
+        return pulumi.get(self, "restore_with_ttl_disabled")
 
     @property
     @pulumi.getter(name="tablesToRestore")
@@ -5223,16 +5476,24 @@ class SqlContainerGetPropertiesResponseResource(dict):
             suggest = "analytical_storage_ttl"
         elif key == "clientEncryptionPolicy":
             suggest = "client_encryption_policy"
+        elif key == "computedProperties":
+            suggest = "computed_properties"
         elif key == "conflictResolutionPolicy":
             suggest = "conflict_resolution_policy"
+        elif key == "createMode":
+            suggest = "create_mode"
         elif key == "defaultTtl":
             suggest = "default_ttl"
         elif key == "indexingPolicy":
             suggest = "indexing_policy"
         elif key == "partitionKey":
             suggest = "partition_key"
+        elif key == "restoreParameters":
+            suggest = "restore_parameters"
         elif key == "uniqueKeyPolicy":
             suggest = "unique_key_policy"
+        elif key == "vectorEmbeddingPolicy":
+            suggest = "vector_embedding_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SqlContainerGetPropertiesResponseResource. Access the value via the '{suggest}' property getter instead.")
@@ -5252,11 +5513,15 @@ class SqlContainerGetPropertiesResponseResource(dict):
                  ts: float,
                  analytical_storage_ttl: Optional[float] = None,
                  client_encryption_policy: Optional['outputs.ClientEncryptionPolicyResponse'] = None,
+                 computed_properties: Optional[Sequence['outputs.ComputedPropertyResponse']] = None,
                  conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
+                 create_mode: Optional[str] = None,
                  default_ttl: Optional[int] = None,
                  indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
                  partition_key: Optional['outputs.ContainerPartitionKeyResponse'] = None,
-                 unique_key_policy: Optional['outputs.UniqueKeyPolicyResponse'] = None):
+                 restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
+                 unique_key_policy: Optional['outputs.UniqueKeyPolicyResponse'] = None,
+                 vector_embedding_policy: Optional['outputs.VectorEmbeddingPolicyResponse'] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB SQL container
@@ -5264,11 +5529,15 @@ class SqlContainerGetPropertiesResponseResource(dict):
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
         :param float analytical_storage_ttl: Analytical TTL.
         :param 'ClientEncryptionPolicyResponse' client_encryption_policy: The client encryption policy for the container.
+        :param Sequence['ComputedPropertyResponse'] computed_properties: List of computed properties
         :param 'ConflictResolutionPolicyResponse' conflict_resolution_policy: The conflict resolution policy for the container.
+        :param str create_mode: Enum to indicate the mode of resource creation.
         :param int default_ttl: Default time to live
         :param 'IndexingPolicyResponse' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
         :param 'ContainerPartitionKeyResponse' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         :param 'UniqueKeyPolicyResponse' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        :param 'VectorEmbeddingPolicyResponse' vector_embedding_policy: The vector embedding policy for the container.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
@@ -5278,16 +5547,24 @@ class SqlContainerGetPropertiesResponseResource(dict):
             pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if client_encryption_policy is not None:
             pulumi.set(__self__, "client_encryption_policy", client_encryption_policy)
+        if computed_properties is not None:
+            pulumi.set(__self__, "computed_properties", computed_properties)
         if conflict_resolution_policy is not None:
             pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
         if indexing_policy is not None:
             pulumi.set(__self__, "indexing_policy", indexing_policy)
         if partition_key is not None:
             pulumi.set(__self__, "partition_key", partition_key)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
         if unique_key_policy is not None:
             pulumi.set(__self__, "unique_key_policy", unique_key_policy)
+        if vector_embedding_policy is not None:
+            pulumi.set(__self__, "vector_embedding_policy", vector_embedding_policy)
 
     @property
     @pulumi.getter
@@ -5338,12 +5615,28 @@ class SqlContainerGetPropertiesResponseResource(dict):
         return pulumi.get(self, "client_encryption_policy")
 
     @property
+    @pulumi.getter(name="computedProperties")
+    def computed_properties(self) -> Optional[Sequence['outputs.ComputedPropertyResponse']]:
+        """
+        List of computed properties
+        """
+        return pulumi.get(self, "computed_properties")
+
+    @property
     @pulumi.getter(name="conflictResolutionPolicy")
     def conflict_resolution_policy(self) -> Optional['outputs.ConflictResolutionPolicyResponse']:
         """
         The conflict resolution policy for the container.
         """
         return pulumi.get(self, "conflict_resolution_policy")
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="defaultTtl")
@@ -5370,12 +5663,28 @@ class SqlContainerGetPropertiesResponseResource(dict):
         return pulumi.get(self, "partition_key")
 
     @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional['outputs.ResourceRestoreParametersResponse']:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
+
+    @property
     @pulumi.getter(name="uniqueKeyPolicy")
     def unique_key_policy(self) -> Optional['outputs.UniqueKeyPolicyResponse']:
         """
         The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """
         return pulumi.get(self, "unique_key_policy")
+
+    @property
+    @pulumi.getter(name="vectorEmbeddingPolicy")
+    def vector_embedding_policy(self) -> Optional['outputs.VectorEmbeddingPolicyResponse']:
+        """
+        The vector embedding policy for the container.
+        """
+        return pulumi.get(self, "vector_embedding_policy")
 
 
 @pulumi.output_type
@@ -5428,12 +5737,33 @@ class SqlDatabaseGetPropertiesResponseOptions(dict):
 
 @pulumi.output_type
 class SqlDatabaseGetPropertiesResponseResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createMode":
+            suggest = "create_mode"
+        elif key == "restoreParameters":
+            suggest = "restore_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDatabaseGetPropertiesResponseResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDatabaseGetPropertiesResponseResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDatabaseGetPropertiesResponseResource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  id: str,
                  rid: str,
                  ts: float,
                  colls: Optional[str] = None,
+                 create_mode: Optional[str] = None,
+                 restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
                  users: Optional[str] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
@@ -5441,6 +5771,8 @@ class SqlDatabaseGetPropertiesResponseResource(dict):
         :param str rid: A system generated property. A unique identifier.
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
         :param str colls: A system generated property that specified the addressable path of the collections resource.
+        :param str create_mode: Enum to indicate the mode of resource creation.
+        :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         :param str users: A system generated property that specifies the addressable path of the users resource.
         """
         pulumi.set(__self__, "etag", etag)
@@ -5449,6 +5781,10 @@ class SqlDatabaseGetPropertiesResponseResource(dict):
         pulumi.set(__self__, "ts", ts)
         if colls is not None:
             pulumi.set(__self__, "colls", colls)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
         if users is not None:
             pulumi.set(__self__, "users", users)
 
@@ -5491,6 +5827,22 @@ class SqlDatabaseGetPropertiesResponseResource(dict):
         A system generated property that specified the addressable path of the collections resource.
         """
         return pulumi.get(self, "colls")
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional['outputs.ResourceRestoreParametersResponse']:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
 
     @property
     @pulumi.getter
@@ -5585,6 +5937,8 @@ class SqlDedicatedGatewayServiceResourcePropertiesResponse(dict):
             suggest = "creation_time"
         elif key == "serviceType":
             suggest = "service_type"
+        elif key == "dedicatedGatewayType":
+            suggest = "dedicated_gateway_type"
         elif key == "instanceCount":
             suggest = "instance_count"
         elif key == "instanceSize":
@@ -5608,6 +5962,7 @@ class SqlDedicatedGatewayServiceResourcePropertiesResponse(dict):
                  locations: Sequence['outputs.SqlDedicatedGatewayRegionalServiceResourceResponse'],
                  service_type: str,
                  status: str,
+                 dedicated_gateway_type: Optional[str] = None,
                  instance_count: Optional[int] = None,
                  instance_size: Optional[str] = None,
                  sql_dedicated_gateway_endpoint: Optional[str] = None):
@@ -5618,6 +5973,7 @@ class SqlDedicatedGatewayServiceResourcePropertiesResponse(dict):
         :param str service_type: ServiceType for the service.
                Expected value is 'SqlDedicatedGateway'.
         :param str status: Describes the status of a service.
+        :param str dedicated_gateway_type: DedicatedGatewayType for the service.
         :param int instance_count: Instance count for the service.
         :param str instance_size: Instance type for the service.
         :param str sql_dedicated_gateway_endpoint: SqlDedicatedGateway endpoint for the service.
@@ -5626,6 +5982,8 @@ class SqlDedicatedGatewayServiceResourcePropertiesResponse(dict):
         pulumi.set(__self__, "locations", locations)
         pulumi.set(__self__, "service_type", 'SqlDedicatedGateway')
         pulumi.set(__self__, "status", status)
+        if dedicated_gateway_type is not None:
+            pulumi.set(__self__, "dedicated_gateway_type", dedicated_gateway_type)
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
         if instance_size is not None:
@@ -5665,6 +6023,14 @@ class SqlDedicatedGatewayServiceResourcePropertiesResponse(dict):
         Describes the status of a service.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="dedicatedGatewayType")
+    def dedicated_gateway_type(self) -> Optional[str]:
+        """
+        DedicatedGatewayType for the service.
+        """
+        return pulumi.get(self, "dedicated_gateway_type")
 
     @property
     @pulumi.getter(name="instanceCount")
@@ -6083,21 +6449,48 @@ class TableGetPropertiesResponseOptions(dict):
 
 @pulumi.output_type
 class TableGetPropertiesResponseResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createMode":
+            suggest = "create_mode"
+        elif key == "restoreParameters":
+            suggest = "restore_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableGetPropertiesResponseResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableGetPropertiesResponseResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableGetPropertiesResponseResource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  etag: str,
                  id: str,
                  rid: str,
-                 ts: float):
+                 ts: float,
+                 create_mode: Optional[str] = None,
+                 restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None):
         """
         :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB table
         :param str rid: A system generated property. A unique identifier.
         :param float ts: A system generated property that denotes the last updated timestamp of the resource.
+        :param str create_mode: Enum to indicate the mode of resource creation.
+        :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "rid", rid)
         pulumi.set(__self__, "ts", ts)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if restore_parameters is not None:
+            pulumi.set(__self__, "restore_parameters", restore_parameters)
 
     @property
     @pulumi.getter
@@ -6130,6 +6523,22 @@ class TableGetPropertiesResponseResource(dict):
         A system generated property that denotes the last updated timestamp of the resource.
         """
         return pulumi.get(self, "ts")
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        Enum to indicate the mode of resource creation.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @property
+    @pulumi.getter(name="restoreParameters")
+    def restore_parameters(self) -> Optional['outputs.ResourceRestoreParametersResponse']:
+        """
+        Parameters to indicate the information about the restore
+        """
+        return pulumi.get(self, "restore_parameters")
 
 
 @pulumi.output_type
@@ -6193,6 +6602,149 @@ class UniqueKeyResponse(dict):
         List of paths must be unique for each document in the Azure Cosmos DB service
         """
         return pulumi.get(self, "paths")
+
+
+@pulumi.output_type
+class VectorEmbeddingPolicyResponse(dict):
+    """
+    Cosmos DB Vector Embedding Policy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vectorEmbeddings":
+            suggest = "vector_embeddings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VectorEmbeddingPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VectorEmbeddingPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VectorEmbeddingPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vector_embeddings: Optional[Sequence['outputs.VectorEmbeddingResponse']] = None):
+        """
+        Cosmos DB Vector Embedding Policy
+        :param Sequence['VectorEmbeddingResponse'] vector_embeddings: List of vector embeddings
+        """
+        if vector_embeddings is not None:
+            pulumi.set(__self__, "vector_embeddings", vector_embeddings)
+
+    @property
+    @pulumi.getter(name="vectorEmbeddings")
+    def vector_embeddings(self) -> Optional[Sequence['outputs.VectorEmbeddingResponse']]:
+        """
+        List of vector embeddings
+        """
+        return pulumi.get(self, "vector_embeddings")
+
+
+@pulumi.output_type
+class VectorEmbeddingResponse(dict):
+    """
+    Represents a vector embedding. A vector embedding is used to define a vector field in the documents.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+        elif key == "distanceFunction":
+            suggest = "distance_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VectorEmbeddingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VectorEmbeddingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VectorEmbeddingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_type: str,
+                 dimensions: int,
+                 distance_function: str,
+                 path: str):
+        """
+        Represents a vector embedding. A vector embedding is used to define a vector field in the documents.
+        :param str data_type: Indicates the data type of vector.
+        :param int dimensions: The number of dimensions in the vector.
+        :param str distance_function: The distance function to use for distance calculation in between vectors.
+        :param str path: The path to the vector field in the document.
+        """
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "distance_function", distance_function)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> str:
+        """
+        Indicates the data type of vector.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> int:
+        """
+        The number of dimensions in the vector.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="distanceFunction")
+    def distance_function(self) -> str:
+        """
+        The distance function to use for distance calculation in between vectors.
+        """
+        return pulumi.get(self, "distance_function")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path to the vector field in the document.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class VectorIndexResponse(dict):
+    def __init__(__self__, *,
+                 path: str,
+                 type: str):
+        """
+        :param str path: The path to the vector field in the document.
+        :param str type: The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path to the vector field in the document.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

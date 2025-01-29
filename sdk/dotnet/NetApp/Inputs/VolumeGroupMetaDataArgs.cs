@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         [Input("applicationType")]
         public InputUnion<string, Pulumi.AzureNative.NetApp.ApplicationType>? ApplicationType { get; set; }
 
-        /// <summary>
-        /// Application specific identifier of deployment rules for the volume group
-        /// </summary>
-        [Input("deploymentSpecId")]
-        public Input<string>? DeploymentSpecId { get; set; }
-
         [Input("globalPlacementRules")]
         private InputList<Inputs.PlacementKeyValuePairsArgs>? _globalPlacementRules;
 

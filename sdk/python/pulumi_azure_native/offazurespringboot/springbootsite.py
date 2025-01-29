@@ -136,7 +136,9 @@ class Springbootsite(pulumi.CustomResource):
                  __props__=None):
         """
         The springbootsites envelope resource definition.
-        Azure REST API version: 2023-01-01-preview.
+        Azure REST API version: 2024-04-01-preview.
+
+        Other available API versions: 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +157,9 @@ class Springbootsite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The springbootsites envelope resource definition.
-        Azure REST API version: 2023-01-01-preview.
+        Azure REST API version: 2024-04-01-preview.
+
+        Other available API versions: 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SpringbootsiteArgs args: The arguments to use to populate this resource's properties.
@@ -198,7 +202,7 @@ class Springbootsite(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazurespringboot:springbootsite"), pulumi.Alias(type_="azure-native:offazurespringboot/v20230101preview:Springbootsite"), pulumi.Alias(type_="azure-native:offazurespringboot/v20230101preview:springbootsite"), pulumi.Alias(type_="azure-native:offazurespringboot/v20240401preview:Springbootsite"), pulumi.Alias(type_="azure-native:offazurespringboot/v20240401preview:springbootsite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazurespringboot/v20230101preview:Springbootsite"), pulumi.Alias(type_="azure-native:offazurespringboot/v20240401preview:Springbootsite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Springbootsite, __self__).__init__(
             'azure-native:offazurespringboot:Springbootsite',

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Agent Pool.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-04-01.
  *
- * Other available API versions: 2020-06-01, 2021-02-01, 2021-08-01, 2022-04-02-preview, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview.
+ * Other available API versions: 2019-06-01, 2019-08-01, 2019-10-01, 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-02-preview.
  */
 export class AgentPool extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     /**
+     * AKS will associate the specified agent pool with the Capacity Reservation Group.
+     */
+    public readonly capacityReservationGroupID!: pulumi.Output<string | undefined>;
+    /**
      * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
      */
     public readonly count!: pulumi.Output<number | undefined>;
@@ -56,6 +60,10 @@ export class AgentPool extends pulumi.CustomResource {
      * If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
      */
     public /*out*/ readonly currentOrchestratorVersion!: pulumi.Output<string>;
+    /**
+     * Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
+     */
+    public /*out*/ readonly eTag!: pulumi.Output<string>;
     /**
      * Whether to enable auto-scaler
      */
@@ -116,6 +124,10 @@ export class AgentPool extends pulumi.CustomResource {
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Network-related settings of an agent pool.
+     */
+    public readonly networkProfile!: pulumi.Output<outputs.containerservice.AgentPoolNetworkProfileResponse | undefined>;
     /**
      * The version of node image
      */
@@ -181,6 +193,10 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly scaleSetPriority!: pulumi.Output<string | undefined>;
     /**
+     * The security settings of an agent pool.
+     */
+    public readonly securityProfile!: pulumi.Output<outputs.containerservice.AgentPoolSecurityProfileResponse | undefined>;
+    /**
      * Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
      */
     public readonly spotMaxPrice!: pulumi.Output<number | undefined>;
@@ -205,6 +221,10 @@ export class AgentPool extends pulumi.CustomResource {
      */
     public readonly vnetSubnetID!: pulumi.Output<string | undefined>;
     /**
+     * The Windows agent pool's specific profile.
+     */
+    public readonly windowsProfile!: pulumi.Output<outputs.containerservice.AgentPoolWindowsProfileResponse | undefined>;
+    /**
      * Determines the type of workload a node can run.
      */
     public readonly workloadRuntime!: pulumi.Output<string | undefined>;
@@ -228,6 +248,7 @@ export class AgentPool extends pulumi.CustomResource {
             }
             resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            resourceInputs["capacityReservationGroupID"] = args ? args.capacityReservationGroupID : undefined;
             resourceInputs["count"] = args ? args.count : undefined;
             resourceInputs["creationData"] = args ? args.creationData : undefined;
             resourceInputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
@@ -244,6 +265,7 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["maxPods"] = args ? args.maxPods : undefined;
             resourceInputs["minCount"] = args ? args.minCount : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["nodeLabels"] = args ? args.nodeLabels : undefined;
             resourceInputs["nodePublicIPPrefixID"] = args ? args.nodePublicIPPrefixID : undefined;
             resourceInputs["nodeTaints"] = args ? args.nodeTaints : undefined;
@@ -260,22 +282,27 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["scaleDownMode"] = args ? args.scaleDownMode : undefined;
             resourceInputs["scaleSetEvictionPolicy"] = args ? args.scaleSetEvictionPolicy : undefined;
             resourceInputs["scaleSetPriority"] = args ? args.scaleSetPriority : undefined;
+            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
             resourceInputs["spotMaxPrice"] = args ? args.spotMaxPrice : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
             resourceInputs["vmSize"] = args ? args.vmSize : undefined;
             resourceInputs["vnetSubnetID"] = args ? args.vnetSubnetID : undefined;
+            resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
             resourceInputs["workloadRuntime"] = args ? args.workloadRuntime : undefined;
             resourceInputs["currentOrchestratorVersion"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nodeImageVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["capacityReservationGroupID"] = undefined /*out*/;
             resourceInputs["count"] = undefined /*out*/;
             resourceInputs["creationData"] = undefined /*out*/;
             resourceInputs["currentOrchestratorVersion"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["enableAutoScaling"] = undefined /*out*/;
             resourceInputs["enableEncryptionAtHost"] = undefined /*out*/;
             resourceInputs["enableFIPS"] = undefined /*out*/;
@@ -291,6 +318,7 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["minCount"] = undefined /*out*/;
             resourceInputs["mode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
             resourceInputs["nodeImageVersion"] = undefined /*out*/;
             resourceInputs["nodeLabels"] = undefined /*out*/;
             resourceInputs["nodePublicIPPrefixID"] = undefined /*out*/;
@@ -307,12 +335,14 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["scaleDownMode"] = undefined /*out*/;
             resourceInputs["scaleSetEvictionPolicy"] = undefined /*out*/;
             resourceInputs["scaleSetPriority"] = undefined /*out*/;
+            resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["spotMaxPrice"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["upgradeSettings"] = undefined /*out*/;
             resourceInputs["vmSize"] = undefined /*out*/;
             resourceInputs["vnetSubnetID"] = undefined /*out*/;
+            resourceInputs["windowsProfile"] = undefined /*out*/;
             resourceInputs["workloadRuntime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -334,6 +364,10 @@ export interface AgentPoolArgs {
      * The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * AKS will associate the specified agent pool with the Capacity Reservation Group.
+     */
+    capacityReservationGroupID?: pulumi.Input<string>;
     /**
      * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
      */
@@ -399,6 +433,10 @@ export interface AgentPoolArgs {
      */
     mode?: pulumi.Input<string | enums.containerservice.AgentPoolMode>;
     /**
+     * Network-related settings of an agent pool.
+     */
+    networkProfile?: pulumi.Input<inputs.containerservice.AgentPoolNetworkProfileArgs>;
+    /**
      * The node labels to be persisted across all nodes in agent pool.
      */
     nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -463,6 +501,10 @@ export interface AgentPoolArgs {
      */
     scaleSetPriority?: pulumi.Input<string | enums.containerservice.ScaleSetPriority>;
     /**
+     * The security settings of an agent pool.
+     */
+    securityProfile?: pulumi.Input<inputs.containerservice.AgentPoolSecurityProfileArgs>;
+    /**
      * Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
      */
     spotMaxPrice?: pulumi.Input<number>;
@@ -486,6 +528,10 @@ export interface AgentPoolArgs {
      * If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
      */
     vnetSubnetID?: pulumi.Input<string>;
+    /**
+     * The Windows agent pool's specific profile.
+     */
+    windowsProfile?: pulumi.Input<inputs.containerservice.AgentPoolWindowsProfileArgs>;
     /**
      * Determines the type of workload a node can run.
      */

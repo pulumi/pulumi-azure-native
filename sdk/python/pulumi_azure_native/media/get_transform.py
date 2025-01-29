@@ -142,6 +142,8 @@ def get_transform(account_name: Optional[str] = None,
     Gets a Transform.
     Azure REST API version: 2022-07-01.
 
+    Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-05-01-preview.
+
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
@@ -170,6 +172,8 @@ def get_transform_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a Transform.
     Azure REST API version: 2022-07-01.
+
+    Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-05-01-preview.
 
 
     :param str account_name: The Media Services account name.

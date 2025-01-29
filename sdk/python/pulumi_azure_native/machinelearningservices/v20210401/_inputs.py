@@ -52,6 +52,8 @@ __all__ = [
     'ComputeInstanceArgsDict',
     'ContainerResourceRequirementsArgs',
     'ContainerResourceRequirementsArgsDict',
+    'CosmosDbSettingsArgs',
+    'CosmosDbSettingsArgsDict',
     'CreateServiceRequestEnvironmentImageRequestArgs',
     'CreateServiceRequestEnvironmentImageRequestArgsDict',
     'CreateServiceRequestKeysArgs',
@@ -68,6 +70,8 @@ __all__ = [
     'DatabricksArgsDict',
     'DatasetReferenceArgs',
     'DatasetReferenceArgsDict',
+    'EncryptionPropertyArgs',
+    'EncryptionPropertyArgsDict',
     'EnvironmentImageRequestEnvironmentReferenceArgs',
     'EnvironmentImageRequestEnvironmentReferenceArgsDict',
     'EnvironmentImageRequestEnvironmentArgs',
@@ -76,10 +80,14 @@ __all__ = [
     'HDInsightPropertiesArgsDict',
     'HDInsightArgs',
     'HDInsightArgsDict',
+    'IdentityForCmkArgs',
+    'IdentityForCmkArgsDict',
     'IdentityArgs',
     'IdentityArgsDict',
     'ImageAssetArgs',
     'ImageAssetArgsDict',
+    'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'ModelDockerSectionBaseImageRegistryArgs',
     'ModelDockerSectionBaseImageRegistryArgsDict',
     'ModelEnvironmentDefinitionDockerArgs',
@@ -94,6 +102,8 @@ __all__ = [
     'ModelArgsDict',
     'PersonalComputeInstanceSettingsArgs',
     'PersonalComputeInstanceSettingsArgsDict',
+    'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'RCranPackageArgs',
     'RCranPackageArgsDict',
     'RGitHubPackageArgs',
@@ -106,8 +116,12 @@ __all__ = [
     'ScriptReferenceArgsDict',
     'ScriptsToExecuteArgs',
     'ScriptsToExecuteArgsDict',
+    'ServiceManagedResourcesSettingsArgs',
+    'ServiceManagedResourcesSettingsArgsDict',
     'SetupScriptsArgs',
     'SetupScriptsArgsDict',
+    'SharedPrivateLinkResourceArgs',
+    'SharedPrivateLinkResourceArgsDict',
     'SkuArgs',
     'SkuArgsDict',
     'SparkMavenPackageArgs',
@@ -2035,6 +2049,38 @@ class ContainerResourceRequirementsArgs:
 
 
 if not MYPY:
+    class CosmosDbSettingsArgsDict(TypedDict):
+        collections_throughput: NotRequired[pulumi.Input[int]]
+        """
+        The throughput of the collections in cosmosdb database
+        """
+elif False:
+    CosmosDbSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CosmosDbSettingsArgs:
+    def __init__(__self__, *,
+                 collections_throughput: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] collections_throughput: The throughput of the collections in cosmosdb database
+        """
+        if collections_throughput is not None:
+            pulumi.set(__self__, "collections_throughput", collections_throughput)
+
+    @property
+    @pulumi.getter(name="collectionsThroughput")
+    def collections_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        The throughput of the collections in cosmosdb database
+        """
+        return pulumi.get(self, "collections_throughput")
+
+    @collections_throughput.setter
+    def collections_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "collections_throughput", value)
+
+
+if not MYPY:
     class CreateServiceRequestEnvironmentImageRequestArgsDict(TypedDict):
         """
         The Environment, models and assets needed for inferencing.
@@ -2747,6 +2793,76 @@ class DatasetReferenceArgs:
 
 
 if not MYPY:
+    class EncryptionPropertyArgsDict(TypedDict):
+        key_vault_properties: pulumi.Input['KeyVaultPropertiesArgsDict']
+        """
+        Customer Key vault properties.
+        """
+        status: pulumi.Input[Union[str, 'EncryptionStatus']]
+        """
+        Indicates whether or not the encryption is enabled for the workspace.
+        """
+        identity: NotRequired[pulumi.Input['IdentityForCmkArgsDict']]
+        """
+        The identity that will be used to access the key vault for encryption at rest.
+        """
+elif False:
+    EncryptionPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EncryptionPropertyArgs:
+    def __init__(__self__, *,
+                 key_vault_properties: pulumi.Input['KeyVaultPropertiesArgs'],
+                 status: pulumi.Input[Union[str, 'EncryptionStatus']],
+                 identity: Optional[pulumi.Input['IdentityForCmkArgs']] = None):
+        """
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Customer Key vault properties.
+        :param pulumi.Input[Union[str, 'EncryptionStatus']] status: Indicates whether or not the encryption is enabled for the workspace.
+        :param pulumi.Input['IdentityForCmkArgs'] identity: The identity that will be used to access the key vault for encryption at rest.
+        """
+        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        pulumi.set(__self__, "status", status)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> pulumi.Input['KeyVaultPropertiesArgs']:
+        """
+        Customer Key vault properties.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: pulumi.Input['KeyVaultPropertiesArgs']):
+        pulumi.set(self, "key_vault_properties", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Union[str, 'EncryptionStatus']]:
+        """
+        Indicates whether or not the encryption is enabled for the workspace.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Union[str, 'EncryptionStatus']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityForCmkArgs']]:
+        """
+        The identity that will be used to access the key vault for encryption at rest.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityForCmkArgs']]):
+        pulumi.set(self, "identity", value)
+
+
+if not MYPY:
     class EnvironmentImageRequestEnvironmentReferenceArgsDict(TypedDict):
         """
         The unique identifying details of the AZURE ML environment.
@@ -3182,6 +3298,42 @@ class HDInsightArgs:
 
 
 if not MYPY:
+    class IdentityForCmkArgsDict(TypedDict):
+        """
+        Identity that will be used to access key vault for encryption at rest
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        The ArmId of the user assigned identity that will be used to access the customer managed key vault
+        """
+elif False:
+    IdentityForCmkArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentityForCmkArgs:
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        Identity that will be used to access key vault for encryption at rest
+        :param pulumi.Input[str] user_assigned_identity: The ArmId of the user assigned identity that will be used to access the customer managed key vault
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ArmId of the user assigned identity that will be used to access the customer managed key vault
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
+
+
+if not MYPY:
     class IdentityArgsDict(TypedDict):
         """
         Identity for the resource.
@@ -3331,6 +3483,76 @@ class ImageAssetArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
+
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        key_identifier: pulumi.Input[str]
+        """
+        Key vault uri to access the encryption key.
+        """
+        key_vault_arm_id: pulumi.Input[str]
+        """
+        The ArmId of the keyVault where the customer owned encryption key is present.
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        For future use - The client id of the identity which will be used to access key vault.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_identifier: pulumi.Input[str],
+                 key_vault_arm_id: pulumi.Input[str],
+                 identity_client_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key_identifier: Key vault uri to access the encryption key.
+        :param pulumi.Input[str] key_vault_arm_id: The ArmId of the keyVault where the customer owned encryption key is present.
+        :param pulumi.Input[str] identity_client_id: For future use - The client id of the identity which will be used to access key vault.
+        """
+        pulumi.set(__self__, "key_identifier", key_identifier)
+        pulumi.set(__self__, "key_vault_arm_id", key_vault_arm_id)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> pulumi.Input[str]:
+        """
+        Key vault uri to access the encryption key.
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @key_identifier.setter
+    def key_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_identifier", value)
+
+    @property
+    @pulumi.getter(name="keyVaultArmId")
+    def key_vault_arm_id(self) -> pulumi.Input[str]:
+        """
+        The ArmId of the keyVault where the customer owned encryption key is present.
+        """
+        return pulumi.get(self, "key_vault_arm_id")
+
+    @key_vault_arm_id.setter
+    def key_vault_arm_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_arm_id", value)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        For future use - The client id of the identity which will be used to access key vault.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_client_id", value)
 
 
 if not MYPY:
@@ -4278,6 +4500,82 @@ class PersonalComputeInstanceSettingsArgs:
 
 
 if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+if not MYPY:
     class RCranPackageArgsDict(TypedDict):
         name: NotRequired[pulumi.Input[str]]
         """
@@ -4646,6 +4944,38 @@ class ScriptsToExecuteArgs:
 
 
 if not MYPY:
+    class ServiceManagedResourcesSettingsArgsDict(TypedDict):
+        cosmos_db: NotRequired[pulumi.Input['CosmosDbSettingsArgsDict']]
+        """
+        The settings for the service managed cosmosdb account.
+        """
+elif False:
+    ServiceManagedResourcesSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceManagedResourcesSettingsArgs:
+    def __init__(__self__, *,
+                 cosmos_db: Optional[pulumi.Input['CosmosDbSettingsArgs']] = None):
+        """
+        :param pulumi.Input['CosmosDbSettingsArgs'] cosmos_db: The settings for the service managed cosmosdb account.
+        """
+        if cosmos_db is not None:
+            pulumi.set(__self__, "cosmos_db", cosmos_db)
+
+    @property
+    @pulumi.getter(name="cosmosDb")
+    def cosmos_db(self) -> Optional[pulumi.Input['CosmosDbSettingsArgs']]:
+        """
+        The settings for the service managed cosmosdb account.
+        """
+        return pulumi.get(self, "cosmos_db")
+
+    @cosmos_db.setter
+    def cosmos_db(self, value: Optional[pulumi.Input['CosmosDbSettingsArgs']]):
+        pulumi.set(self, "cosmos_db", value)
+
+
+if not MYPY:
     class SetupScriptsArgsDict(TypedDict):
         """
         Details of customized scripts to execute for setting up the cluster.
@@ -4679,6 +5009,118 @@ class SetupScriptsArgs:
     @scripts.setter
     def scripts(self, value: Optional[pulumi.Input['ScriptsToExecuteArgs']]):
         pulumi.set(self, "scripts", value)
+
+
+if not MYPY:
+    class SharedPrivateLinkResourceArgsDict(TypedDict):
+        group_id: NotRequired[pulumi.Input[str]]
+        """
+        The private link resource group id.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Unique name of the private link.
+        """
+        private_link_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id that private link links to.
+        """
+        request_message: NotRequired[pulumi.Input[str]]
+        """
+        Request message.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    SharedPrivateLinkResourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SharedPrivateLinkResourceArgs:
+    def __init__(__self__, *,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_link_resource_id: Optional[pulumi.Input[str]] = None,
+                 request_message: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+        """
+        :param pulumi.Input[str] group_id: The private link resource group id.
+        :param pulumi.Input[str] name: Unique name of the private link.
+        :param pulumi.Input[str] private_link_resource_id: The resource id that private link links to.
+        :param pulumi.Input[str] request_message: Request message.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_link_resource_id is not None:
+            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+        if request_message is not None:
+            pulumi.set(__self__, "request_message", request_message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private link resource group id.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name of the private link.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="privateLinkResourceId")
+    def private_link_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id that private link links to.
+        """
+        return pulumi.get(self, "private_link_resource_id")
+
+    @private_link_resource_id.setter
+    def private_link_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_resource_id", value)
+
+    @property
+    @pulumi.getter(name="requestMessage")
+    def request_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Request message.
+        """
+        return pulumi.get(self, "request_message")
+
+    @request_message.setter
+    def request_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_message", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:

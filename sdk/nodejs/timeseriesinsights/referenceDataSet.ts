@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
- * Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
+ * Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
  *
- * Other available API versions: 2021-06-30-preview.
+ * Other available API versions: 2021-03-31-preview, 2021-06-30-preview.
  */
 export class ReferenceDataSet extends pulumi.CustomResource {
     /**

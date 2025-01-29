@@ -198,9 +198,9 @@ def get_vm_instance_guest_agent(resource_uri: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVMInstanceGuestAgentResult:
     """
     Implements GuestAgent GET method.
-    Azure REST API version: 2023-03-01-preview.
+    Azure REST API version: 2023-12-01.
 
-    Other available API versions: 2023-10-01, 2023-12-01.
+    Other available API versions: 2023-03-01-preview, 2023-10-01.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
@@ -228,9 +228,9 @@ def get_vm_instance_guest_agent_output(resource_uri: Optional[pulumi.Input[str]]
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVMInstanceGuestAgentResult]:
     """
     Implements GuestAgent GET method.
-    Azure REST API version: 2023-03-01-preview.
+    Azure REST API version: 2023-12-01.
 
-    Other available API versions: 2023-10-01, 2023-12-01.
+    Other available API versions: 2023-03-01-preview, 2023-10-01.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.

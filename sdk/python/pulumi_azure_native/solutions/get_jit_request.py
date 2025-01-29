@@ -213,7 +213,7 @@ def get_jit_request(jit_request_name: Optional[str] = None,
     Gets the JIT request.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
+    Other available API versions: 2019-07-01, 2020-08-21-preview, 2021-02-01-preview, 2023-12-01-preview.
 
 
     :param str jit_request_name: The name of the JIT request.
@@ -247,7 +247,7 @@ def get_jit_request_output(jit_request_name: Optional[pulumi.Input[str]] = None,
     Gets the JIT request.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
+    Other available API versions: 2019-07-01, 2020-08-21-preview, 2021-02-01-preview, 2023-12-01-preview.
 
 
     :param str jit_request_name: The name of the JIT request.

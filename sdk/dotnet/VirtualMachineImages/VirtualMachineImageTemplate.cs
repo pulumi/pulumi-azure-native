@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.VirtualMachineImages
 {
     /// <summary>
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-    /// Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-02-14.
+    /// Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2022-07-01.
     /// 
-    /// Other available API versions: 2023-07-01, 2024-02-01.
+    /// Other available API versions: 2020-02-14, 2021-10-01, 2022-02-14, 2022-07-01, 2023-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:virtualmachineimages:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicates whether or not to automatically run the image template build on template creation or update.
+        /// </summary>
+        [Output("autoRun")]
+        public Output<Outputs.ImageTemplateAutoRunResponse?> AutoRun { get; private set; } = null!;
+
         /// <summary>
         /// Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
         /// </summary>
@@ -35,6 +41,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// </summary>
         [Output("distribute")]
         public Output<ImmutableArray<object>> Distribute { get; private set; } = null!;
+
+        /// <summary>
+        /// Error handling options upon a build failure
+        /// </summary>
+        [Output("errorHandling")]
+        public Output<Outputs.ImageTemplatePropertiesResponseErrorHandling?> ErrorHandling { get; private set; } = null!;
 
         /// <summary>
         /// The staging resource group id in the same subscription as the image template that will be used to build the image. This read-only field differs from 'stagingResourceGroup' only if the value specified in the 'stagingResourceGroup' field is empty.
@@ -59,6 +71,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Tags that will be applied to the resource group and/or resources created by the service.
+        /// </summary>
+        [Output("managedResourceTags")]
+        public Output<ImmutableDictionary<string, string>?> ManagedResourceTags { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -184,6 +202,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     public sealed class VirtualMachineImageTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether or not to automatically run the image template build on template creation or update.
+        /// </summary>
+        [Input("autoRun")]
+        public Input<Inputs.ImageTemplateAutoRunArgs>? AutoRun { get; set; }
+
+        /// <summary>
         /// Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
         /// </summary>
         [Input("buildTimeoutInMinutes")]
@@ -214,6 +238,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         }
 
         /// <summary>
+        /// Error handling options upon a build failure
+        /// </summary>
+        [Input("errorHandling")]
+        public Input<Inputs.ImageTemplatePropertiesErrorHandlingArgs>? ErrorHandling { get; set; }
+
+        /// <summary>
         /// The identity of the image template, if configured.
         /// </summary>
         [Input("identity", required: true)]
@@ -230,6 +260,18 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("managedResourceTags")]
+        private InputMap<string>? _managedResourceTags;
+
+        /// <summary>
+        /// Tags that will be applied to the resource group and/or resources created by the service.
+        /// </summary>
+        public InputMap<string> ManagedResourceTags
+        {
+            get => _managedResourceTags ?? (_managedResourceTags = new InputMap<string>());
+            set => _managedResourceTags = value;
+        }
 
         /// <summary>
         /// Specifies optimization to be performed on image.

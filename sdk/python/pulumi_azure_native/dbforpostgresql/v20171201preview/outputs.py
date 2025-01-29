@@ -22,7 +22,7 @@ __all__ = [
     'PrivateLinkServiceConnectionStatePropertyResponse',
     'ResourceIdentityResponse',
     'ServerPrivateEndpointConnectionResponse',
-    'SkuResponse',
+    'SingleServerSkuResponse',
     'StorageProfileResponse',
 ]
 
@@ -267,7 +267,7 @@ class ServerPrivateEndpointConnectionResponse(dict):
 
 
 @pulumi.output_type
-class SkuResponse(dict):
+class SingleServerSkuResponse(dict):
     """
     Billing information related properties of a server.
     """

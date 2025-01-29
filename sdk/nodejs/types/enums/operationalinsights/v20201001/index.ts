@@ -2,6 +2,36 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BillingType = {
+    Cluster: "Cluster",
+    Workspaces: "Workspaces",
+} as const;
+
+/**
+ * The cluster's billing type.
+ */
+export type BillingType = (typeof BillingType)[keyof typeof BillingType];
+
+export const ClusterSkuNameEnum = {
+    CapacityReservation: "CapacityReservation",
+} as const;
+
+/**
+ * The name of the SKU.
+ */
+export type ClusterSkuNameEnum = (typeof ClusterSkuNameEnum)[keyof typeof ClusterSkuNameEnum];
+
+export const IdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * Type of managed service identity.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
 export const PublicNetworkAccessType = {
     /**
      * Enables connectivity to Log Analytics through public DNS.

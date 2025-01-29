@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWorkloadNetworkDnsZoneResult',
@@ -26,7 +27,7 @@ class GetWorkloadNetworkDnsZoneResult:
     """
     NSX DNS Zone
     """
-    def __init__(__self__, display_name=None, dns_server_ips=None, dns_services=None, domain=None, id=None, name=None, provisioning_state=None, revision=None, source_ip=None, type=None):
+    def __init__(__self__, display_name=None, dns_server_ips=None, dns_services=None, domain=None, id=None, name=None, provisioning_state=None, revision=None, source_ip=None, system_data=None, type=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -54,6 +55,9 @@ class GetWorkloadNetworkDnsZoneResult:
         if source_ip and not isinstance(source_ip, str):
             raise TypeError("Expected argument 'source_ip' to be a str")
         pulumi.set(__self__, "source_ip", source_ip)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -94,7 +98,7 @@ class GetWorkloadNetworkDnsZoneResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -102,7 +106,7 @@ class GetWorkloadNetworkDnsZoneResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -131,10 +135,18 @@ class GetWorkloadNetworkDnsZoneResult:
         return pulumi.get(self, "source_ip")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -154,6 +166,7 @@ class AwaitableGetWorkloadNetworkDnsZoneResult(GetWorkloadNetworkDnsZoneResult):
             provisioning_state=self.provisioning_state,
             revision=self.revision,
             source_ip=self.source_ip,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -162,13 +175,13 @@ def get_workload_network_dns_zone(dns_zone_id: Optional[str] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkDnsZoneResult:
     """
-    NSX DNS Zone
-    Azure REST API version: 2022-05-01.
+    Get a WorkloadNetworkDnsZone
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
 
 
-    :param str dns_zone_id: NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
+    :param str dns_zone_id: ID of the DNS zone.
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -189,19 +202,20 @@ def get_workload_network_dns_zone(dns_zone_id: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         revision=pulumi.get(__ret__, 'revision'),
         source_ip=pulumi.get(__ret__, 'source_ip'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_workload_network_dns_zone_output(dns_zone_id: Optional[pulumi.Input[str]] = None,
                                          private_cloud_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadNetworkDnsZoneResult]:
     """
-    NSX DNS Zone
-    Azure REST API version: 2022-05-01.
+    Get a WorkloadNetworkDnsZone
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
 
 
-    :param str dns_zone_id: NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
+    :param str dns_zone_id: ID of the DNS zone.
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -221,4 +235,5 @@ def get_workload_network_dns_zone_output(dns_zone_id: Optional[pulumi.Input[str]
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         revision=pulumi.get(__response__, 'revision'),
         source_ip=pulumi.get(__response__, 'source_ip'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
  * Azure REST API version: 2022-10-01.
+ *
+ * Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
  */
 export function getRegisteredPrefix(args: GetRegisteredPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredPrefixResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,6 +74,8 @@ export interface GetRegisteredPrefixResult {
 /**
  * Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
  * Azure REST API version: 2022-10-01.
+ *
+ * Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
  */
 export function getRegisteredPrefixOutput(args: GetRegisteredPrefixOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegisteredPrefixResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

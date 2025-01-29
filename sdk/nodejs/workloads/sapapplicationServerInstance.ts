@@ -9,37 +9,39 @@ import * as utilities from "../utilities";
 
 /**
  * Define the SAP Application Server Instance resource.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
- *
- * Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
-export class SAPApplicationServerInstance extends pulumi.CustomResource {
+export class SapApplicationServerInstance extends pulumi.CustomResource {
     /**
-     * Get an existing SAPApplicationServerInstance resource's state with the given name, ID, and optional extra
+     * Get an existing SapApplicationServerInstance resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SAPApplicationServerInstance {
-        return new SAPApplicationServerInstance(name, undefined as any, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SapApplicationServerInstance {
+        return new SapApplicationServerInstance(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:workloads:SAPApplicationServerInstance';
+    public static readonly __pulumiType = 'azure-native:workloads:SapApplicationServerInstance';
 
     /**
-     * Returns true if the given object is an instance of SAPApplicationServerInstance.  This is designed to work even
+     * Returns true if the given object is an instance of SapApplicationServerInstance.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is SAPApplicationServerInstance {
+    public static isInstance(obj: any): obj is SapApplicationServerInstance {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === SAPApplicationServerInstance.__pulumiType;
+        return obj['__pulumiType'] === SapApplicationServerInstance.__pulumiType;
     }
 
+    /**
+     * Application server instance dispatcher status.
+     */
+    public /*out*/ readonly dispatcherStatus!: pulumi.Output<string>;
     /**
      * Defines the Application Instance errors.
      */
@@ -69,7 +71,7 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly instanceNo!: pulumi.Output<string>;
     /**
-     *  Application server instance SAP IP Address.
+     * Application server instance SAP IP Address.
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
@@ -77,7 +79,7 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly kernelPatch!: pulumi.Output<string>;
     /**
-     *  Application server instance SAP Kernel Version.
+     * Application server instance SAP Kernel Version.
      */
     public /*out*/ readonly kernelVersion!: pulumi.Output<string>;
     /**
@@ -122,13 +124,13 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
     public /*out*/ readonly vmDetails!: pulumi.Output<outputs.workloads.ApplicationServerVmDetailsResponse[]>;
 
     /**
-     * Create a SAPApplicationServerInstance resource with the given unique name, arguments, and options.
+     * Create a SapApplicationServerInstance resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SAPApplicationServerInstanceArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SapApplicationServerInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -143,6 +145,7 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sapVirtualInstanceName"] = args ? args.sapVirtualInstanceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dispatcherStatus"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["gatewayPort"] = undefined /*out*/;
             resourceInputs["health"] = undefined /*out*/;
@@ -162,6 +165,7 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmDetails"] = undefined /*out*/;
         } else {
+            resourceInputs["dispatcherStatus"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["gatewayPort"] = undefined /*out*/;
             resourceInputs["health"] = undefined /*out*/;
@@ -184,16 +188,16 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
             resourceInputs["vmDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20221101preview:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20230401:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20231001preview:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20240901:SAPApplicationServerInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:SapApplicationServerInstance" }, { type: "azure-native:workloads/v20221101preview:SapApplicationServerInstance" }, { type: "azure-native:workloads/v20230401:SapApplicationServerInstance" }, { type: "azure-native:workloads/v20231001preview:SapApplicationServerInstance" }, { type: "azure-native:workloads/v20240901:SapApplicationServerInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SAPApplicationServerInstance.__pulumiType, name, resourceInputs, opts);
+        super(SapApplicationServerInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a SAPApplicationServerInstance resource.
+ * The set of arguments for constructing a SapApplicationServerInstance resource.
  */
-export interface SAPApplicationServerInstanceArgs {
+export interface SapApplicationServerInstanceArgs {
     /**
      * The name of SAP Application Server instance resource.
      */

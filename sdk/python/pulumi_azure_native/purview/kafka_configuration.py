@@ -37,7 +37,7 @@ class KafkaConfigurationArgs:
         :param pulumi.Input[str] account_name: The name of the account.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] consumer_group: Consumer group for hook event hub.
-        :param pulumi.Input['CredentialsArgs'] credentials: Credentials to access event hub.
+        :param pulumi.Input['CredentialsArgs'] credentials: Credentials to access the event streaming service attached to the purview account.
         :param pulumi.Input[str] event_hub_partition_id: Optional partition Id for notification event hub. If not set, all partitions will be leveraged.
         :param pulumi.Input[Union[str, 'EventHubType']] event_hub_type: The event hub type.
         :param pulumi.Input[Union[str, 'EventStreamingState']] event_streaming_state: The state of the event streaming service
@@ -107,7 +107,7 @@ class KafkaConfigurationArgs:
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['CredentialsArgs']]:
         """
-        Credentials to access event hub.
+        Credentials to access the event streaming service attached to the purview account.
         """
         return pulumi.get(self, "credentials")
 
@@ -203,15 +203,15 @@ class KafkaConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         The configuration of the event streaming service resource attached to the Purview account for kafka notifications.
-        Azure REST API version: 2021-12-01.
+        Azure REST API version: 2024-04-01-preview. Prior API version in Azure Native 2.x: 2021-12-01.
 
-        Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+        Other available API versions: 2021-12-01, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the account.
         :param pulumi.Input[str] consumer_group: Consumer group for hook event hub.
-        :param pulumi.Input[Union['CredentialsArgs', 'CredentialsArgsDict']] credentials: Credentials to access event hub.
+        :param pulumi.Input[Union['CredentialsArgs', 'CredentialsArgsDict']] credentials: Credentials to access the event streaming service attached to the purview account.
         :param pulumi.Input[str] event_hub_partition_id: Optional partition Id for notification event hub. If not set, all partitions will be leveraged.
         :param pulumi.Input[Union[str, 'EventHubType']] event_hub_type: The event hub type.
         :param pulumi.Input[Union[str, 'EventStreamingState']] event_streaming_state: The state of the event streaming service
@@ -227,9 +227,9 @@ class KafkaConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The configuration of the event streaming service resource attached to the Purview account for kafka notifications.
-        Azure REST API version: 2021-12-01.
+        Azure REST API version: 2024-04-01-preview. Prior API version in Azure Native 2.x: 2021-12-01.
 
-        Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+        Other available API versions: 2021-12-01, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param KafkaConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -334,7 +334,7 @@ class KafkaConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.CredentialsResponse']]:
         """
-        Credentials to access event hub.
+        Credentials to access the event streaming service attached to the purview account.
         """
         return pulumi.get(self, "credentials")
 

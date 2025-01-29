@@ -12,10 +12,10 @@ import * as utilities from "../utilities";
  *
  * Prerequisites:
  * 1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account.
- * 2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
- *    Azure REST API version: 2021-12-01-preview.
+ * 2. Create or update an Azure Maps account with the same Azure region as the User Assigned Managed Identity is placed.
+ *    Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+ * Other available API versions: 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview.
  */
 export function listAccountSas(args: ListAccountSasArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountSasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,7 +37,7 @@ export interface ListAccountSasArgs {
      */
     accountName: string;
     /**
-     * The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z"
+     * The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z". Maximum duration allowed is 24 hours between `start` and `expiry`.
      */
     expiry: string;
     /**
@@ -45,7 +45,7 @@ export interface ListAccountSasArgs {
      */
     maxRatePerSecond: number;
     /**
-     * The principal Id also known as the object Id of a User Assigned Managed Identity currently assigned to the Map Account. To assign a Managed Identity of the account, use operation Create or Update an assign a User Assigned Identity resource Id.
+     * The principal Id also known as the object Id of a User Assigned Managed Identity currently assigned to the Maps Account. To assign a Managed Identity of the account, use operation Create or Update an assign a User Assigned Identity resource Id.
      */
     principalId: string;
     /**
@@ -57,11 +57,11 @@ export interface ListAccountSasArgs {
      */
     resourceGroupName: string;
     /**
-     * The Map account key to use for signing.
+     * The Maps account key to use for signing. Picking `primaryKey` or `secondaryKey` will use the Maps account Shared Keys, and using `managedIdentity` will use the auto-renewed private key to sign the SAS.
      */
     signingKey: string | enums.maps.SigningKey;
     /**
-     * The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z".
+     * The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z". Maximum duration allowed is 24 hours between `start` and `expiry`.
      */
     start: string;
 }
@@ -80,10 +80,10 @@ export interface ListAccountSasResult {
  *
  * Prerequisites:
  * 1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account.
- * 2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
- *    Azure REST API version: 2021-12-01-preview.
+ * 2. Create or update an Azure Maps account with the same Azure region as the User Assigned Managed Identity is placed.
+ *    Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+ * Other available API versions: 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview.
  */
 export function listAccountSasOutput(args: ListAccountSasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccountSasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -105,7 +105,7 @@ export interface ListAccountSasOutputArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z"
+     * The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z". Maximum duration allowed is 24 hours between `start` and `expiry`.
      */
     expiry: pulumi.Input<string>;
     /**
@@ -113,7 +113,7 @@ export interface ListAccountSasOutputArgs {
      */
     maxRatePerSecond: pulumi.Input<number>;
     /**
-     * The principal Id also known as the object Id of a User Assigned Managed Identity currently assigned to the Map Account. To assign a Managed Identity of the account, use operation Create or Update an assign a User Assigned Identity resource Id.
+     * The principal Id also known as the object Id of a User Assigned Managed Identity currently assigned to the Maps Account. To assign a Managed Identity of the account, use operation Create or Update an assign a User Assigned Identity resource Id.
      */
     principalId: pulumi.Input<string>;
     /**
@@ -125,11 +125,11 @@ export interface ListAccountSasOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The Map account key to use for signing.
+     * The Maps account key to use for signing. Picking `primaryKey` or `secondaryKey` will use the Maps account Shared Keys, and using `managedIdentity` will use the auto-renewed private key to sign the SAS.
      */
     signingKey: pulumi.Input<string | enums.maps.SigningKey>;
     /**
-     * The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z".
+     * The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z". Maximum duration allowed is 24 hours between `start` and `expiry`.
      */
     start: pulumi.Input<string>;
 }

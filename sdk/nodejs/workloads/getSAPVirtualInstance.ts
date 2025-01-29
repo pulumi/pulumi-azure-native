@@ -9,19 +9,17 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Virtual Instance for SAP solutions resource
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-10-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
-export function getSAPVirtualInstance(args: GetSAPVirtualInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPVirtualInstanceResult> {
+export function getSapVirtualInstance(args: GetSapVirtualInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSapVirtualInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:workloads:getSAPVirtualInstance", {
+    return pulumi.runtime.invoke("azure-native:workloads:getSapVirtualInstance", {
         "resourceGroupName": args.resourceGroupName,
         "sapVirtualInstanceName": args.sapVirtualInstanceName,
     }, opts);
 }
 
-export interface GetSAPVirtualInstanceArgs {
+export interface GetSapVirtualInstanceArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -35,7 +33,7 @@ export interface GetSAPVirtualInstanceArgs {
 /**
  * Define the Virtual Instance for SAP solutions resource.
  */
-export interface GetSAPVirtualInstanceResult {
+export interface GetSapVirtualInstanceResult {
     /**
      * Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
      */
@@ -53,13 +51,13 @@ export interface GetSAPVirtualInstanceResult {
      */
     readonly health: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
+     * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.workloads.UserAssignedServiceIdentityResponse;
+    readonly identity?: outputs.workloads.SAPVirtualInstanceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -68,6 +66,10 @@ export interface GetSAPVirtualInstanceResult {
      * Managed resource group configuration
      */
     readonly managedResourceGroupConfiguration?: outputs.workloads.ManagedRGConfigurationResponse;
+    /**
+     * Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
+     */
+    readonly managedResourcesNetworkAccessType?: string;
     /**
      * The name of the resource
      */
@@ -103,19 +105,17 @@ export interface GetSAPVirtualInstanceResult {
 }
 /**
  * Gets a Virtual Instance for SAP solutions resource
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-10-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
-export function getSAPVirtualInstanceOutput(args: GetSAPVirtualInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSAPVirtualInstanceResult> {
+export function getSapVirtualInstanceOutput(args: GetSapVirtualInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapVirtualInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads:getSAPVirtualInstance", {
+    return pulumi.runtime.invokeOutput("azure-native:workloads:getSapVirtualInstance", {
         "resourceGroupName": args.resourceGroupName,
         "sapVirtualInstanceName": args.sapVirtualInstanceName,
     }, opts);
 }
 
-export interface GetSAPVirtualInstanceOutputArgs {
+export interface GetSapVirtualInstanceOutputArgs {
     /**
      * The name of the resource group. The name is case insensitive.
      */

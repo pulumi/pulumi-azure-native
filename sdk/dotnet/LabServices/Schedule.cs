@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.LabServices
 {
     /// <summary>
     /// Schedule for automatically turning virtual machines in a lab on and off at specified times.
-    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-01-preview.
+    /// Azure REST API version: 2023-06-07. Prior API version in Azure Native 2.x: 2022-08-01.
     /// 
-    /// Other available API versions: 2023-06-07.
+    /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource
@@ -41,6 +41,12 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         [Output("recurrencePattern")]
         public Output<Outputs.RecurrencePatternResponse?> RecurrencePattern { get; private set; } = null!;
+
+        /// <summary>
+        /// Error details of last operation done on schedule.
+        /// </summary>
+        [Output("resourceOperationError")]
+        public Output<Outputs.ResourceOperationErrorResponse> ResourceOperationError { get; private set; } = null!;
 
         /// <summary>
         /// When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.

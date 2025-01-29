@@ -16,6 +16,12 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ClusterSkuArgs',
+    'ClusterSkuArgsDict',
+    'IdentityArgs',
+    'IdentityArgsDict',
+    'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'WorkspaceCappingArgs',
     'WorkspaceCappingArgsDict',
     'WorkspaceFeaturesArgs',
@@ -25,6 +31,213 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ClusterSkuArgsDict(TypedDict):
+        """
+        The cluster sku definition.
+        """
+        capacity: NotRequired[pulumi.Input[float]]
+        """
+        The capacity value
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]]
+        """
+        The name of the SKU.
+        """
+elif False:
+    ClusterSkuArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterSkuArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]] = None):
+        """
+        The cluster sku definition.
+        :param pulumi.Input[float] capacity: The capacity value
+        :param pulumi.Input[Union[str, 'ClusterSkuNameEnum']] name: The name of the SKU.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[float]]:
+        """
+        The capacity value
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]]:
+        """
+        The name of the SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: pulumi.Input['IdentityType']
+        """
+        Type of managed service identity.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['IdentityType'],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Identity for the resource.
+        :param pulumi.Input['IdentityType'] type: Type of managed service identity.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['IdentityType']:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['IdentityType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        The key vault properties.
+        """
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the key associated with the Log Analytics cluster.
+        """
+        key_rsa_size: NotRequired[pulumi.Input[int]]
+        """
+        Selected key minimum required size.
+        """
+        key_vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Key Vault uri which holds they key associated with the Log Analytics cluster.
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the key associated with the Log Analytics cluster.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_rsa_size: Optional[pulumi.Input[int]] = None,
+                 key_vault_uri: Optional[pulumi.Input[str]] = None,
+                 key_version: Optional[pulumi.Input[str]] = None):
+        """
+        The key vault properties.
+        :param pulumi.Input[str] key_name: The name of the key associated with the Log Analytics cluster.
+        :param pulumi.Input[int] key_rsa_size: Selected key minimum required size.
+        :param pulumi.Input[str] key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
+        :param pulumi.Input[str] key_version: The version of the key associated with the Log Analytics cluster.
+        """
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_rsa_size is not None:
+            pulumi.set(__self__, "key_rsa_size", key_rsa_size)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the key associated with the Log Analytics cluster.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyRsaSize")
+    def key_rsa_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Selected key minimum required size.
+        """
+        return pulumi.get(self, "key_rsa_size")
+
+    @key_rsa_size.setter
+    def key_rsa_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "key_rsa_size", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Key Vault uri which holds they key associated with the Log Analytics cluster.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the key associated with the Log Analytics cluster.
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_version", value)
+
 
 if not MYPY:
     class WorkspaceCappingArgsDict(TypedDict):

@@ -138,6 +138,8 @@ def get_virtual_network_retrieve(resource_group_name: Optional[str] = None,
     Gets the Hybrid AKS virtual network
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2022-05-01-preview, 2023-11-15-preview, 2024-01-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str virtual_networks_name: Parameter for the name of the virtual network
@@ -163,6 +165,8 @@ def get_virtual_network_retrieve_output(resource_group_name: Optional[pulumi.Inp
     """
     Gets the Hybrid AKS virtual network
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2022-05-01-preview, 2023-11-15-preview, 2024-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

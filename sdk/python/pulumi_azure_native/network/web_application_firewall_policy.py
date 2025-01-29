@@ -169,9 +169,9 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Defines web application firewall policy.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,9 +192,9 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines web application firewall policy.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param WebApplicationFirewallPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -240,6 +240,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["application_gateway_for_containers"] = None
             __props__.__dict__["application_gateways"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["http_listeners"] = None
@@ -272,6 +273,7 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
 
         __props__ = WebApplicationFirewallPolicyArgs.__new__(WebApplicationFirewallPolicyArgs)
 
+        __props__.__dict__["application_gateway_for_containers"] = None
         __props__.__dict__["application_gateways"] = None
         __props__.__dict__["custom_rules"] = None
         __props__.__dict__["etag"] = None
@@ -286,6 +288,14 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return WebApplicationFirewallPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="applicationGatewayForContainers")
+    def application_gateway_for_containers(self) -> pulumi.Output[Sequence['outputs.ApplicationGatewayForContainersReferenceDefinitionResponse']]:
+        """
+        A collection of references to application gateway for containers.
+        """
+        return pulumi.get(self, "application_gateway_for_containers")
 
     @property
     @pulumi.getter(name="applicationGateways")

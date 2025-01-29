@@ -94,6 +94,8 @@ def get_linked_workspace(link_name: Optional[str] = None,
     Get the detail of a linked workspace.
     Azure REST API version: 2020-05-15-preview.
 
+    Other available API versions: 2020-05-01-preview.
+
 
     :param str link_name: Friendly name of the linked workspace
     :param str resource_group_name: Name of the resource group in which workspace is located.
@@ -118,6 +120,8 @@ def get_linked_workspace_output(link_name: Optional[pulumi.Input[str]] = None,
     """
     Get the detail of a linked workspace.
     Azure REST API version: 2020-05-15-preview.
+
+    Other available API versions: 2020-05-01-preview.
 
 
     :param str link_name: Friendly name of the linked workspace

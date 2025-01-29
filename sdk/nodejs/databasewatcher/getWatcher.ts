@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Watcher
- * Azure REST API version: 2023-09-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+ * Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02.
  */
 export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetWatcherResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,7 +41,11 @@ export interface GetWatcherResult {
      */
     readonly datastore?: outputs.databasewatcher.DatastoreResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+     */
+    readonly defaultAlertRuleIdentityResourceId?: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -79,9 +83,9 @@ export interface GetWatcherResult {
 }
 /**
  * Get a Watcher
- * Azure REST API version: 2023-09-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+ * Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02.
  */
 export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWatcherResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

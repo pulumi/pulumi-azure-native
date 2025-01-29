@@ -167,6 +167,8 @@ def get_prefix(expand: Optional[str] = None,
     Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
     Azure REST API version: 2022-10-01.
 
+    Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
+
 
     :param str expand: The properties to be expanded.
     :param str peering_service_name: The name of the peering service.
@@ -200,6 +202,8 @@ def get_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
     Azure REST API version: 2022-10-01.
+
+    Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
 
 
     :param str expand: The properties to be expanded.

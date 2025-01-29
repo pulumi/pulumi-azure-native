@@ -105,7 +105,7 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
     Returns the specified product.
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2020-06-01-preview.
+    Other available API versions: 2017-06-01, 2020-06-01-preview.
 
 
     :param str customer_subscription_name: Name of the product.
@@ -133,7 +133,7 @@ def get_customer_subscription_output(customer_subscription_name: Optional[pulumi
     Returns the specified product.
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2020-06-01-preview.
+    Other available API versions: 2017-06-01, 2020-06-01-preview.
 
 
     :param str customer_subscription_name: Name of the product.

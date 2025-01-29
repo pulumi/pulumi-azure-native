@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// List SAS credentials of a storage account.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2021-01-01, 2021-02-01, 2021-04-01, 2021-06-01, 2021-08-01, 2021-09-01, 2022-05-01, 2022-09-01, 2023-01-01, 2023-04-01.
         /// </summary>
         public static Task<ListStorageAccountSASResult> InvokeAsync(ListStorageAccountSASArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSASResult>("azure-native:storage:listStorageAccountSAS", args ?? new ListStorageAccountSASArgs(), options.WithDefaults());
 
         /// <summary>
         /// List SAS credentials of a storage account.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2021-01-01, 2021-02-01, 2021-04-01, 2021-06-01, 2021-08-01, 2021-09-01, 2022-05-01, 2022-09-01, 2023-01-01, 2023-04-01.
         /// </summary>
         public static Output<ListStorageAccountSASResult> Invoke(ListStorageAccountSASInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountSASResult>("azure-native:storage:listStorageAccountSAS", args ?? new ListStorageAccountSASInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List SAS credentials of a storage account.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2021-01-01, 2021-02-01, 2021-04-01, 2021-06-01, 2021-08-01, 2021-09-01, 2022-05-01, 2022-09-01, 2023-01-01, 2023-04-01.
         /// </summary>
         public static Output<ListStorageAccountSASResult> Invoke(ListStorageAccountSASInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountSASResult>("azure-native:storage:listStorageAccountSAS", args ?? new ListStorageAccountSASInvokeArgs(), options.WithDefaults());

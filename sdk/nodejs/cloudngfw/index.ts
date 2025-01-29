@@ -200,16 +200,6 @@ export const listLocalRulestackSecurityServices: typeof import("./listLocalRules
 export const listLocalRulestackSecurityServicesOutput: typeof import("./listLocalRulestackSecurityServices").listLocalRulestackSecurityServicesOutput = null as any;
 utilities.lazyLoad(exports, ["listLocalRulestackSecurityServices","listLocalRulestackSecurityServicesOutput"], () => require("./listLocalRulestackSecurityServices"));
 
-export { ListPaloAltoNetworksCloudngfwCloudManagerTenantsArgs, ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult } from "./listPaloAltoNetworksCloudngfwCloudManagerTenants";
-export const listPaloAltoNetworksCloudngfwCloudManagerTenants: typeof import("./listPaloAltoNetworksCloudngfwCloudManagerTenants").listPaloAltoNetworksCloudngfwCloudManagerTenants = null as any;
-export const listPaloAltoNetworksCloudngfwCloudManagerTenantsOutput: typeof import("./listPaloAltoNetworksCloudngfwCloudManagerTenants").listPaloAltoNetworksCloudngfwCloudManagerTenantsOutput = null as any;
-utilities.lazyLoad(exports, ["listPaloAltoNetworksCloudngfwCloudManagerTenants","listPaloAltoNetworksCloudngfwCloudManagerTenantsOutput"], () => require("./listPaloAltoNetworksCloudngfwCloudManagerTenants"));
-
-export { ListPaloAltoNetworksCloudngfwProductSerialNumberStatusArgs, ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult } from "./listPaloAltoNetworksCloudngfwProductSerialNumberStatus";
-export const listPaloAltoNetworksCloudngfwProductSerialNumberStatus: typeof import("./listPaloAltoNetworksCloudngfwProductSerialNumberStatus").listPaloAltoNetworksCloudngfwProductSerialNumberStatus = null as any;
-export const listPaloAltoNetworksCloudngfwProductSerialNumberStatusOutput: typeof import("./listPaloAltoNetworksCloudngfwProductSerialNumberStatus").listPaloAltoNetworksCloudngfwProductSerialNumberStatusOutput = null as any;
-utilities.lazyLoad(exports, ["listPaloAltoNetworksCloudngfwProductSerialNumberStatus","listPaloAltoNetworksCloudngfwProductSerialNumberStatusOutput"], () => require("./listPaloAltoNetworksCloudngfwProductSerialNumberStatus"));
-
 export { ListPaloAltoNetworksCloudngfwSupportInfoArgs, ListPaloAltoNetworksCloudngfwSupportInfoResult } from "./listPaloAltoNetworksCloudngfwSupportInfo";
 export const listPaloAltoNetworksCloudngfwSupportInfo: typeof import("./listPaloAltoNetworksCloudngfwSupportInfo").listPaloAltoNetworksCloudngfwSupportInfo = null as any;
 export const listPaloAltoNetworksCloudngfwSupportInfoOutput: typeof import("./listPaloAltoNetworksCloudngfwSupportInfo").listPaloAltoNetworksCloudngfwSupportInfoOutput = null as any;

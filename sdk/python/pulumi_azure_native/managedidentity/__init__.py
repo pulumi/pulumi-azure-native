@@ -8,12 +8,15 @@ import typing
 from .federated_identity_credential import *
 from .get_federated_identity_credential import *
 from .get_user_assigned_identity import *
-from .list_user_assigned_identity_associated_resources import *
 from .user_assigned_identity import *
 from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.managedidentity.v20181130 as __v20181130
+    v20181130 = __v20181130
+    import pulumi_azure_native.managedidentity.v20210930preview as __v20210930preview
+    v20210930preview = __v20210930preview
     import pulumi_azure_native.managedidentity.v20220131preview as __v20220131preview
     v20220131preview = __v20220131preview
     import pulumi_azure_native.managedidentity.v20230131 as __v20230131
@@ -21,6 +24,8 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.managedidentity.v20230731preview as __v20230731preview
     v20230731preview = __v20230731preview
 else:
+    v20181130 = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20181130')
+    v20210930preview = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20210930preview')
     v20220131preview = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20220131preview')
     v20230131 = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20230131')
     v20230731preview = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20230731preview')

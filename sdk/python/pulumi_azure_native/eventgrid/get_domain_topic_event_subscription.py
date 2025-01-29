@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetDomainTopicEventSubscriptionResult:
     """
-    Event Subscription
+    Event Subscription.
     """
     def __init__(__self__, dead_letter_destination=None, dead_letter_with_resource_identity=None, delivery_with_resource_identity=None, destination=None, event_delivery_schema=None, expiration_time_utc=None, filter=None, id=None, labels=None, name=None, provisioning_state=None, retry_policy=None, system_data=None, topic=None, type=None):
         if dead_letter_destination and not isinstance(dead_letter_destination, dict):
@@ -178,7 +178,7 @@ class GetDomainTopicEventSubscriptionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to Event Subscription resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -229,13 +229,13 @@ def get_domain_topic_event_subscription(domain_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainTopicEventSubscriptionResult:
     """
     Get properties of a nested event subscription for a domain topic.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2021-10-15-preview, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str domain_name: Name of the top level domain.
-    :param str event_subscription_name: Name of the event subscription.
+    :param str event_subscription_name: Name of the event subscription to be found.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the domain topic.
     """
@@ -270,13 +270,13 @@ def get_domain_topic_event_subscription_output(domain_name: Optional[pulumi.Inpu
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainTopicEventSubscriptionResult]:
     """
     Get properties of a nested event subscription for a domain topic.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2021-10-15-preview, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str domain_name: Name of the top level domain.
-    :param str event_subscription_name: Name of the event subscription.
+    :param str event_subscription_name: Name of the event subscription to be found.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the domain topic.
     """

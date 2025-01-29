@@ -171,13 +171,22 @@ export * from "../types/enums/costmanagement";
 
 // Export sub-modules:
 import * as v20180801preview from "./v20180801preview";
+import * as v20190101 from "./v20190101";
 import * as v20190301preview from "./v20190301preview";
 import * as v20190401preview from "./v20190401preview";
+import * as v20190901 from "./v20190901";
 import * as v20191001 from "./v20191001";
 import * as v20191101 from "./v20191101";
 import * as v20200301preview from "./v20200301preview";
 import * as v20200601 from "./v20200601";
+import * as v20201201preview from "./v20201201preview";
+import * as v20210101 from "./v20210101";
+import * as v20211001 from "./v20211001";
+import * as v20220401preview from "./v20220401preview";
+import * as v20220601preview from "./v20220601preview";
+import * as v20220801preview from "./v20220801preview";
 import * as v20221001 from "./v20221001";
+import * as v20221001preview from "./v20221001preview";
 import * as v20221005preview from "./v20221005preview";
 import * as v20230301 from "./v20230301";
 import * as v20230401preview from "./v20230401preview";
@@ -189,13 +198,22 @@ import * as v20240801 from "./v20240801";
 
 export {
     v20180801preview,
+    v20190101,
     v20190301preview,
     v20190401preview,
+    v20190901,
     v20191001,
     v20191101,
     v20200301preview,
     v20200601,
+    v20201201preview,
+    v20210101,
+    v20211001,
+    v20220401preview,
+    v20220601preview,
+    v20220801preview,
     v20221001,
+    v20221001preview,
     v20221005preview,
     v20230301,
     v20230401preview,

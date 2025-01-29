@@ -3,6 +3,9 @@
 
 // Export sub-modules:
 import * as v20200901 from "./v20200901";
+import * as v20210601 from "./v20210601";
+import * as v20220501preview from "./v20220501preview";
+import * as v20221101preview from "./v20221101preview";
 import * as v20230501 from "./v20230501";
 import * as v20230701preview from "./v20230701preview";
 import * as v20240201 from "./v20240201";
@@ -12,6 +15,9 @@ import * as v20240901 from "./v20240901";
 
 export {
     v20200901,
+    v20210601,
+    v20220501preview,
+    v20221101preview,
     v20230501,
     v20230701preview,
     v20240201,
@@ -162,7 +168,7 @@ export const CustomRuleEnabledState = {
  */
 export type CustomRuleEnabledState = (typeof CustomRuleEnabledState)[keyof typeof CustomRuleEnabledState];
 
-export const DeliveryRuleAction = {
+export const DeliveryRuleActionName = {
     CacheExpiration: "CacheExpiration",
     CacheKeyQueryString: "CacheKeyQueryString",
     ModifyRequestHeader: "ModifyRequestHeader",
@@ -177,7 +183,44 @@ export const DeliveryRuleAction = {
 /**
  * The name of the action for the delivery rule.
  */
-export type DeliveryRuleAction = (typeof DeliveryRuleAction)[keyof typeof DeliveryRuleAction];
+export type DeliveryRuleActionName = (typeof DeliveryRuleActionName)[keyof typeof DeliveryRuleActionName];
+
+export const DeliveryRuleActionParametersType = {
+    DeliveryRuleUrlRedirectActionParameters: "DeliveryRuleUrlRedirectActionParameters",
+    DeliveryRuleUrlSigningActionParameters: "DeliveryRuleUrlSigningActionParameters",
+    DeliveryRuleOriginGroupOverrideActionParameters: "DeliveryRuleOriginGroupOverrideActionParameters",
+    DeliveryRuleUrlRewriteActionParameters: "DeliveryRuleUrlRewriteActionParameters",
+    DeliveryRuleHeaderActionParameters: "DeliveryRuleHeaderActionParameters",
+    DeliveryRuleCacheExpirationActionParameters: "DeliveryRuleCacheExpirationActionParameters",
+    DeliveryRuleCacheKeyQueryStringBehaviorActionParameters: "DeliveryRuleCacheKeyQueryStringBehaviorActionParameters",
+    DeliveryRuleRouteConfigurationOverrideActionParameters: "DeliveryRuleRouteConfigurationOverrideActionParameters",
+} as const;
+
+export type DeliveryRuleActionParametersType = (typeof DeliveryRuleActionParametersType)[keyof typeof DeliveryRuleActionParametersType];
+
+export const DeliveryRuleConditionParametersType = {
+    DeliveryRuleRemoteAddressConditionParameters: "DeliveryRuleRemoteAddressConditionParameters",
+    DeliveryRuleRequestMethodConditionParameters: "DeliveryRuleRequestMethodConditionParameters",
+    DeliveryRuleQueryStringConditionParameters: "DeliveryRuleQueryStringConditionParameters",
+    DeliveryRulePostArgsConditionParameters: "DeliveryRulePostArgsConditionParameters",
+    DeliveryRuleRequestUriConditionParameters: "DeliveryRuleRequestUriConditionParameters",
+    DeliveryRuleRequestHeaderConditionParameters: "DeliveryRuleRequestHeaderConditionParameters",
+    DeliveryRuleRequestBodyConditionParameters: "DeliveryRuleRequestBodyConditionParameters",
+    DeliveryRuleRequestSchemeConditionParameters: "DeliveryRuleRequestSchemeConditionParameters",
+    DeliveryRuleUrlPathMatchConditionParameters: "DeliveryRuleUrlPathMatchConditionParameters",
+    DeliveryRuleUrlFileExtensionMatchConditionParameters: "DeliveryRuleUrlFileExtensionMatchConditionParameters",
+    DeliveryRuleUrlFilenameConditionParameters: "DeliveryRuleUrlFilenameConditionParameters",
+    DeliveryRuleHttpVersionConditionParameters: "DeliveryRuleHttpVersionConditionParameters",
+    DeliveryRuleCookiesConditionParameters: "DeliveryRuleCookiesConditionParameters",
+    DeliveryRuleIsDeviceConditionParameters: "DeliveryRuleIsDeviceConditionParameters",
+    DeliveryRuleSocketAddrConditionParameters: "DeliveryRuleSocketAddrConditionParameters",
+    DeliveryRuleClientPortConditionParameters: "DeliveryRuleClientPortConditionParameters",
+    DeliveryRuleServerPortConditionParameters: "DeliveryRuleServerPortConditionParameters",
+    DeliveryRuleHostNameConditionParameters: "DeliveryRuleHostNameConditionParameters",
+    DeliveryRuleSslProtocolConditionParameters: "DeliveryRuleSslProtocolConditionParameters",
+} as const;
+
+export type DeliveryRuleConditionParametersType = (typeof DeliveryRuleConditionParametersType)[keyof typeof DeliveryRuleConditionParametersType];
 
 export const DestinationProtocol = {
     MatchRequest: "MatchRequest",
@@ -280,6 +323,13 @@ export const HttpsRedirect = {
  */
 export type HttpsRedirect = (typeof HttpsRedirect)[keyof typeof HttpsRedirect];
 
+export const IsDeviceMatchValue = {
+    Mobile: "Mobile",
+    Desktop: "Desktop",
+} as const;
+
+export type IsDeviceMatchValue = (typeof IsDeviceMatchValue)[keyof typeof IsDeviceMatchValue];
+
 export const IsDeviceOperator = {
     Equal: "Equal",
 } as const;
@@ -288,6 +338,12 @@ export const IsDeviceOperator = {
  * Describes operator to be matched
  */
 export type IsDeviceOperator = (typeof IsDeviceOperator)[keyof typeof IsDeviceOperator];
+
+export const KeyVaultSigningKeyParametersType = {
+    KeyVaultSigningKeyParameters: "KeyVaultSigningKeyParameters",
+} as const;
+
+export type KeyVaultSigningKeyParametersType = (typeof KeyVaultSigningKeyParametersType)[keyof typeof KeyVaultSigningKeyParametersType];
 
 export const LinkToDefaultDomain = {
     Enabled: "Enabled",
@@ -451,6 +507,16 @@ export const ProbeProtocol = {
  */
 export type ProbeProtocol = (typeof ProbeProtocol)[keyof typeof ProbeProtocol];
 
+export const ProfileScrubbingState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * State of the log scrubbing config. Default value is Enabled.
+ */
+export type ProfileScrubbingState = (typeof ProfileScrubbingState)[keyof typeof ProfileScrubbingState];
+
 export const QueryStringBehavior = {
     Include: "Include",
     IncludeAll: "IncludeAll",
@@ -552,6 +618,18 @@ export const RequestHeaderOperator = {
  */
 export type RequestHeaderOperator = (typeof RequestHeaderOperator)[keyof typeof RequestHeaderOperator];
 
+export const RequestMethodMatchValue = {
+    GET: "GET",
+    HEAD: "HEAD",
+    POST: "POST",
+    PUT: "PUT",
+    DELETE: "DELETE",
+    OPTIONS: "OPTIONS",
+    TRACE: "TRACE",
+} as const;
+
+export type RequestMethodMatchValue = (typeof RequestMethodMatchValue)[keyof typeof RequestMethodMatchValue];
+
 export const RequestMethodOperator = {
     Equal: "Equal",
 } as const;
@@ -560,6 +638,13 @@ export const RequestMethodOperator = {
  * Describes operator to be matched
  */
 export type RequestMethodOperator = (typeof RequestMethodOperator)[keyof typeof RequestMethodOperator];
+
+export const RequestSchemeMatchValue = {
+    HTTP: "HTTP",
+    HTTPS: "HTTPS",
+} as const;
+
+export type RequestSchemeMatchValue = (typeof RequestSchemeMatchValue)[keyof typeof RequestSchemeMatchValue];
 
 export const RequestUriOperator = {
     Any: "Any",
@@ -622,6 +707,36 @@ export const RuleQueryStringCachingBehavior = {
  * Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
  */
 export type RuleQueryStringCachingBehavior = (typeof RuleQueryStringCachingBehavior)[keyof typeof RuleQueryStringCachingBehavior];
+
+export const ScrubbingRuleEntryMatchOperator = {
+    EqualsAny: "EqualsAny",
+} as const;
+
+/**
+ * When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to.
+ */
+export type ScrubbingRuleEntryMatchOperator = (typeof ScrubbingRuleEntryMatchOperator)[keyof typeof ScrubbingRuleEntryMatchOperator];
+
+export const ScrubbingRuleEntryMatchVariable = {
+    RequestIPAddress: "RequestIPAddress",
+    RequestUri: "RequestUri",
+    QueryStringArgNames: "QueryStringArgNames",
+} as const;
+
+/**
+ * The variable to be scrubbed from the logs.
+ */
+export type ScrubbingRuleEntryMatchVariable = (typeof ScrubbingRuleEntryMatchVariable)[keyof typeof ScrubbingRuleEntryMatchVariable];
+
+export const ScrubbingRuleEntryState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Defines the state of a log scrubbing rule. Default value is enabled.
+ */
+export type ScrubbingRuleEntryState = (typeof ScrubbingRuleEntryState)[keyof typeof ScrubbingRuleEntryState];
 
 export const SecretType = {
     UrlSigningKey: "UrlSigningKey",

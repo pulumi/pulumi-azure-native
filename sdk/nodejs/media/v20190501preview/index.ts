@@ -10,10 +10,30 @@ export const getLiveEvent: typeof import("./getLiveEvent").getLiveEvent = null a
 export const getLiveEventOutput: typeof import("./getLiveEvent").getLiveEventOutput = null as any;
 utilities.lazyLoad(exports, ["getLiveEvent","getLiveEventOutput"], () => require("./getLiveEvent"));
 
+export { GetLiveOutputArgs, GetLiveOutputResult, GetLiveOutputOutputArgs } from "./getLiveOutput";
+export const getLiveOutput: typeof import("./getLiveOutput").getLiveOutput = null as any;
+export const getLiveOutputOutput: typeof import("./getLiveOutput").getLiveOutputOutput = null as any;
+utilities.lazyLoad(exports, ["getLiveOutput","getLiveOutputOutput"], () => require("./getLiveOutput"));
+
+export { GetStreamingEndpointArgs, GetStreamingEndpointResult, GetStreamingEndpointOutputArgs } from "./getStreamingEndpoint";
+export const getStreamingEndpoint: typeof import("./getStreamingEndpoint").getStreamingEndpoint = null as any;
+export const getStreamingEndpointOutput: typeof import("./getStreamingEndpoint").getStreamingEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getStreamingEndpoint","getStreamingEndpointOutput"], () => require("./getStreamingEndpoint"));
+
 export { LiveEventArgs } from "./liveEvent";
 export type LiveEvent = import("./liveEvent").LiveEvent;
 export const LiveEvent: typeof import("./liveEvent").LiveEvent = null as any;
 utilities.lazyLoad(exports, ["LiveEvent"], () => require("./liveEvent"));
+
+export { LiveOutputArgs } from "./liveOutput";
+export type LiveOutput = import("./liveOutput").LiveOutput;
+export const LiveOutput: typeof import("./liveOutput").LiveOutput = null as any;
+utilities.lazyLoad(exports, ["LiveOutput"], () => require("./liveOutput"));
+
+export { StreamingEndpointArgs } from "./streamingEndpoint";
+export type StreamingEndpoint = import("./streamingEndpoint").StreamingEndpoint;
+export const StreamingEndpoint: typeof import("./streamingEndpoint").StreamingEndpoint = null as any;
+utilities.lazyLoad(exports, ["StreamingEndpoint"], () => require("./streamingEndpoint"));
 
 
 // Export enums:
@@ -25,6 +45,10 @@ const _module = {
         switch (type) {
             case "azure-native:media/v20190501preview:LiveEvent":
                 return new LiveEvent(name, <any>undefined, { urn })
+            case "azure-native:media/v20190501preview:LiveOutput":
+                return new LiveOutput(name, <any>undefined, { urn })
+            case "azure-native:media/v20190501preview:StreamingEndpoint":
+                return new StreamingEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

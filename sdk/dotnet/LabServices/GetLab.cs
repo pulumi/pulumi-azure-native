@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Returns the properties of a lab resource.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-06-07.
         /// 
-        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01.
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of a lab resource.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-06-07.
         /// 
-        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01.
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of a lab resource.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-06-07.
         /// 
-        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01.
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
@@ -121,6 +121,10 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Error details of last operation done on lab.
+        /// </summary>
+        public readonly Outputs.ResourceOperationErrorResponse ResourceOperationError;
+        /// <summary>
         /// The lab user list management profile.
         /// </summary>
         public readonly Outputs.RosterProfileResponse? RosterProfile;
@@ -173,6 +177,8 @@ namespace Pulumi.AzureNative.LabServices
 
             string provisioningState,
 
+            Outputs.ResourceOperationErrorResponse resourceOperationError,
+
             Outputs.RosterProfileResponse? rosterProfile,
 
             Outputs.SecurityProfileResponse securityProfile,
@@ -198,6 +204,7 @@ namespace Pulumi.AzureNative.LabServices
             Name = name;
             NetworkProfile = networkProfile;
             ProvisioningState = provisioningState;
+            ResourceOperationError = resourceOperationError;
             RosterProfile = rosterProfile;
             SecurityProfile = securityProfile;
             State = state;

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// An application type version resource for the specified application type name resource.
-    /// Azure REST API version: 2023-03-01-preview.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+    /// Other available API versions: 2021-01-01-preview, 2021-05-01, 2021-07-01-preview, 2021-11-01-preview, 2022-01-01, 2022-02-01-preview, 2022-06-01-preview, 2022-08-01-preview, 2022-10-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:ManagedClusterApplicationTypeVersion")]
     public partial class ManagedClusterApplicationTypeVersion : global::Pulumi.CustomResource

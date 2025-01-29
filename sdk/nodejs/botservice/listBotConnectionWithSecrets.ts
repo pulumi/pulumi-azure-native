@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Connection Setting registration for a Bot Service
- * Azure REST API version: 2022-09-15.
+ * Azure REST API version: 2023-09-15-preview.
  *
- * Other available API versions: 2023-09-15-preview.
+ * Other available API versions: 2018-07-12, 2020-06-02, 2021-03-01, 2021-05-01-preview, 2022-06-15-preview, 2022-09-15.
  */
 export function listBotConnectionWithSecrets(args: ListBotConnectionWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotConnectionWithSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,9 +84,9 @@ export interface ListBotConnectionWithSecretsResult {
 }
 /**
  * Get a Connection Setting registration for a Bot Service
- * Azure REST API version: 2022-09-15.
+ * Azure REST API version: 2023-09-15-preview.
  *
- * Other available API versions: 2023-09-15-preview.
+ * Other available API versions: 2018-07-12, 2020-06-02, 2021-03-01, 2021-05-01-preview, 2022-06-15-preview, 2022-09-15.
  */
 export function listBotConnectionWithSecretsOutput(args: ListBotConnectionWithSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBotConnectionWithSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -70,6 +70,37 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
+    /// The BackupStorageAccessTier for the LTR backups
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupStorageAccessTier : IEquatable<BackupStorageAccessTier>
+    {
+        private readonly string _value;
+
+        private BackupStorageAccessTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupStorageAccessTier Hot { get; } = new BackupStorageAccessTier("Hot");
+        public static BackupStorageAccessTier Archive { get; } = new BackupStorageAccessTier("Archive");
+
+        public static bool operator ==(BackupStorageAccessTier left, BackupStorageAccessTier right) => left.Equals(right);
+        public static bool operator !=(BackupStorageAccessTier left, BackupStorageAccessTier right) => !left.Equals(right);
+
+        public static explicit operator string(BackupStorageAccessTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupStorageAccessTier other && Equals(other);
+        public bool Equals(BackupStorageAccessTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
     /// </summary>
     [EnumType]

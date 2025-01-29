@@ -11,18 +11,24 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
-    /// Address Properties
+    /// Address Properties.
     /// </summary>
     public sealed class AddressPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contact details for the address
+        /// Type of address based on its usage context.
         /// </summary>
-        [Input("contactDetails", required: true)]
-        public Input<Inputs.ContactDetailsArgs> ContactDetails { get; set; } = null!;
+        [Input("addressClassification")]
+        public InputUnion<string, Pulumi.AzureNative.EdgeOrder.AddressClassification>? AddressClassification { get; set; }
 
         /// <summary>
-        /// Shipping details for the address
+        /// Contact details for the address.
+        /// </summary>
+        [Input("contactDetails")]
+        public Input<Inputs.ContactDetailsArgs>? ContactDetails { get; set; }
+
+        /// <summary>
+        /// Shipping details for the address.
         /// </summary>
         [Input("shippingAddress")]
         public Input<Inputs.ShippingAddressArgs>? ShippingAddress { get; set; }

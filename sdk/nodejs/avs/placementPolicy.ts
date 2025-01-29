@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A vSphere Distributed Resource Scheduler (DRS) placement policy
- * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-12-01.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2021-12-01, 2022-05-01, 2023-03-01.
  */
 export class PlacementPolicy extends pulumi.CustomResource {
     /**
@@ -41,17 +41,29 @@ export class PlacementPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Resource name.
+     * Display name of the placement policy
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * placement policy properties
+     * The provisioning state
      */
-    public readonly properties!: pulumi.Output<outputs.avs.VmHostPlacementPolicyPropertiesResponse | outputs.avs.VmVmPlacementPolicyPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * Whether the placement policy is enabled or disabled
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly state!: pulumi.Output<string | undefined>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     */
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a PlacementPolicy resource with the given unique name, arguments, and options.
@@ -73,16 +85,25 @@ export class PlacementPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.type === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'type'");
+            }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["placementPolicyName"] = args ? args.placementPolicyName : undefined;
             resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
         } else {
+            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -97,11 +118,15 @@ export class PlacementPolicy extends pulumi.CustomResource {
  */
 export interface PlacementPolicyArgs {
     /**
-     * Name of the cluster in the private cloud
+     * Name of the cluster
      */
     clusterName: pulumi.Input<string>;
     /**
-     * Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy
+     * Display name of the placement policy
+     */
+    displayName?: pulumi.Input<string>;
+    /**
+     * Name of the placement policy.
      */
     placementPolicyName?: pulumi.Input<string>;
     /**
@@ -109,11 +134,15 @@ export interface PlacementPolicyArgs {
      */
     privateCloudName: pulumi.Input<string>;
     /**
-     * placement policy properties
-     */
-    properties?: pulumi.Input<inputs.avs.VmHostPlacementPolicyPropertiesArgs | inputs.avs.VmVmPlacementPolicyPropertiesArgs>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Whether the placement policy is enabled or disabled
+     */
+    state?: pulumi.Input<string | enums.avs.PlacementPolicyState>;
+    /**
+     * Placement Policy type
+     */
+    type: pulumi.Input<string | enums.avs.PlacementPolicyType>;
 }

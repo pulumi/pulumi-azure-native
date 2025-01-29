@@ -6,9 +6,11 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .action_group import *
 from .data_collection_endpoint import *
 from .data_collection_rule import *
 from .data_collection_rule_association import *
+from .get_action_group import *
 from .get_data_collection_endpoint import *
 from .get_data_collection_rule import *
 from .get_data_collection_rule_association import *

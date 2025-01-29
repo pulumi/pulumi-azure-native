@@ -34,6 +34,18 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.azurearcdata.v20210601preview as __v20210601preview
+    v20210601preview = __v20210601preview
+    import pulumi_azure_native.azurearcdata.v20210701preview as __v20210701preview
+    v20210701preview = __v20210701preview
+    import pulumi_azure_native.azurearcdata.v20210801 as __v20210801
+    v20210801 = __v20210801
+    import pulumi_azure_native.azurearcdata.v20211101 as __v20211101
+    v20211101 = __v20211101
+    import pulumi_azure_native.azurearcdata.v20220301preview as __v20220301preview
+    v20220301preview = __v20220301preview
+    import pulumi_azure_native.azurearcdata.v20220615preview as __v20220615preview
+    v20220615preview = __v20220615preview
     import pulumi_azure_native.azurearcdata.v20230115preview as __v20230115preview
     v20230115preview = __v20230115preview
     import pulumi_azure_native.azurearcdata.v20240101 as __v20240101
@@ -41,6 +53,12 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.azurearcdata.v20240501preview as __v20240501preview
     v20240501preview = __v20240501preview
 else:
+    v20210601preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20210601preview')
+    v20210701preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20210701preview')
+    v20210801 = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20210801')
+    v20211101 = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20211101')
+    v20220301preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20220301preview')
+    v20220615preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20220615preview')
     v20230115preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20230115preview')
     v20240101 = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20240101')
     v20240501preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20240501preview')

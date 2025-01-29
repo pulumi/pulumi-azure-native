@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
  */
 export class ClusterManager extends pulumi.CustomResource {
     /**
@@ -63,6 +63,10 @@ export class ClusterManager extends pulumi.CustomResource {
      * The resource ID of the fabric controller that has one to one mapping with the cluster manager.
      */
     public readonly fabricControllerId!: pulumi.Output<string>;
+    /**
+     * The identity of the cluster manager.
+     */
+    public readonly identity!: pulumi.Output<outputs.networkcloud.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -121,6 +125,7 @@ export class ClusterManager extends pulumi.CustomResource {
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["clusterManagerName"] = args ? args.clusterManagerName : undefined;
             resourceInputs["fabricControllerId"] = args ? args.fabricControllerId : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -141,6 +146,7 @@ export class ClusterManager extends pulumi.CustomResource {
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["fabricControllerId"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedResourceGroupConfiguration"] = undefined /*out*/;
             resourceInputs["managerExtendedLocation"] = undefined /*out*/;
@@ -178,6 +184,10 @@ export interface ClusterManagerArgs {
      * The resource ID of the fabric controller that has one to one mapping with the cluster manager.
      */
     fabricControllerId: pulumi.Input<string>;
+    /**
+     * The identity of the cluster manager.
+     */
+    identity?: pulumi.Input<inputs.networkcloud.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

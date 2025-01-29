@@ -13,3 +13,21 @@ export const PrivateEndpointServiceConnectionStatus = {
  * Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const SkuName = {
+    Standard: "Standard",
+} as const;
+
+/**
+ * Name of this SKU.
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const SkuTier = {
+    Standard: "Standard",
+} as const;
+
+/**
+ * The tier of this SKU.
+ */
+export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];

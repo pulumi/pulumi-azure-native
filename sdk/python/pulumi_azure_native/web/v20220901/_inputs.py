@@ -52,22 +52,38 @@ __all__ = [
     'CapabilityArgsDict',
     'CloningInfoArgs',
     'CloningInfoArgsDict',
+    'ConfigurationArgs',
+    'ConfigurationArgsDict',
     'ConnStringInfoArgs',
     'ConnStringInfoArgsDict',
     'ConnStringValueTypePairArgs',
     'ConnStringValueTypePairArgsDict',
     'ContainerAppsConfigurationArgs',
     'ContainerAppsConfigurationArgsDict',
+    'ContainerResourcesArgs',
+    'ContainerResourcesArgsDict',
+    'ContainerArgs',
+    'ContainerArgsDict',
     'CorsSettingsArgs',
     'CorsSettingsArgsDict',
     'CustomDnsSuffixConfigurationArgs',
     'CustomDnsSuffixConfigurationArgsDict',
+    'CustomScaleRuleArgs',
+    'CustomScaleRuleArgsDict',
+    'DaprComponentArgs',
+    'DaprComponentArgsDict',
+    'DaprMetadataArgs',
+    'DaprMetadataArgsDict',
+    'DaprArgs',
+    'DaprArgsDict',
     'DatabaseBackupSetting',
     'DatabaseBackupSettingDict',
     'DatabaseBackupSettingArgs',
     'DatabaseBackupSettingArgsDict',
     'EnabledConfigArgs',
     'EnabledConfigArgsDict',
+    'EnvironmentVarArgs',
+    'EnvironmentVarArgsDict',
     'ExperimentsArgs',
     'ExperimentsArgsDict',
     'ExtendedLocationArgs',
@@ -92,6 +108,10 @@ __all__ = [
     'HostingEnvironmentProfileArgsDict',
     'HttpLogsConfigArgs',
     'HttpLogsConfigArgsDict',
+    'HttpScaleRuleArgs',
+    'HttpScaleRuleArgsDict',
+    'IngressArgs',
+    'IngressArgsDict',
     'IpSecurityRestrictionArgs',
     'IpSecurityRestrictionArgsDict',
     'KubeEnvironmentProfileArgs',
@@ -106,10 +126,22 @@ __all__ = [
     'PrivateLinkConnectionStateArgsDict',
     'PushSettingsArgs',
     'PushSettingsArgsDict',
+    'QueueScaleRuleArgs',
+    'QueueScaleRuleArgsDict',
     'RampUpRuleArgs',
     'RampUpRuleArgsDict',
+    'RegistryCredentialsArgs',
+    'RegistryCredentialsArgsDict',
     'RequestsBasedTriggerArgs',
     'RequestsBasedTriggerArgsDict',
+    'ScaleRuleAuthArgs',
+    'ScaleRuleAuthArgsDict',
+    'ScaleRuleArgs',
+    'ScaleRuleArgsDict',
+    'ScaleArgs',
+    'ScaleArgsDict',
+    'SecretArgs',
+    'SecretArgsDict',
     'SiteConfigArgs',
     'SiteConfigArgsDict',
     'SiteLimitsArgs',
@@ -128,6 +160,10 @@ __all__ = [
     'StatusCodesBasedTriggerArgsDict',
     'StatusCodesRangeBasedTriggerArgs',
     'StatusCodesRangeBasedTriggerArgsDict',
+    'TemplateArgs',
+    'TemplateArgsDict',
+    'TrafficWeightArgs',
+    'TrafficWeightArgsDict',
     'VirtualApplicationArgs',
     'VirtualApplicationArgsDict',
     'VirtualDirectoryArgs',
@@ -1770,6 +1806,105 @@ class CloningInfoArgs:
 
 
 if not MYPY:
+    class ConfigurationArgsDict(TypedDict):
+        """
+        Non versioned Container App configuration properties that define the mutable settings of a Container app
+        """
+        active_revisions_mode: NotRequired[pulumi.Input[Union[str, 'ActiveRevisionsMode']]]
+        """
+        ActiveRevisionsMode controls how active revisions are handled for the Container app:
+        <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+        """
+        ingress: NotRequired[pulumi.Input['IngressArgsDict']]
+        """
+        Ingress configurations.
+        """
+        registries: NotRequired[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgsDict']]]]
+        """
+        Collection of private container registry credentials for containers used by the Container app
+        """
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['SecretArgsDict']]]]
+        """
+        Collection of secrets used by a Container app
+        """
+elif False:
+    ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfigurationArgs:
+    def __init__(__self__, *,
+                 active_revisions_mode: Optional[pulumi.Input[Union[str, 'ActiveRevisionsMode']]] = None,
+                 ingress: Optional[pulumi.Input['IngressArgs']] = None,
+                 registries: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]] = None):
+        """
+        Non versioned Container App configuration properties that define the mutable settings of a Container app
+        :param pulumi.Input[Union[str, 'ActiveRevisionsMode']] active_revisions_mode: ActiveRevisionsMode controls how active revisions are handled for the Container app:
+               <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+        :param pulumi.Input['IngressArgs'] ingress: Ingress configurations.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]] registries: Collection of private container registry credentials for containers used by the Container app
+        :param pulumi.Input[Sequence[pulumi.Input['SecretArgs']]] secrets: Collection of secrets used by a Container app
+        """
+        if active_revisions_mode is not None:
+            pulumi.set(__self__, "active_revisions_mode", active_revisions_mode)
+        if ingress is not None:
+            pulumi.set(__self__, "ingress", ingress)
+        if registries is not None:
+            pulumi.set(__self__, "registries", registries)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter(name="activeRevisionsMode")
+    def active_revisions_mode(self) -> Optional[pulumi.Input[Union[str, 'ActiveRevisionsMode']]]:
+        """
+        ActiveRevisionsMode controls how active revisions are handled for the Container app:
+        <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+        """
+        return pulumi.get(self, "active_revisions_mode")
+
+    @active_revisions_mode.setter
+    def active_revisions_mode(self, value: Optional[pulumi.Input[Union[str, 'ActiveRevisionsMode']]]):
+        pulumi.set(self, "active_revisions_mode", value)
+
+    @property
+    @pulumi.getter
+    def ingress(self) -> Optional[pulumi.Input['IngressArgs']]:
+        """
+        Ingress configurations.
+        """
+        return pulumi.get(self, "ingress")
+
+    @ingress.setter
+    def ingress(self, value: Optional[pulumi.Input['IngressArgs']]):
+        pulumi.set(self, "ingress", value)
+
+    @property
+    @pulumi.getter
+    def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]]]:
+        """
+        Collection of private container registry credentials for containers used by the Container app
+        """
+        return pulumi.get(self, "registries")
+
+    @registries.setter
+    def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]]]):
+        pulumi.set(self, "registries", value)
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]]:
+        """
+        Collection of secrets used by a Container app
+        """
+        return pulumi.get(self, "secrets")
+
+    @secrets.setter
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]]):
+        pulumi.set(self, "secrets", value)
+
+
+if not MYPY:
     class ConnStringInfoArgsDict(TypedDict):
         """
         Database connection string information.
@@ -2032,6 +2167,198 @@ class ContainerAppsConfigurationArgs:
 
 
 if not MYPY:
+    class ContainerResourcesArgsDict(TypedDict):
+        """
+        Container App container resource requirements.
+        """
+        cpu: NotRequired[pulumi.Input[float]]
+        """
+        Required CPU in cores, e.g. 0.5
+        """
+        memory: NotRequired[pulumi.Input[str]]
+        """
+        Required memory, e.g. "250Mb"
+        """
+elif False:
+    ContainerResourcesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ContainerResourcesArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input[float]] = None,
+                 memory: Optional[pulumi.Input[str]] = None):
+        """
+        Container App container resource requirements.
+        :param pulumi.Input[float] cpu: Required CPU in cores, e.g. 0.5
+        :param pulumi.Input[str] memory: Required memory, e.g. "250Mb"
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input[float]]:
+        """
+        Required CPU in cores, e.g. 0.5
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required memory, e.g. "250Mb"
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "memory", value)
+
+
+if not MYPY:
+    class ContainerArgsDict(TypedDict):
+        """
+        Container App container definition.
+        """
+        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Container start command arguments.
+        """
+        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Container start command.
+        """
+        env: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgsDict']]]]
+        """
+        Container environment variables.
+        """
+        image: NotRequired[pulumi.Input[str]]
+        """
+        Container image tag.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Custom container name.
+        """
+        resources: NotRequired[pulumi.Input['ContainerResourcesArgsDict']]
+        """
+        Container resource requirements.
+        """
+elif False:
+    ContainerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ContainerArgs:
+    def __init__(__self__, *,
+                 args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 env: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resources: Optional[pulumi.Input['ContainerResourcesArgs']] = None):
+        """
+        Container App container definition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] args: Container start command arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: Container start command.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]] env: Container environment variables.
+        :param pulumi.Input[str] image: Container image tag.
+        :param pulumi.Input[str] name: Custom container name.
+        :param pulumi.Input['ContainerResourcesArgs'] resources: Container resource requirements.
+        """
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if env is not None:
+            pulumi.set(__self__, "env", env)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Container start command arguments.
+        """
+        return pulumi.get(self, "args")
+
+    @args.setter
+    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "args", value)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Container start command.
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter
+    def env(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]]]:
+        """
+        Container environment variables.
+        """
+        return pulumi.get(self, "env")
+
+    @env.setter
+    def env(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVarArgs']]]]):
+        pulumi.set(self, "env", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        Container image tag.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom container name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input['ContainerResourcesArgs']]:
+        """
+        Container resource requirements.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input['ContainerResourcesArgs']]):
+        pulumi.set(self, "resources", value)
+
+
+if not MYPY:
     class CorsSettingsArgsDict(TypedDict):
         """
         Cross-Origin Resource Sharing (CORS) settings for the app.
@@ -2190,6 +2517,353 @@ class CustomDnsSuffixConfigurationArgs:
     @kind.setter
     def kind(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kind", value)
+
+
+if not MYPY:
+    class CustomScaleRuleArgsDict(TypedDict):
+        """
+        Container App container Custom scaling rule.
+        """
+        auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
+        """
+        Authentication secrets for the custom scale rule.
+        """
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Metadata properties to describe custom scale rule.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the custom scale rule
+        eg: azure-servicebus, redis etc.
+        """
+elif False:
+    CustomScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomScaleRuleArgs:
+    def __init__(__self__, *,
+                 auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Container App container Custom scaling rule.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the custom scale rule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata properties to describe custom scale rule.
+        :param pulumi.Input[str] type: Type of the custom scale rule
+               eg: azure-servicebus, redis etc.
+        """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]:
+        """
+        Authentication secrets for the custom scale rule.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata properties to describe custom scale rule.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the custom scale rule
+        eg: azure-servicebus, redis etc.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class DaprComponentArgsDict(TypedDict):
+        """
+        Dapr component configuration
+        """
+        metadata: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgsDict']]]]
+        """
+        Component metadata
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Component name
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Component type
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Component version
+        """
+elif False:
+    DaprComponentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DaprComponentArgs:
+    def __init__(__self__, *,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Dapr component configuration
+        :param pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]] metadata: Component metadata
+        :param pulumi.Input[str] name: Component name
+        :param pulumi.Input[str] type: Component type
+        :param pulumi.Input[str] version: Component version
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]]:
+        """
+        Component metadata
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Component name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Component type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Component version
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class DaprMetadataArgsDict(TypedDict):
+        """
+        Container App Dapr component metadata.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Metadata property name.
+        """
+        secret_ref: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Container App secret from which to pull the metadata property value.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Metadata property value.
+        """
+elif False:
+    DaprMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DaprMetadataArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 secret_ref: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Container App Dapr component metadata.
+        :param pulumi.Input[str] name: Metadata property name.
+        :param pulumi.Input[str] secret_ref: Name of the Container App secret from which to pull the metadata property value.
+        :param pulumi.Input[str] value: Metadata property value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if secret_ref is not None:
+            pulumi.set(__self__, "secret_ref", secret_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metadata property name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Container App secret from which to pull the metadata property value.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_ref", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metadata property value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class DaprArgsDict(TypedDict):
+        """
+        Container App Dapr configuration.
+        """
+        app_id: NotRequired[pulumi.Input[str]]
+        """
+        Dapr application identifier
+        """
+        app_port: NotRequired[pulumi.Input[int]]
+        """
+        Port on which the Dapr side car
+        """
+        components: NotRequired[pulumi.Input[Sequence[pulumi.Input['DaprComponentArgsDict']]]]
+        """
+        Collection of Dapr components
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean indicating if the Dapr side car is enabled
+        """
+elif False:
+    DaprArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DaprArgs:
+    def __init__(__self__, *,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 app_port: Optional[pulumi.Input[int]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['DaprComponentArgs']]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Container App Dapr configuration.
+        :param pulumi.Input[str] app_id: Dapr application identifier
+        :param pulumi.Input[int] app_port: Port on which the Dapr side car
+        :param pulumi.Input[Sequence[pulumi.Input['DaprComponentArgs']]] components: Collection of Dapr components
+        :param pulumi.Input[bool] enabled: Boolean indicating if the Dapr side car is enabled
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if app_port is not None:
+            pulumi.set(__self__, "app_port", app_port)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dapr application identifier
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appPort")
+    def app_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port on which the Dapr side car
+        """
+        return pulumi.get(self, "app_port")
+
+    @app_port.setter
+    def app_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "app_port", value)
+
+    @property
+    @pulumi.getter
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaprComponentArgs']]]]:
+        """
+        Collection of Dapr components
+        """
+        return pulumi.get(self, "components")
+
+    @components.setter
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaprComponentArgs']]]]):
+        pulumi.set(self, "components", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean indicating if the Dapr side car is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:
@@ -2408,6 +3082,82 @@ class EnabledConfigArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class EnvironmentVarArgsDict(TypedDict):
+        """
+        Container App container environment variable.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Environment variable name.
+        """
+        secret_ref: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Container App secret from which to pull the environment variable value.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Non-secret environment variable value.
+        """
+elif False:
+    EnvironmentVarArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentVarArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 secret_ref: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Container App container environment variable.
+        :param pulumi.Input[str] name: Environment variable name.
+        :param pulumi.Input[str] secret_ref: Name of the Container App secret from which to pull the environment variable value.
+        :param pulumi.Input[str] value: Non-secret environment variable value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if secret_ref is not None:
+            pulumi.set(__self__, "secret_ref", secret_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Environment variable name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Container App secret from which to pull the environment variable value.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_ref", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Non-secret environment variable value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:
@@ -3186,6 +3936,173 @@ class HttpLogsConfigArgs:
 
 
 if not MYPY:
+    class HttpScaleRuleArgsDict(TypedDict):
+        """
+        Container App container Custom scaling rule.
+        """
+        auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
+        """
+        Authentication secrets for the custom scale rule.
+        """
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Metadata properties to describe http scale rule.
+        """
+elif False:
+    HttpScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HttpScaleRuleArgs:
+    def __init__(__self__, *,
+                 auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Container App container Custom scaling rule.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the custom scale rule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata properties to describe http scale rule.
+        """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]:
+        """
+        Authentication secrets for the custom scale rule.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Metadata properties to describe http scale rule.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+
+if not MYPY:
+    class IngressArgsDict(TypedDict):
+        """
+        Container App Ingress configuration.
+        """
+        allow_insecure: NotRequired[pulumi.Input[bool]]
+        """
+        Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
+        """
+        external: NotRequired[pulumi.Input[bool]]
+        """
+        Bool indicating if app exposes an external http endpoint
+        """
+        target_port: NotRequired[pulumi.Input[int]]
+        """
+        Target Port in containers for traffic from ingress
+        """
+        traffic: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgsDict']]]]
+        transport: NotRequired[pulumi.Input[Union[str, 'IngressTransportMethod']]]
+        """
+        Ingress transport protocol
+        """
+elif False:
+    IngressArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IngressArgs:
+    def __init__(__self__, *,
+                 allow_insecure: Optional[pulumi.Input[bool]] = None,
+                 external: Optional[pulumi.Input[bool]] = None,
+                 target_port: Optional[pulumi.Input[int]] = None,
+                 traffic: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgs']]]] = None,
+                 transport: Optional[pulumi.Input[Union[str, 'IngressTransportMethod']]] = None):
+        """
+        Container App Ingress configuration.
+        :param pulumi.Input[bool] allow_insecure: Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
+        :param pulumi.Input[bool] external: Bool indicating if app exposes an external http endpoint
+        :param pulumi.Input[int] target_port: Target Port in containers for traffic from ingress
+        :param pulumi.Input[Union[str, 'IngressTransportMethod']] transport: Ingress transport protocol
+        """
+        if allow_insecure is not None:
+            pulumi.set(__self__, "allow_insecure", allow_insecure)
+        if external is None:
+            external = False
+        if external is not None:
+            pulumi.set(__self__, "external", external)
+        if target_port is not None:
+            pulumi.set(__self__, "target_port", target_port)
+        if traffic is not None:
+            pulumi.set(__self__, "traffic", traffic)
+        if transport is not None:
+            pulumi.set(__self__, "transport", transport)
+
+    @property
+    @pulumi.getter(name="allowInsecure")
+    def allow_insecure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
+        """
+        return pulumi.get(self, "allow_insecure")
+
+    @allow_insecure.setter
+    def allow_insecure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_insecure", value)
+
+    @property
+    @pulumi.getter
+    def external(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bool indicating if app exposes an external http endpoint
+        """
+        return pulumi.get(self, "external")
+
+    @external.setter
+    def external(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "external", value)
+
+    @property
+    @pulumi.getter(name="targetPort")
+    def target_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Target Port in containers for traffic from ingress
+        """
+        return pulumi.get(self, "target_port")
+
+    @target_port.setter
+    def target_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_port", value)
+
+    @property
+    @pulumi.getter
+    def traffic(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgs']]]]:
+        return pulumi.get(self, "traffic")
+
+    @traffic.setter
+    def traffic(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficWeightArgs']]]]):
+        pulumi.set(self, "traffic", value)
+
+    @property
+    @pulumi.getter
+    def transport(self) -> Optional[pulumi.Input[Union[str, 'IngressTransportMethod']]]:
+        """
+        Ingress transport protocol
+        """
+        return pulumi.get(self, "transport")
+
+    @transport.setter
+    def transport(self, value: Optional[pulumi.Input[Union[str, 'IngressTransportMethod']]]):
+        pulumi.set(self, "transport", value)
+
+
+if not MYPY:
     class IpSecurityRestrictionArgsDict(TypedDict):
         """
         IP security restriction on an app.
@@ -3860,6 +4777,82 @@ class PushSettingsArgs:
 
 
 if not MYPY:
+    class QueueScaleRuleArgsDict(TypedDict):
+        """
+        Container App container Azure Queue based scaling rule.
+        """
+        auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
+        """
+        Authentication secrets for the queue scale rule.
+        """
+        queue_length: NotRequired[pulumi.Input[int]]
+        """
+        Queue length.
+        """
+        queue_name: NotRequired[pulumi.Input[str]]
+        """
+        Queue name.
+        """
+elif False:
+    QueueScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class QueueScaleRuleArgs:
+    def __init__(__self__, *,
+                 auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
+                 queue_length: Optional[pulumi.Input[int]] = None,
+                 queue_name: Optional[pulumi.Input[str]] = None):
+        """
+        Container App container Azure Queue based scaling rule.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the queue scale rule.
+        :param pulumi.Input[int] queue_length: Queue length.
+        :param pulumi.Input[str] queue_name: Queue name.
+        """
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
+        if queue_length is not None:
+            pulumi.set(__self__, "queue_length", queue_length)
+        if queue_name is not None:
+            pulumi.set(__self__, "queue_name", queue_name)
+
+    @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]:
+        """
+        Authentication secrets for the queue scale rule.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]]):
+        pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter(name="queueLength")
+    def queue_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        Queue length.
+        """
+        return pulumi.get(self, "queue_length")
+
+    @queue_length.setter
+    def queue_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "queue_length", value)
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Queue name.
+        """
+        return pulumi.get(self, "queue_name")
+
+    @queue_name.setter
+    def queue_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "queue_name", value)
+
+
+if not MYPY:
     class RampUpRuleArgsDict(TypedDict):
         """
         Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
@@ -4045,6 +5038,82 @@ class RampUpRuleArgs:
 
 
 if not MYPY:
+    class RegistryCredentialsArgsDict(TypedDict):
+        """
+        Container App Private Registry
+        """
+        password_secret_ref: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Secret that contains the registry login password
+        """
+        server: NotRequired[pulumi.Input[str]]
+        """
+        Container Registry Server
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Container Registry Username
+        """
+elif False:
+    RegistryCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RegistryCredentialsArgs:
+    def __init__(__self__, *,
+                 password_secret_ref: Optional[pulumi.Input[str]] = None,
+                 server: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Container App Private Registry
+        :param pulumi.Input[str] password_secret_ref: The name of the Secret that contains the registry login password
+        :param pulumi.Input[str] server: Container Registry Server
+        :param pulumi.Input[str] username: Container Registry Username
+        """
+        if password_secret_ref is not None:
+            pulumi.set(__self__, "password_secret_ref", password_secret_ref)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="passwordSecretRef")
+    def password_secret_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Secret that contains the registry login password
+        """
+        return pulumi.get(self, "password_secret_ref")
+
+    @password_secret_ref.setter
+    def password_secret_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_secret_ref", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[pulumi.Input[str]]:
+        """
+        Container Registry Server
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Container Registry Username
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
+
+
+if not MYPY:
     class RequestsBasedTriggerArgsDict(TypedDict):
         """
         Trigger based on total requests.
@@ -4098,6 +5167,290 @@ class RequestsBasedTriggerArgs:
     @time_interval.setter
     def time_interval(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_interval", value)
+
+
+if not MYPY:
+    class ScaleRuleAuthArgsDict(TypedDict):
+        """
+        Auth Secrets for Container App Scale Rule
+        """
+        secret_ref: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Container App secret from which to pull the auth params.
+        """
+        trigger_parameter: NotRequired[pulumi.Input[str]]
+        """
+        Trigger Parameter that uses the secret
+        """
+elif False:
+    ScaleRuleAuthArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScaleRuleAuthArgs:
+    def __init__(__self__, *,
+                 secret_ref: Optional[pulumi.Input[str]] = None,
+                 trigger_parameter: Optional[pulumi.Input[str]] = None):
+        """
+        Auth Secrets for Container App Scale Rule
+        :param pulumi.Input[str] secret_ref: Name of the Container App secret from which to pull the auth params.
+        :param pulumi.Input[str] trigger_parameter: Trigger Parameter that uses the secret
+        """
+        if secret_ref is not None:
+            pulumi.set(__self__, "secret_ref", secret_ref)
+        if trigger_parameter is not None:
+            pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Container App secret from which to pull the auth params.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_ref", value)
+
+    @property
+    @pulumi.getter(name="triggerParameter")
+    def trigger_parameter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Trigger Parameter that uses the secret
+        """
+        return pulumi.get(self, "trigger_parameter")
+
+    @trigger_parameter.setter
+    def trigger_parameter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trigger_parameter", value)
+
+
+if not MYPY:
+    class ScaleRuleArgsDict(TypedDict):
+        """
+        Container App container scaling rule.
+        """
+        azure_queue: NotRequired[pulumi.Input['QueueScaleRuleArgsDict']]
+        """
+        Azure Queue based scaling.
+        """
+        custom: NotRequired[pulumi.Input['CustomScaleRuleArgsDict']]
+        """
+        Custom scale rule.
+        """
+        http: NotRequired[pulumi.Input['HttpScaleRuleArgsDict']]
+        """
+        HTTP requests based scaling.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Scale Rule Name
+        """
+elif False:
+    ScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScaleRuleArgs:
+    def __init__(__self__, *,
+                 azure_queue: Optional[pulumi.Input['QueueScaleRuleArgs']] = None,
+                 custom: Optional[pulumi.Input['CustomScaleRuleArgs']] = None,
+                 http: Optional[pulumi.Input['HttpScaleRuleArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Container App container scaling rule.
+        :param pulumi.Input['QueueScaleRuleArgs'] azure_queue: Azure Queue based scaling.
+        :param pulumi.Input['CustomScaleRuleArgs'] custom: Custom scale rule.
+        :param pulumi.Input['HttpScaleRuleArgs'] http: HTTP requests based scaling.
+        :param pulumi.Input[str] name: Scale Rule Name
+        """
+        if azure_queue is not None:
+            pulumi.set(__self__, "azure_queue", azure_queue)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="azureQueue")
+    def azure_queue(self) -> Optional[pulumi.Input['QueueScaleRuleArgs']]:
+        """
+        Azure Queue based scaling.
+        """
+        return pulumi.get(self, "azure_queue")
+
+    @azure_queue.setter
+    def azure_queue(self, value: Optional[pulumi.Input['QueueScaleRuleArgs']]):
+        pulumi.set(self, "azure_queue", value)
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional[pulumi.Input['CustomScaleRuleArgs']]:
+        """
+        Custom scale rule.
+        """
+        return pulumi.get(self, "custom")
+
+    @custom.setter
+    def custom(self, value: Optional[pulumi.Input['CustomScaleRuleArgs']]):
+        pulumi.set(self, "custom", value)
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional[pulumi.Input['HttpScaleRuleArgs']]:
+        """
+        HTTP requests based scaling.
+        """
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: Optional[pulumi.Input['HttpScaleRuleArgs']]):
+        pulumi.set(self, "http", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Scale Rule Name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class ScaleArgsDict(TypedDict):
+        """
+        Container App scaling configurations.
+        """
+        max_replicas: NotRequired[pulumi.Input[int]]
+        """
+        Optional. Maximum number of container replicas. Defaults to 10 if not set.
+        """
+        min_replicas: NotRequired[pulumi.Input[int]]
+        """
+        Optional. Minimum number of container replicas.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgsDict']]]]
+        """
+        Scaling rules.
+        """
+elif False:
+    ScaleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScaleArgs:
+    def __init__(__self__, *,
+                 max_replicas: Optional[pulumi.Input[int]] = None,
+                 min_replicas: Optional[pulumi.Input[int]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]] = None):
+        """
+        Container App scaling configurations.
+        :param pulumi.Input[int] max_replicas: Optional. Maximum number of container replicas. Defaults to 10 if not set.
+        :param pulumi.Input[int] min_replicas: Optional. Minimum number of container replicas.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]] rules: Scaling rules.
+        """
+        if max_replicas is not None:
+            pulumi.set(__self__, "max_replicas", max_replicas)
+        if min_replicas is not None:
+            pulumi.set(__self__, "min_replicas", min_replicas)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="maxReplicas")
+    def max_replicas(self) -> Optional[pulumi.Input[int]]:
+        """
+        Optional. Maximum number of container replicas. Defaults to 10 if not set.
+        """
+        return pulumi.get(self, "max_replicas")
+
+    @max_replicas.setter
+    def max_replicas(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_replicas", value)
+
+    @property
+    @pulumi.getter(name="minReplicas")
+    def min_replicas(self) -> Optional[pulumi.Input[int]]:
+        """
+        Optional. Minimum number of container replicas.
+        """
+        return pulumi.get(self, "min_replicas")
+
+    @min_replicas.setter
+    def min_replicas(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_replicas", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]]:
+        """
+        Scaling rules.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+if not MYPY:
+    class SecretArgsDict(TypedDict):
+        """
+        Container App Secret.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Secret Name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Secret Value.
+        """
+elif False:
+    SecretArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecretArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Container App Secret.
+        :param pulumi.Input[str] name: Secret Name.
+        :param pulumi.Input[str] value: Secret Value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret Name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret Value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:
@@ -6519,6 +7872,184 @@ class StatusCodesRangeBasedTriggerArgs:
     @time_interval.setter
     def time_interval(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_interval", value)
+
+
+if not MYPY:
+    class TemplateArgsDict(TypedDict):
+        """
+        Container App versioned application definition.
+        Defines the desired state of an immutable revision.
+        Any changes to this section Will result in a new revision being created
+        """
+        containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerArgsDict']]]]
+        """
+        List of container definitions for the Container App.
+        """
+        dapr: NotRequired[pulumi.Input['DaprArgsDict']]
+        """
+        Dapr configuration for the Container App.
+        """
+        revision_suffix: NotRequired[pulumi.Input[str]]
+        """
+        User friendly suffix that is appended to the revision name
+        """
+        scale: NotRequired[pulumi.Input['ScaleArgsDict']]
+        """
+        Scaling properties for the Container App.
+        """
+elif False:
+    TemplateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TemplateArgs:
+    def __init__(__self__, *,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]] = None,
+                 dapr: Optional[pulumi.Input['DaprArgs']] = None,
+                 revision_suffix: Optional[pulumi.Input[str]] = None,
+                 scale: Optional[pulumi.Input['ScaleArgs']] = None):
+        """
+        Container App versioned application definition.
+        Defines the desired state of an immutable revision.
+        Any changes to this section Will result in a new revision being created
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]] containers: List of container definitions for the Container App.
+        :param pulumi.Input['DaprArgs'] dapr: Dapr configuration for the Container App.
+        :param pulumi.Input[str] revision_suffix: User friendly suffix that is appended to the revision name
+        :param pulumi.Input['ScaleArgs'] scale: Scaling properties for the Container App.
+        """
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if dapr is not None:
+            pulumi.set(__self__, "dapr", dapr)
+        if revision_suffix is not None:
+            pulumi.set(__self__, "revision_suffix", revision_suffix)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]]:
+        """
+        List of container definitions for the Container App.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter
+    def dapr(self) -> Optional[pulumi.Input['DaprArgs']]:
+        """
+        Dapr configuration for the Container App.
+        """
+        return pulumi.get(self, "dapr")
+
+    @dapr.setter
+    def dapr(self, value: Optional[pulumi.Input['DaprArgs']]):
+        pulumi.set(self, "dapr", value)
+
+    @property
+    @pulumi.getter(name="revisionSuffix")
+    def revision_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        User friendly suffix that is appended to the revision name
+        """
+        return pulumi.get(self, "revision_suffix")
+
+    @revision_suffix.setter
+    def revision_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revision_suffix", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input['ScaleArgs']]:
+        """
+        Scaling properties for the Container App.
+        """
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input['ScaleArgs']]):
+        pulumi.set(self, "scale", value)
+
+
+if not MYPY:
+    class TrafficWeightArgsDict(TypedDict):
+        """
+        Traffic weight assigned to a revision
+        """
+        latest_revision: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates that the traffic weight belongs to a latest stable revision
+        """
+        revision_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of a revision
+        """
+        weight: NotRequired[pulumi.Input[int]]
+        """
+        Traffic weight assigned to a revision
+        """
+elif False:
+    TrafficWeightArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrafficWeightArgs:
+    def __init__(__self__, *,
+                 latest_revision: Optional[pulumi.Input[bool]] = None,
+                 revision_name: Optional[pulumi.Input[str]] = None,
+                 weight: Optional[pulumi.Input[int]] = None):
+        """
+        Traffic weight assigned to a revision
+        :param pulumi.Input[bool] latest_revision: Indicates that the traffic weight belongs to a latest stable revision
+        :param pulumi.Input[str] revision_name: Name of a revision
+        :param pulumi.Input[int] weight: Traffic weight assigned to a revision
+        """
+        if latest_revision is None:
+            latest_revision = False
+        if latest_revision is not None:
+            pulumi.set(__self__, "latest_revision", latest_revision)
+        if revision_name is not None:
+            pulumi.set(__self__, "revision_name", revision_name)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="latestRevision")
+    def latest_revision(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that the traffic weight belongs to a latest stable revision
+        """
+        return pulumi.get(self, "latest_revision")
+
+    @latest_revision.setter
+    def latest_revision(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "latest_revision", value)
+
+    @property
+    @pulumi.getter(name="revisionName")
+    def revision_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a revision
+        """
+        return pulumi.get(self, "revision_name")
+
+    @revision_name.setter
+    def revision_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revision_name", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        Traffic weight assigned to a revision
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
 
 
 if not MYPY:

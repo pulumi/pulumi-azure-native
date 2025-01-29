@@ -11,24 +11,18 @@ namespace Pulumi.AzureNative.DeviceRegistry
 {
     /// <summary>
     /// Asset definition.
-    /// Azure REST API version: 2023-11-01-preview.
+    /// Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-11-01-preview.
     /// 
-    /// Other available API versions: 2024-09-01-preview, 2024-11-01.
+    /// Other available API versions: 2023-11-01-preview, 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:Asset")]
     public partial class Asset : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format &lt;ModuleCR.metadata.namespace&gt;/&lt;ModuleCR.metadata.name&gt;.
+        /// A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
         /// </summary>
-        [Output("assetEndpointProfileUri")]
-        public Output<string> AssetEndpointProfileUri { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource path to asset type (model) definition.
-        /// </summary>
-        [Output("assetType")]
-        public Output<string?> AssetType { get; private set; } = null!;
+        [Output("assetEndpointProfileRef")]
+        public Output<string> AssetEndpointProfileRef { get; private set; } = null!;
 
         /// <summary>
         /// A set of key-value pairs that contain custom attributes set by the customer.
@@ -37,16 +31,16 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Output<object?> Attributes { get; private set; } = null!;
 
         /// <summary>
-        /// Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
+        /// Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
         /// </summary>
-        [Output("dataPoints")]
-        public Output<ImmutableArray<Outputs.DataPointResponse>> DataPoints { get; private set; } = null!;
+        [Output("datasets")]
+        public Output<ImmutableArray<Outputs.DatasetResponse>> Datasets { get; private set; } = null!;
 
         /// <summary>
-        /// Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+        /// Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
         /// </summary>
-        [Output("defaultDataPointsConfiguration")]
-        public Output<string?> DefaultDataPointsConfiguration { get; private set; } = null!;
+        [Output("defaultDatasetsConfiguration")]
+        public Output<string?> DefaultDatasetsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
@@ -55,10 +49,22 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Output<string?> DefaultEventsConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Object that describes the default topic information for the asset.
+        /// </summary>
+        [Output("defaultTopic")]
+        public Output<Outputs.TopicResponse?> DefaultTopic { get; private set; } = null!;
+
+        /// <summary>
         /// Human-readable description of the asset.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided.
+        /// </summary>
+        [Output("discoveredAssetRefs")]
+        public Output<ImmutableArray<string>> DiscoveredAssetRefs { get; private set; } = null!;
 
         /// <summary>
         /// Human-readable display name.
@@ -190,7 +196,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// An integer that is incremented each time the resource is modified.
         /// </summary>
         [Output("version")]
-        public Output<int> Version { get; private set; } = null!;
+        public Output<double> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -244,10 +250,10 @@ namespace Pulumi.AzureNative.DeviceRegistry
     public sealed class AssetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format &lt;ModuleCR.metadata.namespace&gt;/&lt;ModuleCR.metadata.name&gt;.
+        /// A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
         /// </summary>
-        [Input("assetEndpointProfileUri", required: true)]
-        public Input<string> AssetEndpointProfileUri { get; set; } = null!;
+        [Input("assetEndpointProfileRef", required: true)]
+        public Input<string> AssetEndpointProfileRef { get; set; } = null!;
 
         /// <summary>
         /// Asset name parameter.
@@ -256,34 +262,28 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Input<string>? AssetName { get; set; }
 
         /// <summary>
-        /// Resource path to asset type (model) definition.
-        /// </summary>
-        [Input("assetType")]
-        public Input<string>? AssetType { get; set; }
-
-        /// <summary>
         /// A set of key-value pairs that contain custom attributes set by the customer.
         /// </summary>
         [Input("attributes")]
         public Input<object>? Attributes { get; set; }
 
-        [Input("dataPoints")]
-        private InputList<Inputs.DataPointArgs>? _dataPoints;
+        [Input("datasets")]
+        private InputList<Inputs.DatasetArgs>? _datasets;
 
         /// <summary>
-        /// Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
+        /// Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
         /// </summary>
-        public InputList<Inputs.DataPointArgs> DataPoints
+        public InputList<Inputs.DatasetArgs> Datasets
         {
-            get => _dataPoints ?? (_dataPoints = new InputList<Inputs.DataPointArgs>());
-            set => _dataPoints = value;
+            get => _datasets ?? (_datasets = new InputList<Inputs.DatasetArgs>());
+            set => _datasets = value;
         }
 
         /// <summary>
-        /// Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+        /// Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
         /// </summary>
-        [Input("defaultDataPointsConfiguration")]
-        public Input<string>? DefaultDataPointsConfiguration { get; set; }
+        [Input("defaultDatasetsConfiguration")]
+        public Input<string>? DefaultDatasetsConfiguration { get; set; }
 
         /// <summary>
         /// Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
@@ -292,10 +292,28 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Input<string>? DefaultEventsConfiguration { get; set; }
 
         /// <summary>
+        /// Object that describes the default topic information for the asset.
+        /// </summary>
+        [Input("defaultTopic")]
+        public Input<Inputs.TopicArgs>? DefaultTopic { get; set; }
+
+        /// <summary>
         /// Human-readable description of the asset.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("discoveredAssetRefs")]
+        private InputList<string>? _discoveredAssetRefs;
+
+        /// <summary>
+        /// Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided.
+        /// </summary>
+        public InputList<string> DiscoveredAssetRefs
+        {
+            get => _discoveredAssetRefs ?? (_discoveredAssetRefs = new InputList<string>());
+            set => _discoveredAssetRefs = value;
+        }
 
         /// <summary>
         /// Human-readable display name.

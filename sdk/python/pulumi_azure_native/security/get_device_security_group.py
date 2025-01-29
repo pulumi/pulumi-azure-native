@@ -129,6 +129,8 @@ def get_device_security_group(device_security_group_name: Optional[str] = None,
     Use this method to get the device security group for the specified IoT Hub resource.
     Azure REST API version: 2019-08-01.
 
+    Other available API versions: 2017-08-01-preview.
+
 
     :param str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
     :param str resource_id: The identifier of the resource.
@@ -153,6 +155,8 @@ def get_device_security_group_output(device_security_group_name: Optional[pulumi
     """
     Use this method to get the device security group for the specified IoT Hub resource.
     Azure REST API version: 2019-08-01.
+
+    Other available API versions: 2017-08-01-preview.
 
 
     :param str device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.

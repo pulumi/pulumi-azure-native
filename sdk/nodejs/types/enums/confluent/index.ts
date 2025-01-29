@@ -102,3 +102,21 @@ export const PartnerConnectorType = {
  * The partner connector type.
  */
 export type PartnerConnectorType = (typeof PartnerConnectorType)[keyof typeof PartnerConnectorType];
+
+export const SaaSOfferStatus = {
+    Started: "Started",
+    PendingFulfillmentStart: "PendingFulfillmentStart",
+    InProgress: "InProgress",
+    Subscribed: "Subscribed",
+    Suspended: "Suspended",
+    Reinstated: "Reinstated",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Unsubscribed: "Unsubscribed",
+    Updating: "Updating",
+} as const;
+
+/**
+ * SaaS Offer Status
+ */
+export type SaaSOfferStatus = (typeof SaaSOfferStatus)[keyof typeof SaaSOfferStatus];

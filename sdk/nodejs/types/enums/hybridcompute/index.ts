@@ -3,8 +3,20 @@
 
 // Export sub-modules:
 import * as v20200815preview from "./v20200815preview";
+import * as v20210128preview from "./v20210128preview";
+import * as v20210325preview from "./v20210325preview";
+import * as v20210422preview from "./v20210422preview";
+import * as v20210517preview from "./v20210517preview";
+import * as v20210520 from "./v20210520";
+import * as v20210610preview from "./v20210610preview";
+import * as v20211210preview from "./v20211210preview";
+import * as v20220310 from "./v20220310";
 import * as v20220510preview from "./v20220510preview";
+import * as v20220811preview from "./v20220811preview";
+import * as v20221110 from "./v20221110";
 import * as v20221227 from "./v20221227";
+import * as v20221227preview from "./v20221227preview";
+import * as v20230315preview from "./v20230315preview";
 import * as v20230620preview from "./v20230620preview";
 import * as v20231003preview from "./v20231003preview";
 import * as v20240331preview from "./v20240331preview";
@@ -16,8 +28,20 @@ import * as v20241110preview from "./v20241110preview";
 
 export {
     v20200815preview,
+    v20210128preview,
+    v20210325preview,
+    v20210422preview,
+    v20210517preview,
+    v20210520,
+    v20210610preview,
+    v20211210preview,
+    v20220310,
     v20220510preview,
+    v20220811preview,
+    v20221110,
     v20221227,
+    v20221227preview,
+    v20230315preview,
     v20230620preview,
     v20231003preview,
     v20240331preview,
@@ -27,6 +51,21 @@ export {
     v20240910preview,
     v20241110preview,
 };
+
+export const ArcKindEnum = {
+    AVS: "AVS",
+    HCI: "HCI",
+    SCVMM: "SCVMM",
+    VMware: "VMware",
+    EPS: "EPS",
+    GCP: "GCP",
+    AWS: "AWS",
+} as const;
+
+/**
+ * Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+ */
+export type ArcKindEnum = (typeof ArcKindEnum)[keyof typeof ArcKindEnum];
 
 export const AssessmentModeTypes = {
     ImageDefault: "ImageDefault",
@@ -47,6 +86,16 @@ export const GatewayType = {
  */
 export type GatewayType = (typeof GatewayType)[keyof typeof GatewayType];
 
+export const LicenseAssignmentState = {
+    Assigned: "Assigned",
+    NotAssigned: "NotAssigned",
+} as const;
+
+/**
+ * Describes the license assignment state (Assigned or NotAssigned).
+ */
+export type LicenseAssignmentState = (typeof LicenseAssignmentState)[keyof typeof LicenseAssignmentState];
+
 export const LicenseCoreType = {
     PCore: "pCore",
     VCore: "vCore",
@@ -66,6 +115,30 @@ export const LicenseEdition = {
  * Describes the edition of the license. The values are either Standard or Datacenter.
  */
 export type LicenseEdition = (typeof LicenseEdition)[keyof typeof LicenseEdition];
+
+export const LicenseProfileProductType = {
+    WindowsServer: "WindowsServer",
+    WindowsIoTEnterprise: "WindowsIoTEnterprise",
+} as const;
+
+/**
+ * Indicates the product type of the license.
+ */
+export type LicenseProfileProductType = (typeof LicenseProfileProductType)[keyof typeof LicenseProfileProductType];
+
+export const LicenseProfileSubscriptionStatus = {
+    Unknown: "Unknown",
+    Enabling: "Enabling",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    Disabling: "Disabling",
+    Failed: "Failed",
+} as const;
+
+/**
+ * Indicates the subscription status of the product.
+ */
+export type LicenseProfileSubscriptionStatus = (typeof LicenseProfileSubscriptionStatus)[keyof typeof LicenseProfileSubscriptionStatus];
 
 export const LicenseState = {
     Activated: "Activated",
@@ -108,6 +181,17 @@ export const PatchModeTypes = {
  */
 export type PatchModeTypes = (typeof PatchModeTypes)[keyof typeof PatchModeTypes];
 
+export const ProgramYear = {
+    Year_1: "Year 1",
+    Year_2: "Year 2",
+    Year_3: "Year 3",
+} as const;
+
+/**
+ * Describes the program year the volume license is for.
+ */
+export type ProgramYear = (typeof ProgramYear)[keyof typeof ProgramYear];
+
 export const PublicNetworkAccessType = {
     /**
      * Allows Azure Arc agents to communicate with Azure Arc services over both public (internet) and private endpoints.
@@ -117,6 +201,10 @@ export const PublicNetworkAccessType = {
      * Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
      */
     Disabled: "Disabled",
+    /**
+     * Azure Arc agent communication with Azure Arc services over public (internet) is enforced by Network Security Perimeter (NSP)
+     */
+    SecuredByPerimeter: "SecuredByPerimeter",
 } as const;
 
 /**

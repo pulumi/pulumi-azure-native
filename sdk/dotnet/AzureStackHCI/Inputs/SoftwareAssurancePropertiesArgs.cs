@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         [Input("softwareAssuranceIntent")]
         public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.SoftwareAssuranceIntent>? SoftwareAssuranceIntent { get; set; }
 
-        /// <summary>
-        /// Status of the Software Assurance for the cluster.
-        /// </summary>
-        [Input("softwareAssuranceStatus")]
-        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.SoftwareAssuranceStatus>? SoftwareAssuranceStatus { get; set; }
-
         public SoftwareAssurancePropertiesArgs()
         {
         }

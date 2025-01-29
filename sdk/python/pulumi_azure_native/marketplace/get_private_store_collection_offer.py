@@ -226,6 +226,8 @@ def get_private_store_collection_offer(collection_id: Optional[str] = None,
     Gets information about a specific offer.
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2021-06-01, 2021-12-01, 2022-03-01, 2022-09-01.
+
 
     :param str collection_id: The collection ID
     :param str offer_id: The offer ID to update or delete
@@ -261,6 +263,8 @@ def get_private_store_collection_offer_output(collection_id: Optional[pulumi.Inp
     """
     Gets information about a specific offer.
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2021-06-01, 2021-12-01, 2022-03-01, 2022-09-01.
 
 
     :param str collection_id: The collection ID

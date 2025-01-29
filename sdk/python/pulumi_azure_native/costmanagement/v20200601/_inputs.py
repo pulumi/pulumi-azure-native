@@ -16,6 +16,22 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'ExportDatasetConfigurationArgs',
+    'ExportDatasetConfigurationArgsDict',
+    'ExportDatasetArgs',
+    'ExportDatasetArgsDict',
+    'ExportDefinitionArgs',
+    'ExportDefinitionArgsDict',
+    'ExportDeliveryDestinationArgs',
+    'ExportDeliveryDestinationArgsDict',
+    'ExportDeliveryInfoArgs',
+    'ExportDeliveryInfoArgsDict',
+    'ExportRecurrencePeriodArgs',
+    'ExportRecurrencePeriodArgsDict',
+    'ExportScheduleArgs',
+    'ExportScheduleArgsDict',
+    'ExportTimePeriodArgs',
+    'ExportTimePeriodArgsDict',
     'KpiPropertiesArgs',
     'KpiPropertiesArgsDict',
     'PivotPropertiesArgs',
@@ -39,6 +55,486 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ExportDatasetConfigurationArgsDict(TypedDict):
+        """
+        The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+        """
+elif False:
+    ExportDatasetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExportDatasetConfigurationArgs:
+    def __init__(__self__, *,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "columns", value)
+
+
+if not MYPY:
+    class ExportDatasetArgsDict(TypedDict):
+        """
+        The definition for data in the export.
+        """
+        configuration: NotRequired[pulumi.Input['ExportDatasetConfigurationArgsDict']]
+        """
+        The export dataset configuration.
+        """
+        granularity: NotRequired[pulumi.Input[Union[str, 'GranularityType']]]
+        """
+        The granularity of rows in the export. Currently only 'Daily' is supported.
+        """
+elif False:
+    ExportDatasetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExportDatasetArgs:
+    def __init__(__self__, *,
+                 configuration: Optional[pulumi.Input['ExportDatasetConfigurationArgs']] = None,
+                 granularity: Optional[pulumi.Input[Union[str, 'GranularityType']]] = None):
+        """
+        The definition for data in the export.
+        :param pulumi.Input['ExportDatasetConfigurationArgs'] configuration: The export dataset configuration.
+        :param pulumi.Input[Union[str, 'GranularityType']] granularity: The granularity of rows in the export. Currently only 'Daily' is supported.
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if granularity is not None:
+            pulumi.set(__self__, "granularity", granularity)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['ExportDatasetConfigurationArgs']]:
+        """
+        The export dataset configuration.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['ExportDatasetConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def granularity(self) -> Optional[pulumi.Input[Union[str, 'GranularityType']]]:
+        """
+        The granularity of rows in the export. Currently only 'Daily' is supported.
+        """
+        return pulumi.get(self, "granularity")
+
+    @granularity.setter
+    def granularity(self, value: Optional[pulumi.Input[Union[str, 'GranularityType']]]):
+        pulumi.set(self, "granularity", value)
+
+
+if not MYPY:
+    class ExportDefinitionArgsDict(TypedDict):
+        """
+        The definition of an export.
+        """
+        timeframe: pulumi.Input[Union[str, 'TimeframeType']]
+        """
+        The time frame for pulling data for the export. If custom, then a specific time period must be provided.
+        """
+        type: pulumi.Input[Union[str, 'ExportType']]
+        """
+        The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
+        """
+        data_set: NotRequired[pulumi.Input['ExportDatasetArgsDict']]
+        """
+        The definition for data in the export.
+        """
+        time_period: NotRequired[pulumi.Input['ExportTimePeriodArgsDict']]
+        """
+        Has time period for pulling data for the export.
+        """
+elif False:
+    ExportDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExportDefinitionArgs:
+    def __init__(__self__, *,
+                 timeframe: pulumi.Input[Union[str, 'TimeframeType']],
+                 type: pulumi.Input[Union[str, 'ExportType']],
+                 data_set: Optional[pulumi.Input['ExportDatasetArgs']] = None,
+                 time_period: Optional[pulumi.Input['ExportTimePeriodArgs']] = None):
+        """
+        The definition of an export.
+        :param pulumi.Input[Union[str, 'TimeframeType']] timeframe: The time frame for pulling data for the export. If custom, then a specific time period must be provided.
+        :param pulumi.Input[Union[str, 'ExportType']] type: The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
+        :param pulumi.Input['ExportDatasetArgs'] data_set: The definition for data in the export.
+        :param pulumi.Input['ExportTimePeriodArgs'] time_period: Has time period for pulling data for the export.
+        """
+        pulumi.set(__self__, "timeframe", timeframe)
+        pulumi.set(__self__, "type", type)
+        if data_set is not None:
+            pulumi.set(__self__, "data_set", data_set)
+        if time_period is not None:
+            pulumi.set(__self__, "time_period", time_period)
+
+    @property
+    @pulumi.getter
+    def timeframe(self) -> pulumi.Input[Union[str, 'TimeframeType']]:
+        """
+        The time frame for pulling data for the export. If custom, then a specific time period must be provided.
+        """
+        return pulumi.get(self, "timeframe")
+
+    @timeframe.setter
+    def timeframe(self, value: pulumi.Input[Union[str, 'TimeframeType']]):
+        pulumi.set(self, "timeframe", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ExportType']]:
+        """
+        The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ExportType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dataSet")
+    def data_set(self) -> Optional[pulumi.Input['ExportDatasetArgs']]:
+        """
+        The definition for data in the export.
+        """
+        return pulumi.get(self, "data_set")
+
+    @data_set.setter
+    def data_set(self, value: Optional[pulumi.Input['ExportDatasetArgs']]):
+        pulumi.set(self, "data_set", value)
+
+    @property
+    @pulumi.getter(name="timePeriod")
+    def time_period(self) -> Optional[pulumi.Input['ExportTimePeriodArgs']]:
+        """
+        Has time period for pulling data for the export.
+        """
+        return pulumi.get(self, "time_period")
+
+    @time_period.setter
+    def time_period(self, value: Optional[pulumi.Input['ExportTimePeriodArgs']]):
+        pulumi.set(self, "time_period", value)
+
+
+if not MYPY:
+    class ExportDeliveryDestinationArgsDict(TypedDict):
+        """
+        The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
+        """
+        container: pulumi.Input[str]
+        """
+        The name of the container where exports will be uploaded.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The resource id of the storage account where exports will be delivered.
+        """
+        root_folder_path: NotRequired[pulumi.Input[str]]
+        """
+        The name of the directory where exports will be uploaded.
+        """
+elif False:
+    ExportDeliveryDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExportDeliveryDestinationArgs:
+    def __init__(__self__, *,
+                 container: pulumi.Input[str],
+                 resource_id: pulumi.Input[str],
+                 root_folder_path: Optional[pulumi.Input[str]] = None):
+        """
+        The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
+        :param pulumi.Input[str] container: The name of the container where exports will be uploaded.
+        :param pulumi.Input[str] resource_id: The resource id of the storage account where exports will be delivered.
+        :param pulumi.Input[str] root_folder_path: The name of the directory where exports will be uploaded.
+        """
+        pulumi.set(__self__, "container", container)
+        pulumi.set(__self__, "resource_id", resource_id)
+        if root_folder_path is not None:
+            pulumi.set(__self__, "root_folder_path", root_folder_path)
+
+    @property
+    @pulumi.getter
+    def container(self) -> pulumi.Input[str]:
+        """
+        The name of the container where exports will be uploaded.
+        """
+        return pulumi.get(self, "container")
+
+    @container.setter
+    def container(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource id of the storage account where exports will be delivered.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="rootFolderPath")
+    def root_folder_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the directory where exports will be uploaded.
+        """
+        return pulumi.get(self, "root_folder_path")
+
+    @root_folder_path.setter
+    def root_folder_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "root_folder_path", value)
+
+
+if not MYPY:
+    class ExportDeliveryInfoArgsDict(TypedDict):
+        """
+        The delivery information associated with a export.
+        """
+        destination: pulumi.Input['ExportDeliveryDestinationArgsDict']
+        """
+        Has destination for the export being delivered.
+        """
+elif False:
+    ExportDeliveryInfoArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExportDeliveryInfoArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input['ExportDeliveryDestinationArgs']):
+        """
+        The delivery information associated with a export.
+        :param pulumi.Input['ExportDeliveryDestinationArgs'] destination: Has destination for the export being delivered.
+        """
+        pulumi.set(__self__, "destination", destination)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input['ExportDeliveryDestinationArgs']:
+        """
+        Has destination for the export being delivered.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input['ExportDeliveryDestinationArgs']):
+        pulumi.set(self, "destination", value)
+
+
+if not MYPY:
+    class ExportRecurrencePeriodArgsDict(TypedDict):
+        """
+        The start and end date for recurrence schedule.
+        """
+        from_: pulumi.Input[str]
+        """
+        The start date of recurrence.
+        """
+        to: NotRequired[pulumi.Input[str]]
+        """
+        The end date of recurrence.
+        """
+elif False:
+    ExportRecurrencePeriodArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExportRecurrencePeriodArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input[str],
+                 to: Optional[pulumi.Input[str]] = None):
+        """
+        The start and end date for recurrence schedule.
+        :param pulumi.Input[str] from_: The start date of recurrence.
+        :param pulumi.Input[str] to: The end date of recurrence.
+        """
+        pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[str]:
+        """
+        The start date of recurrence.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[str]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[str]]:
+        """
+        The end date of recurrence.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "to", value)
+
+
+if not MYPY:
+    class ExportScheduleArgsDict(TypedDict):
+        """
+        The schedule associated with the export.
+        """
+        recurrence: NotRequired[pulumi.Input[Union[str, 'RecurrenceType']]]
+        """
+        The schedule recurrence.
+        """
+        recurrence_period: NotRequired[pulumi.Input['ExportRecurrencePeriodArgsDict']]
+        """
+        Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'StatusType']]]
+        """
+        The status of the export's schedule. If 'Inactive', the export's schedule is paused.
+        """
+elif False:
+    ExportScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExportScheduleArgs:
+    def __init__(__self__, *,
+                 recurrence: Optional[pulumi.Input[Union[str, 'RecurrenceType']]] = None,
+                 recurrence_period: Optional[pulumi.Input['ExportRecurrencePeriodArgs']] = None,
+                 status: Optional[pulumi.Input[Union[str, 'StatusType']]] = None):
+        """
+        The schedule associated with the export.
+        :param pulumi.Input[Union[str, 'RecurrenceType']] recurrence: The schedule recurrence.
+        :param pulumi.Input['ExportRecurrencePeriodArgs'] recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        :param pulumi.Input[Union[str, 'StatusType']] status: The status of the export's schedule. If 'Inactive', the export's schedule is paused.
+        """
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+        if recurrence_period is not None:
+            pulumi.set(__self__, "recurrence_period", recurrence_period)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional[pulumi.Input[Union[str, 'RecurrenceType']]]:
+        """
+        The schedule recurrence.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: Optional[pulumi.Input[Union[str, 'RecurrenceType']]]):
+        pulumi.set(self, "recurrence", value)
+
+    @property
+    @pulumi.getter(name="recurrencePeriod")
+    def recurrence_period(self) -> Optional[pulumi.Input['ExportRecurrencePeriodArgs']]:
+        """
+        Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        """
+        return pulumi.get(self, "recurrence_period")
+
+    @recurrence_period.setter
+    def recurrence_period(self, value: Optional[pulumi.Input['ExportRecurrencePeriodArgs']]):
+        pulumi.set(self, "recurrence_period", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'StatusType']]]:
+        """
+        The status of the export's schedule. If 'Inactive', the export's schedule is paused.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'StatusType']]]):
+        pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class ExportTimePeriodArgsDict(TypedDict):
+        """
+        The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
+        """
+        from_: pulumi.Input[str]
+        """
+        The start date for export data.
+        """
+        to: pulumi.Input[str]
+        """
+        The end date for export data.
+        """
+elif False:
+    ExportTimePeriodArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExportTimePeriodArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input[str],
+                 to: pulumi.Input[str]):
+        """
+        The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
+        :param pulumi.Input[str] from_: The start date for export data.
+        :param pulumi.Input[str] to: The end date for export data.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[str]:
+        """
+        The start date for export data.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[str]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[str]:
+        """
+        The end date for export data.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[str]):
+        pulumi.set(self, "to", value)
+
 
 if not MYPY:
     class KpiPropertiesArgsDict(TypedDict):

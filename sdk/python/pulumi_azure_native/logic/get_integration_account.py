@@ -141,7 +141,7 @@ def get_integration_account(integration_account_name: Optional[str] = None,
     Gets an integration account.
     Azure REST API version: 2019-05-01.
 
-    Other available API versions: 2015-08-01-preview.
+    Other available API versions: 2015-08-01-preview, 2016-06-01, 2018-07-01-preview.
 
 
     :param str integration_account_name: The integration account name.
@@ -169,7 +169,7 @@ def get_integration_account_output(integration_account_name: Optional[pulumi.Inp
     Gets an integration account.
     Azure REST API version: 2019-05-01.
 
-    Other available API versions: 2015-08-01-preview.
+    Other available API versions: 2015-08-01-preview, 2016-06-01, 2018-07-01-preview.
 
 
     :param str integration_account_name: The integration account name.

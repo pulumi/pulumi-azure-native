@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// Represents a migration resource.
-    /// Azure REST API version: 2023-03-01-preview.
+    /// Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
     /// 
-    /// Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    /// Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Migration")]
     public partial class Migration : global::Pulumi.CustomResource
@@ -55,16 +55,34 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// To migrate roles and permissions we need to send this flag as True
+        /// </summary>
+        [Output("migrateRoles")]
+        public Output<string?> MigrateRoles { get; private set; } = null!;
+
+        /// <summary>
         /// ID for migration, a GUID.
         /// </summary>
         [Output("migrationId")]
         public Output<string> MigrationId { get; private set; } = null!;
 
         /// <summary>
+        /// ResourceId of the private endpoint migration instance
+        /// </summary>
+        [Output("migrationInstanceResourceId")]
+        public Output<string?> MigrationInstanceResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// There are two types of migration modes Online and Offline
         /// </summary>
         [Output("migrationMode")]
         public Output<string?> MigrationMode { get; private set; } = null!;
+
+        /// <summary>
+        /// This indicates the supported Migration option for the migration
+        /// </summary>
+        [Output("migrationOption")]
+        public Output<string?> MigrationOption { get; private set; } = null!;
 
         /// <summary>
         /// End time in UTC for migration window
@@ -97,7 +115,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string?> SetupLogicalReplicationOnSourceDbIfNeeded { get; private set; } = null!;
 
         /// <summary>
-        /// Source server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+        /// Source server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
         /// </summary>
         [Output("sourceDbServerFullyQualifiedDomainName")]
         public Output<string?> SourceDbServerFullyQualifiedDomainName { get; private set; } = null!;
@@ -109,10 +127,22 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<Outputs.DbServerMetadataResponse> SourceDbServerMetadata { get; private set; } = null!;
 
         /// <summary>
-        /// ResourceId of the source database server
+        /// ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username
         /// </summary>
         [Output("sourceDbServerResourceId")]
         public Output<string?> SourceDbServerResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+        /// </summary>
+        [Output("sourceType")]
+        public Output<string?> SourceType { get; private set; } = null!;
+
+        /// <summary>
+        /// SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+        /// </summary>
+        [Output("sslMode")]
+        public Output<string?> SslMode { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the data migration should start right away
@@ -133,7 +163,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Target server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+        /// Target server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
         /// </summary>
         [Output("targetDbServerFullyQualifiedDomainName")]
         public Output<string?> TargetDbServerFullyQualifiedDomainName { get; private set; } = null!;
@@ -267,6 +297,18 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// To migrate roles and permissions we need to send this flag as True
+        /// </summary>
+        [Input("migrateRoles")]
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.MigrateRolesEnum>? MigrateRoles { get; set; }
+
+        /// <summary>
+        /// ResourceId of the private endpoint migration instance
+        /// </summary>
+        [Input("migrationInstanceResourceId")]
+        public Input<string>? MigrationInstanceResourceId { get; set; }
+
+        /// <summary>
         /// There are two types of migration modes Online and Offline
         /// </summary>
         [Input("migrationMode")]
@@ -277,6 +319,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         [Input("migrationName")]
         public Input<string>? MigrationName { get; set; }
+
+        /// <summary>
+        /// This indicates the supported Migration option for the migration
+        /// </summary>
+        [Input("migrationOption")]
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.MigrationOption>? MigrationOption { get; set; }
 
         /// <summary>
         /// End time in UTC for migration window
@@ -315,16 +363,28 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.LogicalReplicationOnSourceDbEnum>? SetupLogicalReplicationOnSourceDbIfNeeded { get; set; }
 
         /// <summary>
-        /// Source server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+        /// Source server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
         /// </summary>
         [Input("sourceDbServerFullyQualifiedDomainName")]
         public Input<string>? SourceDbServerFullyQualifiedDomainName { get; set; }
 
         /// <summary>
-        /// ResourceId of the source database server
+        /// ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username
         /// </summary>
         [Input("sourceDbServerResourceId")]
         public Input<string>? SourceDbServerResourceId { get; set; }
+
+        /// <summary>
+        /// migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+        /// </summary>
+        [Input("sourceType")]
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SourceType>? SourceType { get; set; }
+
+        /// <summary>
+        /// SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+        /// </summary>
+        [Input("sslMode")]
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SslMode>? SslMode { get; set; }
 
         /// <summary>
         /// Indicates whether the data migration should start right away
@@ -351,7 +411,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         }
 
         /// <summary>
-        /// Target server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+        /// Target server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
         /// </summary>
         [Input("targetDbServerFullyQualifiedDomainName")]
         public Input<string>? TargetDbServerFullyQualifiedDomainName { get; set; }

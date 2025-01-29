@@ -201,6 +201,8 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
     This operation retrieves a single policy exemption, given its name and the scope it was created at.
     Azure REST API version: 2022-07-01-preview.
 
+    Other available API versions: 2020-07-01-preview.
+
 
     :param str policy_exemption_name: The name of the policy exemption to delete.
     :param str scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
@@ -231,6 +233,8 @@ def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[str
     """
     This operation retrieves a single policy exemption, given its name and the scope it was created at.
     Azure REST API version: 2022-07-01-preview.
+
+    Other available API versions: 2020-07-01-preview.
 
 
     :param str policy_exemption_name: The name of the policy exemption to delete.

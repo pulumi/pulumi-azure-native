@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Workload instance model.
-    /// Azure REST API version: 2022-05-01-preview.
+    /// Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 2.x: 2022-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:WorkloadInstance")]
     public partial class WorkloadInstance : global::Pulumi.CustomResource

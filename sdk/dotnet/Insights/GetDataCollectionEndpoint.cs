@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Definition of ARM tracked top level resource.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2023-03-11.
         /// 
-        /// Other available API versions: 2023-03-11.
+        /// Other available API versions: 2021-04-01, 2021-09-01-preview, 2022-06-01.
         /// </summary>
         public static Task<GetDataCollectionEndpointResult> InvokeAsync(GetDataCollectionEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionEndpointResult>("azure-native:insights:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of ARM tracked top level resource.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2023-03-11.
         /// 
-        /// Other available API versions: 2023-03-11.
+        /// Other available API versions: 2021-04-01, 2021-09-01-preview, 2022-06-01.
         /// </summary>
         public static Output<GetDataCollectionEndpointResult> Invoke(GetDataCollectionEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCollectionEndpointResult>("azure-native:insights:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of ARM tracked top level resource.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2023-03-11.
         /// 
-        /// Other available API versions: 2023-03-11.
+        /// Other available API versions: 2021-04-01, 2021-09-01-preview, 2022-06-01.
         /// </summary>
         public static Output<GetDataCollectionEndpointResult> Invoke(GetDataCollectionEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCollectionEndpointResult>("azure-native:insights:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointInvokeArgs(), options.WithDefaults());

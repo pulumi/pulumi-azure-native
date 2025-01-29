@@ -128,9 +128,9 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the service.
-    Azure REST API version: 2023-02-28.
+    Azure REST API version: 2024-03-31.
 
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+    Other available API versions: 2021-01-11, 2021-06-01-preview, 2021-11-01, 2022-01-31-preview, 2022-05-15, 2022-06-01, 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -158,9 +158,9 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the service.
-    Azure REST API version: 2023-02-28.
+    Azure REST API version: 2024-03-31.
 
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+    Other available API versions: 2021-01-11, 2021-06-01-preview, 2021-11-01, 2022-01-31-preview, 2022-05-15, 2022-06-01, 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

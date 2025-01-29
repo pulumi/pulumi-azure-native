@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// Agent Pool.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01.
+    /// Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// 
-    /// Other available API versions: 2020-06-01, 2021-02-01, 2021-08-01, 2022-04-02-preview, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview.
+    /// Other available API versions: 2019-06-01, 2019-08-01, 2019-10-01, 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource
@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
+
+        /// <summary>
+        /// AKS will associate the specified agent pool with the Capacity Reservation Group.
+        /// </summary>
+        [Output("capacityReservationGroupID")]
+        public Output<string?> CapacityReservationGroupID { get; private set; } = null!;
 
         /// <summary>
         /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
@@ -41,6 +47,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Output("currentOrchestratorVersion")]
         public Output<string> CurrentOrchestratorVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
+        /// </summary>
+        [Output("eTag")]
+        public Output<string> ETag { get; private set; } = null!;
 
         /// <summary>
         /// Whether to enable auto-scaler
@@ -131,6 +143,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Network-related settings of an agent pool.
+        /// </summary>
+        [Output("networkProfile")]
+        public Output<Outputs.AgentPoolNetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
         /// The version of node image
@@ -229,6 +247,12 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<string?> ScaleSetPriority { get; private set; } = null!;
 
         /// <summary>
+        /// The security settings of an agent pool.
+        /// </summary>
+        [Output("securityProfile")]
+        public Output<Outputs.AgentPoolSecurityProfileResponse?> SecurityProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         /// </summary>
         [Output("spotMaxPrice")]
@@ -263,6 +287,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Output("vnetSubnetID")]
         public Output<string?> VnetSubnetID { get; private set; } = null!;
+
+        /// <summary>
+        /// The Windows agent pool's specific profile.
+        /// </summary>
+        [Output("windowsProfile")]
+        public Output<Outputs.AgentPoolWindowsProfileResponse?> WindowsProfile { get; private set; } = null!;
 
         /// <summary>
         /// Determines the type of workload a node can run.
@@ -416,6 +446,12 @@ namespace Pulumi.AzureNative.ContainerService
         }
 
         /// <summary>
+        /// AKS will associate the specified agent pool with the Capacity Reservation Group.
+        /// </summary>
+        [Input("capacityReservationGroupID")]
+        public Input<string>? CapacityReservationGroupID { get; set; }
+
+        /// <summary>
         /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         /// </summary>
         [Input("count")]
@@ -510,6 +546,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.AgentPoolMode>? Mode { get; set; }
+
+        /// <summary>
+        /// Network-related settings of an agent pool.
+        /// </summary>
+        [Input("networkProfile")]
+        public Input<Inputs.AgentPoolNetworkProfileArgs>? NetworkProfile { get; set; }
 
         [Input("nodeLabels")]
         private InputMap<string>? _nodeLabels;
@@ -620,6 +662,12 @@ namespace Pulumi.AzureNative.ContainerService
         public InputUnion<string, Pulumi.AzureNative.ContainerService.ScaleSetPriority>? ScaleSetPriority { get; set; }
 
         /// <summary>
+        /// The security settings of an agent pool.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.AgentPoolSecurityProfileArgs>? SecurityProfile { get; set; }
+
+        /// <summary>
         /// Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         /// </summary>
         [Input("spotMaxPrice")]
@@ -660,6 +708,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("vnetSubnetID")]
         public Input<string>? VnetSubnetID { get; set; }
+
+        /// <summary>
+        /// The Windows agent pool's specific profile.
+        /// </summary>
+        [Input("windowsProfile")]
+        public Input<Inputs.AgentPoolWindowsProfileArgs>? WindowsProfile { get; set; }
 
         /// <summary>
         /// Determines the type of workload a node can run.

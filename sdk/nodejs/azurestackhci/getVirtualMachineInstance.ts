@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a virtual machine instance
- * Azure REST API version: 2023-07-01-preview.
+ * Azure REST API version: 2024-08-01-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-10-01-preview.
  */
 export function getVirtualMachineInstance(args: GetVirtualMachineInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -22,7 +22,7 @@ export function getVirtualMachineInstance(args: GetVirtualMachineInstanceArgs, o
 
 export interface GetVirtualMachineInstanceArgs {
     /**
-     * The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: string;
 }
@@ -42,15 +42,19 @@ export interface GetVirtualMachineInstanceResult {
     /**
      * HardwareProfile - Specifies the hardware settings for the virtual machine instance.
      */
-    readonly hardwareProfile?: outputs.azurestackhci.VirtualMachineInstancePropertiesResponseHardwareProfile;
+    readonly hardwareProfile?: outputs.azurestackhci.VirtualMachineInstancePropertiesHardwareProfileResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * HTTP Proxy configuration for the VM.
+     */
+    readonly httpProxyConfig?: outputs.azurestackhci.HttpProxyConfigurationResponse;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Identity for the resource.
+     * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.azurestackhci.IdentityResponse;
+    readonly identity?: outputs.azurestackhci.ManagedServiceIdentityResponse;
     /**
      * The virtual machine instance view.
      */
@@ -62,11 +66,11 @@ export interface GetVirtualMachineInstanceResult {
     /**
      * NetworkProfile - describes the network configuration the virtual machine instance
      */
-    readonly networkProfile?: outputs.azurestackhci.VirtualMachineInstancePropertiesResponseNetworkProfile;
+    readonly networkProfile?: outputs.azurestackhci.VirtualMachineInstancePropertiesNetworkProfileResponse;
     /**
      * OsProfile - describes the configuration of the operating system and sets login data
      */
-    readonly osProfile?: outputs.azurestackhci.VirtualMachineInstancePropertiesResponseOsProfile;
+    readonly osProfile?: outputs.azurestackhci.VirtualMachineInstancePropertiesOsProfileResponse;
     /**
      * Provisioning state of the virtual machine instance.
      */
@@ -78,7 +82,7 @@ export interface GetVirtualMachineInstanceResult {
     /**
      * SecurityProfile - Specifies the security settings for the virtual machine instance.
      */
-    readonly securityProfile?: outputs.azurestackhci.VirtualMachineInstancePropertiesResponseSecurityProfile;
+    readonly securityProfile?: outputs.azurestackhci.VirtualMachineInstancePropertiesSecurityProfileResponse;
     /**
      * The observed state of virtual machine instances
      */
@@ -86,7 +90,7 @@ export interface GetVirtualMachineInstanceResult {
     /**
      * StorageProfile - contains information about the disks and storage information for the virtual machine instance
      */
-    readonly storageProfile?: outputs.azurestackhci.VirtualMachineInstancePropertiesResponseStorageProfile;
+    readonly storageProfile?: outputs.azurestackhci.VirtualMachineInstancePropertiesStorageProfileResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -102,9 +106,9 @@ export interface GetVirtualMachineInstanceResult {
 }
 /**
  * Gets a virtual machine instance
- * Azure REST API version: 2023-07-01-preview.
+ * Azure REST API version: 2024-08-01-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-10-01-preview.
  */
 export function getVirtualMachineInstanceOutput(args: GetVirtualMachineInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -115,7 +119,7 @@ export function getVirtualMachineInstanceOutput(args: GetVirtualMachineInstanceO
 
 export interface GetVirtualMachineInstanceOutputArgs {
     /**
-     * The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
 }

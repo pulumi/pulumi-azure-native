@@ -50,6 +50,8 @@ utilities.lazyLoad(exports, ["SharedPrivateLinkResource"], () => require("./shar
 export * from "../types/enums/search";
 
 // Export sub-modules:
+import * as v20200801 from "./v20200801";
+import * as v20200801preview from "./v20200801preview";
 import * as v20210401preview from "./v20210401preview";
 import * as v20220901 from "./v20220901";
 import * as v20231101 from "./v20231101";
@@ -58,6 +60,8 @@ import * as v20240601preview from "./v20240601preview";
 import * as v20250201preview from "./v20250201preview";
 
 export {
+    v20200801,
+    v20200801preview,
     v20210401preview,
     v20220901,
     v20231101,

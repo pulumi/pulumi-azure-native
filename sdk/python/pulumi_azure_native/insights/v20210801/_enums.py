@@ -5,9 +5,31 @@
 from enum import Enum
 
 __all__ = [
+    'ConditionOperator',
+    'DimensionOperator',
     'Kind',
     'ManagedServiceIdentityType',
+    'TimeAggregation',
 ]
+
+
+class ConditionOperator(str, Enum):
+    """
+    The criteria operator. Relevant and required only for rules of the kind LogAlert.
+    """
+    EQUALS = "Equals"
+    GREATER_THAN = "GreaterThan"
+    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
+    LESS_THAN = "LessThan"
+    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
+
+
+class DimensionOperator(str, Enum):
+    """
+    Operator for dimension values
+    """
+    INCLUDE = "Include"
+    EXCLUDE = "Exclude"
 
 
 class Kind(str, Enum):
@@ -26,3 +48,14 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class TimeAggregation(str, Enum):
+    """
+    Aggregation type. Relevant and required only for rules of the kind LogAlert.
+    """
+    COUNT = "Count"
+    AVERAGE = "Average"
+    MINIMUM = "Minimum"
+    MAXIMUM = "Maximum"
+    TOTAL = "Total"

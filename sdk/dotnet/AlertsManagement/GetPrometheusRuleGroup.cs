@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// Retrieve a Prometheus rule group definition.
         /// Azure REST API version: 2023-03-01.
+        /// 
+        /// Other available API versions: 2021-07-22-preview.
         /// </summary>
         public static Task<GetPrometheusRuleGroupResult> InvokeAsync(GetPrometheusRuleGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrometheusRuleGroupResult>("azure-native:alertsmanagement:getPrometheusRuleGroup", args ?? new GetPrometheusRuleGroupArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// Retrieve a Prometheus rule group definition.
         /// Azure REST API version: 2023-03-01.
+        /// 
+        /// Other available API versions: 2021-07-22-preview.
         /// </summary>
         public static Output<GetPrometheusRuleGroupResult> Invoke(GetPrometheusRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrometheusRuleGroupResult>("azure-native:alertsmanagement:getPrometheusRuleGroup", args ?? new GetPrometheusRuleGroupInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// Retrieve a Prometheus rule group definition.
         /// Azure REST API version: 2023-03-01.
+        /// 
+        /// Other available API versions: 2021-07-22-preview.
         /// </summary>
         public static Output<GetPrometheusRuleGroupResult> Invoke(GetPrometheusRuleGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrometheusRuleGroupResult>("azure-native:alertsmanagement:getPrometheusRuleGroup", args ?? new GetPrometheusRuleGroupInvokeArgs(), options.WithDefaults());

@@ -43,7 +43,7 @@ class IotHubDataConnectionArgs:
         :param pulumi.Input[str] iot_hub_resource_id: The resource ID of the Iot hub to be used to create a data connection.
         :param pulumi.Input[str] kind: Kind of the endpoint for the data connection
                Expected value is 'IotHub'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] shared_access_policy_name: The name of the share access policy
         :param pulumi.Input[str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[str, 'IotHubDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
@@ -145,7 +145,7 @@ class IotHubDataConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Kusto cluster.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -285,7 +285,7 @@ class IotHubDataConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing an iot hub data connection.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -301,7 +301,7 @@ class IotHubDataConnection(pulumi.CustomResource):
                Expected value is 'IotHub'.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] retrieval_start_date: When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
         :param pulumi.Input[str] shared_access_policy_name: The name of the share access policy
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
@@ -314,7 +314,7 @@ class IotHubDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an iot hub data connection.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param IotHubDataConnectionArgs args: The arguments to use to populate this resource's properties.

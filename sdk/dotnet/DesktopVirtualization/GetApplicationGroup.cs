@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get an application group.
-        /// Azure REST API version: 2022-09-09.
+        /// Azure REST API version: 2024-04-03.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Other available API versions: 2021-01-14-preview, 2021-02-01-preview, 2021-03-09-preview, 2021-04-01-preview, 2021-07-12, 2021-09-03-preview, 2022-02-10-preview, 2022-04-01-preview, 2022-09-09, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview.
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:desktopvirtualization:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an application group.
-        /// Azure REST API version: 2022-09-09.
+        /// Azure REST API version: 2024-04-03.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Other available API versions: 2021-01-14-preview, 2021-02-01-preview, 2021-03-09-preview, 2021-04-01-preview, 2021-07-12, 2021-09-03-preview, 2022-02-10-preview, 2022-04-01-preview, 2022-09-09, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview.
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:desktopvirtualization:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an application group.
-        /// Azure REST API version: 2022-09-09.
+        /// Azure REST API version: 2024-04-03.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Other available API versions: 2021-01-14-preview, 2021-02-01-preview, 2021-03-09-preview, 2021-04-01-preview, 2021-07-12, 2021-09-03-preview, 2022-02-10-preview, 2022-04-01-preview, 2022-09-09, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview.
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:desktopvirtualization:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());
@@ -109,18 +109,18 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string HostPoolArmPath;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? Identity;
         /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
         /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         /// </summary>
@@ -134,9 +134,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string ObjectId;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
+        /// <summary>
+        /// Boolean representing whether the applicationGroup is show in the feed.
+        /// </summary>
+        public readonly bool? ShowInFeed;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -172,7 +176,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string? kind,
 
-            string? location,
+            string location,
 
             string? managedBy,
 
@@ -181,6 +185,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             string objectId,
 
             Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
+
+            bool? showInFeed,
 
             Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
@@ -206,6 +212,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             Name = name;
             ObjectId = objectId;
             Plan = plan;
+            ShowInFeed = showInFeed;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;

@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * An application package which represents a particular version of an application.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-05-01.
  *
- * Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+ * Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01, 2022-10-01, 2023-05-01, 2023-11-01, 2024-02-01.
  */
 export class ApplicationPackage extends pulumi.CustomResource {
     /**
@@ -66,6 +66,10 @@ export class ApplicationPackage extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageUrlExpiry!: pulumi.Output<string>;
     /**
+     * The tags of the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class ApplicationPackage extends pulumi.CustomResource {
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["versionName"] = args ? args.versionName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["format"] = undefined /*out*/;
@@ -110,6 +115,7 @@ export class ApplicationPackage extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["storageUrl"] = undefined /*out*/;
             resourceInputs["storageUrlExpiry"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -135,6 +141,10 @@ export interface ApplicationPackageArgs {
      * The name of the resource group that contains the Batch account.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The tags of the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The version of the application.
      */

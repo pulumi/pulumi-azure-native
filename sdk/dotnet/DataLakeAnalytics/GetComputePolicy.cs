@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// Gets the specified Data Lake Analytics compute policy.
         /// Azure REST API version: 2019-11-01-preview.
+        /// 
+        /// Other available API versions: 2016-11-01.
         /// </summary>
         public static Task<GetComputePolicyResult> InvokeAsync(GetComputePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputePolicyResult>("azure-native:datalakeanalytics:getComputePolicy", args ?? new GetComputePolicyArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// Gets the specified Data Lake Analytics compute policy.
         /// Azure REST API version: 2019-11-01-preview.
+        /// 
+        /// Other available API versions: 2016-11-01.
         /// </summary>
         public static Output<GetComputePolicyResult> Invoke(GetComputePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputePolicyResult>("azure-native:datalakeanalytics:getComputePolicy", args ?? new GetComputePolicyInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// Gets the specified Data Lake Analytics compute policy.
         /// Azure REST API version: 2019-11-01-preview.
+        /// 
+        /// Other available API versions: 2016-11-01.
         /// </summary>
         public static Output<GetComputePolicyResult> Invoke(GetComputePolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputePolicyResult>("azure-native:datalakeanalytics:getComputePolicy", args ?? new GetComputePolicyInvokeArgs(), options.WithDefaults());

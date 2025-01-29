@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a user rule.
  * Azure REST API version: 2022-04-01-preview.
  *
- * Other available API versions: 2021-05-01-preview.
+ * Other available API versions: 2021-02-01-preview, 2022-02-01-preview.
  */
 export function getUserRule(args: GetUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -113,7 +113,7 @@ export interface GetUserRuleResult {
  * Gets a user rule.
  * Azure REST API version: 2022-04-01-preview.
  *
- * Other available API versions: 2021-05-01-preview.
+ * Other available API versions: 2021-02-01-preview, 2022-02-01-preview.
  */
 export function getUserRuleOutput(args: GetUserRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

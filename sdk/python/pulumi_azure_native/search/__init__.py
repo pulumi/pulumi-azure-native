@@ -19,6 +19,10 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.search.v20200801 as __v20200801
+    v20200801 = __v20200801
+    import pulumi_azure_native.search.v20200801preview as __v20200801preview
+    v20200801preview = __v20200801preview
     import pulumi_azure_native.search.v20210401preview as __v20210401preview
     v20210401preview = __v20210401preview
     import pulumi_azure_native.search.v20220901 as __v20220901
@@ -32,6 +36,8 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.search.v20250201preview as __v20250201preview
     v20250201preview = __v20250201preview
 else:
+    v20200801 = _utilities.lazy_import('pulumi_azure_native.search.v20200801')
+    v20200801preview = _utilities.lazy_import('pulumi_azure_native.search.v20200801preview')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.search.v20210401preview')
     v20220901 = _utilities.lazy_import('pulumi_azure_native.search.v20220901')
     v20231101 = _utilities.lazy_import('pulumi_azure_native.search.v20231101')

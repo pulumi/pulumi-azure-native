@@ -106,6 +106,8 @@ def get_edge_module(account_name: Optional[str] = None,
     Retrieves an existing edge module resource with the given name.
     Azure REST API version: 2021-11-01-preview.
 
+    Other available API versions: 2021-05-01-preview.
+
 
     :param str account_name: The Azure Video Analyzer account name.
     :param str edge_module_name: The Edge Module name.
@@ -131,6 +133,8 @@ def get_edge_module_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves an existing edge module resource with the given name.
     Azure REST API version: 2021-11-01-preview.
+
+    Other available API versions: 2021-05-01-preview.
 
 
     :param str account_name: The Azure Video Analyzer account name.

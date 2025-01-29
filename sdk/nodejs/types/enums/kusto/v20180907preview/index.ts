@@ -2,6 +2,31 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AzureSkuName = {
+    KC8: "KC8",
+    KC16: "KC16",
+    KS8: "KS8",
+    KS16: "KS16",
+    D13_v2: "D13_v2",
+    D14_v2: "D14_v2",
+    L8: "L8",
+    L16: "L16",
+} as const;
+
+/**
+ * SKU name.
+ */
+export type AzureSkuName = (typeof AzureSkuName)[keyof typeof AzureSkuName];
+
+export const AzureSkuTier = {
+    Standard: "Standard",
+} as const;
+
+/**
+ * SKU tier.
+ */
+export type AzureSkuTier = (typeof AzureSkuTier)[keyof typeof AzureSkuTier];
+
 export const DataFormat = {
     MULTIJSON: "MULTIJSON",
     JSON: "JSON",

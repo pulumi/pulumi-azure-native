@@ -141,6 +141,8 @@ def get_integration_account_session(integration_account_name: Optional[str] = No
     Gets an integration account session.
     Azure REST API version: 2019-05-01.
 
+    Other available API versions: 2018-07-01-preview.
+
 
     :param str integration_account_name: The integration account name.
     :param str resource_group_name: The resource group name.
@@ -169,6 +171,8 @@ def get_integration_account_session_output(integration_account_name: Optional[pu
     """
     Gets an integration account session.
     Azure REST API version: 2019-05-01.
+
+    Other available API versions: 2018-07-01-preview.
 
 
     :param str integration_account_name: The integration account name.

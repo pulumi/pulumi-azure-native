@@ -42,6 +42,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? TimeZone;
         /// <summary>
+        /// Retention policy with the details on hardened backup copy retention ranges.
+        /// </summary>
+        public readonly Outputs.VaultRetentionPolicyResponse? VaultRetentionPolicy;
+        /// <summary>
         /// Type of workload for the backup management
         /// </summary>
         public readonly string? WorkLoadType;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? timeZone,
 
+            Outputs.VaultRetentionPolicyResponse? vaultRetentionPolicy,
+
             string? workLoadType)
         {
             BackupManagementType = backupManagementType;
@@ -68,6 +74,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             RetentionPolicy = retentionPolicy;
             SchedulePolicy = schedulePolicy;
             TimeZone = timeZone;
+            VaultRetentionPolicy = vaultRetentionPolicy;
             WorkLoadType = workLoadType;
         }
     }

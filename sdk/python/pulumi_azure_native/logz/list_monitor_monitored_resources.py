@@ -69,6 +69,8 @@ def list_monitor_monitored_resources(monitor_name: Optional[str] = None,
     Response of a list operation.
     Azure REST API version: 2022-01-01-preview.
 
+    Other available API versions: 2020-10-01, 2020-10-01-preview.
+
 
     :param str monitor_name: Monitor resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -88,6 +90,8 @@ def list_monitor_monitored_resources_output(monitor_name: Optional[pulumi.Input[
     """
     Response of a list operation.
     Azure REST API version: 2022-01-01-preview.
+
+    Other available API versions: 2020-10-01, 2020-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name

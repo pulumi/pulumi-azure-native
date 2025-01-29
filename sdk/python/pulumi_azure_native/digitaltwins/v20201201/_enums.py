@@ -5,8 +5,37 @@
 from enum import Enum
 
 __all__ = [
+    'AuthenticationType',
+    'DigitalTwinsIdentityType',
+    'EndpointType',
     'PrivateLinkServiceConnectionStatus',
+    'PublicNetworkAccess',
 ]
+
+
+class AuthenticationType(str, Enum):
+    """
+    Specifies the authentication type being used for connecting to the endpoint.
+    """
+    KEY_BASED = "KeyBased"
+    IDENTITY_BASED = "IdentityBased"
+
+
+class DigitalTwinsIdentityType(str, Enum):
+    """
+    The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class EndpointType(str, Enum):
+    """
+    The type of Digital Twins endpoint
+    """
+    EVENT_HUB = "EventHub"
+    EVENT_GRID = "EventGrid"
+    SERVICE_BUS = "ServiceBus"
 
 
 class PrivateLinkServiceConnectionStatus(str, Enum):
@@ -17,3 +46,11 @@ class PrivateLinkServiceConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Public network access for the DigitalTwinsInstance.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"

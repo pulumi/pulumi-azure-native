@@ -121,6 +121,8 @@ def list_integration_account_map_content_callback_url(integration_account_name: 
     Get the content callback url.
     Azure REST API version: 2019-05-01.
 
+    Other available API versions: 2018-07-01-preview.
+
 
     :param str integration_account_name: The integration account name.
     :param Union[str, 'KeyType'] key_type: The key type.
@@ -153,6 +155,8 @@ def list_integration_account_map_content_callback_url_output(integration_account
     """
     Get the content callback url.
     Azure REST API version: 2019-05-01.
+
+    Other available API versions: 2018-07-01-preview.
 
 
     :param str integration_account_name: The integration account name.

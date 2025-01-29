@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the gallery image version that you want to create or update.
-    /// Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
+    /// Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
     /// 
-    /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    /// Other available API versions: 2020-09-30, 2021-07-01, 2021-10-01, 2022-01-03, 2022-03-03, 2022-08-03, 2023-07-03.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryImageVersion")]
     public partial class GalleryImageVersion : global::Pulumi.CustomResource
@@ -49,10 +49,22 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.ReplicationStatusResponse> ReplicationStatus { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates if this is a soft-delete resource restoration request.
+        /// </summary>
+        [Output("restore")]
+        public Output<bool?> Restore { get; private set; } = null!;
+
+        /// <summary>
         /// This is the safety profile of the Gallery Image Version.
         /// </summary>
         [Output("safetyProfile")]
         public Output<Outputs.GalleryImageVersionSafetyProfileResponse?> SafetyProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The security profile of a gallery image version
+        /// </summary>
+        [Output("securityProfile")]
+        public Output<Outputs.ImageVersionSecurityProfileResponse?> SecurityProfile { get; private set; } = null!;
 
         /// <summary>
         /// This is the storage profile of a Gallery Image Version.
@@ -71,6 +83,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// This is the validations profile of a Gallery Image Version.
+        /// </summary>
+        [Output("validationsProfile")]
+        public Output<Outputs.ValidationsProfileResponse> ValidationsProfile { get; private set; } = null!;
 
 
         /// <summary>
@@ -169,10 +187,22 @@ namespace Pulumi.AzureNative.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Indicates if this is a soft-delete resource restoration request.
+        /// </summary>
+        [Input("restore")]
+        public Input<bool>? Restore { get; set; }
+
+        /// <summary>
         /// This is the safety profile of the Gallery Image Version.
         /// </summary>
         [Input("safetyProfile")]
         public Input<Inputs.GalleryImageVersionSafetyProfileArgs>? SafetyProfile { get; set; }
+
+        /// <summary>
+        /// The security profile of a gallery image version
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.ImageVersionSecurityProfileArgs>? SecurityProfile { get; set; }
 
         /// <summary>
         /// This is the storage profile of a Gallery Image Version.

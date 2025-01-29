@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties of a lab resource.
- * Azure REST API version: 2022-08-01.
+ * Azure REST API version: 2023-06-07.
  *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,6 +73,10 @@ export interface GetLabResult {
      */
     readonly provisioningState: string;
     /**
+     * Error details of last operation done on lab.
+     */
+    readonly resourceOperationError: outputs.labservices.ResourceOperationErrorResponse;
+    /**
      * The lab user list management profile.
      */
     readonly rosterProfile?: outputs.labservices.RosterProfileResponse;
@@ -107,9 +111,9 @@ export interface GetLabResult {
 }
 /**
  * Returns the properties of a lab resource.
- * Azure REST API version: 2022-08-01.
+ * Azure REST API version: 2023-06-07.
  *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01.
  */
 export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -16,13 +16,173 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AllowlistCustomAlertRuleArgs',
+    'AllowlistCustomAlertRuleArgsDict',
+    'DenylistCustomAlertRuleArgs',
+    'DenylistCustomAlertRuleArgsDict',
     'RecommendationConfigurationPropertiesArgs',
     'RecommendationConfigurationPropertiesArgsDict',
+    'ThresholdCustomAlertRuleArgs',
+    'ThresholdCustomAlertRuleArgsDict',
+    'TimeWindowCustomAlertRuleArgs',
+    'TimeWindowCustomAlertRuleArgsDict',
     'UserDefinedResourcesPropertiesArgs',
     'UserDefinedResourcesPropertiesArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AllowlistCustomAlertRuleArgsDict(TypedDict):
+        """
+        A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+        """
+        allowlist_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The values to allow. The format of the values depends on the rule type.
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        Status of the custom alert.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of the custom alert rule.
+        Expected value is 'AllowlistCustomAlertRule'.
+        """
+elif False:
+    AllowlistCustomAlertRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AllowlistCustomAlertRuleArgs:
+    def __init__(__self__, *,
+                 allowlist_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 is_enabled: pulumi.Input[bool],
+                 rule_type: pulumi.Input[str]):
+        """
+        A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowlist_values: The values to allow. The format of the values depends on the rule type.
+        :param pulumi.Input[bool] is_enabled: Status of the custom alert.
+        :param pulumi.Input[str] rule_type: The type of the custom alert rule.
+               Expected value is 'AllowlistCustomAlertRule'.
+        """
+        pulumi.set(__self__, "allowlist_values", allowlist_values)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "rule_type", 'AllowlistCustomAlertRule')
+
+    @property
+    @pulumi.getter(name="allowlistValues")
+    def allowlist_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The values to allow. The format of the values depends on the rule type.
+        """
+        return pulumi.get(self, "allowlist_values")
+
+    @allowlist_values.setter
+    def allowlist_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowlist_values", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        Status of the custom alert.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> pulumi.Input[str]:
+        """
+        The type of the custom alert rule.
+        Expected value is 'AllowlistCustomAlertRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_type", value)
+
+
+if not MYPY:
+    class DenylistCustomAlertRuleArgsDict(TypedDict):
+        """
+        A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+        """
+        denylist_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The values to deny. The format of the values depends on the rule type.
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        Status of the custom alert.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of the custom alert rule.
+        Expected value is 'DenylistCustomAlertRule'.
+        """
+elif False:
+    DenylistCustomAlertRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DenylistCustomAlertRuleArgs:
+    def __init__(__self__, *,
+                 denylist_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 is_enabled: pulumi.Input[bool],
+                 rule_type: pulumi.Input[str]):
+        """
+        A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] denylist_values: The values to deny. The format of the values depends on the rule type.
+        :param pulumi.Input[bool] is_enabled: Status of the custom alert.
+        :param pulumi.Input[str] rule_type: The type of the custom alert rule.
+               Expected value is 'DenylistCustomAlertRule'.
+        """
+        pulumi.set(__self__, "denylist_values", denylist_values)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "rule_type", 'DenylistCustomAlertRule')
+
+    @property
+    @pulumi.getter(name="denylistValues")
+    def denylist_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The values to deny. The format of the values depends on the rule type.
+        """
+        return pulumi.get(self, "denylist_values")
+
+    @denylist_values.setter
+    def denylist_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "denylist_values", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        Status of the custom alert.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> pulumi.Input[str]:
+        """
+        The type of the custom alert rule.
+        Expected value is 'DenylistCustomAlertRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_type", value)
+
 
 if not MYPY:
     class RecommendationConfigurationPropertiesArgsDict(TypedDict):
@@ -78,6 +238,215 @@ class RecommendationConfigurationPropertiesArgs:
     @status.setter
     def status(self, value: pulumi.Input[Union[str, 'RecommendationConfigStatus']]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class ThresholdCustomAlertRuleArgsDict(TypedDict):
+        """
+        A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        Status of the custom alert.
+        """
+        max_threshold: pulumi.Input[int]
+        """
+        The maximum threshold.
+        """
+        min_threshold: pulumi.Input[int]
+        """
+        The minimum threshold.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of the custom alert rule.
+        Expected value is 'ThresholdCustomAlertRule'.
+        """
+elif False:
+    ThresholdCustomAlertRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ThresholdCustomAlertRuleArgs:
+    def __init__(__self__, *,
+                 is_enabled: pulumi.Input[bool],
+                 max_threshold: pulumi.Input[int],
+                 min_threshold: pulumi.Input[int],
+                 rule_type: pulumi.Input[str]):
+        """
+        A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+        :param pulumi.Input[bool] is_enabled: Status of the custom alert.
+        :param pulumi.Input[int] max_threshold: The maximum threshold.
+        :param pulumi.Input[int] min_threshold: The minimum threshold.
+        :param pulumi.Input[str] rule_type: The type of the custom alert rule.
+               Expected value is 'ThresholdCustomAlertRule'.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "max_threshold", max_threshold)
+        pulumi.set(__self__, "min_threshold", min_threshold)
+        pulumi.set(__self__, "rule_type", 'ThresholdCustomAlertRule')
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        Status of the custom alert.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="maxThreshold")
+    def max_threshold(self) -> pulumi.Input[int]:
+        """
+        The maximum threshold.
+        """
+        return pulumi.get(self, "max_threshold")
+
+    @max_threshold.setter
+    def max_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_threshold", value)
+
+    @property
+    @pulumi.getter(name="minThreshold")
+    def min_threshold(self) -> pulumi.Input[int]:
+        """
+        The minimum threshold.
+        """
+        return pulumi.get(self, "min_threshold")
+
+    @min_threshold.setter
+    def min_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min_threshold", value)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> pulumi.Input[str]:
+        """
+        The type of the custom alert rule.
+        Expected value is 'ThresholdCustomAlertRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_type", value)
+
+
+if not MYPY:
+    class TimeWindowCustomAlertRuleArgsDict(TypedDict):
+        """
+        A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+        """
+        is_enabled: pulumi.Input[bool]
+        """
+        Status of the custom alert.
+        """
+        max_threshold: pulumi.Input[int]
+        """
+        The maximum threshold.
+        """
+        min_threshold: pulumi.Input[int]
+        """
+        The minimum threshold.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        The type of the custom alert rule.
+        Expected value is 'TimeWindowCustomAlertRule'.
+        """
+        time_window_size: pulumi.Input[str]
+        """
+        The time window size in iso8601 format.
+        """
+elif False:
+    TimeWindowCustomAlertRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TimeWindowCustomAlertRuleArgs:
+    def __init__(__self__, *,
+                 is_enabled: pulumi.Input[bool],
+                 max_threshold: pulumi.Input[int],
+                 min_threshold: pulumi.Input[int],
+                 rule_type: pulumi.Input[str],
+                 time_window_size: pulumi.Input[str]):
+        """
+        A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+        :param pulumi.Input[bool] is_enabled: Status of the custom alert.
+        :param pulumi.Input[int] max_threshold: The maximum threshold.
+        :param pulumi.Input[int] min_threshold: The minimum threshold.
+        :param pulumi.Input[str] rule_type: The type of the custom alert rule.
+               Expected value is 'TimeWindowCustomAlertRule'.
+        :param pulumi.Input[str] time_window_size: The time window size in iso8601 format.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "max_threshold", max_threshold)
+        pulumi.set(__self__, "min_threshold", min_threshold)
+        pulumi.set(__self__, "rule_type", 'TimeWindowCustomAlertRule')
+        pulumi.set(__self__, "time_window_size", time_window_size)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        Status of the custom alert.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="maxThreshold")
+    def max_threshold(self) -> pulumi.Input[int]:
+        """
+        The maximum threshold.
+        """
+        return pulumi.get(self, "max_threshold")
+
+    @max_threshold.setter
+    def max_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_threshold", value)
+
+    @property
+    @pulumi.getter(name="minThreshold")
+    def min_threshold(self) -> pulumi.Input[int]:
+        """
+        The minimum threshold.
+        """
+        return pulumi.get(self, "min_threshold")
+
+    @min_threshold.setter
+    def min_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min_threshold", value)
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> pulumi.Input[str]:
+        """
+        The type of the custom alert rule.
+        Expected value is 'TimeWindowCustomAlertRule'.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @rule_type.setter
+    def rule_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_type", value)
+
+    @property
+    @pulumi.getter(name="timeWindowSize")
+    def time_window_size(self) -> pulumi.Input[str]:
+        """
+        The time window size in iso8601 format.
+        """
+        return pulumi.get(self, "time_window_size")
+
+    @time_window_size.setter
+    def time_window_size(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_window_size", value)
 
 
 if not MYPY:

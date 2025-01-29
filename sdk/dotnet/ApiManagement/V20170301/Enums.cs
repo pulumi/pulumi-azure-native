@@ -68,6 +68,139 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct AuthorizationMethod : IEquatable<AuthorizationMethod>
+    {
+        private readonly string _value;
+
+        private AuthorizationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthorizationMethod HEAD { get; } = new AuthorizationMethod("HEAD");
+        public static AuthorizationMethod OPTIONS { get; } = new AuthorizationMethod("OPTIONS");
+        public static AuthorizationMethod TRACE { get; } = new AuthorizationMethod("TRACE");
+        public static AuthorizationMethod GET { get; } = new AuthorizationMethod("GET");
+        public static AuthorizationMethod POST { get; } = new AuthorizationMethod("POST");
+        public static AuthorizationMethod PUT { get; } = new AuthorizationMethod("PUT");
+        public static AuthorizationMethod PATCH { get; } = new AuthorizationMethod("PATCH");
+        public static AuthorizationMethod DELETE { get; } = new AuthorizationMethod("DELETE");
+
+        public static bool operator ==(AuthorizationMethod left, AuthorizationMethod right) => left.Equals(right);
+        public static bool operator !=(AuthorizationMethod left, AuthorizationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(AuthorizationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthorizationMethod other && Equals(other);
+        public bool Equals(AuthorizationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Backend communication protocol.
+    /// </summary>
+    [EnumType]
+    public readonly struct BackendProtocol : IEquatable<BackendProtocol>
+    {
+        private readonly string _value;
+
+        private BackendProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The Backend is a RESTful service.
+        /// </summary>
+        public static BackendProtocol Http { get; } = new BackendProtocol("http");
+        /// <summary>
+        /// The Backend is a SOAP service.
+        /// </summary>
+        public static BackendProtocol Soap { get; } = new BackendProtocol("soap");
+
+        public static bool operator ==(BackendProtocol left, BackendProtocol right) => left.Equals(right);
+        public static bool operator !=(BackendProtocol left, BackendProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(BackendProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackendProtocol other && Equals(other);
+        public bool Equals(BackendProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct BearerTokenSendingMethod : IEquatable<BearerTokenSendingMethod>
+    {
+        private readonly string _value;
+
+        private BearerTokenSendingMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BearerTokenSendingMethod AuthorizationHeader { get; } = new BearerTokenSendingMethod("authorizationHeader");
+        public static BearerTokenSendingMethod Query { get; } = new BearerTokenSendingMethod("query");
+
+        public static bool operator ==(BearerTokenSendingMethod left, BearerTokenSendingMethod right) => left.Equals(right);
+        public static bool operator !=(BearerTokenSendingMethod left, BearerTokenSendingMethod right) => !left.Equals(right);
+
+        public static explicit operator string(BearerTokenSendingMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BearerTokenSendingMethod other && Equals(other);
+        public bool Equals(BearerTokenSendingMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ClientAuthenticationMethod : IEquatable<ClientAuthenticationMethod>
+    {
+        private readonly string _value;
+
+        private ClientAuthenticationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Basic Client Authentication method.
+        /// </summary>
+        public static ClientAuthenticationMethod Basic { get; } = new ClientAuthenticationMethod("Basic");
+        /// <summary>
+        /// Body based Authentication method.
+        /// </summary>
+        public static ClientAuthenticationMethod Body { get; } = new ClientAuthenticationMethod("Body");
+
+        public static bool operator ==(ClientAuthenticationMethod left, ClientAuthenticationMethod right) => left.Equals(right);
+        public static bool operator !=(ClientAuthenticationMethod left, ClientAuthenticationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(ClientAuthenticationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClientAuthenticationMethod other && Equals(other);
+        public bool Equals(ClientAuthenticationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Determines the type of confirmation e-mail that will be sent to the newly created user.
     /// </summary>
@@ -158,6 +291,80 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct GrantType : IEquatable<GrantType>
+    {
+        private readonly string _value;
+
+        private GrantType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Authorization Code Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.1.
+        /// </summary>
+        public static GrantType AuthorizationCode { get; } = new GrantType("authorizationCode");
+        /// <summary>
+        /// Implicit Code Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.2.
+        /// </summary>
+        public static GrantType @Implicit { get; } = new GrantType("implicit");
+        /// <summary>
+        /// Resource Owner Password Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.3.
+        /// </summary>
+        public static GrantType ResourceOwnerPassword { get; } = new GrantType("resourceOwnerPassword");
+        /// <summary>
+        /// Client Credentials Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.4.
+        /// </summary>
+        public static GrantType ClientCredentials { get; } = new GrantType("clientCredentials");
+
+        public static bool operator ==(GrantType left, GrantType right) => left.Equals(right);
+        public static bool operator !=(GrantType left, GrantType right) => !left.Equals(right);
+
+        public static explicit operator string(GrantType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GrantType other && Equals(other);
+        public bool Equals(GrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Group type.
+    /// </summary>
+    [EnumType]
+    public readonly struct GroupType : IEquatable<GroupType>
+    {
+        private readonly string _value;
+
+        private GroupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GroupType Custom { get; } = new GroupType("custom");
+        public static GroupType System { get; } = new GroupType("system");
+        public static GroupType External { get; } = new GroupType("external");
+
+        public static bool operator ==(GroupType left, GroupType right) => left.Equals(right);
+        public static bool operator !=(GroupType left, GroupType right) => !left.Equals(right);
+
+        public static explicit operator string(GroupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GroupType other && Equals(other);
+        public bool Equals(GroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Hostname type.
     /// </summary>
@@ -184,6 +391,59 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HostnameType other && Equals(other);
         public bool Equals(HostnameType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Identity Provider Type identifier.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityProviderType : IEquatable<IdentityProviderType>
+    {
+        private readonly string _value;
+
+        private IdentityProviderType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Facebook as Identity provider.
+        /// </summary>
+        public static IdentityProviderType Facebook { get; } = new IdentityProviderType("facebook");
+        /// <summary>
+        /// Google as Identity provider.
+        /// </summary>
+        public static IdentityProviderType Google { get; } = new IdentityProviderType("google");
+        /// <summary>
+        /// Microsoft Live as Identity provider.
+        /// </summary>
+        public static IdentityProviderType Microsoft { get; } = new IdentityProviderType("microsoft");
+        /// <summary>
+        /// Twitter as Identity provider.
+        /// </summary>
+        public static IdentityProviderType Twitter { get; } = new IdentityProviderType("twitter");
+        /// <summary>
+        /// Azure Active Directory as Identity provider.
+        /// </summary>
+        public static IdentityProviderType Aad { get; } = new IdentityProviderType("aad");
+        /// <summary>
+        /// Azure Active Directory B2C as Identity provider.
+        /// </summary>
+        public static IdentityProviderType AadB2C { get; } = new IdentityProviderType("aadB2C");
+
+        public static bool operator ==(IdentityProviderType left, IdentityProviderType right) => left.Equals(right);
+        public static bool operator !=(IdentityProviderType left, IdentityProviderType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityProviderType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityProviderType other && Equals(other);
+        public bool Equals(IdentityProviderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -252,6 +512,37 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LoggerType other && Equals(other);
         public bool Equals(LoggerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProductState : IEquatable<ProductState>
+    {
+        private readonly string _value;
+
+        private ProductState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProductState NotPublished { get; } = new ProductState("notPublished");
+        public static ProductState Published { get; } = new ProductState("published");
+
+        public static bool operator ==(ProductState left, ProductState right) => left.Equals(right);
+        public static bool operator !=(ProductState left, ProductState right) => !left.Equals(right);
+
+        public static explicit operator string(ProductState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProductState other && Equals(other);
+        public bool Equals(ProductState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -362,6 +653,90 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuType other && Equals(other);
         public bool Equals(SkuType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of the issue.
+    /// </summary>
+    [EnumType]
+    public readonly struct State : IEquatable<State>
+    {
+        private readonly string _value;
+
+        private State(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The issue is proposed.
+        /// </summary>
+        public static State Proposed { get; } = new State("proposed");
+        /// <summary>
+        /// The issue is opened.
+        /// </summary>
+        public static State Open { get; } = new State("open");
+        /// <summary>
+        /// The issue was removed.
+        /// </summary>
+        public static State Removed { get; } = new State("removed");
+        /// <summary>
+        /// The issue is now resolved.
+        /// </summary>
+        public static State Resolved { get; } = new State("resolved");
+        /// <summary>
+        /// The issue was closed.
+        /// </summary>
+        public static State Closed { get; } = new State("closed");
+
+        public static bool operator ==(State left, State right) => left.Equals(right);
+        public static bool operator !=(State left, State right) => !left.Equals(right);
+
+        public static explicit operator string(State value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is State other && Equals(other);
+        public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+    /// </summary>
+    [EnumType]
+    public readonly struct SubscriptionState : IEquatable<SubscriptionState>
+    {
+        private readonly string _value;
+
+        private SubscriptionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SubscriptionState Suspended { get; } = new SubscriptionState("suspended");
+        public static SubscriptionState Active { get; } = new SubscriptionState("active");
+        public static SubscriptionState Expired { get; } = new SubscriptionState("expired");
+        public static SubscriptionState Submitted { get; } = new SubscriptionState("submitted");
+        public static SubscriptionState Rejected { get; } = new SubscriptionState("rejected");
+        public static SubscriptionState Cancelled { get; } = new SubscriptionState("cancelled");
+
+        public static bool operator ==(SubscriptionState left, SubscriptionState right) => left.Equals(right);
+        public static bool operator !=(SubscriptionState left, SubscriptionState right) => !left.Equals(right);
+
+        public static explicit operator string(SubscriptionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SubscriptionState other && Equals(other);
+        public bool Equals(SubscriptionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

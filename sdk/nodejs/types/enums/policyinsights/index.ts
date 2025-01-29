@@ -2,11 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20190701 from "./v20190701";
+import * as v20210101 from "./v20210101";
 import * as v20211001 from "./v20211001";
 import * as v20220901 from "./v20220901";
 import * as v20241001 from "./v20241001";
 
 export {
+    v20190701,
+    v20210101,
     v20211001,
     v20220901,
     v20241001,
@@ -38,7 +42,7 @@ export const ResourceDiscoveryMode = {
      */
     ExistingNonCompliant: "ExistingNonCompliant",
     /**
-     * Re-evaluate the compliance state of resources and then remediate the resources found to be non-compliant.
+     * Re-evaluate the compliance state of resources and then remediate the resources found to be non-compliant. The resourceIds filter cannot be used in this mode.
      */
     ReEvaluateCompliance: "ReEvaluateCompliance",
 } as const;

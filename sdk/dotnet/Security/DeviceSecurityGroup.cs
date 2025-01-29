@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// The device security group resource
-    /// Azure REST API version: 2019-08-01. Prior API version in Azure Native 1.x: 2019-08-01.
+    /// Azure REST API version: 2019-08-01. Prior API version in Azure Native 2.x: 2019-08-01.
+    /// 
+    /// Other available API versions: 2017-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:DeviceSecurityGroup")]
     public partial class DeviceSecurityGroup : global::Pulumi.CustomResource

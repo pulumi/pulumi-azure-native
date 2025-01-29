@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Gets the Advanced Threat Protection settings for the specified resource.
         /// Azure REST API version: 2019-01-01.
+        /// 
+        /// Other available API versions: 2017-08-01-preview.
         /// </summary>
         public static Task<GetAdvancedThreatProtectionResult> InvokeAsync(GetAdvancedThreatProtectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdvancedThreatProtectionResult>("azure-native:security:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Gets the Advanced Threat Protection settings for the specified resource.
         /// Azure REST API version: 2019-01-01.
+        /// 
+        /// Other available API versions: 2017-08-01-preview.
         /// </summary>
         public static Output<GetAdvancedThreatProtectionResult> Invoke(GetAdvancedThreatProtectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdvancedThreatProtectionResult>("azure-native:security:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Gets the Advanced Threat Protection settings for the specified resource.
         /// Azure REST API version: 2019-01-01.
+        /// 
+        /// Other available API versions: 2017-08-01-preview.
         /// </summary>
         public static Output<GetAdvancedThreatProtectionResult> Invoke(GetAdvancedThreatProtectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdvancedThreatProtectionResult>("azure-native:security:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionInvokeArgs(), options.WithDefaults());

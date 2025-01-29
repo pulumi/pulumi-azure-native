@@ -69,7 +69,7 @@ def list_integration_runtime_auth_key(integration_runtime_name: Optional[str] = 
     List authentication keys in an integration runtime
     Azure REST API version: 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
+    Other available API versions: 2021-03-01, 2021-04-01-preview, 2021-05-01, 2021-06-01-preview.
 
 
     :param str integration_runtime_name: Integration runtime name
@@ -94,7 +94,7 @@ def list_integration_runtime_auth_key_output(integration_runtime_name: Optional[
     List authentication keys in an integration runtime
     Azure REST API version: 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
+    Other available API versions: 2021-03-01, 2021-04-01-preview, 2021-05-01, 2021-06-01-preview.
 
 
     :param str integration_runtime_name: Integration runtime name

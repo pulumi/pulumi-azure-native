@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Gets the Hybrid AKS virtual network
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2022-05-01-preview, 2023-11-15-preview, 2024-01-01.
         /// </summary>
         public static Task<GetVirtualNetworkRetrieveResult> InvokeAsync(GetVirtualNetworkRetrieveArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getVirtualNetworkRetrieve", args ?? new GetVirtualNetworkRetrieveArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Gets the Hybrid AKS virtual network
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2022-05-01-preview, 2023-11-15-preview, 2024-01-01.
         /// </summary>
         public static Output<GetVirtualNetworkRetrieveResult> Invoke(GetVirtualNetworkRetrieveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getVirtualNetworkRetrieve", args ?? new GetVirtualNetworkRetrieveInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Gets the Hybrid AKS virtual network
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2022-05-01-preview, 2023-11-15-preview, 2024-01-01.
         /// </summary>
         public static Output<GetVirtualNetworkRetrieveResult> Invoke(GetVirtualNetworkRetrieveInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice:getVirtualNetworkRetrieve", args ?? new GetVirtualNetworkRetrieveInvokeArgs(), options.WithDefaults());

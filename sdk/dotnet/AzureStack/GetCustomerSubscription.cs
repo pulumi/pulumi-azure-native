@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AzureStack
         /// Returns the specified product.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2020-06-01-preview.
+        /// Other available API versions: 2017-06-01, 2020-06-01-preview.
         /// </summary>
         public static Task<GetCustomerSubscriptionResult> InvokeAsync(GetCustomerSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-native:azurestack:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AzureStack
         /// Returns the specified product.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2020-06-01-preview.
+        /// Other available API versions: 2017-06-01, 2020-06-01-preview.
         /// </summary>
         public static Output<GetCustomerSubscriptionResult> Invoke(GetCustomerSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomerSubscriptionResult>("azure-native:azurestack:getCustomerSubscription", args ?? new GetCustomerSubscriptionInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.AzureStack
         /// Returns the specified product.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2020-06-01-preview.
+        /// Other available API versions: 2017-06-01, 2020-06-01-preview.
         /// </summary>
         public static Output<GetCustomerSubscriptionResult> Invoke(GetCustomerSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomerSubscriptionResult>("azure-native:azurestack:getCustomerSubscription", args ?? new GetCustomerSubscriptionInvokeArgs(), options.WithDefaults());

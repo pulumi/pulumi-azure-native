@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.ResourceConnector
 {
     /// <summary>
     /// Appliances definition.
-    /// Azure REST API version: 2022-10-27. Prior API version in Azure Native 1.x: 2021-10-31-preview.
+    /// Azure REST API version: 2022-10-27. Prior API version in Azure Native 2.x: 2022-10-27.
     /// 
-    /// Other available API versions: 2021-10-31-preview.
+    /// Other available API versions: 2021-10-31-preview, 2022-04-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:resourceconnector:Appliance")]
     public partial class Appliance : global::Pulumi.CustomResource

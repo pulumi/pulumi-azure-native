@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Consumption
     {
         /// <summary>
         /// Gets the budget for the scope by budget name.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-08-01.
+        /// Other available API versions: 2019-10-01, 2019-11-01, 2021-05-01, 2021-10-01, 2022-09-01, 2023-03-01, 2023-05-01, 2023-11-01.
         /// </summary>
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azure-native:consumption:getBudget", args ?? new GetBudgetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the budget for the scope by budget name.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-08-01.
+        /// Other available API versions: 2019-10-01, 2019-11-01, 2021-05-01, 2021-10-01, 2022-09-01, 2023-03-01, 2023-05-01, 2023-11-01.
         /// </summary>
         public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:consumption:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the budget for the scope by budget name.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-08-01.
+        /// Other available API versions: 2019-10-01, 2019-11-01, 2021-05-01, 2021-10-01, 2022-09-01, 2023-03-01, 2023-05-01, 2023-11-01.
         /// </summary>
         public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:consumption:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());

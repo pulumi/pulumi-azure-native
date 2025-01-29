@@ -138,6 +138,8 @@ def get_hyper_v_site(resource_group_name: Optional[str] = None,
     Site REST Resource.
     Azure REST API version: 2020-07-07.
 
+    Other available API versions: 2020-01-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: Site name.
@@ -163,6 +165,8 @@ def get_hyper_v_site_output(resource_group_name: Optional[pulumi.Input[str]] = N
     """
     Site REST Resource.
     Azure REST API version: 2020-07-07.
+
+    Other available API versions: 2020-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

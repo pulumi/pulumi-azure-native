@@ -126,6 +126,26 @@ export const NaptEnabled = {
  */
 export type NaptEnabled = (typeof NaptEnabled)[keyof typeof NaptEnabled];
 
+export const NasEncryptionType = {
+    /**
+     * NAS signaling is not encrypted.
+     */
+    NEA0_EEA0: "NEA0/EEA0",
+    /**
+     * NAS signaling is encrypted with SNOW 3G cipher.
+     */
+    NEA1_EEA1: "NEA1/EEA1",
+    /**
+     *  NAS signaling is encrypted with AES cipher.
+     */
+    NEA2_EEA2: "NEA2/EEA2",
+} as const;
+
+/**
+ * The supported NAS Encryption types.
+ */
+export type NasEncryptionType = (typeof NasEncryptionType)[keyof typeof NasEncryptionType];
+
 export const PduSessionType = {
     IPv4: "IPv4",
     IPv6: "IPv6",

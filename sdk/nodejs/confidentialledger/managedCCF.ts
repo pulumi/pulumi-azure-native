@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Managed CCF. Contains the properties of Managed CCF Resource.
- * Azure REST API version: 2023-01-26-preview.
+ * Azure REST API version: 2023-06-28-preview. Prior API version in Azure Native 2.x: 2023-01-26-preview.
  *
- * Other available API versions: 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+ * Other available API versions: 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview.
  */
 export class ManagedCCF extends pulumi.CustomResource {
     /**

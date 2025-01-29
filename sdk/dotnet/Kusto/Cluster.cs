@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a Kusto cluster.
-    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+    /// Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
     /// 
-    /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+    /// Other available API versions: 2018-09-07-preview, 2019-01-21, 2019-05-15, 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -35,6 +35,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("allowedIpRangeList")]
         public Output<ImmutableArray<string>> AllowedIpRangeList { get; private set; } = null!;
+
+        /// <summary>
+        /// List of callout policies for egress from Cluster.
+        /// </summary>
+        [Output("calloutPolicies")]
+        public Output<ImmutableArray<Outputs.CalloutPolicyResponse>> CalloutPolicies { get; private set; } = null!;
 
         /// <summary>
         /// The cluster data ingestion URI.
@@ -107,6 +113,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of the peer cluster involved in a migration to/from this cluster.
+        /// </summary>
+        [Output("migrationCluster")]
+        public Output<Outputs.MigrationClusterPropertiesResponse> MigrationCluster { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -203,6 +215,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("virtualNetworkConfiguration")]
         public Output<Outputs.VirtualNetworkConfigurationResponse?> VirtualNetworkConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the cluster is zonal or non-zonal.
+        /// </summary>
+        [Output("zoneStatus")]
+        public Output<string> ZoneStatus { get; private set; } = null!;
 
         /// <summary>
         /// The availability zones of the cluster.
@@ -312,6 +330,18 @@ namespace Pulumi.AzureNative.Kusto
             set => _allowedIpRangeList = value;
         }
 
+        [Input("calloutPolicies")]
+        private InputList<Inputs.CalloutPolicyArgs>? _calloutPolicies;
+
+        /// <summary>
+        /// List of callout policies for egress from Cluster.
+        /// </summary>
+        public InputList<Inputs.CalloutPolicyArgs> CalloutPolicies
+        {
+            get => _calloutPolicies ?? (_calloutPolicies = new InputList<Inputs.CalloutPolicyArgs>());
+            set => _calloutPolicies = value;
+        }
+
         /// <summary>
         /// The name of the Kusto cluster.
         /// </summary>
@@ -397,7 +427,7 @@ namespace Pulumi.AzureNative.Kusto
         public InputUnion<string, Pulumi.AzureNative.Kusto.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

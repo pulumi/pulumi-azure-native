@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The autoscale setting resource.
- * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2015-04-01.
+ * Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2022-10-01.
+ *
+ * Other available API versions: 2015-04-01, 2021-05-01-preview.
  */
 export class AutoscaleSetting extends pulumi.CustomResource {
     /**

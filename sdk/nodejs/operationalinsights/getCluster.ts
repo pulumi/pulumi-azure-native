@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Log Analytics cluster instance.
- * Azure REST API version: 2021-06-01.
+ * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
+ * Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2022-10-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,9 +61,9 @@ export interface GetClusterResult {
      */
     readonly id: string;
     /**
-     * The identity of the resource.
+     * Resource's identity.
      */
-    readonly identity?: outputs.operationalinsights.IdentityResponse;
+    readonly identity?: outputs.operationalinsights.ManagedServiceIdentityResponse;
     /**
      * Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
      */
@@ -107,9 +107,9 @@ export interface GetClusterResult {
 }
 /**
  * Gets a Log Analytics cluster instance.
- * Azure REST API version: 2021-06-01.
+ * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
+ * Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2022-10-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Security assessment metadata response
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-01-01.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
+ *
+ * Other available API versions: 2020-01-01.
  */
 export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     /**

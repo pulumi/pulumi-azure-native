@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.BotService
     {
         /// <summary>
         /// Get a Connection Setting registration for a Bot Service
-        /// Azure REST API version: 2022-09-15.
+        /// Azure REST API version: 2023-09-15-preview.
         /// 
-        /// Other available API versions: 2023-09-15-preview.
+        /// Other available API versions: 2018-07-12, 2020-06-02, 2021-03-01, 2021-05-01-preview, 2022-06-15-preview, 2022-09-15.
         /// </summary>
         public static Task<GetBotConnectionResult> InvokeAsync(GetBotConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotConnectionResult>("azure-native:botservice:getBotConnection", args ?? new GetBotConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Connection Setting registration for a Bot Service
-        /// Azure REST API version: 2022-09-15.
+        /// Azure REST API version: 2023-09-15-preview.
         /// 
-        /// Other available API versions: 2023-09-15-preview.
+        /// Other available API versions: 2018-07-12, 2020-06-02, 2021-03-01, 2021-05-01-preview, 2022-06-15-preview, 2022-09-15.
         /// </summary>
         public static Output<GetBotConnectionResult> Invoke(GetBotConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotConnectionResult>("azure-native:botservice:getBotConnection", args ?? new GetBotConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Connection Setting registration for a Bot Service
-        /// Azure REST API version: 2022-09-15.
+        /// Azure REST API version: 2023-09-15-preview.
         /// 
-        /// Other available API versions: 2023-09-15-preview.
+        /// Other available API versions: 2018-07-12, 2020-06-02, 2021-03-01, 2021-05-01-preview, 2022-06-15-preview, 2022-09-15.
         /// </summary>
         public static Output<GetBotConnectionResult> Invoke(GetBotConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotConnectionResult>("azure-native:botservice:getBotConnection", args ?? new GetBotConnectionInvokeArgs(), options.WithDefaults());

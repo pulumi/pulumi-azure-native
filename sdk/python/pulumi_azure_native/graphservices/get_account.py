@@ -129,6 +129,8 @@ def get_account(resource_group_name: Optional[str] = None,
     Returns account resource for a given name.
     Azure REST API version: 2023-04-13.
 
+    Other available API versions: 2022-09-22-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
@@ -153,6 +155,8 @@ def get_account_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     """
     Returns account resource for a given name.
     Azure REST API version: 2023-04-13.
+
+    Other available API versions: 2022-09-22-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Retrieves the properties of a Lab Plan.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-06-07.
         /// 
-        /// Other available API versions: 2023-06-07.
+        /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01.
         /// </summary>
         public static Task<GetLabPlanResult> InvokeAsync(GetLabPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabPlanResult>("azure-native:labservices:getLabPlan", args ?? new GetLabPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of a Lab Plan.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-06-07.
         /// 
-        /// Other available API versions: 2023-06-07.
+        /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01.
         /// </summary>
         public static Output<GetLabPlanResult> Invoke(GetLabPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabPlanResult>("azure-native:labservices:getLabPlan", args ?? new GetLabPlanInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of a Lab Plan.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-06-07.
         /// 
-        /// Other available API versions: 2023-06-07.
+        /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01.
         /// </summary>
         public static Output<GetLabPlanResult> Invoke(GetLabPlanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabPlanResult>("azure-native:labservices:getLabPlan", args ?? new GetLabPlanInvokeArgs(), options.WithDefaults());
@@ -125,6 +125,10 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Error details of last operation done on lab plan.
+        /// </summary>
+        public readonly Outputs.ResourceOperationErrorResponse ResourceOperationError;
+        /// <summary>
         /// Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
         /// </summary>
         public readonly string? SharedGalleryId;
@@ -167,6 +171,8 @@ namespace Pulumi.AzureNative.LabServices
 
             string provisioningState,
 
+            Outputs.ResourceOperationErrorResponse resourceOperationError,
+
             string? sharedGalleryId,
 
             Outputs.SupportInfoResponse? supportInfo,
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNative.LabServices
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            ResourceOperationError = resourceOperationError;
             SharedGalleryId = sharedGalleryId;
             SupportInfo = supportInfo;
             SystemData = systemData;

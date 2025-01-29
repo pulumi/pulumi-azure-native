@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Properties for the database account.
- * Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+ * Azure REST API version: 2024-11-15. Prior API version in Azure Native 2.x: 2023-04-15.
  *
- * Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+ * Other available API versions: 2021-07-01-preview, 2021-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-12-01-preview.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -47,7 +47,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Services response resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.DataTransferServiceResourcePropertiesResponse | outputs.documentdb.GraphAPIComputeServiceResourcePropertiesResponse | outputs.documentdb.MaterializedViewsBuilderServiceResourcePropertiesResponse | outputs.documentdb.SqlDedicatedGatewayServiceResourcePropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.documentdb.DataTransferServiceResourcePropertiesResponse | outputs.documentdb.GraphAPIComputeServiceResourcePropertiesResponse | outputs.documentdb.MaterializedViewsBuilderServiceResourcePropertiesResponse | outputs.documentdb.SqlDedicatedGatewayServiceResourcePropertiesResponse>;
     /**
      * The type of Azure resource.
      */
@@ -71,13 +71,10 @@ export class Service extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["instanceSize"] = args ? args.instanceSize : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["serviceType"] = args ? args.serviceType : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
@@ -100,13 +97,9 @@ export interface ServiceArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * Instance count for the service.
+     * Properties in ServiceResourceCreateUpdateParameters.
      */
-    instanceCount?: pulumi.Input<number>;
-    /**
-     * Instance type for the service.
-     */
-    instanceSize?: pulumi.Input<string | enums.documentdb.ServiceSize>;
+    properties?: pulumi.Input<inputs.documentdb.DataTransferServiceResourceCreateUpdatePropertiesArgs | inputs.documentdb.GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs | inputs.documentdb.MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs | inputs.documentdb.SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -115,8 +108,4 @@ export interface ServiceArgs {
      * Cosmos DB service name.
      */
     serviceName?: pulumi.Input<string>;
-    /**
-     * ServiceType for the service.
-     */
-    serviceType?: pulumi.Input<string | enums.documentdb.ServiceType>;
 }

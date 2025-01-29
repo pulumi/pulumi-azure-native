@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get the update summaries for the cluster
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
  *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2022-12-01, 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview.
  */
 export class UpdateSummary extends pulumi.CustomResource {
     /**
@@ -40,6 +40,14 @@ export class UpdateSummary extends pulumi.CustomResource {
         return obj['__pulumiType'] === UpdateSummary.__pulumiType;
     }
 
+    /**
+     * Current OEM Version.
+     */
+    public readonly currentOemVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Current Sbe version of the stamp.
+     */
+    public readonly currentSbeVersion!: pulumi.Output<string | undefined>;
     /**
      * Current Solution Bundle version of the stamp.
      */
@@ -107,6 +115,8 @@ export class UpdateSummary extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["currentOemVersion"] = args ? args.currentOemVersion : undefined;
+            resourceInputs["currentSbeVersion"] = args ? args.currentSbeVersion : undefined;
             resourceInputs["currentVersion"] = args ? args.currentVersion : undefined;
             resourceInputs["hardwareModel"] = args ? args.hardwareModel : undefined;
             resourceInputs["healthCheckDate"] = args ? args.healthCheckDate : undefined;
@@ -121,6 +131,8 @@ export class UpdateSummary extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["currentOemVersion"] = undefined /*out*/;
+            resourceInputs["currentSbeVersion"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["hardwareModel"] = undefined /*out*/;
             resourceInputs["healthCheckDate"] = undefined /*out*/;
@@ -149,6 +161,14 @@ export interface UpdateSummaryArgs {
      * The name of the cluster.
      */
     clusterName: pulumi.Input<string>;
+    /**
+     * Current OEM Version.
+     */
+    currentOemVersion?: pulumi.Input<string>;
+    /**
+     * Current Sbe version of the stamp.
+     */
+    currentSbeVersion?: pulumi.Input<string>;
     /**
      * Current Solution Bundle version of the stamp.
      */

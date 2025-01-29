@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         [Input("networkAdapterName")]
         public Input<string>? NetworkAdapterName { get; set; }
 
+        [Input("storageAdapterIPInfo")]
+        private InputList<Inputs.StorageAdapterIPInfoArgs>? _storageAdapterIPInfo;
+
+        /// <summary>
+        /// List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
+        /// </summary>
+        public InputList<Inputs.StorageAdapterIPInfoArgs> StorageAdapterIPInfo
+        {
+            get => _storageAdapterIPInfo ?? (_storageAdapterIPInfo = new InputList<Inputs.StorageAdapterIPInfoArgs>());
+            set => _storageAdapterIPInfo = value;
+        }
+
         /// <summary>
         /// ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
         /// </summary>

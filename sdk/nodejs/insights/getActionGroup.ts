@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get an action group.
- * Azure REST API version: 2023-01-01.
+ * Azure REST API version: 2024-10-01-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2017-04-01, 2018-03-01, 2018-09-01, 2019-03-01, 2019-06-01, 2021-09-01, 2022-04-01, 2022-06-01, 2023-01-01, 2023-09-01-preview.
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,6 +73,14 @@ export interface GetActionGroupResult {
      */
     readonly id: string;
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    readonly identity?: outputs.insights.ManagedServiceIdentityResponse;
+    /**
+     * The list of incident receivers that are part of this action group.
+     */
+    readonly incidentReceivers?: outputs.insights.IncidentReceiverResponse[];
+    /**
      * The list of ITSM receivers that are part of this action group.
      */
     readonly itsmReceivers?: outputs.insights.ItsmReceiverResponse[];
@@ -111,9 +119,9 @@ export interface GetActionGroupResult {
 }
 /**
  * Get an action group.
- * Azure REST API version: 2023-01-01.
+ * Azure REST API version: 2024-10-01-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2017-04-01, 2018-03-01, 2018-09-01, 2019-03-01, 2019-06-01, 2021-09-01, 2022-04-01, 2022-06-01, 2023-01-01, 2023-09-01-preview.
  */
 export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

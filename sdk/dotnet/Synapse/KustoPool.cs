@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing a Kusto kusto pool.
-    /// Azure REST API version: 2021-06-01-preview.
+    /// Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
+    /// 
+    /// Other available API versions: 2021-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:KustoPool")]
     public partial class KustoPool : global::Pulumi.CustomResource

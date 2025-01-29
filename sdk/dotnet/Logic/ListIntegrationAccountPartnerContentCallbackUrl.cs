@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Get the content callback url.
         /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Other available API versions: 2018-07-01-preview.
         /// </summary>
         public static Task<ListIntegrationAccountPartnerContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountPartnerContentCallbackUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountPartnerContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountPartnerContentCallbackUrl", args ?? new ListIntegrationAccountPartnerContentCallbackUrlArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Get the content callback url.
         /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Other available API versions: 2018-07-01-preview.
         /// </summary>
         public static Output<ListIntegrationAccountPartnerContentCallbackUrlResult> Invoke(ListIntegrationAccountPartnerContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountPartnerContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountPartnerContentCallbackUrl", args ?? new ListIntegrationAccountPartnerContentCallbackUrlInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Get the content callback url.
         /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Other available API versions: 2018-07-01-preview.
         /// </summary>
         public static Output<ListIntegrationAccountPartnerContentCallbackUrlResult> Invoke(ListIntegrationAccountPartnerContentCallbackUrlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountPartnerContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountPartnerContentCallbackUrl", args ?? new ListIntegrationAccountPartnerContentCallbackUrlInvokeArgs(), options.WithDefaults());

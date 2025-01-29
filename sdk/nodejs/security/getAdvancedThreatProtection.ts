@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the Advanced Threat Protection settings for the specified resource.
  * Azure REST API version: 2019-01-01.
+ *
+ * Other available API versions: 2017-08-01-preview.
  */
 export function getAdvancedThreatProtection(args: GetAdvancedThreatProtectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAdvancedThreatProtectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,6 +53,8 @@ export interface GetAdvancedThreatProtectionResult {
 /**
  * Gets the Advanced Threat Protection settings for the specified resource.
  * Azure REST API version: 2019-01-01.
+ *
+ * Other available API versions: 2017-08-01-preview.
  */
 export function getAdvancedThreatProtectionOutput(args: GetAdvancedThreatProtectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAdvancedThreatProtectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

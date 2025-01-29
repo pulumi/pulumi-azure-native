@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a TrafficController
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+ * Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2024-05-01-preview, 2025-01-01.
  */
 export function getTrafficControllerInterface(args: GetTrafficControllerInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficControllerInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,9 +79,9 @@ export interface GetTrafficControllerInterfaceResult {
 }
 /**
  * Get a TrafficController
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+ * Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2024-05-01-preview, 2025-01-01.
  */
 export function getTrafficControllerInterfaceOutput(args: GetTrafficControllerInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrafficControllerInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

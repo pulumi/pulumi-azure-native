@@ -8,6 +8,7 @@ __all__ = [
     'AzureSkuName',
     'AzureSkuTier',
     'BlobStorageEventType',
+    'CalloutType',
     'ClusterNetworkAccessFlag',
     'ClusterPrincipalRole',
     'Compression',
@@ -25,9 +26,13 @@ __all__ = [
     'Language',
     'LanguageExtensionImageName',
     'LanguageExtensionName',
+    'OutboundAccess',
+    'PrincipalPermissionsAction',
     'PrincipalType',
     'PublicIPType',
     'PublicNetworkAccess',
+    'ScriptLevel',
+    'VnetState',
 ]
 
 
@@ -117,6 +122,23 @@ class BlobStorageEventType(str, Enum):
     MICROSOFT_STORAGE_BLOB_RENAMED = "Microsoft.Storage.BlobRenamed"
 
 
+class CalloutType(str, Enum):
+    """
+    Type of the callout service, specifying the kind of external resource or service being accessed.
+    """
+    KUSTO = "kusto"
+    SQL = "sql"
+    COSMOSDB = "cosmosdb"
+    EXTERNAL_DATA = "external_data"
+    AZURE_DIGITAL_TWINS = "azure_digital_twins"
+    SANDBOX_ARTIFACTS = "sandbox_artifacts"
+    WEBAPI = "webapi"
+    MYSQL = "mysql"
+    POSTGRESQL = "postgresql"
+    GENEVAMETRICS = "genevametrics"
+    AZURE_OPENAI = "azure_openai"
+
+
 class ClusterNetworkAccessFlag(str, Enum):
     """
     Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -131,6 +153,7 @@ class ClusterPrincipalRole(str, Enum):
     """
     ALL_DATABASES_ADMIN = "AllDatabasesAdmin"
     ALL_DATABASES_VIEWER = "AllDatabasesViewer"
+    ALL_DATABASES_MONITOR = "AllDatabasesMonitor"
 
 
 class Compression(str, Enum):
@@ -295,6 +318,10 @@ class LanguageExtensionImageName(str, Enum):
     R = "R"
     PYTHON3_6_5 = "Python3_6_5"
     PYTHON3_10_8 = "Python3_10_8"
+    PYTHON3_10_8_DL = "Python3_10_8_DL"
+    PYTHON_CUSTOM_IMAGE = "PythonCustomImage"
+    PYTHON3_11_7 = "Python3_11_7"
+    PYTHON3_11_7_DL = "Python3_11_7_DL"
 
 
 class LanguageExtensionName(str, Enum):
@@ -303,6 +330,22 @@ class LanguageExtensionName(str, Enum):
     """
     PYTHON = "PYTHON"
     R = "R"
+
+
+class OutboundAccess(str, Enum):
+    """
+    Indicates whether outbound access is permitted for the specified URI pattern.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+
+
+class PrincipalPermissionsAction(str, Enum):
+    """
+    Indicates if the permissions for the script caller are kept following completion of the script.
+    """
+    RETAIN_PERMISSION_ON_SCRIPT_COMPLETION = "RetainPermissionOnScriptCompletion"
+    REMOVE_PERMISSION_ON_SCRIPT_COMPLETION = "RemovePermissionOnScriptCompletion"
 
 
 class PrincipalType(str, Enum):
@@ -325,6 +368,22 @@ class PublicIPType(str, Enum):
 class PublicNetworkAccess(str, Enum):
     """
     Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ScriptLevel(str, Enum):
+    """
+    Differentiates between the type of script commands included - Database or Cluster. The default is Database.
+    """
+    DATABASE = "Database"
+    CLUSTER = "Cluster"
+
+
+class VnetState(str, Enum):
+    """
+    When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

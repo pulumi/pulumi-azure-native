@@ -146,9 +146,9 @@ class ResourceGuardProxy(pulumi.CustomResource):
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        Other available API versions: 2021-02-01-preview, 2021-07-01, 2021-08-01, 2021-10-01, 2021-12-01, 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-06-01-preview, 2022-09-01-preview, 2022-09-30-preview, 2022-10-01, 2023-01-01, 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,9 +166,9 @@ class ResourceGuardProxy(pulumi.CustomResource):
                  args: ResourceGuardProxyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        Other available API versions: 2021-02-01-preview, 2021-07-01, 2021-08-01, 2021-10-01, 2021-12-01, 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-06-01-preview, 2022-09-01-preview, 2022-09-30-preview, 2022-10-01, 2023-01-01, 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview.
 
         :param str resource_name: The name of the resource.
         :param ResourceGuardProxyArgs args: The arguments to use to populate this resource's properties.

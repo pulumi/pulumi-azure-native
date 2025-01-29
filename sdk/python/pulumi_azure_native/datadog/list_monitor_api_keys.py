@@ -67,9 +67,9 @@ def list_monitor_api_keys(monitor_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMonitorApiKeysResult:
     """
     Response of a list operation.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2023-10-20.
 
-    Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+    Other available API versions: 2021-03-01, 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07.
 
 
     :param str monitor_name: Monitor resource name
@@ -89,9 +89,9 @@ def list_monitor_api_keys_output(monitor_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMonitorApiKeysResult]:
     """
     Response of a list operation.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2023-10-20.
 
-    Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+    Other available API versions: 2021-03-01, 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07.
 
 
     :param str monitor_name: Monitor resource name

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL Server availability group listener.
- * Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
+ * Azure REST API version: 2023-10-01. Prior API version in Azure Native 2.x: 2022-02-01.
  *
- * Other available API versions: 2023-01-01-preview, 2023-10-01.
+ * Other available API versions: 2017-03-01-preview, 2021-11-01-preview, 2022-02-01, 2022-02-01-preview, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview.
  */
 export class AvailabilityGroupListener extends pulumi.CustomResource {
     /**

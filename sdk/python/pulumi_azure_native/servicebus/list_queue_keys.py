@@ -128,15 +128,15 @@ def list_queue_keys(authorization_rule_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListQueueKeysResult:
     """
     Primary and secondary connection strings to the queue.
-    Azure REST API version: 2022-01-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2017-04-01, 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name
     :param str queue_name: The queue name.
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
@@ -161,15 +161,15 @@ def list_queue_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] 
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListQueueKeysResult]:
     """
     Primary and secondary connection strings to the queue.
-    Azure REST API version: 2022-01-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2017-04-01, 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name
     :param str queue_name: The queue name.
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name

@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:GuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:GuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:GuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240201preview:GuestAgent" },

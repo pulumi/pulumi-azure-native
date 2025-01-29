@@ -27,7 +27,7 @@ class GetNspAccessRuleResult:
     """
     The NSP access rule resource
     """
-    def __init__(__self__, address_prefixes=None, direction=None, email_addresses=None, fully_qualified_domain_names=None, id=None, location=None, name=None, network_security_perimeters=None, phone_numbers=None, provisioning_state=None, subscriptions=None, tags=None, type=None):
+    def __init__(__self__, address_prefixes=None, direction=None, email_addresses=None, fully_qualified_domain_names=None, id=None, location=None, name=None, network_security_perimeters=None, phone_numbers=None, provisioning_state=None, service_tags=None, subscriptions=None, tags=None, type=None):
         if address_prefixes and not isinstance(address_prefixes, list):
             raise TypeError("Expected argument 'address_prefixes' to be a list")
         pulumi.set(__self__, "address_prefixes", address_prefixes)
@@ -58,6 +58,9 @@ class GetNspAccessRuleResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if service_tags and not isinstance(service_tags, list):
+            raise TypeError("Expected argument 'service_tags' to be a list")
+        pulumi.set(__self__, "service_tags", service_tags)
         if subscriptions and not isinstance(subscriptions, list):
             raise TypeError("Expected argument 'subscriptions' to be a list")
         pulumi.set(__self__, "subscriptions", subscriptions)
@@ -149,6 +152,14 @@ class GetNspAccessRuleResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="serviceTags")
+    def service_tags(self) -> Optional[Sequence[str]]:
+        """
+        Inbound rules service tag names.
+        """
+        return pulumi.get(self, "service_tags")
+
+    @property
     @pulumi.getter
     def subscriptions(self) -> Optional[Sequence['outputs.SubscriptionIdResponse']]:
         """
@@ -189,6 +200,7 @@ class AwaitableGetNspAccessRuleResult(GetNspAccessRuleResult):
             network_security_perimeters=self.network_security_perimeters,
             phone_numbers=self.phone_numbers,
             provisioning_state=self.provisioning_state,
+            service_tags=self.service_tags,
             subscriptions=self.subscriptions,
             tags=self.tags,
             type=self.type)
@@ -201,9 +213,9 @@ def get_nsp_access_rule(access_rule_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNspAccessRuleResult:
     """
     Gets the specified NSP access rule by name.
-    Azure REST API version: 2021-02-01-preview.
+    Azure REST API version: 2023-08-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+    Other available API versions: 2021-02-01-preview, 2023-07-01-preview.
 
 
     :param str access_rule_name: The name of the NSP access rule.
@@ -230,6 +242,7 @@ def get_nsp_access_rule(access_rule_name: Optional[str] = None,
         network_security_perimeters=pulumi.get(__ret__, 'network_security_perimeters'),
         phone_numbers=pulumi.get(__ret__, 'phone_numbers'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        service_tags=pulumi.get(__ret__, 'service_tags'),
         subscriptions=pulumi.get(__ret__, 'subscriptions'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -240,9 +253,9 @@ def get_nsp_access_rule_output(access_rule_name: Optional[pulumi.Input[str]] = N
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNspAccessRuleResult]:
     """
     Gets the specified NSP access rule by name.
-    Azure REST API version: 2021-02-01-preview.
+    Azure REST API version: 2023-08-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+    Other available API versions: 2021-02-01-preview, 2023-07-01-preview.
 
 
     :param str access_rule_name: The name of the NSP access rule.
@@ -268,6 +281,7 @@ def get_nsp_access_rule_output(access_rule_name: Optional[pulumi.Input[str]] = N
         network_security_perimeters=pulumi.get(__response__, 'network_security_perimeters'),
         phone_numbers=pulumi.get(__response__, 'phone_numbers'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        service_tags=pulumi.get(__response__, 'service_tags'),
         subscriptions=pulumi.get(__response__, 'subscriptions'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

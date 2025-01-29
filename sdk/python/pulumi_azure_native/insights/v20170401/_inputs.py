@@ -23,6 +23,18 @@ __all__ = [
     'ActivityLogAlertAllOfConditionArgsDict',
     'ActivityLogAlertLeafConditionArgs',
     'ActivityLogAlertLeafConditionArgsDict',
+    'AutomationRunbookReceiverArgs',
+    'AutomationRunbookReceiverArgsDict',
+    'AzureAppPushReceiverArgs',
+    'AzureAppPushReceiverArgsDict',
+    'EmailReceiverArgs',
+    'EmailReceiverArgsDict',
+    'ItsmReceiverArgs',
+    'ItsmReceiverArgsDict',
+    'SmsReceiverArgs',
+    'SmsReceiverArgsDict',
+    'WebhookReceiverArgs',
+    'WebhookReceiverArgsDict',
 ]
 
 MYPY = False
@@ -205,5 +217,483 @@ class ActivityLogAlertLeafConditionArgs:
     @field.setter
     def field(self, value: pulumi.Input[str]):
         pulumi.set(self, "field", value)
+
+
+if not MYPY:
+    class AutomationRunbookReceiverArgsDict(TypedDict):
+        """
+        The Azure Automation Runbook notification receiver.
+        """
+        automation_account_id: pulumi.Input[str]
+        """
+        The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+        """
+        is_global_runbook: pulumi.Input[bool]
+        """
+        Indicates whether this instance is global runbook.
+        """
+        runbook_name: pulumi.Input[str]
+        """
+        The name for this runbook.
+        """
+        webhook_resource_id: pulumi.Input[str]
+        """
+        The resource id for webhook linked to this runbook.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Indicates name of the webhook.
+        """
+        service_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI where webhooks should be sent.
+        """
+elif False:
+    AutomationRunbookReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomationRunbookReceiverArgs:
+    def __init__(__self__, *,
+                 automation_account_id: pulumi.Input[str],
+                 is_global_runbook: pulumi.Input[bool],
+                 runbook_name: pulumi.Input[str],
+                 webhook_resource_id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 service_uri: Optional[pulumi.Input[str]] = None):
+        """
+        The Azure Automation Runbook notification receiver.
+        :param pulumi.Input[str] automation_account_id: The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+        :param pulumi.Input[bool] is_global_runbook: Indicates whether this instance is global runbook.
+        :param pulumi.Input[str] runbook_name: The name for this runbook.
+        :param pulumi.Input[str] webhook_resource_id: The resource id for webhook linked to this runbook.
+        :param pulumi.Input[str] name: Indicates name of the webhook.
+        :param pulumi.Input[str] service_uri: The URI where webhooks should be sent.
+        """
+        pulumi.set(__self__, "automation_account_id", automation_account_id)
+        pulumi.set(__self__, "is_global_runbook", is_global_runbook)
+        pulumi.set(__self__, "runbook_name", runbook_name)
+        pulumi.set(__self__, "webhook_resource_id", webhook_resource_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_uri is not None:
+            pulumi.set(__self__, "service_uri", service_uri)
+
+    @property
+    @pulumi.getter(name="automationAccountId")
+    def automation_account_id(self) -> pulumi.Input[str]:
+        """
+        The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+        """
+        return pulumi.get(self, "automation_account_id")
+
+    @automation_account_id.setter
+    def automation_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "automation_account_id", value)
+
+    @property
+    @pulumi.getter(name="isGlobalRunbook")
+    def is_global_runbook(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether this instance is global runbook.
+        """
+        return pulumi.get(self, "is_global_runbook")
+
+    @is_global_runbook.setter
+    def is_global_runbook(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_global_runbook", value)
+
+    @property
+    @pulumi.getter(name="runbookName")
+    def runbook_name(self) -> pulumi.Input[str]:
+        """
+        The name for this runbook.
+        """
+        return pulumi.get(self, "runbook_name")
+
+    @runbook_name.setter
+    def runbook_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "runbook_name", value)
+
+    @property
+    @pulumi.getter(name="webhookResourceId")
+    def webhook_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource id for webhook linked to this runbook.
+        """
+        return pulumi.get(self, "webhook_resource_id")
+
+    @webhook_resource_id.setter
+    def webhook_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "webhook_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates name of the webhook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serviceUri")
+    def service_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI where webhooks should be sent.
+        """
+        return pulumi.get(self, "service_uri")
+
+    @service_uri.setter
+    def service_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_uri", value)
+
+
+if not MYPY:
+    class AzureAppPushReceiverArgsDict(TypedDict):
+        """
+        The Azure mobile App push notification receiver.
+        """
+        email_address: pulumi.Input[str]
+        """
+        The email address registered for the Azure mobile app.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+        """
+elif False:
+    AzureAppPushReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureAppPushReceiverArgs:
+    def __init__(__self__, *,
+                 email_address: pulumi.Input[str],
+                 name: pulumi.Input[str]):
+        """
+        The Azure mobile App push notification receiver.
+        :param pulumi.Input[str] email_address: The email address registered for the Azure mobile app.
+        :param pulumi.Input[str] name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+        """
+        pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> pulumi.Input[str]:
+        """
+        The email address registered for the Azure mobile app.
+        """
+        return pulumi.get(self, "email_address")
+
+    @email_address.setter
+    def email_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class EmailReceiverArgsDict(TypedDict):
+        """
+        An email receiver.
+        """
+        email_address: pulumi.Input[str]
+        """
+        The email address of this receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the email receiver. Names must be unique across all receivers within an action group.
+        """
+elif False:
+    EmailReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EmailReceiverArgs:
+    def __init__(__self__, *,
+                 email_address: pulumi.Input[str],
+                 name: pulumi.Input[str]):
+        """
+        An email receiver.
+        :param pulumi.Input[str] email_address: The email address of this receiver.
+        :param pulumi.Input[str] name: The name of the email receiver. Names must be unique across all receivers within an action group.
+        """
+        pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> pulumi.Input[str]:
+        """
+        The email address of this receiver.
+        """
+        return pulumi.get(self, "email_address")
+
+    @email_address.setter
+    def email_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the email receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class ItsmReceiverArgsDict(TypedDict):
+        """
+        An Itsm receiver.
+        """
+        connection_id: pulumi.Input[str]
+        """
+        Unique identification of ITSM connection among multiple defined in above workspace.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+        """
+        region: pulumi.Input[str]
+        """
+        Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+        """
+        ticket_configuration: pulumi.Input[str]
+        """
+        JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+        """
+        workspace_id: pulumi.Input[str]
+        """
+        OMS LA instance identifier.
+        """
+elif False:
+    ItsmReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ItsmReceiverArgs:
+    def __init__(__self__, *,
+                 connection_id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 region: pulumi.Input[str],
+                 ticket_configuration: pulumi.Input[str],
+                 workspace_id: pulumi.Input[str]):
+        """
+        An Itsm receiver.
+        :param pulumi.Input[str] connection_id: Unique identification of ITSM connection among multiple defined in above workspace.
+        :param pulumi.Input[str] name: The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+        :param pulumi.Input[str] region: Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+        :param pulumi.Input[str] ticket_configuration: JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+        :param pulumi.Input[str] workspace_id: OMS LA instance identifier.
+        """
+        pulumi.set(__self__, "connection_id", connection_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "ticket_configuration", ticket_configuration)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> pulumi.Input[str]:
+        """
+        Unique identification of ITSM connection among multiple defined in above workspace.
+        """
+        return pulumi.get(self, "connection_id")
+
+    @connection_id.setter
+    def connection_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connection_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[str]:
+        """
+        Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="ticketConfiguration")
+    def ticket_configuration(self) -> pulumi.Input[str]:
+        """
+        JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+        """
+        return pulumi.get(self, "ticket_configuration")
+
+    @ticket_configuration.setter
+    def ticket_configuration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ticket_configuration", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Input[str]:
+        """
+        OMS LA instance identifier.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_id", value)
+
+
+if not MYPY:
+    class SmsReceiverArgsDict(TypedDict):
+        """
+        An SMS receiver.
+        """
+        country_code: pulumi.Input[str]
+        """
+        The country code of the SMS receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SMS receiver. Names must be unique across all receivers within an action group.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        The phone number of the SMS receiver.
+        """
+elif False:
+    SmsReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SmsReceiverArgs:
+    def __init__(__self__, *,
+                 country_code: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 phone_number: pulumi.Input[str]):
+        """
+        An SMS receiver.
+        :param pulumi.Input[str] country_code: The country code of the SMS receiver.
+        :param pulumi.Input[str] name: The name of the SMS receiver. Names must be unique across all receivers within an action group.
+        :param pulumi.Input[str] phone_number: The phone number of the SMS receiver.
+        """
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> pulumi.Input[str]:
+        """
+        The country code of the SMS receiver.
+        """
+        return pulumi.get(self, "country_code")
+
+    @country_code.setter
+    def country_code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "country_code", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the SMS receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> pulumi.Input[str]:
+        """
+        The phone number of the SMS receiver.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "phone_number", value)
+
+
+if not MYPY:
+    class WebhookReceiverArgsDict(TypedDict):
+        """
+        A webhook receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the webhook receiver. Names must be unique across all receivers within an action group.
+        """
+        service_uri: pulumi.Input[str]
+        """
+        The URI where webhooks should be sent.
+        """
+elif False:
+    WebhookReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebhookReceiverArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 service_uri: pulumi.Input[str]):
+        """
+        A webhook receiver.
+        :param pulumi.Input[str] name: The name of the webhook receiver. Names must be unique across all receivers within an action group.
+        :param pulumi.Input[str] service_uri: The URI where webhooks should be sent.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_uri", service_uri)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the webhook receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serviceUri")
+    def service_uri(self) -> pulumi.Input[str]:
+        """
+        The URI where webhooks should be sent.
+        """
+        return pulumi.get(self, "service_uri")
+
+    @service_uri.setter
+    def service_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_uri", value)
 
 

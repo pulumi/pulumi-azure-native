@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.MachineLearning
         /// <summary>
         /// List the authorization keys associated with this workspace.
         /// Azure REST API version: 2019-10-01.
+        /// 
+        /// Other available API versions: 2016-04-01.
         /// </summary>
         public static Task<ListWorkspaceKeysResult> InvokeAsync(ListWorkspaceKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-native:machinelearning:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.MachineLearning
         /// <summary>
         /// List the authorization keys associated with this workspace.
         /// Azure REST API version: 2019-10-01.
+        /// 
+        /// Other available API versions: 2016-04-01.
         /// </summary>
         public static Output<ListWorkspaceKeysResult> Invoke(ListWorkspaceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceKeysResult>("azure-native:machinelearning:listWorkspaceKeys", args ?? new ListWorkspaceKeysInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.MachineLearning
         /// <summary>
         /// List the authorization keys associated with this workspace.
         /// Azure REST API version: 2019-10-01.
+        /// 
+        /// Other available API versions: 2016-04-01.
         /// </summary>
         public static Output<ListWorkspaceKeysResult> Invoke(ListWorkspaceKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceKeysResult>("azure-native:machinelearning:listWorkspaceKeys", args ?? new ListWorkspaceKeysInvokeArgs(), options.WithDefaults());

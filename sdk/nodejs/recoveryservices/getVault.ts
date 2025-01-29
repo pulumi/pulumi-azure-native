@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Vault details.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2020-02-02, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-09-30-preview, 2024-10-01.
+ * Other available API versions: 2020-02-02, 2020-10-01, 2021-01-01, 2021-02-10, 2021-03-01, 2021-04-01, 2021-06-01, 2021-07-01, 2021-08-01, 2021-11-01-preview, 2021-12-01, 2022-01-01, 2022-01-31-preview, 2022-02-01, 2022-03-01, 2022-04-01, 2022-05-01, 2022-08-01, 2022-09-10, 2022-09-30-preview, 2022-10-01, 2023-01-01, 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-09-30-preview.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,9 +79,9 @@ export interface GetVaultResult {
 }
 /**
  * Get the Vault details.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2020-02-02, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-09-30-preview, 2024-10-01.
+ * Other available API versions: 2020-02-02, 2020-10-01, 2021-01-01, 2021-02-10, 2021-03-01, 2021-04-01, 2021-06-01, 2021-07-01, 2021-08-01, 2021-11-01-preview, 2021-12-01, 2022-01-01, 2022-01-31-preview, 2022-02-01, 2022-03-01, 2022-04-01, 2022-05-01, 2022-08-01, 2022-09-10, 2022-09-30-preview, 2022-10-01, 2023-01-01, 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-09-30-preview.
  */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

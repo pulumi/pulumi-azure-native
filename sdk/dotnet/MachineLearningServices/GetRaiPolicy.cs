@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure OpenAI Content Filters resource.
-        /// Azure REST API version: 2024-04-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-04-01-preview, 2024-07-01-preview.
         /// </summary>
         public static Task<GetRaiPolicyResult> InvokeAsync(GetRaiPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRaiPolicyResult>("azure-native:machinelearningservices:getRaiPolicy", args ?? new GetRaiPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure OpenAI Content Filters resource.
-        /// Azure REST API version: 2024-04-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-04-01-preview, 2024-07-01-preview.
         /// </summary>
         public static Output<GetRaiPolicyResult> Invoke(GetRaiPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiPolicyResult>("azure-native:machinelearningservices:getRaiPolicy", args ?? new GetRaiPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure OpenAI Content Filters resource.
-        /// Azure REST API version: 2024-04-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-04-01-preview, 2024-07-01-preview.
         /// </summary>
         public static Output<GetRaiPolicyResult> Invoke(GetRaiPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiPolicyResult>("azure-native:machinelearningservices:getRaiPolicy", args ?? new GetRaiPolicyInvokeArgs(), options.WithDefaults());

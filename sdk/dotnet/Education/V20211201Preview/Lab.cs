@@ -82,6 +82,12 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
+        /// Total budget
+        /// </summary>
+        [Output("totalBudget")]
+        public Output<Outputs.AmountResponse> TotalBudget { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]

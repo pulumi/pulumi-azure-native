@@ -10,10 +10,20 @@ export const getSoftwareUpdateConfigurationByName: typeof import("./getSoftwareU
 export const getSoftwareUpdateConfigurationByNameOutput: typeof import("./getSoftwareUpdateConfigurationByName").getSoftwareUpdateConfigurationByNameOutput = null as any;
 utilities.lazyLoad(exports, ["getSoftwareUpdateConfigurationByName","getSoftwareUpdateConfigurationByNameOutput"], () => require("./getSoftwareUpdateConfigurationByName"));
 
+export { GetSourceControlArgs, GetSourceControlResult, GetSourceControlOutputArgs } from "./getSourceControl";
+export const getSourceControl: typeof import("./getSourceControl").getSourceControl = null as any;
+export const getSourceControlOutput: typeof import("./getSourceControl").getSourceControlOutput = null as any;
+utilities.lazyLoad(exports, ["getSourceControl","getSourceControlOutput"], () => require("./getSourceControl"));
+
 export { SoftwareUpdateConfigurationByNameArgs } from "./softwareUpdateConfigurationByName";
 export type SoftwareUpdateConfigurationByName = import("./softwareUpdateConfigurationByName").SoftwareUpdateConfigurationByName;
 export const SoftwareUpdateConfigurationByName: typeof import("./softwareUpdateConfigurationByName").SoftwareUpdateConfigurationByName = null as any;
 utilities.lazyLoad(exports, ["SoftwareUpdateConfigurationByName"], () => require("./softwareUpdateConfigurationByName"));
+
+export { SourceControlArgs } from "./sourceControl";
+export type SourceControl = import("./sourceControl").SourceControl;
+export const SourceControl: typeof import("./sourceControl").SourceControl = null as any;
+utilities.lazyLoad(exports, ["SourceControl"], () => require("./sourceControl"));
 
 
 // Export enums:
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName":
                 return new SoftwareUpdateConfigurationByName(name, <any>undefined, { urn })
+            case "azure-native:automation/v20170515preview:SourceControl":
+                return new SourceControl(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

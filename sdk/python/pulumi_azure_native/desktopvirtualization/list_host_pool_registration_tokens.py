@@ -66,10 +66,10 @@ def list_host_pool_registration_tokens(host_pool_name: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListHostPoolRegistrationTokensResult:
     """
-    Operation to list the RegistrationTokens associated with the HostPool.
-    Azure REST API version: 2024-04-08-preview.
+    Operation to list the RegistrationTokens associated with the HostPool
+    Azure REST API version: 2024-04-03.
 
-    Other available API versions: 2024-04-03, 2024-08-08-preview.
+    Other available API versions: 2024-04-08-preview, 2024-08-08-preview.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -88,10 +88,10 @@ def list_host_pool_registration_tokens_output(host_pool_name: Optional[pulumi.In
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListHostPoolRegistrationTokensResult]:
     """
-    Operation to list the RegistrationTokens associated with the HostPool.
-    Azure REST API version: 2024-04-08-preview.
+    Operation to list the RegistrationTokens associated with the HostPool
+    Azure REST API version: 2024-04-03.
 
-    Other available API versions: 2024-04-03, 2024-08-08-preview.
+    Other available API versions: 2024-04-08-preview, 2024-08-08-preview.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

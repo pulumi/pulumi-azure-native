@@ -11,6 +11,9 @@ __all__ = [
     'ChannelType',
     'ClientCertificateValidationScheme',
     'ClientState',
+    'CustomDomainIdentityType',
+    'CustomDomainValidationState',
+    'CustomJwtAuthenticationManagedIdentityType',
     'DataResidencyBoundary',
     'DeadLetterEndPointType',
     'DeliveryAttributeMappingType',
@@ -26,8 +29,11 @@ __all__ = [
     'InputSchema',
     'InputSchemaMappingType',
     'IpActionType',
+    'MonitorAlertSeverity',
+    'PartnerClientAuthenticationType',
     'PartnerConfigurationProvisioningState',
     'PartnerDestinationActivationState',
+    'PartnerEndpointType',
     'PartnerTopicActivationState',
     'PartnerTopicRoutingMode',
     'PermissionType',
@@ -35,8 +41,10 @@ __all__ = [
     'PublicNetworkAccess',
     'PublisherType',
     'ReadinessState',
+    'ResourceKind',
     'ResourceProvisioningState',
     'RoutingIdentityType',
+    'Sku',
     'SkuName',
     'StaticRoutingEnrichmentType',
     'TlsVersion',
@@ -70,6 +78,9 @@ class AdvancedFilterOperatorType(str, Enum):
 
 
 class AlternativeAuthenticationNameSource(str, Enum):
+    """
+    Alternative authentication name sources related to client authentication settings for namespace resource.
+    """
     CLIENT_CERTIFICATE_SUBJECT = "ClientCertificateSubject"
     CLIENT_CERTIFICATE_DNS = "ClientCertificateDns"
     CLIENT_CERTIFICATE_URI = "ClientCertificateUri"
@@ -88,6 +99,7 @@ class ChannelProvisioningState(str, Enum):
     CANCELED = "Canceled"
     FAILED = "Failed"
     IDLE_DUE_TO_MIRRORED_PARTNER_TOPIC_DELETION = "IdleDueToMirroredPartnerTopicDeletion"
+    IDLE_DUE_TO_MIRRORED_PARTNER_DESTINATION_DELETION = "IdleDueToMirroredPartnerDestinationDeletion"
 
 
 class ChannelType(str, Enum):
@@ -95,6 +107,7 @@ class ChannelType(str, Enum):
     The type of the event channel which represents the direction flow of events.
     """
     PARTNER_TOPIC = "PartnerTopic"
+    PARTNER_DESTINATION = "PartnerDestination"
 
 
 class ClientCertificateValidationScheme(str, Enum):
@@ -115,6 +128,31 @@ class ClientState(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class CustomDomainIdentityType(str, Enum):
+    """
+    The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+
+
+class CustomDomainValidationState(str, Enum):
+    """
+    Validation state for the custom domain. This is a read only property and is initially set to 'Pending' and will be updated to 'Approved' by Event Grid only after ownership of the domain name has been successfully validated.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    ERROR_RETRIEVING_DNS_RECORD = "ErrorRetrievingDnsRecord"
+
+
+class CustomJwtAuthenticationManagedIdentityType(str, Enum):
+    """
+    The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
 
 
 class DataResidencyBoundary(str, Enum):
@@ -145,6 +183,7 @@ class DeliveryMode(str, Enum):
     Delivery mode of the event subscription.
     """
     QUEUE = "Queue"
+    PUSH = "Push"
 
 
 class DeliverySchema(str, Enum):
@@ -165,6 +204,9 @@ class EndpointType(str, Enum):
     SERVICE_BUS_QUEUE = "ServiceBusQueue"
     SERVICE_BUS_TOPIC = "ServiceBusTopic"
     AZURE_FUNCTION = "AzureFunction"
+    PARTNER_DESTINATION = "PartnerDestination"
+    MONITOR_ALERT = "MonitorAlert"
+    NAMESPACE_TOPIC = "NamespaceTopic"
 
 
 class EventDefinitionKind(str, Enum):
@@ -192,7 +234,7 @@ class EventInputSchema(str, Enum):
 
 class EventSubscriptionIdentityType(str, Enum):
     """
-    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+    The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
@@ -256,6 +298,25 @@ class IpActionType(str, Enum):
     ALLOW = "Allow"
 
 
+class MonitorAlertSeverity(str, Enum):
+    """
+    The severity that will be attached to every Alert fired through this event subscription.
+    This field must be provided.
+    """
+    SEV0 = "Sev0"
+    SEV1 = "Sev1"
+    SEV2 = "Sev2"
+    SEV3 = "Sev3"
+    SEV4 = "Sev4"
+
+
+class PartnerClientAuthenticationType(str, Enum):
+    """
+    Type of client authentication
+    """
+    AZURE_AD = "AzureAD"
+
+
 class PartnerConfigurationProvisioningState(str, Enum):
     """
     Provisioning state of the partner configuration.
@@ -274,6 +335,13 @@ class PartnerDestinationActivationState(str, Enum):
     """
     NEVER_ACTIVATED = "NeverActivated"
     ACTIVATED = "Activated"
+
+
+class PartnerEndpointType(str, Enum):
+    """
+    Type of the endpoint for the partner destination
+    """
+    WEB_HOOK = "WebHook"
 
 
 class PartnerTopicActivationState(str, Enum):
@@ -319,6 +387,7 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
 class PublisherType(str, Enum):
@@ -336,6 +405,14 @@ class ReadinessState(str, Enum):
     ACTIVATED = "Activated"
 
 
+class ResourceKind(str, Enum):
+    """
+    Kind of the resource.
+    """
+    AZURE = "Azure"
+    AZURE_ARC = "AzureArc"
+
+
 class ResourceProvisioningState(str, Enum):
     """
     Provisioning state of the Private Endpoint Connection.
@@ -349,9 +426,20 @@ class ResourceProvisioningState(str, Enum):
 
 
 class RoutingIdentityType(str, Enum):
+    """
+    Routing identity type for topic spaces configuration.
+    """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
+
+
+class Sku(str, Enum):
+    """
+    The Sku name of the resource. The possible values are: Basic or Premium.
+    """
+    BASIC = "Basic"
+    PREMIUM = "Premium"
 
 
 class SkuName(str, Enum):
@@ -370,7 +458,7 @@ class StaticRoutingEnrichmentType(str, Enum):
 
 class TlsVersion(str, Enum):
     """
-    Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
+    Minimum TLS version that should be supported by webhook endpoint
     """
     TLS_VERSION_1_0 = "1.0"
     TLS_VERSION_1_1 = "1.1"

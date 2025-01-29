@@ -70,6 +70,8 @@ def list_streaming_locator_paths(account_name: Optional[str] = None,
     List Paths supported by this Streaming Locator
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
+
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
@@ -92,6 +94,8 @@ def list_streaming_locator_paths_output(account_name: Optional[pulumi.Input[str]
     """
     List Paths supported by this Streaming Locator
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
 
 
     :param str account_name: The Media Services account name.

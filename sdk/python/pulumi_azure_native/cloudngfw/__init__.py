@@ -45,8 +45,6 @@ from .list_local_rulestack_countries import *
 from .list_local_rulestack_firewalls import *
 from .list_local_rulestack_predefined_url_categories import *
 from .list_local_rulestack_security_services import *
-from .list_palo_alto_networks_cloudngfw_cloud_manager_tenants import *
-from .list_palo_alto_networks_cloudngfw_product_serial_number_status import *
 from .list_palo_alto_networks_cloudngfw_support_info import *
 from .local_rule import *
 from .local_rulestack import *

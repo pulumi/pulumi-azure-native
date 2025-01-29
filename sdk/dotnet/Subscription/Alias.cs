@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Subscription
 {
     /// <summary>
     /// Subscription Information with the alias.
-    /// Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2020-09-01.
+    /// Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2021-10-01.
     /// 
-    /// Other available API versions: 2020-09-01, 2024-08-01-preview.
+    /// Other available API versions: 2020-09-01, 2021-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:subscription:Alias")]
     public partial class Alias : global::Pulumi.CustomResource

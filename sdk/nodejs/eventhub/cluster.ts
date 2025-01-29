@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Single Event Hubs Cluster resource in List or Get operations.
- * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
  *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Other available API versions: 2018-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -56,6 +56,10 @@ export class Cluster extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Provisioning state of the Cluster.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Properties of the cluster SKU.
      */
@@ -108,6 +112,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -117,6 +122,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["supportsScaling"] = undefined /*out*/;

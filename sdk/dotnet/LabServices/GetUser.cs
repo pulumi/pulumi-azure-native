@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Returns the properties of a lab user.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-06-07.
         /// 
-        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:labservices:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of a lab user.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-06-07.
         /// 
-        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:labservices:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of a lab user.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-06-07.
         /// 
-        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:labservices:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
@@ -133,6 +133,10 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public readonly string RegistrationState;
         /// <summary>
+        /// Error details of last operation done on lab plan.
+        /// </summary>
+        public readonly Outputs.ResourceOperationErrorResponse ResourceOperationError;
+        /// <summary>
         /// Metadata pertaining to creation and last modification of the user resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNative.LabServices
 
             string registrationState,
 
+            Outputs.ResourceOperationErrorResponse resourceOperationError,
+
             Outputs.SystemDataResponse systemData,
 
             string totalUsage,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNative.LabServices
             Name = name;
             ProvisioningState = provisioningState;
             RegistrationState = registrationState;
+            ResourceOperationError = resourceOperationError;
             SystemData = systemData;
             TotalUsage = totalUsage;
             Type = type;

@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// ID tracking current migration operation.
+        /// ID for current migration operation.
         /// </summary>
         [Input("migrationOperationId")]
         public Input<string>? MigrationOperationId { get; set; }
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public Input<string>? ProvisioningError { get; set; }
 
         /// <summary>
-        /// Resource Id of the target resource (SQL VM or SQL Managed Instance).
+        /// Resource Id of the target resource.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }

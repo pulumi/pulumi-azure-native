@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     Class representing a Kusto cluster.
     """
-    def __init__(__self__, accepted_audiences=None, allowed_fqdn_list=None, allowed_ip_range_list=None, data_ingestion_uri=None, enable_auto_stop=None, enable_disk_encryption=None, enable_double_encryption=None, enable_purge=None, enable_streaming_ingest=None, engine_type=None, etag=None, id=None, identity=None, key_vault_properties=None, language_extensions=None, location=None, name=None, optimized_autoscale=None, private_endpoint_connections=None, provisioning_state=None, public_ip_type=None, public_network_access=None, restrict_outbound_network_access=None, sku=None, state=None, state_reason=None, system_data=None, tags=None, trusted_external_tenants=None, type=None, uri=None, virtual_network_configuration=None, zones=None):
+    def __init__(__self__, accepted_audiences=None, allowed_fqdn_list=None, allowed_ip_range_list=None, callout_policies=None, data_ingestion_uri=None, enable_auto_stop=None, enable_disk_encryption=None, enable_double_encryption=None, enable_purge=None, enable_streaming_ingest=None, engine_type=None, etag=None, id=None, identity=None, key_vault_properties=None, language_extensions=None, location=None, migration_cluster=None, name=None, optimized_autoscale=None, private_endpoint_connections=None, provisioning_state=None, public_ip_type=None, public_network_access=None, restrict_outbound_network_access=None, sku=None, state=None, state_reason=None, system_data=None, tags=None, trusted_external_tenants=None, type=None, uri=None, virtual_network_configuration=None, zone_status=None, zones=None):
         if accepted_audiences and not isinstance(accepted_audiences, list):
             raise TypeError("Expected argument 'accepted_audiences' to be a list")
         pulumi.set(__self__, "accepted_audiences", accepted_audiences)
@@ -37,6 +37,9 @@ class GetClusterResult:
         if allowed_ip_range_list and not isinstance(allowed_ip_range_list, list):
             raise TypeError("Expected argument 'allowed_ip_range_list' to be a list")
         pulumi.set(__self__, "allowed_ip_range_list", allowed_ip_range_list)
+        if callout_policies and not isinstance(callout_policies, list):
+            raise TypeError("Expected argument 'callout_policies' to be a list")
+        pulumi.set(__self__, "callout_policies", callout_policies)
         if data_ingestion_uri and not isinstance(data_ingestion_uri, str):
             raise TypeError("Expected argument 'data_ingestion_uri' to be a str")
         pulumi.set(__self__, "data_ingestion_uri", data_ingestion_uri)
@@ -76,6 +79,9 @@ class GetClusterResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if migration_cluster and not isinstance(migration_cluster, dict):
+            raise TypeError("Expected argument 'migration_cluster' to be a dict")
+        pulumi.set(__self__, "migration_cluster", migration_cluster)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -124,6 +130,9 @@ class GetClusterResult:
         if virtual_network_configuration and not isinstance(virtual_network_configuration, dict):
             raise TypeError("Expected argument 'virtual_network_configuration' to be a dict")
         pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+        if zone_status and not isinstance(zone_status, str):
+            raise TypeError("Expected argument 'zone_status' to be a str")
+        pulumi.set(__self__, "zone_status", zone_status)
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
@@ -151,6 +160,14 @@ class GetClusterResult:
         The list of ips in the format of CIDR allowed to connect to the cluster.
         """
         return pulumi.get(self, "allowed_ip_range_list")
+
+    @property
+    @pulumi.getter(name="calloutPolicies")
+    def callout_policies(self) -> Optional[Sequence['outputs.CalloutPolicyResponse']]:
+        """
+        List of callout policies for egress from Cluster.
+        """
+        return pulumi.get(self, "callout_policies")
 
     @property
     @pulumi.getter(name="dataIngestionUri")
@@ -255,6 +272,14 @@ class GetClusterResult:
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="migrationCluster")
+    def migration_cluster(self) -> 'outputs.MigrationClusterPropertiesResponse':
+        """
+        Properties of the peer cluster involved in a migration to/from this cluster.
+        """
+        return pulumi.get(self, "migration_cluster")
 
     @property
     @pulumi.getter
@@ -385,6 +410,14 @@ class GetClusterResult:
         return pulumi.get(self, "virtual_network_configuration")
 
     @property
+    @pulumi.getter(name="zoneStatus")
+    def zone_status(self) -> str:
+        """
+        Indicates whether the cluster is zonal or non-zonal.
+        """
+        return pulumi.get(self, "zone_status")
+
+    @property
     @pulumi.getter
     def zones(self) -> Optional[Sequence[str]]:
         """
@@ -402,6 +435,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             accepted_audiences=self.accepted_audiences,
             allowed_fqdn_list=self.allowed_fqdn_list,
             allowed_ip_range_list=self.allowed_ip_range_list,
+            callout_policies=self.callout_policies,
             data_ingestion_uri=self.data_ingestion_uri,
             enable_auto_stop=self.enable_auto_stop,
             enable_disk_encryption=self.enable_disk_encryption,
@@ -415,6 +449,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             key_vault_properties=self.key_vault_properties,
             language_extensions=self.language_extensions,
             location=self.location,
+            migration_cluster=self.migration_cluster,
             name=self.name,
             optimized_autoscale=self.optimized_autoscale,
             private_endpoint_connections=self.private_endpoint_connections,
@@ -431,6 +466,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             type=self.type,
             uri=self.uri,
             virtual_network_configuration=self.virtual_network_configuration,
+            zone_status=self.zone_status,
             zones=self.zones)
 
 
@@ -439,13 +475,13 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Gets a Kusto cluster.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
-    Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+    Other available API versions: 2018-09-07-preview, 2019-01-21, 2019-05-15, 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15.
 
 
     :param str cluster_name: The name of the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -457,6 +493,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         accepted_audiences=pulumi.get(__ret__, 'accepted_audiences'),
         allowed_fqdn_list=pulumi.get(__ret__, 'allowed_fqdn_list'),
         allowed_ip_range_list=pulumi.get(__ret__, 'allowed_ip_range_list'),
+        callout_policies=pulumi.get(__ret__, 'callout_policies'),
         data_ingestion_uri=pulumi.get(__ret__, 'data_ingestion_uri'),
         enable_auto_stop=pulumi.get(__ret__, 'enable_auto_stop'),
         enable_disk_encryption=pulumi.get(__ret__, 'enable_disk_encryption'),
@@ -470,6 +507,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         key_vault_properties=pulumi.get(__ret__, 'key_vault_properties'),
         language_extensions=pulumi.get(__ret__, 'language_extensions'),
         location=pulumi.get(__ret__, 'location'),
+        migration_cluster=pulumi.get(__ret__, 'migration_cluster'),
         name=pulumi.get(__ret__, 'name'),
         optimized_autoscale=pulumi.get(__ret__, 'optimized_autoscale'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
@@ -486,19 +524,20 @@ def get_cluster(cluster_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         uri=pulumi.get(__ret__, 'uri'),
         virtual_network_configuration=pulumi.get(__ret__, 'virtual_network_configuration'),
+        zone_status=pulumi.get(__ret__, 'zone_status'),
         zones=pulumi.get(__ret__, 'zones'))
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Gets a Kusto cluster.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
-    Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+    Other available API versions: 2018-09-07-preview, 2019-01-21, 2019-05-15, 2019-09-07, 2019-11-09, 2020-02-15, 2020-06-14, 2020-09-18, 2021-01-01, 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15.
 
 
     :param str cluster_name: The name of the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -509,6 +548,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         accepted_audiences=pulumi.get(__response__, 'accepted_audiences'),
         allowed_fqdn_list=pulumi.get(__response__, 'allowed_fqdn_list'),
         allowed_ip_range_list=pulumi.get(__response__, 'allowed_ip_range_list'),
+        callout_policies=pulumi.get(__response__, 'callout_policies'),
         data_ingestion_uri=pulumi.get(__response__, 'data_ingestion_uri'),
         enable_auto_stop=pulumi.get(__response__, 'enable_auto_stop'),
         enable_disk_encryption=pulumi.get(__response__, 'enable_disk_encryption'),
@@ -522,6 +562,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         key_vault_properties=pulumi.get(__response__, 'key_vault_properties'),
         language_extensions=pulumi.get(__response__, 'language_extensions'),
         location=pulumi.get(__response__, 'location'),
+        migration_cluster=pulumi.get(__response__, 'migration_cluster'),
         name=pulumi.get(__response__, 'name'),
         optimized_autoscale=pulumi.get(__response__, 'optimized_autoscale'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
@@ -538,4 +579,5 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         type=pulumi.get(__response__, 'type'),
         uri=pulumi.get(__response__, 'uri'),
         virtual_network_configuration=pulumi.get(__response__, 'virtual_network_configuration'),
+        zone_status=pulumi.get(__response__, 'zone_status'),
         zones=pulumi.get(__response__, 'zones')))

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Quantum
     {
         /// <summary>
         /// Returns the Workspace resource associated with the given name.
-        /// Azure REST API version: 2022-01-10-preview.
+        /// Azure REST API version: 2023-11-13-preview.
         /// 
-        /// Other available API versions: 2023-11-13-preview.
+        /// Other available API versions: 2019-11-04-preview, 2022-01-10-preview.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:quantum:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the Workspace resource associated with the given name.
-        /// Azure REST API version: 2022-01-10-preview.
+        /// Azure REST API version: 2023-11-13-preview.
         /// 
-        /// Other available API versions: 2023-11-13-preview.
+        /// Other available API versions: 2019-11-04-preview, 2022-01-10-preview.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:quantum:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the Workspace resource associated with the given name.
-        /// Azure REST API version: 2022-01-10-preview.
+        /// Azure REST API version: 2023-11-13-preview.
         /// 
-        /// Other available API versions: 2023-11-13-preview.
+        /// Other available API versions: 2019-11-04-preview, 2022-01-10-preview.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:quantum:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Quantum
     public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.Quantum
     public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -85,11 +85,15 @@ namespace Pulumi.AzureNative.Quantum
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// Indicator of enablement of the Quantum workspace Api keys.
+        /// </summary>
+        public readonly bool? ApiKeyEnabled;
+        /// <summary>
         /// The URI of the workspace endpoint.
         /// </summary>
         public readonly string EndpointUri;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -117,7 +121,7 @@ namespace Pulumi.AzureNative.Quantum
         /// </summary>
         public readonly string? StorageAccount;
         /// <summary>
-        /// System metadata
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -135,6 +139,8 @@ namespace Pulumi.AzureNative.Quantum
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            bool? apiKeyEnabled,
+
             string endpointUri,
 
             string id,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.Quantum
 
             string usable)
         {
+            ApiKeyEnabled = apiKeyEnabled;
             EndpointUri = endpointUri;
             Id = id;
             Identity = identity;

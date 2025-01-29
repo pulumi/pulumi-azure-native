@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a virtual machine scale set virtual machine.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01.
  */
 export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     /**
@@ -52,6 +52,10 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      * Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
      */
     public readonly diagnosticsProfile!: pulumi.Output<outputs.compute.DiagnosticsProfileResponse | undefined>;
+    /**
+     * Etag is property returned in Update/Get response of the VMSS VM, so that customer can supply it in the header to ensure optimistic updates.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Specifies the hardware settings for the virtual machine.
      */
@@ -133,11 +137,15 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Specifies the time at which the Virtual Machine resource was created. Minimum api-version: 2021-11-01.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
      */
     public readonly userData!: pulumi.Output<string | undefined>;
     /**
@@ -185,6 +193,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["latestModelApplied"] = undefined /*out*/;
             resourceInputs["modelDefinitionApplied"] = undefined /*out*/;
@@ -192,6 +201,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmId"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
@@ -199,6 +209,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["additionalCapabilities"] = undefined /*out*/;
             resourceInputs["availabilitySet"] = undefined /*out*/;
             resourceInputs["diagnosticsProfile"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hardwareProfile"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
@@ -219,6 +230,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["storageProfile"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userData"] = undefined /*out*/;
             resourceInputs["vmId"] = undefined /*out*/;
@@ -304,7 +316,7 @@ export interface VirtualMachineScaleSetVMArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+     * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
      */
     userData?: pulumi.Input<string>;
     /**

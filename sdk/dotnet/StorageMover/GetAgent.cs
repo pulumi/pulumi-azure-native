@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.StorageMover
     {
         /// <summary>
         /// Gets an Agent resource.
-        /// Azure REST API version: 2023-03-01.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        /// Other available API versions: 2022-07-01-preview, 2023-03-01, 2023-07-01-preview, 2023-10-01.
         /// </summary>
         public static Task<GetAgentResult> InvokeAsync(GetAgentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgentResult>("azure-native:storagemover:getAgent", args ?? new GetAgentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Agent resource.
-        /// Azure REST API version: 2023-03-01.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        /// Other available API versions: 2022-07-01-preview, 2023-03-01, 2023-07-01-preview, 2023-10-01.
         /// </summary>
         public static Output<GetAgentResult> Invoke(GetAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentResult>("azure-native:storagemover:getAgent", args ?? new GetAgentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Agent resource.
-        /// Azure REST API version: 2023-03-01.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        /// Other available API versions: 2022-07-01-preview, 2023-03-01, 2023-07-01-preview, 2023-10-01.
         /// </summary>
         public static Output<GetAgentResult> Invoke(GetAgentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentResult>("azure-native:storagemover:getAgent", args ?? new GetAgentInvokeArgs(), options.WithDefaults());
@@ -146,13 +146,21 @@ namespace Pulumi.AzureNative.StorageMover
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource system metadata.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The agent's local time zone represented in Windows format.
+        /// </summary>
+        public readonly string TimeZone;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
+        /// </summary>
+        public readonly Outputs.UploadLimitScheduleResponse? UploadLimitSchedule;
         /// <summary>
         /// Uptime of the Agent in seconds.
         /// </summary>
@@ -188,7 +196,11 @@ namespace Pulumi.AzureNative.StorageMover
 
             Outputs.SystemDataResponse systemData,
 
+            string timeZone,
+
             string type,
+
+            Outputs.UploadLimitScheduleResponse? uploadLimitSchedule,
 
             double uptimeInSeconds)
         {
@@ -206,7 +218,9 @@ namespace Pulumi.AzureNative.StorageMover
             NumberOfCores = numberOfCores;
             ProvisioningState = provisioningState;
             SystemData = systemData;
+            TimeZone = timeZone;
             Type = type;
+            UploadLimitSchedule = uploadLimitSchedule;
             UptimeInSeconds = uptimeInSeconds;
         }
     }

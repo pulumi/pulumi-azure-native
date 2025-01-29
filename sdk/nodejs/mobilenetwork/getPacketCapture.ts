@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified packet capture session.
- * Azure REST API version: 2023-06-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+ * Other available API versions: 2023-06-01, 2023-09-01, 2024-02-01.
  */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,6 +62,10 @@ export interface GetPacketCaptureResult {
      */
     readonly networkInterfaces?: string[];
     /**
+     * The list of output files of a packet capture session.
+     */
+    readonly outputFiles: string[];
+    /**
      * The provisioning state of the packet capture session resource.
      */
     readonly provisioningState: string;
@@ -92,9 +96,9 @@ export interface GetPacketCaptureResult {
 }
 /**
  * Gets information about the specified packet capture session.
- * Azure REST API version: 2023-06-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+ * Other available API versions: 2023-06-01, 2023-09-01, 2024-02-01.
  */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPacketCaptureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -100,9 +100,9 @@ class Catalog(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Sphere catalog
-        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01-preview.
 
-        Other available API versions: 2024-04-01.
+        Other available API versions: 2022-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +119,9 @@ class Catalog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Sphere catalog
-        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01-preview.
 
-        Other available API versions: 2024-04-01.
+        Other available API versions: 2022-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CatalogArgs args: The arguments to use to populate this resource's properties.
@@ -160,6 +160,7 @@ class Catalog(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
+            __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere/v20220901preview:Catalog"), pulumi.Alias(type_="azure-native:azuresphere/v20240401:Catalog")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -190,6 +191,7 @@ class Catalog(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return Catalog(resource_name, opts=opts, __props__=__props__)
 
@@ -232,6 +234,14 @@ class Catalog(pulumi.CustomResource):
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Output[str]:
+        """
+        The Azure Sphere tenant ID associated with the catalog.
+        """
+        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter

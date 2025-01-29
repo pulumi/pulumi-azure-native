@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets the integration account's Key Vault keys.
         /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Task<ListIntegrationAccountKeyVaultKeysResult> InvokeAsync(ListIntegrationAccountKeyVaultKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets the integration account's Key Vault keys.
         /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Output<ListIntegrationAccountKeyVaultKeysResult> Invoke(ListIntegrationAccountKeyVaultKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets the integration account's Key Vault keys.
         /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Other available API versions: 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Output<ListIntegrationAccountKeyVaultKeysResult> Invoke(ListIntegrationAccountKeyVaultKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysInvokeArgs(), options.WithDefaults());

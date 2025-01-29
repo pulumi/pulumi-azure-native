@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified private endpoint connection associated with the Cognitive Services account.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Other available API versions: 2017-04-18, 2021-04-30, 2021-10-01, 2022-03-01, 2022-10-01, 2022-12-01, 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,9 +72,9 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * Gets the specified private endpoint connection associated with the Cognitive Services account.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Other available API versions: 2017-04-18, 2021-04-30, 2021-10-01, 2022-03-01, 2022-10-01, 2022-12-01, 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

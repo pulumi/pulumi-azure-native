@@ -46,6 +46,10 @@ export interface GetL2ConnectionResult {
      */
     readonly groundStation: outputs.orbital.v20240301.L2ConnectionsPropertiesResponseGroundStation;
     /**
+     * The name of the partner router to establish a connection to within the ground station.
+     */
+    readonly groundStationPartnerRouter: outputs.orbital.v20240301.L2ConnectionsPropertiesResponseGroundStationPartnerRouter;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;

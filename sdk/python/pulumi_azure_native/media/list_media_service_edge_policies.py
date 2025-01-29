@@ -52,6 +52,8 @@ def list_media_service_edge_policies(account_name: Optional[str] = None,
     List all the media edge policies associated with the Media Services account.
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2018-07-01, 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01.
+
 
     :param str account_name: The Media Services account name.
     :param str device_id: Unique identifier of the edge device.
@@ -73,6 +75,8 @@ def list_media_service_edge_policies_output(account_name: Optional[pulumi.Input[
     """
     List all the media edge policies associated with the Media Services account.
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2018-07-01, 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01.
 
 
     :param str account_name: The Media Services account name.

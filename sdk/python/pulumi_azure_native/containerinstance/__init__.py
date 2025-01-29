@@ -6,10 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .cg_profile import *
 from .container_group import *
 from .container_group_profile import *
-from .get_cg_profile import *
 from .get_container_group import *
 from .get_container_group_profile import *
 from .get_n_group import *
@@ -23,6 +21,14 @@ if typing.TYPE_CHECKING:
     v20210301 = __v20210301
     import pulumi_azure_native.containerinstance.v20210701 as __v20210701
     v20210701 = __v20210701
+    import pulumi_azure_native.containerinstance.v20210901 as __v20210901
+    v20210901 = __v20210901
+    import pulumi_azure_native.containerinstance.v20211001 as __v20211001
+    v20211001 = __v20211001
+    import pulumi_azure_native.containerinstance.v20220901 as __v20220901
+    v20220901 = __v20220901
+    import pulumi_azure_native.containerinstance.v20221001preview as __v20221001preview
+    v20221001preview = __v20221001preview
     import pulumi_azure_native.containerinstance.v20230201preview as __v20230201preview
     v20230201preview = __v20230201preview
     import pulumi_azure_native.containerinstance.v20230501 as __v20230501
@@ -38,6 +44,10 @@ if typing.TYPE_CHECKING:
 else:
     v20210301 = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20210301')
     v20210701 = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20210701')
+    v20210901 = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20210901')
+    v20211001 = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20211001')
+    v20220901 = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20220901')
+    v20221001preview = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20221001preview')
     v20230201preview = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20230201preview')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20230501')
     v20240501preview = _utilities.lazy_import('pulumi_azure_native.containerinstance.v20240501preview')

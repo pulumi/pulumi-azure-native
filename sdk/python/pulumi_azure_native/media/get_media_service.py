@@ -234,7 +234,7 @@ def get_media_service(account_name: Optional[str] = None,
     Get the details of a Media Services account
     Azure REST API version: 2023-01-01.
 
-    Other available API versions: 2015-10-01.
+    Other available API versions: 2015-10-01, 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -270,7 +270,7 @@ def get_media_service_output(account_name: Optional[pulumi.Input[str]] = None,
     Get the details of a Media Services account
     Azure REST API version: 2023-01-01.
 
-    Other available API versions: 2015-10-01.
+    Other available API versions: 2015-10-01, 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01.
 
 
     :param str account_name: The Media Services account name.

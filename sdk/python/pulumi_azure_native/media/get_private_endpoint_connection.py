@@ -118,6 +118,8 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
     Get the details of a private endpoint connection.
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01.
+
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
@@ -143,6 +145,8 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
     """
     Get the details of a private endpoint connection.
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2020-05-01, 2021-05-01, 2021-06-01, 2021-11-01.
 
 
     :param str account_name: The Media Services account name.

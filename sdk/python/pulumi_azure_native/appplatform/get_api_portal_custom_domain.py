@@ -105,9 +105,9 @@ def get_api_portal_custom_domain(api_portal_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiPortalCustomDomainResult:
     """
     Get the API portal custom domain.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2024-01-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+    Other available API versions: 2022-01-01-preview, 2022-03-01-preview, 2022-05-01-preview, 2022-09-01-preview, 2022-11-01-preview, 2022-12-01, 2023-01-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview.
 
 
     :param str api_portal_name: The name of API portal.
@@ -136,9 +136,9 @@ def get_api_portal_custom_domain_output(api_portal_name: Optional[pulumi.Input[s
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiPortalCustomDomainResult]:
     """
     Get the API portal custom domain.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2024-01-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+    Other available API versions: 2022-01-01-preview, 2022-03-01-preview, 2022-05-01-preview, 2022-09-01-preview, 2022-11-01-preview, 2022-12-01, 2023-01-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview.
 
 
     :param str api_portal_name: The name of API portal.

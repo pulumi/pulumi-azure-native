@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ManagedServices
         /// <summary>
         /// Gets the registration definition details.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
         /// </summary>
         public static Task<GetRegistrationDefinitionResult> InvokeAsync(GetRegistrationDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationDefinitionResult>("azure-native:managedservices:getRegistrationDefinition", args ?? new GetRegistrationDefinitionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ManagedServices
         /// <summary>
         /// Gets the registration definition details.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
         /// </summary>
         public static Output<GetRegistrationDefinitionResult> Invoke(GetRegistrationDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationDefinitionResult>("azure-native:managedservices:getRegistrationDefinition", args ?? new GetRegistrationDefinitionInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.ManagedServices
         /// <summary>
         /// Gets the registration definition details.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
         /// </summary>
         public static Output<GetRegistrationDefinitionResult> Invoke(GetRegistrationDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationDefinitionResult>("azure-native:managedservices:getRegistrationDefinition", args ?? new GetRegistrationDefinitionInvokeArgs(), options.WithDefaults());

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetPolicyAssignmentArgs, GetPolicyAssignmentResult, GetPolicyAssignmentOutputArgs } from "./getPolicyAssignment";
+export const getPolicyAssignment: typeof import("./getPolicyAssignment").getPolicyAssignment = null as any;
+export const getPolicyAssignmentOutput: typeof import("./getPolicyAssignment").getPolicyAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyAssignment","getPolicyAssignmentOutput"], () => require("./getPolicyAssignment"));
+
 export { GetPolicyDefinitionArgs, GetPolicyDefinitionResult, GetPolicyDefinitionOutputArgs } from "./getPolicyDefinition";
 export const getPolicyDefinition: typeof import("./getPolicyDefinition").getPolicyDefinition = null as any;
 export const getPolicyDefinitionOutput: typeof import("./getPolicyDefinition").getPolicyDefinitionOutput = null as any;
@@ -24,6 +29,11 @@ export { GetPolicySetDefinitionAtManagementGroupArgs, GetPolicySetDefinitionAtMa
 export const getPolicySetDefinitionAtManagementGroup: typeof import("./getPolicySetDefinitionAtManagementGroup").getPolicySetDefinitionAtManagementGroup = null as any;
 export const getPolicySetDefinitionAtManagementGroupOutput: typeof import("./getPolicySetDefinitionAtManagementGroup").getPolicySetDefinitionAtManagementGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicySetDefinitionAtManagementGroup","getPolicySetDefinitionAtManagementGroupOutput"], () => require("./getPolicySetDefinitionAtManagementGroup"));
+
+export { PolicyAssignmentArgs } from "./policyAssignment";
+export type PolicyAssignment = import("./policyAssignment").PolicyAssignment;
+export const PolicyAssignment: typeof import("./policyAssignment").PolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["PolicyAssignment"], () => require("./policyAssignment"));
 
 export { PolicyDefinitionArgs } from "./policyDefinition";
 export type PolicyDefinition = import("./policyDefinition").PolicyDefinition;
@@ -53,6 +63,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:authorization/v20210601:PolicyAssignment":
+                return new PolicyAssignment(name, <any>undefined, { urn })
             case "azure-native:authorization/v20210601:PolicyDefinition":
                 return new PolicyDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup":

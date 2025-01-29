@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a trigger that can invoke an image template build.
- * Azure REST API version: 2022-07-01.
+ * Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2022-07-01.
  *
- * Other available API versions: 2023-07-01, 2024-02-01.
+ * Other available API versions: 2022-07-01, 2023-07-01.
  */
 export class Trigger extends pulumi.CustomResource {
     /**

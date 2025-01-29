@@ -70,6 +70,9 @@ utilities.lazyLoad(exports, ["SyncSet"], () => require("./syncSet"));
 export * from "../types/enums/redhatopenshift";
 
 // Export sub-modules:
+import * as v20200430 from "./v20200430";
+import * as v20210901preview from "./v20210901preview";
+import * as v20220401 from "./v20220401";
 import * as v20220904 from "./v20220904";
 import * as v20230401 from "./v20230401";
 import * as v20230701preview from "./v20230701preview";
@@ -78,6 +81,9 @@ import * as v20231122 from "./v20231122";
 import * as v20240812preview from "./v20240812preview";
 
 export {
+    v20200430,
+    v20210901preview,
+    v20220401,
     v20220904,
     v20230401,
     v20230701preview,

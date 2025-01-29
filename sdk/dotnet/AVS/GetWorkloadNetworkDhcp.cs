@@ -12,28 +12,28 @@ namespace Pulumi.AzureNative.AVS
     public static class GetWorkloadNetworkDhcp
     {
         /// <summary>
-        /// NSX DHCP
-        /// Azure REST API version: 2022-05-01.
+        /// Get a WorkloadNetworkDhcp
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
         /// </summary>
         public static Task<GetWorkloadNetworkDhcpResult> InvokeAsync(GetWorkloadNetworkDhcpArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDhcpResult>("azure-native:avs:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NSX DHCP
-        /// Azure REST API version: 2022-05-01.
+        /// Get a WorkloadNetworkDhcp
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
         /// </summary>
         public static Output<GetWorkloadNetworkDhcpResult> Invoke(GetWorkloadNetworkDhcpInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDhcpResult>("azure-native:avs:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NSX DHCP
-        /// Azure REST API version: 2022-05-01.
+        /// Get a WorkloadNetworkDhcp
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
         /// </summary>
         public static Output<GetWorkloadNetworkDhcpResult> Invoke(GetWorkloadNetworkDhcpInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDhcpResult>("azure-native:avs:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpInvokeArgs(), options.WithDefaults());
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetWorkloadNetworkDhcpArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// NSX DHCP identifier. Generally the same as the DHCP display name
+        /// The ID of the DHCP configuration
         /// </summary>
         [Input("dhcpId", required: true)]
         public string DhcpId { get; set; } = null!;
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetWorkloadNetworkDhcpInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// NSX DHCP identifier. Generally the same as the DHCP display name
+        /// The ID of the DHCP configuration
         /// </summary>
         [Input("dhcpId", required: true)]
         public Input<string> DhcpId { get; set; } = null!;
@@ -97,35 +97,70 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetWorkloadNetworkDhcpResult
     {
         /// <summary>
-        /// Resource ID.
+        /// Type of DHCP: SERVER or RELAY.
+        /// </summary>
+        public readonly string DhcpType;
+        /// <summary>
+        /// Display name of the DHCP entity.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// DHCP properties.
+        /// The provisioning state
         /// </summary>
-        public readonly Union<Outputs.WorkloadNetworkDhcpRelayResponse, Outputs.WorkloadNetworkDhcpServerResponse> Properties;
+        public readonly string ProvisioningState;
         /// <summary>
-        /// Resource type.
+        /// NSX revision number.
+        /// </summary>
+        public readonly double? Revision;
+        /// <summary>
+        /// NSX Segments consuming DHCP.
+        /// </summary>
+        public readonly ImmutableArray<string> Segments;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetWorkloadNetworkDhcpResult(
+            string dhcpType,
+
+            string? displayName,
+
             string id,
 
             string name,
 
-            Union<Outputs.WorkloadNetworkDhcpRelayResponse, Outputs.WorkloadNetworkDhcpServerResponse> properties,
+            string provisioningState,
+
+            double? revision,
+
+            ImmutableArray<string> segments,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            DhcpType = dhcpType;
+            DisplayName = displayName;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Revision = revision;
+            Segments = segments;
+            SystemData = systemData;
             Type = type;
         }
     }

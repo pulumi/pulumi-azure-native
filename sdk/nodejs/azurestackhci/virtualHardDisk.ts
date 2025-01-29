@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The virtual hard disk resource definition.
- * Azure REST API version: 2022-12-15-preview.
+ * Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-10-01-preview.
  */
 export class VirtualHardDisk extends pulumi.CustomResource {
     /**
@@ -40,6 +40,9 @@ export class VirtualHardDisk extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualHardDisk.__pulumiType;
     }
 
+    /**
+     * Block size in bytes
+     */
     public readonly blockSizeBytes!: pulumi.Output<number | undefined>;
     /**
      * Storage ContainerID of the storage container to be used for VHD
@@ -53,6 +56,10 @@ export class VirtualHardDisk extends pulumi.CustomResource {
      * Size of the disk in GB
      */
     public readonly diskSizeGB!: pulumi.Output<number | undefined>;
+    /**
+     * URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
+     */
+    public readonly downloadUrl!: pulumi.Output<string | undefined>;
     /**
      * Boolean for enabling dynamic sizing on the virtual hard disk
      */
@@ -69,11 +76,17 @@ export class VirtualHardDisk extends pulumi.CustomResource {
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Logical sector in bytes
+     */
     public readonly logicalSectorBytes!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Physical sector in bytes
+     */
     public readonly physicalSectorBytes!: pulumi.Output<number | undefined>;
     /**
      * Provisioning state of the virtual hard disk.
@@ -114,6 +127,7 @@ export class VirtualHardDisk extends pulumi.CustomResource {
             resourceInputs["containerId"] = args ? args.containerId : undefined;
             resourceInputs["diskFileFormat"] = args ? args.diskFileFormat : undefined;
             resourceInputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
+            resourceInputs["downloadUrl"] = args ? args.downloadUrl : undefined;
             resourceInputs["dynamic"] = args ? args.dynamic : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
@@ -133,6 +147,7 @@ export class VirtualHardDisk extends pulumi.CustomResource {
             resourceInputs["containerId"] = undefined /*out*/;
             resourceInputs["diskFileFormat"] = undefined /*out*/;
             resourceInputs["diskSizeGB"] = undefined /*out*/;
+            resourceInputs["downloadUrl"] = undefined /*out*/;
             resourceInputs["dynamic"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hyperVGeneration"] = undefined /*out*/;
@@ -157,6 +172,9 @@ export class VirtualHardDisk extends pulumi.CustomResource {
  * The set of arguments for constructing a VirtualHardDisk resource.
  */
 export interface VirtualHardDiskArgs {
+    /**
+     * Block size in bytes
+     */
     blockSizeBytes?: pulumi.Input<number>;
     /**
      * Storage ContainerID of the storage container to be used for VHD
@@ -170,6 +188,10 @@ export interface VirtualHardDiskArgs {
      * Size of the disk in GB
      */
     diskSizeGB?: pulumi.Input<number>;
+    /**
+     * URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
+     */
+    downloadUrl?: pulumi.Input<string>;
     /**
      * Boolean for enabling dynamic sizing on the virtual hard disk
      */
@@ -186,7 +208,13 @@ export interface VirtualHardDiskArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Logical sector in bytes
+     */
     logicalSectorBytes?: pulumi.Input<number>;
+    /**
+     * Physical sector in bytes
+     */
     physicalSectorBytes?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.

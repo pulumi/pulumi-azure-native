@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the Shared Image Gallery that you want to create or update.
-    /// Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
+    /// Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
     /// 
-    /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    /// Other available API versions: 2020-09-30, 2021-07-01, 2021-10-01, 2022-01-03, 2022-03-03, 2022-08-03, 2023-07-03.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Gallery")]
     public partial class Gallery : global::Pulumi.CustomResource
@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("identifier")]
         public Output<Outputs.GalleryIdentifierResponse?> Identifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity of the gallery, if configured.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.GalleryIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -149,6 +155,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("galleryName")]
         public Input<string>? GalleryName { get; set; }
+
+        /// <summary>
+        /// The identity of the gallery, if configured.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.GalleryIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Resource location

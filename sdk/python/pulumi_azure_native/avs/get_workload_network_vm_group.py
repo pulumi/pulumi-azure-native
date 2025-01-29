@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWorkloadNetworkVMGroupResult',
@@ -26,7 +27,7 @@ class GetWorkloadNetworkVMGroupResult:
     """
     NSX VM Group
     """
-    def __init__(__self__, display_name=None, id=None, members=None, name=None, provisioning_state=None, revision=None, status=None, type=None):
+    def __init__(__self__, display_name=None, id=None, members=None, name=None, provisioning_state=None, revision=None, status=None, system_data=None, type=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -48,6 +49,9 @@ class GetWorkloadNetworkVMGroupResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -64,7 +68,7 @@ class GetWorkloadNetworkVMGroupResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -80,7 +84,7 @@ class GetWorkloadNetworkVMGroupResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -109,10 +113,18 @@ class GetWorkloadNetworkVMGroupResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -130,6 +142,7 @@ class AwaitableGetWorkloadNetworkVMGroupResult(GetWorkloadNetworkVMGroupResult):
             provisioning_state=self.provisioning_state,
             revision=self.revision,
             status=self.status,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -138,15 +151,15 @@ def get_workload_network_vm_group(private_cloud_name: Optional[str] = None,
                                   vm_group_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkVMGroupResult:
     """
-    NSX VM Group
-    Azure REST API version: 2022-05-01.
+    Get a WorkloadNetworkVMGroup
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str vm_group_id: NSX VM Group identifier. Generally the same as the VM Group's display name
+    :param str vm_group_id: ID of the VM group.
     """
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
@@ -163,21 +176,22 @@ def get_workload_network_vm_group(private_cloud_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         revision=pulumi.get(__ret__, 'revision'),
         status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_workload_network_vm_group_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          vm_group_id: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadNetworkVMGroupResult]:
     """
-    NSX VM Group
-    Azure REST API version: 2022-05-01.
+    Get a WorkloadNetworkVMGroup
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str vm_group_id: NSX VM Group identifier. Generally the same as the VM Group's display name
+    :param str vm_group_id: ID of the VM group.
     """
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
@@ -193,4 +207,5 @@ def get_workload_network_vm_group_output(private_cloud_name: Optional[pulumi.Inp
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         revision=pulumi.get(__response__, 'revision'),
         status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

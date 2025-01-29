@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Gets the list of assignments for an access policy of a redis cache
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// 
-        /// Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-09-01-preview, 2024-11-01.
+        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
         /// </summary>
         public static Task<GetAccessPolicyAssignmentResult> InvokeAsync(GetAccessPolicyAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyAssignmentResult>("azure-native:cache:getAccessPolicyAssignment", args ?? new GetAccessPolicyAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the list of assignments for an access policy of a redis cache
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// 
-        /// Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-09-01-preview, 2024-11-01.
+        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
         /// </summary>
         public static Output<GetAccessPolicyAssignmentResult> Invoke(GetAccessPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyAssignmentResult>("azure-native:cache:getAccessPolicyAssignment", args ?? new GetAccessPolicyAssignmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the list of assignments for an access policy of a redis cache
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// 
-        /// Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-09-01-preview, 2024-11-01.
+        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview.
         /// </summary>
         public static Output<GetAccessPolicyAssignmentResult> Invoke(GetAccessPolicyAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyAssignmentResult>("azure-native:cache:getAccessPolicyAssignment", args ?? new GetAccessPolicyAssignmentInvokeArgs(), options.WithDefaults());

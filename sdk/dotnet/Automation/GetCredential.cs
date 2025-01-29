@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the credential identified by credential name.
-        /// Azure REST API version: 2022-08-08.
+        /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23.
         /// </summary>
         public static Task<GetCredentialResult> InvokeAsync(GetCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-native:automation:getCredential", args ?? new GetCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the credential identified by credential name.
-        /// Azure REST API version: 2022-08-08.
+        /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23.
         /// </summary>
         public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:automation:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the credential identified by credential name.
-        /// Azure REST API version: 2022-08-08.
+        /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23.
         /// </summary>
         public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:automation:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());

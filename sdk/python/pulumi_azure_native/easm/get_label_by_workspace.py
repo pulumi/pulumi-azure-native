@@ -130,6 +130,8 @@ def get_label_by_workspace(label_name: Optional[str] = None,
     Returns a label in the given workspace.
     Azure REST API version: 2023-04-01-preview.
 
+    Other available API versions: 2022-04-01-preview.
+
 
     :param str label_name: The name of the Label.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -157,6 +159,8 @@ def get_label_by_workspace_output(label_name: Optional[pulumi.Input[str]] = None
     """
     Returns a label in the given workspace.
     Azure REST API version: 2023-04-01-preview.
+
+    Other available API versions: 2022-04-01-preview.
 
 
     :param str label_name: The name of the Label.

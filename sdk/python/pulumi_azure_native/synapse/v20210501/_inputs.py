@@ -20,6 +20,10 @@ __all__ = [
     'AutoPausePropertiesArgsDict',
     'AutoScalePropertiesArgs',
     'AutoScalePropertiesArgsDict',
+    'CmdkeySetupArgs',
+    'CmdkeySetupArgsDict',
+    'ComponentSetupArgs',
+    'ComponentSetupArgsDict',
     'CspWorkspaceAdminPropertiesArgs',
     'CspWorkspaceAdminPropertiesArgsDict',
     'CustomerManagedKeyDetailsArgs',
@@ -30,14 +34,38 @@ __all__ = [
     'DynamicExecutorAllocationArgsDict',
     'EncryptionDetailsArgs',
     'EncryptionDetailsArgsDict',
+    'EntityReferenceArgs',
+    'EntityReferenceArgsDict',
+    'EnvironmentVariableSetupArgs',
+    'EnvironmentVariableSetupArgsDict',
+    'IntegrationRuntimeComputePropertiesArgs',
+    'IntegrationRuntimeComputePropertiesArgsDict',
+    'IntegrationRuntimeCustomSetupScriptPropertiesArgs',
+    'IntegrationRuntimeCustomSetupScriptPropertiesArgsDict',
+    'IntegrationRuntimeDataFlowPropertiesArgs',
+    'IntegrationRuntimeDataFlowPropertiesArgsDict',
+    'IntegrationRuntimeDataProxyPropertiesArgs',
+    'IntegrationRuntimeDataProxyPropertiesArgsDict',
+    'IntegrationRuntimeSsisCatalogInfoArgs',
+    'IntegrationRuntimeSsisCatalogInfoArgsDict',
+    'IntegrationRuntimeSsisPropertiesArgs',
+    'IntegrationRuntimeSsisPropertiesArgsDict',
+    'IntegrationRuntimeVNetPropertiesArgs',
+    'IntegrationRuntimeVNetPropertiesArgsDict',
     'KekIdentityPropertiesArgs',
     'KekIdentityPropertiesArgsDict',
     'LibraryInfoArgs',
     'LibraryInfoArgsDict',
     'LibraryRequirementsArgs',
     'LibraryRequirementsArgsDict',
+    'LinkedIntegrationRuntimeKeyAuthorizationArgs',
+    'LinkedIntegrationRuntimeKeyAuthorizationArgsDict',
+    'LinkedIntegrationRuntimeRbacAuthorizationArgs',
+    'LinkedIntegrationRuntimeRbacAuthorizationArgsDict',
     'ManagedIdentityArgs',
     'ManagedIdentityArgsDict',
+    'ManagedIntegrationRuntimeArgs',
+    'ManagedIntegrationRuntimeArgsDict',
     'ManagedVirtualNetworkSettingsArgs',
     'ManagedVirtualNetworkSettingsArgsDict',
     'PrivateEndpointConnectionArgs',
@@ -46,10 +74,18 @@ __all__ = [
     'PrivateLinkServiceConnectionStateArgsDict',
     'PurviewConfigurationArgs',
     'PurviewConfigurationArgsDict',
+    'SecureStringArgs',
+    'SecureStringArgsDict',
+    'SelfHostedIntegrationRuntimeArgs',
+    'SelfHostedIntegrationRuntimeArgsDict',
     'SkuArgs',
     'SkuArgsDict',
+    'SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs',
+    'SqlPoolVulnerabilityAssessmentRuleBaselineItemArgsDict',
     'VirtualNetworkProfileArgs',
     'VirtualNetworkProfileArgsDict',
+    'VulnerabilityAssessmentRecurringScansPropertiesArgs',
+    'VulnerabilityAssessmentRecurringScansPropertiesArgsDict',
     'WorkspaceKeyDetailsArgs',
     'WorkspaceKeyDetailsArgsDict',
     'WorkspaceRepositoryConfigurationArgs',
@@ -188,6 +224,178 @@ class AutoScalePropertiesArgs:
     @min_node_count.setter
     def min_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_node_count", value)
+
+
+if not MYPY:
+    class CmdkeySetupArgsDict(TypedDict):
+        """
+        The custom setup of running cmdkey commands.
+        """
+        password: pulumi.Input['SecureStringArgsDict']
+        """
+        The password of data source access.
+        """
+        target_name: Any
+        """
+        The server name of data source access.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of custom setup.
+        Expected value is 'CmdkeySetup'.
+        """
+        user_name: Any
+        """
+        The user name of data source access.
+        """
+elif False:
+    CmdkeySetupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CmdkeySetupArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input['SecureStringArgs'],
+                 target_name: Any,
+                 type: pulumi.Input[str],
+                 user_name: Any):
+        """
+        The custom setup of running cmdkey commands.
+        :param pulumi.Input['SecureStringArgs'] password: The password of data source access.
+        :param Any target_name: The server name of data source access.
+        :param pulumi.Input[str] type: The type of custom setup.
+               Expected value is 'CmdkeySetup'.
+        :param Any user_name: The user name of data source access.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "target_name", target_name)
+        pulumi.set(__self__, "type", 'CmdkeySetup')
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input['SecureStringArgs']:
+        """
+        The password of data source access.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input['SecureStringArgs']):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> Any:
+        """
+        The server name of data source access.
+        """
+        return pulumi.get(self, "target_name")
+
+    @target_name.setter
+    def target_name(self, value: Any):
+        pulumi.set(self, "target_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of custom setup.
+        Expected value is 'CmdkeySetup'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Any:
+        """
+        The user name of data source access.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Any):
+        pulumi.set(self, "user_name", value)
+
+
+if not MYPY:
+    class ComponentSetupArgsDict(TypedDict):
+        """
+        The custom setup of installing 3rd party components.
+        """
+        component_name: pulumi.Input[str]
+        """
+        The name of the 3rd party component.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of custom setup.
+        Expected value is 'ComponentSetup'.
+        """
+        license_key: NotRequired[pulumi.Input['SecureStringArgsDict']]
+        """
+        The license key to activate the component.
+        """
+elif False:
+    ComponentSetupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ComponentSetupArgs:
+    def __init__(__self__, *,
+                 component_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 license_key: Optional[pulumi.Input['SecureStringArgs']] = None):
+        """
+        The custom setup of installing 3rd party components.
+        :param pulumi.Input[str] component_name: The name of the 3rd party component.
+        :param pulumi.Input[str] type: The type of custom setup.
+               Expected value is 'ComponentSetup'.
+        :param pulumi.Input['SecureStringArgs'] license_key: The license key to activate the component.
+        """
+        pulumi.set(__self__, "component_name", component_name)
+        pulumi.set(__self__, "type", 'ComponentSetup')
+        if license_key is not None:
+            pulumi.set(__self__, "license_key", license_key)
+
+    @property
+    @pulumi.getter(name="componentName")
+    def component_name(self) -> pulumi.Input[str]:
+        """
+        The name of the 3rd party component.
+        """
+        return pulumi.get(self, "component_name")
+
+    @component_name.setter
+    def component_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "component_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of custom setup.
+        Expected value is 'ComponentSetup'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="licenseKey")
+    def license_key(self) -> Optional[pulumi.Input['SecureStringArgs']]:
+        """
+        The license key to activate the component.
+        """
+        return pulumi.get(self, "license_key")
+
+    @license_key.setter
+    def license_key(self, value: Optional[pulumi.Input['SecureStringArgs']]):
+        pulumi.set(self, "license_key", value)
 
 
 if not MYPY:
@@ -411,6 +619,810 @@ class EncryptionDetailsArgs:
 
 
 if not MYPY:
+    class EntityReferenceArgsDict(TypedDict):
+        """
+        The entity reference.
+        """
+        reference_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of this referenced entity.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']]]
+        """
+        The type of this referenced entity.
+        """
+elif False:
+    EntityReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EntityReferenceArgs:
+    def __init__(__self__, *,
+                 reference_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']]] = None):
+        """
+        The entity reference.
+        :param pulumi.Input[str] reference_name: The name of this referenced entity.
+        :param pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']] type: The type of this referenced entity.
+        """
+        if reference_name is not None:
+            pulumi.set(__self__, "reference_name", reference_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of this referenced entity.
+        """
+        return pulumi.get(self, "reference_name")
+
+    @reference_name.setter
+    def reference_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reference_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']]]:
+        """
+        The type of this referenced entity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class EnvironmentVariableSetupArgsDict(TypedDict):
+        """
+        The custom setup of setting environment variable.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of custom setup.
+        Expected value is 'EnvironmentVariableSetup'.
+        """
+        variable_name: pulumi.Input[str]
+        """
+        The name of the environment variable.
+        """
+        variable_value: pulumi.Input[str]
+        """
+        The value of the environment variable.
+        """
+elif False:
+    EnvironmentVariableSetupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentVariableSetupArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 variable_name: pulumi.Input[str],
+                 variable_value: pulumi.Input[str]):
+        """
+        The custom setup of setting environment variable.
+        :param pulumi.Input[str] type: The type of custom setup.
+               Expected value is 'EnvironmentVariableSetup'.
+        :param pulumi.Input[str] variable_name: The name of the environment variable.
+        :param pulumi.Input[str] variable_value: The value of the environment variable.
+        """
+        pulumi.set(__self__, "type", 'EnvironmentVariableSetup')
+        pulumi.set(__self__, "variable_name", variable_name)
+        pulumi.set(__self__, "variable_value", variable_value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of custom setup.
+        Expected value is 'EnvironmentVariableSetup'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="variableName")
+    def variable_name(self) -> pulumi.Input[str]:
+        """
+        The name of the environment variable.
+        """
+        return pulumi.get(self, "variable_name")
+
+    @variable_name.setter
+    def variable_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "variable_name", value)
+
+    @property
+    @pulumi.getter(name="variableValue")
+    def variable_value(self) -> pulumi.Input[str]:
+        """
+        The value of the environment variable.
+        """
+        return pulumi.get(self, "variable_value")
+
+    @variable_value.setter
+    def variable_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "variable_value", value)
+
+
+if not MYPY:
+    class IntegrationRuntimeComputePropertiesArgsDict(TypedDict):
+        """
+        The compute resource properties for managed integration runtime.
+        """
+        data_flow_properties: NotRequired[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgsDict']]
+        """
+        Data flow properties for managed integration runtime.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
+        """
+        max_parallel_executions_per_node: NotRequired[pulumi.Input[int]]
+        """
+        Maximum parallel executions count per node for managed integration runtime.
+        """
+        node_size: NotRequired[pulumi.Input[str]]
+        """
+        The node size requirement to managed integration runtime.
+        """
+        number_of_nodes: NotRequired[pulumi.Input[int]]
+        """
+        The required number of nodes for managed integration runtime.
+        """
+        v_net_properties: NotRequired[pulumi.Input['IntegrationRuntimeVNetPropertiesArgsDict']]
+        """
+        VNet properties for managed integration runtime.
+        """
+elif False:
+    IntegrationRuntimeComputePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationRuntimeComputePropertiesArgs:
+    def __init__(__self__, *,
+                 data_flow_properties: Optional[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
+                 node_size: Optional[pulumi.Input[str]] = None,
+                 number_of_nodes: Optional[pulumi.Input[int]] = None,
+                 v_net_properties: Optional[pulumi.Input['IntegrationRuntimeVNetPropertiesArgs']] = None):
+        """
+        The compute resource properties for managed integration runtime.
+        :param pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs'] data_flow_properties: Data flow properties for managed integration runtime.
+        :param pulumi.Input[str] location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
+        :param pulumi.Input[int] max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
+        :param pulumi.Input[str] node_size: The node size requirement to managed integration runtime.
+        :param pulumi.Input[int] number_of_nodes: The required number of nodes for managed integration runtime.
+        :param pulumi.Input['IntegrationRuntimeVNetPropertiesArgs'] v_net_properties: VNet properties for managed integration runtime.
+        """
+        if data_flow_properties is not None:
+            pulumi.set(__self__, "data_flow_properties", data_flow_properties)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if max_parallel_executions_per_node is not None:
+            pulumi.set(__self__, "max_parallel_executions_per_node", max_parallel_executions_per_node)
+        if node_size is not None:
+            pulumi.set(__self__, "node_size", node_size)
+        if number_of_nodes is not None:
+            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+        if v_net_properties is not None:
+            pulumi.set(__self__, "v_net_properties", v_net_properties)
+
+    @property
+    @pulumi.getter(name="dataFlowProperties")
+    def data_flow_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs']]:
+        """
+        Data flow properties for managed integration runtime.
+        """
+        return pulumi.get(self, "data_flow_properties")
+
+    @data_flow_properties.setter
+    def data_flow_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs']]):
+        pulumi.set(self, "data_flow_properties", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxParallelExecutionsPerNode")
+    def max_parallel_executions_per_node(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum parallel executions count per node for managed integration runtime.
+        """
+        return pulumi.get(self, "max_parallel_executions_per_node")
+
+    @max_parallel_executions_per_node.setter
+    def max_parallel_executions_per_node(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_parallel_executions_per_node", value)
+
+    @property
+    @pulumi.getter(name="nodeSize")
+    def node_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The node size requirement to managed integration runtime.
+        """
+        return pulumi.get(self, "node_size")
+
+    @node_size.setter
+    def node_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_size", value)
+
+    @property
+    @pulumi.getter(name="numberOfNodes")
+    def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The required number of nodes for managed integration runtime.
+        """
+        return pulumi.get(self, "number_of_nodes")
+
+    @number_of_nodes.setter
+    def number_of_nodes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_nodes", value)
+
+    @property
+    @pulumi.getter(name="vNetProperties")
+    def v_net_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeVNetPropertiesArgs']]:
+        """
+        VNet properties for managed integration runtime.
+        """
+        return pulumi.get(self, "v_net_properties")
+
+    @v_net_properties.setter
+    def v_net_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeVNetPropertiesArgs']]):
+        pulumi.set(self, "v_net_properties", value)
+
+
+if not MYPY:
+    class IntegrationRuntimeCustomSetupScriptPropertiesArgsDict(TypedDict):
+        """
+        Custom setup script properties for a managed dedicated integration runtime.
+        """
+        blob_container_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the Azure blob container that contains the custom setup script.
+        """
+        sas_token: NotRequired[pulumi.Input['SecureStringArgsDict']]
+        """
+        The SAS token of the Azure blob container.
+        """
+elif False:
+    IntegrationRuntimeCustomSetupScriptPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
+    def __init__(__self__, *,
+                 blob_container_uri: Optional[pulumi.Input[str]] = None,
+                 sas_token: Optional[pulumi.Input['SecureStringArgs']] = None):
+        """
+        Custom setup script properties for a managed dedicated integration runtime.
+        :param pulumi.Input[str] blob_container_uri: The URI of the Azure blob container that contains the custom setup script.
+        :param pulumi.Input['SecureStringArgs'] sas_token: The SAS token of the Azure blob container.
+        """
+        if blob_container_uri is not None:
+            pulumi.set(__self__, "blob_container_uri", blob_container_uri)
+        if sas_token is not None:
+            pulumi.set(__self__, "sas_token", sas_token)
+
+    @property
+    @pulumi.getter(name="blobContainerUri")
+    def blob_container_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the Azure blob container that contains the custom setup script.
+        """
+        return pulumi.get(self, "blob_container_uri")
+
+    @blob_container_uri.setter
+    def blob_container_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_container_uri", value)
+
+    @property
+    @pulumi.getter(name="sasToken")
+    def sas_token(self) -> Optional[pulumi.Input['SecureStringArgs']]:
+        """
+        The SAS token of the Azure blob container.
+        """
+        return pulumi.get(self, "sas_token")
+
+    @sas_token.setter
+    def sas_token(self, value: Optional[pulumi.Input['SecureStringArgs']]):
+        pulumi.set(self, "sas_token", value)
+
+
+if not MYPY:
+    class IntegrationRuntimeDataFlowPropertiesArgsDict(TypedDict):
+        """
+        Data flow properties for managed integration runtime.
+        """
+        compute_type: NotRequired[pulumi.Input[Union[str, 'DataFlowComputeType']]]
+        """
+        Compute type of the cluster which will execute data flow job.
+        """
+        core_count: NotRequired[pulumi.Input[int]]
+        """
+        Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
+        """
+        time_to_live: NotRequired[pulumi.Input[int]]
+        """
+        Time to live (in minutes) setting of the cluster which will execute data flow job.
+        """
+elif False:
+    IntegrationRuntimeDataFlowPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationRuntimeDataFlowPropertiesArgs:
+    def __init__(__self__, *,
+                 compute_type: Optional[pulumi.Input[Union[str, 'DataFlowComputeType']]] = None,
+                 core_count: Optional[pulumi.Input[int]] = None,
+                 time_to_live: Optional[pulumi.Input[int]] = None):
+        """
+        Data flow properties for managed integration runtime.
+        :param pulumi.Input[Union[str, 'DataFlowComputeType']] compute_type: Compute type of the cluster which will execute data flow job.
+        :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
+        :param pulumi.Input[int] time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
+        """
+        if compute_type is not None:
+            pulumi.set(__self__, "compute_type", compute_type)
+        if core_count is not None:
+            pulumi.set(__self__, "core_count", core_count)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> Optional[pulumi.Input[Union[str, 'DataFlowComputeType']]]:
+        """
+        Compute type of the cluster which will execute data flow job.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: Optional[pulumi.Input[Union[str, 'DataFlowComputeType']]]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
+        """
+        return pulumi.get(self, "core_count")
+
+    @core_count.setter
+    def core_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "core_count", value)
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time to live (in minutes) setting of the cluster which will execute data flow job.
+        """
+        return pulumi.get(self, "time_to_live")
+
+    @time_to_live.setter
+    def time_to_live(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "time_to_live", value)
+
+
+if not MYPY:
+    class IntegrationRuntimeDataProxyPropertiesArgsDict(TypedDict):
+        """
+        Data proxy properties for a managed dedicated integration runtime.
+        """
+        connect_via: NotRequired[pulumi.Input['EntityReferenceArgsDict']]
+        """
+        The self-hosted integration runtime reference.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path to contain the staged data in the Blob storage.
+        """
+        staging_linked_service: NotRequired[pulumi.Input['EntityReferenceArgsDict']]
+        """
+        The staging linked service reference.
+        """
+elif False:
+    IntegrationRuntimeDataProxyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationRuntimeDataProxyPropertiesArgs:
+    def __init__(__self__, *,
+                 connect_via: Optional[pulumi.Input['EntityReferenceArgs']] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 staging_linked_service: Optional[pulumi.Input['EntityReferenceArgs']] = None):
+        """
+        Data proxy properties for a managed dedicated integration runtime.
+        :param pulumi.Input['EntityReferenceArgs'] connect_via: The self-hosted integration runtime reference.
+        :param pulumi.Input[str] path: The path to contain the staged data in the Blob storage.
+        :param pulumi.Input['EntityReferenceArgs'] staging_linked_service: The staging linked service reference.
+        """
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if staging_linked_service is not None:
+            pulumi.set(__self__, "staging_linked_service", staging_linked_service)
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional[pulumi.Input['EntityReferenceArgs']]:
+        """
+        The self-hosted integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @connect_via.setter
+    def connect_via(self, value: Optional[pulumi.Input['EntityReferenceArgs']]):
+        pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to contain the staged data in the Blob storage.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="stagingLinkedService")
+    def staging_linked_service(self) -> Optional[pulumi.Input['EntityReferenceArgs']]:
+        """
+        The staging linked service reference.
+        """
+        return pulumi.get(self, "staging_linked_service")
+
+    @staging_linked_service.setter
+    def staging_linked_service(self, value: Optional[pulumi.Input['EntityReferenceArgs']]):
+        pulumi.set(self, "staging_linked_service", value)
+
+
+if not MYPY:
+    class IntegrationRuntimeSsisCatalogInfoArgsDict(TypedDict):
+        """
+        Catalog information for managed dedicated integration runtime.
+        """
+        catalog_admin_password: NotRequired[pulumi.Input['SecureStringArgsDict']]
+        """
+        The password of the administrator user account of the catalog database.
+        """
+        catalog_admin_user_name: NotRequired[pulumi.Input[str]]
+        """
+        The administrator user name of catalog database.
+        """
+        catalog_pricing_tier: NotRequired[pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']]]
+        """
+        The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
+        """
+        catalog_server_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The catalog database server URL.
+        """
+elif False:
+    IntegrationRuntimeSsisCatalogInfoArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationRuntimeSsisCatalogInfoArgs:
+    def __init__(__self__, *,
+                 catalog_admin_password: Optional[pulumi.Input['SecureStringArgs']] = None,
+                 catalog_admin_user_name: Optional[pulumi.Input[str]] = None,
+                 catalog_pricing_tier: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']]] = None,
+                 catalog_server_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        Catalog information for managed dedicated integration runtime.
+        :param pulumi.Input['SecureStringArgs'] catalog_admin_password: The password of the administrator user account of the catalog database.
+        :param pulumi.Input[str] catalog_admin_user_name: The administrator user name of catalog database.
+        :param pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']] catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
+        :param pulumi.Input[str] catalog_server_endpoint: The catalog database server URL.
+        """
+        if catalog_admin_password is not None:
+            pulumi.set(__self__, "catalog_admin_password", catalog_admin_password)
+        if catalog_admin_user_name is not None:
+            pulumi.set(__self__, "catalog_admin_user_name", catalog_admin_user_name)
+        if catalog_pricing_tier is not None:
+            pulumi.set(__self__, "catalog_pricing_tier", catalog_pricing_tier)
+        if catalog_server_endpoint is not None:
+            pulumi.set(__self__, "catalog_server_endpoint", catalog_server_endpoint)
+
+    @property
+    @pulumi.getter(name="catalogAdminPassword")
+    def catalog_admin_password(self) -> Optional[pulumi.Input['SecureStringArgs']]:
+        """
+        The password of the administrator user account of the catalog database.
+        """
+        return pulumi.get(self, "catalog_admin_password")
+
+    @catalog_admin_password.setter
+    def catalog_admin_password(self, value: Optional[pulumi.Input['SecureStringArgs']]):
+        pulumi.set(self, "catalog_admin_password", value)
+
+    @property
+    @pulumi.getter(name="catalogAdminUserName")
+    def catalog_admin_user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The administrator user name of catalog database.
+        """
+        return pulumi.get(self, "catalog_admin_user_name")
+
+    @catalog_admin_user_name.setter
+    def catalog_admin_user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_admin_user_name", value)
+
+    @property
+    @pulumi.getter(name="catalogPricingTier")
+    def catalog_pricing_tier(self) -> Optional[pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']]]:
+        """
+        The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
+        """
+        return pulumi.get(self, "catalog_pricing_tier")
+
+    @catalog_pricing_tier.setter
+    def catalog_pricing_tier(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']]]):
+        pulumi.set(self, "catalog_pricing_tier", value)
+
+    @property
+    @pulumi.getter(name="catalogServerEndpoint")
+    def catalog_server_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The catalog database server URL.
+        """
+        return pulumi.get(self, "catalog_server_endpoint")
+
+    @catalog_server_endpoint.setter
+    def catalog_server_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_server_endpoint", value)
+
+
+if not MYPY:
+    class IntegrationRuntimeSsisPropertiesArgsDict(TypedDict):
+        """
+        SSIS properties for managed integration runtime.
+        """
+        catalog_info: NotRequired[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgsDict']]
+        """
+        Catalog information for managed dedicated integration runtime.
+        """
+        custom_setup_script_properties: NotRequired[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgsDict']]
+        """
+        Custom setup script properties for a managed dedicated integration runtime.
+        """
+        data_proxy_properties: NotRequired[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgsDict']]
+        """
+        Data proxy properties for a managed dedicated integration runtime.
+        """
+        edition: NotRequired[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]]
+        """
+        The edition for the SSIS Integration Runtime
+        """
+        express_custom_setup_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgsDict', 'ComponentSetupArgsDict', 'EnvironmentVariableSetupArgsDict']]]]]
+        """
+        Custom setup without script properties for a SSIS integration runtime.
+        """
+        license_type: NotRequired[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]]
+        """
+        License type for bringing your own license scenario.
+        """
+elif False:
+    IntegrationRuntimeSsisPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationRuntimeSsisPropertiesArgs:
+    def __init__(__self__, *,
+                 catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
+                 custom_setup_script_properties: Optional[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs']] = None,
+                 data_proxy_properties: Optional[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs']] = None,
+                 edition: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]] = None,
+                 express_custom_setup_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]] = None):
+        """
+        SSIS properties for managed integration runtime.
+        :param pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs'] catalog_info: Catalog information for managed dedicated integration runtime.
+        :param pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs'] custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
+        :param pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs'] data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
+        :param pulumi.Input[Union[str, 'IntegrationRuntimeEdition']] edition: The edition for the SSIS Integration Runtime
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
+        :param pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']] license_type: License type for bringing your own license scenario.
+        """
+        if catalog_info is not None:
+            pulumi.set(__self__, "catalog_info", catalog_info)
+        if custom_setup_script_properties is not None:
+            pulumi.set(__self__, "custom_setup_script_properties", custom_setup_script_properties)
+        if data_proxy_properties is not None:
+            pulumi.set(__self__, "data_proxy_properties", data_proxy_properties)
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+        if express_custom_setup_properties is not None:
+            pulumi.set(__self__, "express_custom_setup_properties", express_custom_setup_properties)
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
+
+    @property
+    @pulumi.getter(name="catalogInfo")
+    def catalog_info(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']]:
+        """
+        Catalog information for managed dedicated integration runtime.
+        """
+        return pulumi.get(self, "catalog_info")
+
+    @catalog_info.setter
+    def catalog_info(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']]):
+        pulumi.set(self, "catalog_info", value)
+
+    @property
+    @pulumi.getter(name="customSetupScriptProperties")
+    def custom_setup_script_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs']]:
+        """
+        Custom setup script properties for a managed dedicated integration runtime.
+        """
+        return pulumi.get(self, "custom_setup_script_properties")
+
+    @custom_setup_script_properties.setter
+    def custom_setup_script_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs']]):
+        pulumi.set(self, "custom_setup_script_properties", value)
+
+    @property
+    @pulumi.getter(name="dataProxyProperties")
+    def data_proxy_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs']]:
+        """
+        Data proxy properties for a managed dedicated integration runtime.
+        """
+        return pulumi.get(self, "data_proxy_properties")
+
+    @data_proxy_properties.setter
+    def data_proxy_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs']]):
+        pulumi.set(self, "data_proxy_properties", value)
+
+    @property
+    @pulumi.getter
+    def edition(self) -> Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]]:
+        """
+        The edition for the SSIS Integration Runtime
+        """
+        return pulumi.get(self, "edition")
+
+    @edition.setter
+    def edition(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]]):
+        pulumi.set(self, "edition", value)
+
+    @property
+    @pulumi.getter(name="expressCustomSetupProperties")
+    def express_custom_setup_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]:
+        """
+        Custom setup without script properties for a SSIS integration runtime.
+        """
+        return pulumi.get(self, "express_custom_setup_properties")
+
+    @express_custom_setup_properties.setter
+    def express_custom_setup_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]):
+        pulumi.set(self, "express_custom_setup_properties", value)
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]]:
+        """
+        License type for bringing your own license scenario.
+        """
+        return pulumi.get(self, "license_type")
+
+    @license_type.setter
+    def license_type(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]]):
+        pulumi.set(self, "license_type", value)
+
+
+if not MYPY:
+    class IntegrationRuntimeVNetPropertiesArgsDict(TypedDict):
+        """
+        VNet properties for managed integration runtime.
+        """
+        public_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Resource IDs of the public IP addresses that this integration runtime will use.
+        """
+        subnet: NotRequired[pulumi.Input[str]]
+        """
+        The name of the subnet this integration runtime will join.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+        """
+        v_net_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the VNet that this integration runtime will join.
+        """
+elif False:
+    IntegrationRuntimeVNetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationRuntimeVNetPropertiesArgs:
+    def __init__(__self__, *,
+                 public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 v_net_id: Optional[pulumi.Input[str]] = None):
+        """
+        VNet properties for managed integration runtime.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
+        :param pulumi.Input[str] subnet: The name of the subnet this integration runtime will join.
+        :param pulumi.Input[str] subnet_id: The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+        :param pulumi.Input[str] v_net_id: The ID of the VNet that this integration runtime will join.
+        """
+        if public_ips is not None:
+            pulumi.set(__self__, "public_ips", public_ips)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if v_net_id is not None:
+            pulumi.set(__self__, "v_net_id", v_net_id)
+
+    @property
+    @pulumi.getter(name="publicIPs")
+    def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Resource IDs of the public IP addresses that this integration runtime will use.
+        """
+        return pulumi.get(self, "public_ips")
+
+    @public_ips.setter
+    def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "public_ips", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the subnet this integration runtime will join.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="vNetId")
+    def v_net_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VNet that this integration runtime will join.
+        """
+        return pulumi.get(self, "v_net_id")
+
+    @v_net_id.setter
+    def v_net_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_net_id", value)
+
+
+if not MYPY:
     class KekIdentityPropertiesArgsDict(TypedDict):
         """
         Key encryption key properties
@@ -619,6 +1631,120 @@ class LibraryRequirementsArgs:
 
 
 if not MYPY:
+    class LinkedIntegrationRuntimeKeyAuthorizationArgsDict(TypedDict):
+        """
+        The key authorization type integration runtime.
+        """
+        authorization_type: pulumi.Input[str]
+        """
+        The authorization type for integration runtime sharing.
+        Expected value is 'Key'.
+        """
+        key: pulumi.Input['SecureStringArgsDict']
+        """
+        The key used for authorization.
+        """
+elif False:
+    LinkedIntegrationRuntimeKeyAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LinkedIntegrationRuntimeKeyAuthorizationArgs:
+    def __init__(__self__, *,
+                 authorization_type: pulumi.Input[str],
+                 key: pulumi.Input['SecureStringArgs']):
+        """
+        The key authorization type integration runtime.
+        :param pulumi.Input[str] authorization_type: The authorization type for integration runtime sharing.
+               Expected value is 'Key'.
+        :param pulumi.Input['SecureStringArgs'] key: The key used for authorization.
+        """
+        pulumi.set(__self__, "authorization_type", 'Key')
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="authorizationType")
+    def authorization_type(self) -> pulumi.Input[str]:
+        """
+        The authorization type for integration runtime sharing.
+        Expected value is 'Key'.
+        """
+        return pulumi.get(self, "authorization_type")
+
+    @authorization_type.setter
+    def authorization_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authorization_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input['SecureStringArgs']:
+        """
+        The key used for authorization.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input['SecureStringArgs']):
+        pulumi.set(self, "key", value)
+
+
+if not MYPY:
+    class LinkedIntegrationRuntimeRbacAuthorizationArgsDict(TypedDict):
+        """
+        The role based access control (RBAC) authorization type integration runtime.
+        """
+        authorization_type: pulumi.Input[str]
+        """
+        The authorization type for integration runtime sharing.
+        Expected value is 'RBAC'.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The resource identifier of the integration runtime to be shared.
+        """
+elif False:
+    LinkedIntegrationRuntimeRbacAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LinkedIntegrationRuntimeRbacAuthorizationArgs:
+    def __init__(__self__, *,
+                 authorization_type: pulumi.Input[str],
+                 resource_id: pulumi.Input[str]):
+        """
+        The role based access control (RBAC) authorization type integration runtime.
+        :param pulumi.Input[str] authorization_type: The authorization type for integration runtime sharing.
+               Expected value is 'RBAC'.
+        :param pulumi.Input[str] resource_id: The resource identifier of the integration runtime to be shared.
+        """
+        pulumi.set(__self__, "authorization_type", 'RBAC')
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="authorizationType")
+    def authorization_type(self) -> pulumi.Input[str]:
+        """
+        The authorization type for integration runtime sharing.
+        Expected value is 'RBAC'.
+        """
+        return pulumi.get(self, "authorization_type")
+
+    @authorization_type.setter
+    def authorization_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authorization_type", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource identifier of the integration runtime to be shared.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
     class ManagedIdentityArgsDict(TypedDict):
         """
         The workspace managed identity
@@ -672,6 +1798,104 @@ class ManagedIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class ManagedIntegrationRuntimeArgsDict(TypedDict):
+        """
+        Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of integration runtime.
+        Expected value is 'Managed'.
+        """
+        compute_properties: NotRequired[pulumi.Input['IntegrationRuntimeComputePropertiesArgsDict']]
+        """
+        The compute resource for managed integration runtime.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Integration runtime description.
+        """
+        ssis_properties: NotRequired[pulumi.Input['IntegrationRuntimeSsisPropertiesArgsDict']]
+        """
+        SSIS properties for managed integration runtime.
+        """
+elif False:
+    ManagedIntegrationRuntimeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedIntegrationRuntimeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 compute_properties: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ssis_properties: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']] = None):
+        """
+        Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
+        :param pulumi.Input[str] type: The type of integration runtime.
+               Expected value is 'Managed'.
+        :param pulumi.Input['IntegrationRuntimeComputePropertiesArgs'] compute_properties: The compute resource for managed integration runtime.
+        :param pulumi.Input[str] description: Integration runtime description.
+        :param pulumi.Input['IntegrationRuntimeSsisPropertiesArgs'] ssis_properties: SSIS properties for managed integration runtime.
+        """
+        pulumi.set(__self__, "type", 'Managed')
+        if compute_properties is not None:
+            pulumi.set(__self__, "compute_properties", compute_properties)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ssis_properties is not None:
+            pulumi.set(__self__, "ssis_properties", ssis_properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of integration runtime.
+        Expected value is 'Managed'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="computeProperties")
+    def compute_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']]:
+        """
+        The compute resource for managed integration runtime.
+        """
+        return pulumi.get(self, "compute_properties")
+
+    @compute_properties.setter
+    def compute_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']]):
+        pulumi.set(self, "compute_properties", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration runtime description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ssisProperties")
+    def ssis_properties(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']]:
+        """
+        SSIS properties for managed integration runtime.
+        """
+        return pulumi.get(self, "ssis_properties")
+
+    @ssis_properties.setter
+    def ssis_properties(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']]):
+        pulumi.set(self, "ssis_properties", value)
 
 
 if not MYPY:
@@ -879,6 +2103,141 @@ class PurviewConfigurationArgs:
 
 
 if not MYPY:
+    class SecureStringArgsDict(TypedDict):
+        """
+        Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of the secret.
+        Expected value is 'SecureString'.
+        """
+        value: pulumi.Input[str]
+        """
+        Value of secure string.
+        """
+elif False:
+    SecureStringArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecureStringArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
+        :param pulumi.Input[str] type: Type of the secret.
+               Expected value is 'SecureString'.
+        :param pulumi.Input[str] value: Value of secure string.
+        """
+        pulumi.set(__self__, "type", 'SecureString')
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the secret.
+        Expected value is 'SecureString'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of secure string.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class SelfHostedIntegrationRuntimeArgsDict(TypedDict):
+        """
+        Self-hosted integration runtime.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of integration runtime.
+        Expected value is 'SelfHosted'.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Integration runtime description.
+        """
+        linked_info: NotRequired[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgsDict', 'LinkedIntegrationRuntimeRbacAuthorizationArgsDict']]]
+        """
+        Linked integration runtime type from data factory
+        """
+elif False:
+    SelfHostedIntegrationRuntimeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SelfHostedIntegrationRuntimeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 linked_info: Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]] = None):
+        """
+        Self-hosted integration runtime.
+        :param pulumi.Input[str] type: The type of integration runtime.
+               Expected value is 'SelfHosted'.
+        :param pulumi.Input[str] description: Integration runtime description.
+        :param pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']] linked_info: Linked integration runtime type from data factory
+        """
+        pulumi.set(__self__, "type", 'SelfHosted')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if linked_info is not None:
+            pulumi.set(__self__, "linked_info", linked_info)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of integration runtime.
+        Expected value is 'SelfHosted'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration runtime description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="linkedInfo")
+    def linked_info(self) -> Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]]:
+        """
+        Linked integration runtime type from data factory
+        """
+        return pulumi.get(self, "linked_info")
+
+    @linked_info.setter
+    def linked_info(self, value: Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]]):
+        pulumi.set(self, "linked_info", value)
+
+
+if not MYPY:
     class SkuArgsDict(TypedDict):
         """
         SQL pool SKU
@@ -955,6 +2314,41 @@ class SkuArgs:
 
 
 if not MYPY:
+    class SqlPoolVulnerabilityAssessmentRuleBaselineItemArgsDict(TypedDict):
+        """
+        Properties for an Sql pool vulnerability assessment rule baseline's result.
+        """
+        result: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The rule baseline result
+        """
+elif False:
+    SqlPoolVulnerabilityAssessmentRuleBaselineItemArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs:
+    def __init__(__self__, *,
+                 result: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Properties for an Sql pool vulnerability assessment rule baseline's result.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] result: The rule baseline result
+        """
+        pulumi.set(__self__, "result", result)
+
+    @property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The rule baseline result
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "result", value)
+
+
+if not MYPY:
     class VirtualNetworkProfileArgsDict(TypedDict):
         """
         Virtual Network Profile
@@ -988,6 +2382,84 @@ class VirtualNetworkProfileArgs:
     @compute_subnet_id.setter
     def compute_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "compute_subnet_id", value)
+
+
+if not MYPY:
+    class VulnerabilityAssessmentRecurringScansPropertiesArgsDict(TypedDict):
+        """
+        Properties of a Vulnerability Assessment recurring scans.
+        """
+        email_subscription_admins: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies that the schedule scan notification will be is sent to the subscription administrators.
+        """
+        emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies an array of e-mail addresses to which the scan notification is sent.
+        """
+        is_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Recurring scans state.
+        """
+elif False:
+    VulnerabilityAssessmentRecurringScansPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VulnerabilityAssessmentRecurringScansPropertiesArgs:
+    def __init__(__self__, *,
+                 email_subscription_admins: Optional[pulumi.Input[bool]] = None,
+                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Properties of a Vulnerability Assessment recurring scans.
+        :param pulumi.Input[bool] email_subscription_admins: Specifies that the schedule scan notification will be is sent to the subscription administrators.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param pulumi.Input[bool] is_enabled: Recurring scans state.
+        """
+        if email_subscription_admins is None:
+            email_subscription_admins = True
+        if email_subscription_admins is not None:
+            pulumi.set(__self__, "email_subscription_admins", email_subscription_admins)
+        if emails is not None:
+            pulumi.set(__self__, "emails", emails)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+
+    @property
+    @pulumi.getter(name="emailSubscriptionAdmins")
+    def email_subscription_admins(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies that the schedule scan notification will be is sent to the subscription administrators.
+        """
+        return pulumi.get(self, "email_subscription_admins")
+
+    @email_subscription_admins.setter
+    def email_subscription_admins(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "email_subscription_admins", value)
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies an array of e-mail addresses to which the scan notification is sent.
+        """
+        return pulumi.get(self, "emails")
+
+    @emails.setter
+    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "emails", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Recurring scans state.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
 
 
 if not MYPY:

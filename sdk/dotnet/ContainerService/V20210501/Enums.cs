@@ -82,6 +82,39 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
     }
 
     /// <summary>
+    /// The private link service connection status.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionStatus : IEquatable<ConnectionStatus>
+    {
+        private readonly string _value;
+
+        private ConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionStatus Pending { get; } = new ConnectionStatus("Pending");
+        public static ConnectionStatus Approved { get; } = new ConnectionStatus("Approved");
+        public static ConnectionStatus Rejected { get; } = new ConnectionStatus("Rejected");
+        public static ConnectionStatus Disconnected { get; } = new ConnectionStatus("Disconnected");
+
+        public static bool operator ==(ConnectionStatus left, ConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(ConnectionStatus left, ConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionStatus other && Equals(other);
+        public bool Equals(ConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
     /// </summary>
     [EnumType]
@@ -778,6 +811,42 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UpgradeChannel other && Equals(other);
         public bool Equals(UpgradeChannel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The day of the week.
+    /// </summary>
+    [EnumType]
+    public readonly struct WeekDay : IEquatable<WeekDay>
+    {
+        private readonly string _value;
+
+        private WeekDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WeekDay Sunday { get; } = new WeekDay("Sunday");
+        public static WeekDay Monday { get; } = new WeekDay("Monday");
+        public static WeekDay Tuesday { get; } = new WeekDay("Tuesday");
+        public static WeekDay Wednesday { get; } = new WeekDay("Wednesday");
+        public static WeekDay Thursday { get; } = new WeekDay("Thursday");
+        public static WeekDay Friday { get; } = new WeekDay("Friday");
+        public static WeekDay Saturday { get; } = new WeekDay("Saturday");
+
+        public static bool operator ==(WeekDay left, WeekDay right) => left.Equals(right);
+        public static bool operator !=(WeekDay left, WeekDay right) => !left.Equals(right);
+
+        public static explicit operator string(WeekDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WeekDay other && Equals(other);
+        public bool Equals(WeekDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

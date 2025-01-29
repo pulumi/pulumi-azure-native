@@ -175,9 +175,9 @@ def get_network_security_group(network_security_group_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityGroupResult:
     """
     Gets the specified network security group.
-    Azure REST API version: 2024-02-01-preview.
+    Azure REST API version: 2024-08-01-preview.
 
-    Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-10-01-preview.
 
 
     :param str network_security_group_name: Name of the network security group
@@ -206,9 +206,9 @@ def get_network_security_group_output(network_security_group_name: Optional[pulu
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSecurityGroupResult]:
     """
     Gets the specified network security group.
-    Azure REST API version: 2024-02-01-preview.
+    Azure REST API version: 2024-08-01-preview.
 
-    Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-10-01-preview.
 
 
     :param str network_security_group_name: Name of the network security group

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// Describes an Arc Gateway.
-    /// Azure REST API version: 2024-03-31-preview.
+    /// Azure REST API version: 2024-07-31-preview. Prior API version in Azure Native 2.x: 2024-03-31-preview.
     /// 
-    /// Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+    /// Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource

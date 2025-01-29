@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A class representing a CommunicationService resource.
- * Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2020-08-20.
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2023-03-31.
  *
- * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+ * Other available API versions: 2020-08-20, 2020-08-20-preview, 2021-10-01-preview, 2022-07-01-preview, 2023-03-01-preview, 2023-03-31, 2023-04-01, 2023-04-01-preview.
  */
 export class CommunicationService extends pulumi.CustomResource {
     /**
@@ -48,6 +48,10 @@ export class CommunicationService extends pulumi.CustomResource {
      * FQDN of the CommunicationService instance.
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    public readonly identity!: pulumi.Output<outputs.communication.ManagedServiceIdentityResponse | undefined>;
     /**
      * The immutable resource Id of the communication service.
      */
@@ -108,6 +112,7 @@ export class CommunicationService extends pulumi.CustomResource {
             }
             resourceInputs["communicationServiceName"] = args ? args.communicationServiceName : undefined;
             resourceInputs["dataLocation"] = args ? args.dataLocation : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["linkedDomains"] = args ? args.linkedDomains : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -123,6 +128,7 @@ export class CommunicationService extends pulumi.CustomResource {
         } else {
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["immutableResourceId"] = undefined /*out*/;
             resourceInputs["linkedDomains"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -153,6 +159,10 @@ export interface CommunicationServiceArgs {
      * The location where the communication service stores its data at rest.
      */
     dataLocation: pulumi.Input<string>;
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    identity?: pulumi.Input<inputs.communication.ManagedServiceIdentityArgs>;
     /**
      * List of email Domain resource Ids.
      */

@@ -190,9 +190,9 @@ def get_resource(parent_resource_path: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
     Gets a resource.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2019-05-01, 2019-05-10, 2019-07-01, 2019-08-01, 2019-10-01, 2020-06-01, 2020-08-01, 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01.
 
 
     :param str parent_resource_path: The parent resource identity.
@@ -231,9 +231,9 @@ def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
     Gets a resource.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Other available API versions: 2019-05-01, 2019-05-10, 2019-07-01, 2019-08-01, 2019-10-01, 2020-06-01, 2020-08-01, 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01.
 
 
     :param str parent_resource_path: The parent resource identity.

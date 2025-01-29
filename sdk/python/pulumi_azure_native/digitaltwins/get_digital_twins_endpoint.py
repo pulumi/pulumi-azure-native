@@ -106,6 +106,8 @@ def get_digital_twins_endpoint(endpoint_name: Optional[str] = None,
     Get DigitalTwinsInstances Endpoint.
     Azure REST API version: 2023-01-31.
 
+    Other available API versions: 2020-12-01, 2021-06-30-preview, 2022-05-31, 2022-10-31.
+
 
     :param str endpoint_name: Name of Endpoint Resource.
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
@@ -131,6 +133,8 @@ def get_digital_twins_endpoint_output(endpoint_name: Optional[pulumi.Input[str]]
     """
     Get DigitalTwinsInstances Endpoint.
     Azure REST API version: 2023-01-31.
+
+    Other available API versions: 2020-12-01, 2021-06-30-preview, 2022-05-31, 2022-10-31.
 
 
     :param str endpoint_name: Name of Endpoint Resource.

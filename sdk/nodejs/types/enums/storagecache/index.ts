@@ -3,6 +3,11 @@
 
 // Export sub-modules:
 import * as v20210301 from "./v20210301";
+import * as v20210501 from "./v20210501";
+import * as v20210901 from "./v20210901";
+import * as v20220101 from "./v20220101";
+import * as v20220501 from "./v20220501";
+import * as v20230101 from "./v20230101";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501 from "./v20230501";
 import * as v20231101preview from "./v20231101preview";
@@ -10,6 +15,11 @@ import * as v20240301 from "./v20240301";
 
 export {
     v20210301,
+    v20210501,
+    v20210901,
+    v20220101,
+    v20220501,
+    v20230101,
     v20230301preview,
     v20230501,
     v20231101preview,
@@ -25,6 +35,17 @@ export const AmlFilesystemIdentityType = {
  * The type of identity used for the resource.
  */
 export type AmlFilesystemIdentityType = (typeof AmlFilesystemIdentityType)[keyof typeof AmlFilesystemIdentityType];
+
+export const AmlFilesystemSquashMode = {
+    None: "None",
+    RootOnly: "RootOnly",
+    All: "All",
+} as const;
+
+/**
+ * Squash mode of the AML file system. 'All': User and Group IDs on files will be squashed to the provided values for all users on non-trusted systems. 'RootOnly': User and Group IDs on files will be squashed to provided values for solely the root user on non-trusted systems. 'None': No squashing of User and Group IDs is performed for any users on any systems.
+ */
+export type AmlFilesystemSquashMode = (typeof AmlFilesystemSquashMode)[keyof typeof AmlFilesystemSquashMode];
 
 export const CacheIdentityType = {
     SystemAssigned: "SystemAssigned",

@@ -40,6 +40,47 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
     }
 
     /// <summary>
+    /// Programmatic code for the status of the assessment
+    /// </summary>
+    [EnumType]
+    public readonly struct AssessmentStatusCode : IEquatable<AssessmentStatusCode>
+    {
+        private readonly string _value;
+
+        private AssessmentStatusCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The resource is healthy
+        /// </summary>
+        public static AssessmentStatusCode Healthy { get; } = new AssessmentStatusCode("Healthy");
+        /// <summary>
+        /// The resource has a security issue that needs to be addressed
+        /// </summary>
+        public static AssessmentStatusCode Unhealthy { get; } = new AssessmentStatusCode("Unhealthy");
+        /// <summary>
+        /// Assessment for this resource did not happen
+        /// </summary>
+        public static AssessmentStatusCode NotApplicable { get; } = new AssessmentStatusCode("NotApplicable");
+
+        public static bool operator ==(AssessmentStatusCode left, AssessmentStatusCode right) => left.Equals(right);
+        public static bool operator !=(AssessmentStatusCode left, AssessmentStatusCode right) => !left.Equals(right);
+
+        public static explicit operator string(AssessmentStatusCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssessmentStatusCode other && Equals(other);
+        public bool Equals(AssessmentStatusCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
     /// </summary>
     [EnumType]
@@ -341,6 +382,47 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Severity other && Equals(other);
         public bool Equals(Severity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The platform where the assessed resource resides
+    /// </summary>
+    [EnumType]
+    public readonly struct Source : IEquatable<Source>
+    {
+        private readonly string _value;
+
+        private Source(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Resource is in Azure
+        /// </summary>
+        public static Source Azure { get; } = new Source("Azure");
+        /// <summary>
+        /// Resource in an on premise machine connected to Azure cloud
+        /// </summary>
+        public static Source OnPremise { get; } = new Source("OnPremise");
+        /// <summary>
+        /// SQL Resource in an on premise machine connected to Azure cloud
+        /// </summary>
+        public static Source OnPremiseSql { get; } = new Source("OnPremiseSql");
+
+        public static bool operator ==(Source left, Source right) => left.Equals(right);
+        public static bool operator !=(Source left, Source right) => !left.Equals(right);
+
+        public static explicit operator string(Source value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Source other && Equals(other);
+        public bool Equals(Source other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

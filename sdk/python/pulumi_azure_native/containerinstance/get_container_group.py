@@ -27,7 +27,7 @@ class GetContainerGroupResult:
     """
     A container group.
     """
-    def __init__(__self__, confidential_compute_properties=None, containers=None, diagnostics=None, dns_config=None, encryption_properties=None, extensions=None, id=None, identity=None, image_registry_credentials=None, init_containers=None, instance_view=None, ip_address=None, location=None, name=None, os_type=None, priority=None, provisioning_state=None, restart_policy=None, sku=None, subnet_ids=None, tags=None, type=None, volumes=None, zones=None):
+    def __init__(__self__, confidential_compute_properties=None, containers=None, diagnostics=None, dns_config=None, encryption_properties=None, extensions=None, id=None, identity=None, image_registry_credentials=None, init_containers=None, instance_view=None, ip_address=None, location=None, name=None, os_type=None, priority=None, provisioning_state=None, restart_policy=None, secret_references=None, sku=None, subnet_ids=None, tags=None, type=None, volumes=None, zones=None):
         if confidential_compute_properties and not isinstance(confidential_compute_properties, dict):
             raise TypeError("Expected argument 'confidential_compute_properties' to be a dict")
         pulumi.set(__self__, "confidential_compute_properties", confidential_compute_properties)
@@ -82,6 +82,9 @@ class GetContainerGroupResult:
         if restart_policy and not isinstance(restart_policy, str):
             raise TypeError("Expected argument 'restart_policy' to be a str")
         pulumi.set(__self__, "restart_policy", restart_policy)
+        if secret_references and not isinstance(secret_references, list):
+            raise TypeError("Expected argument 'secret_references' to be a list")
+        pulumi.set(__self__, "secret_references", secret_references)
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
@@ -249,6 +252,14 @@ class GetContainerGroupResult:
         return pulumi.get(self, "restart_policy")
 
     @property
+    @pulumi.getter(name="secretReferences")
+    def secret_references(self) -> Optional[Sequence['outputs.SecretReferenceResponse']]:
+        """
+        The secret references that will be referenced within the container group.
+        """
+        return pulumi.get(self, "secret_references")
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[str]:
         """
@@ -321,6 +332,7 @@ class AwaitableGetContainerGroupResult(GetContainerGroupResult):
             priority=self.priority,
             provisioning_state=self.provisioning_state,
             restart_policy=self.restart_policy,
+            secret_references=self.secret_references,
             sku=self.sku,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
@@ -334,9 +346,9 @@ def get_container_group(container_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerGroupResult:
     """
     Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+    Other available API versions: 2021-03-01, 2021-07-01, 2021-09-01, 2021-10-01, 2022-09-01, 2022-10-01-preview, 2023-02-01-preview, 2023-05-01, 2024-05-01-preview, 2024-09-01-preview, 2024-11-01-preview.
 
 
     :param str container_group_name: The name of the container group.
@@ -367,6 +379,7 @@ def get_container_group(container_group_name: Optional[str] = None,
         priority=pulumi.get(__ret__, 'priority'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         restart_policy=pulumi.get(__ret__, 'restart_policy'),
+        secret_references=pulumi.get(__ret__, 'secret_references'),
         sku=pulumi.get(__ret__, 'sku'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -378,9 +391,9 @@ def get_container_group_output(container_group_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerGroupResult]:
     """
     Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+    Other available API versions: 2021-03-01, 2021-07-01, 2021-09-01, 2021-10-01, 2022-09-01, 2022-10-01-preview, 2023-02-01-preview, 2023-05-01, 2024-05-01-preview, 2024-09-01-preview, 2024-11-01-preview.
 
 
     :param str container_group_name: The name of the container group.
@@ -410,6 +423,7 @@ def get_container_group_output(container_group_name: Optional[pulumi.Input[str]]
         priority=pulumi.get(__response__, 'priority'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         restart_policy=pulumi.get(__response__, 'restart_policy'),
+        secret_references=pulumi.get(__response__, 'secret_references'),
         sku=pulumi.get(__response__, 'sku'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tags=pulumi.get(__response__, 'tags'),

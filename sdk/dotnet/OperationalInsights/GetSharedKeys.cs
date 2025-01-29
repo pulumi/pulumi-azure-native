@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets the shared keys for a workspace.
-        /// Azure REST API version: 2020-08-01.
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2020-03-01-preview, 2020-08-01.
         /// </summary>
         public static Task<GetSharedKeysResult> InvokeAsync(GetSharedKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedKeysResult>("azure-native:operationalinsights:getSharedKeys", args ?? new GetSharedKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the shared keys for a workspace.
-        /// Azure REST API version: 2020-08-01.
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2020-03-01-preview, 2020-08-01.
         /// </summary>
         public static Output<GetSharedKeysResult> Invoke(GetSharedKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedKeysResult>("azure-native:operationalinsights:getSharedKeys", args ?? new GetSharedKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the shared keys for a workspace.
-        /// Azure REST API version: 2020-08-01.
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2020-03-01-preview, 2020-08-01.
         /// </summary>
         public static Output<GetSharedKeysResult> Invoke(GetSharedKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedKeysResult>("azure-native:operationalinsights:getSharedKeys", args ?? new GetSharedKeysInvokeArgs(), options.WithDefaults());

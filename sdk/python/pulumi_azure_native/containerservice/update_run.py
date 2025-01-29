@@ -26,7 +26,8 @@ class UpdateRunArgs:
                  managed_cluster_update: pulumi.Input['ManagedClusterUpdateArgs'],
                  resource_group_name: pulumi.Input[str],
                  strategy: Optional[pulumi.Input['UpdateRunStrategyArgs']] = None,
-                 update_run_name: Optional[pulumi.Input[str]] = None):
+                 update_run_name: Optional[pulumi.Input[str]] = None,
+                 update_strategy_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UpdateRun resource.
         :param pulumi.Input[str] fleet_name: The name of the Fleet resource.
@@ -36,6 +37,18 @@ class UpdateRunArgs:
                If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
                The strategy of the UpdateRun can be modified until the run is started.
         :param pulumi.Input[str] update_run_name: The name of the UpdateRun resource.
+        :param pulumi.Input[str] update_strategy_id: The resource id of the FleetUpdateStrategy resource to reference.
+               
+               When creating a new run, there are three ways to define a strategy for the run:
+               1. Define a new strategy in place: Set the "strategy" field.
+               2. Use an existing strategy: Set the "updateStrategyId" field. (since 2023-08-15-preview)
+               3. Use the default strategy to update all the members one by one: Leave both "updateStrategyId" and "strategy" unset. (since 2023-08-15-preview)
+               
+               Setting both "updateStrategyId" and "strategy" is invalid.
+               
+               UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
+               Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
+               UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
         """
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "managed_cluster_update", managed_cluster_update)
@@ -44,6 +57,8 @@ class UpdateRunArgs:
             pulumi.set(__self__, "strategy", strategy)
         if update_run_name is not None:
             pulumi.set(__self__, "update_run_name", update_run_name)
+        if update_strategy_id is not None:
+            pulumi.set(__self__, "update_strategy_id", update_strategy_id)
 
     @property
     @pulumi.getter(name="fleetName")
@@ -107,6 +122,29 @@ class UpdateRunArgs:
     def update_run_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update_run_name", value)
 
+    @property
+    @pulumi.getter(name="updateStrategyId")
+    def update_strategy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the FleetUpdateStrategy resource to reference.
+
+        When creating a new run, there are three ways to define a strategy for the run:
+        1. Define a new strategy in place: Set the "strategy" field.
+        2. Use an existing strategy: Set the "updateStrategyId" field. (since 2023-08-15-preview)
+        3. Use the default strategy to update all the members one by one: Leave both "updateStrategyId" and "strategy" unset. (since 2023-08-15-preview)
+
+        Setting both "updateStrategyId" and "strategy" is invalid.
+
+        UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
+        Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
+        UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
+        """
+        return pulumi.get(self, "update_strategy_id")
+
+    @update_strategy_id.setter
+    def update_strategy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update_strategy_id", value)
+
 
 class UpdateRun(pulumi.CustomResource):
     @overload
@@ -118,12 +156,13 @@ class UpdateRun(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  strategy: Optional[pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
                  update_run_name: Optional[pulumi.Input[str]] = None,
+                 update_strategy_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A multi-stage process to perform update operations across members of a Fleet.
-        Azure REST API version: 2023-03-15-preview.
+        Azure REST API version: 2024-05-02-preview. Prior API version in Azure Native 2.x: 2023-03-15-preview.
 
-        Other available API versions: 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        Other available API versions: 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,6 +173,18 @@ class UpdateRun(pulumi.CustomResource):
                If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
                The strategy of the UpdateRun can be modified until the run is started.
         :param pulumi.Input[str] update_run_name: The name of the UpdateRun resource.
+        :param pulumi.Input[str] update_strategy_id: The resource id of the FleetUpdateStrategy resource to reference.
+               
+               When creating a new run, there are three ways to define a strategy for the run:
+               1. Define a new strategy in place: Set the "strategy" field.
+               2. Use an existing strategy: Set the "updateStrategyId" field. (since 2023-08-15-preview)
+               3. Use the default strategy to update all the members one by one: Leave both "updateStrategyId" and "strategy" unset. (since 2023-08-15-preview)
+               
+               Setting both "updateStrategyId" and "strategy" is invalid.
+               
+               UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
+               Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
+               UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
         """
         ...
     @overload
@@ -143,9 +194,9 @@ class UpdateRun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A multi-stage process to perform update operations across members of a Fleet.
-        Azure REST API version: 2023-03-15-preview.
+        Azure REST API version: 2024-05-02-preview. Prior API version in Azure Native 2.x: 2023-03-15-preview.
 
-        Other available API versions: 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        Other available API versions: 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param UpdateRunArgs args: The arguments to use to populate this resource's properties.
@@ -167,6 +218,7 @@ class UpdateRun(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  strategy: Optional[pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
                  update_run_name: Optional[pulumi.Input[str]] = None,
+                 update_strategy_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -187,6 +239,7 @@ class UpdateRun(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["strategy"] = strategy
             __props__.__dict__["update_run_name"] = update_run_name
+            __props__.__dict__["update_strategy_id"] = update_strategy_id
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -225,6 +278,7 @@ class UpdateRun(pulumi.CustomResource):
         __props__.__dict__["strategy"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["update_strategy_id"] = None
         return UpdateRun(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -292,4 +346,23 @@ class UpdateRun(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updateStrategyId")
+    def update_strategy_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource id of the FleetUpdateStrategy resource to reference.
+
+        When creating a new run, there are three ways to define a strategy for the run:
+        1. Define a new strategy in place: Set the "strategy" field.
+        2. Use an existing strategy: Set the "updateStrategyId" field. (since 2023-08-15-preview)
+        3. Use the default strategy to update all the members one by one: Leave both "updateStrategyId" and "strategy" unset. (since 2023-08-15-preview)
+
+        Setting both "updateStrategyId" and "strategy" is invalid.
+
+        UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
+        Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
+        UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
+        """
+        return pulumi.get(self, "update_strategy_id")
 

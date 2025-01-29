@@ -137,9 +137,9 @@ def get_static_site_private_endpoint_connection(name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSitePrivateEndpointConnectionResult:
     """
     Description for Gets a private endpoint connection
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01.
 
 
     :param str name: Name of the static site.
@@ -168,9 +168,9 @@ def get_static_site_private_endpoint_connection_output(name: Optional[pulumi.Inp
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSitePrivateEndpointConnectionResult]:
     """
     Description for Gets a private endpoint connection
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01.
 
 
     :param str name: Name of the static site.

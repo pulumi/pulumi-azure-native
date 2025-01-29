@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A class represent a replica resource.
- * Azure REST API version: 2023-03-01-preview.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
 export class SignalRReplica extends pulumi.CustomResource {
     /**
@@ -53,6 +53,17 @@ export class SignalRReplica extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Enable or disable the regional endpoint. Default to "Enabled".
+     * When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+     */
+    public readonly regionEndpointEnabled!: pulumi.Output<string | undefined>;
+    /**
+     * Stop or start the resource.  Default to "false".
+     * When it's true, the data plane of the resource is shutdown.
+     * When it's false, the data plane of the resource is started.
+     */
+    public readonly resourceStopped!: pulumi.Output<string | undefined>;
+    /**
      * The billing information of the resource.
      */
     public readonly sku!: pulumi.Output<outputs.signalrservice.ResourceSkuResponse | undefined>;
@@ -87,9 +98,11 @@ export class SignalRReplica extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["regionEndpointEnabled"] = (args ? args.regionEndpointEnabled : undefined) ?? "Enabled";
             resourceInputs["replicaName"] = args ? args.replicaName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["resourceStopped"] = (args ? args.resourceStopped : undefined) ?? "false";
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -100,6 +113,8 @@ export class SignalRReplica extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["regionEndpointEnabled"] = undefined /*out*/;
+            resourceInputs["resourceStopped"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -121,6 +136,11 @@ export interface SignalRReplicaArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * Enable or disable the regional endpoint. Default to "Enabled".
+     * When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+     */
+    regionEndpointEnabled?: pulumi.Input<string>;
+    /**
      * The name of the replica.
      */
     replicaName?: pulumi.Input<string>;
@@ -132,6 +152,12 @@ export interface SignalRReplicaArgs {
      * The name of the resource.
      */
     resourceName: pulumi.Input<string>;
+    /**
+     * Stop or start the resource.  Default to "false".
+     * When it's true, the data plane of the resource is shutdown.
+     * When it's false, the data plane of the resource is started.
+     */
+    resourceStopped?: pulumi.Input<string>;
     /**
      * The billing information of the resource.
      */

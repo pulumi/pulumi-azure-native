@@ -133,6 +133,37 @@ namespace Pulumi.AzureNative.Dashboard
     }
 
     /// <summary>
+    /// The AutoRenew setting of the Enterprise subscription
+    /// </summary>
+    [EnumType]
+    public readonly struct MarketplaceAutoRenew : IEquatable<MarketplaceAutoRenew>
+    {
+        private readonly string _value;
+
+        private MarketplaceAutoRenew(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MarketplaceAutoRenew Disabled { get; } = new MarketplaceAutoRenew("Disabled");
+        public static MarketplaceAutoRenew Enabled { get; } = new MarketplaceAutoRenew("Enabled");
+
+        public static bool operator ==(MarketplaceAutoRenew left, MarketplaceAutoRenew right) => left.Equals(right);
+        public static bool operator !=(MarketplaceAutoRenew left, MarketplaceAutoRenew right) => !left.Equals(right);
+
+        public static explicit operator string(MarketplaceAutoRenew value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MarketplaceAutoRenew other && Equals(other);
+        public bool Equals(MarketplaceAutoRenew other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     /// </summary>
     [EnumType]
@@ -188,6 +219,39 @@ namespace Pulumi.AzureNative.Dashboard
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The StartTLSPolicy setting of the SMTP configuration
+    /// https://pkg.go.dev/github.com/go-mail/mail#StartTLSPolicy
+    /// </summary>
+    [EnumType]
+    public readonly struct StartTLSPolicy : IEquatable<StartTLSPolicy>
+    {
+        private readonly string _value;
+
+        private StartTLSPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StartTLSPolicy OpportunisticStartTLS { get; } = new StartTLSPolicy("OpportunisticStartTLS");
+        public static StartTLSPolicy MandatoryStartTLS { get; } = new StartTLSPolicy("MandatoryStartTLS");
+        public static StartTLSPolicy NoStartTLS { get; } = new StartTLSPolicy("NoStartTLS");
+
+        public static bool operator ==(StartTLSPolicy left, StartTLSPolicy right) => left.Equals(right);
+        public static bool operator !=(StartTLSPolicy left, StartTLSPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(StartTLSPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StartTLSPolicy other && Equals(other);
+        public bool Equals(StartTLSPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

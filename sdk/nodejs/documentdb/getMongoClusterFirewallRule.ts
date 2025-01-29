@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a mongo cluster firewall rule.
- * Azure REST API version: 2023-03-15-preview.
+ * Azure REST API version: 2024-02-15-preview.
  *
- * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview.
  */
 export function getMongoClusterFirewallRule(args: GetMongoClusterFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoClusterFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,9 +72,9 @@ export interface GetMongoClusterFirewallRuleResult {
 }
 /**
  * Gets information about a mongo cluster firewall rule.
- * Azure REST API version: 2023-03-15-preview.
+ * Azure REST API version: 2024-02-15-preview.
  *
- * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview.
  */
 export function getMongoClusterFirewallRuleOutput(args: GetMongoClusterFirewallRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMongoClusterFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

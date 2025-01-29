@@ -361,7 +361,11 @@ export * from "../types/enums/eventgrid";
 
 // Export sub-modules:
 import * as v20200401preview from "./v20200401preview";
+import * as v20200601 from "./v20200601";
+import * as v20201015preview from "./v20201015preview";
+import * as v20210601preview from "./v20210601preview";
 import * as v20211015preview from "./v20211015preview";
+import * as v20211201 from "./v20211201";
 import * as v20220615 from "./v20220615";
 import * as v20230601preview from "./v20230601preview";
 import * as v20231215preview from "./v20231215preview";
@@ -370,7 +374,11 @@ import * as v20241215preview from "./v20241215preview";
 
 export {
     v20200401preview,
+    v20200601,
+    v20201015preview,
+    v20210601preview,
     v20211015preview,
+    v20211201,
     v20220615,
     v20230601preview,
     v20231215preview,

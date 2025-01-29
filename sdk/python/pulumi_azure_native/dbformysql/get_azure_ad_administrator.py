@@ -68,7 +68,7 @@ class GetAzureADAdministratorResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -108,7 +108,7 @@ class GetAzureADAdministratorResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -152,9 +152,9 @@ def get_azure_ad_administrator(administrator_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureADAdministratorResult:
     """
     Gets information about an azure ad administrator.
-    Azure REST API version: 2022-01-01.
+    Azure REST API version: 2023-12-30.
 
-    Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+    Other available API versions: 2021-12-01-preview, 2022-01-01, 2023-06-01-preview, 2023-06-30.
 
 
     :param str administrator_name: The name of the Azure AD Administrator.
@@ -184,9 +184,9 @@ def get_azure_ad_administrator_output(administrator_name: Optional[pulumi.Input[
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureADAdministratorResult]:
     """
     Gets information about an azure ad administrator.
-    Azure REST API version: 2022-01-01.
+    Azure REST API version: 2023-12-30.
 
-    Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+    Other available API versions: 2021-12-01-preview, 2022-01-01, 2023-06-01-preview, 2023-06-30.
 
 
     :param str administrator_name: The name of the Azure AD Administrator.

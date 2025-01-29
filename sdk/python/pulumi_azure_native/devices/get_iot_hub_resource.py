@@ -163,9 +163,9 @@ def get_iot_hub_resource(resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubResourceResult:
     """
     Get the non-security related metadata of an IoT hub.
-    Azure REST API version: 2022-04-30-preview.
+    Azure REST API version: 2023-06-30.
 
-    Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+    Other available API versions: 2020-03-01, 2020-04-01, 2020-06-15, 2020-07-10-preview, 2020-08-01, 2020-08-31, 2020-08-31-preview, 2021-02-01-preview, 2021-03-03-preview, 2021-03-31, 2021-07-01, 2021-07-01-preview, 2021-07-02, 2021-07-02-preview, 2022-04-30-preview, 2022-11-15-preview, 2023-06-30-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
@@ -193,9 +193,9 @@ def get_iot_hub_resource_output(resource_group_name: Optional[pulumi.Input[str]]
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotHubResourceResult]:
     """
     Get the non-security related metadata of an IoT hub.
-    Azure REST API version: 2022-04-30-preview.
+    Azure REST API version: 2023-06-30.
 
-    Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+    Other available API versions: 2020-03-01, 2020-04-01, 2020-06-15, 2020-07-10-preview, 2020-08-01, 2020-08-31, 2020-08-31-preview, 2021-02-01-preview, 2021-03-03-preview, 2021-03-31, 2021-07-01, 2021-07-01-preview, 2021-07-02, 2021-07-02-preview, 2022-04-30-preview, 2022-11-15-preview, 2023-06-30-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the IoT hub.

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Template resource definition.
-    /// Azure REST API version: 2023-06-01-preview.
+    /// Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+    /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:ContentTemplate")]
     public partial class ContentTemplate : global::Pulumi.CustomResource
@@ -43,6 +43,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> ContentKind { get; private set; } = null!;
 
         /// <summary>
+        /// Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
+        /// </summary>
+        [Output("contentProductId")]
+        public Output<string> ContentProductId { get; private set; } = null!;
+
+        /// <summary>
         /// Schema version of the content. Can be used to distinguish between different flow based on the schema version
         /// </summary>
         [Output("contentSchemaVersion")]
@@ -53,6 +59,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Output("customVersion")]
         public Output<string?> CustomVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Dependant templates. Expandable.
+        /// </summary>
+        [Output("dependantTemplates")]
+        public Output<ImmutableArray<Outputs.TemplatePropertiesResponse>> DependantTemplates { get; private set; } = null!;
 
         /// <summary>
         /// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
@@ -85,13 +97,19 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string?> Icon { get; private set; } = null!;
 
         /// <summary>
+        /// Flag indicates if this template is deprecated
+        /// </summary>
+        [Output("isDeprecated")]
+        public Output<string> IsDeprecated { get; private set; } = null!;
+
+        /// <summary>
         /// last publish date for the content item
         /// </summary>
         [Output("lastPublishDate")]
         public Output<string?> LastPublishDate { get; private set; } = null!;
 
         /// <summary>
-        /// The JSON of the ARM template to deploy active content
+        /// The JSON of the ARM template to deploy active content. Expandable.
         /// </summary>
         [Output("mainTemplate")]
         public Output<object?> MainTemplate { get; private set; } = null!;
@@ -119,6 +137,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Output("packageName")]
         public Output<string?> PackageName { get; private set; } = null!;
+
+        /// <summary>
+        /// Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
+        /// </summary>
+        [Output("packageVersion")]
+        public Output<string> PackageVersion { get; private set; } = null!;
 
         /// <summary>
         /// preview image file names. These will be taken from the solution artifacts
@@ -267,6 +291,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Kind> ContentKind { get; set; } = null!;
 
         /// <summary>
+        /// Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
+        /// </summary>
+        [Input("contentProductId", required: true)]
+        public Input<string> ContentProductId { get; set; } = null!;
+
+        /// <summary>
         /// Schema version of the content. Can be used to distinguish between different flow based on the schema version
         /// </summary>
         [Input("contentSchemaVersion")]
@@ -309,7 +339,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string>? LastPublishDate { get; set; }
 
         /// <summary>
-        /// The JSON of the ARM template to deploy active content
+        /// The JSON of the ARM template to deploy active content. Expandable.
         /// </summary>
         [Input("mainTemplate")]
         public Input<object>? MainTemplate { get; set; }
@@ -331,6 +361,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("packageName")]
         public Input<string>? PackageName { get; set; }
+
+        /// <summary>
+        /// Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
+        /// </summary>
+        [Input("packageVersion", required: true)]
+        public Input<string> PackageVersion { get; set; } = null!;
 
         [Input("previewImages")]
         private InputList<string>? _previewImages;

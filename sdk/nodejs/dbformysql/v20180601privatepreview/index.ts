@@ -5,45 +5,65 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+export { GetSingleServerArgs, GetSingleServerResult, GetSingleServerOutputArgs } from "./getSingleServer";
+export const getSingleServer: typeof import("./getSingleServer").getSingleServer = null as any;
+export const getSingleServerOutput: typeof import("./getSingleServer").getSingleServerOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServer","getSingleServerOutput"], () => require("./getSingleServer"));
 
-export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
-export const getServer: typeof import("./getServer").getServer = null as any;
-export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
-utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
+export { GetSingleServerDatabaseArgs, GetSingleServerDatabaseResult, GetSingleServerDatabaseOutputArgs } from "./getSingleServerDatabase";
+export const getSingleServerDatabase: typeof import("./getSingleServerDatabase").getSingleServerDatabase = null as any;
+export const getSingleServerDatabaseOutput: typeof import("./getSingleServerDatabase").getSingleServerDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServerDatabase","getSingleServerDatabaseOutput"], () => require("./getSingleServerDatabase"));
 
-export { GetServerAdministratorArgs, GetServerAdministratorResult, GetServerAdministratorOutputArgs } from "./getServerAdministrator";
-export const getServerAdministrator: typeof import("./getServerAdministrator").getServerAdministrator = null as any;
-export const getServerAdministratorOutput: typeof import("./getServerAdministrator").getServerAdministratorOutput = null as any;
-utilities.lazyLoad(exports, ["getServerAdministrator","getServerAdministratorOutput"], () => require("./getServerAdministrator"));
+export { GetSingleServerFirewallRuleArgs, GetSingleServerFirewallRuleResult, GetSingleServerFirewallRuleOutputArgs } from "./getSingleServerFirewallRule";
+export const getSingleServerFirewallRule: typeof import("./getSingleServerFirewallRule").getSingleServerFirewallRule = null as any;
+export const getSingleServerFirewallRuleOutput: typeof import("./getSingleServerFirewallRule").getSingleServerFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServerFirewallRule","getSingleServerFirewallRuleOutput"], () => require("./getSingleServerFirewallRule"));
 
-export { GetVirtualNetworkRuleArgs, GetVirtualNetworkRuleResult, GetVirtualNetworkRuleOutputArgs } from "./getVirtualNetworkRule";
-export const getVirtualNetworkRule: typeof import("./getVirtualNetworkRule").getVirtualNetworkRule = null as any;
-export const getVirtualNetworkRuleOutput: typeof import("./getVirtualNetworkRule").getVirtualNetworkRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkRule","getVirtualNetworkRuleOutput"], () => require("./getVirtualNetworkRule"));
+export { GetSingleServerPrivateEndpointConnectionArgs, GetSingleServerPrivateEndpointConnectionResult, GetSingleServerPrivateEndpointConnectionOutputArgs } from "./getSingleServerPrivateEndpointConnection";
+export const getSingleServerPrivateEndpointConnection: typeof import("./getSingleServerPrivateEndpointConnection").getSingleServerPrivateEndpointConnection = null as any;
+export const getSingleServerPrivateEndpointConnectionOutput: typeof import("./getSingleServerPrivateEndpointConnection").getSingleServerPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServerPrivateEndpointConnection","getSingleServerPrivateEndpointConnectionOutput"], () => require("./getSingleServerPrivateEndpointConnection"));
 
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+export { GetSingleServerServerAdministratorArgs, GetSingleServerServerAdministratorResult, GetSingleServerServerAdministratorOutputArgs } from "./getSingleServerServerAdministrator";
+export const getSingleServerServerAdministrator: typeof import("./getSingleServerServerAdministrator").getSingleServerServerAdministrator = null as any;
+export const getSingleServerServerAdministratorOutput: typeof import("./getSingleServerServerAdministrator").getSingleServerServerAdministratorOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServerServerAdministrator","getSingleServerServerAdministratorOutput"], () => require("./getSingleServerServerAdministrator"));
 
-export { ServerArgs } from "./server";
-export type Server = import("./server").Server;
-export const Server: typeof import("./server").Server = null as any;
-utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+export { GetSingleServerVirtualNetworkRuleArgs, GetSingleServerVirtualNetworkRuleResult, GetSingleServerVirtualNetworkRuleOutputArgs } from "./getSingleServerVirtualNetworkRule";
+export const getSingleServerVirtualNetworkRule: typeof import("./getSingleServerVirtualNetworkRule").getSingleServerVirtualNetworkRule = null as any;
+export const getSingleServerVirtualNetworkRuleOutput: typeof import("./getSingleServerVirtualNetworkRule").getSingleServerVirtualNetworkRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServerVirtualNetworkRule","getSingleServerVirtualNetworkRuleOutput"], () => require("./getSingleServerVirtualNetworkRule"));
 
-export { ServerAdministratorArgs } from "./serverAdministrator";
-export type ServerAdministrator = import("./serverAdministrator").ServerAdministrator;
-export const ServerAdministrator: typeof import("./serverAdministrator").ServerAdministrator = null as any;
-utilities.lazyLoad(exports, ["ServerAdministrator"], () => require("./serverAdministrator"));
+export { SingleServerArgs } from "./singleServer";
+export type SingleServer = import("./singleServer").SingleServer;
+export const SingleServer: typeof import("./singleServer").SingleServer = null as any;
+utilities.lazyLoad(exports, ["SingleServer"], () => require("./singleServer"));
 
-export { VirtualNetworkRuleArgs } from "./virtualNetworkRule";
-export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
-export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
-utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetworkRule"));
+export { SingleServerDatabaseArgs } from "./singleServerDatabase";
+export type SingleServerDatabase = import("./singleServerDatabase").SingleServerDatabase;
+export const SingleServerDatabase: typeof import("./singleServerDatabase").SingleServerDatabase = null as any;
+utilities.lazyLoad(exports, ["SingleServerDatabase"], () => require("./singleServerDatabase"));
+
+export { SingleServerFirewallRuleArgs } from "./singleServerFirewallRule";
+export type SingleServerFirewallRule = import("./singleServerFirewallRule").SingleServerFirewallRule;
+export const SingleServerFirewallRule: typeof import("./singleServerFirewallRule").SingleServerFirewallRule = null as any;
+utilities.lazyLoad(exports, ["SingleServerFirewallRule"], () => require("./singleServerFirewallRule"));
+
+export { SingleServerPrivateEndpointConnectionArgs } from "./singleServerPrivateEndpointConnection";
+export type SingleServerPrivateEndpointConnection = import("./singleServerPrivateEndpointConnection").SingleServerPrivateEndpointConnection;
+export const SingleServerPrivateEndpointConnection: typeof import("./singleServerPrivateEndpointConnection").SingleServerPrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["SingleServerPrivateEndpointConnection"], () => require("./singleServerPrivateEndpointConnection"));
+
+export { SingleServerServerAdministratorArgs } from "./singleServerServerAdministrator";
+export type SingleServerServerAdministrator = import("./singleServerServerAdministrator").SingleServerServerAdministrator;
+export const SingleServerServerAdministrator: typeof import("./singleServerServerAdministrator").SingleServerServerAdministrator = null as any;
+utilities.lazyLoad(exports, ["SingleServerServerAdministrator"], () => require("./singleServerServerAdministrator"));
+
+export { SingleServerVirtualNetworkRuleArgs } from "./singleServerVirtualNetworkRule";
+export type SingleServerVirtualNetworkRule = import("./singleServerVirtualNetworkRule").SingleServerVirtualNetworkRule;
+export const SingleServerVirtualNetworkRule: typeof import("./singleServerVirtualNetworkRule").SingleServerVirtualNetworkRule = null as any;
+utilities.lazyLoad(exports, ["SingleServerVirtualNetworkRule"], () => require("./singleServerVirtualNetworkRule"));
 
 
 // Export enums:
@@ -53,14 +73,18 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:dbformysql/v20180601privatepreview:Server":
-                return new Server(name, <any>undefined, { urn })
-            case "azure-native:dbformysql/v20180601privatepreview:ServerAdministrator":
-                return new ServerAdministrator(name, <any>undefined, { urn })
-            case "azure-native:dbformysql/v20180601privatepreview:VirtualNetworkRule":
-                return new VirtualNetworkRule(name, <any>undefined, { urn })
+            case "azure-native:dbformysql/v20180601privatepreview:SingleServer":
+                return new SingleServer(name, <any>undefined, { urn })
+            case "azure-native:dbformysql/v20180601privatepreview:SingleServerDatabase":
+                return new SingleServerDatabase(name, <any>undefined, { urn })
+            case "azure-native:dbformysql/v20180601privatepreview:SingleServerFirewallRule":
+                return new SingleServerFirewallRule(name, <any>undefined, { urn })
+            case "azure-native:dbformysql/v20180601privatepreview:SingleServerPrivateEndpointConnection":
+                return new SingleServerPrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:dbformysql/v20180601privatepreview:SingleServerServerAdministrator":
+                return new SingleServerServerAdministrator(name, <any>undefined, { urn })
+            case "azure-native:dbformysql/v20180601privatepreview:SingleServerVirtualNetworkRule":
+                return new SingleServerVirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Cassandra view under an existing Azure Cosmos DB database account.
- * Azure REST API version: 2023-03-15-preview.
+ * Azure REST API version: 2024-12-01-preview.
  *
- * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2021-07-01-preview, 2021-11-15-preview, 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
  */
 export function getCassandraResourceCassandraView(args: GetCassandraResourceCassandraViewArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraViewResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -75,9 +75,9 @@ export interface GetCassandraResourceCassandraViewResult {
 }
 /**
  * Gets the Cassandra view under an existing Azure Cosmos DB database account.
- * Azure REST API version: 2023-03-15-preview.
+ * Azure REST API version: 2024-12-01-preview.
  *
- * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2021-07-01-preview, 2021-11-15-preview, 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview.
  */
 export function getCassandraResourceCassandraViewOutput(args: GetCassandraResourceCassandraViewOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCassandraResourceCassandraViewResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

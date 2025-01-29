@@ -129,9 +129,9 @@ def get_protection_policy(policy_name: Optional[str] = None,
     """
     Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
     operation. Status of the operation can be fetched using GetPolicyOperationResult API.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+    Other available API versions: 2020-10-01, 2020-12-01, 2021-01-01, 2021-02-01, 2021-02-01-preview, 2021-02-10, 2021-03-01, 2021-04-01, 2021-06-01, 2021-07-01, 2021-08-01, 2021-10-01, 2021-12-01, 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-06-01-preview, 2022-09-01-preview, 2022-09-30-preview, 2022-10-01, 2023-01-01, 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview.
 
 
     :param str policy_name: Backup policy information to be fetched.
@@ -160,9 +160,9 @@ def get_protection_policy_output(policy_name: Optional[pulumi.Input[str]] = None
     """
     Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
     operation. Status of the operation can be fetched using GetPolicyOperationResult API.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+    Other available API versions: 2020-10-01, 2020-12-01, 2021-01-01, 2021-02-01, 2021-02-01-preview, 2021-02-10, 2021-03-01, 2021-04-01, 2021-06-01, 2021-07-01, 2021-08-01, 2021-10-01, 2021-12-01, 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-06-01-preview, 2022-09-01-preview, 2022-09-30-preview, 2022-10-01, 2023-01-01, 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview.
 
 
     :param str policy_name: Backup policy information to be fetched.

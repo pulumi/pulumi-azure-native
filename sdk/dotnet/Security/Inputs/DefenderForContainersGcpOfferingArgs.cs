@@ -16,22 +16,40 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class DefenderForContainersGcpOfferingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is audit logs data collection enabled
-        /// </summary>
-        [Input("auditLogsAutoProvisioningFlag")]
-        public Input<bool>? AuditLogsAutoProvisioningFlag { get; set; }
-
-        /// <summary>
         /// The native cloud connection configuration
         /// </summary>
         [Input("dataPipelineNativeCloudConnection")]
         public Input<Inputs.DefenderForContainersGcpOfferingDataPipelineNativeCloudConnectionArgs>? DataPipelineNativeCloudConnection { get; set; }
 
         /// <summary>
+        /// Is audit logs data collection enabled
+        /// </summary>
+        [Input("enableAuditLogsAutoProvisioning")]
+        public Input<bool>? EnableAuditLogsAutoProvisioning { get; set; }
+
+        /// <summary>
         /// Is Microsoft Defender for Cloud Kubernetes agent auto provisioning enabled
         /// </summary>
-        [Input("defenderAgentAutoProvisioningFlag")]
-        public Input<bool>? DefenderAgentAutoProvisioningFlag { get; set; }
+        [Input("enableDefenderAgentAutoProvisioning")]
+        public Input<bool>? EnableDefenderAgentAutoProvisioning { get; set; }
+
+        /// <summary>
+        /// Is Policy Kubernetes agent auto provisioning enabled
+        /// </summary>
+        [Input("enablePolicyAgentAutoProvisioning")]
+        public Input<bool>? EnablePolicyAgentAutoProvisioning { get; set; }
+
+        /// <summary>
+        /// The Microsoft Defender Container agentless discovery configuration
+        /// </summary>
+        [Input("mdcContainersAgentlessDiscoveryK8s")]
+        public Input<Inputs.DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs>? MdcContainersAgentlessDiscoveryK8s { get; set; }
+
+        /// <summary>
+        /// The Microsoft Defender Container image assessment configuration
+        /// </summary>
+        [Input("mdcContainersImageAssessment")]
+        public Input<Inputs.DefenderForContainersGcpOfferingMdcContainersImageAssessmentArgs>? MdcContainersImageAssessment { get; set; }
 
         /// <summary>
         /// The native cloud connection configuration
@@ -47,10 +65,10 @@ namespace Pulumi.AzureNative.Security.Inputs
         public Input<string> OfferingType { get; set; } = null!;
 
         /// <summary>
-        /// Is Policy Kubernetes agent auto provisioning enabled
+        /// The Microsoft Defender for Container K8s VM host scanning configuration
         /// </summary>
-        [Input("policyAgentAutoProvisioningFlag")]
-        public Input<bool>? PolicyAgentAutoProvisioningFlag { get; set; }
+        [Input("vmScanners")]
+        public Input<Inputs.DefenderForContainersGcpOfferingVmScannersArgs>? VmScanners { get; set; }
 
         public DefenderForContainersGcpOfferingArgs()
         {

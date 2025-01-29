@@ -142,6 +142,8 @@ def get_private_endpoint_connection_proxy(account_name: Optional[str] = None,
     (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
     Azure REST API version: 2023-07-01.
 
+    Other available API versions: 2020-03-01-preview, 2022-04-01-preview, 2022-10-01, 2022-12-01-preview.
+
 
     :param str account_name: Account name.
     :param str private_endpoint_connection_proxy_id: The ID of the private endpoint connection proxy object.
@@ -170,6 +172,8 @@ def get_private_endpoint_connection_proxy_output(account_name: Optional[pulumi.I
     """
     (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
     Azure REST API version: 2023-07-01.
+
+    Other available API versions: 2020-03-01-preview, 2022-04-01-preview, 2022-10-01, 2022-12-01-preview.
 
 
     :param str account_name: Account name.

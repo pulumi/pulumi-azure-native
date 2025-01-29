@@ -17,10 +17,10 @@ from .get_tag_rule import *
 from .list_all_traffic_filter import *
 from .list_connected_partner_resource import *
 from .list_deployment_info import *
+from .list_list_associated_traffic_filter import *
 from .list_monitored_resource import *
 from .list_upgradable_version_details import *
 from .list_vm_host import *
-from .listlist_associated_traffic_filter import *
 from .monitor import *
 from .monitored_subscription import *
 from .open_ai import *
@@ -30,6 +30,20 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.elastic.v20200701 as __v20200701
+    v20200701 = __v20200701
+    import pulumi_azure_native.elastic.v20200701preview as __v20200701preview
+    v20200701preview = __v20200701preview
+    import pulumi_azure_native.elastic.v20210901preview as __v20210901preview
+    v20210901preview = __v20210901preview
+    import pulumi_azure_native.elastic.v20211001preview as __v20211001preview
+    v20211001preview = __v20211001preview
+    import pulumi_azure_native.elastic.v20220505preview as __v20220505preview
+    v20220505preview = __v20220505preview
+    import pulumi_azure_native.elastic.v20220701preview as __v20220701preview
+    v20220701preview = __v20220701preview
+    import pulumi_azure_native.elastic.v20220901preview as __v20220901preview
+    v20220901preview = __v20220901preview
     import pulumi_azure_native.elastic.v20230201preview as __v20230201preview
     v20230201preview = __v20230201preview
     import pulumi_azure_native.elastic.v20230501preview as __v20230501preview
@@ -55,6 +69,13 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.elastic.v20241001preview as __v20241001preview
     v20241001preview = __v20241001preview
 else:
+    v20200701 = _utilities.lazy_import('pulumi_azure_native.elastic.v20200701')
+    v20200701preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20200701preview')
+    v20210901preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20210901preview')
+    v20211001preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20211001preview')
+    v20220505preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20220505preview')
+    v20220701preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20220701preview')
+    v20220901preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20220901preview')
     v20230201preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230201preview')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230501preview')
     v20230601 = _utilities.lazy_import('pulumi_azure_native.elastic.v20230601')

@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'ACRResponse',
     'DeploymentPropertiesResponse',
+    'GitHubWorkflowProfileResponse',
     'GitHubWorkflowProfileResponseOidcCredentials',
     'IacTemplateDetailsResponse',
     'IacTemplatePropertiesResponse',
@@ -193,6 +194,224 @@ class DeploymentPropertiesResponse(dict):
         Manifest override values.
         """
         return pulumi.get(self, "overrides")
+
+
+@pulumi.output_type
+class GitHubWorkflowProfileResponse(dict):
+    """
+    GitHub Workflow Profile
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authStatus":
+            suggest = "auth_status"
+        elif key == "prStatus":
+            suggest = "pr_status"
+        elif key == "prURL":
+            suggest = "pr_url"
+        elif key == "pullNumber":
+            suggest = "pull_number"
+        elif key == "aksResourceId":
+            suggest = "aks_resource_id"
+        elif key == "branchName":
+            suggest = "branch_name"
+        elif key == "deploymentProperties":
+            suggest = "deployment_properties"
+        elif key == "dockerBuildContext":
+            suggest = "docker_build_context"
+        elif key == "lastWorkflowRun":
+            suggest = "last_workflow_run"
+        elif key == "oidcCredentials":
+            suggest = "oidc_credentials"
+        elif key == "repositoryName":
+            suggest = "repository_name"
+        elif key == "repositoryOwner":
+            suggest = "repository_owner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GitHubWorkflowProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GitHubWorkflowProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GitHubWorkflowProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_status: str,
+                 pr_status: str,
+                 pr_url: str,
+                 pull_number: int,
+                 acr: Optional['outputs.ACRResponse'] = None,
+                 aks_resource_id: Optional[str] = None,
+                 branch_name: Optional[str] = None,
+                 deployment_properties: Optional['outputs.DeploymentPropertiesResponse'] = None,
+                 docker_build_context: Optional[str] = None,
+                 dockerfile: Optional[str] = None,
+                 last_workflow_run: Optional['outputs.WorkflowRunResponse'] = None,
+                 namespace: Optional[str] = None,
+                 oidc_credentials: Optional['outputs.GitHubWorkflowProfileResponseOidcCredentials'] = None,
+                 repository_name: Optional[str] = None,
+                 repository_owner: Optional[str] = None):
+        """
+        GitHub Workflow Profile
+        :param str auth_status: Determines the authorization status of requests.
+        :param str pr_status: The status of the Pull Request submitted against the users repository.
+        :param str pr_url: The URL to the Pull Request submitted against the users repository.
+        :param int pull_number: The number associated with the submitted pull request.
+        :param 'ACRResponse' acr: Information on the azure container registry
+        :param str aks_resource_id: The Azure Kubernetes Cluster Resource the application will be deployed to.
+        :param str branch_name: Repository Branch Name
+        :param str docker_build_context: Path to Dockerfile Build Context within the repository.
+        :param str dockerfile: Path to the Dockerfile within the repository.
+        :param str namespace: Kubernetes namespace the application is deployed to.
+        :param 'GitHubWorkflowProfileResponseOidcCredentials' oidc_credentials: The fields needed for OIDC with GitHub.
+        :param str repository_name: Repository Name
+        :param str repository_owner: Repository Owner
+        """
+        pulumi.set(__self__, "auth_status", auth_status)
+        pulumi.set(__self__, "pr_status", pr_status)
+        pulumi.set(__self__, "pr_url", pr_url)
+        pulumi.set(__self__, "pull_number", pull_number)
+        if acr is not None:
+            pulumi.set(__self__, "acr", acr)
+        if aks_resource_id is not None:
+            pulumi.set(__self__, "aks_resource_id", aks_resource_id)
+        if branch_name is not None:
+            pulumi.set(__self__, "branch_name", branch_name)
+        if deployment_properties is not None:
+            pulumi.set(__self__, "deployment_properties", deployment_properties)
+        if docker_build_context is not None:
+            pulumi.set(__self__, "docker_build_context", docker_build_context)
+        if dockerfile is not None:
+            pulumi.set(__self__, "dockerfile", dockerfile)
+        if last_workflow_run is not None:
+            pulumi.set(__self__, "last_workflow_run", last_workflow_run)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if oidc_credentials is not None:
+            pulumi.set(__self__, "oidc_credentials", oidc_credentials)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+        if repository_owner is not None:
+            pulumi.set(__self__, "repository_owner", repository_owner)
+
+    @property
+    @pulumi.getter(name="authStatus")
+    def auth_status(self) -> str:
+        """
+        Determines the authorization status of requests.
+        """
+        return pulumi.get(self, "auth_status")
+
+    @property
+    @pulumi.getter(name="prStatus")
+    def pr_status(self) -> str:
+        """
+        The status of the Pull Request submitted against the users repository.
+        """
+        return pulumi.get(self, "pr_status")
+
+    @property
+    @pulumi.getter(name="prURL")
+    def pr_url(self) -> str:
+        """
+        The URL to the Pull Request submitted against the users repository.
+        """
+        return pulumi.get(self, "pr_url")
+
+    @property
+    @pulumi.getter(name="pullNumber")
+    def pull_number(self) -> int:
+        """
+        The number associated with the submitted pull request.
+        """
+        return pulumi.get(self, "pull_number")
+
+    @property
+    @pulumi.getter
+    def acr(self) -> Optional['outputs.ACRResponse']:
+        """
+        Information on the azure container registry
+        """
+        return pulumi.get(self, "acr")
+
+    @property
+    @pulumi.getter(name="aksResourceId")
+    def aks_resource_id(self) -> Optional[str]:
+        """
+        The Azure Kubernetes Cluster Resource the application will be deployed to.
+        """
+        return pulumi.get(self, "aks_resource_id")
+
+    @property
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> Optional[str]:
+        """
+        Repository Branch Name
+        """
+        return pulumi.get(self, "branch_name")
+
+    @property
+    @pulumi.getter(name="deploymentProperties")
+    def deployment_properties(self) -> Optional['outputs.DeploymentPropertiesResponse']:
+        return pulumi.get(self, "deployment_properties")
+
+    @property
+    @pulumi.getter(name="dockerBuildContext")
+    def docker_build_context(self) -> Optional[str]:
+        """
+        Path to Dockerfile Build Context within the repository.
+        """
+        return pulumi.get(self, "docker_build_context")
+
+    @property
+    @pulumi.getter
+    def dockerfile(self) -> Optional[str]:
+        """
+        Path to the Dockerfile within the repository.
+        """
+        return pulumi.get(self, "dockerfile")
+
+    @property
+    @pulumi.getter(name="lastWorkflowRun")
+    def last_workflow_run(self) -> Optional['outputs.WorkflowRunResponse']:
+        return pulumi.get(self, "last_workflow_run")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        Kubernetes namespace the application is deployed to.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="oidcCredentials")
+    def oidc_credentials(self) -> Optional['outputs.GitHubWorkflowProfileResponseOidcCredentials']:
+        """
+        The fields needed for OIDC with GitHub.
+        """
+        return pulumi.get(self, "oidc_credentials")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[str]:
+        """
+        Repository Name
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter(name="repositoryOwner")
+    def repository_owner(self) -> Optional[str]:
+        """
+        Repository Owner
+        """
+        return pulumi.get(self, "repository_owner")
 
 
 @pulumi.output_type

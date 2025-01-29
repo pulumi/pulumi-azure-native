@@ -10,7 +10,11 @@ from .agent_pool import *
 from .get_agent_pool import *
 from .get_hybrid_identity_metadatum import *
 from .get_provisioned_cluster import *
+from .get_storage_space_retrieve import *
+from .get_virtual_network_retrieve import *
 from .hybrid_identity_metadatum import *
 from .provisioned_cluster import *
+from .storage_space_retrieve import *
+from .virtual_network_retrieve import *
 from ._inputs import *
 from . import outputs

@@ -9,29 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HybridContainerService.V20240101
 {
-    public static class ListprovisionedClusterInstanceUserKubeconfig
+    public static class ListProvisionedClusterInstanceUserKubeconfig
     {
         /// <summary>
         /// Lists the user credentials of the provisioned cluster (can only be used within private network)
         /// </summary>
-        public static Task<ListprovisionedClusterInstanceUserKubeconfigResult> InvokeAsync(ListprovisionedClusterInstanceUserKubeconfigArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListprovisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice/v20240101:listprovisionedClusterInstanceUserKubeconfig", args ?? new ListprovisionedClusterInstanceUserKubeconfigArgs(), options.WithDefaults());
+        public static Task<ListProvisionedClusterInstanceUserKubeconfigResult> InvokeAsync(ListProvisionedClusterInstanceUserKubeconfigArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListProvisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice/v20240101:listProvisionedClusterInstanceUserKubeconfig", args ?? new ListProvisionedClusterInstanceUserKubeconfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the user credentials of the provisioned cluster (can only be used within private network)
         /// </summary>
-        public static Output<ListprovisionedClusterInstanceUserKubeconfigResult> Invoke(ListprovisionedClusterInstanceUserKubeconfigInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListprovisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice/v20240101:listprovisionedClusterInstanceUserKubeconfig", args ?? new ListprovisionedClusterInstanceUserKubeconfigInvokeArgs(), options.WithDefaults());
+        public static Output<ListProvisionedClusterInstanceUserKubeconfigResult> Invoke(ListProvisionedClusterInstanceUserKubeconfigInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<ListProvisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice/v20240101:listProvisionedClusterInstanceUserKubeconfig", args ?? new ListProvisionedClusterInstanceUserKubeconfigInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the user credentials of the provisioned cluster (can only be used within private network)
         /// </summary>
-        public static Output<ListprovisionedClusterInstanceUserKubeconfigResult> Invoke(ListprovisionedClusterInstanceUserKubeconfigInvokeArgs args, InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<ListprovisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice/v20240101:listprovisionedClusterInstanceUserKubeconfig", args ?? new ListprovisionedClusterInstanceUserKubeconfigInvokeArgs(), options.WithDefaults());
+        public static Output<ListProvisionedClusterInstanceUserKubeconfigResult> Invoke(ListProvisionedClusterInstanceUserKubeconfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListProvisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice/v20240101:listProvisionedClusterInstanceUserKubeconfig", args ?? new ListProvisionedClusterInstanceUserKubeconfigInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class ListprovisionedClusterInstanceUserKubeconfigArgs : global::Pulumi.InvokeArgs
+    public sealed class ListProvisionedClusterInstanceUserKubeconfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The fully qualified Azure Resource Manager identifier of the connected cluster resource.
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.HybridContainerService.V20240101
         [Input("connectedClusterResourceUri", required: true)]
         public string ConnectedClusterResourceUri { get; set; } = null!;
 
-        public ListprovisionedClusterInstanceUserKubeconfigArgs()
+        public ListProvisionedClusterInstanceUserKubeconfigArgs()
         {
         }
-        public static new ListprovisionedClusterInstanceUserKubeconfigArgs Empty => new ListprovisionedClusterInstanceUserKubeconfigArgs();
+        public static new ListProvisionedClusterInstanceUserKubeconfigArgs Empty => new ListProvisionedClusterInstanceUserKubeconfigArgs();
     }
 
-    public sealed class ListprovisionedClusterInstanceUserKubeconfigInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListProvisionedClusterInstanceUserKubeconfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The fully qualified Azure Resource Manager identifier of the connected cluster resource.
@@ -53,15 +53,15 @@ namespace Pulumi.AzureNative.HybridContainerService.V20240101
         [Input("connectedClusterResourceUri", required: true)]
         public Input<string> ConnectedClusterResourceUri { get; set; } = null!;
 
-        public ListprovisionedClusterInstanceUserKubeconfigInvokeArgs()
+        public ListProvisionedClusterInstanceUserKubeconfigInvokeArgs()
         {
         }
-        public static new ListprovisionedClusterInstanceUserKubeconfigInvokeArgs Empty => new ListprovisionedClusterInstanceUserKubeconfigInvokeArgs();
+        public static new ListProvisionedClusterInstanceUserKubeconfigInvokeArgs Empty => new ListProvisionedClusterInstanceUserKubeconfigInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class ListprovisionedClusterInstanceUserKubeconfigResult
+    public sealed class ListProvisionedClusterInstanceUserKubeconfigResult
     {
         public readonly Outputs.ListCredentialResponseResponseError? Error;
         /// <summary>
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.HybridContainerService.V20240101
         public readonly string Status;
 
         [OutputConstructor]
-        private ListprovisionedClusterInstanceUserKubeconfigResult(
+        private ListProvisionedClusterInstanceUserKubeconfigResult(
             Outputs.ListCredentialResponseResponseError? error,
 
             string id,

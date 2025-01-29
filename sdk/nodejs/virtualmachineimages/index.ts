@@ -30,11 +30,17 @@ utilities.lazyLoad(exports, ["VirtualMachineImageTemplate"], () => require("./vi
 export * from "../types/enums/virtualmachineimages";
 
 // Export sub-modules:
+import * as v20200214 from "./v20200214";
+import * as v20211001 from "./v20211001";
+import * as v20220214 from "./v20220214";
 import * as v20220701 from "./v20220701";
 import * as v20230701 from "./v20230701";
 import * as v20240201 from "./v20240201";
 
 export {
+    v20200214,
+    v20211001,
+    v20220214,
     v20220701,
     v20230701,
     v20240201,

@@ -11,12 +11,10 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// Define the Virtual Instance for SAP solutions resource.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
-    /// 
-    /// Other available API versions: 2023-10-01-preview.
+    /// Azure REST API version: 2024-09-01.
     /// </summary>
-    [AzureNativeResourceType("azure-native:workloads:SAPVirtualInstance")]
-    public partial class SAPVirtualInstance : global::Pulumi.CustomResource
+    [AzureNativeResourceType("azure-native:workloads:SapVirtualInstance")]
+    public partial class SapVirtualInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
@@ -43,10 +41,10 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string> Health { get; private set; } = null!;
 
         /// <summary>
-        /// A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.UserAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.SAPVirtualInstanceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -59,6 +57,12 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         [Output("managedResourceGroupConfiguration")]
         public Output<Outputs.ManagedRGConfigurationResponse?> ManagedResourceGroupConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
+        /// </summary>
+        [Output("managedResourcesNetworkAccessType")]
+        public Output<string?> ManagedResourcesNetworkAccessType { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -110,19 +114,19 @@ namespace Pulumi.AzureNative.Workloads
 
 
         /// <summary>
-        /// Create a SAPVirtualInstance resource with the given unique name, arguments, and options.
+        /// Create a SapVirtualInstance resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SAPVirtualInstance(string name, SAPVirtualInstanceArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:workloads:SAPVirtualInstance", name, args ?? new SAPVirtualInstanceArgs(), MakeResourceOptions(options, ""))
+        public SapVirtualInstance(string name, SapVirtualInstanceArgs args, CustomResourceOptions? options = null)
+            : base("azure-native:workloads:SapVirtualInstance", name, args ?? new SapVirtualInstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private SAPVirtualInstance(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:workloads:SAPVirtualInstance", name, null, MakeResourceOptions(options, id))
+        private SapVirtualInstance(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-native:workloads:SapVirtualInstance", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -133,11 +137,11 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPVirtualInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SAPVirtualInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SAPVirtualInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SAPVirtualInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240901:SAPVirtualInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SapVirtualInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SapVirtualInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SapVirtualInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SapVirtualInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240901:SapVirtualInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,20 +150,20 @@ namespace Pulumi.AzureNative.Workloads
             return merged;
         }
         /// <summary>
-        /// Get an existing SAPVirtualInstance resource's state with the given name, ID, and optional extra
+        /// Get an existing SapVirtualInstance resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static SAPVirtualInstance Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static SapVirtualInstance Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new SAPVirtualInstance(name, id, options);
+            return new SapVirtualInstance(name, id, options);
         }
     }
 
-    public sealed class SAPVirtualInstanceArgs : global::Pulumi.ResourceArgs
+    public sealed class SapVirtualInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
@@ -174,10 +178,10 @@ namespace Pulumi.AzureNative.Workloads
         public InputUnion<string, Pulumi.AzureNative.Workloads.SAPEnvironmentType> Environment { get; set; } = null!;
 
         /// <summary>
-        /// A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.UserAssignedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.SAPVirtualInstanceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -190,6 +194,12 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         [Input("managedResourceGroupConfiguration")]
         public Input<Inputs.ManagedRGConfigurationArgs>? ManagedResourceGroupConfiguration { get; set; }
+
+        /// <summary>
+        /// Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
+        /// </summary>
+        [Input("managedResourcesNetworkAccessType")]
+        public InputUnion<string, Pulumi.AzureNative.Workloads.ManagedResourcesNetworkAccessType>? ManagedResourcesNetworkAccessType { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -221,9 +231,9 @@ namespace Pulumi.AzureNative.Workloads
             set => _tags = value;
         }
 
-        public SAPVirtualInstanceArgs()
+        public SapVirtualInstanceArgs()
         {
         }
-        public static new SAPVirtualInstanceArgs Empty => new SAPVirtualInstanceArgs();
+        public static new SapVirtualInstanceArgs Empty => new SapVirtualInstanceArgs();
     }
 }

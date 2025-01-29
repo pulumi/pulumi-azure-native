@@ -25,14 +25,16 @@ class AzureBareMetalStorageInstanceArgs:
                  resource_group_name: pulumi.Input[str],
                  azure_bare_metal_storage_instance_name: Optional[pulumi.Input[str]] = None,
                  azure_bare_metal_storage_instance_unique_identifier: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['AzureBareMetalStorageInstanceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  storage_properties: Optional[pulumi.Input['StoragePropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AzureBareMetalStorageInstance resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] azure_bare_metal_storage_instance_name: Name of the AzureBareMetalStorage on Azure instance.
+        :param pulumi.Input[str] azure_bare_metal_storage_instance_name: Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
         :param pulumi.Input[str] azure_bare_metal_storage_instance_unique_identifier: Specifies the AzureBareMetaStorageInstance unique ID.
+        :param pulumi.Input['AzureBareMetalStorageInstanceIdentityArgs'] identity: The identity of Azure Bare Metal Storage Instance, if configured.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['StoragePropertiesArgs'] storage_properties: Specifies the storage properties for the AzureBareMetalStorage instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -42,6 +44,8 @@ class AzureBareMetalStorageInstanceArgs:
             pulumi.set(__self__, "azure_bare_metal_storage_instance_name", azure_bare_metal_storage_instance_name)
         if azure_bare_metal_storage_instance_unique_identifier is not None:
             pulumi.set(__self__, "azure_bare_metal_storage_instance_unique_identifier", azure_bare_metal_storage_instance_unique_identifier)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if storage_properties is not None:
@@ -65,7 +69,7 @@ class AzureBareMetalStorageInstanceArgs:
     @pulumi.getter(name="azureBareMetalStorageInstanceName")
     def azure_bare_metal_storage_instance_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the AzureBareMetalStorage on Azure instance.
+        Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
         """
         return pulumi.get(self, "azure_bare_metal_storage_instance_name")
 
@@ -84,6 +88,18 @@ class AzureBareMetalStorageInstanceArgs:
     @azure_bare_metal_storage_instance_unique_identifier.setter
     def azure_bare_metal_storage_instance_unique_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "azure_bare_metal_storage_instance_unique_identifier", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AzureBareMetalStorageInstanceIdentityArgs']]:
+        """
+        The identity of Azure Bare Metal Storage Instance, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AzureBareMetalStorageInstanceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -129,6 +145,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_bare_metal_storage_instance_name: Optional[pulumi.Input[str]] = None,
                  azure_bare_metal_storage_instance_unique_identifier: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['AzureBareMetalStorageInstanceIdentityArgs', 'AzureBareMetalStorageInstanceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_properties: Optional[pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']]] = None,
@@ -136,14 +153,15 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
                  __props__=None):
         """
         AzureBareMetalStorageInstance info on Azure (ARM properties and AzureBareMetalStorage properties)
-        Azure REST API version: 2023-04-06.
+        Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2023-04-06.
 
-        Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
+        Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] azure_bare_metal_storage_instance_name: Name of the AzureBareMetalStorage on Azure instance.
+        :param pulumi.Input[str] azure_bare_metal_storage_instance_name: Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
         :param pulumi.Input[str] azure_bare_metal_storage_instance_unique_identifier: Specifies the AzureBareMetaStorageInstance unique ID.
+        :param pulumi.Input[Union['AzureBareMetalStorageInstanceIdentityArgs', 'AzureBareMetalStorageInstanceIdentityArgsDict']] identity: The identity of Azure Bare Metal Storage Instance, if configured.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']] storage_properties: Specifies the storage properties for the AzureBareMetalStorage instance.
@@ -157,9 +175,9 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AzureBareMetalStorageInstance info on Azure (ARM properties and AzureBareMetalStorage properties)
-        Azure REST API version: 2023-04-06.
+        Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2023-04-06.
 
-        Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
+        Other available API versions: 2023-04-06, 2023-08-04-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AzureBareMetalStorageInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -178,6 +196,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_bare_metal_storage_instance_name: Optional[pulumi.Input[str]] = None,
                  azure_bare_metal_storage_instance_unique_identifier: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['AzureBareMetalStorageInstanceIdentityArgs', 'AzureBareMetalStorageInstanceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_properties: Optional[pulumi.Input[Union['StoragePropertiesArgs', 'StoragePropertiesArgsDict']]] = None,
@@ -193,6 +212,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
 
             __props__.__dict__["azure_bare_metal_storage_instance_name"] = azure_bare_metal_storage_instance_name
             __props__.__dict__["azure_bare_metal_storage_instance_unique_identifier"] = azure_bare_metal_storage_instance_unique_identifier
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -227,6 +247,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
         __props__ = AzureBareMetalStorageInstanceArgs.__new__(AzureBareMetalStorageInstanceArgs)
 
         __props__.__dict__["azure_bare_metal_storage_instance_unique_identifier"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["storage_properties"] = None
@@ -242,6 +263,14 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
         Specifies the AzureBareMetaStorageInstance unique ID.
         """
         return pulumi.get(self, "azure_bare_metal_storage_instance_unique_identifier")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.AzureBareMetalStorageInstanceIdentityResponse']]:
+        """
+        The identity of Azure Bare Metal Storage Instance, if configured.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -271,7 +300,7 @@ class AzureBareMetalStorageInstance(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

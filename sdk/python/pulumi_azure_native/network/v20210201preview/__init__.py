@@ -9,9 +9,13 @@ from ._enums import *
 from .admin_rule import *
 from .admin_rule_collection import *
 from .connectivity_configuration import *
+from .default_admin_rule import *
+from .default_user_rule import *
 from .get_admin_rule import *
 from .get_admin_rule_collection import *
 from .get_connectivity_configuration import *
+from .get_default_admin_rule import *
+from .get_default_user_rule import *
 from .get_network_group import *
 from .get_network_manager import *
 from .get_network_security_perimeter import *
@@ -19,6 +23,9 @@ from .get_nsp_access_rule import *
 from .get_nsp_association import *
 from .get_nsp_link import *
 from .get_nsp_profile import *
+from .get_security_admin_configuration import *
+from .get_security_user_configuration import *
+from .get_user_rule import *
 from .get_user_rule_collection import *
 from .list_active_connectivity_configuration import *
 from .list_active_security_admin_rule import *
@@ -35,6 +42,9 @@ from .nsp_access_rule import *
 from .nsp_association import *
 from .nsp_link import *
 from .nsp_profile import *
+from .security_admin_configuration import *
+from .security_user_configuration import *
+from .user_rule import *
 from .user_rule_collection import *
 from ._inputs import *
 from . import outputs

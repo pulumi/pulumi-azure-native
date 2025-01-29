@@ -21,9 +21,12 @@ __all__ = [
     'EnvironmentStatusResponse',
     'Gen2StorageConfigurationOutputResponse',
     'IngressEnvironmentStatusResponse',
+    'LocalTimestampResponse',
+    'LocalTimestampResponseTimeZoneOffset',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ReferenceDataSetKeyPropertyResponse',
     'SkuResponse',
     'TimeSeriesIdPropertyResponse',
     'WarmStorageEnvironmentStatusResponse',
@@ -203,6 +206,98 @@ class IngressEnvironmentStatusResponse(dict):
         This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class LocalTimestampResponse(dict):
+    """
+    An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeZoneOffset":
+            suggest = "time_zone_offset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocalTimestampResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocalTimestampResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocalTimestampResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 format: Optional[str] = None,
+                 time_zone_offset: Optional['outputs.LocalTimestampResponseTimeZoneOffset'] = None):
+        """
+        An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+        :param str format: An enum that represents the format of the local timestamp property that needs to be set.
+        :param 'LocalTimestampResponseTimeZoneOffset' time_zone_offset: An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+        """
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if time_zone_offset is not None:
+            pulumi.set(__self__, "time_zone_offset", time_zone_offset)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        An enum that represents the format of the local timestamp property that needs to be set.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="timeZoneOffset")
+    def time_zone_offset(self) -> Optional['outputs.LocalTimestampResponseTimeZoneOffset']:
+        """
+        An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+        """
+        return pulumi.get(self, "time_zone_offset")
+
+
+@pulumi.output_type
+class LocalTimestampResponseTimeZoneOffset(dict):
+    """
+    An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyName":
+            suggest = "property_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocalTimestampResponseTimeZoneOffset. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocalTimestampResponseTimeZoneOffset.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocalTimestampResponseTimeZoneOffset.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 property_name: Optional[str] = None):
+        """
+        An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+        :param str property_name: The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+        """
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[str]:
+        """
+        The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+        """
+        return pulumi.get(self, "property_name")
 
 
 @pulumi.output_type
@@ -402,6 +497,41 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ReferenceDataSetKeyPropertyResponse(dict):
+    """
+    A key property for the reference data set. A reference data set can have multiple key properties.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        A key property for the reference data set. A reference data set can have multiple key properties.
+        :param str name: The name of the key property.
+        :param str type: The type of the key property.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the key property.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the key property.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

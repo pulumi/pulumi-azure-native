@@ -9,20 +9,18 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
-export function getSAPApplicationServerInstance(args: GetSAPApplicationServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPApplicationServerInstanceResult> {
+export function getSapApplicationServerInstance(args: GetSapApplicationServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSapApplicationServerInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:workloads:getSAPApplicationServerInstance", {
+    return pulumi.runtime.invoke("azure-native:workloads:getSapApplicationServerInstance", {
         "applicationInstanceName": args.applicationInstanceName,
         "resourceGroupName": args.resourceGroupName,
         "sapVirtualInstanceName": args.sapVirtualInstanceName,
     }, opts);
 }
 
-export interface GetSAPApplicationServerInstanceArgs {
+export interface GetSapApplicationServerInstanceArgs {
     /**
      * The name of SAP Application Server instance resource.
      */
@@ -40,7 +38,11 @@ export interface GetSAPApplicationServerInstanceArgs {
 /**
  * Define the SAP Application Server Instance resource.
  */
-export interface GetSAPApplicationServerInstanceResult {
+export interface GetSapApplicationServerInstanceResult {
+    /**
+     * Application server instance dispatcher status.
+     */
+    readonly dispatcherStatus: string;
     /**
      * Defines the Application Instance errors.
      */
@@ -66,7 +68,7 @@ export interface GetSAPApplicationServerInstanceResult {
      */
     readonly icmHttpsPort: number;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -74,7 +76,7 @@ export interface GetSAPApplicationServerInstanceResult {
      */
     readonly instanceNo: string;
     /**
-     *  Application server instance SAP IP Address.
+     * Application server instance SAP IP Address.
      */
     readonly ipAddress: string;
     /**
@@ -82,7 +84,7 @@ export interface GetSAPApplicationServerInstanceResult {
      */
     readonly kernelPatch: string;
     /**
-     *  Application server instance SAP Kernel Version.
+     * Application server instance SAP Kernel Version.
      */
     readonly kernelVersion: string;
     /**
@@ -128,20 +130,18 @@ export interface GetSAPApplicationServerInstanceResult {
 }
 /**
  * Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
-export function getSAPApplicationServerInstanceOutput(args: GetSAPApplicationServerInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSAPApplicationServerInstanceResult> {
+export function getSapApplicationServerInstanceOutput(args: GetSapApplicationServerInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapApplicationServerInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads:getSAPApplicationServerInstance", {
+    return pulumi.runtime.invokeOutput("azure-native:workloads:getSapApplicationServerInstance", {
         "applicationInstanceName": args.applicationInstanceName,
         "resourceGroupName": args.resourceGroupName,
         "sapVirtualInstanceName": args.sapVirtualInstanceName,
     }, opts);
 }
 
-export interface GetSAPApplicationServerInstanceOutputArgs {
+export interface GetSapApplicationServerInstanceOutputArgs {
     /**
      * The name of SAP Application Server instance resource.
      */

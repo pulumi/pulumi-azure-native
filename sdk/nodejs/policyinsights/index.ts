@@ -100,11 +100,15 @@ utilities.lazyLoad(exports, ["RemediationAtSubscription"], () => require("./reme
 export * from "../types/enums/policyinsights";
 
 // Export sub-modules:
+import * as v20190701 from "./v20190701";
+import * as v20210101 from "./v20210101";
 import * as v20211001 from "./v20211001";
 import * as v20220901 from "./v20220901";
 import * as v20241001 from "./v20241001";
 
 export {
+    v20190701,
+    v20210101,
     v20211001,
     v20220901,
     v20241001,

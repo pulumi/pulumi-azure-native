@@ -22,6 +22,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.hybridconnectivity.v20211006preview as __v20211006preview
+    v20211006preview = __v20211006preview
     import pulumi_azure_native.hybridconnectivity.v20220501preview as __v20220501preview
     v20220501preview = __v20220501preview
     import pulumi_azure_native.hybridconnectivity.v20230315 as __v20230315
@@ -29,6 +31,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.hybridconnectivity.v20241201 as __v20241201
     v20241201 = __v20241201
 else:
+    v20211006preview = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity.v20211006preview')
     v20220501preview = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity.v20220501preview')
     v20230315 = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity.v20230315')
     v20241201 = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity.v20241201')

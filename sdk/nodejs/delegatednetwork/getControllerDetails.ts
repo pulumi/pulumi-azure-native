@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified dnc controller.
- * Azure REST API version: 2021-03-15.
+ * Azure REST API version: 2023-06-27-preview.
  *
- * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ * Other available API versions: 2021-03-15, 2023-05-18-preview.
  */
 export function getControllerDetails(args: GetControllerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,6 +62,10 @@ export interface GetControllerDetailsResult {
      */
     readonly provisioningState: string;
     /**
+     * The purpose of the dnc controller resource.
+     */
+    readonly purpose?: string;
+    /**
      * Resource guid.
      */
     readonly resourceGuid: string;
@@ -76,9 +80,9 @@ export interface GetControllerDetailsResult {
 }
 /**
  * Gets details about the specified dnc controller.
- * Azure REST API version: 2021-03-15.
+ * Azure REST API version: 2023-06-27-preview.
  *
- * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ * Other available API versions: 2021-03-15, 2023-05-18-preview.
  */
 export function getControllerDetailsOutput(args: GetControllerDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetControllerDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -116,6 +116,8 @@ def get_vendor(vendor_name: Optional[str] = None,
     Gets information about the specified vendor.
     Azure REST API version: 2022-01-01-preview.
 
+    Other available API versions: 2020-01-01-preview, 2021-05-01.
+
 
     :param str vendor_name: The name of the vendor.
     """
@@ -136,6 +138,8 @@ def get_vendor_output(vendor_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified vendor.
     Azure REST API version: 2022-01-01-preview.
+
+    Other available API versions: 2020-01-01-preview, 2021-05-01.
 
 
     :param str vendor_name: The name of the vendor.

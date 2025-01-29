@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Edge device resource
- * Azure REST API version: 2023-08-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-08-01-preview.
  *
- * Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview.
  */
 export class DeploymentSetting extends pulumi.CustomResource {
     /**
@@ -57,13 +57,17 @@ export class DeploymentSetting extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The intended operation for a cluster.
+     */
+    public readonly operationType!: pulumi.Output<string | undefined>;
+    /**
      * DeploymentSetting provisioning state
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Deployment Status reported from cluster.
      */
-    public /*out*/ readonly reportedProperties!: pulumi.Output<outputs.azurestackhci.ReportedPropertiesResponse>;
+    public /*out*/ readonly reportedProperties!: pulumi.Output<outputs.azurestackhci.EceReportedPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -104,6 +108,7 @@ export class DeploymentSetting extends pulumi.CustomResource {
             resourceInputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
             resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
             resourceInputs["deploymentSettingsName"] = args ? args.deploymentSettingsName : undefined;
+            resourceInputs["operationType"] = (args ? args.operationType : undefined) ?? "ClusterProvisioning";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -115,6 +120,7 @@ export class DeploymentSetting extends pulumi.CustomResource {
             resourceInputs["deploymentConfiguration"] = undefined /*out*/;
             resourceInputs["deploymentMode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["operationType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["reportedProperties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -151,6 +157,10 @@ export interface DeploymentSettingArgs {
      * Name of Deployment Setting
      */
     deploymentSettingsName?: pulumi.Input<string>;
+    /**
+     * The intended operation for a cluster.
+     */
+    operationType?: pulumi.Input<string | enums.azurestackhci.OperationType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

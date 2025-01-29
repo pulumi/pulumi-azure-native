@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A network interface in a resource group.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  *
- * Other available API versions: 2018-07-01, 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**
@@ -48,6 +48,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      * Auxiliary sku of Network Interface resource.
      */
     public readonly auxiliarySku!: pulumi.Output<string | undefined>;
+    /**
+     * Whether default outbound connectivity for nic was configured or not.
+     */
+    public /*out*/ readonly defaultOutboundConnectivityEnabled!: pulumi.Output<boolean>;
     /**
      * Indicates whether to disable tcp state tracking.
      */
@@ -185,6 +189,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workloadType"] = args ? args.workloadType : undefined;
+            resourceInputs["defaultOutboundConnectivityEnabled"] = undefined /*out*/;
             resourceInputs["dscpConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hostedWorkloads"] = undefined /*out*/;
@@ -201,6 +206,7 @@ export class NetworkInterface extends pulumi.CustomResource {
         } else {
             resourceInputs["auxiliaryMode"] = undefined /*out*/;
             resourceInputs["auxiliarySku"] = undefined /*out*/;
+            resourceInputs["defaultOutboundConnectivityEnabled"] = undefined /*out*/;
             resourceInputs["disableTcpStateTracking"] = undefined /*out*/;
             resourceInputs["dnsSettings"] = undefined /*out*/;
             resourceInputs["dscpConfiguration"] = undefined /*out*/;

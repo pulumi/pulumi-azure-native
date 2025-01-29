@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
     /// <summary>
-    /// Dto object representing specification
+    /// DTO object representing specification
     /// </summary>
     public sealed class FeaturesetSpecificationArgs : global::Pulumi.ResourceArgs
     {

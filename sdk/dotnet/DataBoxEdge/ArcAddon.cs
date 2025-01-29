@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Arc Addon.
-    /// Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+    /// Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:ArcAddon")]
     public partial class ArcAddon : global::Pulumi.CustomResource

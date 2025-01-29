@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// Get DigitalTwinsInstances Endpoint.
         /// Azure REST API version: 2023-01-31.
+        /// 
+        /// Other available API versions: 2020-12-01, 2021-06-30-preview, 2022-05-31, 2022-10-31.
         /// </summary>
         public static Task<GetDigitalTwinsEndpointResult> InvokeAsync(GetDigitalTwinsEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// Get DigitalTwinsInstances Endpoint.
         /// Azure REST API version: 2023-01-31.
+        /// 
+        /// Other available API versions: 2020-12-01, 2021-06-30-preview, 2022-05-31, 2022-10-31.
         /// </summary>
         public static Output<GetDigitalTwinsEndpointResult> Invoke(GetDigitalTwinsEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// Get DigitalTwinsInstances Endpoint.
         /// Azure REST API version: 2023-01-31.
+        /// 
+        /// Other available API versions: 2020-12-01, 2021-06-30-preview, 2022-05-31, 2022-10-31.
         /// </summary>
         public static Output<GetDigitalTwinsEndpointResult> Invoke(GetDigitalTwinsEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointInvokeArgs(), options.WithDefaults());

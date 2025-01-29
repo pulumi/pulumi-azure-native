@@ -24,7 +24,7 @@ __all__ = [
 @pulumi.output_type
 class GetChannelFullUrlResult:
     """
-    Full endpoint url of an event subscription
+    Full endpoint URL of an event subscription
     """
     def __init__(__self__, endpoint_url=None):
         if endpoint_url and not isinstance(endpoint_url, str):
@@ -55,9 +55,9 @@ def get_channel_full_url(channel_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelFullUrlResult:
     """
     Get the full endpoint URL of a partner destination channel.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2021-10-15-preview, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str channel_name: Name of the Channel.
@@ -79,9 +79,9 @@ def get_channel_full_url_output(channel_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelFullUrlResult]:
     """
     Get the full endpoint URL of a partner destination channel.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2021-10-15-preview, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str channel_name: Name of the Channel.

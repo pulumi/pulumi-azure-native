@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Determines how new connections are handled by the load balancer when all backend instances are probed down.
+        /// </summary>
+        [Input("noHealthyBackendsBehavior")]
+        public InputUnion<string, Pulumi.AzureNative.Network.ProbeNoHealthyBackendsBehavior>? NoHealthyBackendsBehavior { get; set; }
+
+        /// <summary>
         /// The number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure.
         /// </summary>
         [Input("numberOfProbes")]

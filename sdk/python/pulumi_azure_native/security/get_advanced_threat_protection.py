@@ -92,6 +92,8 @@ def get_advanced_threat_protection(resource_id: Optional[str] = None,
     Gets the Advanced Threat Protection settings for the specified resource.
     Azure REST API version: 2019-01-01.
 
+    Other available API versions: 2017-08-01-preview.
+
 
     :param str resource_id: The identifier of the resource.
     :param str setting_name: Advanced Threat Protection setting name.
@@ -113,6 +115,8 @@ def get_advanced_threat_protection_output(resource_id: Optional[pulumi.Input[str
     """
     Gets the Advanced Threat Protection settings for the specified resource.
     Azure REST API version: 2019-01-01.
+
+    Other available API versions: 2017-08-01-preview.
 
 
     :param str resource_id: The identifier of the resource.

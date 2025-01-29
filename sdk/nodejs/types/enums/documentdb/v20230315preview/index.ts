@@ -12,6 +12,17 @@ export const AnalyticalStorageSchemaType = {
  */
 export type AnalyticalStorageSchemaType = (typeof AnalyticalStorageSchemaType)[keyof typeof AnalyticalStorageSchemaType];
 
+export const AuthenticationMethod = {
+    None: "None",
+    Cassandra: "Cassandra",
+    Ldap: "Ldap",
+} as const;
+
+/**
+ * Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+ */
+export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
+
 export const BackupPolicyMigrationStatus = {
     Invalid: "Invalid",
     InProgress: "InProgress",
@@ -174,6 +185,30 @@ export const IndexingMode = {
  */
 export type IndexingMode = (typeof IndexingMode)[keyof typeof IndexingMode];
 
+export const ManagedCassandraProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Canceled: "Canceled",
+} as const;
+
+/**
+ * The status of the resource at the time the operation was called.
+ */
+export type ManagedCassandraProvisioningState = (typeof ManagedCassandraProvisioningState)[keyof typeof ManagedCassandraProvisioningState];
+
+export const ManagedCassandraResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The type of the resource.
+ */
+export type ManagedCassandraResourceIdentityType = (typeof ManagedCassandraResourceIdentityType)[keyof typeof ManagedCassandraResourceIdentityType];
+
 export const MinimalTlsVersion = {
     Tls: "Tls",
     Tls11: "Tls11",
@@ -184,6 +219,16 @@ export const MinimalTlsVersion = {
  * Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2.
  */
 export type MinimalTlsVersion = (typeof MinimalTlsVersion)[keyof typeof MinimalTlsVersion];
+
+export const MongoRoleDefinitionType = {
+    BuiltInRole: "BuiltInRole",
+    CustomRole: "CustomRole",
+} as const;
+
+/**
+ * Indicates whether the Role Definition was built-in or user created.
+ */
+export type MongoRoleDefinitionType = (typeof MongoRoleDefinitionType)[keyof typeof MongoRoleDefinitionType];
 
 export const NetworkAclBypass = {
     None: "None",
@@ -246,6 +291,16 @@ export const RestoreMode = {
  */
 export type RestoreMode = (typeof RestoreMode)[keyof typeof RestoreMode];
 
+export const RoleDefinitionType = {
+    BuiltInRole: "BuiltInRole",
+    CustomRole: "CustomRole",
+} as const;
+
+/**
+ * Indicates whether the Role Definition was built-in or user created.
+ */
+export type RoleDefinitionType = (typeof RoleDefinitionType)[keyof typeof RoleDefinitionType];
+
 export const ServerVersion = {
     ServerVersion_3_2: "3.2",
     ServerVersion_3_6: "3.6",
@@ -257,6 +312,29 @@ export const ServerVersion = {
  * Describes the ServerVersion of an a MongoDB account.
  */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
+
+export const ServiceSize = {
+    Cosmos_D4s: "Cosmos.D4s",
+    Cosmos_D8s: "Cosmos.D8s",
+    Cosmos_D16s: "Cosmos.D16s",
+} as const;
+
+/**
+ * Instance type for the service.
+ */
+export type ServiceSize = (typeof ServiceSize)[keyof typeof ServiceSize];
+
+export const ServiceType = {
+    SqlDedicatedGateway: "SqlDedicatedGateway",
+    DataTransfer: "DataTransfer",
+    GraphAPICompute: "GraphAPICompute",
+    MaterializedViewsBuilder: "MaterializedViewsBuilder",
+} as const;
+
+/**
+ * ServiceType for the service.
+ */
+export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
 
 export const SpatialType = {
     Point: "Point",

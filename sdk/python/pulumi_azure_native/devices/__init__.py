@@ -29,14 +29,40 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.devices.v20200301 as __v20200301
+    v20200301 = __v20200301
     import pulumi_azure_native.devices.v20200401 as __v20200401
     v20200401 = __v20200401
+    import pulumi_azure_native.devices.v20200615 as __v20200615
+    v20200615 = __v20200615
+    import pulumi_azure_native.devices.v20200710preview as __v20200710preview
+    v20200710preview = __v20200710preview
+    import pulumi_azure_native.devices.v20200801 as __v20200801
+    v20200801 = __v20200801
+    import pulumi_azure_native.devices.v20200831 as __v20200831
+    v20200831 = __v20200831
+    import pulumi_azure_native.devices.v20200831preview as __v20200831preview
+    v20200831preview = __v20200831preview
     import pulumi_azure_native.devices.v20200901preview as __v20200901preview
     v20200901preview = __v20200901preview
+    import pulumi_azure_native.devices.v20210201preview as __v20210201preview
+    v20210201preview = __v20210201preview
     import pulumi_azure_native.devices.v20210303preview as __v20210303preview
     v20210303preview = __v20210303preview
+    import pulumi_azure_native.devices.v20210331 as __v20210331
+    v20210331 = __v20210331
+    import pulumi_azure_native.devices.v20210701 as __v20210701
+    v20210701 = __v20210701
+    import pulumi_azure_native.devices.v20210701preview as __v20210701preview
+    v20210701preview = __v20210701preview
+    import pulumi_azure_native.devices.v20210702 as __v20210702
+    v20210702 = __v20210702
+    import pulumi_azure_native.devices.v20210702preview as __v20210702preview
+    v20210702preview = __v20210702preview
     import pulumi_azure_native.devices.v20211015 as __v20211015
     v20211015 = __v20211015
+    import pulumi_azure_native.devices.v20220205 as __v20220205
+    v20220205 = __v20220205
     import pulumi_azure_native.devices.v20220430preview as __v20220430preview
     v20220430preview = __v20220430preview
     import pulumi_azure_native.devices.v20221115preview as __v20221115preview
@@ -52,10 +78,23 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.devices.v20250201preview as __v20250201preview
     v20250201preview = __v20250201preview
 else:
+    v20200301 = _utilities.lazy_import('pulumi_azure_native.devices.v20200301')
     v20200401 = _utilities.lazy_import('pulumi_azure_native.devices.v20200401')
+    v20200615 = _utilities.lazy_import('pulumi_azure_native.devices.v20200615')
+    v20200710preview = _utilities.lazy_import('pulumi_azure_native.devices.v20200710preview')
+    v20200801 = _utilities.lazy_import('pulumi_azure_native.devices.v20200801')
+    v20200831 = _utilities.lazy_import('pulumi_azure_native.devices.v20200831')
+    v20200831preview = _utilities.lazy_import('pulumi_azure_native.devices.v20200831preview')
     v20200901preview = _utilities.lazy_import('pulumi_azure_native.devices.v20200901preview')
+    v20210201preview = _utilities.lazy_import('pulumi_azure_native.devices.v20210201preview')
     v20210303preview = _utilities.lazy_import('pulumi_azure_native.devices.v20210303preview')
+    v20210331 = _utilities.lazy_import('pulumi_azure_native.devices.v20210331')
+    v20210701 = _utilities.lazy_import('pulumi_azure_native.devices.v20210701')
+    v20210701preview = _utilities.lazy_import('pulumi_azure_native.devices.v20210701preview')
+    v20210702 = _utilities.lazy_import('pulumi_azure_native.devices.v20210702')
+    v20210702preview = _utilities.lazy_import('pulumi_azure_native.devices.v20210702preview')
     v20211015 = _utilities.lazy_import('pulumi_azure_native.devices.v20211015')
+    v20220205 = _utilities.lazy_import('pulumi_azure_native.devices.v20220205')
     v20220430preview = _utilities.lazy_import('pulumi_azure_native.devices.v20220430preview')
     v20221115preview = _utilities.lazy_import('pulumi_azure_native.devices.v20221115preview')
     v20221212 = _utilities.lazy_import('pulumi_azure_native.devices.v20221212')

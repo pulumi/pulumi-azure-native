@@ -13,23 +13,22 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class ServerlessEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the authentication mode for the Serverless endpoint.
+        /// [Required] Specifies the authentication mode for the Serverless endpoint.
         /// </summary>
-        [Input("authMode")]
-        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ServerlessInferenceEndpointAuthMode>? AuthMode { get; set; }
+        [Input("authMode", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ServerlessInferenceEndpointAuthMode> AuthMode { get; set; } = null!;
 
         /// <summary>
-        /// Optional capacity reservation information for the endpoint. When specified, the Serverless Endpoint
-        /// will be allocated capacity from the specified capacity reservation group.
+        /// Specifies the content safety options. If omitted, the default content safety settings will be configured
         /// </summary>
-        [Input("capacityReservation")]
-        public Input<Inputs.ServerlessEndpointCapacityReservationArgs>? CapacityReservation { get; set; }
+        [Input("contentSafety")]
+        public Input<Inputs.ContentSafetyArgs>? ContentSafety { get; set; }
 
         /// <summary>
-        /// [Required] The publisher-defined Serverless Offer to provision the endpoint with.
+        /// The model settings (model id) for the model being serviced on the ServerlessEndpoint.
         /// </summary>
-        [Input("offer", required: true)]
-        public Input<Inputs.ServerlessOfferArgs> Offer { get; set; } = null!;
+        [Input("modelSettings")]
+        public Input<Inputs.ModelSettingsArgs>? ModelSettings { get; set; }
 
         public ServerlessEndpointArgs()
         {

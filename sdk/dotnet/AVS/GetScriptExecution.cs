@@ -12,28 +12,28 @@ namespace Pulumi.AzureNative.AVS
     public static class GetScriptExecution
     {
         /// <summary>
-        /// An instance of a script executed by a user - custom or AVS
-        /// Azure REST API version: 2022-05-01.
+        /// Get a ScriptExecution
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
         /// </summary>
         public static Task<GetScriptExecutionResult> InvokeAsync(GetScriptExecutionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScriptExecutionResult>("azure-native:avs:getScriptExecution", args ?? new GetScriptExecutionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An instance of a script executed by a user - custom or AVS
-        /// Azure REST API version: 2022-05-01.
+        /// Get a ScriptExecution
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
         /// </summary>
         public static Output<GetScriptExecutionResult> Invoke(GetScriptExecutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScriptExecutionResult>("azure-native:avs:getScriptExecution", args ?? new GetScriptExecutionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An instance of a script executed by a user - custom or AVS
-        /// Azure REST API version: 2022-05-01.
+        /// Get a ScriptExecution
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
         /// </summary>
         public static Output<GetScriptExecutionResult> Invoke(GetScriptExecutionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScriptExecutionResult>("azure-native:avs:getScriptExecution", args ?? new GetScriptExecutionInvokeArgs(), options.WithDefaults());
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.AVS
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the user-invoked script execution resource
+        /// Name of the script cmdlet.
         /// </summary>
         [Input("scriptExecutionName", required: true)]
         public string ScriptExecutionName { get; set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.AVS
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the user-invoked script execution resource
+        /// Name of the script cmdlet.
         /// </summary>
         [Input("scriptExecutionName", required: true)]
         public Input<string> ScriptExecutionName { get; set; } = null!;
@@ -101,7 +101,8 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly ImmutableArray<string> Errors;
         /// <summary>
-        /// Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
+        /// Error message if the script was able to run, but if the script itself had
+        /// errors or powershell threw an exception
         /// </summary>
         public readonly string? FailureReason;
         /// <summary>
@@ -109,11 +110,12 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string FinishedAt;
         /// <summary>
-        /// Parameters that will be hidden/not visible to ARM, such as passwords and credentials
+        /// Parameters that will be hidden/not visible to ARM, such as passwords and
+        /// credentials
         /// </summary>
         public readonly ImmutableArray<object> HiddenParameters;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -121,7 +123,7 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly ImmutableArray<string> Information;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -157,11 +159,15 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string SubmittedAt;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Time limit for execution
         /// </summary>
         public readonly string Timeout;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -201,6 +207,8 @@ namespace Pulumi.AzureNative.AVS
 
             string submittedAt,
 
+            Outputs.SystemDataResponse systemData,
+
             string timeout,
 
             string type,
@@ -222,6 +230,7 @@ namespace Pulumi.AzureNative.AVS
             ScriptCmdletId = scriptCmdletId;
             StartedAt = startedAt;
             SubmittedAt = submittedAt;
+            SystemData = systemData;
             Timeout = timeout;
             Type = type;
             Warnings = warnings;

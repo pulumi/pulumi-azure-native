@@ -153,9 +153,9 @@ def get_static_site_build_database_connection(database_connection_name: Optional
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteBuildDatabaseConnectionResult:
     """
     Static Site Database Connection resource.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01.
 
 
     :param str database_connection_name: Name of the database connection.
@@ -188,9 +188,9 @@ def get_static_site_build_database_connection_output(database_connection_name: O
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteBuildDatabaseConnectionResult]:
     """
     Static Site Database Connection resource.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01.
 
 
     :param str database_connection_name: Name of the database connection.

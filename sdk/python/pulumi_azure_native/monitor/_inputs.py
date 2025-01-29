@@ -30,6 +30,12 @@ __all__ = [
     'ConcurrencyConfigurationArgsDict',
     'ExporterArgs',
     'ExporterArgsDict',
+    'JsonArrayMapperArgs',
+    'JsonArrayMapperArgsDict',
+    'JsonMapperDestinationFieldArgs',
+    'JsonMapperDestinationFieldArgsDict',
+    'JsonMapperSourceFieldArgs',
+    'JsonMapperSourceFieldArgsDict',
     'NetworkingConfigurationArgs',
     'NetworkingConfigurationArgsDict',
     'NetworkingRouteArgs',
@@ -38,6 +44,8 @@ __all__ = [
     'OtlpReceiverArgsDict',
     'PersistenceConfigurationsArgs',
     'PersistenceConfigurationsArgsDict',
+    'PipelineGroupPropertiesArgs',
+    'PipelineGroupPropertiesArgsDict',
     'PipelineArgs',
     'PipelineArgsDict',
     'ProcessorArgs',
@@ -556,6 +564,175 @@ class ExporterArgs:
 
 
 if not MYPY:
+    class JsonArrayMapperArgsDict(TypedDict):
+        """
+        A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
+        """
+        keys: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
+        """
+        destination_field: NotRequired[pulumi.Input['JsonMapperDestinationFieldArgsDict']]
+        """
+        Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
+        """
+        source_field: NotRequired[pulumi.Input['JsonMapperSourceFieldArgsDict']]
+        """
+        Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
+        """
+elif False:
+    JsonArrayMapperArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JsonArrayMapperArgs:
+    def __init__(__self__, *,
+                 keys: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 destination_field: Optional[pulumi.Input['JsonMapperDestinationFieldArgs']] = None,
+                 source_field: Optional[pulumi.Input['JsonMapperSourceFieldArgs']] = None):
+        """
+        A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
+        :param pulumi.Input['JsonMapperDestinationFieldArgs'] destination_field: Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
+        :param pulumi.Input['JsonMapperSourceFieldArgs'] source_field: Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
+        """
+        pulumi.set(__self__, "keys", keys)
+        if destination_field is not None:
+            pulumi.set(__self__, "destination_field", destination_field)
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
+        """
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "keys", value)
+
+    @property
+    @pulumi.getter(name="destinationField")
+    def destination_field(self) -> Optional[pulumi.Input['JsonMapperDestinationFieldArgs']]:
+        """
+        Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
+        """
+        return pulumi.get(self, "destination_field")
+
+    @destination_field.setter
+    def destination_field(self, value: Optional[pulumi.Input['JsonMapperDestinationFieldArgs']]):
+        pulumi.set(self, "destination_field", value)
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional[pulumi.Input['JsonMapperSourceFieldArgs']]:
+        """
+        Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
+        """
+        return pulumi.get(self, "source_field")
+
+    @source_field.setter
+    def source_field(self, value: Optional[pulumi.Input['JsonMapperSourceFieldArgs']]):
+        pulumi.set(self, "source_field", value)
+
+
+if not MYPY:
+    class JsonMapperDestinationFieldArgsDict(TypedDict):
+        """
+        JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
+        """
+        destination: NotRequired[pulumi.Input[Union[str, 'JsonMapperElement']]]
+        """
+        Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+        """
+        field_name: NotRequired[pulumi.Input[str]]
+        """
+        Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
+        """
+elif False:
+    JsonMapperDestinationFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JsonMapperDestinationFieldArgs:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input[Union[str, 'JsonMapperElement']]] = None,
+                 field_name: Optional[pulumi.Input[str]] = None):
+        """
+        JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
+        :param pulumi.Input[Union[str, 'JsonMapperElement']] destination: Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+        :param pulumi.Input[str] field_name: Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
+        """
+        if destination is None:
+            destination = 'attributes'
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[Union[str, 'JsonMapperElement']]]:
+        """
+        Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[Union[str, 'JsonMapperElement']]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
+        """
+        return pulumi.get(self, "field_name")
+
+    @field_name.setter
+    def field_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_name", value)
+
+
+if not MYPY:
+    class JsonMapperSourceFieldArgsDict(TypedDict):
+        """
+        JsonArrayMapper source field used to describe the field from which the json array will be read.
+        """
+        field_name: NotRequired[pulumi.Input[str]]
+        """
+        Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
+        """
+elif False:
+    JsonMapperSourceFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JsonMapperSourceFieldArgs:
+    def __init__(__self__, *,
+                 field_name: Optional[pulumi.Input[str]] = None):
+        """
+        JsonArrayMapper source field used to describe the field from which the json array will be read.
+        :param pulumi.Input[str] field_name: Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
+        """
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
+        """
+        return pulumi.get(self, "field_name")
+
+    @field_name.setter
+    def field_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_name", value)
+
+
+if not MYPY:
     class NetworkingConfigurationArgsDict(TypedDict):
         """
         Networking configuration for the pipeline group instance.
@@ -792,6 +969,138 @@ class PersistenceConfigurationsArgs:
     @persistent_volume_name.setter
     def persistent_volume_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "persistent_volume_name", value)
+
+
+if not MYPY:
+    class PipelineGroupPropertiesArgsDict(TypedDict):
+        """
+        Properties that need to be specified to create a new pipeline group instance.
+        """
+        exporters: pulumi.Input[Sequence[pulumi.Input['ExporterArgsDict']]]
+        """
+        The exporters specified for a pipeline group instance.
+        """
+        processors: pulumi.Input[Sequence[pulumi.Input['ProcessorArgsDict']]]
+        """
+        The processors specified for a pipeline group instance.
+        """
+        receivers: pulumi.Input[Sequence[pulumi.Input['ReceiverArgsDict']]]
+        """
+        The receivers specified for a pipeline group instance.
+        """
+        service: pulumi.Input['ServiceArgsDict']
+        """
+        The service section for a given pipeline group instance.
+        """
+        networking_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgsDict']]]]
+        """
+        Networking configurations for the pipeline group instance.
+        """
+        replicas: NotRequired[pulumi.Input[int]]
+        """
+        Defines the amount of replicas of the pipeline group instance.
+        """
+elif False:
+    PipelineGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 exporters: pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]],
+                 processors: pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]],
+                 receivers: pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]],
+                 service: pulumi.Input['ServiceArgs'],
+                 networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]] = None,
+                 replicas: Optional[pulumi.Input[int]] = None):
+        """
+        Properties that need to be specified to create a new pipeline group instance.
+        :param pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]] exporters: The exporters specified for a pipeline group instance.
+        :param pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]] processors: The processors specified for a pipeline group instance.
+        :param pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]] receivers: The receivers specified for a pipeline group instance.
+        :param pulumi.Input['ServiceArgs'] service: The service section for a given pipeline group instance.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]] networking_configurations: Networking configurations for the pipeline group instance.
+        :param pulumi.Input[int] replicas: Defines the amount of replicas of the pipeline group instance.
+        """
+        pulumi.set(__self__, "exporters", exporters)
+        pulumi.set(__self__, "processors", processors)
+        pulumi.set(__self__, "receivers", receivers)
+        pulumi.set(__self__, "service", service)
+        if networking_configurations is not None:
+            pulumi.set(__self__, "networking_configurations", networking_configurations)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+
+    @property
+    @pulumi.getter
+    def exporters(self) -> pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]]:
+        """
+        The exporters specified for a pipeline group instance.
+        """
+        return pulumi.get(self, "exporters")
+
+    @exporters.setter
+    def exporters(self, value: pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]]):
+        pulumi.set(self, "exporters", value)
+
+    @property
+    @pulumi.getter
+    def processors(self) -> pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]]:
+        """
+        The processors specified for a pipeline group instance.
+        """
+        return pulumi.get(self, "processors")
+
+    @processors.setter
+    def processors(self, value: pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]]):
+        pulumi.set(self, "processors", value)
+
+    @property
+    @pulumi.getter
+    def receivers(self) -> pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]]:
+        """
+        The receivers specified for a pipeline group instance.
+        """
+        return pulumi.get(self, "receivers")
+
+    @receivers.setter
+    def receivers(self, value: pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]]):
+        pulumi.set(self, "receivers", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input['ServiceArgs']:
+        """
+        The service section for a given pipeline group instance.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input['ServiceArgs']):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter(name="networkingConfigurations")
+    def networking_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]]:
+        """
+        Networking configurations for the pipeline group instance.
+        """
+        return pulumi.get(self, "networking_configurations")
+
+    @networking_configurations.setter
+    def networking_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]]):
+        pulumi.set(self, "networking_configurations", value)
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Optional[pulumi.Input[int]]:
+        """
+        Defines the amount of replicas of the pipeline group instance.
+        """
+        return pulumi.get(self, "replicas")
+
+    @replicas.setter
+    def replicas(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replicas", value)
 
 
 if not MYPY:
@@ -1491,6 +1800,10 @@ if not MYPY:
         """
         The encoding of the stream being received.
         """
+        json_array_mapper: NotRequired[pulumi.Input['JsonArrayMapperArgsDict']]
+        """
+        Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
+        """
         read_queue_length: NotRequired[pulumi.Input[int]]
         """
         Max read queue length.
@@ -1503,11 +1816,13 @@ class UdpReceiverArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  encoding: Optional[pulumi.Input[Union[str, 'StreamEncodingType']]] = None,
+                 json_array_mapper: Optional[pulumi.Input['JsonArrayMapperArgs']] = None,
                  read_queue_length: Optional[pulumi.Input[int]] = None):
         """
         Receiver using UDP as transport protocol.
         :param pulumi.Input[str] endpoint: TCP endpoint definition. Example: 0.0.0.0:<port>.
         :param pulumi.Input[Union[str, 'StreamEncodingType']] encoding: The encoding of the stream being received.
+        :param pulumi.Input['JsonArrayMapperArgs'] json_array_mapper: Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
         :param pulumi.Input[int] read_queue_length: Max read queue length.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -1515,6 +1830,8 @@ class UdpReceiverArgs:
             encoding = 'nop'
         if encoding is not None:
             pulumi.set(__self__, "encoding", encoding)
+        if json_array_mapper is not None:
+            pulumi.set(__self__, "json_array_mapper", json_array_mapper)
         if read_queue_length is None:
             read_queue_length = 1000
         if read_queue_length is not None:
@@ -1543,6 +1860,18 @@ class UdpReceiverArgs:
     @encoding.setter
     def encoding(self, value: Optional[pulumi.Input[Union[str, 'StreamEncodingType']]]):
         pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="jsonArrayMapper")
+    def json_array_mapper(self) -> Optional[pulumi.Input['JsonArrayMapperArgs']]:
+        """
+        Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
+        """
+        return pulumi.get(self, "json_array_mapper")
+
+    @json_array_mapper.setter
+    def json_array_mapper(self, value: Optional[pulumi.Input['JsonArrayMapperArgs']]):
+        pulumi.set(self, "json_array_mapper", value)
 
     @property
     @pulumi.getter(name="readQueueLength")

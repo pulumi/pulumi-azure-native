@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Implements HybridIdentityMetadata GET method.
- * Azure REST API version: 2022-07-15-preview.
+ * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2020-10-01-preview, 2022-01-10-preview, 2022-07-15-preview.
  */
 export function getHybridIdentityMetadatum(args: GetHybridIdentityMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridIdentityMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,7 +42,7 @@ export interface GetHybridIdentityMetadatumArgs {
  */
 export interface GetHybridIdentityMetadatumResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -54,7 +54,7 @@ export interface GetHybridIdentityMetadatumResult {
      */
     readonly name: string;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     readonly provisioningState: string;
     /**
@@ -62,7 +62,7 @@ export interface GetHybridIdentityMetadatumResult {
      */
     readonly publicKey?: string;
     /**
-     * The system data.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.connectedvmwarevsphere.SystemDataResponse;
     /**
@@ -76,9 +76,9 @@ export interface GetHybridIdentityMetadatumResult {
 }
 /**
  * Implements HybridIdentityMetadata GET method.
- * Azure REST API version: 2022-07-15-preview.
+ * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2020-10-01-preview, 2022-01-10-preview, 2022-07-15-preview.
  */
 export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

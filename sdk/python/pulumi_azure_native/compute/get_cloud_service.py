@@ -141,7 +141,7 @@ def get_cloud_service(cloud_service_name: Optional[str] = None,
     Display information about a cloud service.
     Azure REST API version: 2022-09-04.
 
-    Other available API versions: 2024-11-04.
+    Other available API versions: 2020-10-01-preview, 2021-03-01, 2022-04-04, 2024-11-04.
 
 
     :param str cloud_service_name: Name of the cloud service.
@@ -169,7 +169,7 @@ def get_cloud_service_output(cloud_service_name: Optional[pulumi.Input[str]] = N
     Display information about a cloud service.
     Azure REST API version: 2022-09-04.
 
-    Other available API versions: 2024-11-04.
+    Other available API versions: 2020-10-01-preview, 2021-03-01, 2022-04-04, 2024-11-04.
 
 
     :param str cloud_service_name: Name of the cloud service.

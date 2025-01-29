@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// Get the certificate from the provisioning service.
-        /// Azure REST API version: 2022-12-12.
+        /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2021-10-15, 2023-03-01-preview, 2025-02-01-preview.
+        /// Other available API versions: 2020-03-01, 2020-09-01-preview, 2021-10-15, 2022-02-05, 2022-12-12, 2025-02-01-preview.
         /// </summary>
         public static Task<GetDpsCertificateResult> InvokeAsync(GetDpsCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDpsCertificateResult>("azure-native:devices:getDpsCertificate", args ?? new GetDpsCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the certificate from the provisioning service.
-        /// Azure REST API version: 2022-12-12.
+        /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2021-10-15, 2023-03-01-preview, 2025-02-01-preview.
+        /// Other available API versions: 2020-03-01, 2020-09-01-preview, 2021-10-15, 2022-02-05, 2022-12-12, 2025-02-01-preview.
         /// </summary>
         public static Output<GetDpsCertificateResult> Invoke(GetDpsCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDpsCertificateResult>("azure-native:devices:getDpsCertificate", args ?? new GetDpsCertificateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the certificate from the provisioning service.
-        /// Azure REST API version: 2022-12-12.
+        /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2021-10-15, 2023-03-01-preview, 2025-02-01-preview.
+        /// Other available API versions: 2020-03-01, 2020-09-01-preview, 2021-10-15, 2022-02-05, 2022-12-12, 2025-02-01-preview.
         /// </summary>
         public static Output<GetDpsCertificateResult> Invoke(GetDpsCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDpsCertificateResult>("azure-native:devices:getDpsCertificate", args ?? new GetDpsCertificateInvokeArgs(), options.WithDefaults());

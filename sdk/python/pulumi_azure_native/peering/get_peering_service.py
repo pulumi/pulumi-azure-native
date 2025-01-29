@@ -189,6 +189,8 @@ def get_peering_service(peering_service_name: Optional[str] = None,
     Gets an existing peering service with the specified name under the given subscription and resource group.
     Azure REST API version: 2022-10-01.
 
+    Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
+
 
     :param str peering_service_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
@@ -218,6 +220,8 @@ def get_peering_service_output(peering_service_name: Optional[pulumi.Input[str]]
     """
     Gets an existing peering service with the specified name under the given subscription and resource group.
     Azure REST API version: 2022-10-01.
+
+    Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
 
 
     :param str peering_service_name: The name of the peering.

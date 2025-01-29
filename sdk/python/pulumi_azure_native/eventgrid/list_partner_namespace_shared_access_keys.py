@@ -66,9 +66,9 @@ def list_partner_namespace_shared_access_keys(partner_namespace_name: Optional[s
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPartnerNamespaceSharedAccessKeysResult:
     """
     List the two keys used to publish to a partner namespace.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2020-04-01-preview, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str partner_namespace_name: Name of the partner namespace.
@@ -88,9 +88,9 @@ def list_partner_namespace_shared_access_keys_output(partner_namespace_name: Opt
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPartnerNamespaceSharedAccessKeysResult]:
     """
     List the two keys used to publish to a partner namespace.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2020-04-01-preview, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str partner_namespace_name: Name of the partner namespace.

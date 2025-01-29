@@ -2,6 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20210101 from "./v20210101";
+import * as v20210201preview from "./v20210201preview";
+import * as v20210601preview from "./v20210601preview";
+import * as v20210701 from "./v20210701";
+import * as v20211001preview from "./v20211001preview";
+import * as v20211201preview from "./v20211201preview";
+import * as v20220101 from "./v20220101";
+import * as v20220201preview from "./v20220201preview";
+import * as v20220301 from "./v20220301";
+import * as v20220331preview from "./v20220331preview";
+import * as v20220401 from "./v20220401";
+import * as v20220501 from "./v20220501";
+import * as v20220901preview from "./v20220901preview";
+import * as v20221001preview from "./v20221001preview";
+import * as v20221101preview from "./v20221101preview";
+import * as v20221201 from "./v20221201";
 import * as v20230101 from "./v20230101";
 import * as v20230401preview from "./v20230401preview";
 import * as v20230501 from "./v20230501";
@@ -14,6 +30,22 @@ import * as v20240301 from "./v20240301";
 import * as v20240401 from "./v20240401";
 
 export {
+    v20210101,
+    v20210201preview,
+    v20210601preview,
+    v20210701,
+    v20211001preview,
+    v20211201preview,
+    v20220101,
+    v20220201preview,
+    v20220301,
+    v20220331preview,
+    v20220401,
+    v20220501,
+    v20220901preview,
+    v20221001preview,
+    v20221101preview,
+    v20221201,
     v20230101,
     v20230401preview,
     v20230501,
@@ -42,6 +74,16 @@ export const AlertsState = {
 } as const;
 
 export type AlertsState = (typeof AlertsState)[keyof typeof AlertsState];
+
+export const CrossRegionRestoreState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * CrossRegionRestore state
+ */
+export type CrossRegionRestoreState = (typeof CrossRegionRestoreState)[keyof typeof CrossRegionRestoreState];
 
 export const CrossSubscriptionRestoreState = {
     Disabled: "Disabled",
@@ -77,6 +119,36 @@ export const DayOfWeek = {
 
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
+export const EncryptionState = {
+    /**
+     * CMK encryption is enabled on the Backup Vault
+     */
+    Enabled: "Enabled",
+    /**
+     * CMK encryption is disabled on the Backup Vault. User can not set this state once Encryption State is 'Enabled'.
+     */
+    Disabled: "Disabled",
+    /**
+     * CMK encryption is in inconsistent state on the Backup Vault. This state indicates that user needs to retry the encryption settings operation immediately to correct the state.
+     */
+    Inconsistent: "Inconsistent",
+} as const;
+
+/**
+ * Encryption state of the Backup Vault.
+ */
+export type EncryptionState = (typeof EncryptionState)[keyof typeof EncryptionState];
+
+export const IdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * The identity type. 'SystemAssigned' and 'UserAssigned' are mutually exclusive. 'SystemAssigned' will use implicitly created managed identity.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
 export const ImmutabilityState = {
     Disabled: "Disabled",
     Unlocked: "Unlocked",
@@ -87,6 +159,16 @@ export const ImmutabilityState = {
  * Immutability state
  */
 export type ImmutabilityState = (typeof ImmutabilityState)[keyof typeof ImmutabilityState];
+
+export const InfrastructureEncryptionState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enabling/Disabling the Double Encryption state
+ */
+export type InfrastructureEncryptionState = (typeof InfrastructureEncryptionState)[keyof typeof InfrastructureEncryptionState];
 
 export const Month = {
     April: "April",
@@ -104,6 +186,15 @@ export const Month = {
 } as const;
 
 export type Month = (typeof Month)[keyof typeof Month];
+
+export const ResourcePropertiesObjectType = {
+    DefaultResourceProperties: "DefaultResourceProperties",
+} as const;
+
+/**
+ * Type of the specific object - used for deserializing
+ */
+export type ResourcePropertiesObjectType = (typeof ResourcePropertiesObjectType)[keyof typeof ResourcePropertiesObjectType];
 
 export const SecretStoreType = {
     Invalid: "Invalid",

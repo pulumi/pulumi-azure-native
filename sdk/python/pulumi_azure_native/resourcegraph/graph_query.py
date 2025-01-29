@@ -13,7 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
 
 __all__ = ['GraphQueryArgs', 'GraphQuery']
 
@@ -23,22 +22,30 @@ class GraphQueryArgs:
                  query: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a GraphQuery resource.
         :param pulumi.Input[str] query: KQL query that will be graph.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] description: The description of a graph query.
+        :param pulumi.Input[str] location: The location of the resource
         :param pulumi.Input[str] resource_name: The name of the Graph Query resource.
+        :param pulumi.Input[str] subscription_id: The Azure subscription Id.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         pulumi.set(__self__, "query", query)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -79,6 +86,18 @@ class GraphQueryArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -89,6 +108,18 @@ class GraphQueryArgs:
     @resource_name.setter
     def resource_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure subscription Id.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
 
     @property
     @pulumi.getter
@@ -109,23 +140,27 @@ class GraphQuery(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Graph Query entity definition.
-        Azure REST API version: 2020-04-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2020-04-01-preview.
 
-        Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+        Other available API versions: 2018-09-01-preview, 2019-04-01, 2020-04-01-preview, 2021-03-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of a graph query.
+        :param pulumi.Input[str] location: The location of the resource
         :param pulumi.Input[str] query: KQL query that will be graph.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_name_: The name of the Graph Query resource.
+        :param pulumi.Input[str] subscription_id: The Azure subscription Id.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -136,9 +171,9 @@ class GraphQuery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Graph Query entity definition.
-        Azure REST API version: 2020-04-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2020-04-01-preview.
 
-        Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+        Other available API versions: 2018-09-01-preview, 2019-04-01, 2020-04-01-preview, 2021-03-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param GraphQueryArgs args: The arguments to use to populate this resource's properties.
@@ -156,9 +191,11 @@ class GraphQuery(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -170,6 +207,7 @@ class GraphQuery(pulumi.CustomResource):
             __props__ = GraphQueryArgs.__new__(GraphQueryArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["location"] = location
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
             __props__.__dict__["query"] = query
@@ -177,12 +215,11 @@ class GraphQuery(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
-            __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["result_kind"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["time_modified"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resourcegraph/v20180901preview:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20190401:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20200401preview:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20210301:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20221001:GraphQuery"), pulumi.Alias(type_="azure-native:resourcegraph/v20240401:GraphQuery")])
@@ -215,7 +252,6 @@ class GraphQuery(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["query"] = None
         __props__.__dict__["result_kind"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_modified"] = None
         __props__.__dict__["type"] = None
@@ -233,13 +269,13 @@ class GraphQuery(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[str]]:
         """
-        This will be used to handle Optimistic Concurrency.
+        This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         """
         return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
+    def location(self) -> pulumi.Output[Optional[str]]:
         """
         The location of the resource
         """
@@ -268,14 +304,6 @@ class GraphQuery(pulumi.CustomResource):
         Enum indicating a type of graph query.
         """
         return pulumi.get(self, "result_kind")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

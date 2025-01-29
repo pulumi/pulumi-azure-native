@@ -27,7 +27,7 @@ class GetVirtualMachineScaleSetVMResult:
     """
     Describes a virtual machine scale set virtual machine.
     """
-    def __init__(__self__, additional_capabilities=None, availability_set=None, diagnostics_profile=None, hardware_profile=None, id=None, identity=None, instance_id=None, instance_view=None, latest_model_applied=None, license_type=None, location=None, model_definition_applied=None, name=None, network_profile=None, network_profile_configuration=None, os_profile=None, plan=None, protection_policy=None, provisioning_state=None, resources=None, security_profile=None, sku=None, storage_profile=None, tags=None, type=None, user_data=None, vm_id=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, availability_set=None, diagnostics_profile=None, etag=None, hardware_profile=None, id=None, identity=None, instance_id=None, instance_view=None, latest_model_applied=None, license_type=None, location=None, model_definition_applied=None, name=None, network_profile=None, network_profile_configuration=None, os_profile=None, plan=None, protection_policy=None, provisioning_state=None, resources=None, security_profile=None, sku=None, storage_profile=None, tags=None, time_created=None, type=None, user_data=None, vm_id=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -37,6 +37,9 @@ class GetVirtualMachineScaleSetVMResult:
         if diagnostics_profile and not isinstance(diagnostics_profile, dict):
             raise TypeError("Expected argument 'diagnostics_profile' to be a dict")
         pulumi.set(__self__, "diagnostics_profile", diagnostics_profile)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if hardware_profile and not isinstance(hardware_profile, dict):
             raise TypeError("Expected argument 'hardware_profile' to be a dict")
         pulumi.set(__self__, "hardware_profile", hardware_profile)
@@ -100,6 +103,9 @@ class GetVirtualMachineScaleSetVMResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        pulumi.set(__self__, "time_created", time_created)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -136,6 +142,14 @@ class GetVirtualMachineScaleSetVMResult:
         Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         """
         return pulumi.get(self, "diagnostics_profile")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Etag is property returned in Update/Get response of the VMSS VM, so that customer can supply it in the header to ensure optimistic updates.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="hardwareProfile")
@@ -306,6 +320,14 @@ class GetVirtualMachineScaleSetVMResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        Specifies the time at which the Virtual Machine resource was created. Minimum api-version: 2021-11-01.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -317,7 +339,7 @@ class GetVirtualMachineScaleSetVMResult:
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[str]:
         """
-        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         """
         return pulumi.get(self, "user_data")
 
@@ -347,6 +369,7 @@ class AwaitableGetVirtualMachineScaleSetVMResult(GetVirtualMachineScaleSetVMResu
             additional_capabilities=self.additional_capabilities,
             availability_set=self.availability_set,
             diagnostics_profile=self.diagnostics_profile,
+            etag=self.etag,
             hardware_profile=self.hardware_profile,
             id=self.id,
             identity=self.identity,
@@ -368,6 +391,7 @@ class AwaitableGetVirtualMachineScaleSetVMResult(GetVirtualMachineScaleSetVMResu
             sku=self.sku,
             storage_profile=self.storage_profile,
             tags=self.tags,
+            time_created=self.time_created,
             type=self.type,
             user_data=self.user_data,
             vm_id=self.vm_id,
@@ -381,9 +405,9 @@ def get_virtual_machine_scale_set_vm(expand: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMResult:
     """
     Gets a virtual machine from a VM scale set.
-    Azure REST API version: 2023-03-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
@@ -403,6 +427,7 @@ def get_virtual_machine_scale_set_vm(expand: Optional[str] = None,
         additional_capabilities=pulumi.get(__ret__, 'additional_capabilities'),
         availability_set=pulumi.get(__ret__, 'availability_set'),
         diagnostics_profile=pulumi.get(__ret__, 'diagnostics_profile'),
+        etag=pulumi.get(__ret__, 'etag'),
         hardware_profile=pulumi.get(__ret__, 'hardware_profile'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -424,6 +449,7 @@ def get_virtual_machine_scale_set_vm(expand: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         storage_profile=pulumi.get(__ret__, 'storage_profile'),
         tags=pulumi.get(__ret__, 'tags'),
+        time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
         user_data=pulumi.get(__ret__, 'user_data'),
         vm_id=pulumi.get(__ret__, 'vm_id'),
@@ -435,9 +461,9 @@ def get_virtual_machine_scale_set_vm_output(expand: Optional[pulumi.Input[Option
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMResult]:
     """
     Gets a virtual machine from a VM scale set.
-    Azure REST API version: 2023-03-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
@@ -456,6 +482,7 @@ def get_virtual_machine_scale_set_vm_output(expand: Optional[pulumi.Input[Option
         additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),
         availability_set=pulumi.get(__response__, 'availability_set'),
         diagnostics_profile=pulumi.get(__response__, 'diagnostics_profile'),
+        etag=pulumi.get(__response__, 'etag'),
         hardware_profile=pulumi.get(__response__, 'hardware_profile'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
@@ -477,6 +504,7 @@ def get_virtual_machine_scale_set_vm_output(expand: Optional[pulumi.Input[Option
         sku=pulumi.get(__response__, 'sku'),
         storage_profile=pulumi.get(__response__, 'storage_profile'),
         tags=pulumi.get(__response__, 'tags'),
+        time_created=pulumi.get(__response__, 'time_created'),
         type=pulumi.get(__response__, 'type'),
         user_data=pulumi.get(__response__, 'user_data'),
         vm_id=pulumi.get(__response__, 'vm_id'),

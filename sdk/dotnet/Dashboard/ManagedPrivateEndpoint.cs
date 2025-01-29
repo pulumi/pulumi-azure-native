@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Dashboard
 {
     /// <summary>
     /// The managed private endpoint resource type.
-    /// Azure REST API version: 2022-10-01-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2022-10-01-preview.
     /// 
-    /// Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
+    /// Other available API versions: 2022-10-01-preview, 2023-09-01, 2024-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard:ManagedPrivateEndpoint")]
     public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource

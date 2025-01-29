@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation retrieves a single policy exemption, given its name and the scope it was created at.
         /// Azure REST API version: 2022-07-01-preview.
+        /// 
+        /// Other available API versions: 2020-07-01-preview.
         /// </summary>
         public static Task<GetPolicyExemptionResult> InvokeAsync(GetPolicyExemptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyExemptionResult>("azure-native:authorization:getPolicyExemption", args ?? new GetPolicyExemptionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation retrieves a single policy exemption, given its name and the scope it was created at.
         /// Azure REST API version: 2022-07-01-preview.
+        /// 
+        /// Other available API versions: 2020-07-01-preview.
         /// </summary>
         public static Output<GetPolicyExemptionResult> Invoke(GetPolicyExemptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyExemptionResult>("azure-native:authorization:getPolicyExemption", args ?? new GetPolicyExemptionInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// This operation retrieves a single policy exemption, given its name and the scope it was created at.
         /// Azure REST API version: 2022-07-01-preview.
+        /// 
+        /// Other available API versions: 2020-07-01-preview.
         /// </summary>
         public static Output<GetPolicyExemptionResult> Invoke(GetPolicyExemptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyExemptionResult>("azure-native:authorization:getPolicyExemption", args ?? new GetPolicyExemptionInvokeArgs(), options.WithDefaults());

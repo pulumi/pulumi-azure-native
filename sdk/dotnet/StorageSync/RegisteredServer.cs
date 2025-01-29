@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Registered Server resource.
-    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
     /// 
-    /// Other available API versions: 2022-09-01.
+    /// Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:RegisteredServer")]
     public partial class RegisteredServer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Server auth type.
+        /// </summary>
+        [Output("activeAuthType")]
+        public Output<string> ActiveAuthType { get; private set; } = null!;
+
         /// <summary>
         /// Registered Server Agent Version
         /// </summary>
@@ -35,6 +41,12 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("agentVersionStatus")]
         public Output<string> AgentVersionStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Server Application Id
+        /// </summary>
+        [Output("applicationId")]
+        public Output<string?> ApplicationId { get; private set; } = null!;
 
         /// <summary>
         /// Registered Server clusterId
@@ -61,6 +73,12 @@ namespace Pulumi.AzureNative.StorageSync
         public Output<string?> FriendlyName { get; private set; } = null!;
 
         /// <summary>
+        /// Apply server with newly discovered ApplicationId if available.
+        /// </summary>
+        [Output("identity")]
+        public Output<bool> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Registered Server last heart beat
         /// </summary>
         [Output("lastHeartBeat")]
@@ -77,6 +95,12 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("lastWorkflowId")]
         public Output<string?> LastWorkflowId { get; private set; } = null!;
+
+        /// <summary>
+        /// Latest Server Application Id discovered from the server. It is not yet applied.
+        /// </summary>
+        [Output("latestApplicationId")]
+        public Output<string?> LatestApplicationId { get; private set; } = null!;
 
         /// <summary>
         /// Management Endpoint Uri
@@ -241,6 +265,12 @@ namespace Pulumi.AzureNative.StorageSync
         public Input<string>? AgentVersion { get; set; }
 
         /// <summary>
+        /// Server ServicePrincipal Id
+        /// </summary>
+        [Input("applicationId")]
+        public Input<string>? ApplicationId { get; set; }
+
+        /// <summary>
         /// Registered Server clusterId
         /// </summary>
         [Input("clusterId")]
@@ -257,6 +287,12 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Input("friendlyName")]
         public Input<string>? FriendlyName { get; set; }
+
+        /// <summary>
+        /// Apply server with newly discovered ApplicationId if available.
+        /// </summary>
+        [Input("identity")]
+        public Input<bool>? Identity { get; set; }
 
         /// <summary>
         /// Registered Server last heart beat

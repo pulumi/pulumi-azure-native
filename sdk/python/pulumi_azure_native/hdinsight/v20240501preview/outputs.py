@@ -25,11 +25,13 @@ __all__ = [
     'ClusterConfigFileResponse',
     'ClusterLogAnalyticsApplicationLogsResponse',
     'ClusterLogAnalyticsProfileResponse',
+    'ClusterPoolComputeProfileResponse',
     'ClusterPoolResourcePropertiesResponseAksClusterProfile',
     'ClusterPoolResourcePropertiesResponseClusterPoolProfile',
     'ClusterPoolResourcePropertiesResponseComputeProfile',
     'ClusterPoolResourcePropertiesResponseLogAnalyticsProfile',
     'ClusterPoolResourcePropertiesResponseNetworkProfile',
+    'ClusterPoolSshProfileResponse',
     'ClusterProfileResponse',
     'ClusterProfileResponseComponents',
     'ClusterPrometheusProfileResponse',
@@ -37,7 +39,6 @@ __all__ = [
     'ClusterServiceConfigResponse',
     'ClusterServiceConfigsProfileResponse',
     'ComparisonRuleResponse',
-    'ComputeProfileResponse',
     'ComputeResourceDefinitionResponse',
     'ConnectivityProfileResponse',
     'ConnectivityProfileResponseWeb',
@@ -72,7 +73,6 @@ __all__ = [
     'SparkUserPluginResponse',
     'SparkUserPluginsResponse',
     'SshConnectivityEndpointResponse',
-    'SshProfileResponse',
     'SystemDataResponse',
     'TrinoCoordinatorResponse',
     'TrinoProfileResponse',
@@ -579,6 +579,57 @@ class ClusterLogAnalyticsProfileResponse(dict):
 
 
 @pulumi.output_type
+class ClusterPoolComputeProfileResponse(dict):
+    """
+    The compute profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZones":
+            suggest = "availability_zones"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPoolComputeProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPoolComputeProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPoolComputeProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 nodes: Sequence['outputs.NodeProfileResponse'],
+                 availability_zones: Optional[Sequence[str]] = None):
+        """
+        The compute profile.
+        :param Sequence['NodeProfileResponse'] nodes: The nodes definitions.
+        :param Sequence[str] availability_zones: The list of Availability zones to use for AKS VMSS nodes.
+        """
+        pulumi.set(__self__, "nodes", nodes)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Sequence['outputs.NodeProfileResponse']:
+        """
+        The nodes definitions.
+        """
+        return pulumi.get(self, "nodes")
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[str]]:
+        """
+        The list of Availability zones to use for AKS VMSS nodes.
+        """
+        return pulumi.get(self, "availability_zones")
+
+
+@pulumi.output_type
 class ClusterPoolResourcePropertiesResponseAksClusterProfile(dict):
     """
     Properties of underlying AKS cluster.
@@ -897,6 +948,70 @@ class ClusterPoolResourcePropertiesResponseNetworkProfile(dict):
 
 
 @pulumi.output_type
+class ClusterPoolSshProfileResponse(dict):
+    """
+    Ssh profile for the cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "podPrefix":
+            suggest = "pod_prefix"
+        elif key == "vmSize":
+            suggest = "vm_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPoolSshProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPoolSshProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPoolSshProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: int,
+                 pod_prefix: str,
+                 vm_size: Optional[str] = None):
+        """
+        Ssh profile for the cluster.
+        :param int count: Number of ssh pods per cluster.
+        :param str pod_prefix: Prefix of the pod names. Pod number will be appended to the prefix. The ingress URLs for the pods will be available at <clusterFqdn>/<sshBasePath>/<prefix>-<number>
+        :param str vm_size: The virtual machine SKU.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "pod_prefix", pod_prefix)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter
+    def count(self) -> int:
+        """
+        Number of ssh pods per cluster.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="podPrefix")
+    def pod_prefix(self) -> str:
+        """
+        Prefix of the pod names. Pod number will be appended to the prefix. The ingress URLs for the pods will be available at <clusterFqdn>/<sshBasePath>/<prefix>-<number>
+        """
+        return pulumi.get(self, "pod_prefix")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[str]:
+        """
+        The virtual machine SKU.
+        """
+        return pulumi.get(self, "vm_size")
+
+
+@pulumi.output_type
 class ClusterProfileResponse(dict):
     """
     Cluster profile.
@@ -981,7 +1096,7 @@ class ClusterProfileResponse(dict):
                  secrets_profile: Optional['outputs.SecretsProfileResponse'] = None,
                  service_configs_profiles: Optional[Sequence['outputs.ClusterServiceConfigsProfileResponse']] = None,
                  spark_profile: Optional['outputs.SparkProfileResponse'] = None,
-                 ssh_profile: Optional['outputs.SshProfileResponse'] = None,
+                 ssh_profile: Optional['outputs.ClusterPoolSshProfileResponse'] = None,
                  stub_profile: Optional[Any] = None,
                  trino_profile: Optional['outputs.TrinoProfileResponse'] = None):
         """
@@ -1006,7 +1121,7 @@ class ClusterProfileResponse(dict):
         :param 'SecretsProfileResponse' secrets_profile: The cluster secret profile.
         :param Sequence['ClusterServiceConfigsProfileResponse'] service_configs_profiles: The service configs profiles.
         :param 'SparkProfileResponse' spark_profile: The spark cluster profile.
-        :param 'SshProfileResponse' ssh_profile: Ssh profile for the cluster.
+        :param 'ClusterPoolSshProfileResponse' ssh_profile: Ssh profile for the cluster.
         :param Any stub_profile: Stub cluster profile.
         :param 'TrinoProfileResponse' trino_profile: Trino Cluster profile.
         """
@@ -1214,7 +1329,7 @@ class ClusterProfileResponse(dict):
 
     @property
     @pulumi.getter(name="sshProfile")
-    def ssh_profile(self) -> Optional['outputs.SshProfileResponse']:
+    def ssh_profile(self) -> Optional['outputs.ClusterPoolSshProfileResponse']:
         """
         Ssh profile for the cluster.
         """
@@ -1420,57 +1535,6 @@ class ComparisonRuleResponse(dict):
         Threshold setting.
         """
         return pulumi.get(self, "threshold")
-
-
-@pulumi.output_type
-class ComputeProfileResponse(dict):
-    """
-    The compute profile.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "availabilityZones":
-            suggest = "availability_zones"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ComputeProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ComputeProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ComputeProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 nodes: Sequence['outputs.NodeProfileResponse'],
-                 availability_zones: Optional[Sequence[str]] = None):
-        """
-        The compute profile.
-        :param Sequence['NodeProfileResponse'] nodes: The nodes definitions.
-        :param Sequence[str] availability_zones: The list of Availability zones to use for AKS VMSS nodes.
-        """
-        pulumi.set(__self__, "nodes", nodes)
-        if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
-
-    @property
-    @pulumi.getter
-    def nodes(self) -> Sequence['outputs.NodeProfileResponse']:
-        """
-        The nodes definitions.
-        """
-        return pulumi.get(self, "nodes")
-
-    @property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[Sequence[str]]:
-        """
-        The list of Availability zones to use for AKS VMSS nodes.
-        """
-        return pulumi.get(self, "availability_zones")
 
 
 @pulumi.output_type
@@ -3719,70 +3783,6 @@ class SshConnectivityEndpointResponse(dict):
         Private SSH connectivity endpoint. This property will only be returned when enableInternalIngress is true.
         """
         return pulumi.get(self, "private_ssh_endpoint")
-
-
-@pulumi.output_type
-class SshProfileResponse(dict):
-    """
-    Ssh profile for the cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "podPrefix":
-            suggest = "pod_prefix"
-        elif key == "vmSize":
-            suggest = "vm_size"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SshProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SshProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SshProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 count: int,
-                 pod_prefix: str,
-                 vm_size: Optional[str] = None):
-        """
-        Ssh profile for the cluster.
-        :param int count: Number of ssh pods per cluster.
-        :param str pod_prefix: Prefix of the pod names. Pod number will be appended to the prefix. The ingress URLs for the pods will be available at <clusterFqdn>/<sshBasePath>/<prefix>-<number>
-        :param str vm_size: The virtual machine SKU.
-        """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "pod_prefix", pod_prefix)
-        if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
-
-    @property
-    @pulumi.getter
-    def count(self) -> int:
-        """
-        Number of ssh pods per cluster.
-        """
-        return pulumi.get(self, "count")
-
-    @property
-    @pulumi.getter(name="podPrefix")
-    def pod_prefix(self) -> str:
-        """
-        Prefix of the pod names. Pod number will be appended to the prefix. The ingress URLs for the pods will be available at <clusterFqdn>/<sshBasePath>/<prefix>-<number>
-        """
-        return pulumi.get(self, "pod_prefix")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[str]:
-        """
-        The virtual machine SKU.
-        """
-        return pulumi.get(self, "vm_size")
 
 
 @pulumi.output_type

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Get a SecuritySetting
-        /// Azure REST API version: 2023-11-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview.
         /// </summary>
         public static Task<GetSecuritySettingResult> InvokeAsync(GetSecuritySettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecuritySettingResult>("azure-native:azurestackhci:getSecuritySetting", args ?? new GetSecuritySettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SecuritySetting
-        /// Azure REST API version: 2023-11-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview.
         /// </summary>
         public static Output<GetSecuritySettingResult> Invoke(GetSecuritySettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecuritySettingResult>("azure-native:azurestackhci:getSecuritySetting", args ?? new GetSecuritySettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SecuritySetting
-        /// Azure REST API version: 2023-11-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview.
         /// </summary>
         public static Output<GetSecuritySettingResult> Invoke(GetSecuritySettingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecuritySettingResult>("azure-native:azurestackhci:getSecuritySetting", args ?? new GetSecuritySettingInvokeArgs(), options.WithDefaults());
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetSecuritySettingResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -117,6 +117,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly Outputs.SecurityComplianceStatusResponse SecurityComplianceStatus;
         /// <summary>
+        /// SMB encryption for intra-cluster traffic Compliance Assignment
+        /// </summary>
+        public readonly string? SmbEncryptionForIntraClusterTrafficComplianceAssignment;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -124,6 +128,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// WDAC Compliance Assignment
+        /// </summary>
+        public readonly string? WdacComplianceAssignment;
 
         [OutputConstructor]
         private GetSecuritySettingResult(
@@ -137,17 +145,23 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             Outputs.SecurityComplianceStatusResponse securityComplianceStatus,
 
+            string? smbEncryptionForIntraClusterTrafficComplianceAssignment,
+
             Outputs.SystemDataResponse systemData,
 
-            string type)
+            string type,
+
+            string? wdacComplianceAssignment)
         {
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             SecuredCoreComplianceAssignment = securedCoreComplianceAssignment;
             SecurityComplianceStatus = securityComplianceStatus;
+            SmbEncryptionForIntraClusterTrafficComplianceAssignment = smbEncryptionForIntraClusterTrafficComplianceAssignment;
             SystemData = systemData;
             Type = type;
+            WdacComplianceAssignment = wdacComplianceAssignment;
         }
     }
 }

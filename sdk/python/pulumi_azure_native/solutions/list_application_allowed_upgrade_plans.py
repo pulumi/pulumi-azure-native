@@ -57,7 +57,7 @@ def list_application_allowed_upgrade_plans(application_name: Optional[str] = Non
     List allowed upgrade plans for application.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
+    Other available API versions: 2019-07-01, 2020-08-21-preview, 2021-02-01-preview, 2023-12-01-preview.
 
 
     :param str application_name: The name of the managed application.
@@ -78,7 +78,7 @@ def list_application_allowed_upgrade_plans_output(application_name: Optional[pul
     List allowed upgrade plans for application.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
+    Other available API versions: 2019-07-01, 2020-08-21-preview, 2021-02-01-preview, 2023-12-01-preview.
 
 
     :param str application_name: The name of the managed application.

@@ -151,9 +151,9 @@ class Assessment(pulumi.CustomResource):
                  __props__=None):
         """
         Security assessment on a resource - response format
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-01-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
-        Other available API versions: 2020-01-01.
+        Other available API versions: 2019-01-01-preview, 2020-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,9 +173,9 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Security assessment on a resource - response format
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-01-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
-        Other available API versions: 2020-01-01.
+        Other available API versions: 2019-01-01-preview, 2020-01-01.
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.

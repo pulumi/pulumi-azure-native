@@ -9,16 +9,15 @@ from ._enums import *
 from .arc_setting import *
 from .cluster import *
 from .deployment_setting import *
-from .edge_device import *
 from .extension import *
 from .gallery_image import *
 from .get_arc_setting import *
 from .get_cluster import *
 from .get_deployment_setting import *
-from .get_edge_device import *
 from .get_extension import *
 from .get_gallery_image import *
 from .get_guest_agent import *
+from .get_hci_edge_device import *
 from .get_hci_edge_device_job import *
 from .get_hybrid_identity_metadatum import *
 from .get_logical_network import *
@@ -37,6 +36,7 @@ from .get_virtual_machine import *
 from .get_virtual_machine_instance import *
 from .get_virtual_network import *
 from .guest_agent import *
+from .hci_edge_device import *
 from .hci_edge_device_job import *
 from .hybrid_identity_metadatum import *
 from .logical_network import *
@@ -59,14 +59,28 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.azurestackhci.v20210901preview as __v20210901preview
-    v20210901preview = __v20210901preview
+    import pulumi_azure_native.azurestackhci.v20201001 as __v20201001
+    v20201001 = __v20201001
+    import pulumi_azure_native.azurestackhci.v20210101preview as __v20210101preview
+    v20210101preview = __v20210101preview
+    import pulumi_azure_native.azurestackhci.v20210901 as __v20210901
+    v20210901 = __v20210901
     import pulumi_azure_native.azurestackhci.v20220101 as __v20220101
     v20220101 = __v20220101
+    import pulumi_azure_native.azurestackhci.v20220301 as __v20220301
+    v20220301 = __v20220301
+    import pulumi_azure_native.azurestackhci.v20220501 as __v20220501
+    v20220501 = __v20220501
     import pulumi_azure_native.azurestackhci.v20220901 as __v20220901
     v20220901 = __v20220901
+    import pulumi_azure_native.azurestackhci.v20221001 as __v20221001
+    v20221001 = __v20221001
+    import pulumi_azure_native.azurestackhci.v20221201 as __v20221201
+    v20221201 = __v20221201
     import pulumi_azure_native.azurestackhci.v20221215preview as __v20221215preview
     v20221215preview = __v20221215preview
+    import pulumi_azure_native.azurestackhci.v20230201 as __v20230201
+    v20230201 = __v20230201
     import pulumi_azure_native.azurestackhci.v20230301 as __v20230301
     v20230301 = __v20230301
     import pulumi_azure_native.azurestackhci.v20230601 as __v20230601
@@ -102,10 +116,17 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.azurestackhci.v20241201preview as __v20241201preview
     v20241201preview = __v20241201preview
 else:
-    v20210901preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20210901preview')
+    v20201001 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20201001')
+    v20210101preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20210101preview')
+    v20210901 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20210901')
     v20220101 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20220101')
+    v20220301 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20220301')
+    v20220501 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20220501')
     v20220901 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20220901')
+    v20221001 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20221001')
+    v20221201 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20221201')
     v20221215preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20221215preview')
+    v20230201 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230201')
     v20230301 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230301')
     v20230601 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230601')
     v20230701preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230701preview')

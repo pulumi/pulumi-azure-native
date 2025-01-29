@@ -154,6 +154,8 @@ def get_content_key_policy(account_name: Optional[str] = None,
     Get the details of a Content Key Policy in the Media Services account
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
+
 
     :param str account_name: The Media Services account name.
     :param str content_key_policy_name: The Content Key Policy name.
@@ -183,6 +185,8 @@ def get_content_key_policy_output(account_name: Optional[pulumi.Input[str]] = No
     """
     Get the details of a Content Key Policy in the Media Services account
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
 
 
     :param str account_name: The Media Services account name.

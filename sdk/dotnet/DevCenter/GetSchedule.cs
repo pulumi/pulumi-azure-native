@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a schedule resource.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2022-08-01-preview, 2022-09-01-preview, 2022-10-12-preview, 2022-11-11-preview, 2023-01-01-preview, 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:devcenter:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a schedule resource.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2022-08-01-preview, 2022-09-01-preview, 2022-10-12-preview, 2022-11-11-preview, 2023-01-01-preview, 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:devcenter:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a schedule resource.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2022-08-01-preview, 2022-09-01-preview, 2022-10-12-preview, 2022-11-11-preview, 2023-01-01-preview, 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:devcenter:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
@@ -125,9 +125,13 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly string Frequency;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string? Location;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -144,6 +148,10 @@ namespace Pulumi.AzureNative.DevCenter
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The target time to trigger the action. The format is HH:MM.
         /// </summary>
@@ -163,6 +171,8 @@ namespace Pulumi.AzureNative.DevCenter
 
             string id,
 
+            string? location,
+
             string name,
 
             string provisioningState,
@@ -170,6 +180,8 @@ namespace Pulumi.AzureNative.DevCenter
             string? state,
 
             Outputs.SystemDataResponse systemData,
+
+            ImmutableDictionary<string, string>? tags,
 
             string time,
 
@@ -179,10 +191,12 @@ namespace Pulumi.AzureNative.DevCenter
         {
             Frequency = frequency;
             Id = id;
+            Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             State = state;
             SystemData = systemData;
+            Tags = tags;
             Time = time;
             TimeZone = timeZone;
             Type = type;

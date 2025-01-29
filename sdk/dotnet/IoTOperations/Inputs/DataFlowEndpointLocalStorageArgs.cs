@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
     /// <summary>
     /// Local persistent volume endpoint properties
     /// </summary>
-    public sealed class DataFlowEndpointLocalStorageArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointLocalStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Persistent volume claim name.
@@ -21,9 +21,9 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         [Input("persistentVolumeClaimRef", required: true)]
         public Input<string> PersistentVolumeClaimRef { get; set; } = null!;
 
-        public DataFlowEndpointLocalStorageArgs()
+        public DataflowEndpointLocalStorageArgs()
         {
         }
-        public static new DataFlowEndpointLocalStorageArgs Empty => new DataFlowEndpointLocalStorageArgs();
+        public static new DataflowEndpointLocalStorageArgs Empty => new DataflowEndpointLocalStorageArgs();
     }
 }

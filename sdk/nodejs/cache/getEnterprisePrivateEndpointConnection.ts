@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
- * Azure REST API version: 2023-03-01-preview.
+ * Gets the specified private endpoint connection associated with the Redis Enterprise cluster.
+ * Azure REST API version: 2024-09-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+ * Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-10-01.
  */
 export function getEnterprisePrivateEndpointConnection(args: GetEnterprisePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterprisePrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +24,7 @@ export function getEnterprisePrivateEndpointConnection(args: GetEnterprisePrivat
 
 export interface GetEnterprisePrivateEndpointConnectionArgs {
     /**
-     * The name of the RedisEnterprise cluster.
+     * The name of the Redis Enterprise cluster.
      */
     clusterName: string;
     /**
@@ -62,19 +62,15 @@ export interface GetEnterprisePrivateEndpointConnectionResult {
      */
     readonly provisioningState: string;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    readonly systemData: outputs.cache.SystemDataResponse;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
- * Azure REST API version: 2023-03-01-preview.
+ * Gets the specified private endpoint connection associated with the Redis Enterprise cluster.
+ * Azure REST API version: 2024-09-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+ * Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-10-01.
  */
 export function getEnterprisePrivateEndpointConnectionOutput(args: GetEnterprisePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterprisePrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,7 +83,7 @@ export function getEnterprisePrivateEndpointConnectionOutput(args: GetEnterprise
 
 export interface GetEnterprisePrivateEndpointConnectionOutputArgs {
     /**
-     * The name of the RedisEnterprise cluster.
+     * The name of the Redis Enterprise cluster.
      */
     clusterName: pulumi.Input<string>;
     /**

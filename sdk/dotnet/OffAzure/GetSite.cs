@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Site REST Resource.
         /// Azure REST API version: 2020-07-07.
+        /// 
+        /// Other available API versions: 2020-01-01.
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:offazure:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Site REST Resource.
         /// Azure REST API version: 2020-07-07.
+        /// 
+        /// Other available API versions: 2020-01-01.
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:offazure:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Site REST Resource.
         /// Azure REST API version: 2020-07-07.
+        /// 
+        /// Other available API versions: 2020-01-01.
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:offazure:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());

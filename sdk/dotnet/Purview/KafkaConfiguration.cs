@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Purview
 {
     /// <summary>
     /// The configuration of the event streaming service resource attached to the Purview account for kafka notifications.
-    /// Azure REST API version: 2021-12-01.
+    /// Azure REST API version: 2024-04-01-preview. Prior API version in Azure Native 2.x: 2021-12-01.
     /// 
-    /// Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+    /// Other available API versions: 2021-12-01, 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:purview:KafkaConfiguration")]
     public partial class KafkaConfiguration : global::Pulumi.CustomResource
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Purview
         public Output<string?> ConsumerGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Credentials to access event hub.
+        /// Credentials to access the event streaming service attached to the purview account.
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.CredentialsResponse?> Credentials { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.Purview
         public Input<string>? ConsumerGroup { get; set; }
 
         /// <summary>
-        /// Credentials to access event hub.
+        /// Credentials to access the event streaming service attached to the purview account.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.CredentialsArgs>? Credentials { get; set; }

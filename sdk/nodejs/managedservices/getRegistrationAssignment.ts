@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the specified registration assignment.
  * Azure REST API version: 2022-10-01.
+ *
+ * Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
  */
 export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,6 +65,8 @@ export interface GetRegistrationAssignmentResult {
 /**
  * Gets the details of the specified registration assignment.
  * Azure REST API version: 2022-10-01.
+ *
+ * Other available API versions: 2019-09-01, 2020-02-01-preview, 2022-01-01-preview.
  */
 export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

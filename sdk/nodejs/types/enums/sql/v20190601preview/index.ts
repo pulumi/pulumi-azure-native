@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AdministratorType = {
+    ActiveDirectory: "ActiveDirectory",
+} as const;
+
+/**
+ * Type of the sever administrator.
+ */
+export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
+
 export const CatalogCollationType = {
     DATABASE_DEFAULT: "DATABASE_DEFAULT",
     SQL_Latin1_General_CP1_CI_AS: "SQL_Latin1_General_CP1_CI_AS",
@@ -66,6 +75,31 @@ export const DatabaseReadScale = {
  */
 export type DatabaseReadScale = (typeof DatabaseReadScale)[keyof typeof DatabaseReadScale];
 
+export const IdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+export const ManagedDatabaseCreateMode = {
+    Default: "Default",
+    RestoreExternalBackup: "RestoreExternalBackup",
+    PointInTimeRestore: "PointInTimeRestore",
+    Recovery: "Recovery",
+    RestoreLongTermRetentionBackup: "RestoreLongTermRetentionBackup",
+} as const;
+
+/**
+ * Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
+ */
+export type ManagedDatabaseCreateMode = (typeof ManagedDatabaseCreateMode)[keyof typeof ManagedDatabaseCreateMode];
+
 export const SampleName = {
     AdventureWorksLT: "AdventureWorksLT",
     WideWorldImportersStd: "WideWorldImportersStd",
@@ -77,6 +111,16 @@ export const SampleName = {
  */
 export type SampleName = (typeof SampleName)[keyof typeof SampleName];
 
+export const ServerPublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+ */
+export type ServerPublicNetworkAccess = (typeof ServerPublicNetworkAccess)[keyof typeof ServerPublicNetworkAccess];
+
 export const StorageAccountType = {
     GRS: "GRS",
     LRS: "LRS",
@@ -87,3 +131,34 @@ export const StorageAccountType = {
  * The storage account type used to store backups for this database.
  */
 export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
+
+export const SyncConflictResolutionPolicy = {
+    HubWin: "HubWin",
+    MemberWin: "MemberWin",
+} as const;
+
+/**
+ * Conflict resolution policy of the sync group.
+ */
+export type SyncConflictResolutionPolicy = (typeof SyncConflictResolutionPolicy)[keyof typeof SyncConflictResolutionPolicy];
+
+export const SyncDirection = {
+    Bidirectional: "Bidirectional",
+    OneWayMemberToHub: "OneWayMemberToHub",
+    OneWayHubToMember: "OneWayHubToMember",
+} as const;
+
+/**
+ * Sync direction of the sync member.
+ */
+export type SyncDirection = (typeof SyncDirection)[keyof typeof SyncDirection];
+
+export const SyncMemberDbType = {
+    AzureSqlDatabase: "AzureSqlDatabase",
+    SqlServerDatabase: "SqlServerDatabase",
+} as const;
+
+/**
+ * Database type of the sync member.
+ */
+export type SyncMemberDbType = (typeof SyncMemberDbType)[keyof typeof SyncMemberDbType];

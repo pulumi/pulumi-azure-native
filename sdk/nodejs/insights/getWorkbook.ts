@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a single workbook by its resourceName.
- * Azure REST API version: 2022-04-01.
+ * Azure REST API version: 2023-06-01.
  *
- * Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
+ * Other available API versions: 2015-05-01, 2018-06-17-preview, 2020-10-20, 2021-03-08, 2021-08-01, 2022-04-01.
  */
 export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +32,7 @@ export interface GetWorkbookArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the resource.
+     * The name of the workbook resource. The value must be an UUID.
      */
     resourceName: string;
 }
@@ -120,9 +120,9 @@ export interface GetWorkbookResult {
 }
 /**
  * Get a single workbook by its resourceName.
- * Azure REST API version: 2022-04-01.
+ * Azure REST API version: 2023-06-01.
  *
- * Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
+ * Other available API versions: 2015-05-01, 2018-06-17-preview, 2020-10-20, 2021-03-08, 2021-08-01, 2022-04-01.
  */
 export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkbookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -143,7 +143,7 @@ export interface GetWorkbookOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the resource.
+     * The name of the workbook resource. The value must be an UUID.
      */
     resourceName: pulumi.Input<string>;
 }

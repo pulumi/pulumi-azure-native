@@ -17,13 +17,13 @@ namespace Pulumi.AzureNative.Chaos.Outputs
     public sealed class ExperimentPropertiesResponse
     {
         /// <summary>
+        /// Most recent provisioning state for the given experiment resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
         /// List of selectors.
         /// </summary>
         public readonly ImmutableArray<Union<Outputs.ListSelectorResponse, Outputs.QuerySelectorResponse>> Selectors;
-        /// <summary>
-        /// A boolean value that indicates if experiment should be started on creation or not.
-        /// </summary>
-        public readonly bool? StartOnCreation;
         /// <summary>
         /// List of steps.
         /// </summary>
@@ -31,14 +31,14 @@ namespace Pulumi.AzureNative.Chaos.Outputs
 
         [OutputConstructor]
         private ExperimentPropertiesResponse(
-            ImmutableArray<Union<Outputs.ListSelectorResponse, Outputs.QuerySelectorResponse>> selectors,
+            string provisioningState,
 
-            bool? startOnCreation,
+            ImmutableArray<Union<Outputs.ListSelectorResponse, Outputs.QuerySelectorResponse>> selectors,
 
             ImmutableArray<Outputs.StepResponse> steps)
         {
+            ProvisioningState = provisioningState;
             Selectors = selectors;
-            StartOnCreation = startOnCreation;
             Steps = steps;
         }
     }

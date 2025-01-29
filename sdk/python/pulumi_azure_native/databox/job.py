@@ -204,9 +204,9 @@ class Job(pulumi.CustomResource):
                  __props__=None):
         """
         Job Resource.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-12-01.
 
-        Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+        Other available API versions: 2020-11-01, 2021-03-01, 2021-05-01, 2021-08-01-preview, 2021-12-01, 2022-02-01, 2022-09-01, 2022-10-01, 2022-12-01, 2023-03-01, 2024-02-01-preview, 2024-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,9 +229,9 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Job Resource.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-12-01.
 
-        Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+        Other available API versions: 2020-11-01, 2021-03-01, 2021-05-01, 2021-08-01-preview, 2021-12-01, 2022-02-01, 2022-09-01, 2022-10-01, 2022-12-01, 2023-03-01, 2024-02-01-preview, 2024-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.
@@ -286,6 +286,7 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'transfer_type'")
             __props__.__dict__["transfer_type"] = transfer_type
             __props__.__dict__["cancellation_reason"] = None
+            __props__.__dict__["delayed_stage"] = None
             __props__.__dict__["error"] = None
             __props__.__dict__["is_cancellable"] = None
             __props__.__dict__["is_cancellable_without_fee"] = None
@@ -324,6 +325,7 @@ class Job(pulumi.CustomResource):
         __props__ = JobArgs.__new__(JobArgs)
 
         __props__.__dict__["cancellation_reason"] = None
+        __props__.__dict__["delayed_stage"] = None
         __props__.__dict__["delivery_info"] = None
         __props__.__dict__["delivery_type"] = None
         __props__.__dict__["details"] = None
@@ -354,6 +356,14 @@ class Job(pulumi.CustomResource):
         Reason for cancellation.
         """
         return pulumi.get(self, "cancellation_reason")
+
+    @property
+    @pulumi.getter(name="delayedStage")
+    def delayed_stage(self) -> pulumi.Output[str]:
+        """
+        Name of the stage where delay might be present.
+        """
+        return pulumi.get(self, "delayed_stage")
 
     @property
     @pulumi.getter(name="deliveryInfo")

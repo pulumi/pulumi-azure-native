@@ -130,6 +130,8 @@ def get_private_endpoint_connections_for_scc_powershell(private_endpoint_connect
     Gets the specified private endpoint connection associated with the service.
     Azure REST API version: 2021-03-08.
 
+    Other available API versions: 2021-01-11.
+
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -157,6 +159,8 @@ def get_private_endpoint_connections_for_scc_powershell_output(private_endpoint_
     """
     Gets the specified private endpoint connection associated with the service.
     Azure REST API version: 2021-03-08.
+
+    Other available API versions: 2021-01-11.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

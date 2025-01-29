@@ -69,7 +69,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="administrativeState")
     def administrative_state(self) -> str:
         """
-        administrativeState of the network interface. Example: Enabled | Disabled.
+        Administrative state of the resource.
         """
         return pulumi.get(self, "administrative_state")
 
@@ -85,7 +85,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="connectedTo")
     def connected_to(self) -> str:
         """
-        The arm resource id of the interface or compute server its connected to.
+        The ARM resource id of the interface or compute server its connected to.
         """
         return pulumi.get(self, "connected_to")
 
@@ -93,7 +93,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -109,7 +109,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="ipv4Address")
     def ipv4_address(self) -> str:
         """
-        ipv4Address.
+        IPv4Address of the interface.
         """
         return pulumi.get(self, "ipv4_address")
 
@@ -117,7 +117,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="ipv6Address")
     def ipv6_address(self) -> str:
         """
-        ipv6Address.
+        IPv6Address of the interface.
         """
         return pulumi.get(self, "ipv6_address")
 
@@ -133,7 +133,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="physicalIdentifier")
     def physical_identifier(self) -> str:
         """
-        physicalIdentifier of the network interface.
+        Physical Identifier of the network interface.
         """
         return pulumi.get(self, "physical_identifier")
 
@@ -141,7 +141,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -188,13 +188,13 @@ def get_network_interface(network_device_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
     Get the Network Interface resource details.
-    Azure REST API version: 2023-02-01-preview.
+    Azure REST API version: 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview.
 
 
-    :param str network_device_name: Name of the NetworkDevice
-    :param str network_interface_name: Name of the NetworkInterfaceName
+    :param str network_device_name: Name of the Network Device.
+    :param str network_interface_name: Name of the Network Interface.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -223,13 +223,13 @@ def get_network_interface_output(network_device_name: Optional[pulumi.Input[str]
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
     Get the Network Interface resource details.
-    Azure REST API version: 2023-02-01-preview.
+    Azure REST API version: 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview.
 
 
-    :param str network_device_name: Name of the NetworkDevice
-    :param str network_interface_name: Name of the NetworkInterfaceName
+    :param str network_device_name: Name of the Network Device.
+    :param str network_interface_name: Name of the Network Interface.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()

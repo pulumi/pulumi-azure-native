@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a guest configuration assignment
- * Azure REST API version: 2022-01-25.
+ * Azure REST API version: 2024-04-05.
  *
- * Other available API versions: 2024-04-05.
+ * Other available API versions: 2020-06-25, 2021-01-25, 2022-01-25.
  */
 export function getGuestConfigurationAssignment(args: GetGuestConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,9 +68,9 @@ export interface GetGuestConfigurationAssignmentResult {
 }
 /**
  * Get information about a guest configuration assignment
- * Azure REST API version: 2022-01-25.
+ * Azure REST API version: 2024-04-05.
  *
- * Other available API versions: 2024-04-05.
+ * Other available API versions: 2020-06-25, 2021-01-25, 2022-01-25.
  */
 export function getGuestConfigurationAssignmentOutput(args: GetGuestConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestConfigurationAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

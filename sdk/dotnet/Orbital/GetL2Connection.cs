@@ -97,6 +97,10 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public readonly Outputs.L2ConnectionsPropertiesResponseGroundStation GroundStation;
         /// <summary>
+        /// The name of the partner router to establish a connection to within the ground station.
+        /// </summary>
+        public readonly Outputs.L2ConnectionsPropertiesResponseGroundStationPartnerRouter GroundStationPartnerRouter;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.Orbital
 
             Outputs.L2ConnectionsPropertiesResponseGroundStation groundStation,
 
+            Outputs.L2ConnectionsPropertiesResponseGroundStationPartnerRouter groundStationPartnerRouter,
+
             string id,
 
             string location,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNative.Orbital
             CircuitId = circuitId;
             EdgeSite = edgeSite;
             GroundStation = groundStation;
+            GroundStationPartnerRouter = groundStationPartnerRouter;
             Id = id;
             Location = location;
             Name = name;

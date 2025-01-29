@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Domain Topic.
-    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
+    /// Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2022-06-15.
     /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    /// Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:DomainTopic")]
     public partial class DomainTopic : global::Pulumi.CustomResource
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to Domain Topic resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

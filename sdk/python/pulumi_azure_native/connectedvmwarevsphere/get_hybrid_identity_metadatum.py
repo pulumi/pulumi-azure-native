@@ -57,7 +57,7 @@ class GetHybridIdentityMetadatumResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -81,7 +81,7 @@ class GetHybridIdentityMetadatumResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -97,7 +97,7 @@ class GetHybridIdentityMetadatumResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system data.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -140,9 +140,9 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridIdentityMetadatumResult:
     """
     Implements HybridIdentityMetadata GET method.
-    Azure REST API version: 2022-07-15-preview.
+    Azure REST API version: 2023-03-01-preview.
 
-    Other available API versions: 2023-03-01-preview.
+    Other available API versions: 2020-10-01-preview, 2022-01-10-preview, 2022-07-15-preview.
 
 
     :param str metadata_name: Name of the HybridIdentityMetadata.
@@ -171,9 +171,9 @@ def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[st
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridIdentityMetadatumResult]:
     """
     Implements HybridIdentityMetadata GET method.
-    Azure REST API version: 2022-07-15-preview.
+    Azure REST API version: 2023-03-01-preview.
 
-    Other available API versions: 2023-03-01-preview.
+    Other available API versions: 2020-10-01-preview, 2022-01-10-preview, 2022-07-15-preview.
 
 
     :param str metadata_name: Name of the HybridIdentityMetadata.

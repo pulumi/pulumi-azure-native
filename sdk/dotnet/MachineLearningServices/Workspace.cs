@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-01-01.
+    /// Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// 
-    /// Other available API versions: 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+    /// Other available API versions: 2020-04-01, 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -29,6 +29,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Output("applicationInsights")]
         public Output<string?> ApplicationInsights { get; private set; } = null!;
+
+        [Output("associatedWorkspaces")]
+        public Output<ImmutableArray<string>> AssociatedWorkspaces { get; private set; } = null!;
 
         /// <summary>
         /// ARM id of the container registry associated with this workspace.
@@ -48,11 +51,20 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Output("discoveryUrl")]
         public Output<string?> DiscoveryUrl { get; private set; } = null!;
 
+        [Output("enableDataIsolation")]
+        public Output<bool?> EnableDataIsolation { get; private set; } = null!;
+
         /// <summary>
         /// The encryption settings of Azure ML workspace.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.EncryptionPropertyResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
+        /// Settings for feature store type workspace.
+        /// </summary>
+        [Output("featureStoreSettings")]
+        public Output<Outputs.FeatureStoreSettingsResponse?> FeatureStoreSettings { get; private set; } = null!;
 
         /// <summary>
         /// The friendly name for this workspace. This name in mutable
@@ -65,6 +77,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Output("hbiWorkspace")]
         public Output<bool?> HbiWorkspace { get; private set; } = null!;
+
+        [Output("hubResourceId")]
+        public Output<string?> HubResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The identity of the resource.
@@ -84,11 +99,20 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Output("keyVault")]
         public Output<string?> KeyVault { get; private set; } = null!;
 
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed Network settings for a machine learning workspace.
+        /// </summary>
+        [Output("managedNetwork")]
+        public Output<Outputs.ManagedNetworkSettingsResponse?> ManagedNetwork { get; private set; } = null!;
 
         /// <summary>
         /// The URI associated with this workspace that machine learning flow must point at to set up tracking.
@@ -137,6 +161,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Settings for serverless compute created in the workspace
+        /// </summary>
+        [Output("serverlessComputeSettings")]
+        public Output<Outputs.ServerlessComputeSettingsResponse?> ServerlessComputeSettings { get; private set; } = null!;
 
         /// <summary>
         /// The service managed resource settings.
@@ -203,6 +233,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Output("v1LegacyMode")]
         public Output<bool?> V1LegacyMode { get; private set; } = null!;
+
+        /// <summary>
+        /// WorkspaceHub's configuration object.
+        /// </summary>
+        [Output("workspaceHubConfig")]
+        public Output<Outputs.WorkspaceHubConfigResponse?> WorkspaceHubConfig { get; private set; } = null!;
 
         /// <summary>
         /// The immutable id associated with this workspace.
@@ -307,6 +343,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Input("applicationInsights")]
         public Input<string>? ApplicationInsights { get; set; }
 
+        [Input("associatedWorkspaces")]
+        private InputList<string>? _associatedWorkspaces;
+        public InputList<string> AssociatedWorkspaces
+        {
+            get => _associatedWorkspaces ?? (_associatedWorkspaces = new InputList<string>());
+            set => _associatedWorkspaces = value;
+        }
+
         /// <summary>
         /// ARM id of the container registry associated with this workspace.
         /// </summary>
@@ -325,11 +369,20 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Input("discoveryUrl")]
         public Input<string>? DiscoveryUrl { get; set; }
 
+        [Input("enableDataIsolation")]
+        public Input<bool>? EnableDataIsolation { get; set; }
+
         /// <summary>
         /// The encryption settings of Azure ML workspace.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.EncryptionPropertyArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// Settings for feature store type workspace.
+        /// </summary>
+        [Input("featureStoreSettings")]
+        public Input<Inputs.FeatureStoreSettingsArgs>? FeatureStoreSettings { get; set; }
 
         /// <summary>
         /// The friendly name for this workspace. This name in mutable
@@ -342,6 +395,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Input("hbiWorkspace")]
         public Input<bool>? HbiWorkspace { get; set; }
+
+        [Input("hubResourceId")]
+        public Input<string>? HubResourceId { get; set; }
 
         /// <summary>
         /// The identity of the resource.
@@ -361,11 +417,20 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Input("keyVault")]
         public Input<string>? KeyVault { get; set; }
 
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
+
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Managed Network settings for a machine learning workspace.
+        /// </summary>
+        [Input("managedNetwork")]
+        public Input<Inputs.ManagedNetworkSettingsArgs>? ManagedNetwork { get; set; }
 
         /// <summary>
         /// The user assigned identity resource id that represents the workspace identity.
@@ -384,6 +449,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Settings for serverless compute created in the workspace
+        /// </summary>
+        [Input("serverlessComputeSettings")]
+        public Input<Inputs.ServerlessComputeSettingsArgs>? ServerlessComputeSettings { get; set; }
 
         /// <summary>
         /// The service managed resource settings.
@@ -432,6 +503,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Input("v1LegacyMode")]
         public Input<bool>? V1LegacyMode { get; set; }
+
+        /// <summary>
+        /// WorkspaceHub's configuration object.
+        /// </summary>
+        [Input("workspaceHubConfig")]
+        public Input<Inputs.WorkspaceHubConfigArgs>? WorkspaceHubConfig { get; set; }
 
         /// <summary>
         /// Name of Azure Machine Learning workspace.

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about the specified device.
  * Azure REST API version: 2022-01-01-preview.
+ *
+ * Other available API versions: 2020-01-01-preview, 2021-05-01.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,6 +80,8 @@ export interface GetDeviceResult {
 /**
  * Gets information about the specified device.
  * Azure REST API version: 2022-01-01-preview.
+ *
+ * Other available API versions: 2020-01-01-preview, 2021-05-01.
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

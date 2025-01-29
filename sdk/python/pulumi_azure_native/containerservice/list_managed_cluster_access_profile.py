@@ -117,7 +117,7 @@ def list_managed_cluster_access_profile(resource_group_name: Optional[str] = Non
     Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
     Azure REST API version: 2020-03-01.
 
-    Other available API versions: 2019-06-01.
+    Other available API versions: 2019-06-01, 2019-08-01, 2019-10-01, 2019-11-01, 2020-01-01, 2020-02-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -146,7 +146,7 @@ def list_managed_cluster_access_profile_output(resource_group_name: Optional[pul
     Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
     Azure REST API version: 2020-03-01.
 
-    Other available API versions: 2019-06-01.
+    Other available API versions: 2019-06-01, 2019-08-01, 2019-10-01, 2019-11-01, 2020-01-01, 2020-02-01.
 
 
     :param str resource_group_name: The name of the resource group.

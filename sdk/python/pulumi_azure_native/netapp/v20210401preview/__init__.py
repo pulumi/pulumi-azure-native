@@ -5,7 +5,20 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .account import *
 from .backup_policy import *
+from .capacity_pool_backup import *
+from .capacity_pool_pool import *
+from .capacity_pool_snapshot import *
+from .capacity_pool_volume import *
+from .get_account import *
 from .get_backup_policy import *
+from .get_capacity_pool_backup import *
+from .get_capacity_pool_pool import *
+from .get_capacity_pool_snapshot import *
+from .get_capacity_pool_volume import *
+from .get_snapshot_policy import *
+from .snapshot_policy import *
 from ._inputs import *
 from . import outputs

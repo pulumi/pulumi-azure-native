@@ -114,9 +114,9 @@ class MongoClusterFirewallRule(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a mongo cluster firewall rule.
-        Azure REST API version: 2023-03-15-preview.
+        Azure REST API version: 2024-02-15-preview. Prior API version in Azure Native 2.x: 2023-03-15-preview.
 
-        Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview.
+        Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,9 +134,9 @@ class MongoClusterFirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a mongo cluster firewall rule.
-        Azure REST API version: 2023-03-15-preview.
+        Azure REST API version: 2024-02-15-preview. Prior API version in Azure Native 2.x: 2023-03-15-preview.
 
-        Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview.
+        Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview.
 
         :param str resource_name: The name of the resource.
         :param MongoClusterFirewallRuleArgs args: The arguments to use to populate this resource's properties.
@@ -184,7 +184,7 @@ class MongoClusterFirewallRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20230301preview:MongoClusterFirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:MongoClusterFirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:MongoClusterFirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:MongoClusterFirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:MongoClusterFirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240301preview:MongoClusterFirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240601preview:MongoClusterFirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240701:MongoClusterFirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20241001preview:MongoClusterFirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20230301preview:MongoClusterFirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:MongoClusterFirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:MongoClusterFirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:MongoClusterFirewallRule"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:MongoClusterFirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MongoClusterFirewallRule, __self__).__init__(
             'azure-native:documentdb:MongoClusterFirewallRule',

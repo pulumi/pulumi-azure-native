@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ContainerInstance
     {
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2021-03-01, 2021-07-01, 2021-09-01, 2021-10-01, 2022-09-01, 2022-10-01-preview, 2023-02-01-preview, 2023-05-01, 2024-05-01-preview, 2024-09-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2021-03-01, 2021-07-01, 2021-09-01, 2021-10-01, 2022-09-01, 2022-10-01-preview, 2023-02-01-preview, 2023-05-01, 2024-05-01-preview, 2024-09-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2021-03-01, 2021-07-01, 2021-09-01, 2021-10-01, 2022-09-01, 2022-10-01-preview, 2023-02-01-preview, 2023-05-01, 2024-05-01-preview, 2024-09-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
@@ -160,6 +160,10 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         public readonly string? RestartPolicy;
         /// <summary>
+        /// The secret references that will be referenced within the container group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SecretReferenceResponse> SecretReferences;
+        /// <summary>
         /// The SKU for a container group.
         /// </summary>
         public readonly string? Sku;
@@ -222,6 +226,8 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             string? restartPolicy,
 
+            ImmutableArray<Outputs.SecretReferenceResponse> secretReferences,
+
             string? sku,
 
             ImmutableArray<Outputs.ContainerGroupSubnetIdResponse> subnetIds,
@@ -252,6 +258,7 @@ namespace Pulumi.AzureNative.ContainerInstance
             Priority = priority;
             ProvisioningState = provisioningState;
             RestartPolicy = restartPolicy;
+            SecretReferences = secretReferences;
             Sku = sku;
             SubnetIds = subnetIds;
             Tags = tags;

@@ -14,6 +14,22 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.databox.v20201101 as __v20201101
+    v20201101 = __v20201101
+    import pulumi_azure_native.databox.v20210301 as __v20210301
+    v20210301 = __v20210301
+    import pulumi_azure_native.databox.v20210501 as __v20210501
+    v20210501 = __v20210501
+    import pulumi_azure_native.databox.v20210801preview as __v20210801preview
+    v20210801preview = __v20210801preview
+    import pulumi_azure_native.databox.v20211201 as __v20211201
+    v20211201 = __v20211201
+    import pulumi_azure_native.databox.v20220201 as __v20220201
+    v20220201 = __v20220201
+    import pulumi_azure_native.databox.v20220901 as __v20220901
+    v20220901 = __v20220901
+    import pulumi_azure_native.databox.v20221001 as __v20221001
+    v20221001 = __v20221001
     import pulumi_azure_native.databox.v20221201 as __v20221201
     v20221201 = __v20221201
     import pulumi_azure_native.databox.v20230301 as __v20230301
@@ -25,6 +41,14 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.databox.v20240301preview as __v20240301preview
     v20240301preview = __v20240301preview
 else:
+    v20201101 = _utilities.lazy_import('pulumi_azure_native.databox.v20201101')
+    v20210301 = _utilities.lazy_import('pulumi_azure_native.databox.v20210301')
+    v20210501 = _utilities.lazy_import('pulumi_azure_native.databox.v20210501')
+    v20210801preview = _utilities.lazy_import('pulumi_azure_native.databox.v20210801preview')
+    v20211201 = _utilities.lazy_import('pulumi_azure_native.databox.v20211201')
+    v20220201 = _utilities.lazy_import('pulumi_azure_native.databox.v20220201')
+    v20220901 = _utilities.lazy_import('pulumi_azure_native.databox.v20220901')
+    v20221001 = _utilities.lazy_import('pulumi_azure_native.databox.v20221001')
     v20221201 = _utilities.lazy_import('pulumi_azure_native.databox.v20221201')
     v20230301 = _utilities.lazy_import('pulumi_azure_native.databox.v20230301')
     v20231201 = _utilities.lazy_import('pulumi_azure_native.databox.v20231201')

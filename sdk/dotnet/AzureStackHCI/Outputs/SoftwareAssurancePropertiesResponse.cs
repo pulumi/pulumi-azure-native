@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// Status of the Software Assurance for the cluster.
         /// </summary>
-        public readonly string? SoftwareAssuranceStatus;
+        public readonly string SoftwareAssuranceStatus;
 
         [OutputConstructor]
         private SoftwareAssurancePropertiesResponse(
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string? softwareAssuranceIntent,
 
-            string? softwareAssuranceStatus)
+            string softwareAssuranceStatus)
         {
             LastUpdated = lastUpdated;
             SoftwareAssuranceIntent = softwareAssuranceIntent;

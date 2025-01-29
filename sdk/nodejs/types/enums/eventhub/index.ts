@@ -2,14 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20170401 from "./v20170401";
 import * as v20180101preview from "./v20180101preview";
+import * as v20210101preview from "./v20210101preview";
+import * as v20210601preview from "./v20210601preview";
+import * as v20211101 from "./v20211101";
+import * as v20220101preview from "./v20220101preview";
 import * as v20221001preview from "./v20221001preview";
 import * as v20230101preview from "./v20230101preview";
 import * as v20240101 from "./v20240101";
 import * as v20240501preview from "./v20240501preview";
 
 export {
+    v20170401,
     v20180101preview,
+    v20210101preview,
+    v20210601preview,
+    v20211101,
+    v20220101preview,
     v20221001preview,
     v20230101preview,
     v20240101,
@@ -32,6 +42,16 @@ export const ApplicationGroupPolicyType = {
  * Application Group Policy types
  */
 export type ApplicationGroupPolicyType = (typeof ApplicationGroupPolicyType)[keyof typeof ApplicationGroupPolicyType];
+
+export const CaptureIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * Type of Azure Active Directory Managed Identity.
+ */
+export type CaptureIdentityType = (typeof CaptureIdentityType)[keyof typeof CaptureIdentityType];
 
 export const CleanupPolicyRetentionDescription = {
     Delete: "Delete",

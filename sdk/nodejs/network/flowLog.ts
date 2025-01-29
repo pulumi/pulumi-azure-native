@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A flow log resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01.
  */
 export class FlowLog extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
+     */
+    public readonly enabledFilteringCriteria!: pulumi.Output<string | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -56,6 +60,10 @@ export class FlowLog extends pulumi.CustomResource {
      * Parameters that define the flow log format.
      */
     public readonly format!: pulumi.Output<outputs.network.FlowLogFormatParametersResponse | undefined>;
+    /**
+     * FlowLog resource Managed Identity
+     */
+    public readonly identity!: pulumi.Output<outputs.network.ManagedServiceIdentityResponse | undefined>;
     /**
      * Resource location.
      */
@@ -117,10 +125,12 @@ export class FlowLog extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetResourceId'");
             }
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["enabledFilteringCriteria"] = args ? args.enabledFilteringCriteria : undefined;
             resourceInputs["flowAnalyticsConfiguration"] = args ? args.flowAnalyticsConfiguration : undefined;
             resourceInputs["flowLogName"] = args ? args.flowLogName : undefined;
             resourceInputs["format"] = args ? (args.format ? pulumi.output(args.format).apply(inputs.network.flowLogFormatParametersArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -135,9 +145,11 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["enabledFilteringCriteria"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["flowAnalyticsConfiguration"] = undefined /*out*/;
             resourceInputs["format"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -164,6 +176,10 @@ export interface FlowLogArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
+     * Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
+     */
+    enabledFilteringCriteria?: pulumi.Input<string>;
+    /**
      * Parameters that define the configuration of traffic analytics.
      */
     flowAnalyticsConfiguration?: pulumi.Input<inputs.network.TrafficAnalyticsPropertiesArgs>;
@@ -179,6 +195,10 @@ export interface FlowLogArgs {
      * Resource ID.
      */
     id?: pulumi.Input<string>;
+    /**
+     * FlowLog resource Managed Identity
+     */
+    identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs>;
     /**
      * Resource location.
      */

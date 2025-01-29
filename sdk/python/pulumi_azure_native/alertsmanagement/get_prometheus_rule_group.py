@@ -189,6 +189,8 @@ def get_prometheus_rule_group(resource_group_name: Optional[str] = None,
     Retrieve a Prometheus rule group definition.
     Azure REST API version: 2023-03-01.
 
+    Other available API versions: 2021-07-22-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_group_name: The name of the rule group.
@@ -218,6 +220,8 @@ def get_prometheus_rule_group_output(resource_group_name: Optional[pulumi.Input[
     """
     Retrieve a Prometheus rule group definition.
     Azure REST API version: 2023-03-01.
+
+    Other available API versions: 2021-07-22-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

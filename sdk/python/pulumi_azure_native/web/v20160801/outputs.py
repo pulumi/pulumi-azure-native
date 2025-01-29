@@ -28,6 +28,7 @@ __all__ = [
     'AzureTableStorageApplicationLogsConfigResponse',
     'BackupScheduleResponse',
     'ConnStringInfoResponse',
+    'ConnStringValueTypePairResponse',
     'CorsSettingsResponse',
     'DatabaseBackupSettingResponse',
     'EnabledConfigResponse',
@@ -52,6 +53,7 @@ __all__ = [
     'StatusCodesBasedTriggerResponse',
     'VirtualApplicationResponse',
     'VirtualDirectoryResponse',
+    'VnetRouteResponse',
 ]
 
 @pulumi.output_type
@@ -733,6 +735,39 @@ class ConnStringInfoResponse(dict):
         Type of database.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ConnStringValueTypePairResponse(dict):
+    """
+    Database connection string value to type pair.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 value: str):
+        """
+        Database connection string value to type pair.
+        :param str type: Type of database.
+        :param str value: Value of pair.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of database.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of pair.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2921,5 +2956,142 @@ class VirtualDirectoryResponse(dict):
         Path to virtual application.
         """
         return pulumi.get(self, "virtual_path")
+
+
+@pulumi.output_type
+class VnetRouteResponse(dict):
+    """
+    Virtual Network route contract used to pass routing information for a Virtual Network.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endAddress":
+            suggest = "end_address"
+        elif key == "routeType":
+            suggest = "route_type"
+        elif key == "startAddress":
+            suggest = "start_address"
+        elif key == "vnetRouteName":
+            suggest = "vnet_route_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VnetRouteResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VnetRouteResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VnetRouteResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 end_address: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 route_type: Optional[str] = None,
+                 start_address: Optional[str] = None,
+                 vnet_route_name: Optional[str] = None):
+        """
+        Virtual Network route contract used to pass routing information for a Virtual Network.
+        :param str id: Resource Id.
+        :param str name: Resource Name.
+        :param str type: Resource type.
+        :param str end_address: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+        :param str kind: Kind of resource.
+        :param str route_type: The type of route this is:
+               DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+               INHERITED - Routes inherited from the real Virtual Network routes
+               STATIC - Static route set on the app only
+               
+               These values will be used for syncing an app's routes with those from a Virtual Network.
+        :param str start_address: The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+        :param str vnet_route_name: The name of this route. This is only returned by the server and does not need to be set by the client.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if end_address is not None:
+            pulumi.set(__self__, "end_address", end_address)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if route_type is not None:
+            pulumi.set(__self__, "route_type", route_type)
+        if start_address is not None:
+            pulumi.set(__self__, "start_address", start_address)
+        if vnet_route_name is not None:
+            pulumi.set(__self__, "vnet_route_name", vnet_route_name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="endAddress")
+    def end_address(self) -> Optional[str]:
+        """
+        The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+        """
+        return pulumi.get(self, "end_address")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="routeType")
+    def route_type(self) -> Optional[str]:
+        """
+        The type of route this is:
+        DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+        INHERITED - Routes inherited from the real Virtual Network routes
+        STATIC - Static route set on the app only
+
+        These values will be used for syncing an app's routes with those from a Virtual Network.
+        """
+        return pulumi.get(self, "route_type")
+
+    @property
+    @pulumi.getter(name="startAddress")
+    def start_address(self) -> Optional[str]:
+        """
+        The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+        """
+        return pulumi.get(self, "start_address")
+
+    @property
+    @pulumi.getter(name="vnetRouteName")
+    def vnet_route_name(self) -> Optional[str]:
+        """
+        The name of this route. This is only returned by the server and does not need to be set by the client.
+        """
+        return pulumi.get(self, "vnet_route_name")
 
 

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetManagedAzResiliencyStatusArgs, GetManagedAzResiliencyStatusResult, GetManagedAzResiliencyStatusOutputArgs } from "./getManagedAzResiliencyStatus";
+export const getManagedAzResiliencyStatus: typeof import("./getManagedAzResiliencyStatus").getManagedAzResiliencyStatus = null as any;
+export const getManagedAzResiliencyStatusOutput: typeof import("./getManagedAzResiliencyStatus").getManagedAzResiliencyStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedAzResiliencyStatus","getManagedAzResiliencyStatusOutput"], () => require("./getManagedAzResiliencyStatus"));
+
 export { GetManagedClusterArgs, GetManagedClusterResult, GetManagedClusterOutputArgs } from "./getManagedCluster";
 export const getManagedCluster: typeof import("./getManagedCluster").getManagedCluster = null as any;
 export const getManagedClusterOutput: typeof import("./getManagedCluster").getManagedClusterOutput = null as any;
@@ -30,20 +35,15 @@ export const getManagedClusterService: typeof import("./getManagedClusterService
 export const getManagedClusterServiceOutput: typeof import("./getManagedClusterService").getManagedClusterServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedClusterService","getManagedClusterServiceOutput"], () => require("./getManagedClusterService"));
 
+export { GetManagedMaintenanceWindowStatusArgs, GetManagedMaintenanceWindowStatusResult, GetManagedMaintenanceWindowStatusOutputArgs } from "./getManagedMaintenanceWindowStatus";
+export const getManagedMaintenanceWindowStatus: typeof import("./getManagedMaintenanceWindowStatus").getManagedMaintenanceWindowStatus = null as any;
+export const getManagedMaintenanceWindowStatusOutput: typeof import("./getManagedMaintenanceWindowStatus").getManagedMaintenanceWindowStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedMaintenanceWindowStatus","getManagedMaintenanceWindowStatusOutput"], () => require("./getManagedMaintenanceWindowStatus"));
+
 export { GetNodeTypeArgs, GetNodeTypeResult, GetNodeTypeOutputArgs } from "./getNodeType";
 export const getNodeType: typeof import("./getNodeType").getNodeType = null as any;
 export const getNodeTypeOutput: typeof import("./getNodeType").getNodeTypeOutput = null as any;
 utilities.lazyLoad(exports, ["getNodeType","getNodeTypeOutput"], () => require("./getNodeType"));
-
-export { GetmanagedAzResiliencyStatusArgs, GetmanagedAzResiliencyStatusResult, GetmanagedAzResiliencyStatusOutputArgs } from "./getmanagedAzResiliencyStatus";
-export const getmanagedAzResiliencyStatus: typeof import("./getmanagedAzResiliencyStatus").getmanagedAzResiliencyStatus = null as any;
-export const getmanagedAzResiliencyStatusOutput: typeof import("./getmanagedAzResiliencyStatus").getmanagedAzResiliencyStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getmanagedAzResiliencyStatus","getmanagedAzResiliencyStatusOutput"], () => require("./getmanagedAzResiliencyStatus"));
-
-export { GetmanagedMaintenanceWindowStatusArgs, GetmanagedMaintenanceWindowStatusResult, GetmanagedMaintenanceWindowStatusOutputArgs } from "./getmanagedMaintenanceWindowStatus";
-export const getmanagedMaintenanceWindowStatus: typeof import("./getmanagedMaintenanceWindowStatus").getmanagedMaintenanceWindowStatus = null as any;
-export const getmanagedMaintenanceWindowStatusOutput: typeof import("./getmanagedMaintenanceWindowStatus").getmanagedMaintenanceWindowStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getmanagedMaintenanceWindowStatus","getmanagedMaintenanceWindowStatusOutput"], () => require("./getmanagedMaintenanceWindowStatus"));
 
 export { ManagedClusterArgs } from "./managedCluster";
 export type ManagedCluster = import("./managedCluster").ManagedCluster;
@@ -81,10 +81,19 @@ export * from "../types/enums/servicefabric";
 
 // Export sub-modules:
 import * as v20200101preview from "./v20200101preview";
+import * as v20200301 from "./v20200301";
 import * as v20201201preview from "./v20201201preview";
+import * as v20210101preview from "./v20210101preview";
+import * as v20210501 from "./v20210501";
 import * as v20210601 from "./v20210601";
+import * as v20210701preview from "./v20210701preview";
+import * as v20211101preview from "./v20211101preview";
 import * as v20220101 from "./v20220101";
+import * as v20220201preview from "./v20220201preview";
+import * as v20220601preview from "./v20220601preview";
+import * as v20220801preview from "./v20220801preview";
 import * as v20221001preview from "./v20221001preview";
+import * as v20230201preview from "./v20230201preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230701preview from "./v20230701preview";
 import * as v20230901preview from "./v20230901preview";
@@ -97,10 +106,19 @@ import * as v20240901preview from "./v20240901preview";
 
 export {
     v20200101preview,
+    v20200301,
     v20201201preview,
+    v20210101preview,
+    v20210501,
     v20210601,
+    v20210701preview,
+    v20211101preview,
     v20220101,
+    v20220201preview,
+    v20220601preview,
+    v20220801preview,
     v20221001preview,
+    v20230201preview,
     v20230301preview,
     v20230701preview,
     v20230901preview,

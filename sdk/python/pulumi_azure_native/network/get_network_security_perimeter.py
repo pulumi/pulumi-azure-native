@@ -26,16 +26,7 @@ class GetNetworkSecurityPerimeterResult:
     """
     The Network Security Perimeter resource
     """
-    def __init__(__self__, description=None, display_name=None, etag=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        pulumi.set(__self__, "etag", etag)
+    def __init__(__self__, id=None, location=None, name=None, perimeter_guid=None, provisioning_state=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -45,6 +36,9 @@ class GetNetworkSecurityPerimeterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if perimeter_guid and not isinstance(perimeter_guid, str):
+            raise TypeError("Expected argument 'perimeter_guid' to be a str")
+        pulumi.set(__self__, "perimeter_guid", perimeter_guid)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -54,30 +48,6 @@ class GetNetworkSecurityPerimeterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        A description of the network security perimeter.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        A friendly name for the network security perimeter.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter
-    def etag(self) -> str:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -102,6 +72,14 @@ class GetNetworkSecurityPerimeterResult:
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="perimeterGuid")
+    def perimeter_guid(self) -> str:
+        """
+        perimeter guid of the network security perimeter.
+        """
+        return pulumi.get(self, "perimeter_guid")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -134,12 +112,10 @@ class AwaitableGetNetworkSecurityPerimeterResult(GetNetworkSecurityPerimeterResu
         if False:
             yield self
         return GetNetworkSecurityPerimeterResult(
-            description=self.description,
-            display_name=self.display_name,
-            etag=self.etag,
             id=self.id,
             location=self.location,
             name=self.name,
+            perimeter_guid=self.perimeter_guid,
             provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
@@ -150,9 +126,9 @@ def get_network_security_perimeter(network_security_perimeter_name: Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityPerimeterResult:
     """
     Gets the specified network security perimeter by the name.
-    Azure REST API version: 2021-03-01-preview.
+    Azure REST API version: 2023-08-01-preview.
 
-    Other available API versions: 2021-02-01-preview, 2023-07-01-preview, 2023-08-01-preview.
+    Other available API versions: 2021-02-01-preview, 2021-03-01-preview, 2023-07-01-preview.
 
 
     :param str network_security_perimeter_name: The name of the network security perimeter.
@@ -165,12 +141,10 @@ def get_network_security_perimeter(network_security_perimeter_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNetworkSecurityPerimeter', __args__, opts=opts, typ=GetNetworkSecurityPerimeterResult).value
 
     return AwaitableGetNetworkSecurityPerimeterResult(
-        description=pulumi.get(__ret__, 'description'),
-        display_name=pulumi.get(__ret__, 'display_name'),
-        etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        perimeter_guid=pulumi.get(__ret__, 'perimeter_guid'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -179,9 +153,9 @@ def get_network_security_perimeter_output(network_security_perimeter_name: Optio
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSecurityPerimeterResult]:
     """
     Gets the specified network security perimeter by the name.
-    Azure REST API version: 2021-03-01-preview.
+    Azure REST API version: 2023-08-01-preview.
 
-    Other available API versions: 2021-02-01-preview, 2023-07-01-preview, 2023-08-01-preview.
+    Other available API versions: 2021-02-01-preview, 2021-03-01-preview, 2023-07-01-preview.
 
 
     :param str network_security_perimeter_name: The name of the network security perimeter.
@@ -193,12 +167,10 @@ def get_network_security_perimeter_output(network_security_perimeter_name: Optio
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNetworkSecurityPerimeter', __args__, opts=opts, typ=GetNetworkSecurityPerimeterResult)
     return __ret__.apply(lambda __response__: GetNetworkSecurityPerimeterResult(
-        description=pulumi.get(__response__, 'description'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        perimeter_guid=pulumi.get(__response__, 'perimeter_guid'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the details of an Appliance with a specified resource group and name.
  * Azure REST API version: 2022-10-27.
  *
- * Other available API versions: 2021-10-31-preview.
+ * Other available API versions: 2021-10-31-preview, 2022-04-15-preview.
  */
 export function getAppliance(args: GetApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplianceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +93,7 @@ export interface GetApplianceResult {
  * Gets the details of an Appliance with a specified resource group and name.
  * Azure REST API version: 2022-10-27.
  *
- * Other available API versions: 2021-10-31-preview.
+ * Other available API versions: 2021-10-31-preview, 2022-04-15-preview.
  */
 export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplianceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

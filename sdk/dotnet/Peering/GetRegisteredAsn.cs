@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
         /// </summary>
         public static Task<GetRegisteredAsnResult> InvokeAsync(GetRegisteredAsnArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredAsnResult>("azure-native:peering:getRegisteredAsn", args ?? new GetRegisteredAsnArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
         /// </summary>
         public static Output<GetRegisteredAsnResult> Invoke(GetRegisteredAsnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredAsnResult>("azure-native:peering:getRegisteredAsn", args ?? new GetRegisteredAsnInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
         /// </summary>
         public static Output<GetRegisteredAsnResult> Invoke(GetRegisteredAsnInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredAsnResult>("azure-native:peering:getRegisteredAsn", args ?? new GetRegisteredAsnInvokeArgs(), options.WithDefaults());

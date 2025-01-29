@@ -68,6 +68,8 @@ def list_fluid_relay_server_keys(fluid_relay_server_name: Optional[str] = None,
     The set of available keys for this server.
     Azure REST API version: 2022-06-01.
 
+    Other available API versions: 2022-04-21, 2022-05-11, 2022-05-26.
+
 
     :param str fluid_relay_server_name: The Fluid Relay server resource name.
     :param str resource_group: The resource group containing the resource.
@@ -87,6 +89,8 @@ def list_fluid_relay_server_keys_output(fluid_relay_server_name: Optional[pulumi
     """
     The set of available keys for this server.
     Azure REST API version: 2022-06-01.
+
+    Other available API versions: 2022-04-21, 2022-05-11, 2022-05-26.
 
 
     :param str fluid_relay_server_name: The Fluid Relay server resource name.

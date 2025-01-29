@@ -17,6 +17,13 @@ namespace Pulumi.AzureNative.AzureFleet.Outputs
     public sealed class ComputeProfileResponse
     {
         /// <summary>
+        /// Specifies VMSS and VM API entity models support two additional capabilities as of today: ultraSSDEnabled and hibernationEnabled.
+        /// ultraSSDEnabled: Enables UltraSSD_LRS storage account type on the VMSS VMs.
+        /// hibernationEnabled: Enables the hibernation capability on the VMSS VMs.
+        /// Default value is null if not specified. This property cannot be updated once set.
+        /// </summary>
+        public readonly Outputs.AdditionalCapabilitiesResponse? AdditionalVirtualMachineCapabilities;
+        /// <summary>
         /// Base Virtual Machine Profile Properties to be specified according to "specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/{computeApiVersion}/virtualMachineScaleSet.json#/definitions/VirtualMachineScaleSetVMProfile"
         /// </summary>
         public readonly Outputs.BaseVirtualMachineProfileResponse BaseVirtualMachineProfile;
@@ -36,12 +43,15 @@ namespace Pulumi.AzureNative.AzureFleet.Outputs
 
         [OutputConstructor]
         private ComputeProfileResponse(
+            Outputs.AdditionalCapabilitiesResponse? additionalVirtualMachineCapabilities,
+
             Outputs.BaseVirtualMachineProfileResponse baseVirtualMachineProfile,
 
             string? computeApiVersion,
 
             int? platformFaultDomainCount)
         {
+            AdditionalVirtualMachineCapabilities = additionalVirtualMachineCapabilities;
             BaseVirtualMachineProfile = baseVirtualMachineProfile;
             ComputeApiVersion = computeApiVersion;
             PlatformFaultDomainCount = platformFaultDomainCount;

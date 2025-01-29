@@ -5,30 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AccessPolicyAssignmentArgs } from "./accessPolicyAssignment";
-export type AccessPolicyAssignment = import("./accessPolicyAssignment").AccessPolicyAssignment;
-export const AccessPolicyAssignment: typeof import("./accessPolicyAssignment").AccessPolicyAssignment = null as any;
-utilities.lazyLoad(exports, ["AccessPolicyAssignment"], () => require("./accessPolicyAssignment"));
+export { EnterpriseAccessPolicyAssignmentArgs } from "./enterpriseAccessPolicyAssignment";
+export type EnterpriseAccessPolicyAssignment = import("./enterpriseAccessPolicyAssignment").EnterpriseAccessPolicyAssignment;
+export const EnterpriseAccessPolicyAssignment: typeof import("./enterpriseAccessPolicyAssignment").EnterpriseAccessPolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["EnterpriseAccessPolicyAssignment"], () => require("./enterpriseAccessPolicyAssignment"));
 
-export { DatabaseArgs } from "./database";
-export type Database = import("./database").Database;
-export const Database: typeof import("./database").Database = null as any;
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+export { EnterpriseDatabaseArgs } from "./enterpriseDatabase";
+export type EnterpriseDatabase = import("./enterpriseDatabase").EnterpriseDatabase;
+export const EnterpriseDatabase: typeof import("./enterpriseDatabase").EnterpriseDatabase = null as any;
+utilities.lazyLoad(exports, ["EnterpriseDatabase"], () => require("./enterpriseDatabase"));
 
 export { EnterprisePrivateEndpointConnectionArgs } from "./enterprisePrivateEndpointConnection";
 export type EnterprisePrivateEndpointConnection = import("./enterprisePrivateEndpointConnection").EnterprisePrivateEndpointConnection;
 export const EnterprisePrivateEndpointConnection: typeof import("./enterprisePrivateEndpointConnection").EnterprisePrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["EnterprisePrivateEndpointConnection"], () => require("./enterprisePrivateEndpointConnection"));
 
-export { GetAccessPolicyAssignmentArgs, GetAccessPolicyAssignmentResult, GetAccessPolicyAssignmentOutputArgs } from "./getAccessPolicyAssignment";
-export const getAccessPolicyAssignment: typeof import("./getAccessPolicyAssignment").getAccessPolicyAssignment = null as any;
-export const getAccessPolicyAssignmentOutput: typeof import("./getAccessPolicyAssignment").getAccessPolicyAssignmentOutput = null as any;
-utilities.lazyLoad(exports, ["getAccessPolicyAssignment","getAccessPolicyAssignmentOutput"], () => require("./getAccessPolicyAssignment"));
+export { GetEnterpriseAccessPolicyAssignmentArgs, GetEnterpriseAccessPolicyAssignmentResult, GetEnterpriseAccessPolicyAssignmentOutputArgs } from "./getEnterpriseAccessPolicyAssignment";
+export const getEnterpriseAccessPolicyAssignment: typeof import("./getEnterpriseAccessPolicyAssignment").getEnterpriseAccessPolicyAssignment = null as any;
+export const getEnterpriseAccessPolicyAssignmentOutput: typeof import("./getEnterpriseAccessPolicyAssignment").getEnterpriseAccessPolicyAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterpriseAccessPolicyAssignment","getEnterpriseAccessPolicyAssignmentOutput"], () => require("./getEnterpriseAccessPolicyAssignment"));
 
-export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
-export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
-export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+export { GetEnterpriseDatabaseArgs, GetEnterpriseDatabaseResult, GetEnterpriseDatabaseOutputArgs } from "./getEnterpriseDatabase";
+export const getEnterpriseDatabase: typeof import("./getEnterpriseDatabase").getEnterpriseDatabase = null as any;
+export const getEnterpriseDatabaseOutput: typeof import("./getEnterpriseDatabase").getEnterpriseDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterpriseDatabase","getEnterpriseDatabaseOutput"], () => require("./getEnterpriseDatabase"));
 
 export { GetEnterprisePrivateEndpointConnectionArgs, GetEnterprisePrivateEndpointConnectionResult, GetEnterprisePrivateEndpointConnectionOutputArgs } from "./getEnterprisePrivateEndpointConnection";
 export const getEnterprisePrivateEndpointConnection: typeof import("./getEnterprisePrivateEndpointConnection").getEnterprisePrivateEndpointConnection = null as any;
@@ -40,10 +40,10 @@ export const getRedisEnterprise: typeof import("./getRedisEnterprise").getRedisE
 export const getRedisEnterpriseOutput: typeof import("./getRedisEnterprise").getRedisEnterpriseOutput = null as any;
 utilities.lazyLoad(exports, ["getRedisEnterprise","getRedisEnterpriseOutput"], () => require("./getRedisEnterprise"));
 
-export { ListDatabaseKeysArgs, ListDatabaseKeysResult, ListDatabaseKeysOutputArgs } from "./listDatabaseKeys";
-export const listDatabaseKeys: typeof import("./listDatabaseKeys").listDatabaseKeys = null as any;
-export const listDatabaseKeysOutput: typeof import("./listDatabaseKeys").listDatabaseKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listDatabaseKeys","listDatabaseKeysOutput"], () => require("./listDatabaseKeys"));
+export { ListEnterpriseDatabaseKeysArgs, ListEnterpriseDatabaseKeysResult, ListEnterpriseDatabaseKeysOutputArgs } from "./listEnterpriseDatabaseKeys";
+export const listEnterpriseDatabaseKeys: typeof import("./listEnterpriseDatabaseKeys").listEnterpriseDatabaseKeys = null as any;
+export const listEnterpriseDatabaseKeysOutput: typeof import("./listEnterpriseDatabaseKeys").listEnterpriseDatabaseKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listEnterpriseDatabaseKeys","listEnterpriseDatabaseKeysOutput"], () => require("./listEnterpriseDatabaseKeys"));
 
 export { RedisEnterpriseArgs } from "./redisEnterprise";
 export type RedisEnterprise = import("./redisEnterprise").RedisEnterprise;
@@ -58,10 +58,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:cache/v20240901preview:AccessPolicyAssignment":
-                return new AccessPolicyAssignment(name, <any>undefined, { urn })
-            case "azure-native:cache/v20240901preview:Database":
-                return new Database(name, <any>undefined, { urn })
+            case "azure-native:cache/v20240901preview:EnterpriseAccessPolicyAssignment":
+                return new EnterpriseAccessPolicyAssignment(name, <any>undefined, { urn })
+            case "azure-native:cache/v20240901preview:EnterpriseDatabase":
+                return new EnterpriseDatabase(name, <any>undefined, { urn })
             case "azure-native:cache/v20240901preview:EnterprisePrivateEndpointConnection":
                 return new EnterprisePrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:cache/v20240901preview:RedisEnterprise":

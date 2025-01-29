@@ -2,7 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20220801preview from "./v20220801preview";
+import * as v20220901preview from "./v20220901preview";
+import * as v20221012preview from "./v20221012preview";
 import * as v20221111preview from "./v20221111preview";
+import * as v20230101preview from "./v20230101preview";
 import * as v20230401 from "./v20230401";
 import * as v20230801preview from "./v20230801preview";
 import * as v20231001preview from "./v20231001preview";
@@ -14,7 +18,11 @@ import * as v20240801preview from "./v20240801preview";
 import * as v20241001preview from "./v20241001preview";
 
 export {
+    v20220801preview,
+    v20220901preview,
+    v20221012preview,
     v20221111preview,
+    v20230101preview,
     v20230401,
     v20230801preview,
     v20231001preview,
@@ -25,6 +33,25 @@ export {
     v20240801preview,
     v20241001preview,
 };
+
+export const CatalogItemSyncEnableStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
+ */
+export type CatalogItemSyncEnableStatus = (typeof CatalogItemSyncEnableStatus)[keyof typeof CatalogItemSyncEnableStatus];
+
+export const CatalogItemType = {
+    EnvironmentDefinition: "EnvironmentDefinition",
+} as const;
+
+/**
+ * Indicates catalog item types.
+ */
+export type CatalogItemType = (typeof CatalogItemType)[keyof typeof CatalogItemType];
 
 export const CatalogSyncType = {
     Manual: "Manual",
@@ -75,6 +102,17 @@ export const HibernateSupport = {
  * Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
  */
 export type HibernateSupport = (typeof HibernateSupport)[keyof typeof HibernateSupport];
+
+export const IdentityType = {
+    SystemAssignedIdentity: "systemAssignedIdentity",
+    UserAssignedIdentity: "userAssignedIdentity",
+    DelegatedResourceIdentity: "delegatedResourceIdentity",
+} as const;
+
+/**
+ * Values can be systemAssignedIdentity or userAssignedIdentity
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const LicenseType = {
     Windows_Client: "Windows_Client",
@@ -145,6 +183,16 @@ export const ScheduledType = {
  */
 export type ScheduledType = (typeof ScheduledType)[keyof typeof ScheduledType];
 
+export const SingleSignOnStatus = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
+ */
+export type SingleSignOnStatus = (typeof SingleSignOnStatus)[keyof typeof SingleSignOnStatus];
+
 export const SkuTier = {
     Free: "Free",
     Basic: "Basic",
@@ -166,3 +214,13 @@ export const StopOnDisconnectEnableStatus = {
  * Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
  */
 export type StopOnDisconnectEnableStatus = (typeof StopOnDisconnectEnableStatus)[keyof typeof StopOnDisconnectEnableStatus];
+
+export const VirtualNetworkType = {
+    Managed: "Managed",
+    Unmanaged: "Unmanaged",
+} as const;
+
+/**
+ * Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
+ */
+export type VirtualNetworkType = (typeof VirtualNetworkType)[keyof typeof VirtualNetworkType];

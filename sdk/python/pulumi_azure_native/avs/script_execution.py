@@ -34,17 +34,19 @@ class ScriptExecutionArgs:
                  script_execution_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ScriptExecution resource.
-        :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
+        :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] timeout: Time limit for execution
-        :param pulumi.Input[str] failure_reason: Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]] hidden_parameters: Parameters that will be hidden/not visible to ARM, such as passwords and credentials
+        :param pulumi.Input[str] failure_reason: Error message if the script was able to run, but if the script itself had
+               errors or powershell threw an exception
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]] hidden_parameters: Parameters that will be hidden/not visible to ARM, such as passwords and
+               credentials
         :param pulumi.Input[Mapping[str, Any]] named_outputs: User-defined dictionary.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] output: Standard output stream from the powershell execution
         :param pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]] parameters: Parameters the script will accept
         :param pulumi.Input[str] retention: Time to live for the resource. If not provided, will be available for 60 days
         :param pulumi.Input[str] script_cmdlet_id: A reference to the script cmdlet resource if user is running a AVS script
-        :param pulumi.Input[str] script_execution_name: Name of the user-invoked script execution resource
+        :param pulumi.Input[str] script_execution_name: Name of the script cmdlet.
         """
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -70,7 +72,7 @@ class ScriptExecutionArgs:
     @pulumi.getter(name="privateCloudName")
     def private_cloud_name(self) -> pulumi.Input[str]:
         """
-        The name of the private cloud.
+        Name of the private cloud
         """
         return pulumi.get(self, "private_cloud_name")
 
@@ -106,7 +108,8 @@ class ScriptExecutionArgs:
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> Optional[pulumi.Input[str]]:
         """
-        Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
+        Error message if the script was able to run, but if the script itself had
+        errors or powershell threw an exception
         """
         return pulumi.get(self, "failure_reason")
 
@@ -118,7 +121,8 @@ class ScriptExecutionArgs:
     @pulumi.getter(name="hiddenParameters")
     def hidden_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]]:
         """
-        Parameters that will be hidden/not visible to ARM, such as passwords and credentials
+        Parameters that will be hidden/not visible to ARM, such as passwords and
+        credentials
         """
         return pulumi.get(self, "hidden_parameters")
 
@@ -190,7 +194,7 @@ class ScriptExecutionArgs:
     @pulumi.getter(name="scriptExecutionName")
     def script_execution_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the user-invoked script execution resource
+        Name of the script cmdlet.
         """
         return pulumi.get(self, "script_execution_name")
 
@@ -218,22 +222,24 @@ class ScriptExecution(pulumi.CustomResource):
                  __props__=None):
         """
         An instance of a script executed by a user - custom or AVS
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
 
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Other available API versions: 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] failure_reason: Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
-        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]] hidden_parameters: Parameters that will be hidden/not visible to ARM, such as passwords and credentials
+        :param pulumi.Input[str] failure_reason: Error message if the script was able to run, but if the script itself had
+               errors or powershell threw an exception
+        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]] hidden_parameters: Parameters that will be hidden/not visible to ARM, such as passwords and
+               credentials
         :param pulumi.Input[Mapping[str, Any]] named_outputs: User-defined dictionary.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] output: Standard output stream from the powershell execution
         :param pulumi.Input[Sequence[pulumi.Input[Union[Union['PSCredentialExecutionParameterArgs', 'PSCredentialExecutionParameterArgsDict'], Union['ScriptSecureStringExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgsDict'], Union['ScriptStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgsDict']]]]] parameters: Parameters the script will accept
-        :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
+        :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] retention: Time to live for the resource. If not provided, will be available for 60 days
         :param pulumi.Input[str] script_cmdlet_id: A reference to the script cmdlet resource if user is running a AVS script
-        :param pulumi.Input[str] script_execution_name: Name of the user-invoked script execution resource
+        :param pulumi.Input[str] script_execution_name: Name of the script cmdlet.
         :param pulumi.Input[str] timeout: Time limit for execution
         """
         ...
@@ -244,9 +250,9 @@ class ScriptExecution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An instance of a script executed by a user - custom or AVS
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
 
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Other available API versions: 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param ScriptExecutionArgs args: The arguments to use to populate this resource's properties.
@@ -307,6 +313,7 @@ class ScriptExecution(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["started_at"] = None
             __props__.__dict__["submitted_at"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["warnings"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20210601:ScriptExecution"), pulumi.Alias(type_="azure-native:avs/v20211201:ScriptExecution"), pulumi.Alias(type_="azure-native:avs/v20220501:ScriptExecution"), pulumi.Alias(type_="azure-native:avs/v20230301:ScriptExecution"), pulumi.Alias(type_="azure-native:avs/v20230901:ScriptExecution")])
@@ -347,6 +354,7 @@ class ScriptExecution(pulumi.CustomResource):
         __props__.__dict__["script_cmdlet_id"] = None
         __props__.__dict__["started_at"] = None
         __props__.__dict__["submitted_at"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["timeout"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["warnings"] = None
@@ -364,7 +372,8 @@ class ScriptExecution(pulumi.CustomResource):
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> pulumi.Output[Optional[str]]:
         """
-        Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
+        Error message if the script was able to run, but if the script itself had
+        errors or powershell threw an exception
         """
         return pulumi.get(self, "failure_reason")
 
@@ -380,7 +389,8 @@ class ScriptExecution(pulumi.CustomResource):
     @pulumi.getter(name="hiddenParameters")
     def hidden_parameters(self) -> pulumi.Output[Optional[Sequence[Any]]]:
         """
-        Parameters that will be hidden/not visible to ARM, such as passwords and credentials
+        Parameters that will be hidden/not visible to ARM, such as passwords and
+        credentials
         """
         return pulumi.get(self, "hidden_parameters")
 
@@ -396,7 +406,7 @@ class ScriptExecution(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -465,6 +475,14 @@ class ScriptExecution(pulumi.CustomResource):
         return pulumi.get(self, "submitted_at")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def timeout(self) -> pulumi.Output[str]:
         """
@@ -476,7 +494,7 @@ class ScriptExecution(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

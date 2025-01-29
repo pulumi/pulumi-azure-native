@@ -5,20 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { DatabaseArgs } from "./database";
-export type Database = import("./database").Database;
-export const Database: typeof import("./database").Database = null as any;
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+export { EnterpriseDatabaseArgs } from "./enterpriseDatabase";
+export type EnterpriseDatabase = import("./enterpriseDatabase").EnterpriseDatabase;
+export const EnterpriseDatabase: typeof import("./enterpriseDatabase").EnterpriseDatabase = null as any;
+utilities.lazyLoad(exports, ["EnterpriseDatabase"], () => require("./enterpriseDatabase"));
 
 export { EnterprisePrivateEndpointConnectionArgs } from "./enterprisePrivateEndpointConnection";
 export type EnterprisePrivateEndpointConnection = import("./enterprisePrivateEndpointConnection").EnterprisePrivateEndpointConnection;
 export const EnterprisePrivateEndpointConnection: typeof import("./enterprisePrivateEndpointConnection").EnterprisePrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["EnterprisePrivateEndpointConnection"], () => require("./enterprisePrivateEndpointConnection"));
 
-export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
-export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
-export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+export { GetEnterpriseDatabaseArgs, GetEnterpriseDatabaseResult, GetEnterpriseDatabaseOutputArgs } from "./getEnterpriseDatabase";
+export const getEnterpriseDatabase: typeof import("./getEnterpriseDatabase").getEnterpriseDatabase = null as any;
+export const getEnterpriseDatabaseOutput: typeof import("./getEnterpriseDatabase").getEnterpriseDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterpriseDatabase","getEnterpriseDatabaseOutput"], () => require("./getEnterpriseDatabase"));
 
 export { GetEnterprisePrivateEndpointConnectionArgs, GetEnterprisePrivateEndpointConnectionResult, GetEnterprisePrivateEndpointConnectionOutputArgs } from "./getEnterprisePrivateEndpointConnection";
 export const getEnterprisePrivateEndpointConnection: typeof import("./getEnterprisePrivateEndpointConnection").getEnterprisePrivateEndpointConnection = null as any;
@@ -30,10 +30,10 @@ export const getRedisEnterprise: typeof import("./getRedisEnterprise").getRedisE
 export const getRedisEnterpriseOutput: typeof import("./getRedisEnterprise").getRedisEnterpriseOutput = null as any;
 utilities.lazyLoad(exports, ["getRedisEnterprise","getRedisEnterpriseOutput"], () => require("./getRedisEnterprise"));
 
-export { ListDatabaseKeysArgs, ListDatabaseKeysResult, ListDatabaseKeysOutputArgs } from "./listDatabaseKeys";
-export const listDatabaseKeys: typeof import("./listDatabaseKeys").listDatabaseKeys = null as any;
-export const listDatabaseKeysOutput: typeof import("./listDatabaseKeys").listDatabaseKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listDatabaseKeys","listDatabaseKeysOutput"], () => require("./listDatabaseKeys"));
+export { ListEnterpriseDatabaseKeysArgs, ListEnterpriseDatabaseKeysResult, ListEnterpriseDatabaseKeysOutputArgs } from "./listEnterpriseDatabaseKeys";
+export const listEnterpriseDatabaseKeys: typeof import("./listEnterpriseDatabaseKeys").listEnterpriseDatabaseKeys = null as any;
+export const listEnterpriseDatabaseKeysOutput: typeof import("./listEnterpriseDatabaseKeys").listEnterpriseDatabaseKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listEnterpriseDatabaseKeys","listEnterpriseDatabaseKeysOutput"], () => require("./listEnterpriseDatabaseKeys"));
 
 export { RedisEnterpriseArgs } from "./redisEnterprise";
 export type RedisEnterprise = import("./redisEnterprise").RedisEnterprise;
@@ -48,8 +48,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:cache/v20230801preview:Database":
-                return new Database(name, <any>undefined, { urn })
+            case "azure-native:cache/v20230801preview:EnterpriseDatabase":
+                return new EnterpriseDatabase(name, <any>undefined, { urn })
             case "azure-native:cache/v20230801preview:EnterprisePrivateEndpointConnection":
                 return new EnterprisePrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:cache/v20230801preview:RedisEnterprise":

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get single access review definition
  * Azure REST API version: 2021-12-01-preview.
+ *
+ * Other available API versions: 2018-05-01-preview, 2021-03-01-preview, 2021-07-01-preview, 2021-11-16-preview.
  */
 export function getAccessReviewScheduleDefinitionById(args: GetAccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewScheduleDefinitionByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -29,10 +31,6 @@ export interface GetAccessReviewScheduleDefinitionByIdArgs {
  * Access Review Schedule Definition.
  */
 export interface GetAccessReviewScheduleDefinitionByIdResult {
-    /**
-     * The role assignment state eligible/active to review
-     */
-    readonly assignmentState: string;
     /**
      * Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
      */
@@ -62,37 +60,9 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
      */
     readonly displayName?: string;
     /**
-     * The DateTime when the review is scheduled to end. Required if type is endDate
-     */
-    readonly endDate?: string;
-    /**
-     * This is used to indicate the resource id(s) to exclude
-     */
-    readonly excludeResourceId?: string;
-    /**
-     * This is used to indicate the role definition id(s) to exclude
-     */
-    readonly excludeRoleDefinitionId?: string;
-    /**
-     * Flag to indicate whether to expand nested memberships or not.
-     */
-    readonly expandNestedMemberships?: boolean;
-    /**
      * The access review schedule definition id.
      */
     readonly id: string;
-    /**
-     * Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
-     */
-    readonly inactiveDuration?: string;
-    /**
-     * Flag to indicate whether to expand nested memberships or not.
-     */
-    readonly includeAccessBelowResource?: boolean;
-    /**
-     * Flag to indicate whether to expand nested memberships or not.
-     */
-    readonly includeInheritedAccess?: boolean;
     /**
      * The duration in days for an instance.
      */
@@ -118,10 +88,6 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
      */
     readonly name: string;
     /**
-     * The number of times to repeat the access review. Required and must be positive if type is numbered.
-     */
-    readonly numberOfOccurrences?: number;
-    /**
      * The identity id
      */
     readonly principalId: string;
@@ -130,9 +96,13 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
      */
     readonly principalName: string;
     /**
-     * The identity type user/servicePrincipal to review
+     * The identity type : user/servicePrincipal
      */
     readonly principalType: string;
+    /**
+     * Access Review schedule definition recurrence range.
+     */
+    readonly range?: outputs.authorization.AccessReviewRecurrenceRangeResponse;
     /**
      * Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
      */
@@ -146,10 +116,6 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
      */
     readonly reminderNotificationsEnabled?: boolean;
     /**
-     * ResourceId in which this review is getting created
-     */
-    readonly resourceId: string;
-    /**
      * This is the collection of reviewers.
      */
     readonly reviewers?: outputs.authorization.AccessReviewReviewerResponse[];
@@ -158,13 +124,9 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
      */
     readonly reviewersType: string;
     /**
-     * This is used to indicate the role being reviewed
+     * This is used to define what to include in scope of the review. The scope definition includes the resourceId and roleDefinitionId.
      */
-    readonly roleDefinitionId: string;
-    /**
-     * The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-     */
-    readonly startDate?: string;
+    readonly scope: outputs.authorization.AccessReviewScopeResponse;
     /**
      * This read-only field specifies the status of an accessReview.
      */
@@ -181,6 +143,8 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
 /**
  * Get single access review definition
  * Azure REST API version: 2021-12-01-preview.
+ *
+ * Other available API versions: 2018-05-01-preview, 2021-03-01-preview, 2021-07-01-preview, 2021-11-16-preview.
  */
 export function getAccessReviewScheduleDefinitionByIdOutput(args: GetAccessReviewScheduleDefinitionByIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessReviewScheduleDefinitionByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Define the virtualMachineInstance.
- * Azure REST API version: 2023-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 2.x: 2023-04-01-preview.
  *
  * Other available API versions: 2023-10-07, 2024-06-01.
  */

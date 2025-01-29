@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A alert associated with SAP monitor.
- * Azure REST API version: 2024-02-01-preview.
+ * Azure REST API version: 2024-02-01-preview. Prior API version in Azure Native 2.x: 2024-02-01-preview.
  */
 export class Alert extends pulumi.CustomResource {
     /**

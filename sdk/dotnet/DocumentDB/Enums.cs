@@ -71,6 +71,37 @@ namespace Pulumi.AzureNative.DocumentDB
     }
 
     /// <summary>
+    /// How to connect to the azure services needed for running the cluster
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureConnectionType : IEquatable<AzureConnectionType>
+    {
+        private readonly string _value;
+
+        private AzureConnectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureConnectionType None { get; } = new AzureConnectionType("None");
+        public static AzureConnectionType VPN { get; } = new AzureConnectionType("VPN");
+
+        public static bool operator ==(AzureConnectionType left, AzureConnectionType right) => left.Equals(right);
+        public static bool operator !=(AzureConnectionType left, AzureConnectionType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureConnectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureConnectionType other && Equals(other);
+        public bool Equals(AzureConnectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes the status of migration between backup policy types.
     /// </summary>
     [EnumType]
@@ -290,7 +321,7 @@ namespace Pulumi.AzureNative.DocumentDB
     }
 
     /// <summary>
-    /// The mode to create a mongo cluster.
+    /// Enum to indicate the mode of resource creation.
     /// </summary>
     [EnumType]
     public readonly struct CreateMode : IEquatable<CreateMode>
@@ -303,7 +334,7 @@ namespace Pulumi.AzureNative.DocumentDB
         }
 
         public static CreateMode Default { get; } = new CreateMode("Default");
-        public static CreateMode PointInTimeRestore { get; } = new CreateMode("PointInTimeRestore");
+        public static CreateMode Restore { get; } = new CreateMode("Restore");
 
         public static bool operator ==(CreateMode left, CreateMode right) => left.Equals(right);
         public static bool operator !=(CreateMode left, CreateMode right) => !left.Equals(right);
@@ -418,6 +449,37 @@ namespace Pulumi.AzureNative.DocumentDB
     }
 
     /// <summary>
+    /// DedicatedGatewayType for the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct DedicatedGatewayType : IEquatable<DedicatedGatewayType>
+    {
+        private readonly string _value;
+
+        private DedicatedGatewayType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DedicatedGatewayType IntegratedCache { get; } = new DedicatedGatewayType("IntegratedCache");
+        public static DedicatedGatewayType DistributedQuery { get; } = new DedicatedGatewayType("DistributedQuery");
+
+        public static bool operator ==(DedicatedGatewayType left, DedicatedGatewayType right) => left.Equals(right);
+        public static bool operator !=(DedicatedGatewayType left, DedicatedGatewayType right) => !left.Equals(right);
+
+        public static explicit operator string(DedicatedGatewayType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DedicatedGatewayType other && Equals(other);
+        public bool Equals(DedicatedGatewayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The default consistency level and configuration settings of the Cosmos DB account.
     /// </summary>
     [EnumType]
@@ -444,6 +506,38 @@ namespace Pulumi.AzureNative.DocumentDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DefaultConsistencyLevel other && Equals(other);
         public bool Equals(DefaultConsistencyLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The distance function to use for distance calculation in between vectors.
+    /// </summary>
+    [EnumType]
+    public readonly struct DistanceFunction : IEquatable<DistanceFunction>
+    {
+        private readonly string _value;
+
+        private DistanceFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistanceFunction Euclidean { get; } = new DistanceFunction("euclidean");
+        public static DistanceFunction Cosine { get; } = new DistanceFunction("cosine");
+        public static DistanceFunction Dotproduct { get; } = new DistanceFunction("dotproduct");
+
+        public static bool operator ==(DistanceFunction left, DistanceFunction right) => left.Equals(right);
+        public static bool operator !=(DistanceFunction left, DistanceFunction right) => !left.Equals(right);
+
+        public static explicit operator string(DistanceFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistanceFunction other && Equals(other);
+        public bool Equals(DistanceFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -864,7 +958,7 @@ namespace Pulumi.AzureNative.DocumentDB
     }
 
     /// <summary>
-    /// Describes the ServerVersion of an a MongoDB account.
+    /// Describes the version of the MongoDB account.
     /// </summary>
     [EnumType]
     public readonly struct ServerVersion : IEquatable<ServerVersion>
@@ -880,6 +974,9 @@ namespace Pulumi.AzureNative.DocumentDB
         public static ServerVersion ServerVersion_3_6 { get; } = new ServerVersion("3.6");
         public static ServerVersion ServerVersion_4_0 { get; } = new ServerVersion("4.0");
         public static ServerVersion ServerVersion_4_2 { get; } = new ServerVersion("4.2");
+        public static ServerVersion ServerVersion_5_0 { get; } = new ServerVersion("5.0");
+        public static ServerVersion ServerVersion_6_0 { get; } = new ServerVersion("6.0");
+        public static ServerVersion ServerVersion_7_0 { get; } = new ServerVersion("7.0");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
         public static bool operator !=(ServerVersion left, ServerVersion right) => !left.Equals(right);
@@ -1052,6 +1149,70 @@ namespace Pulumi.AzureNative.DocumentDB
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TriggerType other && Equals(other);
         public bool Equals(TriggerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the data type of vector.
+    /// </summary>
+    [EnumType]
+    public readonly struct VectorDataType : IEquatable<VectorDataType>
+    {
+        private readonly string _value;
+
+        private VectorDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VectorDataType Float32 { get; } = new VectorDataType("float32");
+        public static VectorDataType Uint8 { get; } = new VectorDataType("uint8");
+        public static VectorDataType Int8 { get; } = new VectorDataType("int8");
+
+        public static bool operator ==(VectorDataType left, VectorDataType right) => left.Equals(right);
+        public static bool operator !=(VectorDataType left, VectorDataType right) => !left.Equals(right);
+
+        public static explicit operator string(VectorDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VectorDataType other && Equals(other);
+        public bool Equals(VectorDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
+    /// </summary>
+    [EnumType]
+    public readonly struct VectorIndexType : IEquatable<VectorIndexType>
+    {
+        private readonly string _value;
+
+        private VectorIndexType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VectorIndexType Flat { get; } = new VectorIndexType("flat");
+        public static VectorIndexType DiskANN { get; } = new VectorIndexType("diskANN");
+        public static VectorIndexType QuantizedFlat { get; } = new VectorIndexType("quantizedFlat");
+
+        public static bool operator ==(VectorIndexType left, VectorIndexType right) => left.Equals(right);
+        public static bool operator !=(VectorIndexType left, VectorIndexType right) => !left.Equals(right);
+
+        public static explicit operator string(VectorIndexType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VectorIndexType other && Equals(other);
+        public bool Equals(VectorIndexType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

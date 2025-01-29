@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets information about the specified vendor.
  * Azure REST API version: 2022-01-01-preview.
+ *
+ * Other available API versions: 2020-01-01-preview, 2021-05-01.
  */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,6 +59,8 @@ export interface GetVendorResult {
 /**
  * Gets information about the specified vendor.
  * Azure REST API version: 2022-01-01-preview.
+ *
+ * Other available API versions: 2020-01-01-preview, 2021-05-01.
  */
 export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVendorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

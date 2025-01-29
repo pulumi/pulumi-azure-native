@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the metadata of a privateLinkServicesForSCCPowershell resource.
  * Azure REST API version: 2021-03-08.
+ *
+ * Other available API versions: 2021-01-11.
  */
 export function getPrivateLinkServicesForSCCPowershell(args: GetPrivateLinkServicesForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicesForSCCPowershellResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,6 +80,8 @@ export interface GetPrivateLinkServicesForSCCPowershellResult {
 /**
  * Get the metadata of a privateLinkServicesForSCCPowershell resource.
  * Azure REST API version: 2021-03-08.
+ *
+ * Other available API versions: 2021-01-11.
  */
 export function getPrivateLinkServicesForSCCPowershellOutput(args: GetPrivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkServicesForSCCPowershellResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

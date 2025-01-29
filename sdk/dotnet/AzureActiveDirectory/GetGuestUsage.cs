@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     {
         /// <summary>
         /// Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
-        /// Azure REST API version: 2021-04-01.
+        /// Azure REST API version: 2023-05-17-preview.
         /// 
-        /// Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
+        /// Other available API versions: 2020-05-01-preview, 2021-04-01, 2023-01-18-preview.
         /// </summary>
         public static Task<GetGuestUsageResult> InvokeAsync(GetGuestUsageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestUsageResult>("azure-native:azureactivedirectory:getGuestUsage", args ?? new GetGuestUsageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
-        /// Azure REST API version: 2021-04-01.
+        /// Azure REST API version: 2023-05-17-preview.
         /// 
-        /// Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
+        /// Other available API versions: 2020-05-01-preview, 2021-04-01, 2023-01-18-preview.
         /// </summary>
         public static Output<GetGuestUsageResult> Invoke(GetGuestUsageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestUsageResult>("azure-native:azureactivedirectory:getGuestUsage", args ?? new GetGuestUsageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
-        /// Azure REST API version: 2021-04-01.
+        /// Azure REST API version: 2023-05-17-preview.
         /// 
-        /// Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
+        /// Other available API versions: 2020-05-01-preview, 2021-04-01, 2023-01-18-preview.
         /// </summary>
         public static Output<GetGuestUsageResult> Invoke(GetGuestUsageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestUsageResult>("azure-native:azureactivedirectory:getGuestUsage", args ?? new GetGuestUsageInvokeArgs(), options.WithDefaults());

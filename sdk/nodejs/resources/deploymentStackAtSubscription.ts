@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Deployment stack object.
- * Azure REST API version: 2022-08-01-preview.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-08-01-preview.
  *
- * Other available API versions: 2024-03-01.
+ * Other available API versions: 2022-08-01-preview.
  */
 export class DeploymentStackAtSubscription extends pulumi.CustomResource {
     /**
@@ -41,15 +41,19 @@ export class DeploymentStackAtSubscription extends pulumi.CustomResource {
     }
 
     /**
-     * Defines the behavior of resources that are not managed immediately after the stack is updated.
+     * Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
      */
-    public readonly actionOnUnmanage!: pulumi.Output<outputs.resources.DeploymentStackPropertiesResponseActionOnUnmanage>;
+    public readonly actionOnUnmanage!: pulumi.Output<outputs.resources.ActionOnUnmanageResponse>;
+    /**
+     * The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+     */
+    public /*out*/ readonly correlationId!: pulumi.Output<string>;
     /**
      * The debug setting of the deployment.
      */
     public readonly debugSetting!: pulumi.Output<outputs.resources.DeploymentStacksDebugSettingResponse | undefined>;
     /**
-     * An array of resources that were deleted during the most recent update.
+     * An array of resources that were deleted during the most recent Deployment stack update. Deleted means that the resource was removed from the template and relevant deletion operations were specified.
      */
     public /*out*/ readonly deletedResources!: pulumi.Output<outputs.resources.ResourceReferenceResponse[]>;
     /**
@@ -65,27 +69,27 @@ export class DeploymentStackAtSubscription extends pulumi.CustomResource {
      */
     public readonly deploymentScope!: pulumi.Output<string | undefined>;
     /**
-     * Deployment stack description.
+     * Deployment stack description. Max length of 4096 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * An array of resources that were detached during the most recent update.
+     * An array of resources that were detached during the most recent Deployment stack update. Detached means that the resource was removed from the template, but no relevant deletion operations were specified. So, the resource still exists while no longer being associated with the stack.
      */
     public /*out*/ readonly detachedResources!: pulumi.Output<outputs.resources.ResourceReferenceResponse[]>;
     /**
-     * The duration of the deployment stack update.
+     * The duration of the last successful Deployment stack update.
      */
     public /*out*/ readonly duration!: pulumi.Output<string>;
     /**
-     * Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+     * The error detail.
      */
-    public /*out*/ readonly error!: pulumi.Output<outputs.resources.ErrorResponseResponse | undefined>;
+    public /*out*/ readonly error!: pulumi.Output<outputs.resources.ErrorDetailResponse | undefined>;
     /**
-     * An array of resources that failed to reach goal state during the most recent update.
+     * An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
      */
     public /*out*/ readonly failedResources!: pulumi.Output<outputs.resources.ResourceReferenceExtendedResponse[]>;
     /**
-     * The location of the deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+     * The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
@@ -93,13 +97,13 @@ export class DeploymentStackAtSubscription extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The outputs of the underlying deployment.
+     * The outputs of the deployment resource created by the deployment stack.
      */
     public /*out*/ readonly outputs!: pulumi.Output<any>;
     /**
-     * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+     * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
      */
-    public readonly parameters!: pulumi.Output<any | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: outputs.resources.DeploymentParameterResponse} | undefined>;
     /**
      * The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
      */
@@ -143,6 +147,7 @@ export class DeploymentStackAtSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'denySettings'");
             }
             resourceInputs["actionOnUnmanage"] = args ? args.actionOnUnmanage : undefined;
+            resourceInputs["bypassStackOutOfSyncError"] = args ? args.bypassStackOutOfSyncError : undefined;
             resourceInputs["debugSetting"] = args ? args.debugSetting : undefined;
             resourceInputs["denySettings"] = args ? args.denySettings : undefined;
             resourceInputs["deploymentScope"] = args ? args.deploymentScope : undefined;
@@ -154,6 +159,7 @@ export class DeploymentStackAtSubscription extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["template"] = args ? args.template : undefined;
             resourceInputs["templateLink"] = args ? args.templateLink : undefined;
+            resourceInputs["correlationId"] = undefined /*out*/;
             resourceInputs["deletedResources"] = undefined /*out*/;
             resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["detachedResources"] = undefined /*out*/;
@@ -168,6 +174,7 @@ export class DeploymentStackAtSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["actionOnUnmanage"] = undefined /*out*/;
+            resourceInputs["correlationId"] = undefined /*out*/;
             resourceInputs["debugSetting"] = undefined /*out*/;
             resourceInputs["deletedResources"] = undefined /*out*/;
             resourceInputs["denySettings"] = undefined /*out*/;
@@ -201,9 +208,13 @@ export class DeploymentStackAtSubscription extends pulumi.CustomResource {
  */
 export interface DeploymentStackAtSubscriptionArgs {
     /**
-     * Defines the behavior of resources that are not managed immediately after the stack is updated.
+     * Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
      */
-    actionOnUnmanage: pulumi.Input<inputs.resources.DeploymentStackPropertiesActionOnUnmanageArgs>;
+    actionOnUnmanage: pulumi.Input<inputs.resources.ActionOnUnmanageArgs>;
+    /**
+     * Flag to bypass service errors that indicate the stack resource list is not correctly synchronized.
+     */
+    bypassStackOutOfSyncError?: pulumi.Input<boolean>;
     /**
      * The debug setting of the deployment.
      */
@@ -221,17 +232,17 @@ export interface DeploymentStackAtSubscriptionArgs {
      */
     deploymentStackName?: pulumi.Input<string>;
     /**
-     * Deployment stack description.
+     * Deployment stack description. Max length of 4096 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * The location of the deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+     * The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
      */
     location?: pulumi.Input<string>;
     /**
-     * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+     * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
      */
-    parameters?: any;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.resources.DeploymentParameterArgs>}>;
     /**
      * The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
      */

@@ -2,7 +2,39 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20180710 from "./v20180710";
+import * as v20190513 from "./v20190513";
+import * as v20190615 from "./v20190615";
 import * as v20200202 from "./v20200202";
+import * as v20201001 from "./v20201001";
+import * as v20201201 from "./v20201201";
+import * as v20210101 from "./v20210101";
+import * as v20210201 from "./v20210201";
+import * as v20210201preview from "./v20210201preview";
+import * as v20210210 from "./v20210210";
+import * as v20210301 from "./v20210301";
+import * as v20210401 from "./v20210401";
+import * as v20210601 from "./v20210601";
+import * as v20210701 from "./v20210701";
+import * as v20210801 from "./v20210801";
+import * as v20211001 from "./v20211001";
+import * as v20211101 from "./v20211101";
+import * as v20211101preview from "./v20211101preview";
+import * as v20211201 from "./v20211201";
+import * as v20220101 from "./v20220101";
+import * as v20220131preview from "./v20220131preview";
+import * as v20220201 from "./v20220201";
+import * as v20220301 from "./v20220301";
+import * as v20220401 from "./v20220401";
+import * as v20220501 from "./v20220501";
+import * as v20220601preview from "./v20220601preview";
+import * as v20220801 from "./v20220801";
+import * as v20220901preview from "./v20220901preview";
+import * as v20220910 from "./v20220910";
+import * as v20220930preview from "./v20220930preview";
+import * as v20221001 from "./v20221001";
+import * as v20230101 from "./v20230101";
+import * as v20230201 from "./v20230201";
 import * as v20230401 from "./v20230401";
 import * as v20230601 from "./v20230601";
 import * as v20230801 from "./v20230801";
@@ -15,7 +47,39 @@ import * as v20240930preview from "./v20240930preview";
 import * as v20241001 from "./v20241001";
 
 export {
+    v20180710,
+    v20190513,
+    v20190615,
     v20200202,
+    v20201001,
+    v20201201,
+    v20210101,
+    v20210201,
+    v20210201preview,
+    v20210210,
+    v20210301,
+    v20210401,
+    v20210601,
+    v20210701,
+    v20210801,
+    v20211001,
+    v20211101,
+    v20211101preview,
+    v20211201,
+    v20220101,
+    v20220131preview,
+    v20220201,
+    v20220301,
+    v20220401,
+    v20220501,
+    v20220601preview,
+    v20220801,
+    v20220901preview,
+    v20220910,
+    v20220930preview,
+    v20221001,
+    v20230101,
+    v20230201,
     v20230401,
     v20230601,
     v20230801,
@@ -127,6 +191,16 @@ export const CreateMode = {
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
+export const CrossRegionRestore = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Flag to show if Cross Region Restore is enabled on the Vault or not
+ */
+export type CrossRegionRestore = (typeof CrossRegionRestore)[keyof typeof CrossRegionRestore];
+
 export const CrossSubscriptionRestoreState = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -151,12 +225,25 @@ export const DiskAccountType = {
     Standard_LRS: "Standard_LRS",
     Premium_LRS: "Premium_LRS",
     StandardSSD_LRS: "StandardSSD_LRS",
+    PremiumV2_LRS: "PremiumV2_LRS",
+    UltraSSD_LRS: "UltraSSD_LRS",
+    StandardSSD_ZRS: "StandardSSD_ZRS",
+    Premium_ZRS: "Premium_ZRS",
 } as const;
 
 /**
  * The disk type.
  */
 export type DiskAccountType = (typeof DiskAccountType)[keyof typeof DiskAccountType];
+
+export const EnhancedSecurityState = {
+    Invalid: "Invalid",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    AlwaysON: "AlwaysON",
+} as const;
+
+export type EnhancedSecurityState = (typeof EnhancedSecurityState)[keyof typeof EnhancedSecurityState];
 
 export const ExtendedLocationType = {
     EdgeZone: "EdgeZone",
@@ -195,6 +282,12 @@ export const IAASVMPolicyType = {
 } as const;
 
 export type IAASVMPolicyType = (typeof IAASVMPolicyType)[keyof typeof IAASVMPolicyType];
+
+export const IaasVMSnapshotConsistencyType = {
+    OnlyCrashConsistent: "OnlyCrashConsistent",
+} as const;
+
+export type IaasVMSnapshotConsistencyType = (typeof IaasVMSnapshotConsistencyType)[keyof typeof IaasVMSnapshotConsistencyType];
 
 export const ImmutabilityState = {
     Disabled: "Disabled",
@@ -237,6 +330,17 @@ export const LicenseType = {
  */
 export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
 
+export const LinuxLicenseType = {
+    NotSpecified: "NotSpecified",
+    NoLicenseType: "NoLicenseType",
+    LinuxServer: "LinuxServer",
+} as const;
+
+/**
+ * The license type for Linux VM's.
+ */
+export type LinuxLicenseType = (typeof LinuxLicenseType)[keyof typeof LinuxLicenseType];
+
 export const MonthOfYear = {
     Invalid: "Invalid",
     January: "January",
@@ -269,6 +373,7 @@ export const OperationType = {
     Invalid: "Invalid",
     Register: "Register",
     Reregister: "Reregister",
+    Rehydrate: "Rehydrate",
 } as const;
 
 /**
@@ -535,6 +640,16 @@ export const ScheduleRunType = {
  */
 export type ScheduleRunType = (typeof ScheduleRunType)[keyof typeof ScheduleRunType];
 
+export const SecurityConfiguration = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * A value indicating whether trusted platform module to be enabled.
+ */
+export type SecurityConfiguration = (typeof SecurityConfiguration)[keyof typeof SecurityConfiguration];
+
 export const SecurityType = {
     None: "None",
     TrustedLaunch: "TrustedLaunch",
@@ -586,6 +701,18 @@ export const SqlServerLicenseType = {
  * The SQL Server license type.
  */
 export type SqlServerLicenseType = (typeof SqlServerLicenseType)[keyof typeof SqlServerLicenseType];
+
+export const StandardTierStorageRedundancy = {
+    Invalid: "Invalid",
+    LocallyRedundant: "LocallyRedundant",
+    GeoRedundant: "GeoRedundant",
+    ZoneRedundant: "ZoneRedundant",
+} as const;
+
+/**
+ * The storage redundancy setting of a vault
+ */
+export type StandardTierStorageRedundancy = (typeof StandardTierStorageRedundancy)[keyof typeof StandardTierStorageRedundancy];
 
 export const TieringMode = {
     Invalid: "Invalid",

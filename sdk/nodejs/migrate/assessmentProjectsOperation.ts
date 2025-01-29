@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * An Assessment project site resource.
- * Azure REST API version: 2023-03-15.
+ * Azure REST API version: 2023-09-09-preview. Prior API version in Azure Native 2.x: 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+ * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview.
  */
 export class AssessmentProjectsOperation extends pulumi.CustomResource {
     /**

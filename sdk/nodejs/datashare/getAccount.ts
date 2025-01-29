@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get an account
  * Azure REST API version: 2021-08-01.
+ *
+ * Other available API versions: 2020-09-01, 2020-10-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -82,6 +84,8 @@ export interface GetAccountResult {
 /**
  * Get an account
  * Azure REST API version: 2021-08-01.
+ *
+ * Other available API versions: 2020-09-01, 2020-10-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

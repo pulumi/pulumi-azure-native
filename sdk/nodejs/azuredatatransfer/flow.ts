@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The flow resource definition.
- * Azure REST API version: 2023-10-11-preview.
+ * Azure REST API version: 2024-09-27. Prior API version in Azure Native 2.x: 2023-10-11-preview.
  *
- * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+ * Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11.
  */
 export class Flow extends pulumi.CustomResource {
     /**

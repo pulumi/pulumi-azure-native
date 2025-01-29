@@ -46,7 +46,25 @@ __all__ = [
     'ProvisionedClustersCommonPropertiesResponseStatus',
     'ProvisionedClustersResponsePropertiesResponse',
     'ProvisionedClustersResponseResponseExtendedLocation',
+    'StorageSpacesPropertiesResponse',
+    'StorageSpacesPropertiesResponseError',
+    'StorageSpacesPropertiesResponseHciStorageProfile',
+    'StorageSpacesPropertiesResponseProvisioningStatus',
+    'StorageSpacesPropertiesResponseStatus',
+    'StorageSpacesPropertiesResponseVmwareStorageProfile',
+    'StorageSpacesResponseExtendedLocation',
     'SystemDataResponse',
+    'VirtualNetworksPropertiesResponse',
+    'VirtualNetworksPropertiesResponseError',
+    'VirtualNetworksPropertiesResponseHci',
+    'VirtualNetworksPropertiesResponseInfraVnetProfile',
+    'VirtualNetworksPropertiesResponseKubevirt',
+    'VirtualNetworksPropertiesResponseProvisioningStatus',
+    'VirtualNetworksPropertiesResponseStatus',
+    'VirtualNetworksPropertiesResponseVipPool',
+    'VirtualNetworksPropertiesResponseVmipPool',
+    'VirtualNetworksPropertiesResponseVmware',
+    'VirtualNetworksResponseExtendedLocation',
     'WindowsProfileResponseResponse',
 ]
 
@@ -2409,6 +2427,365 @@ class ProvisionedClustersResponseResponseExtendedLocation(dict):
 
 
 @pulumi.output_type
+class StorageSpacesPropertiesResponse(dict):
+    """
+    HybridAKSStorageSpec defines the desired state of HybridAKSStorage
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "hciStorageProfile":
+            suggest = "hci_storage_profile"
+        elif key == "vmwareStorageProfile":
+            suggest = "vmware_storage_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageSpacesPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageSpacesPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageSpacesPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 hci_storage_profile: Optional['outputs.StorageSpacesPropertiesResponseHciStorageProfile'] = None,
+                 status: Optional['outputs.StorageSpacesPropertiesResponseStatus'] = None,
+                 vmware_storage_profile: Optional['outputs.StorageSpacesPropertiesResponseVmwareStorageProfile'] = None):
+        """
+        HybridAKSStorageSpec defines the desired state of HybridAKSStorage
+        :param 'StorageSpacesPropertiesResponseStatus' status: HybridAKSStorageStatus defines the observed state of HybridAKSStorage
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if hci_storage_profile is not None:
+            pulumi.set(__self__, "hci_storage_profile", hci_storage_profile)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if vmware_storage_profile is not None:
+            pulumi.set(__self__, "vmware_storage_profile", vmware_storage_profile)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="hciStorageProfile")
+    def hci_storage_profile(self) -> Optional['outputs.StorageSpacesPropertiesResponseHciStorageProfile']:
+        return pulumi.get(self, "hci_storage_profile")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['outputs.StorageSpacesPropertiesResponseStatus']:
+        """
+        HybridAKSStorageStatus defines the observed state of HybridAKSStorage
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="vmwareStorageProfile")
+    def vmware_storage_profile(self) -> Optional['outputs.StorageSpacesPropertiesResponseVmwareStorageProfile']:
+        return pulumi.get(self, "vmware_storage_profile")
+
+
+@pulumi.output_type
+class StorageSpacesPropertiesResponseError(dict):
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None):
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class StorageSpacesPropertiesResponseHciStorageProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mocGroup":
+            suggest = "moc_group"
+        elif key == "mocLocation":
+            suggest = "moc_location"
+        elif key == "mocStorageContainer":
+            suggest = "moc_storage_container"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageSpacesPropertiesResponseHciStorageProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageSpacesPropertiesResponseHciStorageProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageSpacesPropertiesResponseHciStorageProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 moc_group: Optional[str] = None,
+                 moc_location: Optional[str] = None,
+                 moc_storage_container: Optional[str] = None):
+        """
+        :param str moc_group: Resource group in MOC(Microsoft On-premises Cloud)
+        :param str moc_location: Location in MOC(Microsoft On-premises Cloud)
+        :param str moc_storage_container: Name of the storage container in MOC(Microsoft On-premises Cloud)
+        """
+        if moc_group is not None:
+            pulumi.set(__self__, "moc_group", moc_group)
+        if moc_location is not None:
+            pulumi.set(__self__, "moc_location", moc_location)
+        if moc_storage_container is not None:
+            pulumi.set(__self__, "moc_storage_container", moc_storage_container)
+
+    @property
+    @pulumi.getter(name="mocGroup")
+    def moc_group(self) -> Optional[str]:
+        """
+        Resource group in MOC(Microsoft On-premises Cloud)
+        """
+        return pulumi.get(self, "moc_group")
+
+    @property
+    @pulumi.getter(name="mocLocation")
+    def moc_location(self) -> Optional[str]:
+        """
+        Location in MOC(Microsoft On-premises Cloud)
+        """
+        return pulumi.get(self, "moc_location")
+
+    @property
+    @pulumi.getter(name="mocStorageContainer")
+    def moc_storage_container(self) -> Optional[str]:
+        """
+        Name of the storage container in MOC(Microsoft On-premises Cloud)
+        """
+        return pulumi.get(self, "moc_storage_container")
+
+
+@pulumi.output_type
+class StorageSpacesPropertiesResponseProvisioningStatus(dict):
+    """
+    Contains Provisioning errors
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationId":
+            suggest = "operation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageSpacesPropertiesResponseProvisioningStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageSpacesPropertiesResponseProvisioningStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageSpacesPropertiesResponseProvisioningStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error: Optional['outputs.StorageSpacesPropertiesResponseError'] = None,
+                 operation_id: Optional[str] = None,
+                 phase: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        Contains Provisioning errors
+        :param str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
+        """
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+        if phase is not None:
+            pulumi.set(__self__, "phase", phase)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.StorageSpacesPropertiesResponseError']:
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[str]:
+        return pulumi.get(self, "operation_id")
+
+    @property
+    @pulumi.getter
+    def phase(self) -> Optional[str]:
+        """
+        Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
+        """
+        return pulumi.get(self, "phase")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class StorageSpacesPropertiesResponseStatus(dict):
+    """
+    HybridAKSStorageStatus defines the observed state of HybridAKSStorage
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningStatus":
+            suggest = "provisioning_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageSpacesPropertiesResponseStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageSpacesPropertiesResponseStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageSpacesPropertiesResponseStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_status: Optional['outputs.StorageSpacesPropertiesResponseProvisioningStatus'] = None):
+        """
+        HybridAKSStorageStatus defines the observed state of HybridAKSStorage
+        :param 'StorageSpacesPropertiesResponseProvisioningStatus' provisioning_status: Contains Provisioning errors
+        """
+        if provisioning_status is not None:
+            pulumi.set(__self__, "provisioning_status", provisioning_status)
+
+    @property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> Optional['outputs.StorageSpacesPropertiesResponseProvisioningStatus']:
+        """
+        Contains Provisioning errors
+        """
+        return pulumi.get(self, "provisioning_status")
+
+
+@pulumi.output_type
+class StorageSpacesPropertiesResponseVmwareStorageProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourcePool":
+            suggest = "resource_pool"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageSpacesPropertiesResponseVmwareStorageProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageSpacesPropertiesResponseVmwareStorageProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageSpacesPropertiesResponseVmwareStorageProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 datacenter: Optional[str] = None,
+                 datastore: Optional[str] = None,
+                 folder: Optional[str] = None,
+                 resource_pool: Optional[str] = None):
+        """
+        :param str datacenter: Name of the datacenter in VSphere
+        :param str datastore: Name of the datastore in VSphere
+        :param str folder: Name of the folder in VSphere
+        :param str resource_pool: Name of the resource pool in VSphere
+        """
+        if datacenter is not None:
+            pulumi.set(__self__, "datacenter", datacenter)
+        if datastore is not None:
+            pulumi.set(__self__, "datastore", datastore)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if resource_pool is not None:
+            pulumi.set(__self__, "resource_pool", resource_pool)
+
+    @property
+    @pulumi.getter
+    def datacenter(self) -> Optional[str]:
+        """
+        Name of the datacenter in VSphere
+        """
+        return pulumi.get(self, "datacenter")
+
+    @property
+    @pulumi.getter
+    def datastore(self) -> Optional[str]:
+        """
+        Name of the datastore in VSphere
+        """
+        return pulumi.get(self, "datastore")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional[str]:
+        """
+        Name of the folder in VSphere
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter(name="resourcePool")
+    def resource_pool(self) -> Optional[str]:
+        """
+        Name of the resource pool in VSphere
+        """
+        return pulumi.get(self, "resource_pool")
+
+
+@pulumi.output_type
+class StorageSpacesResponseExtendedLocation(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str name: The extended location name.
+        :param str type: The extended location type.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The extended location name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The extended location type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -2516,6 +2893,600 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class VirtualNetworksPropertiesResponse(dict):
+    """
+    HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dhcpServers":
+            suggest = "dhcp_servers"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "ipAddressPrefix":
+            suggest = "ip_address_prefix"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "vlanID":
+            suggest = "vlan_id"
+        elif key == "infraVnetProfile":
+            suggest = "infra_vnet_profile"
+        elif key == "vipPool":
+            suggest = "vip_pool"
+        elif key == "vmipPool":
+            suggest = "vmip_pool"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworksPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworksPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dhcp_servers: Sequence[str],
+                 dns_servers: Sequence[str],
+                 gateway: str,
+                 ip_address_prefix: str,
+                 provisioning_state: str,
+                 status: 'outputs.VirtualNetworksPropertiesResponseStatus',
+                 vlan_id: str,
+                 infra_vnet_profile: Optional['outputs.VirtualNetworksPropertiesResponseInfraVnetProfile'] = None,
+                 vip_pool: Optional[Sequence['outputs.VirtualNetworksPropertiesResponseVipPool']] = None,
+                 vmip_pool: Optional[Sequence['outputs.VirtualNetworksPropertiesResponseVmipPool']] = None):
+        """
+        HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+        :param Sequence[str] dhcp_servers: Address of the DHCP servers associated with the network
+        :param Sequence[str] dns_servers: Address of the DNS servers associated with the network
+        :param str gateway: Address of the Gateway associated with the network
+        :param str ip_address_prefix: IP Address Prefix of the network
+        :param 'VirtualNetworksPropertiesResponseStatus' status: HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
+        :param str vlan_id: VLAN Id used by the network
+        :param Sequence['VirtualNetworksPropertiesResponseVipPool'] vip_pool: Virtual IP Pool for Kubernetes
+        :param Sequence['VirtualNetworksPropertiesResponseVmipPool'] vmip_pool: IP Pool for Virtual Machines
+        """
+        pulumi.set(__self__, "dhcp_servers", dhcp_servers)
+        pulumi.set(__self__, "dns_servers", dns_servers)
+        pulumi.set(__self__, "gateway", gateway)
+        pulumi.set(__self__, "ip_address_prefix", ip_address_prefix)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "vlan_id", vlan_id)
+        if infra_vnet_profile is not None:
+            pulumi.set(__self__, "infra_vnet_profile", infra_vnet_profile)
+        if vip_pool is not None:
+            pulumi.set(__self__, "vip_pool", vip_pool)
+        if vmip_pool is not None:
+            pulumi.set(__self__, "vmip_pool", vmip_pool)
+
+    @property
+    @pulumi.getter(name="dhcpServers")
+    def dhcp_servers(self) -> Sequence[str]:
+        """
+        Address of the DHCP servers associated with the network
+        """
+        return pulumi.get(self, "dhcp_servers")
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Sequence[str]:
+        """
+        Address of the DNS servers associated with the network
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> str:
+        """
+        Address of the Gateway associated with the network
+        """
+        return pulumi.get(self, "gateway")
+
+    @property
+    @pulumi.getter(name="ipAddressPrefix")
+    def ip_address_prefix(self) -> str:
+        """
+        IP Address Prefix of the network
+        """
+        return pulumi.get(self, "ip_address_prefix")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.VirtualNetworksPropertiesResponseStatus':
+        """
+        HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="vlanID")
+    def vlan_id(self) -> str:
+        """
+        VLAN Id used by the network
+        """
+        return pulumi.get(self, "vlan_id")
+
+    @property
+    @pulumi.getter(name="infraVnetProfile")
+    def infra_vnet_profile(self) -> Optional['outputs.VirtualNetworksPropertiesResponseInfraVnetProfile']:
+        return pulumi.get(self, "infra_vnet_profile")
+
+    @property
+    @pulumi.getter(name="vipPool")
+    def vip_pool(self) -> Optional[Sequence['outputs.VirtualNetworksPropertiesResponseVipPool']]:
+        """
+        Virtual IP Pool for Kubernetes
+        """
+        return pulumi.get(self, "vip_pool")
+
+    @property
+    @pulumi.getter(name="vmipPool")
+    def vmip_pool(self) -> Optional[Sequence['outputs.VirtualNetworksPropertiesResponseVmipPool']]:
+        """
+        IP Pool for Virtual Machines
+        """
+        return pulumi.get(self, "vmip_pool")
+
+
+@pulumi.output_type
+class VirtualNetworksPropertiesResponseError(dict):
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None):
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class VirtualNetworksPropertiesResponseHci(dict):
+    """
+    Infra network profile for HCI platform
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mocGroup":
+            suggest = "moc_group"
+        elif key == "mocLocation":
+            suggest = "moc_location"
+        elif key == "mocVnetName":
+            suggest = "moc_vnet_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseHci. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworksPropertiesResponseHci.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworksPropertiesResponseHci.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 moc_group: Optional[str] = None,
+                 moc_location: Optional[str] = None,
+                 moc_vnet_name: Optional[str] = None):
+        """
+        Infra network profile for HCI platform
+        :param str moc_group: Resource group in MOC(Microsoft On-premises Cloud)
+        :param str moc_location: Location in MOC(Microsoft On-premises Cloud)
+        :param str moc_vnet_name: Virtual Network name in MOC(Microsoft On-premises Cloud)
+        """
+        if moc_group is not None:
+            pulumi.set(__self__, "moc_group", moc_group)
+        if moc_location is not None:
+            pulumi.set(__self__, "moc_location", moc_location)
+        if moc_vnet_name is not None:
+            pulumi.set(__self__, "moc_vnet_name", moc_vnet_name)
+
+    @property
+    @pulumi.getter(name="mocGroup")
+    def moc_group(self) -> Optional[str]:
+        """
+        Resource group in MOC(Microsoft On-premises Cloud)
+        """
+        return pulumi.get(self, "moc_group")
+
+    @property
+    @pulumi.getter(name="mocLocation")
+    def moc_location(self) -> Optional[str]:
+        """
+        Location in MOC(Microsoft On-premises Cloud)
+        """
+        return pulumi.get(self, "moc_location")
+
+    @property
+    @pulumi.getter(name="mocVnetName")
+    def moc_vnet_name(self) -> Optional[str]:
+        """
+        Virtual Network name in MOC(Microsoft On-premises Cloud)
+        """
+        return pulumi.get(self, "moc_vnet_name")
+
+
+@pulumi.output_type
+class VirtualNetworksPropertiesResponseInfraVnetProfile(dict):
+    def __init__(__self__, *,
+                 hci: Optional['outputs.VirtualNetworksPropertiesResponseHci'] = None,
+                 kubevirt: Optional['outputs.VirtualNetworksPropertiesResponseKubevirt'] = None,
+                 vmware: Optional['outputs.VirtualNetworksPropertiesResponseVmware'] = None):
+        """
+        :param 'VirtualNetworksPropertiesResponseHci' hci: Infra network profile for HCI platform
+        :param 'VirtualNetworksPropertiesResponseKubevirt' kubevirt: Infra network profile for KubeVirt platform
+        :param 'VirtualNetworksPropertiesResponseVmware' vmware: Infra network profile for VMware platform
+        """
+        if hci is not None:
+            pulumi.set(__self__, "hci", hci)
+        if kubevirt is not None:
+            pulumi.set(__self__, "kubevirt", kubevirt)
+        if vmware is not None:
+            pulumi.set(__self__, "vmware", vmware)
+
+    @property
+    @pulumi.getter
+    def hci(self) -> Optional['outputs.VirtualNetworksPropertiesResponseHci']:
+        """
+        Infra network profile for HCI platform
+        """
+        return pulumi.get(self, "hci")
+
+    @property
+    @pulumi.getter
+    def kubevirt(self) -> Optional['outputs.VirtualNetworksPropertiesResponseKubevirt']:
+        """
+        Infra network profile for KubeVirt platform
+        """
+        return pulumi.get(self, "kubevirt")
+
+    @property
+    @pulumi.getter
+    def vmware(self) -> Optional['outputs.VirtualNetworksPropertiesResponseVmware']:
+        """
+        Infra network profile for VMware platform
+        """
+        return pulumi.get(self, "vmware")
+
+
+@pulumi.output_type
+class VirtualNetworksPropertiesResponseKubevirt(dict):
+    """
+    Infra network profile for KubeVirt platform
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vnetName":
+            suggest = "vnet_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseKubevirt. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworksPropertiesResponseKubevirt.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworksPropertiesResponseKubevirt.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vnet_name: Optional[str] = None):
+        """
+        Infra network profile for KubeVirt platform
+        :param str vnet_name: Name of the network in KubeVirt
+        """
+        if vnet_name is not None:
+            pulumi.set(__self__, "vnet_name", vnet_name)
+
+    @property
+    @pulumi.getter(name="vnetName")
+    def vnet_name(self) -> Optional[str]:
+        """
+        Name of the network in KubeVirt
+        """
+        return pulumi.get(self, "vnet_name")
+
+
+@pulumi.output_type
+class VirtualNetworksPropertiesResponseProvisioningStatus(dict):
+    """
+    Contains Provisioning errors
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationId":
+            suggest = "operation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseProvisioningStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworksPropertiesResponseProvisioningStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworksPropertiesResponseProvisioningStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error: Optional['outputs.VirtualNetworksPropertiesResponseError'] = None,
+                 operation_id: Optional[str] = None,
+                 phase: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        Contains Provisioning errors
+        :param str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
+        """
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+        if phase is not None:
+            pulumi.set(__self__, "phase", phase)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.VirtualNetworksPropertiesResponseError']:
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[str]:
+        return pulumi.get(self, "operation_id")
+
+    @property
+    @pulumi.getter
+    def phase(self) -> Optional[str]:
+        """
+        Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
+        """
+        return pulumi.get(self, "phase")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class VirtualNetworksPropertiesResponseStatus(dict):
+    """
+    HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningStatus":
+            suggest = "provisioning_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworksPropertiesResponseStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworksPropertiesResponseStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_status: Optional['outputs.VirtualNetworksPropertiesResponseProvisioningStatus'] = None):
+        """
+        HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
+        :param 'VirtualNetworksPropertiesResponseProvisioningStatus' provisioning_status: Contains Provisioning errors
+        """
+        if provisioning_status is not None:
+            pulumi.set(__self__, "provisioning_status", provisioning_status)
+
+    @property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> Optional['outputs.VirtualNetworksPropertiesResponseProvisioningStatus']:
+        """
+        Contains Provisioning errors
+        """
+        return pulumi.get(self, "provisioning_status")
+
+
+@pulumi.output_type
+class VirtualNetworksPropertiesResponseVipPool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endIP":
+            suggest = "end_ip"
+        elif key == "startIP":
+            suggest = "start_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseVipPool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworksPropertiesResponseVipPool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworksPropertiesResponseVipPool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_ip: Optional[str] = None,
+                 start_ip: Optional[str] = None):
+        """
+        :param str end_ip: Ending IP address for the IP Pool
+        :param str start_ip: Starting IP address for the IP Pool
+        """
+        if end_ip is not None:
+            pulumi.set(__self__, "end_ip", end_ip)
+        if start_ip is not None:
+            pulumi.set(__self__, "start_ip", start_ip)
+
+    @property
+    @pulumi.getter(name="endIP")
+    def end_ip(self) -> Optional[str]:
+        """
+        Ending IP address for the IP Pool
+        """
+        return pulumi.get(self, "end_ip")
+
+    @property
+    @pulumi.getter(name="startIP")
+    def start_ip(self) -> Optional[str]:
+        """
+        Starting IP address for the IP Pool
+        """
+        return pulumi.get(self, "start_ip")
+
+
+@pulumi.output_type
+class VirtualNetworksPropertiesResponseVmipPool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endIP":
+            suggest = "end_ip"
+        elif key == "startIP":
+            suggest = "start_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseVmipPool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworksPropertiesResponseVmipPool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworksPropertiesResponseVmipPool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_ip: Optional[str] = None,
+                 start_ip: Optional[str] = None):
+        """
+        :param str end_ip: Ending IP address for the IP Pool
+        :param str start_ip: Starting IP address for the IP Pool
+        """
+        if end_ip is not None:
+            pulumi.set(__self__, "end_ip", end_ip)
+        if start_ip is not None:
+            pulumi.set(__self__, "start_ip", start_ip)
+
+    @property
+    @pulumi.getter(name="endIP")
+    def end_ip(self) -> Optional[str]:
+        """
+        Ending IP address for the IP Pool
+        """
+        return pulumi.get(self, "end_ip")
+
+    @property
+    @pulumi.getter(name="startIP")
+    def start_ip(self) -> Optional[str]:
+        """
+        Starting IP address for the IP Pool
+        """
+        return pulumi.get(self, "start_ip")
+
+
+@pulumi.output_type
+class VirtualNetworksPropertiesResponseVmware(dict):
+    """
+    Infra network profile for VMware platform
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "segmentName":
+            suggest = "segment_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseVmware. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworksPropertiesResponseVmware.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworksPropertiesResponseVmware.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 segment_name: Optional[str] = None):
+        """
+        Infra network profile for VMware platform
+        :param str segment_name: Name of the network segment in VSphere
+        """
+        if segment_name is not None:
+            pulumi.set(__self__, "segment_name", segment_name)
+
+    @property
+    @pulumi.getter(name="segmentName")
+    def segment_name(self) -> Optional[str]:
+        """
+        Name of the network segment in VSphere
+        """
+        return pulumi.get(self, "segment_name")
+
+
+@pulumi.output_type
+class VirtualNetworksResponseExtendedLocation(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str name: The extended location name.
+        :param str type: The extended location type.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The extended location name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The extended location type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

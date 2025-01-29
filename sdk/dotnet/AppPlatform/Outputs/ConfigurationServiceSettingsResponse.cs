@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// Property of git environment.
         /// </summary>
         public readonly Outputs.ConfigurationServiceGitPropertyResponse? GitProperty;
+        /// <summary>
+        /// How often (in seconds) to check repository updates. Minimum value is 0.
+        /// </summary>
+        public readonly int? RefreshIntervalInSeconds;
 
         [OutputConstructor]
-        private ConfigurationServiceSettingsResponse(Outputs.ConfigurationServiceGitPropertyResponse? gitProperty)
+        private ConfigurationServiceSettingsResponse(
+            Outputs.ConfigurationServiceGitPropertyResponse? gitProperty,
+
+            int? refreshIntervalInSeconds)
         {
             GitProperty = gitProperty;
+            RefreshIntervalInSeconds = refreshIntervalInSeconds;
         }
     }
 }

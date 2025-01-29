@@ -54,9 +54,9 @@ def list_open_shift_cluster_admin_credentials(resource_group_name: Optional[str]
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOpenShiftClusterAdminCredentialsResult:
     """
     The operation returns the admin kubeconfig.
-    Azure REST API version: 2022-09-04.
+    Azure REST API version: 2023-11-22.
 
-    Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+    Other available API versions: 2021-09-01-preview, 2022-04-01, 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -75,9 +75,9 @@ def list_open_shift_cluster_admin_credentials_output(resource_group_name: Option
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListOpenShiftClusterAdminCredentialsResult]:
     """
     The operation returns the admin kubeconfig.
-    Azure REST API version: 2022-09-04.
+    Azure REST API version: 2023-11-22.
 
-    Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+    Other available API versions: 2021-09-01-preview, 2022-04-01, 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

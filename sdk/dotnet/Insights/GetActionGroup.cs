@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get an action group.
-        /// Azure REST API version: 2023-01-01.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2017-04-01, 2018-03-01, 2018-09-01, 2019-03-01, 2019-06-01, 2021-09-01, 2022-04-01, 2022-06-01, 2023-01-01, 2023-09-01-preview.
         /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure-native:insights:getActionGroup", args ?? new GetActionGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an action group.
-        /// Azure REST API version: 2023-01-01.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2017-04-01, 2018-03-01, 2018-09-01, 2019-03-01, 2019-06-01, 2021-09-01, 2022-04-01, 2022-06-01, 2023-01-01, 2023-09-01-preview.
         /// </summary>
         public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure-native:insights:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an action group.
-        /// Azure REST API version: 2023-01-01.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2017-04-01, 2018-03-01, 2018-09-01, 2019-03-01, 2019-06-01, 2021-09-01, 2022-04-01, 2022-06-01, 2023-01-01, 2023-09-01-preview.
         /// </summary>
         public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure-native:insights:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithDefaults());
@@ -121,6 +121,14 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities)
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// The list of incident receivers that are part of this action group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IncidentReceiverResponse> IncidentReceivers;
+        /// <summary>
         /// The list of ITSM receivers that are part of this action group.
         /// </summary>
         public readonly ImmutableArray<Outputs.ItsmReceiverResponse> ItsmReceivers;
@@ -177,6 +185,10 @@ namespace Pulumi.AzureNative.Insights
 
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
+            ImmutableArray<Outputs.IncidentReceiverResponse> incidentReceivers,
+
             ImmutableArray<Outputs.ItsmReceiverResponse> itsmReceivers,
 
             string location,
@@ -204,6 +216,8 @@ namespace Pulumi.AzureNative.Insights
             EventHubReceivers = eventHubReceivers;
             GroupShortName = groupShortName;
             Id = id;
+            Identity = identity;
+            IncidentReceivers = incidentReceivers;
             ItsmReceivers = itsmReceivers;
             Location = location;
             LogicAppReceivers = logicAppReceivers;

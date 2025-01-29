@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the Hybrid AKS virtual network
  * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2022-05-01-preview, 2023-11-15-preview, 2024-01-01.
  */
 export function getVirtualNetworkRetrieve(args: GetVirtualNetworkRetrieveArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRetrieveResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,6 +69,8 @@ export interface GetVirtualNetworkRetrieveResult {
 /**
  * Gets the Hybrid AKS virtual network
  * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2022-05-01-preview, 2023-11-15-preview, 2024-01-01.
  */
 export function getVirtualNetworkRetrieveOutput(args: GetVirtualNetworkRetrieveOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkRetrieveResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -165,6 +165,8 @@ def get_device(device_name: Optional[str] = None,
     Gets information about the specified device.
     Azure REST API version: 2022-01-01-preview.
 
+    Other available API versions: 2020-01-01-preview, 2021-05-01.
+
 
     :param str device_name: The name of the device resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -192,6 +194,8 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about the specified device.
     Azure REST API version: 2022-01-01-preview.
+
+    Other available API versions: 2020-01-01-preview, 2021-05-01.
 
 
     :param str device_name: The name of the device resource.

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The resource proxy definition object for quantum workspace.
- * Azure REST API version: 2022-01-10-preview. Prior API version in Azure Native 1.x: 2019-11-04-preview.
+ * Azure REST API version: 2023-11-13-preview. Prior API version in Azure Native 2.x: 2022-01-10-preview.
  *
- * Other available API versions: 2023-11-13-preview.
+ * Other available API versions: 2019-11-04-preview, 2022-01-10-preview.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
+     * Indicator of enablement of the Quantum workspace Api keys.
+     */
+    public readonly apiKeyEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The URI of the workspace endpoint.
      */
     public /*out*/ readonly endpointUri!: pulumi.Output<string>;
@@ -69,7 +73,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly storageAccount!: pulumi.Output<string | undefined>;
     /**
-     * System metadata
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.quantum.SystemDataResponse>;
     /**
@@ -99,6 +103,7 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["apiKeyEnabled"] = args ? args.apiKeyEnabled : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["providers"] = args ? args.providers : undefined;
@@ -113,6 +118,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["usable"] = undefined /*out*/;
         } else {
+            resourceInputs["apiKeyEnabled"] = undefined /*out*/;
             resourceInputs["endpointUri"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -137,6 +143,10 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceArgs {
     /**
+     * Indicator of enablement of the Quantum workspace Api keys.
+     */
+    apiKeyEnabled?: pulumi.Input<boolean>;
+    /**
      * Managed Identity information.
      */
     identity?: pulumi.Input<inputs.quantum.QuantumWorkspaceIdentityArgs>;
@@ -149,7 +159,7 @@ export interface WorkspaceArgs {
      */
     providers?: pulumi.Input<pulumi.Input<inputs.quantum.ProviderArgs>[]>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

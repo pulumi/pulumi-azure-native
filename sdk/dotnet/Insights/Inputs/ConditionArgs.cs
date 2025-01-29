@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// </summary>
     public sealed class ConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        /// </summary>
+        [Input("alertSensitivity")]
+        public Input<string>? AlertSensitivity { get; set; }
+
+        /// <summary>
+        /// Specifies the type of threshold criteria
+        /// </summary>
+        [Input("criterionType")]
+        public InputUnion<string, Pulumi.AzureNative.Insights.CriterionType>? CriterionType { get; set; }
+
         [Input("dimensions")]
         private InputList<Inputs.DimensionArgs>? _dimensions;
 
@@ -32,6 +44,12 @@ namespace Pulumi.AzureNative.Insights.Inputs
         /// </summary>
         [Input("failingPeriods")]
         public Input<Inputs.ConditionFailingPeriodsArgs>? FailingPeriods { get; set; }
+
+        /// <summary>
+        /// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
+        /// </summary>
+        [Input("ignoreDataBefore")]
+        public Input<string>? IgnoreDataBefore { get; set; }
 
         /// <summary>
         /// The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
@@ -64,7 +82,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public Input<string>? ResourceIdColumn { get; set; }
 
         /// <summary>
-        /// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
+        /// the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
         /// </summary>
         [Input("threshold")]
         public Input<double>? Threshold { get; set; }

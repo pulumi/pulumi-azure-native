@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     {
         /// <summary>
         /// The operation returns properties of a Secret.
-        /// Azure REST API version: 2022-09-04.
+        /// Azure REST API version: 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:redhatopenshift:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns properties of a Secret.
-        /// Azure REST API version: 2022-09-04.
+        /// Azure REST API version: 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:redhatopenshift:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns properties of a Secret.
-        /// Azure REST API version: 2022-09-04.
+        /// Azure REST API version: 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:redhatopenshift:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());

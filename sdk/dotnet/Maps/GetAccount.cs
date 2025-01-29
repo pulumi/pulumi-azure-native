@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Maps
     {
         /// <summary>
         /// Get a Maps Account.
-        /// Azure REST API version: 2021-02-01.
+        /// Azure REST API version: 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2018-05-01, 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:maps:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Maps Account.
-        /// Azure REST API version: 2021-02-01.
+        /// Azure REST API version: 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2018-05-01, 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:maps:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Maps Account.
-        /// Azure REST API version: 2021-02-01.
+        /// Azure REST API version: 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2018-05-01, 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:maps:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -85,9 +85,13 @@ namespace Pulumi.AzureNative.Maps
     public sealed class GetAccountResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities)
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Get or Set Kind property.
         /// </summary>
@@ -109,7 +113,7 @@ namespace Pulumi.AzureNative.Maps
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.Maps
         [OutputConstructor]
         private GetAccountResult(
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? kind,
 
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNative.Maps
             string type)
         {
             Id = id;
+            Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;

@@ -2,6 +2,53 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ClusteringPolicy = {
+    EnterpriseCluster: "EnterpriseCluster",
+    OSSCluster: "OSSCluster",
+} as const;
+
+/**
+ * Clustering policy - default is OSSCluster. Specified at create time.
+ */
+export type ClusteringPolicy = (typeof ClusteringPolicy)[keyof typeof ClusteringPolicy];
+
+export const EvictionPolicy = {
+    AllKeysLFU: "AllKeysLFU",
+    AllKeysLRU: "AllKeysLRU",
+    AllKeysRandom: "AllKeysRandom",
+    VolatileLRU: "VolatileLRU",
+    VolatileLFU: "VolatileLFU",
+    VolatileTTL: "VolatileTTL",
+    VolatileRandom: "VolatileRandom",
+    NoEviction: "NoEviction",
+} as const;
+
+/**
+ * Redis eviction policy - default is VolatileLRU
+ */
+export type EvictionPolicy = (typeof EvictionPolicy)[keyof typeof EvictionPolicy];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const Protocol = {
+    Encrypted: "Encrypted",
+    Plaintext: "Plaintext",
+} as const;
+
+/**
+ * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+
 export const SkuName = {
     Enterprise_E10: "Enterprise_E10",
     Enterprise_E20: "Enterprise_E20",

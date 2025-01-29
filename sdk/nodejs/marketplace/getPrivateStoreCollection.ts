@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets private store collection
  * Azure REST API version: 2023-01-01.
+ *
+ * Other available API versions: 2021-06-01, 2021-12-01, 2022-03-01, 2022-09-01.
  */
 export function getPrivateStoreCollection(args: GetPrivateStoreCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,6 +96,8 @@ export interface GetPrivateStoreCollectionResult {
 /**
  * Gets private store collection
  * Azure REST API version: 2023-01-01.
+ *
+ * Other available API versions: 2021-06-01, 2021-12-01, 2022-03-01, 2022-09-01.
  */
 export function getPrivateStoreCollectionOutput(args: GetPrivateStoreCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateStoreCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

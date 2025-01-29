@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Implements virtual machine GET method.
- * Azure REST API version: 2022-07-15-preview.
+ * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2020-10-01-preview, 2022-01-10-preview, 2022-07-15-preview.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -113,7 +113,7 @@ export interface GetVirtualMachineResult {
      */
     readonly powerState: string;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     readonly provisioningState: string;
     /**
@@ -168,9 +168,9 @@ export interface GetVirtualMachineResult {
 }
 /**
  * Implements virtual machine GET method.
- * Azure REST API version: 2022-07-15-preview.
+ * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2020-10-01-preview, 2022-01-10-preview, 2022-07-15-preview.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

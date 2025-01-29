@@ -27,7 +27,7 @@ class GetManagedEnvironmentResult:
     """
     An environment for hosting container apps
     """
-    def __init__(__self__, app_logs_configuration=None, custom_domain_configuration=None, dapr_ai_connection_string=None, dapr_ai_instrumentation_key=None, default_domain=None, deployment_errors=None, event_stream_endpoint=None, id=None, kind=None, location=None, name=None, provisioning_state=None, sku=None, static_ip=None, system_data=None, tags=None, type=None, vnet_configuration=None, workload_profiles=None, zone_redundant=None):
+    def __init__(__self__, app_logs_configuration=None, custom_domain_configuration=None, dapr_ai_connection_string=None, dapr_ai_instrumentation_key=None, dapr_configuration=None, default_domain=None, deployment_errors=None, event_stream_endpoint=None, id=None, infrastructure_resource_group=None, keda_configuration=None, kind=None, location=None, name=None, peer_authentication=None, peer_traffic_configuration=None, provisioning_state=None, static_ip=None, system_data=None, tags=None, type=None, vnet_configuration=None, workload_profiles=None, zone_redundant=None):
         if app_logs_configuration and not isinstance(app_logs_configuration, dict):
             raise TypeError("Expected argument 'app_logs_configuration' to be a dict")
         pulumi.set(__self__, "app_logs_configuration", app_logs_configuration)
@@ -40,6 +40,9 @@ class GetManagedEnvironmentResult:
         if dapr_ai_instrumentation_key and not isinstance(dapr_ai_instrumentation_key, str):
             raise TypeError("Expected argument 'dapr_ai_instrumentation_key' to be a str")
         pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
+        if dapr_configuration and not isinstance(dapr_configuration, dict):
+            raise TypeError("Expected argument 'dapr_configuration' to be a dict")
+        pulumi.set(__self__, "dapr_configuration", dapr_configuration)
         if default_domain and not isinstance(default_domain, str):
             raise TypeError("Expected argument 'default_domain' to be a str")
         pulumi.set(__self__, "default_domain", default_domain)
@@ -52,6 +55,12 @@ class GetManagedEnvironmentResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if infrastructure_resource_group and not isinstance(infrastructure_resource_group, str):
+            raise TypeError("Expected argument 'infrastructure_resource_group' to be a str")
+        pulumi.set(__self__, "infrastructure_resource_group", infrastructure_resource_group)
+        if keda_configuration and not isinstance(keda_configuration, dict):
+            raise TypeError("Expected argument 'keda_configuration' to be a dict")
+        pulumi.set(__self__, "keda_configuration", keda_configuration)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -61,12 +70,15 @@ class GetManagedEnvironmentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if peer_authentication and not isinstance(peer_authentication, dict):
+            raise TypeError("Expected argument 'peer_authentication' to be a dict")
+        pulumi.set(__self__, "peer_authentication", peer_authentication)
+        if peer_traffic_configuration and not isinstance(peer_traffic_configuration, dict):
+            raise TypeError("Expected argument 'peer_traffic_configuration' to be a dict")
+        pulumi.set(__self__, "peer_traffic_configuration", peer_traffic_configuration)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        pulumi.set(__self__, "sku", sku)
         if static_ip and not isinstance(static_ip, str):
             raise TypeError("Expected argument 'static_ip' to be a str")
         pulumi.set(__self__, "static_ip", static_ip)
@@ -122,6 +134,14 @@ class GetManagedEnvironmentResult:
         return pulumi.get(self, "dapr_ai_instrumentation_key")
 
     @property
+    @pulumi.getter(name="daprConfiguration")
+    def dapr_configuration(self) -> Optional['outputs.DaprConfigurationResponse']:
+        """
+        The configuration of Dapr component.
+        """
+        return pulumi.get(self, "dapr_configuration")
+
+    @property
     @pulumi.getter(name="defaultDomain")
     def default_domain(self) -> str:
         """
@@ -154,6 +174,22 @@ class GetManagedEnvironmentResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="infrastructureResourceGroup")
+    def infrastructure_resource_group(self) -> Optional[str]:
+        """
+        Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
+        """
+        return pulumi.get(self, "infrastructure_resource_group")
+
+    @property
+    @pulumi.getter(name="kedaConfiguration")
+    def keda_configuration(self) -> Optional['outputs.KedaConfigurationResponse']:
+        """
+        The configuration of Keda component.
+        """
+        return pulumi.get(self, "keda_configuration")
+
+    @property
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
@@ -178,20 +214,28 @@ class GetManagedEnvironmentResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="peerAuthentication")
+    def peer_authentication(self) -> Optional['outputs.ManagedEnvironmentResponsePeerAuthentication']:
+        """
+        Peer authentication settings for the Managed Environment
+        """
+        return pulumi.get(self, "peer_authentication")
+
+    @property
+    @pulumi.getter(name="peerTrafficConfiguration")
+    def peer_traffic_configuration(self) -> Optional['outputs.ManagedEnvironmentResponsePeerTrafficConfiguration']:
+        """
+        Peer traffic settings for the Managed Environment
+        """
+        return pulumi.get(self, "peer_traffic_configuration")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         Provisioning state of the Environment.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional['outputs.EnvironmentSkuPropertiesResponse']:
-        """
-        SKU properties of the Environment.
-        """
-        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="staticIp")
@@ -260,15 +304,19 @@ class AwaitableGetManagedEnvironmentResult(GetManagedEnvironmentResult):
             custom_domain_configuration=self.custom_domain_configuration,
             dapr_ai_connection_string=self.dapr_ai_connection_string,
             dapr_ai_instrumentation_key=self.dapr_ai_instrumentation_key,
+            dapr_configuration=self.dapr_configuration,
             default_domain=self.default_domain,
             deployment_errors=self.deployment_errors,
             event_stream_endpoint=self.event_stream_endpoint,
             id=self.id,
+            infrastructure_resource_group=self.infrastructure_resource_group,
+            keda_configuration=self.keda_configuration,
             kind=self.kind,
             location=self.location,
             name=self.name,
+            peer_authentication=self.peer_authentication,
+            peer_traffic_configuration=self.peer_traffic_configuration,
             provisioning_state=self.provisioning_state,
-            sku=self.sku,
             static_ip=self.static_ip,
             system_data=self.system_data,
             tags=self.tags,
@@ -283,9 +331,9 @@ def get_managed_environment(environment_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedEnvironmentResult:
     """
     Get the properties of a Managed Environment used to host container apps.
-    Azure REST API version: 2022-10-01.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2022-01-01-preview, 2022-03-01, 2022-06-01-preview, 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
 
 
     :param str environment_name: Name of the Environment.
@@ -302,15 +350,19 @@ def get_managed_environment(environment_name: Optional[str] = None,
         custom_domain_configuration=pulumi.get(__ret__, 'custom_domain_configuration'),
         dapr_ai_connection_string=pulumi.get(__ret__, 'dapr_ai_connection_string'),
         dapr_ai_instrumentation_key=pulumi.get(__ret__, 'dapr_ai_instrumentation_key'),
+        dapr_configuration=pulumi.get(__ret__, 'dapr_configuration'),
         default_domain=pulumi.get(__ret__, 'default_domain'),
         deployment_errors=pulumi.get(__ret__, 'deployment_errors'),
         event_stream_endpoint=pulumi.get(__ret__, 'event_stream_endpoint'),
         id=pulumi.get(__ret__, 'id'),
+        infrastructure_resource_group=pulumi.get(__ret__, 'infrastructure_resource_group'),
+        keda_configuration=pulumi.get(__ret__, 'keda_configuration'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        peer_authentication=pulumi.get(__ret__, 'peer_authentication'),
+        peer_traffic_configuration=pulumi.get(__ret__, 'peer_traffic_configuration'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        sku=pulumi.get(__ret__, 'sku'),
         static_ip=pulumi.get(__ret__, 'static_ip'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -323,9 +375,9 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[str]]
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedEnvironmentResult]:
     """
     Get the properties of a Managed Environment used to host container apps.
-    Azure REST API version: 2022-10-01.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2022-01-01-preview, 2022-03-01, 2022-06-01-preview, 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
 
 
     :param str environment_name: Name of the Environment.
@@ -341,15 +393,19 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[str]]
         custom_domain_configuration=pulumi.get(__response__, 'custom_domain_configuration'),
         dapr_ai_connection_string=pulumi.get(__response__, 'dapr_ai_connection_string'),
         dapr_ai_instrumentation_key=pulumi.get(__response__, 'dapr_ai_instrumentation_key'),
+        dapr_configuration=pulumi.get(__response__, 'dapr_configuration'),
         default_domain=pulumi.get(__response__, 'default_domain'),
         deployment_errors=pulumi.get(__response__, 'deployment_errors'),
         event_stream_endpoint=pulumi.get(__response__, 'event_stream_endpoint'),
         id=pulumi.get(__response__, 'id'),
+        infrastructure_resource_group=pulumi.get(__response__, 'infrastructure_resource_group'),
+        keda_configuration=pulumi.get(__response__, 'keda_configuration'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        peer_authentication=pulumi.get(__response__, 'peer_authentication'),
+        peer_traffic_configuration=pulumi.get(__response__, 'peer_traffic_configuration'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        sku=pulumi.get(__response__, 'sku'),
         static_ip=pulumi.get(__response__, 'static_ip'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

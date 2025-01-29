@@ -166,6 +166,8 @@ def get_template_spec(expand: Optional[str] = None,
     Gets a Template Spec with a given name.
     Azure REST API version: 2022-02-01.
 
+    Other available API versions: 2019-06-01-preview, 2021-03-01-preview, 2021-05-01.
+
 
     :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -196,6 +198,8 @@ def get_template_spec_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     """
     Gets a Template Spec with a given name.
     Azure REST API version: 2022-02-01.
+
+    Other available API versions: 2019-06-01-preview, 2021-03-01-preview, 2021-05-01.
 
 
     :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.

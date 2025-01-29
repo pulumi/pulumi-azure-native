@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// An action group resource.
-    /// Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2019-06-01.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-01-01.
     /// 
-    /// Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
+    /// Other available API versions: 2017-04-01, 2018-03-01, 2018-09-01, 2019-03-01, 2019-06-01, 2021-09-01, 2022-04-01, 2022-06-01, 2023-01-01, 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ActionGroup")]
     public partial class ActionGroup : global::Pulumi.CustomResource
@@ -65,6 +65,18 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("groupShortName")]
         public Output<string> GroupShortName { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities)
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of incident receivers that are part of this action group.
+        /// </summary>
+        [Output("incidentReceivers")]
+        public Output<ImmutableArray<Outputs.IncidentReceiverResponse>> IncidentReceivers { get; private set; } = null!;
 
         /// <summary>
         /// The list of ITSM receivers that are part of this action group.
@@ -268,6 +280,24 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Input("groupShortName", required: true)]
         public Input<string> GroupShortName { get; set; } = null!;
+
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities)
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        [Input("incidentReceivers")]
+        private InputList<Inputs.IncidentReceiverArgs>? _incidentReceivers;
+
+        /// <summary>
+        /// The list of incident receivers that are part of this action group.
+        /// </summary>
+        public InputList<Inputs.IncidentReceiverArgs> IncidentReceivers
+        {
+            get => _incidentReceivers ?? (_incidentReceivers = new InputList<Inputs.IncidentReceiverArgs>());
+            set => _incidentReceivers = value;
+        }
 
         [Input("itsmReceivers")]
         private InputList<Inputs.ItsmReceiverArgs>? _itsmReceivers;

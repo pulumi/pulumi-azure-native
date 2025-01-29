@@ -212,7 +212,7 @@ class ADLSGen2FolderDataSetMapping(pulumi.CustomResource):
                  __props__=None):
         """
         An ADLS Gen2 folder data set mapping.
-        Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +237,7 @@ class ADLSGen2FolderDataSetMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An ADLS Gen2 folder data set mapping.
-        Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param ADLSGen2FolderDataSetMappingArgs args: The arguments to use to populate this resource's properties.

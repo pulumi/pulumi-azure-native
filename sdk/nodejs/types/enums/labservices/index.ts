@@ -3,47 +3,18 @@
 
 // Export sub-modules:
 import * as v20181015 from "./v20181015";
+import * as v20211001preview from "./v20211001preview";
+import * as v20211115preview from "./v20211115preview";
 import * as v20220801 from "./v20220801";
 import * as v20230607 from "./v20230607";
 
 export {
     v20181015,
+    v20211001preview,
+    v20211115preview,
     v20220801,
     v20230607,
 };
-
-export const AddRemove = {
-    /**
-     * Indicates that a user is adding a favorite lab
-     */
-    Add: "Add",
-    /**
-     * Indicates that a user is removing a favorite lab
-     */
-    Remove: "Remove",
-} as const;
-
-/**
- * Enum indicating if user is adding or removing a favorite lab
- */
-export type AddRemove = (typeof AddRemove)[keyof typeof AddRemove];
-
-export const ConfigurationState = {
-    /**
-     * User either hasn't started configuring their template
-     * or they haven't started the configuration process.
-     */
-    NotApplicable: "NotApplicable",
-    /**
-     * User is finished modifying the template.
-     */
-    Completed: "Completed",
-} as const;
-
-/**
- * Describes the user's progress in configuring their environment setting
- */
-export type ConfigurationState = (typeof ConfigurationState)[keyof typeof ConfigurationState];
 
 export const ConnectionType = {
     Public: "Public",
@@ -81,26 +52,6 @@ export const EnableState = {
  * Whether a VM will get shutdown when it hasn't been connected to after a period of time.
  */
 export type EnableState = (typeof EnableState)[keyof typeof EnableState];
-
-export const ManagedLabVmSize = {
-    /**
-     * The base VM size
-     */
-    Basic: "Basic",
-    /**
-     * The standard or default VM size
-     */
-    Standard: "Standard",
-    /**
-     * The most performant VM size
-     */
-    Performance: "Performance",
-} as const;
-
-/**
- * The size of the virtual machine
- */
-export type ManagedLabVmSize = (typeof ManagedLabVmSize)[keyof typeof ManagedLabVmSize];
 
 export const RecurrenceFrequency = {
     /**

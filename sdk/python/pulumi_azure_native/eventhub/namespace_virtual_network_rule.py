@@ -98,7 +98,7 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in a List or Get VirtualNetworkRules operation
-        Azure REST API version: 2018-01-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+        Azure REST API version: 2018-01-01-preview. Prior API version in Azure Native 2.x: 2018-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,7 +115,7 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in a List or Get VirtualNetworkRules operation
-        Azure REST API version: 2018-01-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+        Azure REST API version: 2018-01-01-preview. Prior API version in Azure Native 2.x: 2018-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NamespaceVirtualNetworkRuleArgs args: The arguments to use to populate this resource's properties.

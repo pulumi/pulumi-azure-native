@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets a datasource instance.
-        /// Azure REST API version: 2020-08-01.
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview, 2023-09-01.
+        /// Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01.
         /// </summary>
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a datasource instance.
-        /// Azure REST API version: 2020-08-01.
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview, 2023-09-01.
+        /// Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01.
         /// </summary>
         public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a datasource instance.
-        /// Azure REST API version: 2020-08-01.
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2015-11-01-preview, 2023-09-01.
+        /// Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01.
         /// </summary>
         public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("azure-native:operationalinsights:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());

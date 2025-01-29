@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ClusterPoolArgs', 'ClusterPool']
@@ -185,9 +186,9 @@ class ClusterPool(pulumi.CustomResource):
                  __props__=None):
         """
         Cluster pool.
-        Azure REST API version: 2023-06-01-preview.
+        Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
+        Other available API versions: 2023-06-01-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,9 +210,9 @@ class ClusterPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cluster pool.
-        Azure REST API version: 2023-06-01-preview.
+        Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
+        Other available API versions: 2023-06-01-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ClusterPoolArgs args: The arguments to use to populate this resource's properties.

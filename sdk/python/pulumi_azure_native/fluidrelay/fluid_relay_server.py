@@ -170,9 +170,9 @@ class FluidRelayServer(pulumi.CustomResource):
                  __props__=None):
         """
         A FluidRelay Server.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2021-03-12-preview.
+        Azure REST API version: 2022-06-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
-        Other available API versions: 2021-06-15-preview.
+        Other available API versions: 2021-03-12-preview, 2021-06-15-preview, 2021-08-30-preview, 2021-09-10-preview, 2022-02-15, 2022-04-21, 2022-05-11, 2022-05-26.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,9 +193,9 @@ class FluidRelayServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A FluidRelay Server.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2021-03-12-preview.
+        Azure REST API version: 2022-06-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
-        Other available API versions: 2021-06-15-preview.
+        Other available API versions: 2021-03-12-preview, 2021-06-15-preview, 2021-08-30-preview, 2021-09-10-preview, 2022-02-15, 2022-04-21, 2022-05-11, 2022-05-26.
 
         :param str resource_name: The name of the resource.
         :param FluidRelayServerArgs args: The arguments to use to populate this resource's properties.

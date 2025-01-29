@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// An HCX Enterprise Site resource
-    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
     /// 
-    /// Other available API versions: 2023-03-01, 2023-09-01.
+    /// Other available API versions: 2020-03-20, 2020-07-17-preview, 2021-01-01-preview, 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:HcxEnterpriseSite")]
     public partial class HcxEnterpriseSite : global::Pulumi.CustomResource
@@ -25,10 +25,16 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> ActivationKey { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The status of the HCX Enterprise Site
@@ -37,7 +43,13 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -99,13 +111,13 @@ namespace Pulumi.AzureNative.AVS
     public sealed class HcxEnterpriseSiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the HCX Enterprise Site in the private cloud
+        /// Name of the HCX Enterprise Site
         /// </summary>
         [Input("hcxEnterpriseSiteName")]
         public Input<string>? HcxEnterpriseSiteName { get; set; }
 
         /// <summary>
-        /// The name of the private cloud.
+        /// Name of the private cloud
         /// </summary>
         [Input("privateCloudName", required: true)]
         public Input<string> PrivateCloudName { get; set; } = null!;

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets a storage insight instance.
-        /// Azure REST API version: 2020-08-01.
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2020-03-01-preview, 2020-08-01.
         /// </summary>
         public static Task<GetStorageInsightConfigResult> InvokeAsync(GetStorageInsightConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageInsightConfigResult>("azure-native:operationalinsights:getStorageInsightConfig", args ?? new GetStorageInsightConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a storage insight instance.
-        /// Azure REST API version: 2020-08-01.
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2020-03-01-preview, 2020-08-01.
         /// </summary>
         public static Output<GetStorageInsightConfigResult> Invoke(GetStorageInsightConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageInsightConfigResult>("azure-native:operationalinsights:getStorageInsightConfig", args ?? new GetStorageInsightConfigInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a storage insight instance.
-        /// Azure REST API version: 2020-08-01.
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-09-01.
+        /// Other available API versions: 2020-03-01-preview, 2020-08-01.
         /// </summary>
         public static Output<GetStorageInsightConfigResult> Invoke(GetStorageInsightConfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageInsightConfigResult>("azure-native:operationalinsights:getStorageInsightConfig", args ?? new GetStorageInsightConfigInvokeArgs(), options.WithDefaults());

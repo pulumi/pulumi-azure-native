@@ -17,26 +17,395 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ActiveConnectivityConfigurationResponse',
+    'ActiveDefaultSecurityAdminRuleResponse',
     'ActiveDefaultSecurityUserRuleResponse',
+    'ActiveSecurityAdminRuleResponse',
     'ActiveSecurityUserRuleResponse',
     'AddressPrefixItemResponse',
     'ConfigurationGroupResponse',
     'ConnectivityGroupItemResponse',
-    'DnsConfigResponse',
+    'CrossTenantScopesResponse',
     'EffectiveConnectivityConfigurationResponse',
     'EffectiveDefaultSecurityAdminRuleResponse',
     'EffectiveSecurityAdminRuleResponse',
     'EffectiveVirtualNetworkResponse',
-    'EndpointPropertiesResponseCustomHeaders',
-    'EndpointPropertiesResponseSubnets',
-    'EndpointResponse',
     'HubResponse',
-    'MonitorConfigResponse',
-    'MonitorConfigResponseCustomHeaders',
-    'MonitorConfigResponseExpectedStatusCodeRanges',
+    'NetworkManagerDeploymentStatusResponse',
+    'NetworkManagerPropertiesResponseNetworkManagerScopes',
     'NetworkManagerSecurityGroupItemResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class ActiveConnectivityConfigurationResponse(dict):
+    """
+    Active connectivity configuration.
+    """
+    def __init__(__self__, *,
+                 applies_to_groups: Sequence['outputs.ConnectivityGroupItemResponse'],
+                 connectivity_topology: str,
+                 provisioning_state: str,
+                 commit_time: Optional[str] = None,
+                 configuration_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+                 delete_existing_peering: Optional[str] = None,
+                 description: Optional[str] = None,
+                 hubs: Optional[Sequence['outputs.HubResponse']] = None,
+                 id: Optional[str] = None,
+                 is_global: Optional[str] = None,
+                 region: Optional[str] = None):
+        """
+        Active connectivity configuration.
+        :param Sequence['ConnectivityGroupItemResponse'] applies_to_groups: Groups for configuration
+        :param str connectivity_topology: Connectivity topology type.
+        :param str provisioning_state: The provisioning state of the connectivity configuration resource.
+        :param str commit_time: Deployment time string.
+        :param Sequence['ConfigurationGroupResponse'] configuration_groups: Effective configuration groups.
+        :param str delete_existing_peering: Flag if need to remove current existing peerings.
+        :param str description: A description of the connectivity configuration.
+        :param Sequence['HubResponse'] hubs: List of hubItems
+        :param str id: Resource ID.
+        :param str is_global: Flag if global mesh is supported.
+        :param str region: Deployment region.
+        """
+        pulumi.set(__self__, "applies_to_groups", applies_to_groups)
+        pulumi.set(__self__, "connectivity_topology", connectivity_topology)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if commit_time is not None:
+            pulumi.set(__self__, "commit_time", commit_time)
+        if configuration_groups is not None:
+            pulumi.set(__self__, "configuration_groups", configuration_groups)
+        if delete_existing_peering is not None:
+            pulumi.set(__self__, "delete_existing_peering", delete_existing_peering)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if hubs is not None:
+            pulumi.set(__self__, "hubs", hubs)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if is_global is not None:
+            pulumi.set(__self__, "is_global", is_global)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="appliesToGroups")
+    def applies_to_groups(self) -> Sequence['outputs.ConnectivityGroupItemResponse']:
+        """
+        Groups for configuration
+        """
+        return pulumi.get(self, "applies_to_groups")
+
+    @property
+    @pulumi.getter(name="connectivityTopology")
+    def connectivity_topology(self) -> str:
+        """
+        Connectivity topology type.
+        """
+        return pulumi.get(self, "connectivity_topology")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the connectivity configuration resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="commitTime")
+    def commit_time(self) -> Optional[str]:
+        """
+        Deployment time string.
+        """
+        return pulumi.get(self, "commit_time")
+
+    @property
+    @pulumi.getter(name="configurationGroups")
+    def configuration_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponse']]:
+        """
+        Effective configuration groups.
+        """
+        return pulumi.get(self, "configuration_groups")
+
+    @property
+    @pulumi.getter(name="deleteExistingPeering")
+    def delete_existing_peering(self) -> Optional[str]:
+        """
+        Flag if need to remove current existing peerings.
+        """
+        return pulumi.get(self, "delete_existing_peering")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the connectivity configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def hubs(self) -> Optional[Sequence['outputs.HubResponse']]:
+        """
+        List of hubItems
+        """
+        return pulumi.get(self, "hubs")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isGlobal")
+    def is_global(self) -> Optional[str]:
+        """
+        Flag if global mesh is supported.
+        """
+        return pulumi.get(self, "is_global")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Deployment region.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class ActiveDefaultSecurityAdminRuleResponse(dict):
+    """
+    Network default admin rule.
+    """
+    def __init__(__self__, *,
+                 access: str,
+                 description: str,
+                 destination_port_ranges: Sequence[str],
+                 destinations: Sequence['outputs.AddressPrefixItemResponse'],
+                 direction: str,
+                 kind: str,
+                 priority: int,
+                 protocol: str,
+                 provisioning_state: str,
+                 source_port_ranges: Sequence[str],
+                 sources: Sequence['outputs.AddressPrefixItemResponse'],
+                 commit_time: Optional[str] = None,
+                 configuration_description: Optional[str] = None,
+                 flag: Optional[str] = None,
+                 id: Optional[str] = None,
+                 region: Optional[str] = None,
+                 rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
+                 rule_collection_description: Optional[str] = None,
+                 rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None):
+        """
+        Network default admin rule.
+        :param str access: Indicates the access allowed for this particular rule
+        :param str description: A description for this rule. Restricted to 140 chars.
+        :param Sequence[str] destination_port_ranges: The destination port ranges.
+        :param Sequence['AddressPrefixItemResponse'] destinations: The destination address prefixes. CIDR or destination IP ranges.
+        :param str direction: Indicates if the traffic matched against the rule in inbound or outbound.
+        :param str kind: Whether the rule is custom or default.
+               Expected value is 'Default'.
+        :param int priority: The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        :param str protocol: Network protocol this rule applies to.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param Sequence[str] source_port_ranges: The source port ranges.
+        :param Sequence['AddressPrefixItemResponse'] sources: The CIDR or source IP ranges.
+        :param str commit_time: Deployment time string.
+        :param str configuration_description: A description of the security admin configuration.
+        :param str flag: Default rule flag.
+        :param str id: Resource ID.
+        :param str region: Deployment region.
+        :param Sequence['NetworkManagerSecurityGroupItemResponse'] rule_collection_applies_to_groups: Groups for rule collection
+        :param str rule_collection_description: A description of the rule collection.
+        :param Sequence['ConfigurationGroupResponse'] rule_groups: Effective configuration groups.
+        """
+        pulumi.set(__self__, "access", access)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "kind", 'Default')
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+        pulumi.set(__self__, "sources", sources)
+        if commit_time is not None:
+            pulumi.set(__self__, "commit_time", commit_time)
+        if configuration_description is not None:
+            pulumi.set(__self__, "configuration_description", configuration_description)
+        if flag is not None:
+            pulumi.set(__self__, "flag", flag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if rule_collection_applies_to_groups is not None:
+            pulumi.set(__self__, "rule_collection_applies_to_groups", rule_collection_applies_to_groups)
+        if rule_collection_description is not None:
+            pulumi.set(__self__, "rule_collection_description", rule_collection_description)
+        if rule_groups is not None:
+            pulumi.set(__self__, "rule_groups", rule_groups)
+
+    @property
+    @pulumi.getter
+    def access(self) -> str:
+        """
+        Indicates the access allowed for this particular rule
+        """
+        return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Sequence[str]:
+        """
+        The destination port ranges.
+        """
+        return pulumi.get(self, "destination_port_ranges")
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Sequence['outputs.AddressPrefixItemResponse']:
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        Indicates if the traffic matched against the rule in inbound or outbound.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Whether the rule is custom or default.
+        Expected value is 'Default'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Network protocol this rule applies to.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Sequence[str]:
+        """
+        The source port ranges.
+        """
+        return pulumi.get(self, "source_port_ranges")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Sequence['outputs.AddressPrefixItemResponse']:
+        """
+        The CIDR or source IP ranges.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter(name="commitTime")
+    def commit_time(self) -> Optional[str]:
+        """
+        Deployment time string.
+        """
+        return pulumi.get(self, "commit_time")
+
+    @property
+    @pulumi.getter(name="configurationDescription")
+    def configuration_description(self) -> Optional[str]:
+        """
+        A description of the security admin configuration.
+        """
+        return pulumi.get(self, "configuration_description")
+
+    @property
+    @pulumi.getter
+    def flag(self) -> Optional[str]:
+        """
+        Default rule flag.
+        """
+        return pulumi.get(self, "flag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Deployment region.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="ruleCollectionAppliesToGroups")
+    def rule_collection_applies_to_groups(self) -> Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']]:
+        """
+        Groups for rule collection
+        """
+        return pulumi.get(self, "rule_collection_applies_to_groups")
+
+    @property
+    @pulumi.getter(name="ruleCollectionDescription")
+    def rule_collection_description(self) -> Optional[str]:
+        """
+        A description of the rule collection.
+        """
+        return pulumi.get(self, "rule_collection_description")
+
+    @property
+    @pulumi.getter(name="ruleGroups")
+    def rule_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponse']]:
+        """
+        Effective configuration groups.
+        """
+        return pulumi.get(self, "rule_groups")
+
 
 @pulumi.output_type
 class ActiveDefaultSecurityUserRuleResponse(dict):
@@ -244,6 +613,229 @@ class ActiveDefaultSecurityUserRuleResponse(dict):
         Effective configuration groups.
         """
         return pulumi.get(self, "rule_groups")
+
+
+@pulumi.output_type
+class ActiveSecurityAdminRuleResponse(dict):
+    """
+    Network admin rule.
+    """
+    def __init__(__self__, *,
+                 access: str,
+                 direction: str,
+                 kind: str,
+                 priority: int,
+                 protocol: str,
+                 provisioning_state: str,
+                 commit_time: Optional[str] = None,
+                 configuration_description: Optional[str] = None,
+                 description: Optional[str] = None,
+                 destination_port_ranges: Optional[Sequence[str]] = None,
+                 destinations: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None,
+                 id: Optional[str] = None,
+                 region: Optional[str] = None,
+                 rule_collection_applies_to_groups: Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']] = None,
+                 rule_collection_description: Optional[str] = None,
+                 rule_groups: Optional[Sequence['outputs.ConfigurationGroupResponse']] = None,
+                 source_port_ranges: Optional[Sequence[str]] = None,
+                 sources: Optional[Sequence['outputs.AddressPrefixItemResponse']] = None):
+        """
+        Network admin rule.
+        :param str access: Indicates the access allowed for this particular rule
+        :param str direction: Indicates if the traffic matched against the rule in inbound or outbound.
+        :param str kind: Whether the rule is custom or default.
+               Expected value is 'Custom'.
+        :param int priority: The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        :param str protocol: Network protocol this rule applies to.
+        :param str provisioning_state: The provisioning state of the resource.
+        :param str commit_time: Deployment time string.
+        :param str configuration_description: A description of the security admin configuration.
+        :param str description: A description for this rule. Restricted to 140 chars.
+        :param Sequence[str] destination_port_ranges: The destination port ranges.
+        :param Sequence['AddressPrefixItemResponse'] destinations: The destination address prefixes. CIDR or destination IP ranges.
+        :param str id: Resource ID.
+        :param str region: Deployment region.
+        :param Sequence['NetworkManagerSecurityGroupItemResponse'] rule_collection_applies_to_groups: Groups for rule collection
+        :param str rule_collection_description: A description of the rule collection.
+        :param Sequence['ConfigurationGroupResponse'] rule_groups: Effective configuration groups.
+        :param Sequence[str] source_port_ranges: The source port ranges.
+        :param Sequence['AddressPrefixItemResponse'] sources: The CIDR or source IP ranges.
+        """
+        pulumi.set(__self__, "access", access)
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "kind", 'Custom')
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if commit_time is not None:
+            pulumi.set(__self__, "commit_time", commit_time)
+        if configuration_description is not None:
+            pulumi.set(__self__, "configuration_description", configuration_description)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if rule_collection_applies_to_groups is not None:
+            pulumi.set(__self__, "rule_collection_applies_to_groups", rule_collection_applies_to_groups)
+        if rule_collection_description is not None:
+            pulumi.set(__self__, "rule_collection_description", rule_collection_description)
+        if rule_groups is not None:
+            pulumi.set(__self__, "rule_groups", rule_groups)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+
+    @property
+    @pulumi.getter
+    def access(self) -> str:
+        """
+        Indicates the access allowed for this particular rule
+        """
+        return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        Indicates if the traffic matched against the rule in inbound or outbound.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Whether the rule is custom or default.
+        Expected value is 'Custom'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Network protocol this rule applies to.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="commitTime")
+    def commit_time(self) -> Optional[str]:
+        """
+        Deployment time string.
+        """
+        return pulumi.get(self, "commit_time")
+
+    @property
+    @pulumi.getter(name="configurationDescription")
+    def configuration_description(self) -> Optional[str]:
+        """
+        A description of the security admin configuration.
+        """
+        return pulumi.get(self, "configuration_description")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Optional[Sequence[str]]:
+        """
+        The destination port ranges.
+        """
+        return pulumi.get(self, "destination_port_ranges")
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[Sequence['outputs.AddressPrefixItemResponse']]:
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Deployment region.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="ruleCollectionAppliesToGroups")
+    def rule_collection_applies_to_groups(self) -> Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']]:
+        """
+        Groups for rule collection
+        """
+        return pulumi.get(self, "rule_collection_applies_to_groups")
+
+    @property
+    @pulumi.getter(name="ruleCollectionDescription")
+    def rule_collection_description(self) -> Optional[str]:
+        """
+        A description of the rule collection.
+        """
+        return pulumi.get(self, "rule_collection_description")
+
+    @property
+    @pulumi.getter(name="ruleGroups")
+    def rule_groups(self) -> Optional[Sequence['outputs.ConfigurationGroupResponse']]:
+        """
+        Effective configuration groups.
+        """
+        return pulumi.get(self, "rule_groups")
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Optional[Sequence[str]]:
+        """
+        The source port ranges.
+        """
+        return pulumi.get(self, "source_port_ranges")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.AddressPrefixItemResponse']]:
+        """
+        The CIDR or source IP ranges.
+        """
+        return pulumi.get(self, "sources")
 
 
 @pulumi.output_type
@@ -563,6 +1155,29 @@ class ConnectivityGroupItemResponse(dict):
     """
     Connectivity group item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupConnectivity":
+            suggest = "group_connectivity"
+        elif key == "networkGroupId":
+            suggest = "network_group_id"
+        elif key == "isGlobal":
+            suggest = "is_global"
+        elif key == "useHubGateway":
+            suggest = "use_hub_gateway"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectivityGroupItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectivityGroupItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectivityGroupItemResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  group_connectivity: str,
                  network_group_id: str,
@@ -616,66 +1231,66 @@ class ConnectivityGroupItemResponse(dict):
 
 
 @pulumi.output_type
-class DnsConfigResponse(dict):
+class CrossTenantScopesResponse(dict):
     """
-    Class containing DNS settings in a Traffic Manager profile.
+    Cross tenant scopes.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "relativeName":
-            suggest = "relative_name"
+        if key == "managementGroups":
+            suggest = "management_groups"
+        elif key == "tenantId":
+            suggest = "tenant_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DnsConfigResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CrossTenantScopesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DnsConfigResponse.__key_warning(key)
+        CrossTenantScopesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DnsConfigResponse.__key_warning(key)
+        CrossTenantScopesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 fqdn: str,
-                 relative_name: Optional[str] = None,
-                 ttl: Optional[float] = None):
+                 management_groups: Sequence[str],
+                 subscriptions: Sequence[str],
+                 tenant_id: str):
         """
-        Class containing DNS settings in a Traffic Manager profile.
-        :param str fqdn: The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
-        :param str relative_name: The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
-        :param float ttl: The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+        Cross tenant scopes.
+        :param Sequence[str] management_groups: List of management groups.
+        :param Sequence[str] subscriptions: List of subscriptions.
+        :param str tenant_id: Tenant ID.
         """
-        pulumi.set(__self__, "fqdn", fqdn)
-        if relative_name is not None:
-            pulumi.set(__self__, "relative_name", relative_name)
-        if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+        pulumi.set(__self__, "management_groups", management_groups)
+        pulumi.set(__self__, "subscriptions", subscriptions)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Sequence[str]:
+        """
+        List of management groups.
+        """
+        return pulumi.get(self, "management_groups")
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
+    def subscriptions(self) -> Sequence[str]:
         """
-        The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
+        List of subscriptions.
         """
-        return pulumi.get(self, "fqdn")
+        return pulumi.get(self, "subscriptions")
 
     @property
-    @pulumi.getter(name="relativeName")
-    def relative_name(self) -> Optional[str]:
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
         """
-        The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
+        Tenant ID.
         """
-        return pulumi.get(self, "relative_name")
-
-    @property
-    @pulumi.getter
-    def ttl(self) -> Optional[float]:
-        """
-        The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-        """
-        return pulumi.get(self, "ttl")
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -1247,342 +1862,29 @@ class EffectiveVirtualNetworkResponse(dict):
 
 
 @pulumi.output_type
-class EndpointPropertiesResponseCustomHeaders(dict):
-    """
-    Custom header name and value.
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        Custom header name and value.
-        :param str name: Header name.
-        :param str value: Header value.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Header name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        Header value.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class EndpointPropertiesResponseSubnets(dict):
-    """
-    Subnet first address, scope, and/or last address.
-    """
-    def __init__(__self__, *,
-                 first: Optional[str] = None,
-                 last: Optional[str] = None,
-                 scope: Optional[int] = None):
-        """
-        Subnet first address, scope, and/or last address.
-        :param str first: First address in the subnet.
-        :param str last: Last address in the subnet.
-        :param int scope: Block size (number of leading bits in the subnet mask).
-        """
-        if first is not None:
-            pulumi.set(__self__, "first", first)
-        if last is not None:
-            pulumi.set(__self__, "last", last)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-
-    @property
-    @pulumi.getter
-    def first(self) -> Optional[str]:
-        """
-        First address in the subnet.
-        """
-        return pulumi.get(self, "first")
-
-    @property
-    @pulumi.getter
-    def last(self) -> Optional[str]:
-        """
-        Last address in the subnet.
-        """
-        return pulumi.get(self, "last")
-
-    @property
-    @pulumi.getter
-    def scope(self) -> Optional[int]:
-        """
-        Block size (number of leading bits in the subnet mask).
-        """
-        return pulumi.get(self, "scope")
-
-
-@pulumi.output_type
-class EndpointResponse(dict):
-    """
-    Class representing a Traffic Manager endpoint.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "alwaysServe":
-            suggest = "always_serve"
-        elif key == "customHeaders":
-            suggest = "custom_headers"
-        elif key == "endpointLocation":
-            suggest = "endpoint_location"
-        elif key == "endpointMonitorStatus":
-            suggest = "endpoint_monitor_status"
-        elif key == "endpointStatus":
-            suggest = "endpoint_status"
-        elif key == "geoMapping":
-            suggest = "geo_mapping"
-        elif key == "minChildEndpoints":
-            suggest = "min_child_endpoints"
-        elif key == "minChildEndpointsIPv4":
-            suggest = "min_child_endpoints_i_pv4"
-        elif key == "minChildEndpointsIPv6":
-            suggest = "min_child_endpoints_i_pv6"
-        elif key == "targetResourceId":
-            suggest = "target_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EndpointResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EndpointResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EndpointResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 always_serve: Optional[str] = None,
-                 custom_headers: Optional[Sequence['outputs.EndpointPropertiesResponseCustomHeaders']] = None,
-                 endpoint_location: Optional[str] = None,
-                 endpoint_monitor_status: Optional[str] = None,
-                 endpoint_status: Optional[str] = None,
-                 geo_mapping: Optional[Sequence[str]] = None,
-                 id: Optional[str] = None,
-                 min_child_endpoints: Optional[float] = None,
-                 min_child_endpoints_i_pv4: Optional[float] = None,
-                 min_child_endpoints_i_pv6: Optional[float] = None,
-                 name: Optional[str] = None,
-                 priority: Optional[float] = None,
-                 subnets: Optional[Sequence['outputs.EndpointPropertiesResponseSubnets']] = None,
-                 target: Optional[str] = None,
-                 target_resource_id: Optional[str] = None,
-                 type: Optional[str] = None,
-                 weight: Optional[float] = None):
-        """
-        Class representing a Traffic Manager endpoint.
-        :param str always_serve: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
-        :param Sequence['EndpointPropertiesResponseCustomHeaders'] custom_headers: List of custom headers.
-        :param str endpoint_location: Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
-        :param str endpoint_monitor_status: The monitoring status of the endpoint.
-        :param str endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-        :param Sequence[str] geo_mapping: The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-        :param str id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-        :param float min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-        :param float min_child_endpoints_i_pv4: The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-        :param float min_child_endpoints_i_pv6: The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-        :param str name: The name of the resource
-        :param float priority: The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-        :param Sequence['EndpointPropertiesResponseSubnets'] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
-        :param str target: The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-        :param str target_resource_id: The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-        :param str type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-        :param float weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-        """
-        if always_serve is not None:
-            pulumi.set(__self__, "always_serve", always_serve)
-        if custom_headers is not None:
-            pulumi.set(__self__, "custom_headers", custom_headers)
-        if endpoint_location is not None:
-            pulumi.set(__self__, "endpoint_location", endpoint_location)
-        if endpoint_monitor_status is not None:
-            pulumi.set(__self__, "endpoint_monitor_status", endpoint_monitor_status)
-        if endpoint_status is not None:
-            pulumi.set(__self__, "endpoint_status", endpoint_status)
-        if geo_mapping is not None:
-            pulumi.set(__self__, "geo_mapping", geo_mapping)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if min_child_endpoints is not None:
-            pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
-        if min_child_endpoints_i_pv4 is not None:
-            pulumi.set(__self__, "min_child_endpoints_i_pv4", min_child_endpoints_i_pv4)
-        if min_child_endpoints_i_pv6 is not None:
-            pulumi.set(__self__, "min_child_endpoints_i_pv6", min_child_endpoints_i_pv6)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
-        if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
-        if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if weight is not None:
-            pulumi.set(__self__, "weight", weight)
-
-    @property
-    @pulumi.getter(name="alwaysServe")
-    def always_serve(self) -> Optional[str]:
-        """
-        If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
-        """
-        return pulumi.get(self, "always_serve")
-
-    @property
-    @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[Sequence['outputs.EndpointPropertiesResponseCustomHeaders']]:
-        """
-        List of custom headers.
-        """
-        return pulumi.get(self, "custom_headers")
-
-    @property
-    @pulumi.getter(name="endpointLocation")
-    def endpoint_location(self) -> Optional[str]:
-        """
-        Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
-        """
-        return pulumi.get(self, "endpoint_location")
-
-    @property
-    @pulumi.getter(name="endpointMonitorStatus")
-    def endpoint_monitor_status(self) -> Optional[str]:
-        """
-        The monitoring status of the endpoint.
-        """
-        return pulumi.get(self, "endpoint_monitor_status")
-
-    @property
-    @pulumi.getter(name="endpointStatus")
-    def endpoint_status(self) -> Optional[str]:
-        """
-        The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-        """
-        return pulumi.get(self, "endpoint_status")
-
-    @property
-    @pulumi.getter(name="geoMapping")
-    def geo_mapping(self) -> Optional[Sequence[str]]:
-        """
-        The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-        """
-        return pulumi.get(self, "geo_mapping")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> Optional[float]:
-        """
-        The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-        """
-        return pulumi.get(self, "min_child_endpoints")
-
-    @property
-    @pulumi.getter(name="minChildEndpointsIPv4")
-    def min_child_endpoints_i_pv4(self) -> Optional[float]:
-        """
-        The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-        """
-        return pulumi.get(self, "min_child_endpoints_i_pv4")
-
-    @property
-    @pulumi.getter(name="minChildEndpointsIPv6")
-    def min_child_endpoints_i_pv6(self) -> Optional[float]:
-        """
-        The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-        """
-        return pulumi.get(self, "min_child_endpoints_i_pv6")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name of the resource
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def priority(self) -> Optional[float]:
-        """
-        The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-        """
-        return pulumi.get(self, "priority")
-
-    @property
-    @pulumi.getter
-    def subnets(self) -> Optional[Sequence['outputs.EndpointPropertiesResponseSubnets']]:
-        """
-        The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
-        """
-        return pulumi.get(self, "subnets")
-
-    @property
-    @pulumi.getter
-    def target(self) -> Optional[str]:
-        """
-        The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-        """
-        return pulumi.get(self, "target")
-
-    @property
-    @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[str]:
-        """
-        The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-        """
-        return pulumi.get(self, "target_resource_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def weight(self) -> Optional[float]:
-        """
-        The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-        """
-        return pulumi.get(self, "weight")
-
-
-@pulumi.output_type
 class HubResponse(dict):
     """
     Hub Item.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HubResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HubResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HubResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: Optional[str] = None,
                  resource_type: Optional[str] = None):
@@ -1614,219 +1916,151 @@ class HubResponse(dict):
 
 
 @pulumi.output_type
-class MonitorConfigResponse(dict):
+class NetworkManagerDeploymentStatusResponse(dict):
     """
-    Class containing endpoint monitoring settings in a Traffic Manager profile.
+    Network Manager Deployment Status.
+    """
+    def __init__(__self__, *,
+                 commit_time: Optional[str] = None,
+                 configuration_ids: Optional[Sequence[str]] = None,
+                 deployment_status: Optional[str] = None,
+                 deployment_type: Optional[str] = None,
+                 error_message: Optional[str] = None,
+                 region: Optional[str] = None):
+        """
+        Network Manager Deployment Status.
+        :param str commit_time: Commit Time.
+        :param Sequence[str] configuration_ids: List of configuration ids.
+        :param str deployment_status: Deployment Status.
+        :param str deployment_type: Configuration Deployment Type.
+        :param str error_message: Error Message.
+        :param str region: Region Name.
+        """
+        if commit_time is not None:
+            pulumi.set(__self__, "commit_time", commit_time)
+        if configuration_ids is not None:
+            pulumi.set(__self__, "configuration_ids", configuration_ids)
+        if deployment_status is not None:
+            pulumi.set(__self__, "deployment_status", deployment_status)
+        if deployment_type is not None:
+            pulumi.set(__self__, "deployment_type", deployment_type)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="commitTime")
+    def commit_time(self) -> Optional[str]:
+        """
+        Commit Time.
+        """
+        return pulumi.get(self, "commit_time")
+
+    @property
+    @pulumi.getter(name="configurationIds")
+    def configuration_ids(self) -> Optional[Sequence[str]]:
+        """
+        List of configuration ids.
+        """
+        return pulumi.get(self, "configuration_ids")
+
+    @property
+    @pulumi.getter(name="deploymentStatus")
+    def deployment_status(self) -> Optional[str]:
+        """
+        Deployment Status.
+        """
+        return pulumi.get(self, "deployment_status")
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> Optional[str]:
+        """
+        Configuration Deployment Type.
+        """
+        return pulumi.get(self, "deployment_type")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[str]:
+        """
+        Error Message.
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Region Name.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class NetworkManagerPropertiesResponseNetworkManagerScopes(dict):
+    """
+    Scope of Network Manager.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customHeaders":
-            suggest = "custom_headers"
-        elif key == "expectedStatusCodeRanges":
-            suggest = "expected_status_code_ranges"
-        elif key == "intervalInSeconds":
-            suggest = "interval_in_seconds"
-        elif key == "profileMonitorStatus":
-            suggest = "profile_monitor_status"
-        elif key == "timeoutInSeconds":
-            suggest = "timeout_in_seconds"
-        elif key == "toleratedNumberOfFailures":
-            suggest = "tolerated_number_of_failures"
+        if key == "crossTenantScopes":
+            suggest = "cross_tenant_scopes"
+        elif key == "managementGroups":
+            suggest = "management_groups"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MonitorConfigResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagerPropertiesResponseNetworkManagerScopes. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MonitorConfigResponse.__key_warning(key)
+        NetworkManagerPropertiesResponseNetworkManagerScopes.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MonitorConfigResponse.__key_warning(key)
+        NetworkManagerPropertiesResponseNetworkManagerScopes.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_headers: Optional[Sequence['outputs.MonitorConfigResponseCustomHeaders']] = None,
-                 expected_status_code_ranges: Optional[Sequence['outputs.MonitorConfigResponseExpectedStatusCodeRanges']] = None,
-                 interval_in_seconds: Optional[float] = None,
-                 path: Optional[str] = None,
-                 port: Optional[float] = None,
-                 profile_monitor_status: Optional[str] = None,
-                 protocol: Optional[str] = None,
-                 timeout_in_seconds: Optional[float] = None,
-                 tolerated_number_of_failures: Optional[float] = None):
+                 cross_tenant_scopes: Sequence['outputs.CrossTenantScopesResponse'],
+                 management_groups: Optional[Sequence[str]] = None,
+                 subscriptions: Optional[Sequence[str]] = None):
         """
-        Class containing endpoint monitoring settings in a Traffic Manager profile.
-        :param Sequence['MonitorConfigResponseCustomHeaders'] custom_headers: List of custom headers.
-        :param Sequence['MonitorConfigResponseExpectedStatusCodeRanges'] expected_status_code_ranges: List of expected status code ranges.
-        :param float interval_in_seconds: The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-        :param str path: The path relative to the endpoint domain name used to probe for endpoint health.
-        :param float port: The TCP port used to probe for endpoint health.
-        :param str profile_monitor_status: The profile-level monitoring status of the Traffic Manager profile.
-        :param str protocol: The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
-        :param float timeout_in_seconds: The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-        :param float tolerated_number_of_failures: The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
+        Scope of Network Manager.
+        :param Sequence['CrossTenantScopesResponse'] cross_tenant_scopes: List of cross tenant scopes.
+        :param Sequence[str] management_groups: List of management groups.
+        :param Sequence[str] subscriptions: List of subscriptions.
         """
-        if custom_headers is not None:
-            pulumi.set(__self__, "custom_headers", custom_headers)
-        if expected_status_code_ranges is not None:
-            pulumi.set(__self__, "expected_status_code_ranges", expected_status_code_ranges)
-        if interval_in_seconds is not None:
-            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if profile_monitor_status is not None:
-            pulumi.set(__self__, "profile_monitor_status", profile_monitor_status)
-        if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
-        if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
-        if tolerated_number_of_failures is not None:
-            pulumi.set(__self__, "tolerated_number_of_failures", tolerated_number_of_failures)
+        pulumi.set(__self__, "cross_tenant_scopes", cross_tenant_scopes)
+        if management_groups is not None:
+            pulumi.set(__self__, "management_groups", management_groups)
+        if subscriptions is not None:
+            pulumi.set(__self__, "subscriptions", subscriptions)
 
     @property
-    @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[Sequence['outputs.MonitorConfigResponseCustomHeaders']]:
+    @pulumi.getter(name="crossTenantScopes")
+    def cross_tenant_scopes(self) -> Sequence['outputs.CrossTenantScopesResponse']:
         """
-        List of custom headers.
+        List of cross tenant scopes.
         """
-        return pulumi.get(self, "custom_headers")
+        return pulumi.get(self, "cross_tenant_scopes")
 
     @property
-    @pulumi.getter(name="expectedStatusCodeRanges")
-    def expected_status_code_ranges(self) -> Optional[Sequence['outputs.MonitorConfigResponseExpectedStatusCodeRanges']]:
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Optional[Sequence[str]]:
         """
-        List of expected status code ranges.
+        List of management groups.
         """
-        return pulumi.get(self, "expected_status_code_ranges")
-
-    @property
-    @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[float]:
-        """
-        The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-        """
-        return pulumi.get(self, "interval_in_seconds")
+        return pulumi.get(self, "management_groups")
 
     @property
     @pulumi.getter
-    def path(self) -> Optional[str]:
+    def subscriptions(self) -> Optional[Sequence[str]]:
         """
-        The path relative to the endpoint domain name used to probe for endpoint health.
+        List of subscriptions.
         """
-        return pulumi.get(self, "path")
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[float]:
-        """
-        The TCP port used to probe for endpoint health.
-        """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="profileMonitorStatus")
-    def profile_monitor_status(self) -> Optional[str]:
-        """
-        The profile-level monitoring status of the Traffic Manager profile.
-        """
-        return pulumi.get(self, "profile_monitor_status")
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> Optional[str]:
-        """
-        The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
-        """
-        return pulumi.get(self, "protocol")
-
-    @property
-    @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[float]:
-        """
-        The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-        """
-        return pulumi.get(self, "timeout_in_seconds")
-
-    @property
-    @pulumi.getter(name="toleratedNumberOfFailures")
-    def tolerated_number_of_failures(self) -> Optional[float]:
-        """
-        The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-        """
-        return pulumi.get(self, "tolerated_number_of_failures")
-
-
-@pulumi.output_type
-class MonitorConfigResponseCustomHeaders(dict):
-    """
-    Custom header name and value.
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        Custom header name and value.
-        :param str name: Header name.
-        :param str value: Header value.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Header name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        Header value.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class MonitorConfigResponseExpectedStatusCodeRanges(dict):
-    """
-    Min and max value of a status code range.
-    """
-    def __init__(__self__, *,
-                 max: Optional[int] = None,
-                 min: Optional[int] = None):
-        """
-        Min and max value of a status code range.
-        :param int max: Max status code.
-        :param int min: Min status code.
-        """
-        if max is not None:
-            pulumi.set(__self__, "max", max)
-        if min is not None:
-            pulumi.set(__self__, "min", min)
-
-    @property
-    @pulumi.getter
-    def max(self) -> Optional[int]:
-        """
-        Max status code.
-        """
-        return pulumi.get(self, "max")
-
-    @property
-    @pulumi.getter
-    def min(self) -> Optional[int]:
-        """
-        Min status code.
-        """
-        return pulumi.get(self, "min")
+        return pulumi.get(self, "subscriptions")
 
 
 @pulumi.output_type

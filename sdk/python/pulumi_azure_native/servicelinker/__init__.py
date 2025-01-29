@@ -22,6 +22,10 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.servicelinker.v20211101preview as __v20211101preview
     v20211101preview = __v20211101preview
+    import pulumi_azure_native.servicelinker.v20220101preview as __v20220101preview
+    v20220101preview = __v20220101preview
+    import pulumi_azure_native.servicelinker.v20220501 as __v20220501
+    v20220501 = __v20220501
     import pulumi_azure_native.servicelinker.v20221101preview as __v20221101preview
     v20221101preview = __v20221101preview
     import pulumi_azure_native.servicelinker.v20230401preview as __v20230401preview
@@ -32,6 +36,8 @@ if typing.TYPE_CHECKING:
     v20240701preview = __v20240701preview
 else:
     v20211101preview = _utilities.lazy_import('pulumi_azure_native.servicelinker.v20211101preview')
+    v20220101preview = _utilities.lazy_import('pulumi_azure_native.servicelinker.v20220101preview')
+    v20220501 = _utilities.lazy_import('pulumi_azure_native.servicelinker.v20220501')
     v20221101preview = _utilities.lazy_import('pulumi_azure_native.servicelinker.v20221101preview')
     v20230401preview = _utilities.lazy_import('pulumi_azure_native.servicelinker.v20230401preview')
     v20240401 = _utilities.lazy_import('pulumi_azure_native.servicelinker.v20240401')

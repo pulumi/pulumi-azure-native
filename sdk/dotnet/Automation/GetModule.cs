@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the module identified by module name.
-        /// Azure REST API version: 2022-08-08.
+        /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23.
         /// </summary>
         public static Task<GetModuleResult> InvokeAsync(GetModuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-native:automation:getModule", args ?? new GetModuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the module identified by module name.
-        /// Azure REST API version: 2022-08-08.
+        /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23.
         /// </summary>
         public static Output<GetModuleResult> Invoke(GetModuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModuleResult>("azure-native:automation:getModule", args ?? new GetModuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the module identified by module name.
-        /// Azure REST API version: 2022-08-08.
+        /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23.
         /// </summary>
         public static Output<GetModuleResult> Invoke(GetModuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetModuleResult>("azure-native:automation:getModule", args ?? new GetModuleInvokeArgs(), options.WithDefaults());
@@ -97,15 +97,11 @@ namespace Pulumi.AzureNative.Automation
     public sealed class GetModuleResult
     {
         /// <summary>
-        /// Gets or sets the activity count of the module.
+        /// Gets the activity count of the module.
         /// </summary>
         public readonly int? ActivityCount;
         /// <summary>
-        /// Gets or sets the contentLink of the module.
-        /// </summary>
-        public readonly Outputs.ContentLinkResponse? ContentLink;
-        /// <summary>
-        /// Gets or sets the creation time.
+        /// Gets the creation time.
         /// </summary>
         public readonly string? CreationTime;
         /// <summary>
@@ -113,11 +109,11 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Gets or sets the error info of the module.
+        /// Gets the error info of the module.
         /// </summary>
         public readonly Outputs.ModuleErrorInfoResponse? Error;
         /// <summary>
-        /// Gets or sets the etag of the resource.
+        /// Gets the etag of the resource.
         /// </summary>
         public readonly string? Etag;
         /// <summary>
@@ -125,15 +121,15 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Gets or sets type of module, if its composite or not.
+        /// Gets type of module, if its composite or not.
         /// </summary>
         public readonly bool? IsComposite;
         /// <summary>
-        /// Gets or sets the isGlobal flag of the module.
+        /// Gets the isGlobal flag of the module.
         /// </summary>
         public readonly bool? IsGlobal;
         /// <summary>
-        /// Gets or sets the last modified time.
+        /// Gets the last modified time.
         /// </summary>
         public readonly string? LastModifiedTime;
         /// <summary>
@@ -145,11 +141,11 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the provisioning state of the module.
+        /// Gets the provisioning state of the module.
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
-        /// Gets or sets the size in bytes of the module.
+        /// Gets the size in bytes of the module.
         /// </summary>
         public readonly double? SizeInBytes;
         /// <summary>
@@ -161,15 +157,13 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Gets or sets the version of the module.
+        /// Gets the version of the module.
         /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]
         private GetModuleResult(
             int? activityCount,
-
-            Outputs.ContentLinkResponse? contentLink,
 
             string? creationTime,
 
@@ -202,7 +196,6 @@ namespace Pulumi.AzureNative.Automation
             string? version)
         {
             ActivityCount = activityCount;
-            ContentLink = contentLink;
             CreationTime = creationTime;
             Description = description;
             Error = error;

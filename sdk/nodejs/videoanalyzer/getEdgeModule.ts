@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves an existing edge module resource with the given name.
  * Azure REST API version: 2021-11-01-preview.
+ *
+ * Other available API versions: 2021-05-01-preview.
  */
 export function getEdgeModule(args: GetEdgeModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEdgeModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,6 +65,8 @@ export interface GetEdgeModuleResult {
 /**
  * Retrieves an existing edge module resource with the given name.
  * Azure REST API version: 2021-11-01-preview.
+ *
+ * Other available API versions: 2021-05-01-preview.
  */
 export function getEdgeModuleOutput(args: GetEdgeModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEdgeModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

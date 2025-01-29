@@ -56,11 +56,27 @@ export const ExternalNetworkingMode = {
  */
 export type ExternalNetworkingMode = (typeof ExternalNetworkingMode)[keyof typeof ExternalNetworkingMode];
 
+export const JsonMapperElement = {
+    /**
+     * Read or write the json array from or to the body of the message.
+     */
+    Body: "body",
+    /**
+     * Read or write the json array from or to the attributes of the message.
+     */
+    Attributes: "attributes",
+} as const;
+
+/**
+ * Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+ */
+export type JsonMapperElement = (typeof JsonMapperElement)[keyof typeof JsonMapperElement];
+
 export const PipelineType = {
     /**
      * Pipeline for logs telemetry.
      */
-    Logs: "logs",
+    Logs: "Logs",
 } as const;
 
 /**
@@ -79,16 +95,6 @@ export const ProcessorType = {
  * The type of processor.
  */
 export type ProcessorType = (typeof ProcessorType)[keyof typeof ProcessorType];
-
-export const PublicNetworkAccess = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Gets or sets allow or disallow public network access to Azure Monitor Workspace
- */
-export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const ReceiverType = {
     /**

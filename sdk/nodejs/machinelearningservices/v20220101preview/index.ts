@@ -25,6 +25,11 @@ export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null a
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
+export { GetWorkspaceConnectionArgs, GetWorkspaceConnectionResult, GetWorkspaceConnectionOutputArgs } from "./getWorkspaceConnection";
+export const getWorkspaceConnection: typeof import("./getWorkspaceConnection").getWorkspaceConnection = null as any;
+export const getWorkspaceConnectionOutput: typeof import("./getWorkspaceConnection").getWorkspaceConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceConnection","getWorkspaceConnectionOutput"], () => require("./getWorkspaceConnection"));
+
 export { ListComputeKeysArgs, ListComputeKeysResult, ListComputeKeysOutputArgs } from "./listComputeKeys";
 export const listComputeKeys: typeof import("./listComputeKeys").listComputeKeys = null as any;
 export const listComputeKeysOutput: typeof import("./listComputeKeys").listComputeKeysOutput = null as any;
@@ -65,6 +70,11 @@ export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
 utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
+export { WorkspaceConnectionArgs } from "./workspaceConnection";
+export type WorkspaceConnection = import("./workspaceConnection").WorkspaceConnection;
+export const WorkspaceConnection: typeof import("./workspaceConnection").WorkspaceConnection = null as any;
+utilities.lazyLoad(exports, ["WorkspaceConnection"], () => require("./workspaceConnection"));
+
 
 // Export enums:
 export * from "../../types/enums/machinelearningservices/v20220101preview";
@@ -79,6 +89,8 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20220101preview:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices/v20220101preview:WorkspaceConnection":
+                return new WorkspaceConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

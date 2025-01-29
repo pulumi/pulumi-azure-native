@@ -90,11 +90,6 @@ export type DevOpsConfiguration = import("./devOpsConfiguration").DevOpsConfigur
 export const DevOpsConfiguration: typeof import("./devOpsConfiguration").DevOpsConfiguration = null as any;
 utilities.lazyLoad(exports, ["DevOpsConfiguration"], () => require("./devOpsConfiguration"));
 
-export { DevOpsPolicyAssignmentArgs } from "./devOpsPolicyAssignment";
-export type DevOpsPolicyAssignment = import("./devOpsPolicyAssignment").DevOpsPolicyAssignment;
-export const DevOpsPolicyAssignment: typeof import("./devOpsPolicyAssignment").DevOpsPolicyAssignment = null as any;
-utilities.lazyLoad(exports, ["DevOpsPolicyAssignment"], () => require("./devOpsPolicyAssignment"));
-
 export { DeviceSecurityGroupArgs } from "./deviceSecurityGroup";
 export type DeviceSecurityGroup = import("./deviceSecurityGroup").DeviceSecurityGroup;
 export const DeviceSecurityGroup: typeof import("./deviceSecurityGroup").DeviceSecurityGroup = null as any;
@@ -184,11 +179,6 @@ export { GetDevOpsConfigurationArgs, GetDevOpsConfigurationResult, GetDevOpsConf
 export const getDevOpsConfiguration: typeof import("./getDevOpsConfiguration").getDevOpsConfiguration = null as any;
 export const getDevOpsConfigurationOutput: typeof import("./getDevOpsConfiguration").getDevOpsConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getDevOpsConfiguration","getDevOpsConfigurationOutput"], () => require("./getDevOpsConfiguration"));
-
-export { GetDevOpsPolicyAssignmentArgs, GetDevOpsPolicyAssignmentResult, GetDevOpsPolicyAssignmentOutputArgs } from "./getDevOpsPolicyAssignment";
-export const getDevOpsPolicyAssignment: typeof import("./getDevOpsPolicyAssignment").getDevOpsPolicyAssignment = null as any;
-export const getDevOpsPolicyAssignmentOutput: typeof import("./getDevOpsPolicyAssignment").getDevOpsPolicyAssignmentOutput = null as any;
-utilities.lazyLoad(exports, ["getDevOpsPolicyAssignment","getDevOpsPolicyAssignmentOutput"], () => require("./getDevOpsPolicyAssignment"));
 
 export { GetDeviceSecurityGroupArgs, GetDeviceSecurityGroupResult, GetDeviceSecurityGroupOutputArgs } from "./getDeviceSecurityGroup";
 export const getDeviceSecurityGroup: typeof import("./getDeviceSecurityGroup").getDeviceSecurityGroup = null as any;
@@ -376,11 +366,15 @@ import * as v20190101preview from "./v20190101preview";
 import * as v20190801 from "./v20190801";
 import * as v20200101 from "./v20200101";
 import * as v20200101preview from "./v20200101preview";
+import * as v20200701preview from "./v20200701preview";
 import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801preview from "./v20210801preview";
+import * as v20211201preview from "./v20211201preview";
 import * as v20220101preview from "./v20220101preview";
+import * as v20220501preview from "./v20220501preview";
 import * as v20220701preview from "./v20220701preview";
+import * as v20220801preview from "./v20220801preview";
 import * as v20221120preview from "./v20221120preview";
 import * as v20221201preview from "./v20221201preview";
 import * as v20230101preview from "./v20230101preview";
@@ -407,11 +401,15 @@ export {
     v20190801,
     v20200101,
     v20200101preview,
+    v20200701preview,
     v20210601,
     v20210701preview,
     v20210801preview,
+    v20211201preview,
     v20220101preview,
+    v20220501preview,
     v20220701preview,
+    v20220801preview,
     v20221120preview,
     v20221201preview,
     v20230101preview,
@@ -470,8 +468,6 @@ const _module = {
                 return new DefenderForStorage(name, <any>undefined, { urn })
             case "azure-native:security:DevOpsConfiguration":
                 return new DevOpsConfiguration(name, <any>undefined, { urn })
-            case "azure-native:security:DevOpsPolicyAssignment":
-                return new DevOpsPolicyAssignment(name, <any>undefined, { urn })
             case "azure-native:security:DeviceSecurityGroup":
                 return new DeviceSecurityGroup(name, <any>undefined, { urn })
             case "azure-native:security:GovernanceAssignment":

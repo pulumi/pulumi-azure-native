@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * List the authorization keys associated with this workspace.
  * Azure REST API version: 2019-10-01.
+ *
+ * Other available API versions: 2016-04-01.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +45,8 @@ export interface ListWorkspaceKeysResult {
 /**
  * List the authorization keys associated with this workspace.
  * Azure REST API version: 2019-10-01.
+ *
+ * Other available API versions: 2016-04-01.
  */
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

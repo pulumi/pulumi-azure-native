@@ -50,7 +50,7 @@ class MSIXPackageArgs:
         :param pulumi.Input[str] package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
         :param pulumi.Input[str] package_name: Package Name from appxmanifest.xml. 
         :param pulumi.Input[str] package_relative_path: Relative Path to the package inside the image. 
-        :param pulumi.Input[str] version: Package Version found in the appxmanifest.xml. 
+        :param pulumi.Input[str] version: Package version found in the appxmanifest.xml. 
         """
         pulumi.set(__self__, "host_pool_name", host_pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -239,7 +239,7 @@ class MSIXPackageArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml. 
         """
         return pulumi.get(self, "version")
 
@@ -270,9 +270,9 @@ class MSIXPackage(pulumi.CustomResource):
                  __props__=None):
         """
         Schema for MSIX Package properties.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
 
-        Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        Other available API versions: 2021-01-14-preview, 2021-02-01-preview, 2021-03-09-preview, 2021-04-01-preview, 2021-07-12, 2021-09-03-preview, 2022-02-10-preview, 2022-04-01-preview, 2022-09-09, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -289,7 +289,7 @@ class MSIXPackage(pulumi.CustomResource):
         :param pulumi.Input[str] package_name: Package Name from appxmanifest.xml. 
         :param pulumi.Input[str] package_relative_path: Relative Path to the package inside the image. 
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] version: Package Version found in the appxmanifest.xml. 
+        :param pulumi.Input[str] version: Package version found in the appxmanifest.xml. 
         """
         ...
     @overload
@@ -299,9 +299,9 @@ class MSIXPackage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for MSIX Package properties.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
 
-        Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        Other available API versions: 2021-01-14-preview, 2021-02-01-preview, 2021-03-09-preview, 2021-04-01-preview, 2021-07-12, 2021-09-03-preview, 2022-02-10-preview, 2022-04-01-preview, 2022-09-09, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview.
 
         :param str resource_name: The name of the resource.
         :param MSIXPackageArgs args: The arguments to use to populate this resource's properties.
@@ -494,7 +494,7 @@ class MSIXPackage(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -510,7 +510,7 @@ class MSIXPackage(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[str]]:
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml. 
         """
         return pulumi.get(self, "version")
 

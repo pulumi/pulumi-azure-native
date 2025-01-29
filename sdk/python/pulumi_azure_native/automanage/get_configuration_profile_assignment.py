@@ -118,6 +118,8 @@ def get_configuration_profile_assignment(configuration_profile_assignment_name: 
     Get information about a configuration profile assignment
     Azure REST API version: 2022-05-04.
 
+    Other available API versions: 2020-06-30-preview, 2021-04-30-preview.
+
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -144,6 +146,8 @@ def get_configuration_profile_assignment_output(configuration_profile_assignment
     """
     Get information about a configuration profile assignment
     Azure REST API version: 2022-05-04.
+
+    Other available API versions: 2020-06-30-preview, 2021-04-30-preview.
 
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.

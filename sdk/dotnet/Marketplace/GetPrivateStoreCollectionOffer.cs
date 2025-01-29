@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// Gets information about a specific offer.
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2021-06-01, 2021-12-01, 2022-03-01, 2022-09-01.
         /// </summary>
         public static Task<GetPrivateStoreCollectionOfferResult> InvokeAsync(GetPrivateStoreCollectionOfferArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreCollectionOfferResult>("azure-native:marketplace:getPrivateStoreCollectionOffer", args ?? new GetPrivateStoreCollectionOfferArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// Gets information about a specific offer.
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2021-06-01, 2021-12-01, 2022-03-01, 2022-09-01.
         /// </summary>
         public static Output<GetPrivateStoreCollectionOfferResult> Invoke(GetPrivateStoreCollectionOfferInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateStoreCollectionOfferResult>("azure-native:marketplace:getPrivateStoreCollectionOffer", args ?? new GetPrivateStoreCollectionOfferInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// Gets information about a specific offer.
         /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2021-06-01, 2021-12-01, 2022-03-01, 2022-09-01.
         /// </summary>
         public static Output<GetPrivateStoreCollectionOfferResult> Invoke(GetPrivateStoreCollectionOfferInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateStoreCollectionOfferResult>("azure-native:marketplace:getPrivateStoreCollectionOffer", args ?? new GetPrivateStoreCollectionOfferInvokeArgs(), options.WithDefaults());

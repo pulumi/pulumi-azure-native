@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Inputs
         public Input<string>? PackageRelativePath { get; set; }
 
         /// <summary>
-        /// Package Version found in the appxmanifest.xml. 
+        /// Package version found in the appxmanifest.xml. 
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

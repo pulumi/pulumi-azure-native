@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Workflow properties definition.
- * Azure REST API version: 2024-02-02-preview.
+ * Azure REST API version: 2024-10-02-preview.
  *
- * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+ * Other available API versions: 2024-02-02-preview, 2024-08-02-preview.
  */
 export function listLogicAppWorkflowsConnections(args: ListLogicAppWorkflowsConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<ListLogicAppWorkflowsConnectionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,9 +68,9 @@ export interface ListLogicAppWorkflowsConnectionsResult {
 }
 /**
  * Workflow properties definition.
- * Azure REST API version: 2024-02-02-preview.
+ * Azure REST API version: 2024-10-02-preview.
  *
- * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+ * Other available API versions: 2024-02-02-preview, 2024-08-02-preview.
  */
 export function listLogicAppWorkflowsConnectionsOutput(args: ListLogicAppWorkflowsConnectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLogicAppWorkflowsConnectionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

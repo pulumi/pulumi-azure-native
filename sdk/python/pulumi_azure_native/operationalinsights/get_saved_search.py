@@ -176,9 +176,9 @@ def get_saved_search(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSavedSearchResult:
     """
     Gets the specified saved search for a given workspace.
-    Azure REST API version: 2020-08-01.
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-09-01.
+    Other available API versions: 2020-03-01-preview, 2020-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -210,9 +210,9 @@ def get_saved_search_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSavedSearchResult]:
     """
     Gets the specified saved search for a given workspace.
-    Azure REST API version: 2020-08-01.
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-09-01.
+    Other available API versions: 2020-03-01-preview, 2020-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

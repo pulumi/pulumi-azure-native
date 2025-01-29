@@ -2,13 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A cloud link resource
- * Azure REST API version: 2022-05-01.
+ * Get a CloudLink
+ * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
  */
 export function getCloudLink(args: GetCloudLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,7 +24,7 @@ export function getCloudLink(args: GetCloudLinkArgs, opts?: pulumi.InvokeOptions
 
 export interface GetCloudLinkArgs {
     /**
-     * Name of the cloud link resource
+     * Name of the cloud link.
      */
     cloudLinkName: string;
     /**
@@ -39,7 +42,7 @@ export interface GetCloudLinkArgs {
  */
 export interface GetCloudLinkResult {
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -47,23 +50,31 @@ export interface GetCloudLinkResult {
      */
     readonly linkedCloud?: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * The state of the cloud link.
      */
     readonly status: string;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.avs.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * A cloud link resource
- * Azure REST API version: 2022-05-01.
+ * Get a CloudLink
+ * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
  */
 export function getCloudLinkOutput(args: GetCloudLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,7 +87,7 @@ export function getCloudLinkOutput(args: GetCloudLinkOutputArgs, opts?: pulumi.I
 
 export interface GetCloudLinkOutputArgs {
     /**
-     * Name of the cloud link resource
+     * Name of the cloud link.
      */
     cloudLinkName: pulumi.Input<string>;
     /**

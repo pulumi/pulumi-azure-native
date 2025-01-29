@@ -146,6 +146,38 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview
     }
 
     /// <summary>
+    /// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
+    /// </summary>
+    [EnumType]
+    public readonly struct SourceType : IEquatable<SourceType>
+    {
+        private readonly string _value;
+
+        private SourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceType VsoGit { get; } = new SourceType("VsoGit");
+        public static SourceType VsoTfvc { get; } = new SourceType("VsoTfvc");
+        public static SourceType GitHub { get; } = new SourceType("GitHub");
+
+        public static bool operator ==(SourceType left, SourceType right) => left.Equals(right);
+        public static bool operator !=(SourceType left, SourceType right) => !left.Equals(right);
+
+        public static explicit operator string(SourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceType other && Equals(other);
+        public bool Equals(SourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Filter VMs by Any or All specified tags.
     /// </summary>
     [EnumType]
@@ -169,6 +201,37 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TagOperators other && Equals(other);
         public bool Equals(TagOperators other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The token type. Must be either PersonalAccessToken or Oauth.
+    /// </summary>
+    [EnumType]
+    public readonly struct TokenType : IEquatable<TokenType>
+    {
+        private readonly string _value;
+
+        private TokenType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TokenType PersonalAccessToken { get; } = new TokenType("PersonalAccessToken");
+        public static TokenType Oauth { get; } = new TokenType("Oauth");
+
+        public static bool operator ==(TokenType left, TokenType right) => left.Equals(right);
+        public static bool operator !=(TokenType left, TokenType right) => !left.Equals(right);
+
+        public static explicit operator string(TokenType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TokenType other && Equals(other);
+        public bool Equals(TokenType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

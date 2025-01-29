@@ -27,13 +27,16 @@ class ListDeploymentInfoResult:
     """
     The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
     """
-    def __init__(__self__, deployment_url=None, disk_capacity=None, marketplace_saas_info=None, memory_capacity=None, status=None, version=None):
+    def __init__(__self__, deployment_url=None, disk_capacity=None, elasticsearch_end_point=None, marketplace_saas_info=None, memory_capacity=None, status=None, version=None):
         if deployment_url and not isinstance(deployment_url, str):
             raise TypeError("Expected argument 'deployment_url' to be a str")
         pulumi.set(__self__, "deployment_url", deployment_url)
         if disk_capacity and not isinstance(disk_capacity, str):
             raise TypeError("Expected argument 'disk_capacity' to be a str")
         pulumi.set(__self__, "disk_capacity", disk_capacity)
+        if elasticsearch_end_point and not isinstance(elasticsearch_end_point, str):
+            raise TypeError("Expected argument 'elasticsearch_end_point' to be a str")
+        pulumi.set(__self__, "elasticsearch_end_point", elasticsearch_end_point)
         if marketplace_saas_info and not isinstance(marketplace_saas_info, dict):
             raise TypeError("Expected argument 'marketplace_saas_info' to be a dict")
         pulumi.set(__self__, "marketplace_saas_info", marketplace_saas_info)
@@ -62,6 +65,14 @@ class ListDeploymentInfoResult:
         Disk capacity of the elasticsearch in Elastic cloud deployment.
         """
         return pulumi.get(self, "disk_capacity")
+
+    @property
+    @pulumi.getter(name="elasticsearchEndPoint")
+    def elasticsearch_end_point(self) -> str:
+        """
+        Elasticsearch endpoint in Elastic cloud deployment. This is either the aliased_endpoint if available, or the service_url otherwise.
+        """
+        return pulumi.get(self, "elasticsearch_end_point")
 
     @property
     @pulumi.getter(name="marketplaceSaasInfo")
@@ -104,6 +115,7 @@ class AwaitableListDeploymentInfoResult(ListDeploymentInfoResult):
         return ListDeploymentInfoResult(
             deployment_url=self.deployment_url,
             disk_capacity=self.disk_capacity,
+            elasticsearch_end_point=self.elasticsearch_end_point,
             marketplace_saas_info=self.marketplace_saas_info,
             memory_capacity=self.memory_capacity,
             status=self.status,
@@ -115,13 +127,13 @@ def list_deployment_info(monitor_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeploymentInfoResult:
     """
     The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
-    Azure REST API version: 2023-06-01.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+    Other available API versions: 2020-07-01, 2020-07-01-preview, 2021-09-01-preview, 2021-10-01-preview, 2022-05-05-preview, 2022-07-01-preview, 2022-09-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-06-01, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name
-    :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['monitorName'] = monitor_name
@@ -132,6 +144,7 @@ def list_deployment_info(monitor_name: Optional[str] = None,
     return AwaitableListDeploymentInfoResult(
         deployment_url=pulumi.get(__ret__, 'deployment_url'),
         disk_capacity=pulumi.get(__ret__, 'disk_capacity'),
+        elasticsearch_end_point=pulumi.get(__ret__, 'elasticsearch_end_point'),
         marketplace_saas_info=pulumi.get(__ret__, 'marketplace_saas_info'),
         memory_capacity=pulumi.get(__ret__, 'memory_capacity'),
         status=pulumi.get(__ret__, 'status'),
@@ -141,13 +154,13 @@ def list_deployment_info_output(monitor_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDeploymentInfoResult]:
     """
     The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
-    Azure REST API version: 2023-06-01.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+    Other available API versions: 2020-07-01, 2020-07-01-preview, 2021-09-01-preview, 2021-10-01-preview, 2022-05-05-preview, 2022-07-01-preview, 2022-09-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-06-01, 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name
-    :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['monitorName'] = monitor_name
@@ -157,6 +170,7 @@ def list_deployment_info_output(monitor_name: Optional[pulumi.Input[str]] = None
     return __ret__.apply(lambda __response__: ListDeploymentInfoResult(
         deployment_url=pulumi.get(__response__, 'deployment_url'),
         disk_capacity=pulumi.get(__response__, 'disk_capacity'),
+        elasticsearch_end_point=pulumi.get(__response__, 'elasticsearch_end_point'),
         marketplace_saas_info=pulumi.get(__response__, 'marketplace_saas_info'),
         memory_capacity=pulumi.get(__response__, 'memory_capacity'),
         status=pulumi.get(__response__, 'status'),

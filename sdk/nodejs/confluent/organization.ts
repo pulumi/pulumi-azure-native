@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Organization resource.
- * Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-03-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2021-12-01.
  *
- * Other available API versions: 2020-03-01-preview, 2023-08-22, 2024-02-13, 2024-07-01.
+ * Other available API versions: 2020-03-01, 2020-03-01-preview, 2021-03-01-preview, 2021-09-01-preview, 2021-12-01, 2023-08-22, 2024-02-13.
  */
 export class Organization extends pulumi.CustomResource {
     /**
@@ -105,6 +105,7 @@ export class Organization extends pulumi.CustomResource {
             if ((!args || args.userDetail === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userDetail'");
             }
+            resourceInputs["linkOrganization"] = args ? args.linkOrganization : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["offerDetail"] = args ? args.offerDetail : undefined;
             resourceInputs["organizationName"] = args ? args.organizationName : undefined;
@@ -142,6 +143,10 @@ export class Organization extends pulumi.CustomResource {
  * The set of arguments for constructing a Organization resource.
  */
 export interface OrganizationArgs {
+    /**
+     * Link an existing Confluent organization
+     */
+    linkOrganization?: pulumi.Input<inputs.confluent.LinkOrganizationArgs>;
     /**
      * Location of Organization resource
      */

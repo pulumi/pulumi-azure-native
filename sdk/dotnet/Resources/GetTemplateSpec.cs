@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Gets a Template Spec with a given name.
         /// Azure REST API version: 2022-02-01.
+        /// 
+        /// Other available API versions: 2019-06-01-preview, 2021-03-01-preview, 2021-05-01.
         /// </summary>
         public static Task<GetTemplateSpecResult> InvokeAsync(GetTemplateSpecArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecResult>("azure-native:resources:getTemplateSpec", args ?? new GetTemplateSpecArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Gets a Template Spec with a given name.
         /// Azure REST API version: 2022-02-01.
+        /// 
+        /// Other available API versions: 2019-06-01-preview, 2021-03-01-preview, 2021-05-01.
         /// </summary>
         public static Output<GetTemplateSpecResult> Invoke(GetTemplateSpecInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Gets a Template Spec with a given name.
         /// Azure REST API version: 2022-02-01.
+        /// 
+        /// Other available API versions: 2019-06-01-preview, 2021-03-01-preview, 2021-05-01.
         /// </summary>
         public static Output<GetTemplateSpecResult> Invoke(GetTemplateSpecInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithDefaults());

@@ -2,6 +2,71 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AdvancedFilterOperatorType = {
+    NumberIn: "NumberIn",
+    NumberNotIn: "NumberNotIn",
+    NumberLessThan: "NumberLessThan",
+    NumberGreaterThan: "NumberGreaterThan",
+    NumberLessThanOrEquals: "NumberLessThanOrEquals",
+    NumberGreaterThanOrEquals: "NumberGreaterThanOrEquals",
+    BoolEquals: "BoolEquals",
+    StringIn: "StringIn",
+    StringNotIn: "StringNotIn",
+    StringBeginsWith: "StringBeginsWith",
+    StringEndsWith: "StringEndsWith",
+    StringContains: "StringContains",
+} as const;
+
+/**
+ * The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+ */
+export type AdvancedFilterOperatorType = (typeof AdvancedFilterOperatorType)[keyof typeof AdvancedFilterOperatorType];
+
+export const DeadLetterEndPointType = {
+    StorageBlob: "StorageBlob",
+} as const;
+
+/**
+ * Type of the endpoint for the dead letter destination
+ */
+export type DeadLetterEndPointType = (typeof DeadLetterEndPointType)[keyof typeof DeadLetterEndPointType];
+
+export const EndpointType = {
+    WebHook: "WebHook",
+    EventHub: "EventHub",
+    StorageQueue: "StorageQueue",
+    HybridConnection: "HybridConnection",
+    ServiceBusQueue: "ServiceBusQueue",
+    ServiceBusTopic: "ServiceBusTopic",
+    AzureFunction: "AzureFunction",
+} as const;
+
+/**
+ * Type of the endpoint for the event subscription destination.
+ */
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
+export const EventDeliverySchema = {
+    EventGridSchema: "EventGridSchema",
+    CustomInputSchema: "CustomInputSchema",
+    CloudEventSchemaV1_0: "CloudEventSchemaV1_0",
+} as const;
+
+/**
+ * The event delivery schema for the event subscription.
+ */
+export type EventDeliverySchema = (typeof EventDeliverySchema)[keyof typeof EventDeliverySchema];
+
+export const EventSubscriptionIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+ */
+export type EventSubscriptionIdentityType = (typeof EventSubscriptionIdentityType)[keyof typeof EventSubscriptionIdentityType];
+
 export const IdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
@@ -42,6 +107,17 @@ export const IpActionType = {
  * Action to perform based on the match or no match of the IpMask.
  */
 export type IpActionType = (typeof IpActionType)[keyof typeof IpActionType];
+
+export const PartnerRegistrationVisibilityState = {
+    Hidden: "Hidden",
+    PublicPreview: "PublicPreview",
+    GenerallyAvailable: "GenerallyAvailable",
+} as const;
+
+/**
+ * Visibility state of the partner registration.
+ */
+export type PartnerRegistrationVisibilityState = (typeof PartnerRegistrationVisibilityState)[keyof typeof PartnerRegistrationVisibilityState];
 
 export const PersistedConnectionStatus = {
     Pending: "Pending",

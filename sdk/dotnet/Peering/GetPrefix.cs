@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
         /// </summary>
         public static Task<GetPrefixResult> InvokeAsync(GetPrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrefixResult>("azure-native:peering:getPrefix", args ?? new GetPrefixArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
         /// </summary>
         public static Output<GetPrefixResult> Invoke(GetPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrefixResult>("azure-native:peering:getPrefix", args ?? new GetPrefixInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
         /// </summary>
         public static Output<GetPrefixResult> Invoke(GetPrefixInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrefixResult>("azure-native:peering:getPrefix", args ?? new GetPrefixInvokeArgs(), options.WithDefaults());

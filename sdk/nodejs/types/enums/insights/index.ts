@@ -2,17 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20150401 from "./v20150401";
 import * as v20150501 from "./v20150501";
 import * as v20180301 from "./v20180301";
 import * as v20180416 from "./v20180416";
+import * as v20180501preview from "./v20180501preview";
+import * as v20180617preview from "./v20180617preview";
+import * as v20191101preview from "./v20191101preview";
 import * as v20200202 from "./v20200202";
 import * as v20200202preview from "./v20200202preview";
 import * as v20200501preview from "./v20200501preview";
 import * as v20201005preview from "./v20201005preview";
+import * as v20201020 from "./v20201020";
+import * as v20210201preview from "./v20210201preview";
 import * as v20210308 from "./v20210308";
+import * as v20210401 from "./v20210401";
+import * as v20210501preview from "./v20210501preview";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801 from "./v20210801";
 import * as v20210901 from "./v20210901";
+import * as v20210901preview from "./v20210901preview";
 import * as v20220401 from "./v20220401";
 import * as v20220601 from "./v20220601";
 import * as v20220615 from "./v20220615";
@@ -28,17 +37,26 @@ import * as v20240101preview from "./v20240101preview";
 import * as v20241001preview from "./v20241001preview";
 
 export {
+    v20150401,
     v20150501,
     v20180301,
     v20180416,
+    v20180501preview,
+    v20180617preview,
+    v20191101preview,
     v20200202,
     v20200202preview,
     v20200501preview,
     v20201005preview,
+    v20201020,
+    v20210201preview,
     v20210308,
+    v20210401,
+    v20210501preview,
     v20210701preview,
     v20210801,
     v20210901,
+    v20210901preview,
     v20220401,
     v20220601,
     v20220615,
@@ -107,6 +125,7 @@ export const ConditionOperator = {
     GreaterThanOrEqual: "GreaterThanOrEqual",
     LessThan: "LessThan",
     LessThanOrEqual: "LessThanOrEqual",
+    GreaterOrLessThan: "GreaterOrLessThan",
 } as const;
 
 /**
@@ -186,6 +205,15 @@ export const IdentityType = {
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
+export const IncidentManagementService = {
+    Icm: "Icm",
+} as const;
+
+/**
+ * The incident management service type
+ */
+export type IncidentManagementService = (typeof IncidentManagementService)[keyof typeof IncidentManagementService];
+
 export const IngestionMode = {
     ApplicationInsights: "ApplicationInsights",
     ApplicationInsightsWithDiagnosticSettings: "ApplicationInsightsWithDiagnosticSettings",
@@ -221,6 +249,7 @@ export type ItemType = (typeof ItemType)[keyof typeof ItemType];
 
 export const Kind = {
     LogAlert: "LogAlert",
+    EventLogAlert: "EventLogAlert",
     LogToMetric: "LogToMetric",
 } as const;
 
@@ -228,6 +257,17 @@ export const Kind = {
  * Indicates the type of scheduled query rule. The default is LogAlert.
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const KnownAgentSettingName = {
+    MaxDiskQuotaInMB: "MaxDiskQuotaInMB",
+    UseTimeReceivedForForwardedEvents: "UseTimeReceivedForForwardedEvents",
+} as const;
+
+/**
+ * The name of the setting. 
+ * Must be part of the list of supported settings
+ */
+export type KnownAgentSettingName = (typeof KnownAgentSettingName)[keyof typeof KnownAgentSettingName];
 
 export const KnownColumnDefinitionType = {
     String: "string",
@@ -302,6 +342,7 @@ export const KnownLogFileTextSettingsRecordStartTimestampFormat = {
 export type KnownLogFileTextSettingsRecordStartTimestampFormat = (typeof KnownLogFileTextSettingsRecordStartTimestampFormat)[keyof typeof KnownLogFileTextSettingsRecordStartTimestampFormat];
 
 export const KnownLogFilesDataSourceFormat = {
+    Json: "json",
     Text: "text",
 } as const;
 
@@ -334,7 +375,18 @@ export const KnownPublicNetworkAccessOptions = {
  */
 export type KnownPublicNetworkAccessOptions = (typeof KnownPublicNetworkAccessOptions)[keyof typeof KnownPublicNetworkAccessOptions];
 
+export const KnownStorageBlobLookupType = {
+    String: "String",
+    Cidr: "Cidr",
+} as const;
+
+/**
+ * The type of lookup to perform on the blob
+ */
+export type KnownStorageBlobLookupType = (typeof KnownStorageBlobLookupType)[keyof typeof KnownStorageBlobLookupType];
+
 export const KnownSyslogDataSourceFacilityNames = {
+    Asterisk: "*",
     Alert: "alert",
     Audit: "audit",
     Auth: "auth",
@@ -344,6 +396,14 @@ export const KnownSyslogDataSourceFacilityNames = {
     Daemon: "daemon",
     Ftp: "ftp",
     Kern: "kern",
+    Local0: "local0",
+    Local1: "local1",
+    Local2: "local2",
+    Local3: "local3",
+    Local4: "local4",
+    Local5: "local5",
+    Local6: "local6",
+    Local7: "local7",
     Lpr: "lpr",
     Mail: "mail",
     Mark: "mark",
@@ -353,15 +413,6 @@ export const KnownSyslogDataSourceFacilityNames = {
     Syslog: "syslog",
     User: "user",
     Uucp: "uucp",
-    Local0: "local0",
-    Local1: "local1",
-    Local2: "local2",
-    Local3: "local3",
-    Local4: "local4",
-    Local5: "local5",
-    Local6: "local6",
-    Local7: "local7",
-    Asterisk: "*",
 } as const;
 
 export type KnownSyslogDataSourceFacilityNames = (typeof KnownSyslogDataSourceFacilityNames)[keyof typeof KnownSyslogDataSourceFacilityNames];
@@ -392,6 +443,14 @@ export const KnownWindowsEventLogDataSourceStreams = {
 } as const;
 
 export type KnownWindowsEventLogDataSourceStreams = (typeof KnownWindowsEventLogDataSourceStreams)[keyof typeof KnownWindowsEventLogDataSourceStreams];
+
+export const KnownWindowsFirewallLogsDataSourceProfileFilter = {
+    Domain: "Domain",
+    Private: "Private",
+    Public: "Public",
+} as const;
+
+export type KnownWindowsFirewallLogsDataSourceProfileFilter = (typeof KnownWindowsFirewallLogsDataSourceProfileFilter)[keyof typeof KnownWindowsFirewallLogsDataSourceProfileFilter];
 
 export const ManagedServiceIdentityType = {
     None: "None",

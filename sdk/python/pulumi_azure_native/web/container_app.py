@@ -34,7 +34,7 @@ class ContainerAppArgs:
         The set of arguments for constructing a ContainerApp resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input['ConfigurationArgs'] configuration: Non versioned Container App configuration properties.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] kube_environment_id: Resource ID of the Container App's KubeEnvironment.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the Container App.
@@ -85,7 +85,7 @@ class ContainerAppArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -170,14 +170,14 @@ class ContainerApp(pulumi.CustomResource):
                  __props__=None):
         """
         Container App.
-        Azure REST API version: 2023-01-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-01-01.
 
-        Other available API versions: 2023-12-01, 2024-04-01.
+        Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConfigurationArgs', 'ConfigurationArgsDict']] configuration: Non versioned Container App configuration properties.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] kube_environment_id: Resource ID of the Container App's KubeEnvironment.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the Container App.
@@ -193,9 +193,9 @@ class ContainerApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container App.
-        Azure REST API version: 2023-01-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-01-01.
 
-        Other available API versions: 2023-12-01, 2024-04-01.
+        Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param ContainerAppArgs args: The arguments to use to populate this resource's properties.
@@ -292,7 +292,7 @@ class ContainerApp(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 

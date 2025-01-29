@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Gets the Move Resource.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01.
+        /// Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01.
         /// </summary>
         public static Task<GetMoveResourceResult> InvokeAsync(GetMoveResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMoveResourceResult>("azure-native:migrate:getMoveResource", args ?? new GetMoveResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Move Resource.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01.
+        /// Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01.
         /// </summary>
         public static Output<GetMoveResourceResult> Invoke(GetMoveResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMoveResourceResult>("azure-native:migrate:getMoveResource", args ?? new GetMoveResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Move Resource.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01.
+        /// Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01.
         /// </summary>
         public static Output<GetMoveResourceResult> Invoke(GetMoveResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMoveResourceResult>("azure-native:migrate:getMoveResource", args ?? new GetMoveResourceInvokeArgs(), options.WithDefaults());

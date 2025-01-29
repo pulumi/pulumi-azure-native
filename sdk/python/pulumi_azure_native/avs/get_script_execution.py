@@ -27,7 +27,7 @@ class GetScriptExecutionResult:
     """
     An instance of a script executed by a user - custom or AVS
     """
-    def __init__(__self__, errors=None, failure_reason=None, finished_at=None, hidden_parameters=None, id=None, information=None, name=None, named_outputs=None, output=None, parameters=None, provisioning_state=None, retention=None, script_cmdlet_id=None, started_at=None, submitted_at=None, timeout=None, type=None, warnings=None):
+    def __init__(__self__, errors=None, failure_reason=None, finished_at=None, hidden_parameters=None, id=None, information=None, name=None, named_outputs=None, output=None, parameters=None, provisioning_state=None, retention=None, script_cmdlet_id=None, started_at=None, submitted_at=None, system_data=None, timeout=None, type=None, warnings=None):
         if errors and not isinstance(errors, list):
             raise TypeError("Expected argument 'errors' to be a list")
         pulumi.set(__self__, "errors", errors)
@@ -73,6 +73,9 @@ class GetScriptExecutionResult:
         if submitted_at and not isinstance(submitted_at, str):
             raise TypeError("Expected argument 'submitted_at' to be a str")
         pulumi.set(__self__, "submitted_at", submitted_at)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if timeout and not isinstance(timeout, str):
             raise TypeError("Expected argument 'timeout' to be a str")
         pulumi.set(__self__, "timeout", timeout)
@@ -95,7 +98,8 @@ class GetScriptExecutionResult:
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> Optional[str]:
         """
-        Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
+        Error message if the script was able to run, but if the script itself had
+        errors or powershell threw an exception
         """
         return pulumi.get(self, "failure_reason")
 
@@ -111,7 +115,8 @@ class GetScriptExecutionResult:
     @pulumi.getter(name="hiddenParameters")
     def hidden_parameters(self) -> Optional[Sequence[Any]]:
         """
-        Parameters that will be hidden/not visible to ARM, such as passwords and credentials
+        Parameters that will be hidden/not visible to ARM, such as passwords and
+        credentials
         """
         return pulumi.get(self, "hidden_parameters")
 
@@ -119,7 +124,7 @@ class GetScriptExecutionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -135,7 +140,7 @@ class GetScriptExecutionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -204,6 +209,14 @@ class GetScriptExecutionResult:
         return pulumi.get(self, "submitted_at")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def timeout(self) -> str:
         """
@@ -215,7 +228,7 @@ class GetScriptExecutionResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -249,6 +262,7 @@ class AwaitableGetScriptExecutionResult(GetScriptExecutionResult):
             script_cmdlet_id=self.script_cmdlet_id,
             started_at=self.started_at,
             submitted_at=self.submitted_at,
+            system_data=self.system_data,
             timeout=self.timeout,
             type=self.type,
             warnings=self.warnings)
@@ -259,15 +273,15 @@ def get_script_execution(private_cloud_name: Optional[str] = None,
                          script_execution_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScriptExecutionResult:
     """
-    An instance of a script executed by a user - custom or AVS
-    Azure REST API version: 2022-05-01.
+    Get a ScriptExecution
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str script_execution_name: Name of the user-invoked script execution resource
+    :param str script_execution_name: Name of the script cmdlet.
     """
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
@@ -292,6 +306,7 @@ def get_script_execution(private_cloud_name: Optional[str] = None,
         script_cmdlet_id=pulumi.get(__ret__, 'script_cmdlet_id'),
         started_at=pulumi.get(__ret__, 'started_at'),
         submitted_at=pulumi.get(__ret__, 'submitted_at'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         timeout=pulumi.get(__ret__, 'timeout'),
         type=pulumi.get(__ret__, 'type'),
         warnings=pulumi.get(__ret__, 'warnings'))
@@ -300,15 +315,15 @@ def get_script_execution_output(private_cloud_name: Optional[pulumi.Input[str]] 
                                 script_execution_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScriptExecutionResult]:
     """
-    An instance of a script executed by a user - custom or AVS
-    Azure REST API version: 2022-05-01.
+    Get a ScriptExecution
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2021-06-01, 2021-12-01, 2022-05-01, 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str script_execution_name: Name of the user-invoked script execution resource
+    :param str script_execution_name: Name of the script cmdlet.
     """
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
@@ -332,6 +347,7 @@ def get_script_execution_output(private_cloud_name: Optional[pulumi.Input[str]] 
         script_cmdlet_id=pulumi.get(__response__, 'script_cmdlet_id'),
         started_at=pulumi.get(__response__, 'started_at'),
         submitted_at=pulumi.get(__response__, 'submitted_at'),
+        system_data=pulumi.get(__response__, 'system_data'),
         timeout=pulumi.get(__response__, 'timeout'),
         type=pulumi.get(__response__, 'type'),
         warnings=pulumi.get(__response__, 'warnings')))

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get private endpoint connection properties
- * Azure REST API version: 2022-04-30-preview.
+ * Azure REST API version: 2023-06-30.
  *
- * Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+ * Other available API versions: 2020-03-01, 2020-04-01, 2020-06-15, 2020-07-10-preview, 2020-08-01, 2020-08-31, 2020-08-31-preview, 2021-02-01-preview, 2021-03-03-preview, 2021-03-31, 2021-07-01, 2021-07-01-preview, 2021-07-02, 2021-07-02-preview, 2022-04-30-preview, 2022-11-15-preview, 2023-06-30-preview.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,9 +60,9 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * Get private endpoint connection properties
- * Azure REST API version: 2022-04-30-preview.
+ * Azure REST API version: 2023-06-30.
  *
- * Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+ * Other available API versions: 2020-03-01, 2020-04-01, 2020-06-15, 2020-07-10-preview, 2020-08-01, 2020-08-31, 2020-08-31-preview, 2021-02-01-preview, 2021-03-03-preview, 2021-03-31, 2021-07-01, 2021-07-01-preview, 2021-07-02, 2021-07-02-preview, 2022-04-30-preview, 2022-11-15-preview, 2023-06-30-preview.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

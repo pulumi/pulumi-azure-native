@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the move collection.
- * Azure REST API version: 2022-08-01.
+ * Azure REST API version: 2023-08-01.
  *
- * Other available API versions: 2023-08-01.
+ * Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01.
  */
 export function getMoveCollection(args: GetMoveCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -75,9 +75,9 @@ export interface GetMoveCollectionResult {
 }
 /**
  * Gets the move collection.
- * Azure REST API version: 2022-08-01.
+ * Azure REST API version: 2023-08-01.
  *
- * Other available API versions: 2023-08-01.
+ * Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01.
  */
 export function getMoveCollectionOutput(args: GetMoveCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMoveCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets an API Management gateway config connection resource description.
-        /// Azure REST API version: 2023-09-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-05-01.
         /// </summary>
         public static Task<GetApiGatewayConfigConnectionResult> InvokeAsync(GetApiGatewayConfigConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiGatewayConfigConnectionResult>("azure-native:apimanagement:getApiGatewayConfigConnection", args ?? new GetApiGatewayConfigConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an API Management gateway config connection resource description.
-        /// Azure REST API version: 2023-09-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-05-01.
         /// </summary>
         public static Output<GetApiGatewayConfigConnectionResult> Invoke(GetApiGatewayConfigConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayConfigConnectionResult>("azure-native:apimanagement:getApiGatewayConfigConnection", args ?? new GetApiGatewayConfigConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an API Management gateway config connection resource description.
-        /// Azure REST API version: 2023-09-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-05-01.
         /// </summary>
         public static Output<GetApiGatewayConfigConnectionResult> Invoke(GetApiGatewayConfigConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayConfigConnectionResult>("azure-native:apimanagement:getApiGatewayConfigConnection", args ?? new GetApiGatewayConfigConnectionInvokeArgs(), options.WithDefaults());

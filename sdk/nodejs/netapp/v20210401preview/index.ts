@@ -5,23 +5,98 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { AccountArgs } from "./account";
+export type Account = import("./account").Account;
+export const Account: typeof import("./account").Account = null as any;
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
+
 export { BackupPolicyArgs } from "./backupPolicy";
 export type BackupPolicy = import("./backupPolicy").BackupPolicy;
 export const BackupPolicy: typeof import("./backupPolicy").BackupPolicy = null as any;
 utilities.lazyLoad(exports, ["BackupPolicy"], () => require("./backupPolicy"));
+
+export { CapacityPoolBackupArgs } from "./capacityPoolBackup";
+export type CapacityPoolBackup = import("./capacityPoolBackup").CapacityPoolBackup;
+export const CapacityPoolBackup: typeof import("./capacityPoolBackup").CapacityPoolBackup = null as any;
+utilities.lazyLoad(exports, ["CapacityPoolBackup"], () => require("./capacityPoolBackup"));
+
+export { CapacityPoolPoolArgs } from "./capacityPoolPool";
+export type CapacityPoolPool = import("./capacityPoolPool").CapacityPoolPool;
+export const CapacityPoolPool: typeof import("./capacityPoolPool").CapacityPoolPool = null as any;
+utilities.lazyLoad(exports, ["CapacityPoolPool"], () => require("./capacityPoolPool"));
+
+export { CapacityPoolSnapshotArgs } from "./capacityPoolSnapshot";
+export type CapacityPoolSnapshot = import("./capacityPoolSnapshot").CapacityPoolSnapshot;
+export const CapacityPoolSnapshot: typeof import("./capacityPoolSnapshot").CapacityPoolSnapshot = null as any;
+utilities.lazyLoad(exports, ["CapacityPoolSnapshot"], () => require("./capacityPoolSnapshot"));
+
+export { CapacityPoolVolumeArgs } from "./capacityPoolVolume";
+export type CapacityPoolVolume = import("./capacityPoolVolume").CapacityPoolVolume;
+export const CapacityPoolVolume: typeof import("./capacityPoolVolume").CapacityPoolVolume = null as any;
+utilities.lazyLoad(exports, ["CapacityPoolVolume"], () => require("./capacityPoolVolume"));
+
+export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
+export const getAccount: typeof import("./getAccount").getAccount = null as any;
+export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
 export { GetBackupPolicyArgs, GetBackupPolicyResult, GetBackupPolicyOutputArgs } from "./getBackupPolicy";
 export const getBackupPolicy: typeof import("./getBackupPolicy").getBackupPolicy = null as any;
 export const getBackupPolicyOutput: typeof import("./getBackupPolicy").getBackupPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getBackupPolicy","getBackupPolicyOutput"], () => require("./getBackupPolicy"));
 
+export { GetCapacityPoolBackupArgs, GetCapacityPoolBackupResult, GetCapacityPoolBackupOutputArgs } from "./getCapacityPoolBackup";
+export const getCapacityPoolBackup: typeof import("./getCapacityPoolBackup").getCapacityPoolBackup = null as any;
+export const getCapacityPoolBackupOutput: typeof import("./getCapacityPoolBackup").getCapacityPoolBackupOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolBackup","getCapacityPoolBackupOutput"], () => require("./getCapacityPoolBackup"));
+
+export { GetCapacityPoolPoolArgs, GetCapacityPoolPoolResult, GetCapacityPoolPoolOutputArgs } from "./getCapacityPoolPool";
+export const getCapacityPoolPool: typeof import("./getCapacityPoolPool").getCapacityPoolPool = null as any;
+export const getCapacityPoolPoolOutput: typeof import("./getCapacityPoolPool").getCapacityPoolPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolPool","getCapacityPoolPoolOutput"], () => require("./getCapacityPoolPool"));
+
+export { GetCapacityPoolSnapshotArgs, GetCapacityPoolSnapshotResult, GetCapacityPoolSnapshotOutputArgs } from "./getCapacityPoolSnapshot";
+export const getCapacityPoolSnapshot: typeof import("./getCapacityPoolSnapshot").getCapacityPoolSnapshot = null as any;
+export const getCapacityPoolSnapshotOutput: typeof import("./getCapacityPoolSnapshot").getCapacityPoolSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolSnapshot","getCapacityPoolSnapshotOutput"], () => require("./getCapacityPoolSnapshot"));
+
+export { GetCapacityPoolVolumeArgs, GetCapacityPoolVolumeResult, GetCapacityPoolVolumeOutputArgs } from "./getCapacityPoolVolume";
+export const getCapacityPoolVolume: typeof import("./getCapacityPoolVolume").getCapacityPoolVolume = null as any;
+export const getCapacityPoolVolumeOutput: typeof import("./getCapacityPoolVolume").getCapacityPoolVolumeOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolVolume","getCapacityPoolVolumeOutput"], () => require("./getCapacityPoolVolume"));
+
+export { GetSnapshotPolicyArgs, GetSnapshotPolicyResult, GetSnapshotPolicyOutputArgs } from "./getSnapshotPolicy";
+export const getSnapshotPolicy: typeof import("./getSnapshotPolicy").getSnapshotPolicy = null as any;
+export const getSnapshotPolicyOutput: typeof import("./getSnapshotPolicy").getSnapshotPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshotPolicy","getSnapshotPolicyOutput"], () => require("./getSnapshotPolicy"));
+
+export { SnapshotPolicyArgs } from "./snapshotPolicy";
+export type SnapshotPolicy = import("./snapshotPolicy").SnapshotPolicy;
+export const SnapshotPolicy: typeof import("./snapshotPolicy").SnapshotPolicy = null as any;
+utilities.lazyLoad(exports, ["SnapshotPolicy"], () => require("./snapshotPolicy"));
+
+
+// Export enums:
+export * from "../../types/enums/netapp/v20210401preview";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:netapp/v20210401preview:Account":
+                return new Account(name, <any>undefined, { urn })
             case "azure-native:netapp/v20210401preview:BackupPolicy":
                 return new BackupPolicy(name, <any>undefined, { urn })
+            case "azure-native:netapp/v20210401preview:CapacityPoolBackup":
+                return new CapacityPoolBackup(name, <any>undefined, { urn })
+            case "azure-native:netapp/v20210401preview:CapacityPoolPool":
+                return new CapacityPoolPool(name, <any>undefined, { urn })
+            case "azure-native:netapp/v20210401preview:CapacityPoolSnapshot":
+                return new CapacityPoolSnapshot(name, <any>undefined, { urn })
+            case "azure-native:netapp/v20210401preview:CapacityPoolVolume":
+                return new CapacityPoolVolume(name, <any>undefined, { urn })
+            case "azure-native:netapp/v20210401preview:SnapshotPolicy":
+                return new SnapshotPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

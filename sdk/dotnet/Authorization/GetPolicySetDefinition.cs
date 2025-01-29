@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// This operation retrieves the policy set definition in the given subscription with the given name.
-        /// Azure REST API version: 2021-06-01.
+        /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+        /// Other available API versions: 2017-06-01-preview, 2018-03-01, 2018-05-01, 2019-01-01, 2019-06-01, 2019-09-01, 2020-03-01, 2020-09-01, 2021-06-01, 2024-05-01, 2025-01-01.
         /// </summary>
         public static Task<GetPolicySetDefinitionResult> InvokeAsync(GetPolicySetDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionResult>("azure-native:authorization:getPolicySetDefinition", args ?? new GetPolicySetDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// This operation retrieves the policy set definition in the given subscription with the given name.
-        /// Azure REST API version: 2021-06-01.
+        /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+        /// Other available API versions: 2017-06-01-preview, 2018-03-01, 2018-05-01, 2019-01-01, 2019-06-01, 2019-09-01, 2020-03-01, 2020-09-01, 2021-06-01, 2024-05-01, 2025-01-01.
         /// </summary>
         public static Output<GetPolicySetDefinitionResult> Invoke(GetPolicySetDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionResult>("azure-native:authorization:getPolicySetDefinition", args ?? new GetPolicySetDefinitionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// This operation retrieves the policy set definition in the given subscription with the given name.
-        /// Azure REST API version: 2021-06-01.
+        /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+        /// Other available API versions: 2017-06-01-preview, 2018-03-01, 2018-05-01, 2019-01-01, 2019-06-01, 2019-09-01, 2020-03-01, 2020-09-01, 2021-06-01, 2024-05-01, 2025-01-01.
         /// </summary>
         public static Output<GetPolicySetDefinitionResult> Invoke(GetPolicySetDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionResult>("azure-native:authorization:getPolicySetDefinition", args ?? new GetPolicySetDefinitionInvokeArgs(), options.WithDefaults());
@@ -42,6 +42,12 @@ namespace Pulumi.AzureNative.Authorization
 
     public sealed class GetPolicySetDefinitionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
         /// <summary>
         /// The name of the policy set definition to get.
         /// </summary>
@@ -56,6 +62,12 @@ namespace Pulumi.AzureNative.Authorization
 
     public sealed class GetPolicySetDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
         /// <summary>
         /// The name of the policy set definition to get.
         /// </summary>
@@ -105,7 +117,7 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyDefinitionReferenceResponse> PolicyDefinitions;
         /// <summary>
-        /// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        /// The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         /// </summary>
         public readonly string? PolicyType;
         /// <summary>
@@ -116,6 +128,14 @@ namespace Pulumi.AzureNative.Authorization
         /// The type of the resource (Microsoft.Authorization/policySetDefinitions).
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The policy set definition version in #.#.# format.
+        /// </summary>
+        public readonly string? Version;
+        /// <summary>
+        /// A list of available versions for this policy set definition.
+        /// </summary>
+        public readonly ImmutableArray<string> Versions;
 
         [OutputConstructor]
         private GetPolicySetDefinitionResult(
@@ -139,7 +159,11 @@ namespace Pulumi.AzureNative.Authorization
 
             Outputs.SystemDataResponse systemData,
 
-            string type)
+            string type,
+
+            string? version,
+
+            ImmutableArray<string> versions)
         {
             Description = description;
             DisplayName = displayName;
@@ -152,6 +176,8 @@ namespace Pulumi.AzureNative.Authorization
             PolicyType = policyType;
             SystemData = systemData;
             Type = type;
+            Version = version;
+            Versions = versions;
         }
     }
 }

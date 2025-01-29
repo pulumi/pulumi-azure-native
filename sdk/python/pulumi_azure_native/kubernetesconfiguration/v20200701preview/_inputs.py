@@ -20,6 +20,8 @@ __all__ = [
     'ConfigurationIdentityArgsDict',
     'ExtensionStatusArgs',
     'ExtensionStatusArgsDict',
+    'HelmOperatorPropertiesArgs',
+    'HelmOperatorPropertiesArgsDict',
     'ScopeClusterArgs',
     'ScopeClusterArgsDict',
     'ScopeNamespaceArgs',
@@ -182,6 +184,62 @@ class ExtensionStatusArgs:
     @time.setter
     def time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time", value)
+
+
+if not MYPY:
+    class HelmOperatorPropertiesArgsDict(TypedDict):
+        """
+        Properties for Helm operator.
+        """
+        chart_values: NotRequired[pulumi.Input[str]]
+        """
+        Values override for the operator Helm chart.
+        """
+        chart_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the operator Helm chart.
+        """
+elif False:
+    HelmOperatorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HelmOperatorPropertiesArgs:
+    def __init__(__self__, *,
+                 chart_values: Optional[pulumi.Input[str]] = None,
+                 chart_version: Optional[pulumi.Input[str]] = None):
+        """
+        Properties for Helm operator.
+        :param pulumi.Input[str] chart_values: Values override for the operator Helm chart.
+        :param pulumi.Input[str] chart_version: Version of the operator Helm chart.
+        """
+        if chart_values is not None:
+            pulumi.set(__self__, "chart_values", chart_values)
+        if chart_version is not None:
+            pulumi.set(__self__, "chart_version", chart_version)
+
+    @property
+    @pulumi.getter(name="chartValues")
+    def chart_values(self) -> Optional[pulumi.Input[str]]:
+        """
+        Values override for the operator Helm chart.
+        """
+        return pulumi.get(self, "chart_values")
+
+    @chart_values.setter
+    def chart_values(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "chart_values", value)
+
+    @property
+    @pulumi.getter(name="chartVersion")
+    def chart_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the operator Helm chart.
+        """
+        return pulumi.get(self, "chart_version")
+
+    @chart_version.setter
+    def chart_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "chart_version", value)
 
 
 if not MYPY:

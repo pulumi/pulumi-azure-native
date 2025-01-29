@@ -116,6 +116,11 @@ export * from "../types/enums/cognitiveservices";
 
 // Export sub-modules:
 import * as v20170418 from "./v20170418";
+import * as v20210430 from "./v20210430";
+import * as v20211001 from "./v20211001";
+import * as v20220301 from "./v20220301";
+import * as v20221001 from "./v20221001";
+import * as v20221201 from "./v20221201";
 import * as v20230501 from "./v20230501";
 import * as v20231001preview from "./v20231001preview";
 import * as v20240401preview from "./v20240401preview";
@@ -124,6 +129,11 @@ import * as v20241001 from "./v20241001";
 
 export {
     v20170418,
+    v20210430,
+    v20211001,
+    v20220301,
+    v20221001,
+    v20221201,
     v20230501,
     v20231001preview,
     v20240401preview,

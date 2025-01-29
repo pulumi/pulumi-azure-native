@@ -24,24 +24,36 @@ class DevCenterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  dev_center_name: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 project_catalog_settings: Optional[pulumi.Input['DevCenterProjectCatalogSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DevCenter resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
+        :param pulumi.Input[str] display_name: The display name of the devcenter.
+        :param pulumi.Input['EncryptionArgs'] encryption: Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity properties
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['DevCenterProjectCatalogSettingsArgs'] project_catalog_settings: Dev Center settings to be used when associating a project with a catalog.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if dev_center_name is not None:
             pulumi.set(__self__, "dev_center_name", dev_center_name)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if project_catalog_settings is not None:
+            pulumi.set(__self__, "project_catalog_settings", project_catalog_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -70,6 +82,30 @@ class DevCenterArgs:
         pulumi.set(self, "dev_center_name", value)
 
     @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the devcenter.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+        """
+        Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
@@ -94,6 +130,18 @@ class DevCenterArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="projectCatalogSettings")
+    def project_catalog_settings(self) -> Optional[pulumi.Input['DevCenterProjectCatalogSettingsArgs']]:
+        """
+        Dev Center settings to be used when associating a project with a catalog.
+        """
+        return pulumi.get(self, "project_catalog_settings")
+
+    @project_catalog_settings.setter
+    def project_catalog_settings(self, value: Optional[pulumi.Input['DevCenterProjectCatalogSettingsArgs']]):
+        pulumi.set(self, "project_catalog_settings", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -112,22 +160,28 @@ class DevCenter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dev_center_name: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 project_catalog_settings: Optional[pulumi.Input[Union['DevCenterProjectCatalogSettingsArgs', 'DevCenterProjectCatalogSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Represents a devcenter resource.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2022-08-01-preview, 2022-09-01-preview, 2022-10-12-preview, 2022-11-11-preview, 2023-01-01-preview, 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
+        :param pulumi.Input[str] display_name: The display name of the devcenter.
+        :param pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']] encryption: Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identity properties
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union['DevCenterProjectCatalogSettingsArgs', 'DevCenterProjectCatalogSettingsArgsDict']] project_catalog_settings: Dev Center settings to be used when associating a project with a catalog.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -139,9 +193,9 @@ class DevCenter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a devcenter resource.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2022-08-01-preview, 2022-09-01-preview, 2022-10-12-preview, 2022-11-11-preview, 2023-01-01-preview, 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DevCenterArgs args: The arguments to use to populate this resource's properties.
@@ -159,8 +213,11 @@ class DevCenter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dev_center_name: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 project_catalog_settings: Optional[pulumi.Input[Union['DevCenterProjectCatalogSettingsArgs', 'DevCenterProjectCatalogSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -173,8 +230,11 @@ class DevCenter(pulumi.CustomResource):
             __props__ = DevCenterArgs.__new__(DevCenterArgs)
 
             __props__.__dict__["dev_center_name"] = dev_center_name
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            __props__.__dict__["project_catalog_settings"] = project_catalog_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -209,9 +269,12 @@ class DevCenter(pulumi.CustomResource):
         __props__ = DevCenterArgs.__new__(DevCenterArgs)
 
         __props__.__dict__["dev_center_uri"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["encryption"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["project_catalog_settings"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -225,6 +288,22 @@ class DevCenter(pulumi.CustomResource):
         The URI of the Dev Center.
         """
         return pulumi.get(self, "dev_center_uri")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name of the devcenter.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionResponse']]:
+        """
+        Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter
@@ -249,6 +328,14 @@ class DevCenter(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="projectCatalogSettings")
+    def project_catalog_settings(self) -> pulumi.Output[Optional['outputs.DevCenterProjectCatalogSettingsResponse']]:
+        """
+        Dev Center settings to be used when associating a project with a catalog.
+        """
+        return pulumi.get(self, "project_catalog_settings")
 
     @property
     @pulumi.getter(name="provisioningState")

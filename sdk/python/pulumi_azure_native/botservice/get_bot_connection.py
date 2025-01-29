@@ -164,9 +164,9 @@ def get_bot_connection(connection_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotConnectionResult:
     """
     Get a Connection Setting registration for a Bot Service
-    Azure REST API version: 2022-09-15.
+    Azure REST API version: 2023-09-15-preview.
 
-    Other available API versions: 2023-09-15-preview.
+    Other available API versions: 2018-07-12, 2020-06-02, 2021-03-01, 2021-05-01-preview, 2022-06-15-preview, 2022-09-15.
 
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.
@@ -197,9 +197,9 @@ def get_bot_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotConnectionResult]:
     """
     Get a Connection Setting registration for a Bot Service
-    Azure REST API version: 2022-09-15.
+    Azure REST API version: 2023-09-15-preview.
 
-    Other available API versions: 2023-09-15-preview.
+    Other available API versions: 2018-07-12, 2020-06-02, 2021-03-01, 2021-05-01-preview, 2022-06-15-preview, 2022-09-15.
 
 
     :param str connection_name: The name of the Bot Service Connection Setting resource.

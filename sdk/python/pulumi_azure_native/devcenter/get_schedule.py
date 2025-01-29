@@ -27,13 +27,16 @@ class GetScheduleResult:
     """
     Represents a Schedule to execute a task.
     """
-    def __init__(__self__, frequency=None, id=None, name=None, provisioning_state=None, state=None, system_data=None, time=None, time_zone=None, type=None):
+    def __init__(__self__, frequency=None, id=None, location=None, name=None, provisioning_state=None, state=None, system_data=None, tags=None, time=None, time_zone=None, type=None):
         if frequency and not isinstance(frequency, str):
             raise TypeError("Expected argument 'frequency' to be a str")
         pulumi.set(__self__, "frequency", frequency)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -46,6 +49,9 @@ class GetScheduleResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if time and not isinstance(time, str):
             raise TypeError("Expected argument 'time' to be a str")
         pulumi.set(__self__, "time", time)
@@ -68,9 +74,17 @@ class GetScheduleResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -106,6 +120,14 @@ class GetScheduleResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def time(self) -> str:
         """
         The target time to trigger the action. The format is HH:MM.
@@ -137,10 +159,12 @@ class AwaitableGetScheduleResult(GetScheduleResult):
         return GetScheduleResult(
             frequency=self.frequency,
             id=self.id,
+            location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             state=self.state,
             system_data=self.system_data,
+            tags=self.tags,
             time=self.time,
             time_zone=self.time_zone,
             type=self.type)
@@ -154,9 +178,9 @@ def get_schedule(pool_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
     Gets a schedule resource.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2022-08-01-preview, 2022-09-01-preview, 2022-10-12-preview, 2022-11-11-preview, 2023-01-01-preview, 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str pool_name: Name of the pool.
@@ -177,10 +201,12 @@ def get_schedule(pool_name: Optional[str] = None,
     return AwaitableGetScheduleResult(
         frequency=pulumi.get(__ret__, 'frequency'),
         id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         state=pulumi.get(__ret__, 'state'),
         system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
         time=pulumi.get(__ret__, 'time'),
         time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'))
@@ -192,9 +218,9 @@ def get_schedule_output(pool_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Gets a schedule resource.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2022-08-01-preview, 2022-09-01-preview, 2022-10-12-preview, 2022-11-11-preview, 2023-01-01-preview, 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
 
     :param str pool_name: Name of the pool.
@@ -214,10 +240,12 @@ def get_schedule_output(pool_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetScheduleResult(
         frequency=pulumi.get(__response__, 'frequency'),
         id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         state=pulumi.get(__response__, 'state'),
         system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
         time=pulumi.get(__response__, 'time'),
         time_zone=pulumi.get(__response__, 'time_zone'),
         type=pulumi.get(__response__, 'type')))

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The Managed Network resource
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  *
- * Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01.
  */
 export class NetworkManager extends pulumi.CustomResource {
     /**
@@ -59,7 +59,7 @@ export class NetworkManager extends pulumi.CustomResource {
     /**
      * Scope Access.
      */
-    public readonly networkManagerScopeAccesses!: pulumi.Output<string[]>;
+    public readonly networkManagerScopeAccesses!: pulumi.Output<string[] | undefined>;
     /**
      * Scope of Network Manager.
      */
@@ -96,9 +96,6 @@ export class NetworkManager extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkManagerScopeAccesses === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'networkManagerScopeAccesses'");
-            }
             if ((!args || args.networkManagerScopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerScopes'");
             }
@@ -162,7 +159,7 @@ export interface NetworkManagerArgs {
     /**
      * Scope Access.
      */
-    networkManagerScopeAccesses: pulumi.Input<pulumi.Input<string | enums.network.ConfigurationType>[]>;
+    networkManagerScopeAccesses?: pulumi.Input<pulumi.Input<string | enums.network.ConfigurationType>[]>;
     /**
      * Scope of Network Manager.
      */

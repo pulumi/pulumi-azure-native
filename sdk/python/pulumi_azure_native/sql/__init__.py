@@ -153,6 +153,8 @@ if typing.TYPE_CHECKING:
     v20150501preview = __v20150501preview
     import pulumi_azure_native.sql.v20170301preview as __v20170301preview
     v20170301preview = __v20170301preview
+    import pulumi_azure_native.sql.v20171001preview as __v20171001preview
+    v20171001preview = __v20171001preview
     import pulumi_azure_native.sql.v20180601preview as __v20180601preview
     v20180601preview = __v20180601preview
     import pulumi_azure_native.sql.v20190601preview as __v20190601preview
@@ -161,10 +163,24 @@ if typing.TYPE_CHECKING:
     v20200202preview = __v20200202preview
     import pulumi_azure_native.sql.v20200801preview as __v20200801preview
     v20200801preview = __v20200801preview
+    import pulumi_azure_native.sql.v20201101preview as __v20201101preview
+    v20201101preview = __v20201101preview
     import pulumi_azure_native.sql.v20210201preview as __v20210201preview
     v20210201preview = __v20210201preview
+    import pulumi_azure_native.sql.v20210501preview as __v20210501preview
+    v20210501preview = __v20210501preview
+    import pulumi_azure_native.sql.v20210801preview as __v20210801preview
+    v20210801preview = __v20210801preview
     import pulumi_azure_native.sql.v20211101 as __v20211101
     v20211101 = __v20211101
+    import pulumi_azure_native.sql.v20211101preview as __v20211101preview
+    v20211101preview = __v20211101preview
+    import pulumi_azure_native.sql.v20220201preview as __v20220201preview
+    v20220201preview = __v20220201preview
+    import pulumi_azure_native.sql.v20220501preview as __v20220501preview
+    v20220501preview = __v20220501preview
+    import pulumi_azure_native.sql.v20220801preview as __v20220801preview
+    v20220801preview = __v20220801preview
     import pulumi_azure_native.sql.v20221101preview as __v20221101preview
     v20221101preview = __v20221101preview
     import pulumi_azure_native.sql.v20230201preview as __v20230201preview
@@ -179,12 +195,20 @@ else:
     v20140401 = _utilities.lazy_import('pulumi_azure_native.sql.v20140401')
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20150501preview')
     v20170301preview = _utilities.lazy_import('pulumi_azure_native.sql.v20170301preview')
+    v20171001preview = _utilities.lazy_import('pulumi_azure_native.sql.v20171001preview')
     v20180601preview = _utilities.lazy_import('pulumi_azure_native.sql.v20180601preview')
     v20190601preview = _utilities.lazy_import('pulumi_azure_native.sql.v20190601preview')
     v20200202preview = _utilities.lazy_import('pulumi_azure_native.sql.v20200202preview')
     v20200801preview = _utilities.lazy_import('pulumi_azure_native.sql.v20200801preview')
+    v20201101preview = _utilities.lazy_import('pulumi_azure_native.sql.v20201101preview')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.sql.v20210201preview')
+    v20210501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20210501preview')
+    v20210801preview = _utilities.lazy_import('pulumi_azure_native.sql.v20210801preview')
     v20211101 = _utilities.lazy_import('pulumi_azure_native.sql.v20211101')
+    v20211101preview = _utilities.lazy_import('pulumi_azure_native.sql.v20211101preview')
+    v20220201preview = _utilities.lazy_import('pulumi_azure_native.sql.v20220201preview')
+    v20220501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20220501preview')
+    v20220801preview = _utilities.lazy_import('pulumi_azure_native.sql.v20220801preview')
     v20221101preview = _utilities.lazy_import('pulumi_azure_native.sql.v20221101preview')
     v20230201preview = _utilities.lazy_import('pulumi_azure_native.sql.v20230201preview')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20230501preview')

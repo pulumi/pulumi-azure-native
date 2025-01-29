@@ -152,9 +152,9 @@ class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Cosmos DB SQL Role Definition.
-        Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+        Azure REST API version: 2024-11-15. Prior API version in Azure Native 2.x: 2023-04-15.
 
-        Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,9 +174,9 @@ class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB SQL Role Definition.
-        Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+        Azure REST API version: 2024-11-15. Prior API version in Azure Native 2.x: 2023-04-15.
 
-        Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SqlResourceSqlRoleDefinitionArgs args: The arguments to use to populate this resource's properties.

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Relay
     {
         /// <summary>
         /// Primary and secondary connection strings to the hybrid connection.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01.
+        /// Other available API versions: 2017-04-01, 2021-11-01.
         /// </summary>
         public static Task<ListHybridConnectionKeysResult> InvokeAsync(ListHybridConnectionKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListHybridConnectionKeysResult>("azure-native:relay:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Primary and secondary connection strings to the hybrid connection.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01.
+        /// Other available API versions: 2017-04-01, 2021-11-01.
         /// </summary>
         public static Output<ListHybridConnectionKeysResult> Invoke(ListHybridConnectionKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListHybridConnectionKeysResult>("azure-native:relay:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Primary and secondary connection strings to the hybrid connection.
-        /// Azure REST API version: 2021-11-01.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01.
+        /// Other available API versions: 2017-04-01, 2021-11-01.
         /// </summary>
         public static Output<ListHybridConnectionKeysResult> Invoke(ListHybridConnectionKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListHybridConnectionKeysResult>("azure-native:relay:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysInvokeArgs(), options.WithDefaults());

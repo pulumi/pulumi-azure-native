@@ -58,6 +58,8 @@ def list_asset_streaming_locators(account_name: Optional[str] = None,
     Lists Streaming Locators which are associated with this asset.
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
+
 
     :param str account_name: The Media Services account name.
     :param str asset_name: The Asset name.
@@ -79,6 +81,8 @@ def list_asset_streaming_locators_output(account_name: Optional[pulumi.Input[str
     """
     Lists Streaming Locators which are associated with this asset.
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-08-01.
 
 
     :param str account_name: The Media Services account name.

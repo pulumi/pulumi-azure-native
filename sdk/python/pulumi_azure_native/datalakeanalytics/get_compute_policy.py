@@ -129,6 +129,8 @@ def get_compute_policy(account_name: Optional[str] = None,
     Gets the specified Data Lake Analytics compute policy.
     Azure REST API version: 2019-11-01-preview.
 
+    Other available API versions: 2016-11-01.
+
 
     :param str account_name: The name of the Data Lake Analytics account.
     :param str compute_policy_name: The name of the compute policy to retrieve.
@@ -156,6 +158,8 @@ def get_compute_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the specified Data Lake Analytics compute policy.
     Azure REST API version: 2019-11-01-preview.
+
+    Other available API versions: 2016-11-01.
 
 
     :param str account_name: The name of the Data Lake Analytics account.

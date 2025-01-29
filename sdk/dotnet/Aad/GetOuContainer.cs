@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Aad
         /// <summary>
         /// Get OuContainer in DomainService instance.
         /// Azure REST API version: 2022-12-01.
+        /// 
+        /// Other available API versions: 2021-03-01, 2021-05-01, 2022-09-01.
         /// </summary>
         public static Task<GetOuContainerResult> InvokeAsync(GetOuContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azure-native:aad:getOuContainer", args ?? new GetOuContainerArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Aad
         /// <summary>
         /// Get OuContainer in DomainService instance.
         /// Azure REST API version: 2022-12-01.
+        /// 
+        /// Other available API versions: 2021-03-01, 2021-05-01, 2022-09-01.
         /// </summary>
         public static Output<GetOuContainerResult> Invoke(GetOuContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOuContainerResult>("azure-native:aad:getOuContainer", args ?? new GetOuContainerInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Aad
         /// <summary>
         /// Get OuContainer in DomainService instance.
         /// Azure REST API version: 2022-12-01.
+        /// 
+        /// Other available API versions: 2021-03-01, 2021-05-01, 2022-09-01.
         /// </summary>
         public static Output<GetOuContainerResult> Invoke(GetOuContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOuContainerResult>("azure-native:aad:getOuContainer", args ?? new GetOuContainerInvokeArgs(), options.WithDefaults());

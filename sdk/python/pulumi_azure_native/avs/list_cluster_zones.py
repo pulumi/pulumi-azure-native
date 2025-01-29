@@ -55,13 +55,13 @@ def list_cluster_zones(cluster_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterZonesResult:
     """
-    List of all zones and associated hosts for a cluster
-    Azure REST API version: 2022-05-01.
+    List hosts by zone in a cluster
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2022-05-01, 2023-03-01.
 
 
-    :param str cluster_name: Name of the cluster in the private cloud
+    :param str cluster_name: Name of the cluster
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -79,13 +79,13 @@ def list_cluster_zones_output(cluster_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClusterZonesResult]:
     """
-    List of all zones and associated hosts for a cluster
-    Azure REST API version: 2022-05-01.
+    List hosts by zone in a cluster
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2022-05-01, 2023-03-01.
 
 
-    :param str cluster_name: Name of the cluster in the private cloud
+    :param str cluster_name: Name of the cluster
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """

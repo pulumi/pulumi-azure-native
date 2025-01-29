@@ -109,7 +109,7 @@ class GetPermissionBindingResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to the PermissionBinding resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -154,9 +154,9 @@ def get_permission_binding(namespace_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionBindingResult:
     """
     Get properties of a permission binding.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str namespace_name: Name of the namespace.
@@ -186,9 +186,9 @@ def get_permission_binding_output(namespace_name: Optional[pulumi.Input[str]] = 
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionBindingResult]:
     """
     Get properties of a permission binding.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str namespace_name: Name of the namespace.

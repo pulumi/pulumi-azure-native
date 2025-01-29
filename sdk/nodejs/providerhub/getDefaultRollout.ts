@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the default rollout details.
  * Azure REST API version: 2021-09-01-preview.
+ *
+ * Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
  */
 export function getDefaultRollout(args: GetDefaultRolloutArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultRolloutResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,6 +60,8 @@ export interface GetDefaultRolloutResult {
 /**
  * Gets the default rollout details.
  * Azure REST API version: 2021-09-01-preview.
+ *
+ * Other available API versions: 2020-11-20, 2021-05-01-preview, 2021-06-01-preview.
  */
 export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultRolloutResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

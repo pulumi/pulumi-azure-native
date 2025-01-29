@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
 {
     /// <summary>
     /// The springbootservers envelope resource definition.
-    /// Azure REST API version: 2023-01-01-preview.
+    /// Azure REST API version: 2024-04-01-preview.
+    /// 
+    /// Other available API versions: 2023-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazurespringboot:Springbootserver")]
     public partial class Springbootserver : global::Pulumi.CustomResource
@@ -33,12 +35,6 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -71,11 +67,8 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot:springbootserver" },
                     new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20230101preview:Springbootserver" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20230101preview:springbootserver" },
                     new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20240401preview:Springbootserver" },
-                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20240401preview:springbootserver" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -122,18 +115,6 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// </summary>
         [Input("springbootserversName")]
         public Input<string>? SpringbootserversName { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public SpringbootserverArgs()
         {

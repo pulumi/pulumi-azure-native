@@ -540,11 +540,6 @@ export const listServerlessEndpointKeys: typeof import("./listServerlessEndpoint
 export const listServerlessEndpointKeysOutput: typeof import("./listServerlessEndpointKeys").listServerlessEndpointKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listServerlessEndpointKeys","listServerlessEndpointKeysOutput"], () => require("./listServerlessEndpointKeys"));
 
-export { ListWorkspaceConnectionModelsArgs, ListWorkspaceConnectionModelsResult, ListWorkspaceConnectionModelsOutputArgs } from "./listWorkspaceConnectionModels";
-export const listWorkspaceConnectionModels: typeof import("./listWorkspaceConnectionModels").listWorkspaceConnectionModels = null as any;
-export const listWorkspaceConnectionModelsOutput: typeof import("./listWorkspaceConnectionModels").listWorkspaceConnectionModelsOutput = null as any;
-utilities.lazyLoad(exports, ["listWorkspaceConnectionModels","listWorkspaceConnectionModelsOutput"], () => require("./listWorkspaceConnectionModels"));
-
 export { ListWorkspaceConnectionSecretsArgs, ListWorkspaceConnectionSecretsResult, ListWorkspaceConnectionSecretsOutputArgs } from "./listWorkspaceConnectionSecrets";
 export const listWorkspaceConnectionSecrets: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecrets = null as any;
 export const listWorkspaceConnectionSecretsOutput: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecretsOutput = null as any;
@@ -700,14 +695,23 @@ utilities.lazyLoad(exports, ["WorkspaceConnection"], () => require("./workspaceC
 export * from "../types/enums/machinelearningservices";
 
 // Export sub-modules:
+import * as v20200401 from "./v20200401";
 import * as v20200501preview from "./v20200501preview";
 import * as v20200515preview from "./v20200515preview";
+import * as v20200601 from "./v20200601";
 import * as v20200801 from "./v20200801";
 import * as v20200901preview from "./v20200901preview";
+import * as v20210101 from "./v20210101";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210401 from "./v20210401";
+import * as v20210701 from "./v20210701";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220201preview from "./v20220201preview";
+import * as v20220501 from "./v20220501";
+import * as v20220601preview from "./v20220601preview";
+import * as v20221001 from "./v20221001";
+import * as v20221001preview from "./v20221001preview";
+import * as v20221201preview from "./v20221201preview";
 import * as v20230201preview from "./v20230201preview";
 import * as v20230401 from "./v20230401";
 import * as v20230401preview from "./v20230401preview";
@@ -722,14 +726,23 @@ import * as v20241001 from "./v20241001";
 import * as v20241001preview from "./v20241001preview";
 
 export {
+    v20200401,
     v20200501preview,
     v20200515preview,
+    v20200601,
     v20200801,
     v20200901preview,
+    v20210101,
     v20210301preview,
     v20210401,
+    v20210701,
     v20220101preview,
     v20220201preview,
+    v20220501,
+    v20220601preview,
+    v20221001,
+    v20221001preview,
+    v20221201preview,
     v20230201preview,
     v20230401,
     v20230401preview,

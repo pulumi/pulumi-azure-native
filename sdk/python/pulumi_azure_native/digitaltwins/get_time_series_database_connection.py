@@ -106,6 +106,8 @@ def get_time_series_database_connection(resource_group_name: Optional[str] = Non
     Get the description of an existing time series database connection.
     Azure REST API version: 2023-01-31.
 
+    Other available API versions: 2021-06-30-preview, 2022-05-31, 2022-10-31.
+
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param str resource_name: The name of the DigitalTwinsInstance.
@@ -131,6 +133,8 @@ def get_time_series_database_connection_output(resource_group_name: Optional[pul
     """
     Get the description of an existing time series database connection.
     Azure REST API version: 2023-01-31.
+
+    Other available API versions: 2021-06-30-preview, 2022-05-31, 2022-10-31.
 
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.

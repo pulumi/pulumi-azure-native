@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly string? RestoreTimestampInUtc;
         /// <summary>
+        /// Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
+        /// </summary>
+        public readonly bool? RestoreWithTtlDisabled;
+        /// <summary>
         /// List of specific tables available for restore.
         /// </summary>
         public readonly ImmutableArray<string> TablesToRestore;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
             string? restoreTimestampInUtc,
 
+            bool? restoreWithTtlDisabled,
+
             ImmutableArray<string> tablesToRestore)
         {
             DatabasesToRestore = databasesToRestore;
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
             RestoreMode = restoreMode;
             RestoreSource = restoreSource;
             RestoreTimestampInUtc = restoreTimestampInUtc;
+            RestoreWithTtlDisabled = restoreWithTtlDisabled;
             TablesToRestore = tablesToRestore;
         }
     }

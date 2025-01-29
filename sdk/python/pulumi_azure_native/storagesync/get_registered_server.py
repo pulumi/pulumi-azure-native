@@ -27,7 +27,10 @@ class GetRegisteredServerResult:
     """
     Registered Server resource.
     """
-    def __init__(__self__, agent_version=None, agent_version_expiration_date=None, agent_version_status=None, cluster_id=None, cluster_name=None, discovery_endpoint_uri=None, friendly_name=None, id=None, last_heart_beat=None, last_operation_name=None, last_workflow_id=None, management_endpoint_uri=None, monitoring_configuration=None, monitoring_endpoint_uri=None, name=None, provisioning_state=None, resource_location=None, server_certificate=None, server_id=None, server_management_error_code=None, server_name=None, server_os_version=None, server_role=None, service_location=None, storage_sync_service_uid=None, system_data=None, type=None):
+    def __init__(__self__, active_auth_type=None, agent_version=None, agent_version_expiration_date=None, agent_version_status=None, application_id=None, cluster_id=None, cluster_name=None, discovery_endpoint_uri=None, friendly_name=None, id=None, identity=None, last_heart_beat=None, last_operation_name=None, last_workflow_id=None, latest_application_id=None, management_endpoint_uri=None, monitoring_configuration=None, monitoring_endpoint_uri=None, name=None, provisioning_state=None, resource_location=None, server_certificate=None, server_id=None, server_management_error_code=None, server_name=None, server_os_version=None, server_role=None, service_location=None, storage_sync_service_uid=None, system_data=None, type=None):
+        if active_auth_type and not isinstance(active_auth_type, str):
+            raise TypeError("Expected argument 'active_auth_type' to be a str")
+        pulumi.set(__self__, "active_auth_type", active_auth_type)
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
         pulumi.set(__self__, "agent_version", agent_version)
@@ -37,6 +40,9 @@ class GetRegisteredServerResult:
         if agent_version_status and not isinstance(agent_version_status, str):
             raise TypeError("Expected argument 'agent_version_status' to be a str")
         pulumi.set(__self__, "agent_version_status", agent_version_status)
+        if application_id and not isinstance(application_id, str):
+            raise TypeError("Expected argument 'application_id' to be a str")
+        pulumi.set(__self__, "application_id", application_id)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -52,6 +58,9 @@ class GetRegisteredServerResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, bool):
+            raise TypeError("Expected argument 'identity' to be a bool")
+        pulumi.set(__self__, "identity", identity)
         if last_heart_beat and not isinstance(last_heart_beat, str):
             raise TypeError("Expected argument 'last_heart_beat' to be a str")
         pulumi.set(__self__, "last_heart_beat", last_heart_beat)
@@ -61,6 +70,9 @@ class GetRegisteredServerResult:
         if last_workflow_id and not isinstance(last_workflow_id, str):
             raise TypeError("Expected argument 'last_workflow_id' to be a str")
         pulumi.set(__self__, "last_workflow_id", last_workflow_id)
+        if latest_application_id and not isinstance(latest_application_id, str):
+            raise TypeError("Expected argument 'latest_application_id' to be a str")
+        pulumi.set(__self__, "latest_application_id", latest_application_id)
         if management_endpoint_uri and not isinstance(management_endpoint_uri, str):
             raise TypeError("Expected argument 'management_endpoint_uri' to be a str")
         pulumi.set(__self__, "management_endpoint_uri", management_endpoint_uri)
@@ -111,6 +123,14 @@ class GetRegisteredServerResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="activeAuthType")
+    def active_auth_type(self) -> str:
+        """
+        Server auth type.
+        """
+        return pulumi.get(self, "active_auth_type")
+
+    @property
     @pulumi.getter(name="agentVersion")
     def agent_version(self) -> Optional[str]:
         """
@@ -133,6 +153,14 @@ class GetRegisteredServerResult:
         Registered Server Agent Version Status
         """
         return pulumi.get(self, "agent_version_status")
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[str]:
+        """
+        Server Application Id
+        """
+        return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -170,9 +198,17 @@ class GetRegisteredServerResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> bool:
+        """
+        Apply server with newly discovered ApplicationId if available.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="lastHeartBeat")
@@ -197,6 +233,14 @@ class GetRegisteredServerResult:
         Registered Server lastWorkflowId
         """
         return pulumi.get(self, "last_workflow_id")
+
+    @property
+    @pulumi.getter(name="latestApplicationId")
+    def latest_application_id(self) -> Optional[str]:
+        """
+        Latest Server Application Id discovered from the server. It is not yet applied.
+        """
+        return pulumi.get(self, "latest_application_id")
 
     @property
     @pulumi.getter(name="managementEndpointUri")
@@ -333,17 +377,21 @@ class AwaitableGetRegisteredServerResult(GetRegisteredServerResult):
         if False:
             yield self
         return GetRegisteredServerResult(
+            active_auth_type=self.active_auth_type,
             agent_version=self.agent_version,
             agent_version_expiration_date=self.agent_version_expiration_date,
             agent_version_status=self.agent_version_status,
+            application_id=self.application_id,
             cluster_id=self.cluster_id,
             cluster_name=self.cluster_name,
             discovery_endpoint_uri=self.discovery_endpoint_uri,
             friendly_name=self.friendly_name,
             id=self.id,
+            identity=self.identity,
             last_heart_beat=self.last_heart_beat,
             last_operation_name=self.last_operation_name,
             last_workflow_id=self.last_workflow_id,
+            latest_application_id=self.latest_application_id,
             management_endpoint_uri=self.management_endpoint_uri,
             monitoring_configuration=self.monitoring_configuration,
             monitoring_endpoint_uri=self.monitoring_endpoint_uri,
@@ -368,9 +416,9 @@ def get_registered_server(resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegisteredServerResult:
     """
     Get a given registered server.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2022-09-01.
+    Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -385,17 +433,21 @@ def get_registered_server(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagesync:getRegisteredServer', __args__, opts=opts, typ=GetRegisteredServerResult).value
 
     return AwaitableGetRegisteredServerResult(
+        active_auth_type=pulumi.get(__ret__, 'active_auth_type'),
         agent_version=pulumi.get(__ret__, 'agent_version'),
         agent_version_expiration_date=pulumi.get(__ret__, 'agent_version_expiration_date'),
         agent_version_status=pulumi.get(__ret__, 'agent_version_status'),
+        application_id=pulumi.get(__ret__, 'application_id'),
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
         cluster_name=pulumi.get(__ret__, 'cluster_name'),
         discovery_endpoint_uri=pulumi.get(__ret__, 'discovery_endpoint_uri'),
         friendly_name=pulumi.get(__ret__, 'friendly_name'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         last_heart_beat=pulumi.get(__ret__, 'last_heart_beat'),
         last_operation_name=pulumi.get(__ret__, 'last_operation_name'),
         last_workflow_id=pulumi.get(__ret__, 'last_workflow_id'),
+        latest_application_id=pulumi.get(__ret__, 'latest_application_id'),
         management_endpoint_uri=pulumi.get(__ret__, 'management_endpoint_uri'),
         monitoring_configuration=pulumi.get(__ret__, 'monitoring_configuration'),
         monitoring_endpoint_uri=pulumi.get(__ret__, 'monitoring_endpoint_uri'),
@@ -418,9 +470,9 @@ def get_registered_server_output(resource_group_name: Optional[pulumi.Input[str]
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegisteredServerResult]:
     """
     Get a given registered server.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2022-09-01.
+    Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -434,17 +486,21 @@ def get_registered_server_output(resource_group_name: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagesync:getRegisteredServer', __args__, opts=opts, typ=GetRegisteredServerResult)
     return __ret__.apply(lambda __response__: GetRegisteredServerResult(
+        active_auth_type=pulumi.get(__response__, 'active_auth_type'),
         agent_version=pulumi.get(__response__, 'agent_version'),
         agent_version_expiration_date=pulumi.get(__response__, 'agent_version_expiration_date'),
         agent_version_status=pulumi.get(__response__, 'agent_version_status'),
+        application_id=pulumi.get(__response__, 'application_id'),
         cluster_id=pulumi.get(__response__, 'cluster_id'),
         cluster_name=pulumi.get(__response__, 'cluster_name'),
         discovery_endpoint_uri=pulumi.get(__response__, 'discovery_endpoint_uri'),
         friendly_name=pulumi.get(__response__, 'friendly_name'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         last_heart_beat=pulumi.get(__response__, 'last_heart_beat'),
         last_operation_name=pulumi.get(__response__, 'last_operation_name'),
         last_workflow_id=pulumi.get(__response__, 'last_workflow_id'),
+        latest_application_id=pulumi.get(__response__, 'latest_application_id'),
         management_endpoint_uri=pulumi.get(__response__, 'management_endpoint_uri'),
         monitoring_configuration=pulumi.get(__response__, 'monitoring_configuration'),
         monitoring_endpoint_uri=pulumi.get(__response__, 'monitoring_endpoint_uri'),

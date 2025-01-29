@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview.
  */
 export class Datastore extends pulumi.CustomResource {
     /**
@@ -43,7 +43,7 @@ export class Datastore extends pulumi.CustomResource {
     /**
      * [Required] Additional attributes of the entity.
      */
-    public readonly datastoreProperties!: pulumi.Output<outputs.machinelearningservices.AzureBlobDatastoreResponse | outputs.machinelearningservices.AzureDataLakeGen1DatastoreResponse | outputs.machinelearningservices.AzureDataLakeGen2DatastoreResponse | outputs.machinelearningservices.AzureFileDatastoreResponse>;
+    public readonly datastoreProperties!: pulumi.Output<outputs.machinelearningservices.AzureBlobDatastoreResponse | outputs.machinelearningservices.AzureDataLakeGen1DatastoreResponse | outputs.machinelearningservices.AzureDataLakeGen2DatastoreResponse | outputs.machinelearningservices.AzureFileDatastoreResponse | outputs.machinelearningservices.OneLakeDatastoreResponse>;
     /**
      * The name of the resource
      */
@@ -104,7 +104,7 @@ export interface DatastoreArgs {
     /**
      * [Required] Additional attributes of the entity.
      */
-    datastoreProperties: pulumi.Input<inputs.machinelearningservices.AzureBlobDatastoreArgs | inputs.machinelearningservices.AzureDataLakeGen1DatastoreArgs | inputs.machinelearningservices.AzureDataLakeGen2DatastoreArgs | inputs.machinelearningservices.AzureFileDatastoreArgs>;
+    datastoreProperties: pulumi.Input<inputs.machinelearningservices.AzureBlobDatastoreArgs | inputs.machinelearningservices.AzureDataLakeGen1DatastoreArgs | inputs.machinelearningservices.AzureDataLakeGen2DatastoreArgs | inputs.machinelearningservices.AzureFileDatastoreArgs | inputs.machinelearningservices.OneLakeDatastoreArgs>;
     /**
      * Datastore name.
      */

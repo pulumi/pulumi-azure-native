@@ -5,9 +5,32 @@
 from enum import Enum
 
 __all__ = [
+    'DomainJoinType',
+    'EnableStatus',
     'HibernateSupport',
+    'LicenseType',
+    'LocalAdminStatus',
+    'ManagedServiceIdentityType',
+    'ScheduledFrequency',
+    'ScheduledType',
     'SkuTier',
 ]
+
+
+class DomainJoinType(str, Enum):
+    """
+    AAD Join type.
+    """
+    HYBRID_AZURE_AD_JOIN = "HybridAzureADJoin"
+    AZURE_AD_JOIN = "AzureADJoin"
+
+
+class EnableStatus(str, Enum):
+    """
+    Indicates whether or not this scheduled task is enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class HibernateSupport(str, Enum):
@@ -16,6 +39,45 @@ class HibernateSupport(str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
+
+
+class LicenseType(str, Enum):
+    """
+    Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
+    """
+    WINDOWS_CLIENT = "Windows_Client"
+
+
+class LocalAdminStatus(str, Enum):
+    """
+    Indicates whether owners of Dev Boxes in this pool are added as local administrators on the Dev Box.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+
+
+class ScheduledFrequency(str, Enum):
+    """
+    The frequency of this scheduled task.
+    """
+    DAILY = "Daily"
+
+
+class ScheduledType(str, Enum):
+    """
+    Supported type this scheduled task represents.
+    """
+    STOP_DEV_BOX = "StopDevBox"
 
 
 class SkuTier(str, Enum):

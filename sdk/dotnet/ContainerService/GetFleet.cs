@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Gets a Fleet.
-        /// Azure REST API version: 2023-03-15-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// 
-        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
         /// </summary>
         public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("azure-native:containerservice:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Fleet.
-        /// Azure REST API version: 2023-03-15-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// 
-        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:containerservice:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Fleet.
-        /// Azure REST API version: 2023-03-15-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// 
-        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Other available API versions: 2022-06-02-preview, 2022-07-02-preview, 2022-09-02-preview, 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01.
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:containerservice:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
@@ -97,6 +97,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Managed identity.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.ContainerService
 
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
             string location,
 
             string name,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNative.ContainerService
             ETag = eTag;
             HubProfile = hubProfile;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

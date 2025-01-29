@@ -141,7 +141,7 @@ class GetGalleryApplicationResult:
     @pulumi.getter(name="supportedOSType")
     def supported_os_type(self) -> str:
         """
-        This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
         """
         return pulumi.get(self, "supported_os_type")
 
@@ -188,9 +188,9 @@ def get_gallery_application(gallery_application_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryApplicationResult:
     """
     Retrieves information about a gallery Application Definition.
-    Azure REST API version: 2022-03-03.
+    Azure REST API version: 2024-03-03.
 
-    Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    Other available API versions: 2020-09-30, 2021-07-01, 2021-10-01, 2022-01-03, 2022-03-03, 2022-08-03, 2023-07-03.
 
 
     :param str gallery_application_name: The name of the gallery Application Definition to be retrieved.
@@ -223,9 +223,9 @@ def get_gallery_application_output(gallery_application_name: Optional[pulumi.Inp
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryApplicationResult]:
     """
     Retrieves information about a gallery Application Definition.
-    Azure REST API version: 2022-03-03.
+    Azure REST API version: 2024-03-03.
 
-    Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    Other available API versions: 2020-09-30, 2021-07-01, 2021-10-01, 2022-01-03, 2022-03-03, 2022-08-03, 2023-07-03.
 
 
     :param str gallery_application_name: The name of the gallery Application Definition to be retrieved.

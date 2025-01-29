@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
- * Azure REST API version: 2022-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview.
+ * Other available API versions: 2021-03-01, 2021-04-01-preview, 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview.
  */
 export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetConnectedClusterArgs {
  */
 export interface GetConnectedClusterResult {
     /**
+     * AAD profile for the connected cluster.
+     */
+    readonly aadProfile?: outputs.kubernetes.AadProfileResponse;
+    /**
      * Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
      */
     readonly agentPublicKeyCertificate: string;
@@ -45,6 +49,14 @@ export interface GetConnectedClusterResult {
      */
     readonly agentVersion: string;
     /**
+     * Arc agentry configuration for the provisioned cluster.
+     */
+    readonly arcAgentProfile?: outputs.kubernetes.ArcAgentProfileResponse;
+    /**
+     * Indicates whether Azure Hybrid Benefit is opted in
+     */
+    readonly azureHybridBenefit?: string;
+    /**
      * Represents the connectivity status of the connected cluster.
      */
     readonly connectivityStatus: string;
@@ -52,6 +64,10 @@ export interface GetConnectedClusterResult {
      * The Kubernetes distribution running on this connected cluster.
      */
     readonly distribution?: string;
+    /**
+     * The Kubernetes distribution version on this connected cluster.
+     */
+    readonly distributionVersion?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -64,6 +80,10 @@ export interface GetConnectedClusterResult {
      * The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
      */
     readonly infrastructure?: string;
+    /**
+     * The kind of connected cluster.
+     */
+    readonly kind?: string;
     /**
      * The Kubernetes version of the connected cluster resource
      */
@@ -80,6 +100,10 @@ export interface GetConnectedClusterResult {
      * Expiration time of the managed identity certificate
      */
     readonly managedIdentityCertificateExpirationTime: string;
+    /**
+     * More properties related to the Connected Cluster
+     */
+    readonly miscellaneousProperties: {[key: string]: string};
     /**
      * The name of the resource
      */
@@ -123,9 +147,9 @@ export interface GetConnectedClusterResult {
 }
 /**
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
- * Azure REST API version: 2022-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview.
+ * Other available API versions: 2021-03-01, 2021-04-01-preview, 2021-10-01, 2022-05-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview.
  */
 export function getConnectedClusterOutput(args: GetConnectedClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

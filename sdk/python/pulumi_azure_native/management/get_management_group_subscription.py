@@ -128,9 +128,9 @@ def get_management_group_subscription(group_id: Optional[str] = None,
     """
     Retrieves details about given subscription which is associated with the management group.
 
-    Azure REST API version: 2021-04-01.
+    Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-04-01.
+    Other available API versions: 2020-05-01, 2020-10-01, 2021-04-01.
 
 
     :param str group_id: Management Group ID.
@@ -156,9 +156,9 @@ def get_management_group_subscription_output(group_id: Optional[pulumi.Input[str
     """
     Retrieves details about given subscription which is associated with the management group.
 
-    Azure REST API version: 2021-04-01.
+    Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-04-01.
+    Other available API versions: 2020-05-01, 2020-10-01, 2021-04-01.
 
 
     :param str group_id: Management Group ID.

@@ -23,6 +23,7 @@ __all__ = ['DataCollectionRuleArgs', 'DataCollectionRule']
 class DataCollectionRuleArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 agent_settings: Optional[pulumi.Input['DataCollectionRuleAgentSettingsArgs']] = None,
                  data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  data_collection_rule_name: Optional[pulumi.Input[str]] = None,
                  data_flows: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowArgs']]]] = None,
@@ -32,11 +33,13 @@ class DataCollectionRuleArgs:
                  identity: Optional[pulumi.Input['DataCollectionRuleResourceIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[Union[str, 'KnownDataCollectionRuleResourceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 references: Optional[pulumi.Input['DataCollectionRuleReferencesArgs']] = None,
                  stream_declarations: Optional[pulumi.Input[Mapping[str, pulumi.Input['StreamDeclarationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DataCollectionRule resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['DataCollectionRuleAgentSettingsArgs'] agent_settings: Agent settings used to modify agent behavior on a given host
         :param pulumi.Input[str] data_collection_endpoint_id: The resource ID of the data collection endpoint that this rule can be used with.
         :param pulumi.Input[str] data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowArgs']]] data_flows: The specification of data flows.
@@ -47,10 +50,13 @@ class DataCollectionRuleArgs:
         :param pulumi.Input['DataCollectionRuleResourceIdentityArgs'] identity: Managed service identity of the resource.
         :param pulumi.Input[Union[str, 'KnownDataCollectionRuleResourceKind']] kind: The kind of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives.
+        :param pulumi.Input['DataCollectionRuleReferencesArgs'] references: Defines all the references that may be used in other sections of the DCR
         :param pulumi.Input[Mapping[str, pulumi.Input['StreamDeclarationArgs']]] stream_declarations: Declaration of custom streams used in this rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if agent_settings is not None:
+            pulumi.set(__self__, "agent_settings", agent_settings)
         if data_collection_endpoint_id is not None:
             pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
         if data_collection_rule_name is not None:
@@ -69,6 +75,8 @@ class DataCollectionRuleArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if references is not None:
+            pulumi.set(__self__, "references", references)
         if stream_declarations is not None:
             pulumi.set(__self__, "stream_declarations", stream_declarations)
         if tags is not None:
@@ -85,6 +93,18 @@ class DataCollectionRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="agentSettings")
+    def agent_settings(self) -> Optional[pulumi.Input['DataCollectionRuleAgentSettingsArgs']]:
+        """
+        Agent settings used to modify agent behavior on a given host
+        """
+        return pulumi.get(self, "agent_settings")
+
+    @agent_settings.setter
+    def agent_settings(self, value: Optional[pulumi.Input['DataCollectionRuleAgentSettingsArgs']]):
+        pulumi.set(self, "agent_settings", value)
 
     @property
     @pulumi.getter(name="dataCollectionEndpointId")
@@ -196,6 +216,18 @@ class DataCollectionRuleArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter
+    def references(self) -> Optional[pulumi.Input['DataCollectionRuleReferencesArgs']]:
+        """
+        Defines all the references that may be used in other sections of the DCR
+        """
+        return pulumi.get(self, "references")
+
+    @references.setter
+    def references(self, value: Optional[pulumi.Input['DataCollectionRuleReferencesArgs']]):
+        pulumi.set(self, "references", value)
+
+    @property
     @pulumi.getter(name="streamDeclarations")
     def stream_declarations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StreamDeclarationArgs']]]]:
         """
@@ -225,6 +257,7 @@ class DataCollectionRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_settings: Optional[pulumi.Input[Union['DataCollectionRuleAgentSettingsArgs', 'DataCollectionRuleAgentSettingsArgsDict']]] = None,
                  data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  data_collection_rule_name: Optional[pulumi.Input[str]] = None,
                  data_flows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataFlowArgs', 'DataFlowArgsDict']]]]] = None,
@@ -234,18 +267,20 @@ class DataCollectionRule(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['DataCollectionRuleResourceIdentityArgs', 'DataCollectionRuleResourceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'KnownDataCollectionRuleResourceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 references: Optional[pulumi.Input[Union['DataCollectionRuleReferencesArgs', 'DataCollectionRuleReferencesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  stream_declarations: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['StreamDeclarationArgs', 'StreamDeclarationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Definition of ARM tracked top level resource.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview.
+        Azure REST API version: 2023-03-11. Prior API version in Azure Native 2.x: 2022-06-01.
 
-        Other available API versions: 2023-03-11.
+        Other available API versions: 2019-11-01-preview, 2021-04-01, 2021-09-01-preview, 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['DataCollectionRuleAgentSettingsArgs', 'DataCollectionRuleAgentSettingsArgsDict']] agent_settings: Agent settings used to modify agent behavior on a given host
         :param pulumi.Input[str] data_collection_endpoint_id: The resource ID of the data collection endpoint that this rule can be used with.
         :param pulumi.Input[str] data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowArgs', 'DataFlowArgsDict']]]] data_flows: The specification of data flows.
@@ -256,6 +291,7 @@ class DataCollectionRule(pulumi.CustomResource):
         :param pulumi.Input[Union['DataCollectionRuleResourceIdentityArgs', 'DataCollectionRuleResourceIdentityArgsDict']] identity: Managed service identity of the resource.
         :param pulumi.Input[Union[str, 'KnownDataCollectionRuleResourceKind']] kind: The kind of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives.
+        :param pulumi.Input[Union['DataCollectionRuleReferencesArgs', 'DataCollectionRuleReferencesArgsDict']] references: Defines all the references that may be used in other sections of the DCR
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['StreamDeclarationArgs', 'StreamDeclarationArgsDict']]]] stream_declarations: Declaration of custom streams used in this rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -268,9 +304,9 @@ class DataCollectionRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of ARM tracked top level resource.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview.
+        Azure REST API version: 2023-03-11. Prior API version in Azure Native 2.x: 2022-06-01.
 
-        Other available API versions: 2023-03-11.
+        Other available API versions: 2019-11-01-preview, 2021-04-01, 2021-09-01-preview, 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param DataCollectionRuleArgs args: The arguments to use to populate this resource's properties.
@@ -287,6 +323,7 @@ class DataCollectionRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_settings: Optional[pulumi.Input[Union['DataCollectionRuleAgentSettingsArgs', 'DataCollectionRuleAgentSettingsArgsDict']]] = None,
                  data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  data_collection_rule_name: Optional[pulumi.Input[str]] = None,
                  data_flows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataFlowArgs', 'DataFlowArgsDict']]]]] = None,
@@ -296,6 +333,7 @@ class DataCollectionRule(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['DataCollectionRuleResourceIdentityArgs', 'DataCollectionRuleResourceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'KnownDataCollectionRuleResourceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 references: Optional[pulumi.Input[Union['DataCollectionRuleReferencesArgs', 'DataCollectionRuleReferencesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  stream_declarations: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['StreamDeclarationArgs', 'StreamDeclarationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -308,6 +346,7 @@ class DataCollectionRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataCollectionRuleArgs.__new__(DataCollectionRuleArgs)
 
+            __props__.__dict__["agent_settings"] = agent_settings
             __props__.__dict__["data_collection_endpoint_id"] = data_collection_endpoint_id
             __props__.__dict__["data_collection_rule_name"] = data_collection_rule_name
             __props__.__dict__["data_flows"] = data_flows
@@ -317,11 +356,13 @@ class DataCollectionRule(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            __props__.__dict__["references"] = references
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["stream_declarations"] = stream_declarations
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["endpoints"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["immutable_id"] = None
             __props__.__dict__["metadata"] = None
@@ -353,11 +394,13 @@ class DataCollectionRule(pulumi.CustomResource):
 
         __props__ = DataCollectionRuleArgs.__new__(DataCollectionRuleArgs)
 
+        __props__.__dict__["agent_settings"] = None
         __props__.__dict__["data_collection_endpoint_id"] = None
         __props__.__dict__["data_flows"] = None
         __props__.__dict__["data_sources"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["destinations"] = None
+        __props__.__dict__["endpoints"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["immutable_id"] = None
@@ -366,11 +409,20 @@ class DataCollectionRule(pulumi.CustomResource):
         __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["references"] = None
         __props__.__dict__["stream_declarations"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DataCollectionRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="agentSettings")
+    def agent_settings(self) -> pulumi.Output[Optional['outputs.DataCollectionRuleResponseAgentSettings']]:
+        """
+        Agent settings used to modify agent behavior on a given host
+        """
+        return pulumi.get(self, "agent_settings")
 
     @property
     @pulumi.getter(name="dataCollectionEndpointId")
@@ -412,6 +464,14 @@ class DataCollectionRule(pulumi.CustomResource):
         The specification of destinations.
         """
         return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> pulumi.Output['outputs.DataCollectionRuleResponseEndpoints']:
+        """
+        Defines the ingestion endpoints to send data to via this rule.
+        """
+        return pulumi.get(self, "endpoints")
 
     @property
     @pulumi.getter
@@ -476,6 +536,14 @@ class DataCollectionRule(pulumi.CustomResource):
         The resource provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def references(self) -> pulumi.Output[Optional['outputs.DataCollectionRuleResponseReferences']]:
+        """
+        Defines all the references that may be used in other sections of the DCR
+        """
+        return pulumi.get(self, "references")
 
     @property
     @pulumi.getter(name="streamDeclarations")

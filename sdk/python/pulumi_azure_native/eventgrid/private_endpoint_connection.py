@@ -32,8 +32,8 @@ class PrivateEndpointConnectionInitArgs:
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
-        :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
-        :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
+        :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
+        :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\' or \\'namespaces\\'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The Private Endpoint resource for this Connection.
@@ -59,7 +59,7 @@ class PrivateEndpointConnectionInitArgs:
     @pulumi.getter(name="parentName")
     def parent_name(self) -> pulumi.Input[str]:
         """
-        The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
+        The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
         """
         return pulumi.get(self, "parent_name")
 
@@ -71,7 +71,7 @@ class PrivateEndpointConnectionInitArgs:
     @pulumi.getter(name="parentType")
     def parent_type(self) -> pulumi.Input[str]:
         """
-        The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
+        The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\' or \\'namespaces\\'.
         """
         return pulumi.get(self, "parent_type")
 
@@ -167,15 +167,15 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2022-06-15.
 
-        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
-        :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
-        :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\'.
+        :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
+        :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \\'topics\\', \\'domains\\', or \\'partnerNamespaces\\' or \\'namespaces\\'.
         :param pulumi.Input[Union['PrivateEndpointArgs', 'PrivateEndpointArgsDict']] private_endpoint: The Private Endpoint resource for this Connection.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection connection.
         :param pulumi.Input[Union['ConnectionStateArgs', 'ConnectionStateArgsDict']] private_link_service_connection_state: Details about the state of the connection.
@@ -189,9 +189,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  args: PrivateEndpointConnectionInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2022-06-15.
 
-        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2020-04-01-preview, 2020-06-01, 2020-10-15-preview, 2021-06-01-preview, 2021-10-15-preview, 2021-12-01, 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.

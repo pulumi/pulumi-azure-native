@@ -79,7 +79,7 @@ class GetSharedPrivateLinkResourceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -164,9 +164,9 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedPrivateLinkResourceResult:
     """
     Get a SharedPrivateLinkResource
-    Azure REST API version: 2023-09-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -197,9 +197,9 @@ def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharedPrivateLinkResourceResult]:
     """
     Get a SharedPrivateLinkResource
-    Azure REST API version: 2023-09-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    Other available API versions: 2023-09-01-preview, 2024-07-19-preview, 2025-01-02.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

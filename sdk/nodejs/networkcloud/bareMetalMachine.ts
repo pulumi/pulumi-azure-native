@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2023-07-01, 2023-10-01-preview, 2024-06-01-preview, 2024-10-01-preview.
  */
 export class BareMetalMachine extends pulumi.CustomResource {
     /**
@@ -104,6 +104,10 @@ export class BareMetalMachine extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The cluster version that has been applied to this machine during deployment or a version update.
+     */
+    public readonly machineClusterVersion!: pulumi.Output<string | undefined>;
+    /**
      * The custom details provided by the customer.
      */
     public readonly machineDetails!: pulumi.Output<string>;
@@ -159,6 +163,10 @@ export class BareMetalMachine extends pulumi.CustomResource {
      * The runtime protection status of the bare metal machine.
      */
     public /*out*/ readonly runtimeProtectionStatus!: pulumi.Output<outputs.networkcloud.RuntimeProtectionStatusResponse>;
+    /**
+     * The list of statuses that represent secret rotation activity.
+     */
+    public /*out*/ readonly secretRotationStatus!: pulumi.Output<outputs.networkcloud.SecretRotationStatusResponse[]>;
     /**
      * The serial number of the bare metal machine.
      */
@@ -238,6 +246,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["bootMacAddress"] = args ? args.bootMacAddress : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["machineClusterVersion"] = args ? args.machineClusterVersion : undefined;
             resourceInputs["machineDetails"] = args ? args.machineDetails : undefined;
             resourceInputs["machineName"] = args ? args.machineName : undefined;
             resourceInputs["machineSkuId"] = args ? args.machineSkuId : undefined;
@@ -265,6 +274,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["readyState"] = undefined /*out*/;
             resourceInputs["runtimeProtectionStatus"] = undefined /*out*/;
+            resourceInputs["secretRotationStatus"] = undefined /*out*/;
             resourceInputs["serviceTag"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -286,6 +296,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["kubernetesNodeName"] = undefined /*out*/;
             resourceInputs["kubernetesVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["machineClusterVersion"] = undefined /*out*/;
             resourceInputs["machineDetails"] = undefined /*out*/;
             resourceInputs["machineName"] = undefined /*out*/;
             resourceInputs["machineRoles"] = undefined /*out*/;
@@ -300,6 +311,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["rackSlot"] = undefined /*out*/;
             resourceInputs["readyState"] = undefined /*out*/;
             resourceInputs["runtimeProtectionStatus"] = undefined /*out*/;
+            resourceInputs["secretRotationStatus"] = undefined /*out*/;
             resourceInputs["serialNumber"] = undefined /*out*/;
             resourceInputs["serviceTag"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -346,6 +358,10 @@ export interface BareMetalMachineArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The cluster version that has been applied to this machine during deployment or a version update.
+     */
+    machineClusterVersion?: pulumi.Input<string>;
     /**
      * The custom details provided by the customer.
      */

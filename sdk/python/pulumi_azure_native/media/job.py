@@ -183,7 +183,9 @@ class Job(pulumi.CustomResource):
                  __props__=None):
         """
         A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-05-01.
+        Azure REST API version: 2022-07-01. Prior API version in Azure Native 2.x: 2022-07-01.
+
+        Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,7 +207,9 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-05-01.
+        Azure REST API version: 2022-07-01. Prior API version in Azure Native 2.x: 2022-07-01.
+
+        Other available API versions: 2018-03-30-preview, 2018-06-01-preview, 2018-07-01, 2020-05-01, 2021-06-01, 2021-11-01, 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

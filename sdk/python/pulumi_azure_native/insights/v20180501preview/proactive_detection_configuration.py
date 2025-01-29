@@ -253,7 +253,7 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["rule_definitions"] = rule_definitions
             __props__.__dict__["send_emails_to_subscription_owners"] = send_emails_to_subscription_owners
-            __props__.__dict__["last_updated_time"] = None
+            __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:insights/v20150501:ProactiveDetectionConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -279,39 +279,11 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
 
         __props__ = ProactiveDetectionConfigurationArgs.__new__(ProactiveDetectionConfigurationArgs)
 
-        __props__.__dict__["custom_emails"] = None
-        __props__.__dict__["enabled"] = None
-        __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["rule_definitions"] = None
-        __props__.__dict__["send_emails_to_subscription_owners"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return ProactiveDetectionConfiguration(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="customEmails")
-    def custom_emails(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Custom email addresses for this rule notifications
-        """
-        return pulumi.get(self, "custom_emails")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        A flag that indicates whether this rule is enabled by the user
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[str]:
-        """
-        The last time this rule was updated
-        """
-        return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
@@ -323,27 +295,19 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
-        The rule name
+        Azure resource name
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="ruleDefinitions")
-    def rule_definitions(self) -> pulumi.Output[Optional['outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponse']:
         """
-        Static definitions of the ProactiveDetection configuration rule (same values for all components).
+        Properties that define a ProactiveDetection configuration.
         """
-        return pulumi.get(self, "rule_definitions")
-
-    @property
-    @pulumi.getter(name="sendEmailsToSubscriptionOwners")
-    def send_emails_to_subscription_owners(self) -> pulumi.Output[Optional[bool]]:
-        """
-        A flag that indicated whether notifications on this rule should be sent to subscription owners
-        """
-        return pulumi.get(self, "send_emails_to_subscription_owners")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter

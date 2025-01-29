@@ -128,9 +128,9 @@ def list_event_hub_keys(authorization_rule_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEventHubKeysResult:
     """
     Gets the ACS and SAS connection strings for the Event Hub.
-    Azure REST API version: 2022-10-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2017-04-01, 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -161,9 +161,9 @@ def list_event_hub_keys_output(authorization_rule_name: Optional[pulumi.Input[st
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEventHubKeysResult]:
     """
     Gets the ACS and SAS connection strings for the Event Hub.
-    Azure REST API version: 2022-10-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2017-04-01, 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
         /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Other available API versions: 2021-01-11.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsForEDMResult> InvokeAsync(GetPrivateEndpointConnectionsForEDMArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForEDMResult>("azure-native:securityandcompliance:getPrivateEndpointConnectionsForEDM", args ?? new GetPrivateEndpointConnectionsForEDMArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
         /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Other available API versions: 2021-01-11.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsForEDMResult> Invoke(GetPrivateEndpointConnectionsForEDMInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForEDMResult>("azure-native:securityandcompliance:getPrivateEndpointConnectionsForEDM", args ?? new GetPrivateEndpointConnectionsForEDMInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
         /// Azure REST API version: 2021-03-08.
+        /// 
+        /// Other available API versions: 2021-01-11.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsForEDMResult> Invoke(GetPrivateEndpointConnectionsForEDMInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForEDMResult>("azure-native:securityandcompliance:getPrivateEndpointConnectionsForEDM", args ?? new GetPrivateEndpointConnectionsForEDMInvokeArgs(), options.WithDefaults());

@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     Single Event Hubs Cluster resource in List or Get operations.
     """
-    def __init__(__self__, created_at=None, id=None, location=None, metric_id=None, name=None, sku=None, status=None, supports_scaling=None, system_data=None, tags=None, type=None, updated_at=None):
+    def __init__(__self__, created_at=None, id=None, location=None, metric_id=None, name=None, provisioning_state=None, sku=None, status=None, supports_scaling=None, system_data=None, tags=None, type=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -43,6 +43,9 @@ class GetClusterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -104,6 +107,14 @@ class GetClusterResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Cluster.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -173,6 +184,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             location=self.location,
             metric_id=self.metric_id,
             name=self.name,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             status=self.status,
             supports_scaling=self.supports_scaling,
@@ -187,9 +199,9 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Gets the resource description of the specified Event Hubs Cluster.
-    Azure REST API version: 2022-10-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2018-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview.
 
 
     :param str cluster_name: The name of the Event Hubs Cluster.
@@ -207,6 +219,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         metric_id=pulumi.get(__ret__, 'metric_id'),
         name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         sku=pulumi.get(__ret__, 'sku'),
         status=pulumi.get(__ret__, 'status'),
         supports_scaling=pulumi.get(__ret__, 'supports_scaling'),
@@ -219,9 +232,9 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Gets the resource description of the specified Event Hubs Cluster.
-    Azure REST API version: 2022-10-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Other available API versions: 2018-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview.
 
 
     :param str cluster_name: The name of the Event Hubs Cluster.
@@ -238,6 +251,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         location=pulumi.get(__response__, 'location'),
         metric_id=pulumi.get(__response__, 'metric_id'),
         name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         sku=pulumi.get(__response__, 'sku'),
         status=pulumi.get(__response__, 'status'),
         supports_scaling=pulumi.get(__response__, 'supports_scaling'),

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DataBox
     {
         /// <summary>
         /// Gets information about the specified job.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+        /// Other available API versions: 2020-11-01, 2021-03-01, 2021-05-01, 2021-08-01-preview, 2021-12-01, 2022-02-01, 2022-09-01, 2022-10-01, 2022-12-01, 2023-03-01, 2024-02-01-preview, 2024-03-01-preview.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified job.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+        /// Other available API versions: 2020-11-01, 2021-03-01, 2021-05-01, 2021-08-01-preview, 2021-12-01, 2022-02-01, 2022-09-01, 2022-10-01, 2022-12-01, 2023-03-01, 2024-02-01-preview, 2024-03-01-preview.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified job.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+        /// Other available API versions: 2020-11-01, 2021-03-01, 2021-05-01, 2021-08-01-preview, 2021-12-01, 2022-02-01, 2022-09-01, 2022-10-01, 2022-12-01, 2023-03-01, 2024-02-01-preview, 2024-03-01-preview.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.DataBox
         /// Reason for cancellation.
         /// </summary>
         public readonly string CancellationReason;
+        /// <summary>
+        /// Name of the stage where delay might be present.
+        /// </summary>
+        public readonly string DelayedStage;
         /// <summary>
         /// Delivery Info of Job.
         /// </summary>
@@ -193,6 +197,8 @@ namespace Pulumi.AzureNative.DataBox
         private GetJobResult(
             string cancellationReason,
 
+            string delayedStage,
+
             Outputs.JobDeliveryInfoResponse? deliveryInfo,
 
             string? deliveryType,
@@ -238,6 +244,7 @@ namespace Pulumi.AzureNative.DataBox
             string type)
         {
             CancellationReason = cancellationReason;
+            DelayedStage = delayedStage;
             DeliveryInfo = deliveryInfo;
             DeliveryType = deliveryType;
             Details = details;

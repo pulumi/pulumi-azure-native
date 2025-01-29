@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Returns the properties of an Azure Stack registration.
  * Azure REST API version: 2022-06-01.
  *
- * Other available API versions: 2020-06-01-preview.
+ * Other available API versions: 2017-06-01, 2020-06-01-preview.
  */
 export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,7 +74,7 @@ export interface GetRegistrationResult {
  * Returns the properties of an Azure Stack registration.
  * Azure REST API version: 2022-06-01.
  *
- * Other available API versions: 2020-06-01-preview.
+ * Other available API versions: 2017-06-01, 2020-06-01-preview.
  */
 export function getRegistrationOutput(args: GetRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

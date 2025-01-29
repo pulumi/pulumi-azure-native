@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
         /// </summary>
         public static Task<GetRegisteredPrefixResult> InvokeAsync(GetRegisteredPrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredPrefixResult>("azure-native:peering:getRegisteredPrefix", args ?? new GetRegisteredPrefixArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
         /// </summary>
         public static Output<GetRegisteredPrefixResult> Invoke(GetRegisteredPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredPrefixResult>("azure-native:peering:getRegisteredPrefix", args ?? new GetRegisteredPrefixInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
         /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01, 2021-06-01, 2022-01-01, 2022-06-01.
         /// </summary>
         public static Output<GetRegisteredPrefixResult> Invoke(GetRegisteredPrefixInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredPrefixResult>("azure-native:peering:getRegisteredPrefix", args ?? new GetRegisteredPrefixInvokeArgs(), options.WithDefaults());

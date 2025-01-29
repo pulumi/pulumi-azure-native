@@ -133,6 +133,8 @@ def get_management_lock_at_resource_level(lock_name: Optional[str] = None,
     Get the management lock of a resource or any level below resource.
     Azure REST API version: 2020-05-01.
 
+    Other available API versions: 2017-04-01.
+
 
     :param str lock_name: The name of lock.
     :param str parent_resource_path: An extra path parameter needed in some services, like SQL Databases.
@@ -169,6 +171,8 @@ def get_management_lock_at_resource_level_output(lock_name: Optional[pulumi.Inpu
     """
     Get the management lock of a resource or any level below resource.
     Azure REST API version: 2020-05-01.
+
+    Other available API versions: 2017-04-01.
 
 
     :param str lock_name: The name of lock.

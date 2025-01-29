@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'PolicyMode',
     'PolicyType',
+    'ResourceIdentityType',
 ]
 
 
@@ -26,3 +27,11 @@ class PolicyType(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     BUILT_IN = "BuiltIn"
     CUSTOM = "Custom"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The identity type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    NONE = "None"

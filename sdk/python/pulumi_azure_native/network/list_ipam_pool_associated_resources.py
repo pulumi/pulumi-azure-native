@@ -65,9 +65,9 @@ def list_ipam_pool_associated_resources(network_manager_name: Optional[str] = No
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIpamPoolAssociatedResourcesResult:
     """
     List of PoolAssociation
-    Azure REST API version: 2024-01-01-preview.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-01-01-preview.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -90,9 +90,9 @@ def list_ipam_pool_associated_resources_output(network_manager_name: Optional[pu
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIpamPoolAssociatedResourcesResult]:
     """
     List of PoolAssociation
-    Azure REST API version: 2024-01-01-preview.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-01-01-preview.
 
 
     :param str network_manager_name: The name of the network manager.

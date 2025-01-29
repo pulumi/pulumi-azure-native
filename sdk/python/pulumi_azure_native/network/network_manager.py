@@ -22,26 +22,25 @@ __all__ = ['NetworkManagerArgs', 'NetworkManager']
 @pulumi.input_type
 class NetworkManagerArgs:
     def __init__(__self__, *,
-                 network_manager_scope_accesses: pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]],
                  network_manager_scopes: pulumi.Input['NetworkManagerPropertiesNetworkManagerScopesArgs'],
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
+                 network_manager_scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkManager resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]] network_manager_scope_accesses: Scope Access.
         :param pulumi.Input['NetworkManagerPropertiesNetworkManagerScopesArgs'] network_manager_scopes: Scope of Network Manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] description: A description of the network manager.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]] network_manager_scope_accesses: Scope Access.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_manager_scope_accesses", network_manager_scope_accesses)
         pulumi.set(__self__, "network_manager_scopes", network_manager_scopes)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
@@ -52,20 +51,10 @@ class NetworkManagerArgs:
             pulumi.set(__self__, "location", location)
         if network_manager_name is not None:
             pulumi.set(__self__, "network_manager_name", network_manager_name)
+        if network_manager_scope_accesses is not None:
+            pulumi.set(__self__, "network_manager_scope_accesses", network_manager_scope_accesses)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="networkManagerScopeAccesses")
-    def network_manager_scope_accesses(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]]:
-        """
-        Scope Access.
-        """
-        return pulumi.get(self, "network_manager_scope_accesses")
-
-    @network_manager_scope_accesses.setter
-    def network_manager_scope_accesses(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]]):
-        pulumi.set(self, "network_manager_scope_accesses", value)
 
     @property
     @pulumi.getter(name="networkManagerScopes")
@@ -140,6 +129,18 @@ class NetworkManagerArgs:
         pulumi.set(self, "network_manager_name", value)
 
     @property
+    @pulumi.getter(name="networkManagerScopeAccesses")
+    def network_manager_scope_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]]]:
+        """
+        Scope Access.
+        """
+        return pulumi.get(self, "network_manager_scope_accesses")
+
+    @network_manager_scope_accesses.setter
+    def network_manager_scope_accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ConfigurationType']]]]]):
+        pulumi.set(self, "network_manager_scope_accesses", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -168,9 +169,9 @@ class NetworkManager(pulumi.CustomResource):
                  __props__=None):
         """
         The Managed Network resource
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+        Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,9 +192,9 @@ class NetworkManager(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Managed Network resource
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+        Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerArgs args: The arguments to use to populate this resource's properties.
@@ -231,8 +232,6 @@ class NetworkManager(pulumi.CustomResource):
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             __props__.__dict__["network_manager_name"] = network_manager_name
-            if network_manager_scope_accesses is None and not opts.urn:
-                raise TypeError("Missing required property 'network_manager_scope_accesses'")
             __props__.__dict__["network_manager_scope_accesses"] = network_manager_scope_accesses
             if network_manager_scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_scopes'")
@@ -318,7 +317,7 @@ class NetworkManager(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkManagerScopeAccesses")
-    def network_manager_scope_accesses(self) -> pulumi.Output[Sequence[str]]:
+    def network_manager_scope_accesses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Scope Access.
         """

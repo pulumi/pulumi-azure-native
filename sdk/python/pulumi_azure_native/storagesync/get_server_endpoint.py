@@ -27,7 +27,7 @@ class GetServerEndpointResult:
     """
     Server Endpoint object.
     """
-    def __init__(__self__, cloud_tiering=None, cloud_tiering_status=None, friendly_name=None, id=None, initial_download_policy=None, initial_upload_policy=None, last_operation_name=None, last_workflow_id=None, local_cache_mode=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, offline_data_transfer_storage_account_resource_id=None, offline_data_transfer_storage_account_tenant_id=None, provisioning_state=None, recall_status=None, server_local_path=None, server_name=None, server_resource_id=None, sync_status=None, system_data=None, tier_files_older_than_days=None, type=None, volume_free_space_percent=None):
+    def __init__(__self__, cloud_tiering=None, cloud_tiering_status=None, friendly_name=None, id=None, initial_download_policy=None, initial_upload_policy=None, last_operation_name=None, last_workflow_id=None, local_cache_mode=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, offline_data_transfer_storage_account_resource_id=None, offline_data_transfer_storage_account_tenant_id=None, provisioning_state=None, recall_status=None, server_endpoint_provisioning_status=None, server_local_path=None, server_name=None, server_resource_id=None, sync_status=None, system_data=None, tier_files_older_than_days=None, type=None, volume_free_space_percent=None):
         if cloud_tiering and not isinstance(cloud_tiering, str):
             raise TypeError("Expected argument 'cloud_tiering' to be a str")
         pulumi.set(__self__, "cloud_tiering", cloud_tiering)
@@ -76,6 +76,9 @@ class GetServerEndpointResult:
         if recall_status and not isinstance(recall_status, dict):
             raise TypeError("Expected argument 'recall_status' to be a dict")
         pulumi.set(__self__, "recall_status", recall_status)
+        if server_endpoint_provisioning_status and not isinstance(server_endpoint_provisioning_status, dict):
+            raise TypeError("Expected argument 'server_endpoint_provisioning_status' to be a dict")
+        pulumi.set(__self__, "server_endpoint_provisioning_status", server_endpoint_provisioning_status)
         if server_local_path and not isinstance(server_local_path, str):
             raise TypeError("Expected argument 'server_local_path' to be a str")
         pulumi.set(__self__, "server_local_path", server_local_path)
@@ -129,7 +132,7 @@ class GetServerEndpointResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -230,6 +233,14 @@ class GetServerEndpointResult:
         return pulumi.get(self, "recall_status")
 
     @property
+    @pulumi.getter(name="serverEndpointProvisioningStatus")
+    def server_endpoint_provisioning_status(self) -> Optional['outputs.ServerEndpointProvisioningStatusResponse']:
+        """
+        Server Endpoint provisioning status
+        """
+        return pulumi.get(self, "server_endpoint_provisioning_status")
+
+    @property
     @pulumi.getter(name="serverLocalPath")
     def server_local_path(self) -> Optional[str]:
         """
@@ -316,6 +327,7 @@ class AwaitableGetServerEndpointResult(GetServerEndpointResult):
             offline_data_transfer_storage_account_tenant_id=self.offline_data_transfer_storage_account_tenant_id,
             provisioning_state=self.provisioning_state,
             recall_status=self.recall_status,
+            server_endpoint_provisioning_status=self.server_endpoint_provisioning_status,
             server_local_path=self.server_local_path,
             server_name=self.server_name,
             server_resource_id=self.server_resource_id,
@@ -333,9 +345,9 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerEndpointResult:
     """
     Get a ServerEndpoint.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2022-09-01.
+    Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -368,6 +380,7 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
         offline_data_transfer_storage_account_tenant_id=pulumi.get(__ret__, 'offline_data_transfer_storage_account_tenant_id'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         recall_status=pulumi.get(__ret__, 'recall_status'),
+        server_endpoint_provisioning_status=pulumi.get(__ret__, 'server_endpoint_provisioning_status'),
         server_local_path=pulumi.get(__ret__, 'server_local_path'),
         server_name=pulumi.get(__ret__, 'server_name'),
         server_resource_id=pulumi.get(__ret__, 'server_resource_id'),
@@ -383,9 +396,9 @@ def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerEndpointResult]:
     """
     Get a ServerEndpoint.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2022-09-01.
+    Other available API versions: 2020-03-01, 2020-09-01, 2022-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -417,6 +430,7 @@ def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[str]] 
         offline_data_transfer_storage_account_tenant_id=pulumi.get(__response__, 'offline_data_transfer_storage_account_tenant_id'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         recall_status=pulumi.get(__response__, 'recall_status'),
+        server_endpoint_provisioning_status=pulumi.get(__response__, 'server_endpoint_provisioning_status'),
         server_local_path=pulumi.get(__response__, 'server_local_path'),
         server_name=pulumi.get(__response__, 'server_name'),
         server_resource_id=pulumi.get(__response__, 'server_resource_id'),

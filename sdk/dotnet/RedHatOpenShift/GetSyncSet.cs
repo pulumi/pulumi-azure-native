@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     {
         /// <summary>
         /// The operation returns properties of a SyncSet.
-        /// Azure REST API version: 2022-09-04.
+        /// Azure REST API version: 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04.
         /// </summary>
         public static Task<GetSyncSetResult> InvokeAsync(GetSyncSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncSetResult>("azure-native:redhatopenshift:getSyncSet", args ?? new GetSyncSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns properties of a SyncSet.
-        /// Azure REST API version: 2022-09-04.
+        /// Azure REST API version: 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04.
         /// </summary>
         public static Output<GetSyncSetResult> Invoke(GetSyncSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncSetResult>("azure-native:redhatopenshift:getSyncSet", args ?? new GetSyncSetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns properties of a SyncSet.
-        /// Azure REST API version: 2022-09-04.
+        /// Azure REST API version: 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04.
         /// </summary>
         public static Output<GetSyncSetResult> Invoke(GetSyncSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncSetResult>("azure-native:redhatopenshift:getSyncSet", args ?? new GetSyncSetInvokeArgs(), options.WithDefaults());

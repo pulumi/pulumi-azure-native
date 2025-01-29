@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ActiveRevisionsMode = {
+    Multiple: "multiple",
+    Single: "single",
+} as const;
+
+/**
+ * ActiveRevisionsMode controls how active revisions are handled for the Container app:
+ * <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+ */
+export type ActiveRevisionsMode = (typeof ActiveRevisionsMode)[keyof typeof ActiveRevisionsMode];
+
 export const AutoHealActionType = {
     Recycle: "Recycle",
     LogEvent: "LogEvent",
@@ -173,6 +184,17 @@ export const HostType = {
  * Indicates whether the hostname is a standard or repository hostname.
  */
 export type HostType = (typeof HostType)[keyof typeof HostType];
+
+export const IngressTransportMethod = {
+    Auto: "auto",
+    Http: "http",
+    Http2: "http2",
+} as const;
+
+/**
+ * Ingress transport protocol
+ */
+export type IngressTransportMethod = (typeof IngressTransportMethod)[keyof typeof IngressTransportMethod];
 
 export const IpFilterTag = {
     Default: "Default",

@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly string? BuiltInTransform;
         /// <summary>
+        /// Flag to enable overflow column in LA destinations
+        /// </summary>
+        public readonly bool? CaptureOverflow;
+        /// <summary>
         /// List of destinations for this data flow.
         /// </summary>
         public readonly ImmutableArray<string> Destinations;
@@ -41,6 +45,8 @@ namespace Pulumi.AzureNative.Insights.Outputs
         private DataFlowResponse(
             string? builtInTransform,
 
+            bool? captureOverflow,
+
             ImmutableArray<string> destinations,
 
             string? outputStream,
@@ -50,6 +56,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
             string? transformKql)
         {
             BuiltInTransform = builtInTransform;
+            CaptureOverflow = captureOverflow;
             Destinations = destinations;
             OutputStream = outputStream;
             Streams = streams;

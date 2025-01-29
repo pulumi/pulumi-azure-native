@@ -6,15 +6,19 @@ from enum import Enum
 
 __all__ = [
     'AgreementType',
+    'DayOfWeek',
+    'DaysOfWeek',
     'EdifactCharacterSet',
     'EdifactDecimalIndicator',
     'EncryptionAlgorithm',
     'HashingAlgorithm',
+    'IntegrationAccountSkuName',
     'KeyType',
     'MapType',
     'MessageFilterType',
     'ParameterType',
     'PartnerType',
+    'RecurrenceFrequency',
     'RosettaNetActionType',
     'RosettaNetPipActivityType',
     'RosettaNetPipConfidentialityScope',
@@ -41,6 +45,29 @@ class AgreementType(str, Enum):
     AS2 = "AS2"
     X12 = "X12"
     EDIFACT = "Edifact"
+
+
+class DayOfWeek(str, Enum):
+    """
+    The day of the week.
+    """
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+
+
+class DaysOfWeek(str, Enum):
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
 
 
 class EdifactCharacterSet(str, Enum):
@@ -99,6 +126,15 @@ class HashingAlgorithm(str, Enum):
     SHA2512 = "SHA2512"
 
 
+class IntegrationAccountSkuName(str, Enum):
+    """
+    The sku name.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    FREE = "Free"
+    STANDARD = "Standard"
+
+
 class KeyType(str, Enum):
     """
     The key type.
@@ -146,6 +182,20 @@ class PartnerType(str, Enum):
     """
     NOT_SPECIFIED = "NotSpecified"
     B2_B = "B2B"
+
+
+class RecurrenceFrequency(str, Enum):
+    """
+    The frequency.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    SECOND = "Second"
+    MINUTE = "Minute"
+    HOUR = "Hour"
+    DAY = "Day"
+    WEEK = "Week"
+    MONTH = "Month"
+    YEAR = "Year"
 
 
 class RosettaNetActionType(str, Enum):

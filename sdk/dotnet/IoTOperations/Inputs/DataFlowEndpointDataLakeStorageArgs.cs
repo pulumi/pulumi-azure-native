@@ -13,8 +13,14 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
     /// <summary>
     /// Azure Data Lake endpoint properties
     /// </summary>
-    public sealed class DataFlowEndpointDataLakeStorageArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointDataLakeStorageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Authentication configuration. NOTE - only authentication property is allowed per entry.
+        /// </summary>
+        [Input("authentication", required: true)]
+        public Input<Inputs.DataflowEndpointDataLakeStorageAuthenticationArgs> Authentication { get; set; } = null!;
+
         /// <summary>
         /// Azure Data Lake endpoint batching configuration.
         /// </summary>
@@ -27,9 +33,9 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
-        public DataFlowEndpointDataLakeStorageArgs()
+        public DataflowEndpointDataLakeStorageArgs()
         {
         }
-        public static new DataFlowEndpointDataLakeStorageArgs Empty => new DataFlowEndpointDataLakeStorageArgs();
+        public static new DataflowEndpointDataLakeStorageArgs Empty => new DataflowEndpointDataLakeStorageArgs();
     }
 }

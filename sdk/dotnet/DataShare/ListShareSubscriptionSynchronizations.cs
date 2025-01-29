@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// List synchronizations of a share subscription
         /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Other available API versions: 2020-09-01, 2020-10-01-preview.
         /// </summary>
         public static Task<ListShareSubscriptionSynchronizationsResult> InvokeAsync(ListShareSubscriptionSynchronizationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListShareSubscriptionSynchronizationsResult>("azure-native:datashare:listShareSubscriptionSynchronizations", args ?? new ListShareSubscriptionSynchronizationsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// List synchronizations of a share subscription
         /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Other available API versions: 2020-09-01, 2020-10-01-preview.
         /// </summary>
         public static Output<ListShareSubscriptionSynchronizationsResult> Invoke(ListShareSubscriptionSynchronizationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListShareSubscriptionSynchronizationsResult>("azure-native:datashare:listShareSubscriptionSynchronizations", args ?? new ListShareSubscriptionSynchronizationsInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// List synchronizations of a share subscription
         /// Azure REST API version: 2021-08-01.
+        /// 
+        /// Other available API versions: 2020-09-01, 2020-10-01-preview.
         /// </summary>
         public static Output<ListShareSubscriptionSynchronizationsResult> Invoke(ListShareSubscriptionSynchronizationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListShareSubscriptionSynchronizationsResult>("azure-native:datashare:listShareSubscriptionSynchronizations", args ?? new ListShareSubscriptionSynchronizationsInvokeArgs(), options.WithDefaults());

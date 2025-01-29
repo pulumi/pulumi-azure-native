@@ -27,9 +27,11 @@ utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 
 // Export sub-modules:
+import * as v20220401preview from "./v20220401preview";
 import * as v20230401preview from "./v20230401preview";
 
 export {
+    v20220401preview,
     v20230401preview,
 };
 

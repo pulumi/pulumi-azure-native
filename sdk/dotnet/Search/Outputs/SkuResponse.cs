@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Search.Outputs
 {
 
     /// <summary>
-    /// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
+    /// Defines the SKU of a search service, which determines billing rate and capacity limits.
     /// </summary>
     [OutputType]
     public sealed class SkuResponse

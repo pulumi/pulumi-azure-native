@@ -104,9 +104,9 @@ def get_private_endpoint_connection(namespace_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
-    Azure REST API version: 2023-01-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-09-01, 2023-10-01-preview.
+    Other available API versions: 2023-01-01-preview, 2023-09-01.
 
 
     :param str namespace_name: Namespace name
@@ -132,9 +132,9 @@ def get_private_endpoint_connection_output(namespace_name: Optional[pulumi.Input
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
-    Azure REST API version: 2023-01-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-09-01, 2023-10-01-preview.
+    Other available API versions: 2023-01-01-preview, 2023-09-01.
 
 
     :param str namespace_name: Namespace name

@@ -2,11 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20210601preview from "./v20210601preview";
+import * as v20210701preview from "./v20210701preview";
+import * as v20210801 from "./v20210801";
+import * as v20211101 from "./v20211101";
+import * as v20220301preview from "./v20220301preview";
+import * as v20220615preview from "./v20220615preview";
 import * as v20230115preview from "./v20230115preview";
 import * as v20240101 from "./v20240101";
 import * as v20240501preview from "./v20240501preview";
 
 export {
+    v20210601preview,
+    v20210701preview,
+    v20210801,
+    v20211101,
+    v20220301preview,
+    v20220615preview,
     v20230115preview,
     v20240101,
     v20240501preview,
@@ -56,21 +68,6 @@ export const ArcSqlManagedInstanceLicenseType = {
  */
 export type ArcSqlManagedInstanceLicenseType = (typeof ArcSqlManagedInstanceLicenseType)[keyof typeof ArcSqlManagedInstanceLicenseType];
 
-export const ArcSqlServerLicenseType = {
-    Undefined: "Undefined",
-    Free: "Free",
-    HADR: "HADR",
-    ServerCAL: "ServerCAL",
-    LicenseOnly: "LicenseOnly",
-    PAYG: "PAYG",
-    Paid: "Paid",
-} as const;
-
-/**
- * SQL Server license type.
- */
-export type ArcSqlServerLicenseType = (typeof ArcSqlServerLicenseType)[keyof typeof ArcSqlServerLicenseType];
-
 export const BillingPlan = {
     PAYG: "PAYG",
     Paid: "Paid",
@@ -81,17 +78,15 @@ export const BillingPlan = {
  */
 export type BillingPlan = (typeof BillingPlan)[keyof typeof BillingPlan];
 
-export const ConnectionStatus = {
-    Connected: "Connected",
-    Disconnected: "Disconnected",
-    Registered: "Registered",
-    Unknown: "Unknown",
+export const DatabaseCreateMode = {
+    Default: "Default",
+    PointInTimeRestore: "PointInTimeRestore",
 } as const;
 
 /**
- * The cloud connectivity status.
+ * Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
  */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+export type DatabaseCreateMode = (typeof DatabaseCreateMode)[keyof typeof DatabaseCreateMode];
 
 export const DatabaseState = {
     Online: "Online",
@@ -109,17 +104,6 @@ export const DatabaseState = {
  * State of the database.
  */
 export type DatabaseState = (typeof DatabaseState)[keyof typeof DatabaseState];
-
-export const DefenderStatus = {
-    Protected: "Protected",
-    Unprotected: "Unprotected",
-    Unknown: "Unknown",
-} as const;
-
-/**
- * Status of Azure Defender.
- */
-export type DefenderStatus = (typeof DefenderStatus)[keyof typeof DefenderStatus];
 
 export const EditionType = {
     Evaluation: "Evaluation",

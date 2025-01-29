@@ -11,13 +11,16 @@ __all__ = [
     'AssociationAccessMode',
     'ConfigurationType',
     'ConnectivityTopology',
+    'DeleteExistingNSGs',
     'DeleteExistingPeering',
     'GroupConnectivity',
     'IsGlobal',
     'SecurityConfigurationRuleAccess',
     'SecurityConfigurationRuleDirection',
     'SecurityConfigurationRuleProtocol',
+    'SecurityType',
     'UseHubGateway',
+    'UserRuleKind',
 ]
 
 
@@ -69,6 +72,14 @@ class ConnectivityTopology(str, Enum):
     """
     HUB_AND_SPOKE = "HubAndSpoke"
     MESH = "Mesh"
+
+
+class DeleteExistingNSGs(str, Enum):
+    """
+    Flag if need to delete existing network security groups.
+    """
+    FALSE = "False"
+    TRUE = "True"
 
 
 class DeleteExistingPeering(str, Enum):
@@ -124,9 +135,25 @@ class SecurityConfigurationRuleProtocol(str, Enum):
     AH = "Ah"
 
 
+class SecurityType(str, Enum):
+    """
+    Security Type.
+    """
+    ADMIN_POLICY = "AdminPolicy"
+    USER_POLICY = "UserPolicy"
+
+
 class UseHubGateway(str, Enum):
     """
     Flag if need to use hub gateway.
     """
     FALSE = "False"
     TRUE = "True"
+
+
+class UserRuleKind(str, Enum):
+    """
+    Whether the rule is custom or default.
+    """
+    CUSTOM = "Custom"
+    DEFAULT = "Default"

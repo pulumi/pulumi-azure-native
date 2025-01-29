@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
     public sealed class WindowsUserConfigurationResponse
     {
         /// <summary>
-        /// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
+        /// Specifies login mode for the user. The default value is Interactive.
         /// </summary>
         public readonly string? LoginMode;
 

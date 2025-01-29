@@ -27,7 +27,7 @@ class GetCommitmentPlanAssociationResult:
     """
     The commitment plan association.
     """
-    def __init__(__self__, account_id=None, etag=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, account_id=None, etag=None, id=None, name=None, system_data=None, tags=None, type=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -43,6 +43,9 @@ class GetCommitmentPlanAssociationResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -89,6 +92,14 @@ class GetCommitmentPlanAssociationResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -107,6 +118,7 @@ class AwaitableGetCommitmentPlanAssociationResult(GetCommitmentPlanAssociationRe
             id=self.id,
             name=self.name,
             system_data=self.system_data,
+            tags=self.tags,
             type=self.type)
 
 
@@ -116,9 +128,9 @@ def get_commitment_plan_association(commitment_plan_association_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommitmentPlanAssociationResult:
     """
     Gets the association of the Cognitive Services commitment plan.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+    Other available API versions: 2022-12-01, 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
 
 
     :param str commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account
@@ -138,6 +150,7 @@ def get_commitment_plan_association(commitment_plan_association_name: Optional[s
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_commitment_plan_association_output(commitment_plan_association_name: Optional[pulumi.Input[str]] = None,
                                            commitment_plan_name: Optional[pulumi.Input[str]] = None,
@@ -145,9 +158,9 @@ def get_commitment_plan_association_output(commitment_plan_association_name: Opt
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCommitmentPlanAssociationResult]:
     """
     Gets the association of the Cognitive Services commitment plan.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+    Other available API versions: 2022-12-01, 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
 
 
     :param str commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account
@@ -166,4 +179,5 @@ def get_commitment_plan_association_output(commitment_plan_association_name: Opt
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

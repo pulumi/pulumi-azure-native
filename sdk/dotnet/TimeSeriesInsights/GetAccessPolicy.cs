@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// Gets the access policy with the specified name in the specified environment.
         /// Azure REST API version: 2020-05-15.
         /// 
-        /// Other available API versions: 2021-06-30-preview.
+        /// Other available API versions: 2021-03-31-preview, 2021-06-30-preview.
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-native:timeseriesinsights:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// Gets the access policy with the specified name in the specified environment.
         /// Azure REST API version: 2020-05-15.
         /// 
-        /// Other available API versions: 2021-06-30-preview.
+        /// Other available API versions: 2021-03-31-preview, 2021-06-30-preview.
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:timeseriesinsights:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// Gets the access policy with the specified name in the specified environment.
         /// Azure REST API version: 2020-05-15.
         /// 
-        /// Other available API versions: 2021-06-30-preview.
+        /// Other available API versions: 2021-03-31-preview, 2021-06-30-preview.
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:timeseriesinsights:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());

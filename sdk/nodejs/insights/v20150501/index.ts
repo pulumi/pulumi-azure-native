@@ -10,6 +10,11 @@ export type AnalyticsItem = import("./analyticsItem").AnalyticsItem;
 export const AnalyticsItem: typeof import("./analyticsItem").AnalyticsItem = null as any;
 utilities.lazyLoad(exports, ["AnalyticsItem"], () => require("./analyticsItem"));
 
+export { ComponentArgs } from "./component";
+export type Component = import("./component").Component;
+export const Component: typeof import("./component").Component = null as any;
+utilities.lazyLoad(exports, ["Component"], () => require("./component"));
+
 export { ComponentCurrentBillingFeatureArgs } from "./componentCurrentBillingFeature";
 export type ComponentCurrentBillingFeature = import("./componentCurrentBillingFeature").ComponentCurrentBillingFeature;
 export const ComponentCurrentBillingFeature: typeof import("./componentCurrentBillingFeature").ComponentCurrentBillingFeature = null as any;
@@ -30,6 +35,11 @@ export const getAnalyticsItem: typeof import("./getAnalyticsItem").getAnalyticsI
 export const getAnalyticsItemOutput: typeof import("./getAnalyticsItem").getAnalyticsItemOutput = null as any;
 utilities.lazyLoad(exports, ["getAnalyticsItem","getAnalyticsItemOutput"], () => require("./getAnalyticsItem"));
 
+export { GetComponentArgs, GetComponentResult, GetComponentOutputArgs } from "./getComponent";
+export const getComponent: typeof import("./getComponent").getComponent = null as any;
+export const getComponentOutput: typeof import("./getComponent").getComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getComponent","getComponentOutput"], () => require("./getComponent"));
+
 export { GetComponentCurrentBillingFeatureArgs, GetComponentCurrentBillingFeatureResult, GetComponentCurrentBillingFeatureOutputArgs } from "./getComponentCurrentBillingFeature";
 export const getComponentCurrentBillingFeature: typeof import("./getComponentCurrentBillingFeature").getComponentCurrentBillingFeature = null as any;
 export const getComponentCurrentBillingFeatureOutput: typeof import("./getComponentCurrentBillingFeature").getComponentCurrentBillingFeatureOutput = null as any;
@@ -45,20 +55,40 @@ export const getFavorite: typeof import("./getFavorite").getFavorite = null as a
 export const getFavoriteOutput: typeof import("./getFavorite").getFavoriteOutput = null as any;
 utilities.lazyLoad(exports, ["getFavorite","getFavoriteOutput"], () => require("./getFavorite"));
 
+export { GetMyWorkbookArgs, GetMyWorkbookResult, GetMyWorkbookOutputArgs } from "./getMyWorkbook";
+export const getMyWorkbook: typeof import("./getMyWorkbook").getMyWorkbook = null as any;
+export const getMyWorkbookOutput: typeof import("./getMyWorkbook").getMyWorkbookOutput = null as any;
+utilities.lazyLoad(exports, ["getMyWorkbook","getMyWorkbookOutput"], () => require("./getMyWorkbook"));
+
 export { GetProactiveDetectionConfigurationArgs, GetProactiveDetectionConfigurationResult, GetProactiveDetectionConfigurationOutputArgs } from "./getProactiveDetectionConfiguration";
 export const getProactiveDetectionConfiguration: typeof import("./getProactiveDetectionConfiguration").getProactiveDetectionConfiguration = null as any;
 export const getProactiveDetectionConfigurationOutput: typeof import("./getProactiveDetectionConfiguration").getProactiveDetectionConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getProactiveDetectionConfiguration","getProactiveDetectionConfigurationOutput"], () => require("./getProactiveDetectionConfiguration"));
+
+export { GetWebTestArgs, GetWebTestResult, GetWebTestOutputArgs } from "./getWebTest";
+export const getWebTest: typeof import("./getWebTest").getWebTest = null as any;
+export const getWebTestOutput: typeof import("./getWebTest").getWebTestOutput = null as any;
+utilities.lazyLoad(exports, ["getWebTest","getWebTestOutput"], () => require("./getWebTest"));
 
 export { GetWorkbookArgs, GetWorkbookResult, GetWorkbookOutputArgs } from "./getWorkbook";
 export const getWorkbook: typeof import("./getWorkbook").getWorkbook = null as any;
 export const getWorkbookOutput: typeof import("./getWorkbook").getWorkbookOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkbook","getWorkbookOutput"], () => require("./getWorkbook"));
 
+export { MyWorkbookArgs } from "./myWorkbook";
+export type MyWorkbook = import("./myWorkbook").MyWorkbook;
+export const MyWorkbook: typeof import("./myWorkbook").MyWorkbook = null as any;
+utilities.lazyLoad(exports, ["MyWorkbook"], () => require("./myWorkbook"));
+
 export { ProactiveDetectionConfigurationArgs } from "./proactiveDetectionConfiguration";
 export type ProactiveDetectionConfiguration = import("./proactiveDetectionConfiguration").ProactiveDetectionConfiguration;
 export const ProactiveDetectionConfiguration: typeof import("./proactiveDetectionConfiguration").ProactiveDetectionConfiguration = null as any;
 utilities.lazyLoad(exports, ["ProactiveDetectionConfiguration"], () => require("./proactiveDetectionConfiguration"));
+
+export { WebTestArgs } from "./webTest";
+export type WebTest = import("./webTest").WebTest;
+export const WebTest: typeof import("./webTest").WebTest = null as any;
+utilities.lazyLoad(exports, ["WebTest"], () => require("./webTest"));
 
 export { WorkbookArgs } from "./workbook";
 export type Workbook = import("./workbook").Workbook;
@@ -75,14 +105,20 @@ const _module = {
         switch (type) {
             case "azure-native:insights/v20150501:AnalyticsItem":
                 return new AnalyticsItem(name, <any>undefined, { urn })
+            case "azure-native:insights/v20150501:Component":
+                return new Component(name, <any>undefined, { urn })
             case "azure-native:insights/v20150501:ComponentCurrentBillingFeature":
                 return new ComponentCurrentBillingFeature(name, <any>undefined, { urn })
             case "azure-native:insights/v20150501:ExportConfiguration":
                 return new ExportConfiguration(name, <any>undefined, { urn })
             case "azure-native:insights/v20150501:Favorite":
                 return new Favorite(name, <any>undefined, { urn })
+            case "azure-native:insights/v20150501:MyWorkbook":
+                return new MyWorkbook(name, <any>undefined, { urn })
             case "azure-native:insights/v20150501:ProactiveDetectionConfiguration":
                 return new ProactiveDetectionConfiguration(name, <any>undefined, { urn })
+            case "azure-native:insights/v20150501:WebTest":
+                return new WebTest(name, <any>undefined, { urn })
             case "azure-native:insights/v20150501:Workbook":
                 return new Workbook(name, <any>undefined, { urn })
             default:

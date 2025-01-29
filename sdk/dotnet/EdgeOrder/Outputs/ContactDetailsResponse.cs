@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// <summary>
         /// Contact name of the person.
         /// </summary>
-        public readonly string ContactName;
+        public readonly string? ContactName;
         /// <summary>
         /// List of Email-ids to be notified about job progress.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// <summary>
         /// Phone number of the contact person.
         /// </summary>
-        public readonly string Phone;
+        public readonly string? Phone;
         /// <summary>
         /// Phone extension number of the contact person.
         /// </summary>
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
         [OutputConstructor]
         private ContactDetailsResponse(
-            string contactName,
+            string? contactName,
 
             ImmutableArray<string> emailList,
 
             string? mobile,
 
-            string phone,
+            string? phone,
 
             string? phoneExtension)
         {

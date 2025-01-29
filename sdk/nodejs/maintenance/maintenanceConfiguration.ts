@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Maintenance configuration record type
- * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-04-01.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2022-11-01-preview.
  *
- * Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2020-04-01, 2020-07-01-preview, 2021-04-01-preview, 2021-05-01, 2021-09-01-preview, 2022-07-01-preview, 2022-11-01-preview, 2023-04-01, 2023-09-01-preview.
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
@@ -73,10 +73,6 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      */
     public readonly namespace!: pulumi.Output<string | undefined>;
     /**
-     * Override Properties for the maintenance Configuration.
-     */
-    public readonly overrides!: pulumi.Output<outputs.maintenance.MaintenanceOverridePropertiesResponse[] | undefined>;
-    /**
      * Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday] [Optional Offset(No. of days)]. Offset value must be between -6 to 6 inclusive. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday, recurEvery: Month Last Sunday Offset-3, recurEvery: Month Third Sunday Offset6.
      */
     public readonly recurEvery!: pulumi.Output<string | undefined>;
@@ -126,7 +122,6 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceScope"] = args ? args.maintenanceScope : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["overrides"] = args ? args.overrides : undefined;
             resourceInputs["recurEvery"] = args ? args.recurEvery : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
@@ -146,7 +141,6 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             resourceInputs["maintenanceScope"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
-            resourceInputs["overrides"] = undefined /*out*/;
             resourceInputs["recurEvery"] = undefined /*out*/;
             resourceInputs["startDateTime"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -194,10 +188,6 @@ export interface MaintenanceConfigurationArgs {
      * Gets or sets namespace of the resource
      */
     namespace?: pulumi.Input<string>;
-    /**
-     * Override Properties for the maintenance Configuration.
-     */
-    overrides?: pulumi.Input<pulumi.Input<inputs.maintenance.MaintenanceOverridePropertiesArgs>[]>;
     /**
      * Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday] [Optional Offset(No. of days)]. Offset value must be between -6 to 6 inclusive. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday, recurEvery: Month Last Sunday Offset-3, recurEvery: Month Third Sunday Offset6.
      */

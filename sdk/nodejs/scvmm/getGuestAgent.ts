@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Implements GuestAgent GET method.
- * Azure REST API version: 2022-05-21-preview.
+ * Azure REST API version: 2023-04-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+ * Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01.
  */
 export function getGuestAgent(args: GetGuestAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -88,9 +88,9 @@ export interface GetGuestAgentResult {
 }
 /**
  * Implements GuestAgent GET method.
- * Azure REST API version: 2022-05-21-preview.
+ * Azure REST API version: 2023-04-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+ * Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01.
  */
 export function getGuestAgentOutput(args: GetGuestAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

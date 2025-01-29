@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Container App.
- * Azure REST API version: 2023-01-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2023-12-01, 2024-04-01.
+ * Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01.
  */
 export function getContainerApp(args: GetContainerAppArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,7 +45,7 @@ export interface GetContainerAppResult {
      */
     readonly id: string;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     readonly kind?: string;
     /**
@@ -87,9 +87,9 @@ export interface GetContainerAppResult {
 }
 /**
  * Container App.
- * Azure REST API version: 2023-01-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2023-12-01, 2024-04-01.
+ * Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01.
  */
 export function getContainerAppOutput(args: GetContainerAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -39,6 +39,38 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315Preview
     }
 
     /// <summary>
+    /// Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthenticationMethod : IEquatable<AuthenticationMethod>
+    {
+        private readonly string _value;
+
+        private AuthenticationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthenticationMethod None { get; } = new AuthenticationMethod("None");
+        public static AuthenticationMethod Cassandra { get; } = new AuthenticationMethod("Cassandra");
+        public static AuthenticationMethod Ldap { get; } = new AuthenticationMethod("Ldap");
+
+        public static bool operator ==(AuthenticationMethod left, AuthenticationMethod right) => left.Equals(right);
+        public static bool operator !=(AuthenticationMethod left, AuthenticationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(AuthenticationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthenticationMethod other && Equals(other);
+        public bool Equals(AuthenticationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes the status of migration between backup policy types.
     /// </summary>
     [EnumType]
@@ -516,6 +548,72 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315Preview
     }
 
     /// <summary>
+    /// The status of the resource at the time the operation was called.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedCassandraProvisioningState : IEquatable<ManagedCassandraProvisioningState>
+    {
+        private readonly string _value;
+
+        private ManagedCassandraProvisioningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedCassandraProvisioningState Creating { get; } = new ManagedCassandraProvisioningState("Creating");
+        public static ManagedCassandraProvisioningState Updating { get; } = new ManagedCassandraProvisioningState("Updating");
+        public static ManagedCassandraProvisioningState Deleting { get; } = new ManagedCassandraProvisioningState("Deleting");
+        public static ManagedCassandraProvisioningState Succeeded { get; } = new ManagedCassandraProvisioningState("Succeeded");
+        public static ManagedCassandraProvisioningState Failed { get; } = new ManagedCassandraProvisioningState("Failed");
+        public static ManagedCassandraProvisioningState Canceled { get; } = new ManagedCassandraProvisioningState("Canceled");
+
+        public static bool operator ==(ManagedCassandraProvisioningState left, ManagedCassandraProvisioningState right) => left.Equals(right);
+        public static bool operator !=(ManagedCassandraProvisioningState left, ManagedCassandraProvisioningState right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedCassandraProvisioningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedCassandraProvisioningState other && Equals(other);
+        public bool Equals(ManagedCassandraProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedCassandraResourceIdentityType : IEquatable<ManagedCassandraResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedCassandraResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedCassandraResourceIdentityType SystemAssigned { get; } = new ManagedCassandraResourceIdentityType("SystemAssigned");
+        public static ManagedCassandraResourceIdentityType None { get; } = new ManagedCassandraResourceIdentityType("None");
+
+        public static bool operator ==(ManagedCassandraResourceIdentityType left, ManagedCassandraResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedCassandraResourceIdentityType left, ManagedCassandraResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedCassandraResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedCassandraResourceIdentityType other && Equals(other);
+        public bool Equals(ManagedCassandraResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2.
     /// </summary>
     [EnumType]
@@ -540,6 +638,37 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MinimalTlsVersion other && Equals(other);
         public bool Equals(MinimalTlsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the Role Definition was built-in or user created.
+    /// </summary>
+    [EnumType]
+    public readonly struct MongoRoleDefinitionType : IEquatable<MongoRoleDefinitionType>
+    {
+        private readonly string _value;
+
+        private MongoRoleDefinitionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MongoRoleDefinitionType BuiltInRole { get; } = new MongoRoleDefinitionType("BuiltInRole");
+        public static MongoRoleDefinitionType CustomRole { get; } = new MongoRoleDefinitionType("CustomRole");
+
+        public static bool operator ==(MongoRoleDefinitionType left, MongoRoleDefinitionType right) => left.Equals(right);
+        public static bool operator !=(MongoRoleDefinitionType left, MongoRoleDefinitionType right) => !left.Equals(right);
+
+        public static explicit operator string(MongoRoleDefinitionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MongoRoleDefinitionType other && Equals(other);
+        public bool Equals(MongoRoleDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -735,6 +864,37 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315Preview
     }
 
     /// <summary>
+    /// Indicates whether the Role Definition was built-in or user created.
+    /// </summary>
+    [EnumType]
+    public readonly struct RoleDefinitionType : IEquatable<RoleDefinitionType>
+    {
+        private readonly string _value;
+
+        private RoleDefinitionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoleDefinitionType BuiltInRole { get; } = new RoleDefinitionType("BuiltInRole");
+        public static RoleDefinitionType CustomRole { get; } = new RoleDefinitionType("CustomRole");
+
+        public static bool operator ==(RoleDefinitionType left, RoleDefinitionType right) => left.Equals(right);
+        public static bool operator !=(RoleDefinitionType left, RoleDefinitionType right) => !left.Equals(right);
+
+        public static explicit operator string(RoleDefinitionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoleDefinitionType other && Equals(other);
+        public bool Equals(RoleDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes the ServerVersion of an a MongoDB account.
     /// </summary>
     [EnumType]
@@ -760,6 +920,71 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServerVersion other && Equals(other);
         public bool Equals(ServerVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Instance type for the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceSize : IEquatable<ServiceSize>
+    {
+        private readonly string _value;
+
+        private ServiceSize(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceSize Cosmos_D4s { get; } = new ServiceSize("Cosmos.D4s");
+        public static ServiceSize Cosmos_D8s { get; } = new ServiceSize("Cosmos.D8s");
+        public static ServiceSize Cosmos_D16s { get; } = new ServiceSize("Cosmos.D16s");
+
+        public static bool operator ==(ServiceSize left, ServiceSize right) => left.Equals(right);
+        public static bool operator !=(ServiceSize left, ServiceSize right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceSize value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceSize other && Equals(other);
+        public bool Equals(ServiceSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// ServiceType for the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceType : IEquatable<ServiceType>
+    {
+        private readonly string _value;
+
+        private ServiceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceType SqlDedicatedGateway { get; } = new ServiceType("SqlDedicatedGateway");
+        public static ServiceType DataTransfer { get; } = new ServiceType("DataTransfer");
+        public static ServiceType GraphAPICompute { get; } = new ServiceType("GraphAPICompute");
+        public static ServiceType MaterializedViewsBuilder { get; } = new ServiceType("MaterializedViewsBuilder");
+
+        public static bool operator ==(ServiceType left, ServiceType right) => left.Equals(right);
+        public static bool operator !=(ServiceType left, ServiceType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceType other && Equals(other);
+        public bool Equals(ServiceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

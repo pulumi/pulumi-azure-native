@@ -75,6 +75,15 @@ utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
 export * from "../types/enums/keyvault";
 
 // Export sub-modules:
+import * as v20190901 from "./v20190901";
+import * as v20200401preview from "./v20200401preview";
+import * as v20210401preview from "./v20210401preview";
+import * as v20210601preview from "./v20210601preview";
+import * as v20211001 from "./v20211001";
+import * as v20211101preview from "./v20211101preview";
+import * as v20220201preview from "./v20220201preview";
+import * as v20220701 from "./v20220701";
+import * as v20221101 from "./v20221101";
 import * as v20230201 from "./v20230201";
 import * as v20230701 from "./v20230701";
 import * as v20240401preview from "./v20240401preview";
@@ -82,6 +91,15 @@ import * as v20241101 from "./v20241101";
 import * as v20241201preview from "./v20241201preview";
 
 export {
+    v20190901,
+    v20200401preview,
+    v20210401preview,
+    v20210601preview,
+    v20211001,
+    v20211101preview,
+    v20220201preview,
+    v20220701,
+    v20221101,
     v20230201,
     v20230701,
     v20240401preview,

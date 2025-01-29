@@ -67,9 +67,9 @@ def get_build_service_resource_upload_url(build_service_name: Optional[str] = No
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildServiceResourceUploadUrlResult:
     """
     Get an resource upload URL for build service, which may be artifacts or source archive.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2024-01-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+    Other available API versions: 2022-01-01-preview, 2022-03-01-preview, 2022-04-01, 2022-05-01-preview, 2022-09-01-preview, 2022-11-01-preview, 2022-12-01, 2023-01-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.
@@ -92,9 +92,9 @@ def get_build_service_resource_upload_url_output(build_service_name: Optional[pu
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildServiceResourceUploadUrlResult]:
     """
     Get an resource upload URL for build service, which may be artifacts or source archive.
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2024-01-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+    Other available API versions: 2022-01-01-preview, 2022-03-01-preview, 2022-04-01, 2022-05-01-preview, 2022-09-01-preview, 2022-11-01-preview, 2022-12-01, 2023-01-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.

@@ -2,13 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The role assignment
- * Azure REST API version: 2019-10-01-preview. Prior API version in Azure Native 1.x: 2019-10-01-preview.
+ * The properties of the billing role assignment.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2019-10-01-preview.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2019-10-01-preview.
  */
 export class BillingRoleAssignmentByDepartment extends pulumi.CustomResource {
     /**
@@ -38,53 +41,25 @@ export class BillingRoleAssignmentByDepartment extends pulumi.CustomResource {
     }
 
     /**
-     * The principal Id of the user who created the role assignment.
-     */
-    public /*out*/ readonly createdByPrincipalId!: pulumi.Output<string>;
-    /**
-     * The tenant Id of the user who created the role assignment.
-     */
-    public /*out*/ readonly createdByPrincipalTenantId!: pulumi.Output<string>;
-    /**
-     * The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
-     */
-    public /*out*/ readonly createdByUserEmailAddress!: pulumi.Output<string>;
-    /**
-     * The date the role assignment was created.
-     */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
-    /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The principal id of the user to whom the role was assigned.
+     * The properties of the billing role assignment.
      */
-    public readonly principalId!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.billing.BillingRoleAssignmentPropertiesResponse>;
     /**
-     * The principal tenant id of the user to whom the role was assigned.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public readonly principalTenantId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.billing.SystemDataResponse>;
     /**
-     * The ID of the role definition.
+     * Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \ ? /
      */
-    public readonly roleDefinitionId!: pulumi.Output<string | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The scope at which the role was assigned.
-     */
-    public /*out*/ readonly scope!: pulumi.Output<string>;
-    /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-     */
-    public readonly userAuthenticationType!: pulumi.Output<string | undefined>;
-    /**
-     * The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-     */
-    public readonly userEmailAddress!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BillingRoleAssignmentByDepartment resource with the given unique name, arguments, and options.
@@ -106,31 +81,17 @@ export class BillingRoleAssignmentByDepartment extends pulumi.CustomResource {
             resourceInputs["billingAccountName"] = args ? args.billingAccountName : undefined;
             resourceInputs["billingRoleAssignmentName"] = args ? args.billingRoleAssignmentName : undefined;
             resourceInputs["departmentName"] = args ? args.departmentName : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["principalTenantId"] = args ? args.principalTenantId : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["userAuthenticationType"] = args ? args.userAuthenticationType : undefined;
-            resourceInputs["userEmailAddress"] = args ? args.userEmailAddress : undefined;
-            resourceInputs["createdByPrincipalId"] = undefined /*out*/;
-            resourceInputs["createdByPrincipalTenantId"] = undefined /*out*/;
-            resourceInputs["createdByUserEmailAddress"] = undefined /*out*/;
-            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["createdByPrincipalId"] = undefined /*out*/;
-            resourceInputs["createdByPrincipalTenantId"] = undefined /*out*/;
-            resourceInputs["createdByUserEmailAddress"] = undefined /*out*/;
-            resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["principalId"] = undefined /*out*/;
-            resourceInputs["principalTenantId"] = undefined /*out*/;
-            resourceInputs["roleDefinitionId"] = undefined /*out*/;
-            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["userAuthenticationType"] = undefined /*out*/;
-            resourceInputs["userEmailAddress"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment" }, { type: "azure-native:billing/v20240401:BillingRoleAssignmentByDepartment" }] };
@@ -152,27 +113,15 @@ export interface BillingRoleAssignmentByDepartmentArgs {
      */
     billingRoleAssignmentName?: pulumi.Input<string>;
     /**
-     * The ID that uniquely identifies a department.
+     * The name of the department.
      */
     departmentName: pulumi.Input<string>;
     /**
-     * The principal id of the user to whom the role was assigned.
+     * The properties of the billing role assignment.
      */
-    principalId?: pulumi.Input<string>;
+    properties?: pulumi.Input<inputs.billing.BillingRoleAssignmentPropertiesArgs>;
     /**
-     * The principal tenant id of the user to whom the role was assigned.
+     * Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \ ? /
      */
-    principalTenantId?: pulumi.Input<string>;
-    /**
-     * The ID of the role definition.
-     */
-    roleDefinitionId?: pulumi.Input<string>;
-    /**
-     * The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-     */
-    userAuthenticationType?: pulumi.Input<string>;
-    /**
-     * The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-     */
-    userEmailAddress?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

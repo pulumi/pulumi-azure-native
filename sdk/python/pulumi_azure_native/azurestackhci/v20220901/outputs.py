@@ -17,11 +17,37 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ArcConnectivityPropertiesResponse',
     'ClusterDesiredPropertiesResponse',
     'ClusterNodeResponse',
     'ClusterReportedPropertiesResponse',
+    'PerNodeExtensionStateResponse',
+    'PerNodeStateResponse',
     'SoftwareAssurancePropertiesResponse',
 ]
+
+@pulumi.output_type
+class ArcConnectivityPropertiesResponse(dict):
+    """
+    Connectivity related configuration required by arc server.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Connectivity related configuration required by arc server.
+        :param bool enabled: True indicates ARC connectivity is enabled
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        True indicates ARC connectivity is enabled
+        """
+        return pulumi.get(self, "enabled")
+
 
 @pulumi.output_type
 class ClusterDesiredPropertiesResponse(dict):
@@ -365,6 +391,111 @@ class ClusterReportedPropertiesResponse(dict):
         Level of diagnostic data emitted by the cluster.
         """
         return pulumi.get(self, "diagnostic_level")
+
+
+@pulumi.output_type
+class PerNodeExtensionStateResponse(dict):
+    """
+    Status of Arc Extension for a particular node in HCI Cluster.
+    """
+    def __init__(__self__, *,
+                 extension: str,
+                 name: str,
+                 state: str):
+        """
+        Status of Arc Extension for a particular node in HCI Cluster.
+        :param str extension: Fully qualified resource ID for the particular Arc Extension on this node.
+        :param str name: Name of the node in HCI Cluster.
+        :param str state: State of Arc Extension in this node.
+        """
+        pulumi.set(__self__, "extension", extension)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def extension(self) -> str:
+        """
+        Fully qualified resource ID for the particular Arc Extension on this node.
+        """
+        return pulumi.get(self, "extension")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the node in HCI Cluster.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        State of Arc Extension in this node.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class PerNodeStateResponse(dict):
+    """
+    Status of Arc agent for a particular node in HCI Cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arcInstance":
+            suggest = "arc_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PerNodeStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PerNodeStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PerNodeStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arc_instance: str,
+                 name: str,
+                 state: str):
+        """
+        Status of Arc agent for a particular node in HCI Cluster.
+        :param str arc_instance: Fully qualified resource ID for the Arc agent of this node.
+        :param str name: Name of the Node in HCI Cluster
+        :param str state: State of Arc agent in this node.
+        """
+        pulumi.set(__self__, "arc_instance", arc_instance)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="arcInstance")
+    def arc_instance(self) -> str:
+        """
+        Fully qualified resource ID for the Arc agent of this node.
+        """
+        return pulumi.get(self, "arc_instance")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Node in HCI Cluster
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        State of Arc agent in this node.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

@@ -10,8 +10,11 @@ import * as v20200101preview from "./v20200101preview";
 import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801preview from "./v20210801preview";
+import * as v20211201preview from "./v20211201preview";
 import * as v20220101preview from "./v20220101preview";
+import * as v20220501preview from "./v20220501preview";
 import * as v20220701preview from "./v20220701preview";
+import * as v20220801preview from "./v20220801preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501 from "./v20230501";
 import * as v20230901preview from "./v20230901preview";
@@ -34,8 +37,11 @@ export {
     v20210601,
     v20210701preview,
     v20210801preview,
+    v20211201preview,
     v20220101preview,
+    v20220501preview,
     v20220701preview,
+    v20220801preview,
     v20230301preview,
     v20230501,
     v20230901preview,
@@ -144,22 +150,11 @@ export const AttestationComplianceState = {
 export type AttestationComplianceState = (typeof AttestationComplianceState)[keyof typeof AttestationComplianceState];
 
 export const AuthenticationType = {
-    /**
-     * AWS cloud account connector user credentials authentication
-     */
-    AwsCreds: "awsCreds",
-    /**
-     * AWS account connector assume role authentication
-     */
-    AwsAssumeRole: "awsAssumeRole",
-    /**
-     * GCP account connector service to service authentication
-     */
-    GcpCredentials: "gcpCredentials",
+    AccessToken: "AccessToken",
 } as const;
 
 /**
- * Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+ * The authentication type
  */
 export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
@@ -210,6 +205,8 @@ export const CloudName = {
     Github: "Github",
     AzureDevOps: "AzureDevOps",
     GitLab: "GitLab",
+    DockerHub: "DockerHub",
+    JFrog: "JFrog",
 } as const;
 
 /**
@@ -225,27 +222,6 @@ export const DataSource = {
 } as const;
 
 export type DataSource = (typeof DataSource)[keyof typeof DataSource];
-
-export const DescendantBehavior = {
-    Unknown: "Unknown",
-    Override: "Override",
-    FallBack: "FallBack",
-} as const;
-
-/**
- * The behavior of a policy on descendant resources.
- */
-export type DescendantBehavior = (typeof DescendantBehavior)[keyof typeof DescendantBehavior];
-
-export const DevOpsPolicyType = {
-    Unknown: "Unknown",
-    Pipeline: "Pipeline",
-} as const;
-
-/**
- * DevOps Policy resource types.
- */
-export type DevOpsPolicyType = (typeof DevOpsPolicyType)[keyof typeof DevOpsPolicyType];
 
 export const DevOpsProvisioningState = {
     Succeeded: "Succeeded",
@@ -303,6 +279,8 @@ export const EnvironmentType = {
     GithubScope: "GithubScope",
     AzureDevOpsScope: "AzureDevOpsScope",
     GitlabScope: "GitlabScope",
+    DockerHubOrganization: "DockerHubOrganization",
+    JFrogArtifactory: "JFrogArtifactory",
 } as const;
 
 /**
@@ -322,6 +300,8 @@ export const EventSource = {
     SecureScoreControlsSnapshot: "SecureScoreControlsSnapshot",
     RegulatoryComplianceAssessment: "RegulatoryComplianceAssessment",
     RegulatoryComplianceAssessmentSnapshot: "RegulatoryComplianceAssessmentSnapshot",
+    AttackPaths: "AttackPaths",
+    AttackPathsSnapshot: "AttackPathsSnapshot",
 } as const;
 
 /**
@@ -419,17 +399,41 @@ export const IsEnabled = {
  */
 export type IsEnabled = (typeof IsEnabled)[keyof typeof IsEnabled];
 
+export const MinimalRiskLevel = {
+    /**
+     * Get notifications on new attack paths with Critical risk level
+     */
+    Critical: "Critical",
+    /**
+     * Get notifications on new attack paths with High or Critical risk level
+     */
+    High: "High",
+    /**
+     * Get notifications on new attach paths with Medium, High or Critical risk level
+     */
+    Medium: "Medium",
+    /**
+     * Get notifications on new attach paths with Low, Medium, High or Critical risk level
+     */
+    Low: "Low",
+} as const;
+
+/**
+ * Defines the minimal attach path risk level which will be sent as email notifications
+ */
+export type MinimalRiskLevel = (typeof MinimalRiskLevel)[keyof typeof MinimalRiskLevel];
+
 export const MinimalSeverity = {
     /**
      * Get notifications on new alerts with High severity
      */
     High: "High",
     /**
-     * Get notifications on new alerts with medium or high severity
+     * Get notifications on new alerts with Medium or High severity
      */
     Medium: "Medium",
     /**
-     * Don't get notifications on new alerts with low, medium or high severity
+     * Get notifications on new alerts with Low, Medium or High severity
      */
     Low: "Low",
 } as const;
@@ -444,7 +448,6 @@ export const OfferingType = {
     DefenderForContainersAws: "DefenderForContainersAws",
     DefenderForServersAws: "DefenderForServersAws",
     DefenderForDatabasesAws: "DefenderForDatabasesAws",
-    InformationProtectionAws: "InformationProtectionAws",
     CspmMonitorGcp: "CspmMonitorGcp",
     CspmMonitorGithub: "CspmMonitorGithub",
     CspmMonitorAzureDevOps: "CspmMonitorAzureDevOps",
@@ -453,10 +456,13 @@ export const OfferingType = {
     DefenderForDatabasesGcp: "DefenderForDatabasesGcp",
     DefenderCspmAws: "DefenderCspmAws",
     DefenderCspmGcp: "DefenderCspmGcp",
-    DefenderForDevOpsGithub: "DefenderForDevOpsGithub",
-    DefenderForDevOpsAzureDevOps: "DefenderForDevOpsAzureDevOps",
     CspmMonitorGitLab: "CspmMonitorGitLab",
-    DefenderForDevOpsGitLab: "DefenderForDevOpsGitLab",
+    CspmMonitorDockerHub: "CspmMonitorDockerHub",
+    DefenderForContainersDockerHub: "DefenderForContainersDockerHub",
+    DefenderCspmDockerHub: "DefenderCspmDockerHub",
+    CspmMonitorJFrog: "CspmMonitorJFrog",
+    DefenderForContainersJFrog: "DefenderForContainersJFrog",
+    DefenderCspmJFrog: "DefenderCspmJFrog",
 } as const;
 
 /**
@@ -647,7 +653,27 @@ export const RecommendationType = {
  */
 export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
 
-export const Roles = {
+export const RuleState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    Expired: "Expired",
+} as const;
+
+/**
+ * Possible states of the rule
+ */
+export type RuleState = (typeof RuleState)[keyof typeof RuleState];
+
+export const ScanningMode = {
+    Default: "Default",
+} as const;
+
+/**
+ * The scanning mode for the VM scan.
+ */
+export type ScanningMode = (typeof ScanningMode)[keyof typeof ScanningMode];
+
+export const SecurityContactRole = {
     /**
      * If enabled, send notification on new alerts to the account admins
      */
@@ -669,27 +695,7 @@ export const Roles = {
 /**
  * A possible role to configure sending security notification alerts to
  */
-export type Roles = (typeof Roles)[keyof typeof Roles];
-
-export const RuleState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-    Expired: "Expired",
-} as const;
-
-/**
- * Possible states of the rule
- */
-export type RuleState = (typeof RuleState)[keyof typeof RuleState];
-
-export const ScanningMode = {
-    Default: "Default",
-} as const;
-
-/**
- * The scanning mode for the VM scan.
- */
-export type ScanningMode = (typeof ScanningMode)[keyof typeof ScanningMode];
+export type SecurityContactRole = (typeof SecurityContactRole)[keyof typeof SecurityContactRole];
 
 export const SecurityIssue = {
     Vulnerability: "Vulnerability",
@@ -777,6 +783,16 @@ export const Source = {
  * The platform where the assessed resource resides
  */
 export type Source = (typeof Source)[keyof typeof Source];
+
+export const SourceType = {
+    Alert: "Alert",
+    AttackPath: "AttackPath",
+} as const;
+
+/**
+ * The source type that will trigger the notification
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 export const StandardSupportedCloud = {
     Azure: "Azure",

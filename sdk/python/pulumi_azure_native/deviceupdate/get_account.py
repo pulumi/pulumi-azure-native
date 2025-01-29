@@ -213,6 +213,8 @@ def get_account(account_name: Optional[str] = None,
     Returns account details for the given account name.
     Azure REST API version: 2023-07-01.
 
+    Other available API versions: 2020-03-01-preview, 2022-04-01-preview, 2022-10-01, 2022-12-01-preview.
+
 
     :param str account_name: Account name.
     :param str resource_group_name: The resource group name.
@@ -244,6 +246,8 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Returns account details for the given account name.
     Azure REST API version: 2023-07-01.
+
+    Other available API versions: 2020-03-01-preview, 2022-04-01-preview, 2022-10-01, 2022-12-01-preview.
 
 
     :param str account_name: Account name.

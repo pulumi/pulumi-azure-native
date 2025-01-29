@@ -10,15 +10,15 @@ import * as utilities from "../../utilities";
 /**
  * Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
  */
-export function getmanagedAzResiliencyStatus(args: GetmanagedAzResiliencyStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetmanagedAzResiliencyStatusResult> {
+export function getManagedAzResiliencyStatus(args: GetManagedAzResiliencyStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedAzResiliencyStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:servicefabric/v20230901preview:getmanagedAzResiliencyStatus", {
+    return pulumi.runtime.invoke("azure-native:servicefabric/v20230901preview:getManagedAzResiliencyStatus", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetmanagedAzResiliencyStatusArgs {
+export interface GetManagedAzResiliencyStatusArgs {
     /**
      * The name of the cluster resource.
      */
@@ -32,7 +32,7 @@ export interface GetmanagedAzResiliencyStatusArgs {
 /**
  * Describes the result of the request to list Managed VM Sizes for Service Fabric Managed Clusters.
  */
-export interface GetmanagedAzResiliencyStatusResult {
+export interface GetManagedAzResiliencyStatusResult {
     /**
      * List of Managed VM Sizes for Service Fabric Managed Clusters.
      */
@@ -45,15 +45,15 @@ export interface GetmanagedAzResiliencyStatusResult {
 /**
  * Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
  */
-export function getmanagedAzResiliencyStatusOutput(args: GetmanagedAzResiliencyStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetmanagedAzResiliencyStatusResult> {
+export function getManagedAzResiliencyStatusOutput(args: GetManagedAzResiliencyStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedAzResiliencyStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20230901preview:getmanagedAzResiliencyStatus", {
+    return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20230901preview:getManagedAzResiliencyStatus", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface GetmanagedAzResiliencyStatusOutputArgs {
+export interface GetManagedAzResiliencyStatusOutputArgs {
     /**
      * The name of the cluster resource.
      */

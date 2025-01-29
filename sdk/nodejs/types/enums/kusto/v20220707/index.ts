@@ -82,6 +82,16 @@ export const AzureSkuTier = {
  */
 export type AzureSkuTier = (typeof AzureSkuTier)[keyof typeof AzureSkuTier];
 
+export const BlobStorageEventType = {
+    Microsoft_Storage_BlobCreated: "Microsoft.Storage.BlobCreated",
+    Microsoft_Storage_BlobRenamed: "Microsoft.Storage.BlobRenamed",
+} as const;
+
+/**
+ * The name of blob storage event type to process.
+ */
+export type BlobStorageEventType = (typeof BlobStorageEventType)[keyof typeof BlobStorageEventType];
+
 export const ClusterNetworkAccessFlag = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -92,6 +102,72 @@ export const ClusterNetworkAccessFlag = {
  */
 export type ClusterNetworkAccessFlag = (typeof ClusterNetworkAccessFlag)[keyof typeof ClusterNetworkAccessFlag];
 
+export const ClusterPrincipalRole = {
+    AllDatabasesAdmin: "AllDatabasesAdmin",
+    AllDatabasesViewer: "AllDatabasesViewer",
+} as const;
+
+/**
+ * Cluster principal role.
+ */
+export type ClusterPrincipalRole = (typeof ClusterPrincipalRole)[keyof typeof ClusterPrincipalRole];
+
+export const Compression = {
+    None: "None",
+    GZip: "GZip",
+} as const;
+
+/**
+ * The event hub messages compression type
+ */
+export type Compression = (typeof Compression)[keyof typeof Compression];
+
+export const DataConnectionKind = {
+    EventHub: "EventHub",
+    EventGrid: "EventGrid",
+    IotHub: "IotHub",
+} as const;
+
+/**
+ * Kind of the endpoint for the data connection
+ */
+export type DataConnectionKind = (typeof DataConnectionKind)[keyof typeof DataConnectionKind];
+
+export const DatabasePrincipalRole = {
+    Admin: "Admin",
+    Ingestor: "Ingestor",
+    Monitor: "Monitor",
+    User: "User",
+    UnrestrictedViewer: "UnrestrictedViewer",
+    Viewer: "Viewer",
+} as const;
+
+/**
+ * Database principal role.
+ */
+export type DatabasePrincipalRole = (typeof DatabasePrincipalRole)[keyof typeof DatabasePrincipalRole];
+
+export const DatabaseRouting = {
+    Single: "Single",
+    Multi: "Multi",
+} as const;
+
+/**
+ * Indication for database routing information from the data connection, by default only database routing information is allowed
+ */
+export type DatabaseRouting = (typeof DatabaseRouting)[keyof typeof DatabaseRouting];
+
+export const DefaultPrincipalsModificationKind = {
+    Union: "Union",
+    Replace: "Replace",
+    None: "None",
+} as const;
+
+/**
+ * The default principals modification kind
+ */
+export type DefaultPrincipalsModificationKind = (typeof DefaultPrincipalsModificationKind)[keyof typeof DefaultPrincipalsModificationKind];
+
 export const EngineType = {
     V2: "V2",
     V3: "V3",
@@ -101,6 +177,54 @@ export const EngineType = {
  * The engine type
  */
 export type EngineType = (typeof EngineType)[keyof typeof EngineType];
+
+export const EventGridDataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+    TSV: "TSV",
+    SCSV: "SCSV",
+    SOHSV: "SOHSV",
+    PSV: "PSV",
+    TXT: "TXT",
+    RAW: "RAW",
+    SINGLEJSON: "SINGLEJSON",
+    AVRO: "AVRO",
+    TSVE: "TSVE",
+    PARQUET: "PARQUET",
+    ORC: "ORC",
+    APACHEAVRO: "APACHEAVRO",
+    W3CLOGFILE: "W3CLOGFILE",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type EventGridDataFormat = (typeof EventGridDataFormat)[keyof typeof EventGridDataFormat];
+
+export const EventHubDataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+    TSV: "TSV",
+    SCSV: "SCSV",
+    SOHSV: "SOHSV",
+    PSV: "PSV",
+    TXT: "TXT",
+    RAW: "RAW",
+    SINGLEJSON: "SINGLEJSON",
+    AVRO: "AVRO",
+    TSVE: "TSVE",
+    PARQUET: "PARQUET",
+    ORC: "ORC",
+    APACHEAVRO: "APACHEAVRO",
+    W3CLOGFILE: "W3CLOGFILE",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type EventHubDataFormat = (typeof EventHubDataFormat)[keyof typeof EventHubDataFormat];
 
 export const IdentityType = {
     None: "None",
@@ -113,6 +237,51 @@ export const IdentityType = {
  * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+export const IotHubDataFormat = {
+    MULTIJSON: "MULTIJSON",
+    JSON: "JSON",
+    CSV: "CSV",
+    TSV: "TSV",
+    SCSV: "SCSV",
+    SOHSV: "SOHSV",
+    PSV: "PSV",
+    TXT: "TXT",
+    RAW: "RAW",
+    SINGLEJSON: "SINGLEJSON",
+    AVRO: "AVRO",
+    TSVE: "TSVE",
+    PARQUET: "PARQUET",
+    ORC: "ORC",
+    APACHEAVRO: "APACHEAVRO",
+    W3CLOGFILE: "W3CLOGFILE",
+} as const;
+
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
+export type IotHubDataFormat = (typeof IotHubDataFormat)[keyof typeof IotHubDataFormat];
+
+export const Kind = {
+    ReadWrite: "ReadWrite",
+    ReadOnlyFollowing: "ReadOnlyFollowing",
+} as const;
+
+/**
+ * Kind of the database
+ */
+export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const PrincipalType = {
+    App: "App",
+    Group: "Group",
+    User: "User",
+} as const;
+
+/**
+ * Principal type.
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 export const PublicIPType = {
     IPv4: "IPv4",

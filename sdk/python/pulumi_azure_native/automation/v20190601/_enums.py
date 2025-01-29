@@ -5,13 +5,26 @@
 from enum import Enum
 
 __all__ = [
+    'ContentSourceType',
     'LinuxUpdateClasses',
     'OperatingSystemType',
+    'RunbookTypeEnum',
     'ScheduleDay',
     'ScheduleFrequency',
+    'SkuNameEnum',
+    'SourceType',
     'TagOperators',
+    'TokenType',
     'WindowsUpdateClasses',
 ]
+
+
+class ContentSourceType(str, Enum):
+    """
+    Gets or sets the content source type.
+    """
+    EMBEDDED_CONTENT = "embeddedContent"
+    URI = "uri"
 
 
 class LinuxUpdateClasses(str, Enum):
@@ -30,6 +43,20 @@ class OperatingSystemType(str, Enum):
     """
     WINDOWS = "Windows"
     LINUX = "Linux"
+
+
+class RunbookTypeEnum(str, Enum):
+    """
+    Gets or sets the type of the runbook.
+    """
+    SCRIPT = "Script"
+    GRAPH = "Graph"
+    POWER_SHELL_WORKFLOW = "PowerShellWorkflow"
+    POWER_SHELL = "PowerShell"
+    GRAPH_POWER_SHELL_WORKFLOW = "GraphPowerShellWorkflow"
+    GRAPH_POWER_SHELL = "GraphPowerShell"
+    PYTHON2 = "Python2"
+    PYTHON3 = "Python3"
 
 
 class ScheduleDay(str, Enum):
@@ -60,12 +87,37 @@ class ScheduleFrequency(str, Enum):
     """
 
 
+class SkuNameEnum(str, Enum):
+    """
+    Gets or sets the SKU name of the account.
+    """
+    FREE = "Free"
+    BASIC = "Basic"
+
+
+class SourceType(str, Enum):
+    """
+    The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
+    """
+    VSO_GIT = "VsoGit"
+    VSO_TFVC = "VsoTfvc"
+    GIT_HUB = "GitHub"
+
+
 class TagOperators(str, Enum):
     """
     Filter VMs by Any or All specified tags.
     """
     ALL = "All"
     ANY = "Any"
+
+
+class TokenType(str, Enum):
+    """
+    The token type. Must be either PersonalAccessToken or Oauth.
+    """
+    PERSONAL_ACCESS_TOKEN = "PersonalAccessToken"
+    OAUTH = "Oauth"
 
 
 class WindowsUpdateClasses(str, Enum):

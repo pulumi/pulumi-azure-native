@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The commitment plan association.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-05-01.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Other available API versions: 2022-12-01, 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview.
  */
 export class CommitmentPlanAssociation extends pulumi.CustomResource {
     /**
@@ -57,6 +57,10 @@ export class CommitmentPlanAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.cognitiveservices.SystemDataResponse>;
     /**
+     * Resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class CommitmentPlanAssociation extends pulumi.CustomResource {
             resourceInputs["commitmentPlanAssociationName"] = args ? args.commitmentPlanAssociationName : undefined;
             resourceInputs["commitmentPlanName"] = args ? args.commitmentPlanName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -91,6 +96,7 @@ export class CommitmentPlanAssociation extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -120,4 +126,8 @@ export interface CommitmentPlanAssociationArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

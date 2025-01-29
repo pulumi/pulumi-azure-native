@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Outbound Rule Basic Resource for the managed network of a machine learning workspace.
- * Azure REST API version: 2023-04-01-preview.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview.
  */
 export class ManagedNetworkSettingsRule extends pulumi.CustomResource {
     /**

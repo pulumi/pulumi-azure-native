@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified interface endpoint by resource group.
  * Azure REST API version: 2019-02-01.
+ *
+ * Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01.
  */
 export function getInterfaceEndpoint(args: GetInterfaceEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetInterfaceEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,6 +93,8 @@ export interface GetInterfaceEndpointResult {
 /**
  * Gets the specified interface endpoint by resource group.
  * Azure REST API version: 2019-02-01.
+ *
+ * Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01.
  */
 export function getInterfaceEndpointOutput(args: GetInterfaceEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInterfaceEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

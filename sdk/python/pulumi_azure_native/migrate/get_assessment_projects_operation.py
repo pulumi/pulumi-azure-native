@@ -125,7 +125,7 @@ class GetAssessmentProjectsOperationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -252,9 +252,9 @@ def get_assessment_projects_operation(project_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentProjectsOperationResult:
     """
     Get a AssessmentProject
-    Azure REST API version: 2023-03-15.
+    Azure REST API version: 2023-09-09-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview.
 
 
     :param str project_name: Assessment Project Name
@@ -289,9 +289,9 @@ def get_assessment_projects_operation_output(project_name: Optional[pulumi.Input
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentProjectsOperationResult]:
     """
     Get a AssessmentProject
-    Azure REST API version: 2023-03-15.
+    Azure REST API version: 2023-09-09-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+    Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview.
 
 
     :param str project_name: Assessment Project Name

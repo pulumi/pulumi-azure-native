@@ -5,13 +5,27 @@
 from enum import Enum
 
 __all__ = [
+    'AdministratorType',
     'CatalogCollationType',
     'CreateMode',
     'DatabaseLicenseType',
     'DatabaseReadScale',
+    'IdentityType',
+    'ManagedDatabaseCreateMode',
     'SampleName',
+    'ServerPublicNetworkAccess',
     'StorageAccountType',
+    'SyncConflictResolutionPolicy',
+    'SyncDirection',
+    'SyncMemberDbType',
 ]
+
+
+class AdministratorType(str, Enum):
+    """
+    Type of the sever administrator.
+    """
+    ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
 class CatalogCollationType(str, Enum):
@@ -70,6 +84,27 @@ class DatabaseReadScale(str, Enum):
     DISABLED = "Disabled"
 
 
+class IdentityType(str, Enum):
+    """
+    The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class ManagedDatabaseCreateMode(str, Enum):
+    """
+    Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
+    """
+    DEFAULT = "Default"
+    RESTORE_EXTERNAL_BACKUP = "RestoreExternalBackup"
+    POINT_IN_TIME_RESTORE = "PointInTimeRestore"
+    RECOVERY = "Recovery"
+    RESTORE_LONG_TERM_RETENTION_BACKUP = "RestoreLongTermRetentionBackup"
+
+
 class SampleName(str, Enum):
     """
     The name of the sample schema to apply when creating this database.
@@ -79,6 +114,14 @@ class SampleName(str, Enum):
     WIDE_WORLD_IMPORTERS_FULL = "WideWorldImportersFull"
 
 
+class ServerPublicNetworkAccess(str, Enum):
+    """
+    Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class StorageAccountType(str, Enum):
     """
     The storage account type used to store backups for this database.
@@ -86,3 +129,28 @@ class StorageAccountType(str, Enum):
     GRS = "GRS"
     LRS = "LRS"
     ZRS = "ZRS"
+
+
+class SyncConflictResolutionPolicy(str, Enum):
+    """
+    Conflict resolution policy of the sync group.
+    """
+    HUB_WIN = "HubWin"
+    MEMBER_WIN = "MemberWin"
+
+
+class SyncDirection(str, Enum):
+    """
+    Sync direction of the sync member.
+    """
+    BIDIRECTIONAL = "Bidirectional"
+    ONE_WAY_MEMBER_TO_HUB = "OneWayMemberToHub"
+    ONE_WAY_HUB_TO_MEMBER = "OneWayHubToMember"
+
+
+class SyncMemberDbType(str, Enum):
+    """
+    Database type of the sync member.
+    """
+    AZURE_SQL_DATABASE = "AzureSqlDatabase"
+    SQL_SERVER_DATABASE = "SqlServerDatabase"

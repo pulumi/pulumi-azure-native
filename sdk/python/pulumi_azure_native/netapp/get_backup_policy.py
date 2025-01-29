@@ -78,7 +78,7 @@ class GetBackupPolicyResult:
     @pulumi.getter(name="backupPolicyId")
     def backup_policy_id(self) -> str:
         """
-        Backup Policy Resource ID
+        Backup Policy GUID ID
         """
         return pulumi.get(self, "backup_policy_id")
 
@@ -110,7 +110,7 @@ class GetBackupPolicyResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -224,9 +224,9 @@ def get_backup_policy(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
     Get a particular backup Policy
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2021-04-01, 2021-04-01-preview, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview.
+    Other available API versions: 2020-12-01, 2021-02-01, 2021-04-01, 2021-04-01-preview, 2021-06-01, 2021-08-01, 2021-10-01, 2022-01-01, 2022-03-01, 2022-05-01, 2022-09-01, 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01-preview.
 
 
     :param str account_name: The name of the NetApp account
@@ -262,9 +262,9 @@ def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
     Get a particular backup Policy
-    Azure REST API version: 2022-11-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2021-04-01, 2021-04-01-preview, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview.
+    Other available API versions: 2020-12-01, 2021-02-01, 2021-04-01, 2021-04-01-preview, 2021-06-01, 2021-08-01, 2021-10-01, 2022-01-01, 2022-03-01, 2022-05-01, 2022-09-01, 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01-preview.
 
 
     :param str account_name: The name of the NetApp account

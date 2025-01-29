@@ -2,14 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20201201preview from "./v20201201preview";
+import * as v20210513preview from "./v20210513preview";
 import * as v20220513 from "./v20220513";
+import * as v20220908preview from "./v20220908preview";
 import * as v20230126preview from "./v20230126preview";
 import * as v20230628preview from "./v20230628preview";
 import * as v20240709preview from "./v20240709preview";
 import * as v20240919preview from "./v20240919preview";
 
 export {
+    v20201201preview,
+    v20210513preview,
     v20220513,
+    v20220908preview,
     v20230126preview,
     v20230628preview,
     v20240709preview,
@@ -37,6 +43,17 @@ export const LedgerRoleName = {
  */
 export type LedgerRoleName = (typeof LedgerRoleName)[keyof typeof LedgerRoleName];
 
+export const LedgerSku = {
+    Standard: "Standard",
+    Basic: "Basic",
+    Unknown: "Unknown",
+} as const;
+
+/**
+ * SKU associated with the ledger
+ */
+export type LedgerSku = (typeof LedgerSku)[keyof typeof LedgerSku];
+
 export const LedgerType = {
     Unknown: "Unknown",
     Public: "Public",
@@ -47,3 +64,16 @@ export const LedgerType = {
  * Type of Confidential Ledger
  */
 export type LedgerType = (typeof LedgerType)[keyof typeof LedgerType];
+
+export const RunningState = {
+    Active: "Active",
+    Paused: "Paused",
+    Unknown: "Unknown",
+    Pausing: "Pausing",
+    Resuming: "Resuming",
+} as const;
+
+/**
+ * Object representing RunningState for Managed CCF.
+ */
+export type RunningState = (typeof RunningState)[keyof typeof RunningState];
