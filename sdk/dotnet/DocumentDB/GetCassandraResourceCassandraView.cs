@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Gets the Cassandra view under an existing Azure Cosmos DB database account.
-        /// Azure REST API version: 2023-03-15-preview.
+        /// Azure REST API version: 2024-12-01-preview.
         /// 
-        /// Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2023-03-15-preview.
         /// </summary>
         public static Task<GetCassandraResourceCassandraViewResult> InvokeAsync(GetCassandraResourceCassandraViewArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCassandraResourceCassandraViewResult>("azure-native:documentdb:getCassandraResourceCassandraView", args ?? new GetCassandraResourceCassandraViewArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Cassandra view under an existing Azure Cosmos DB database account.
-        /// Azure REST API version: 2023-03-15-preview.
+        /// Azure REST API version: 2024-12-01-preview.
         /// 
-        /// Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2023-03-15-preview.
         /// </summary>
         public static Output<GetCassandraResourceCassandraViewResult> Invoke(GetCassandraResourceCassandraViewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCassandraResourceCassandraViewResult>("azure-native:documentdb:getCassandraResourceCassandraView", args ?? new GetCassandraResourceCassandraViewInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Cassandra view under an existing Azure Cosmos DB database account.
-        /// Azure REST API version: 2023-03-15-preview.
+        /// Azure REST API version: 2024-12-01-preview.
         /// 
-        /// Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
+        /// Other available API versions: 2023-03-15-preview.
         /// </summary>
         public static Output<GetCassandraResourceCassandraViewResult> Invoke(GetCassandraResourceCassandraViewInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCassandraResourceCassandraViewResult>("azure-native:documentdb:getCassandraResourceCassandraView", args ?? new GetCassandraResourceCassandraViewInvokeArgs(), options.WithDefaults());

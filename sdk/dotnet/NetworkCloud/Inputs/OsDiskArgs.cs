@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
         public InputUnion<string, Pulumi.AzureNative.NetworkCloud.OsDiskDeleteOption>? DeleteOption { get; set; }
 
         /// <summary>
-        /// The size of the disk in gigabytes. Required if the createOption is Ephemeral.
+        /// The size of the disk. Required if the createOption is Ephemeral. Allocations are measured in gibibytes.
         /// </summary>
         [Input("diskSizeGB", required: true)]
         public Input<double> DiskSizeGB { get; set; } = null!;

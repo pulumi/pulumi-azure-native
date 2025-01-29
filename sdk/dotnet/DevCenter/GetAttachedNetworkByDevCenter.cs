@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets an attached NetworkConnection.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2024-10-01-preview.
         /// </summary>
         public static Task<GetAttachedNetworkByDevCenterResult> InvokeAsync(GetAttachedNetworkByDevCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachedNetworkByDevCenterResult>("azure-native:devcenter:getAttachedNetworkByDevCenter", args ?? new GetAttachedNetworkByDevCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an attached NetworkConnection.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetAttachedNetworkByDevCenterResult> Invoke(GetAttachedNetworkByDevCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachedNetworkByDevCenterResult>("azure-native:devcenter:getAttachedNetworkByDevCenter", args ?? new GetAttachedNetworkByDevCenterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an attached NetworkConnection.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetAttachedNetworkByDevCenterResult> Invoke(GetAttachedNetworkByDevCenterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachedNetworkByDevCenterResult>("azure-native:devcenter:getAttachedNetworkByDevCenter", args ?? new GetAttachedNetworkByDevCenterInvokeArgs(), options.WithDefaults());
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly string HealthCheckStatus;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>

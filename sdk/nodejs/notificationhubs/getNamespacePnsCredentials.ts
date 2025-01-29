@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
  * PNS credentials.
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-09-01, 2023-10-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01.
  */
 export function getNamespacePnsCredentials(args: GetNamespacePnsCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespacePnsCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +39,30 @@ export interface GetNamespacePnsCredentialsArgs {
  */
 export interface GetNamespacePnsCredentialsResult {
     /**
+     * Description of a NotificationHub AdmCredential.
+     */
+    readonly admCredential?: outputs.notificationhubs.AdmCredentialResponse;
+    /**
+     * Description of a NotificationHub ApnsCredential.
+     */
+    readonly apnsCredential?: outputs.notificationhubs.ApnsCredentialResponse;
+    /**
+     * Description of a NotificationHub BaiduCredential.
+     */
+    readonly baiduCredential?: outputs.notificationhubs.BaiduCredentialResponse;
+    /**
+     * Description of a NotificationHub BrowserCredential.
+     */
+    readonly browserCredential?: outputs.notificationhubs.BrowserCredentialResponse;
+    /**
+     * Description of a NotificationHub FcmV1Credential.
+     */
+    readonly fcmV1Credential?: outputs.notificationhubs.FcmV1CredentialResponse;
+    /**
+     * Description of a NotificationHub GcmCredential.
+     */
+    readonly gcmCredential?: outputs.notificationhubs.GcmCredentialResponse;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -47,13 +71,13 @@ export interface GetNamespacePnsCredentialsResult {
      */
     readonly location?: string;
     /**
+     * Description of a NotificationHub MpnsCredential.
+     */
+    readonly mpnsCredential?: outputs.notificationhubs.MpnsCredentialResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * Collection of Notification Hub or Notification Hub Namespace PNS credentials.
-     */
-    readonly properties: outputs.notificationhubs.PnsCredentialsResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -66,13 +90,21 @@ export interface GetNamespacePnsCredentialsResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Description of a NotificationHub WnsCredential.
+     */
+    readonly wnsCredential?: outputs.notificationhubs.WnsCredentialResponse;
+    /**
+     * Description of a NotificationHub XiaomiCredential.
+     */
+    readonly xiaomiCredential?: outputs.notificationhubs.XiaomiCredentialResponse;
 }
 /**
  * Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
  * PNS credentials.
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-09-01, 2023-10-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01.
  */
 export function getNamespacePnsCredentialsOutput(args: GetNamespacePnsCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespacePnsCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

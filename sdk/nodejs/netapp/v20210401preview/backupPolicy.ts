@@ -38,29 +38,17 @@ export class BackupPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Daily backups count to keep
-     */
-    public readonly dailyBackupsToKeep!: pulumi.Output<number | undefined>;
-    /**
-     * The property to decide policy is enabled or not
-     */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Monthly backups count to keep
-     */
-    public readonly monthlyBackupsToKeep!: pulumi.Output<number | undefined>;
-    /**
-     * Name of backup policy
+     * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Azure lifecycle management
+     * Backup policy Properties
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.netapp.v20210401preview.BackupPolicyPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -69,22 +57,6 @@ export class BackupPolicy extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * A list of volumes assigned to this policy
-     */
-    public readonly volumeBackups!: pulumi.Output<outputs.netapp.v20210401preview.VolumeBackupsResponse[] | undefined>;
-    /**
-     * Volumes using current backup policy
-     */
-    public readonly volumesAssigned!: pulumi.Output<number | undefined>;
-    /**
-     * Weekly backups count to keep
-     */
-    public readonly weeklyBackupsToKeep!: pulumi.Output<number | undefined>;
-    /**
-     * Yearly backups count to keep
-     */
-    public readonly yearlyBackupsToKeep!: pulumi.Output<number | undefined>;
 
     /**
      * Create a BackupPolicy resource with the given unique name, arguments, and options.
@@ -116,21 +88,14 @@ export class BackupPolicy extends pulumi.CustomResource {
             resourceInputs["weeklyBackupsToKeep"] = args ? args.weeklyBackupsToKeep : undefined;
             resourceInputs["yearlyBackupsToKeep"] = args ? args.yearlyBackupsToKeep : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dailyBackupsToKeep"] = undefined /*out*/;
-            resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["monthlyBackupsToKeep"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["volumeBackups"] = undefined /*out*/;
-            resourceInputs["volumesAssigned"] = undefined /*out*/;
-            resourceInputs["weeklyBackupsToKeep"] = undefined /*out*/;
-            resourceInputs["yearlyBackupsToKeep"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20200501:BackupPolicy" }, { type: "azure-native:netapp/v20200601:BackupPolicy" }, { type: "azure-native:netapp/v20200701:BackupPolicy" }, { type: "azure-native:netapp/v20200801:BackupPolicy" }, { type: "azure-native:netapp/v20200901:BackupPolicy" }, { type: "azure-native:netapp/v20201101:BackupPolicy" }, { type: "azure-native:netapp/v20201201:BackupPolicy" }, { type: "azure-native:netapp/v20210201:BackupPolicy" }, { type: "azure-native:netapp/v20210401:BackupPolicy" }, { type: "azure-native:netapp/v20210601:BackupPolicy" }, { type: "azure-native:netapp/v20210801:BackupPolicy" }, { type: "azure-native:netapp/v20211001:BackupPolicy" }, { type: "azure-native:netapp/v20220101:BackupPolicy" }, { type: "azure-native:netapp/v20220301:BackupPolicy" }, { type: "azure-native:netapp/v20220501:BackupPolicy" }, { type: "azure-native:netapp/v20220901:BackupPolicy" }, { type: "azure-native:netapp/v20221101:BackupPolicy" }, { type: "azure-native:netapp/v20221101preview:BackupPolicy" }, { type: "azure-native:netapp/v20230501:BackupPolicy" }, { type: "azure-native:netapp/v20230501preview:BackupPolicy" }, { type: "azure-native:netapp/v20230701:BackupPolicy" }, { type: "azure-native:netapp/v20230701preview:BackupPolicy" }, { type: "azure-native:netapp/v20231101:BackupPolicy" }, { type: "azure-native:netapp/v20231101preview:BackupPolicy" }, { type: "azure-native:netapp/v20240101:BackupPolicy" }, { type: "azure-native:netapp/v20240301:BackupPolicy" }, { type: "azure-native:netapp/v20240301preview:BackupPolicy" }, { type: "azure-native:netapp/v20240501:BackupPolicy" }, { type: "azure-native:netapp/v20240501preview:BackupPolicy" }, { type: "azure-native:netapp/v20240701:BackupPolicy" }, { type: "azure-native:netapp/v20240701preview:BackupPolicy" }, { type: "azure-native:netapp:BackupPolicy" }] };

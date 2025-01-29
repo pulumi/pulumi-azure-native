@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified packet core control plane.
- * Azure REST API version: 2023-06-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+ * Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-06-01.
  */
 export function getPacketCoreControlPlane(args: GetPacketCoreControlPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreControlPlaneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +41,10 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly controlPlaneAccessInterface: outputs.mobilenetwork.InterfacePropertiesResponse;
     /**
+     * The virtual IP address(es) for the control plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to anycast traffic for this address to the control plane access interfaces on the active and standby nodes. In non-HA system this list should be omitted or empty.
+     */
+    readonly controlPlaneAccessVirtualIpv4Addresses?: string[];
+    /**
      * The core network technology generation (5G core or EPC / 4G core).
      */
     readonly coreNetworkTechnology?: string;
@@ -48,6 +52,14 @@ export interface GetPacketCoreControlPlaneResult {
      * Configuration for uploading packet core diagnostics
      */
     readonly diagnosticsUpload?: outputs.mobilenetwork.DiagnosticsUploadConfigurationResponse;
+    /**
+     * Configuration for sending packet core events to an Azure Event Hub.
+     */
+    readonly eventHub?: outputs.mobilenetwork.EventHubConfigurationResponse;
+    /**
+     * The provisioning state of the secret containing private keys and keyIds for SUPI concealment.
+     */
+    readonly homeNetworkPrivateKeysProvisioning: outputs.mobilenetwork.HomeNetworkPrivateKeysProvisioningResponse;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -93,6 +105,10 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly rollbackVersion: string;
     /**
+     * Signaling configuration for the packet core.
+     */
+    readonly signaling?: outputs.mobilenetwork.SignalingConfigurationResponse;
+    /**
      * Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
      */
     readonly sites: outputs.mobilenetwork.SiteResourceIdResponse[];
@@ -117,15 +133,19 @@ export interface GetPacketCoreControlPlaneResult {
      */
     readonly ueMtu?: number;
     /**
+     * The user consent configuration for the packet core.
+     */
+    readonly userConsent?: outputs.mobilenetwork.UserConsentConfigurationResponse;
+    /**
      * The desired version of the packet core software.
      */
     readonly version?: string;
 }
 /**
  * Gets information about the specified packet core control plane.
- * Azure REST API version: 2023-06-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+ * Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-06-01.
  */
 export function getPacketCoreControlPlaneOutput(args: GetPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPacketCoreControlPlaneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

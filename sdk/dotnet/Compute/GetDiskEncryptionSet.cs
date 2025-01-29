@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Gets information about a disk encryption set.
-        /// Azure REST API version: 2022-07-02.
+        /// Azure REST API version: 2024-03-02.
         /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Other available API versions: 2022-07-02.
         /// </summary>
         public static Task<GetDiskEncryptionSetResult> InvokeAsync(GetDiskEncryptionSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure-native:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a disk encryption set.
-        /// Azure REST API version: 2022-07-02.
+        /// Azure REST API version: 2024-03-02.
         /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Other available API versions: 2022-07-02.
         /// </summary>
         public static Output<GetDiskEncryptionSetResult> Invoke(GetDiskEncryptionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskEncryptionSetResult>("azure-native:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a disk encryption set.
-        /// Azure REST API version: 2022-07-02.
+        /// Azure REST API version: 2024-03-02.
         /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Other available API versions: 2022-07-02.
         /// </summary>
         public static Output<GetDiskEncryptionSetResult> Invoke(GetDiskEncryptionSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskEncryptionSetResult>("azure-native:compute:getDiskEncryptionSet", args ?? new GetDiskEncryptionSetInvokeArgs(), options.WithDefaults());

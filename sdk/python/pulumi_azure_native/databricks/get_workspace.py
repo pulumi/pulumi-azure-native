@@ -27,7 +27,10 @@ class GetWorkspaceResult:
     """
     Information about workspace.
     """
-    def __init__(__self__, authorizations=None, created_by=None, created_date_time=None, disk_encryption_set_id=None, encryption=None, id=None, location=None, managed_disk_identity=None, managed_resource_group_id=None, name=None, parameters=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, required_nsg_rules=None, sku=None, storage_account_identity=None, system_data=None, tags=None, type=None, ui_definition_uri=None, updated_by=None, workspace_id=None, workspace_url=None):
+    def __init__(__self__, access_connector=None, authorizations=None, created_by=None, created_date_time=None, default_catalog=None, default_storage_firewall=None, disk_encryption_set_id=None, encryption=None, enhanced_security_compliance=None, id=None, is_uc_enabled=None, location=None, managed_disk_identity=None, managed_resource_group_id=None, name=None, parameters=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, required_nsg_rules=None, sku=None, storage_account_identity=None, system_data=None, tags=None, type=None, ui_definition_uri=None, updated_by=None, workspace_id=None, workspace_url=None):
+        if access_connector and not isinstance(access_connector, dict):
+            raise TypeError("Expected argument 'access_connector' to be a dict")
+        pulumi.set(__self__, "access_connector", access_connector)
         if authorizations and not isinstance(authorizations, list):
             raise TypeError("Expected argument 'authorizations' to be a list")
         pulumi.set(__self__, "authorizations", authorizations)
@@ -37,15 +40,27 @@ class GetWorkspaceResult:
         if created_date_time and not isinstance(created_date_time, str):
             raise TypeError("Expected argument 'created_date_time' to be a str")
         pulumi.set(__self__, "created_date_time", created_date_time)
+        if default_catalog and not isinstance(default_catalog, dict):
+            raise TypeError("Expected argument 'default_catalog' to be a dict")
+        pulumi.set(__self__, "default_catalog", default_catalog)
+        if default_storage_firewall and not isinstance(default_storage_firewall, str):
+            raise TypeError("Expected argument 'default_storage_firewall' to be a str")
+        pulumi.set(__self__, "default_storage_firewall", default_storage_firewall)
         if disk_encryption_set_id and not isinstance(disk_encryption_set_id, str):
             raise TypeError("Expected argument 'disk_encryption_set_id' to be a str")
         pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if enhanced_security_compliance and not isinstance(enhanced_security_compliance, dict):
+            raise TypeError("Expected argument 'enhanced_security_compliance' to be a dict")
+        pulumi.set(__self__, "enhanced_security_compliance", enhanced_security_compliance)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_uc_enabled and not isinstance(is_uc_enabled, bool):
+            raise TypeError("Expected argument 'is_uc_enabled' to be a bool")
+        pulumi.set(__self__, "is_uc_enabled", is_uc_enabled)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -102,6 +117,14 @@ class GetWorkspaceResult:
         pulumi.set(__self__, "workspace_url", workspace_url)
 
     @property
+    @pulumi.getter(name="accessConnector")
+    def access_connector(self) -> Optional['outputs.WorkspacePropertiesResponseAccessConnector']:
+        """
+        Access Connector Resource that is going to be associated with Databricks Workspace
+        """
+        return pulumi.get(self, "access_connector")
+
+    @property
     @pulumi.getter
     def authorizations(self) -> Optional[Sequence['outputs.WorkspaceProviderAuthorizationResponse']]:
         """
@@ -126,6 +149,22 @@ class GetWorkspaceResult:
         return pulumi.get(self, "created_date_time")
 
     @property
+    @pulumi.getter(name="defaultCatalog")
+    def default_catalog(self) -> Optional['outputs.DefaultCatalogPropertiesResponse']:
+        """
+        Properties for Default Catalog configuration during workspace creation.
+        """
+        return pulumi.get(self, "default_catalog")
+
+    @property
+    @pulumi.getter(name="defaultStorageFirewall")
+    def default_storage_firewall(self) -> Optional[str]:
+        """
+        Gets or Sets Default Storage Firewall configuration information
+        """
+        return pulumi.get(self, "default_storage_firewall")
+
+    @property
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> str:
         """
@@ -142,12 +181,28 @@ class GetWorkspaceResult:
         return pulumi.get(self, "encryption")
 
     @property
+    @pulumi.getter(name="enhancedSecurityCompliance")
+    def enhanced_security_compliance(self) -> Optional['outputs.EnhancedSecurityComplianceDefinitionResponse']:
+        """
+        Contains settings related to the Enhanced Security and Compliance Add-On.
+        """
+        return pulumi.get(self, "enhanced_security_compliance")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isUcEnabled")
+    def is_uc_enabled(self) -> bool:
+        """
+        Indicates whether unity catalog enabled for the workspace or not.
+        """
+        return pulumi.get(self, "is_uc_enabled")
 
     @property
     @pulumi.getter
@@ -300,12 +355,17 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            access_connector=self.access_connector,
             authorizations=self.authorizations,
             created_by=self.created_by,
             created_date_time=self.created_date_time,
+            default_catalog=self.default_catalog,
+            default_storage_firewall=self.default_storage_firewall,
             disk_encryption_set_id=self.disk_encryption_set_id,
             encryption=self.encryption,
+            enhanced_security_compliance=self.enhanced_security_compliance,
             id=self.id,
+            is_uc_enabled=self.is_uc_enabled,
             location=self.location,
             managed_disk_identity=self.managed_disk_identity,
             managed_resource_group_id=self.managed_resource_group_id,
@@ -331,9 +391,9 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Gets the workspace.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview.
+    Other available API versions: 2023-02-01, 2024-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -346,12 +406,17 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databricks:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
+        access_connector=pulumi.get(__ret__, 'access_connector'),
         authorizations=pulumi.get(__ret__, 'authorizations'),
         created_by=pulumi.get(__ret__, 'created_by'),
         created_date_time=pulumi.get(__ret__, 'created_date_time'),
+        default_catalog=pulumi.get(__ret__, 'default_catalog'),
+        default_storage_firewall=pulumi.get(__ret__, 'default_storage_firewall'),
         disk_encryption_set_id=pulumi.get(__ret__, 'disk_encryption_set_id'),
         encryption=pulumi.get(__ret__, 'encryption'),
+        enhanced_security_compliance=pulumi.get(__ret__, 'enhanced_security_compliance'),
         id=pulumi.get(__ret__, 'id'),
+        is_uc_enabled=pulumi.get(__ret__, 'is_uc_enabled'),
         location=pulumi.get(__ret__, 'location'),
         managed_disk_identity=pulumi.get(__ret__, 'managed_disk_identity'),
         managed_resource_group_id=pulumi.get(__ret__, 'managed_resource_group_id'),
@@ -375,9 +440,9 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Gets the workspace.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview.
+    Other available API versions: 2023-02-01, 2024-09-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -389,12 +454,17 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databricks:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        access_connector=pulumi.get(__response__, 'access_connector'),
         authorizations=pulumi.get(__response__, 'authorizations'),
         created_by=pulumi.get(__response__, 'created_by'),
         created_date_time=pulumi.get(__response__, 'created_date_time'),
+        default_catalog=pulumi.get(__response__, 'default_catalog'),
+        default_storage_firewall=pulumi.get(__response__, 'default_storage_firewall'),
         disk_encryption_set_id=pulumi.get(__response__, 'disk_encryption_set_id'),
         encryption=pulumi.get(__response__, 'encryption'),
+        enhanced_security_compliance=pulumi.get(__response__, 'enhanced_security_compliance'),
         id=pulumi.get(__response__, 'id'),
+        is_uc_enabled=pulumi.get(__response__, 'is_uc_enabled'),
         location=pulumi.get(__response__, 'location'),
         managed_disk_identity=pulumi.get(__response__, 'managed_disk_identity'),
         managed_resource_group_id=pulumi.get(__response__, 'managed_resource_group_id'),

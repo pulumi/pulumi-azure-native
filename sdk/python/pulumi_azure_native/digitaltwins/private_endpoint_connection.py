@@ -100,7 +100,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The private endpoint connection of a Digital Twin.
-        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
 
         Other available API versions: 2020-12-01.
 
@@ -119,7 +119,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection of a Digital Twin.
-        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
 
         Other available API versions: 2020-12-01.
 

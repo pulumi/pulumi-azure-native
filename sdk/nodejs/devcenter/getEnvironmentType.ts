@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an environment type.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-04-01, 2024-10-01-preview.
  */
 export function getEnvironmentType(args: GetEnvironmentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,7 +42,11 @@ export interface GetEnvironmentTypeArgs {
  */
 export interface GetEnvironmentTypeResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The display name of the environment type.
+     */
+    readonly displayName?: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -68,9 +72,9 @@ export interface GetEnvironmentTypeResult {
 }
 /**
  * Gets an environment type.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-04-01, 2024-10-01-preview.
  */
 export function getEnvironmentTypeOutput(args: GetEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

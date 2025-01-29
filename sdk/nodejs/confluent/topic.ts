@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Details of topic record
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2024-07-01.
  */
 export class Topic extends pulumi.CustomResource {
     /**

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The variable.
-    /// Azure REST API version: 2022-08-01-preview.
+    /// Azure REST API version: 2022-08-01-preview. Prior API version in Azure Native 2.x: 2022-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:Variable")]
     public partial class Variable : global::Pulumi.CustomResource

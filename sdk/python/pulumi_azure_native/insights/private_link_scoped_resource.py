@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = ['PrivateLinkScopedResourceArgs', 'PrivateLinkScopedResource']
 
@@ -22,21 +23,29 @@ class PrivateLinkScopedResourceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  scope_name: pulumi.Input[str],
+                 kind: Optional[pulumi.Input[Union[str, 'ScopedResourceKind']]] = None,
                  linked_resource_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 subscription_location: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateLinkScopedResource resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor PrivateLinkScope resource.
+        :param pulumi.Input[Union[str, 'ScopedResourceKind']] kind: The kind of scoped Azure monitor resource.
         :param pulumi.Input[str] linked_resource_id: The resource id of the scoped Azure monitor resource.
         :param pulumi.Input[str] name: The name of the scoped resource object.
+        :param pulumi.Input[str] subscription_location: The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scope_name", scope_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if linked_resource_id is not None:
             pulumi.set(__self__, "linked_resource_id", linked_resource_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if subscription_location is not None:
+            pulumi.set(__self__, "subscription_location", subscription_location)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -63,6 +72,18 @@ class PrivateLinkScopedResourceArgs:
         pulumi.set(self, "scope_name", value)
 
     @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'ScopedResourceKind']]]:
+        """
+        The kind of scoped Azure monitor resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'ScopedResourceKind']]]):
+        pulumi.set(self, "kind", value)
+
+    @property
     @pulumi.getter(name="linkedResourceId")
     def linked_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -86,29 +107,45 @@ class PrivateLinkScopedResourceArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="subscriptionLocation")
+    def subscription_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
+        """
+        return pulumi.get(self, "subscription_location")
+
+    @subscription_location.setter
+    def subscription_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_location", value)
+
 
 class PrivateLinkScopedResource(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ScopedResourceKind']]] = None,
                  linked_resource_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_name: Optional[pulumi.Input[str]] = None,
+                 subscription_location: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A private link scoped resource
-        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2021-07-01-preview.
 
-        Other available API versions: 2021-09-01, 2023-06-01-preview.
+        Other available API versions: 2021-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[str, 'ScopedResourceKind']] kind: The kind of scoped Azure monitor resource.
         :param pulumi.Input[str] linked_resource_id: The resource id of the scoped Azure monitor resource.
         :param pulumi.Input[str] name: The name of the scoped resource object.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor PrivateLinkScope resource.
+        :param pulumi.Input[str] subscription_location: The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
         """
         ...
     @overload
@@ -118,9 +155,9 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private link scoped resource
-        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2021-07-01-preview.
 
-        Other available API versions: 2021-09-01, 2023-06-01-preview.
+        Other available API versions: 2021-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopedResourceArgs args: The arguments to use to populate this resource's properties.
@@ -137,10 +174,12 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ScopedResourceKind']]] = None,
                  linked_resource_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_name: Optional[pulumi.Input[str]] = None,
+                 subscription_location: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -150,6 +189,7 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateLinkScopedResourceArgs.__new__(PrivateLinkScopedResourceArgs)
 
+            __props__.__dict__["kind"] = kind
             __props__.__dict__["linked_resource_id"] = linked_resource_id
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -158,6 +198,7 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
             if scope_name is None and not opts.urn:
                 raise TypeError("Missing required property 'scope_name'")
             __props__.__dict__["scope_name"] = scope_name
+            __props__.__dict__["subscription_location"] = subscription_location
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -185,12 +226,22 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
 
         __props__ = PrivateLinkScopedResourceArgs.__new__(PrivateLinkScopedResourceArgs)
 
+        __props__.__dict__["kind"] = None
         __props__.__dict__["linked_resource_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["subscription_location"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateLinkScopedResource(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[str]]:
+        """
+        The kind of scoped Azure monitor resource.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter(name="linkedResourceId")
@@ -212,9 +263,17 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        State of the private endpoint connection.
+        State of the Azure monitor resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="subscriptionLocation")
+    def subscription_location(self) -> pulumi.Output[Optional[str]]:
+        """
+        The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
+        """
+        return pulumi.get(self, "subscription_location")
 
     @property
     @pulumi.getter(name="systemData")

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified replica.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01.
  */
 export function getReplica(args: GetReplicaArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,9 +72,9 @@ export interface GetReplicaResult {
 }
 /**
  * Gets the properties of the specified replica.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01.
  */
 export function getReplicaOutput(args: GetReplicaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

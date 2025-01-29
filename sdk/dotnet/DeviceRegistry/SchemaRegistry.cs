@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
 {
     /// <summary>
     /// Schema registry definition.
-    /// Azure REST API version: 2024-09-01-preview.
+    /// Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:SchemaRegistry")]
     public partial class SchemaRegistry : global::Pulumi.CustomResource

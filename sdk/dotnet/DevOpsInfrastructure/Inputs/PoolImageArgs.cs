@@ -36,8 +36,14 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Inputs
         /// <summary>
         /// The resource id of the image.
         /// </summary>
-        [Input("resourceId", required: true)]
-        public Input<string> ResourceId { get; set; } = null!;
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
+
+        /// <summary>
+        /// The image to use from a well-known set of images made available to customers.
+        /// </summary>
+        [Input("wellKnownImageName")]
+        public Input<string>? WellKnownImageName { get; set; }
 
         public PoolImageArgs()
         {

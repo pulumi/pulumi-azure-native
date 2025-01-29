@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// Determines how new connections are handled by the load balancer when all backend instances are probed down.
+        /// </summary>
+        public readonly string? NoHealthyBackendsBehavior;
+        /// <summary>
         /// The number of probes where if no response, will result in stopping further traffic from being delivered to the endpoint. This values allows endpoints to be taken out of rotation faster or slower than the typical times used in Azure.
         /// </summary>
         public readonly int? NumberOfProbes;
@@ -77,6 +81,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? name,
 
+            string? noHealthyBackendsBehavior,
+
             int? numberOfProbes,
 
             int port,
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             IntervalInSeconds = intervalInSeconds;
             LoadBalancingRules = loadBalancingRules;
             Name = name;
+            NoHealthyBackendsBehavior = noHealthyBackendsBehavior;
             NumberOfProbes = numberOfProbes;
             Port = port;
             ProbeThreshold = probeThreshold;

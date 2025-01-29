@@ -38,33 +38,17 @@ export class ProactiveDetectionConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Custom email addresses for this rule notifications
-     */
-    public readonly customEmails!: pulumi.Output<string[] | undefined>;
-    /**
-     * A flag that indicates whether this rule is enabled by the user
-     */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * The last time this rule was updated
-     */
-    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
-    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * The rule name
+     * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Static definitions of the ProactiveDetection configuration rule (same values for all components).
+     * Properties that define a ProactiveDetection configuration.
      */
-    public readonly ruleDefinitions!: pulumi.Output<outputs.insights.v20180501preview.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions | undefined>;
-    /**
-     * A flag that indicated whether notifications on this rule should be sent to subscription owners
-     */
-    public readonly sendEmailsToSubscriptionOwners!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20180501preview.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponse>;
     /**
      * Azure resource type
      */
@@ -96,16 +80,12 @@ export class ProactiveDetectionConfiguration extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["ruleDefinitions"] = args ? args.ruleDefinitions : undefined;
             resourceInputs["sendEmailsToSubscriptionOwners"] = args ? args.sendEmailsToSubscriptionOwners : undefined;
-            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["customEmails"] = undefined /*out*/;
-            resourceInputs["enabled"] = undefined /*out*/;
-            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["ruleDefinitions"] = undefined /*out*/;
-            resourceInputs["sendEmailsToSubscriptionOwners"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

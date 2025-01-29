@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Service Token
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2024-10-01-preview.
         /// </summary>
         public static Task<GetOnlineEndpointTokenResult> InvokeAsync(GetOnlineEndpointTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOnlineEndpointTokenResult>("azure-native:machinelearningservices:getOnlineEndpointToken", args ?? new GetOnlineEndpointTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Service Token
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetOnlineEndpointTokenResult> Invoke(GetOnlineEndpointTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOnlineEndpointTokenResult>("azure-native:machinelearningservices:getOnlineEndpointToken", args ?? new GetOnlineEndpointTokenInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Service Token
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetOnlineEndpointTokenResult> Invoke(GetOnlineEndpointTokenInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOnlineEndpointTokenResult>("azure-native:machinelearningservices:getOnlineEndpointToken", args ?? new GetOnlineEndpointTokenInvokeArgs(), options.WithDefaults());

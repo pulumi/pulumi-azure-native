@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.NotificationHubs.Inputs
     public sealed class BrowserCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of a NotificationHub BrowserCredential.
+        /// Gets or sets web push subject.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.BrowserCredentialPropertiesArgs> Properties { get; set; } = null!;
+        [Input("subject", required: true)]
+        public Input<string> Subject { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets VAPID private key.
+        /// </summary>
+        [Input("vapidPrivateKey", required: true)]
+        public Input<string> VapidPrivateKey { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets VAPID public key.
+        /// </summary>
+        [Input("vapidPublicKey", required: true)]
+        public Input<string> VapidPublicKey { get; set; } = null!;
 
         public BrowserCredentialArgs()
         {

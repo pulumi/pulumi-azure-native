@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
     public sealed class DaprMetadataResponse
     {
         /// <summary>
+        /// The description of the metadata, returned from configuration api
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Metadata property name.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The value indicating whether the metadata is required or not
+        /// </summary>
+        public readonly string? Required;
         /// <summary>
         /// The secret name where dapr could get value
         /// </summary>
@@ -31,13 +39,19 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
 
         [OutputConstructor]
         private DaprMetadataResponse(
+            string? description,
+
             string? name,
+
+            string? required,
 
             string? secretRef,
 
             string? value)
         {
+            Description = description;
             Name = name;
+            Required = required;
             SecretRef = secretRef;
             Value = value;
         }

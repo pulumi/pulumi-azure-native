@@ -24,6 +24,10 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Name of the header to modify
         /// </summary>
         public readonly string HeaderName;
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleHeaderActionParameters'.
+        /// </summary>
         public readonly string TypeName;
         /// <summary>
         /// Value for the specified action

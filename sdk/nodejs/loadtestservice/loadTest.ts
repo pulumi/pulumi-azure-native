@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * LoadTest details.
- * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
+ * Azure REST API version: 2023-12-01-preview. Prior API version in Azure Native 2.x: 2022-12-01.
  *
- * Other available API versions: 2021-12-01-preview, 2023-12-01-preview.
+ * Other available API versions: 2021-12-01-preview, 2022-12-01.
  */
 export class LoadTest extends pulumi.CustomResource {
     /**

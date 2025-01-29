@@ -11,15 +11,21 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
 {
 
     /// <summary>
-    /// Configuration for infrastructure vpn.
+    /// Network and credential configuration currently applied on terminal server.
     /// </summary>
     public sealed class VpnConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// ARM Resource ID of the Network To Network Interconnect.
+        /// </summary>
+        [Input("networkToNetworkInterconnectId")]
+        public Input<string>? NetworkToNetworkInterconnectId { get; set; }
+
+        /// <summary>
         /// option A properties
         /// </summary>
         [Input("optionAProperties")]
-        public Input<Inputs.OptionAPropertiesArgs>? OptionAProperties { get; set; }
+        public Input<Inputs.VpnConfigurationPropertiesOptionAPropertiesArgs>? OptionAProperties { get; set; }
 
         /// <summary>
         /// option B properties

@@ -27,7 +27,13 @@ class GetCommunicationsGatewayResult:
     """
     A CommunicationsGateway resource
     """
-    def __init__(__self__, api_bridge=None, auto_generated_domain_name_label=None, auto_generated_domain_name_label_scope=None, codecs=None, connectivity=None, e911_type=None, emergency_dial_strings=None, id=None, identity=None, integrated_mcp_enabled=None, location=None, name=None, on_prem_mcp_enabled=None, platforms=None, provisioning_state=None, service_locations=None, status=None, system_data=None, tags=None, teams_voicemail_pilot_number=None, type=None):
+    def __init__(__self__, allocated_media_address_prefixes=None, allocated_signaling_address_prefixes=None, api_bridge=None, auto_generated_domain_name_label=None, auto_generated_domain_name_label_scope=None, codecs=None, connectivity=None, custom_sip_headers=None, dns_delegations=None, e911_type=None, emergency_dial_strings=None, id=None, identity=None, integrated_mcp_enabled=None, location=None, name=None, on_prem_mcp_enabled=None, platforms=None, provisioning_state=None, service_locations=None, sku=None, status=None, system_data=None, tags=None, teams_voicemail_pilot_number=None, type=None):
+        if allocated_media_address_prefixes and not isinstance(allocated_media_address_prefixes, list):
+            raise TypeError("Expected argument 'allocated_media_address_prefixes' to be a list")
+        pulumi.set(__self__, "allocated_media_address_prefixes", allocated_media_address_prefixes)
+        if allocated_signaling_address_prefixes and not isinstance(allocated_signaling_address_prefixes, list):
+            raise TypeError("Expected argument 'allocated_signaling_address_prefixes' to be a list")
+        pulumi.set(__self__, "allocated_signaling_address_prefixes", allocated_signaling_address_prefixes)
         if api_bridge and not isinstance(api_bridge, dict):
             raise TypeError("Expected argument 'api_bridge' to be a dict")
         pulumi.set(__self__, "api_bridge", api_bridge)
@@ -43,6 +49,12 @@ class GetCommunicationsGatewayResult:
         if connectivity and not isinstance(connectivity, str):
             raise TypeError("Expected argument 'connectivity' to be a str")
         pulumi.set(__self__, "connectivity", connectivity)
+        if custom_sip_headers and not isinstance(custom_sip_headers, dict):
+            raise TypeError("Expected argument 'custom_sip_headers' to be a dict")
+        pulumi.set(__self__, "custom_sip_headers", custom_sip_headers)
+        if dns_delegations and not isinstance(dns_delegations, dict):
+            raise TypeError("Expected argument 'dns_delegations' to be a dict")
+        pulumi.set(__self__, "dns_delegations", dns_delegations)
         if e911_type and not isinstance(e911_type, str):
             raise TypeError("Expected argument 'e911_type' to be a str")
         pulumi.set(__self__, "e911_type", e911_type)
@@ -76,6 +88,9 @@ class GetCommunicationsGatewayResult:
         if service_locations and not isinstance(service_locations, list):
             raise TypeError("Expected argument 'service_locations' to be a list")
         pulumi.set(__self__, "service_locations", service_locations)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -93,8 +108,24 @@ class GetCommunicationsGatewayResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="allocatedMediaAddressPrefixes")
+    def allocated_media_address_prefixes(self) -> Sequence[str]:
+        """
+        A list of allocated IP prefixes which may be used to receive media data from this Communications Gateway.
+        """
+        return pulumi.get(self, "allocated_media_address_prefixes")
+
+    @property
+    @pulumi.getter(name="allocatedSignalingAddressPrefixes")
+    def allocated_signaling_address_prefixes(self) -> Sequence[str]:
+        """
+        A list of IP allocated prefixes which may be used to receive signaling data from this Communications Gateway.
+        """
+        return pulumi.get(self, "allocated_signaling_address_prefixes")
+
+    @property
     @pulumi.getter(name="apiBridge")
-    def api_bridge(self) -> Optional[Any]:
+    def api_bridge(self) -> Optional['outputs.ApiBridgePropertiesResponse']:
         """
         Details of API bridge functionality, if required
         """
@@ -131,6 +162,22 @@ class GetCommunicationsGatewayResult:
         How to connect back to the operator network, e.g. MAPS
         """
         return pulumi.get(self, "connectivity")
+
+    @property
+    @pulumi.getter(name="customSipHeaders")
+    def custom_sip_headers(self) -> Optional['outputs.CustomSipHeadersPropertiesResponse']:
+        """
+        Custom SIP Header to add to any subscriber with a custom_header value, if required.
+        """
+        return pulumi.get(self, "custom_sip_headers")
+
+    @property
+    @pulumi.getter(name="dnsDelegations")
+    def dns_delegations(self) -> Optional['outputs.DnsDelegationsPropertiesResponse']:
+        """
+        Details of DNS Domains to delegate to the Communications Gateway.
+        """
+        return pulumi.get(self, "dns_delegations")
 
     @property
     @pulumi.getter(name="e911Type")
@@ -222,6 +269,14 @@ class GetCommunicationsGatewayResult:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The SKU (Stock Keeping Unit) assigned to this resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
     def status(self) -> str:
         """
         The current status of the deployment.
@@ -267,11 +322,15 @@ class AwaitableGetCommunicationsGatewayResult(GetCommunicationsGatewayResult):
         if False:
             yield self
         return GetCommunicationsGatewayResult(
+            allocated_media_address_prefixes=self.allocated_media_address_prefixes,
+            allocated_signaling_address_prefixes=self.allocated_signaling_address_prefixes,
             api_bridge=self.api_bridge,
             auto_generated_domain_name_label=self.auto_generated_domain_name_label,
             auto_generated_domain_name_label_scope=self.auto_generated_domain_name_label_scope,
             codecs=self.codecs,
             connectivity=self.connectivity,
+            custom_sip_headers=self.custom_sip_headers,
+            dns_delegations=self.dns_delegations,
             e911_type=self.e911_type,
             emergency_dial_strings=self.emergency_dial_strings,
             id=self.id,
@@ -283,6 +342,7 @@ class AwaitableGetCommunicationsGatewayResult(GetCommunicationsGatewayResult):
             platforms=self.platforms,
             provisioning_state=self.provisioning_state,
             service_locations=self.service_locations,
+            sku=self.sku,
             status=self.status,
             system_data=self.system_data,
             tags=self.tags,
@@ -295,9 +355,9 @@ def get_communications_gateway(communications_gateway_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommunicationsGatewayResult:
     """
     Get a CommunicationsGateway
-    Azure REST API version: 2023-04-03.
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-09-01.
+    Other available API versions: 2023-04-03.
 
 
     :param str communications_gateway_name: Unique identifier for this deployment
@@ -310,11 +370,15 @@ def get_communications_gateway(communications_gateway_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:voiceservices:getCommunicationsGateway', __args__, opts=opts, typ=GetCommunicationsGatewayResult).value
 
     return AwaitableGetCommunicationsGatewayResult(
+        allocated_media_address_prefixes=pulumi.get(__ret__, 'allocated_media_address_prefixes'),
+        allocated_signaling_address_prefixes=pulumi.get(__ret__, 'allocated_signaling_address_prefixes'),
         api_bridge=pulumi.get(__ret__, 'api_bridge'),
         auto_generated_domain_name_label=pulumi.get(__ret__, 'auto_generated_domain_name_label'),
         auto_generated_domain_name_label_scope=pulumi.get(__ret__, 'auto_generated_domain_name_label_scope'),
         codecs=pulumi.get(__ret__, 'codecs'),
         connectivity=pulumi.get(__ret__, 'connectivity'),
+        custom_sip_headers=pulumi.get(__ret__, 'custom_sip_headers'),
+        dns_delegations=pulumi.get(__ret__, 'dns_delegations'),
         e911_type=pulumi.get(__ret__, 'e911_type'),
         emergency_dial_strings=pulumi.get(__ret__, 'emergency_dial_strings'),
         id=pulumi.get(__ret__, 'id'),
@@ -326,6 +390,7 @@ def get_communications_gateway(communications_gateway_name: Optional[str] = None
         platforms=pulumi.get(__ret__, 'platforms'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         service_locations=pulumi.get(__ret__, 'service_locations'),
+        sku=pulumi.get(__ret__, 'sku'),
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -336,9 +401,9 @@ def get_communications_gateway_output(communications_gateway_name: Optional[pulu
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCommunicationsGatewayResult]:
     """
     Get a CommunicationsGateway
-    Azure REST API version: 2023-04-03.
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-09-01.
+    Other available API versions: 2023-04-03.
 
 
     :param str communications_gateway_name: Unique identifier for this deployment
@@ -350,11 +415,15 @@ def get_communications_gateway_output(communications_gateway_name: Optional[pulu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:voiceservices:getCommunicationsGateway', __args__, opts=opts, typ=GetCommunicationsGatewayResult)
     return __ret__.apply(lambda __response__: GetCommunicationsGatewayResult(
+        allocated_media_address_prefixes=pulumi.get(__response__, 'allocated_media_address_prefixes'),
+        allocated_signaling_address_prefixes=pulumi.get(__response__, 'allocated_signaling_address_prefixes'),
         api_bridge=pulumi.get(__response__, 'api_bridge'),
         auto_generated_domain_name_label=pulumi.get(__response__, 'auto_generated_domain_name_label'),
         auto_generated_domain_name_label_scope=pulumi.get(__response__, 'auto_generated_domain_name_label_scope'),
         codecs=pulumi.get(__response__, 'codecs'),
         connectivity=pulumi.get(__response__, 'connectivity'),
+        custom_sip_headers=pulumi.get(__response__, 'custom_sip_headers'),
+        dns_delegations=pulumi.get(__response__, 'dns_delegations'),
         e911_type=pulumi.get(__response__, 'e911_type'),
         emergency_dial_strings=pulumi.get(__response__, 'emergency_dial_strings'),
         id=pulumi.get(__response__, 'id'),
@@ -366,6 +435,7 @@ def get_communications_gateway_output(communications_gateway_name: Optional[pulu
         platforms=pulumi.get(__response__, 'platforms'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         service_locations=pulumi.get(__response__, 'service_locations'),
+        sku=pulumi.get(__response__, 'sku'),
         status=pulumi.get(__response__, 'status'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

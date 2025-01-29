@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Pool
- * Azure REST API version: 2023-10-30-preview.
+ * Azure REST API version: 2024-10-19.
  *
- * Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19.
+ * Other available API versions: 2023-10-30-preview.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,7 +49,7 @@ export interface GetPoolResult {
      */
     readonly fabricProfile: outputs.devopsinfrastructure.VmssFabricProfileResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -71,7 +71,7 @@ export interface GetPoolResult {
     /**
      * Defines the organization in which the pool will be used.
      */
-    readonly organizationProfile: outputs.devopsinfrastructure.AzureDevOpsOrganizationProfileResponse;
+    readonly organizationProfile: outputs.devopsinfrastructure.AzureDevOpsOrganizationProfileResponse | outputs.devopsinfrastructure.GitHubOrganizationProfileResponse;
     /**
      * The status of the current operation.
      */
@@ -91,9 +91,9 @@ export interface GetPoolResult {
 }
 /**
  * Get a Pool
- * Azure REST API version: 2023-10-30-preview.
+ * Azure REST API version: 2024-10-19.
  *
- * Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19.
+ * Other available API versions: 2023-10-30-preview.
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

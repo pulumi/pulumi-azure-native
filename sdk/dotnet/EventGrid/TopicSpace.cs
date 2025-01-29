@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// The Topic space resource.
-    /// Azure REST API version: 2023-06-01-preview.
+    /// Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    /// Other available API versions: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:TopicSpace")]
     public partial class TopicSpace : global::Pulumi.CustomResource
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to the TopicSpace resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -45,9 +45,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The topic filters in the topic space.
         /// Example: "topicTemplates": [ 
-        ///               "devices/foo/bar",
-        ///               "devices/topic1/+",
-        ///               "devices/${principal.name}/${principal.attributes.keyName}" ].
+        ///         "devices/foo/bar",
+        ///         "devices/topic1/+",
+        ///         "devices/${principal.name}/${principal.attributes.keyName}" ].
         /// </summary>
         [Output("topicTemplates")]
         public Output<ImmutableArray<string>> TopicTemplates { get; private set; } = null!;
@@ -140,9 +140,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The topic filters in the topic space.
         /// Example: "topicTemplates": [ 
-        ///               "devices/foo/bar",
-        ///               "devices/topic1/+",
-        ///               "devices/${principal.name}/${principal.attributes.keyName}" ].
+        ///         "devices/foo/bar",
+        ///         "devices/topic1/+",
+        ///         "devices/${principal.name}/${principal.attributes.keyName}" ].
         /// </summary>
         public InputList<string> TopicTemplates
         {

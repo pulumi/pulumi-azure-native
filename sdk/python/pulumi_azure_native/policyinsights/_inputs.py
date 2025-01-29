@@ -91,19 +91,27 @@ if not MYPY:
         """
         The resource locations that will be remediated.
         """
+        resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The IDs of the resources that will be remediated. Can specify at most 100 IDs. This filter cannot be used when ReEvaluateCompliance is set to ReEvaluateCompliance, and cannot be empty if provided.
+        """
 elif False:
     RemediationFiltersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RemediationFiltersArgs:
     def __init__(__self__, *,
-                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The filters that will be applied to determine which resources to remediate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: The resource locations that will be remediated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_ids: The IDs of the resources that will be remediated. Can specify at most 100 IDs. This filter cannot be used when ReEvaluateCompliance is set to ReEvaluateCompliance, and cannot be empty if provided.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
+        if resource_ids is not None:
+            pulumi.set(__self__, "resource_ids", resource_ids)
 
     @property
     @pulumi.getter
@@ -116,6 +124,18 @@ class RemediationFiltersArgs:
     @locations.setter
     def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter(name="resourceIds")
+    def resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the resources that will be remediated. Can specify at most 100 IDs. This filter cannot be used when ReEvaluateCompliance is set to ReEvaluateCompliance, and cannot be empty if provided.
+        """
+        return pulumi.get(self, "resource_ids")
+
+    @resource_ids.setter
+    def resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_ids", value)
 
 
 if not MYPY:

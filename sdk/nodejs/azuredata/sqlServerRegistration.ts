@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL server registration.
- * Azure REST API version: 2019-07-24-preview. Prior API version in Azure Native 1.x: 2019-07-24-preview.
+ * Azure REST API version: 2019-07-24-preview. Prior API version in Azure Native 2.x: 2019-07-24-preview.
  */
 export class SqlServerRegistration extends pulumi.CustomResource {
     /**

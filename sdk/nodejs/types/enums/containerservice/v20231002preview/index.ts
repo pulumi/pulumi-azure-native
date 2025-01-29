@@ -102,18 +102,6 @@ export const Code = {
  */
 export type Code = (typeof Code)[keyof typeof Code];
 
-export const ConnectionStatus = {
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-    Disconnected: "Disconnected",
-} as const;
-
-/**
- * The private link service connection status.
- */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
-
 export const Expander = {
     /**
      * Selects the node group that will have the least idle CPU (if tied, unused memory) after scale-up. This is useful when you have different classes of nodes, for example, high CPU or high memory nodes, and only want to expand those when there are pending pods that need a lot of those resources.
@@ -697,50 +685,6 @@ export const ServiceMeshMode = {
  */
 export type ServiceMeshMode = (typeof ServiceMeshMode)[keyof typeof ServiceMeshMode];
 
-export const SnapshotType = {
-    /**
-     * The snapshot is a snapshot of a node pool.
-     */
-    NodePool: "NodePool",
-    /**
-     * The snapshot is a snapshot of a managed cluster.
-     */
-    ManagedCluster: "ManagedCluster",
-} as const;
-
-/**
- * The type of a snapshot. The default is NodePool.
- */
-export type SnapshotType = (typeof SnapshotType)[keyof typeof SnapshotType];
-
-export const Type = {
-    /**
-     * First.
-     */
-    First: "First",
-    /**
-     * Second.
-     */
-    Second: "Second",
-    /**
-     * Third.
-     */
-    Third: "Third",
-    /**
-     * Fourth.
-     */
-    Fourth: "Fourth",
-    /**
-     * Last.
-     */
-    Last: "Last",
-} as const;
-
-/**
- * Specifies on which instance of the allowed days specified in daysOfWeek the maintenance occurs.
- */
-export type Type = (typeof Type)[keyof typeof Type];
-
 export const UpgradeChannel = {
     /**
      * Automatically upgrade the cluster to the latest supported patch release on the latest supported minor version. In cases where the cluster is at a version of Kubernetes that is at an N-2 minor version where N is the latest supported minor version, the cluster first upgrades to the latest supported patch version on N-1 minor version. For example, if a cluster is running version 1.17.7 and versions 1.17.9, 1.18.4, 1.18.6, and 1.19.1 are available, your cluster first is upgraded to 1.18.6, then is upgraded to 1.19.1.
@@ -768,21 +712,6 @@ export const UpgradeChannel = {
  * For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
  */
 export type UpgradeChannel = (typeof UpgradeChannel)[keyof typeof UpgradeChannel];
-
-export const WeekDay = {
-    Sunday: "Sunday",
-    Monday: "Monday",
-    Tuesday: "Tuesday",
-    Wednesday: "Wednesday",
-    Thursday: "Thursday",
-    Friday: "Friday",
-    Saturday: "Saturday",
-} as const;
-
-/**
- * The day of the week.
- */
-export type WeekDay = (typeof WeekDay)[keyof typeof WeekDay];
 
 export const WorkloadRuntime = {
     /**

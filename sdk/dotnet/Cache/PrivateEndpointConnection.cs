@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01.
+    /// Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// 
-    /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+    /// Other available API versions: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.Cache
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

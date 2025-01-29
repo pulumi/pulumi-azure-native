@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
- * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 2.x: 2018-09-01-preview.
  */
 export class SecretValue extends pulumi.CustomResource {
     /**

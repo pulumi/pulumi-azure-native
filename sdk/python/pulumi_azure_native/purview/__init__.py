@@ -22,8 +22,6 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.purview.v20201201preview as __v20201201preview
     v20201201preview = __v20201201preview
-    import pulumi_azure_native.purview.v20210701 as __v20210701
-    v20210701 = __v20210701
     import pulumi_azure_native.purview.v20211201 as __v20211201
     v20211201 = __v20211201
     import pulumi_azure_native.purview.v20230501preview as __v20230501preview
@@ -32,7 +30,6 @@ if typing.TYPE_CHECKING:
     v20240401preview = __v20240401preview
 else:
     v20201201preview = _utilities.lazy_import('pulumi_azure_native.purview.v20201201preview')
-    v20210701 = _utilities.lazy_import('pulumi_azure_native.purview.v20210701')
     v20211201 = _utilities.lazy_import('pulumi_azure_native.purview.v20211201')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.purview.v20230501preview')
     v20240401preview = _utilities.lazy_import('pulumi_azure_native.purview.v20240401preview')

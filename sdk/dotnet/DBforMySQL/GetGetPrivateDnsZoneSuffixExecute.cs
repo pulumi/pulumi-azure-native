@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Get private DNS zone suffix in the cloud.
-        /// Azure REST API version: 2022-01-01.
+        /// Azure REST API version: 2023-12-30.
         /// 
-        /// Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2023-12-30, 2024-10-01-preview.
+        /// Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetGetPrivateDnsZoneSuffixExecuteResult> InvokeAsync(GetGetPrivateDnsZoneSuffixExecuteArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGetPrivateDnsZoneSuffixExecuteResult>("azure-native:dbformysql:getGetPrivateDnsZoneSuffixExecute", args ?? new GetGetPrivateDnsZoneSuffixExecuteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get private DNS zone suffix in the cloud.
-        /// Azure REST API version: 2022-01-01.
+        /// Azure REST API version: 2023-12-30.
         /// 
-        /// Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2023-12-30, 2024-10-01-preview.
+        /// Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetGetPrivateDnsZoneSuffixExecuteResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGetPrivateDnsZoneSuffixExecuteResult>("azure-native:dbformysql:getGetPrivateDnsZoneSuffixExecute", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Get private DNS zone suffix in the cloud.
-        /// Azure REST API version: 2022-01-01.
+        /// Azure REST API version: 2023-12-30.
         /// 
-        /// Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2023-12-30, 2024-10-01-preview.
+        /// Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetGetPrivateDnsZoneSuffixExecuteResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGetPrivateDnsZoneSuffixExecuteResult>("azure-native:dbformysql:getGetPrivateDnsZoneSuffixExecute", InvokeArgs.Empty, options.WithDefaults());

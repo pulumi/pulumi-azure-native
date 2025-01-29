@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a schedule resource.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-04-01, 2024-10-01-preview.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -56,9 +56,13 @@ export interface GetScheduleResult {
      */
     readonly frequency: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * The geo-location where the resource lives
+     */
+    readonly location?: string;
     /**
      * The name of the resource
      */
@@ -76,6 +80,10 @@ export interface GetScheduleResult {
      */
     readonly systemData: outputs.devcenter.SystemDataResponse;
     /**
+     * Resource tags.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
      * The target time to trigger the action. The format is HH:MM.
      */
     readonly time: string;
@@ -90,9 +98,9 @@ export interface GetScheduleResult {
 }
 /**
  * Gets a schedule resource.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-04-01, 2024-10-01-preview.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

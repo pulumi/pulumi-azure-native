@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
     public sealed class MongoDBDatabaseGetPropertiesResponseResource
     {
         /// <summary>
+        /// Enum to indicate the mode of resource creation.
+        /// </summary>
+        public readonly string? CreateMode;
+        /// <summary>
         /// A system generated property representing the resource etag required for optimistic concurrency control.
         /// </summary>
         public readonly string Etag;
@@ -21,6 +25,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// Name of the Cosmos DB MongoDB database
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Parameters to indicate the information about the restore
+        /// </summary>
+        public readonly Outputs.ResourceRestoreParametersResponse? RestoreParameters;
         /// <summary>
         /// A system generated property. A unique identifier.
         /// </summary>
@@ -32,16 +40,22 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
         [OutputConstructor]
         private MongoDBDatabaseGetPropertiesResponseResource(
+            string? createMode,
+
             string etag,
 
             string id,
+
+            Outputs.ResourceRestoreParametersResponse? restoreParameters,
 
             string rid,
 
             double ts)
         {
+            CreateMode = createMode;
             Etag = etag;
             Id = id;
+            RestoreParameters = restoreParameters;
             Rid = rid;
             Ts = ts;
         }

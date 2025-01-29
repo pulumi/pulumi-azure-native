@@ -154,11 +154,8 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:agentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:AgentPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:agentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice:AgentPool" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice:agentPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

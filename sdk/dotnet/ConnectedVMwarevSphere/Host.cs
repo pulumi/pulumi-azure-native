@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
     /// <summary>
     /// Define the host.
-    /// Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
+    /// Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
     /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    /// Other available API versions: 2022-07-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:Host")]
     public partial class Host : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Gets the max CPU usage across all cores in MHz.
+        /// </summary>
+        [Output("cpuMhz")]
+        public Output<double> CpuMhz { get; private set; } = null!;
+
         /// <summary>
         /// Gets the name of the corresponding resource in Kubernetes.
         /// </summary>
@@ -25,7 +31,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string> CustomResourceName { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the datastore ARM ids.
+        /// Gets the datastore ARM ids.
         /// </summary>
         [Output("datastoreIds")]
         public Output<ImmutableArray<string>> DatastoreIds { get; private set; } = null!;
@@ -55,6 +61,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Gets the total amount of physical memory on the host in GB.
+        /// </summary>
+        [Output("memorySizeGB")]
+        public Output<double> MemorySizeGB { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the vCenter Managed Object name for the host.
         /// </summary>
         [Output("moName")]
@@ -73,13 +85,25 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the network ARM ids.
+        /// Gets the network ARM ids.
         /// </summary>
         [Output("networkIds")]
         public Output<ImmutableArray<string>> NetworkIds { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the used CPU usage across all cores in MHz.
+        /// </summary>
+        [Output("overallCpuUsageMHz")]
+        public Output<double> OverallCpuUsageMHz { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the used physical memory on the host in GB.
+        /// </summary>
+        [Output("overallMemoryUsageGB")]
+        public Output<double> OverallMemoryUsageGB { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;

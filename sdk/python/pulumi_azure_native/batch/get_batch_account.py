@@ -313,9 +313,9 @@ def get_batch_account(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchAccountResult:
     """
     Gets information about the specified Batch account.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+    Other available API versions: 2022-01-01, 2023-05-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -356,9 +356,9 @@ def get_batch_account_output(account_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBatchAccountResult]:
     """
     Gets information about the specified Batch account.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+    Other available API versions: 2022-01-01, 2023-05-01.
 
 
     :param str account_name: The name of the Batch account.

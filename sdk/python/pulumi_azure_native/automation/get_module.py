@@ -27,13 +27,10 @@ class GetModuleResult:
     """
     Definition of the module type.
     """
-    def __init__(__self__, activity_count=None, content_link=None, creation_time=None, description=None, error=None, etag=None, id=None, is_composite=None, is_global=None, last_modified_time=None, location=None, name=None, provisioning_state=None, size_in_bytes=None, tags=None, type=None, version=None):
+    def __init__(__self__, activity_count=None, creation_time=None, description=None, error=None, etag=None, id=None, is_composite=None, is_global=None, last_modified_time=None, location=None, name=None, provisioning_state=None, size_in_bytes=None, tags=None, type=None, version=None):
         if activity_count and not isinstance(activity_count, int):
             raise TypeError("Expected argument 'activity_count' to be a int")
         pulumi.set(__self__, "activity_count", activity_count)
-        if content_link and not isinstance(content_link, dict):
-            raise TypeError("Expected argument 'content_link' to be a dict")
-        pulumi.set(__self__, "content_link", content_link)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -84,23 +81,15 @@ class GetModuleResult:
     @pulumi.getter(name="activityCount")
     def activity_count(self) -> Optional[int]:
         """
-        Gets or sets the activity count of the module.
+        Gets the activity count of the module.
         """
         return pulumi.get(self, "activity_count")
-
-    @property
-    @pulumi.getter(name="contentLink")
-    def content_link(self) -> Optional['outputs.ContentLinkResponse']:
-        """
-        Gets or sets the contentLink of the module.
-        """
-        return pulumi.get(self, "content_link")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[str]:
         """
-        Gets or sets the creation time.
+        Gets the creation time.
         """
         return pulumi.get(self, "creation_time")
 
@@ -116,7 +105,7 @@ class GetModuleResult:
     @pulumi.getter
     def error(self) -> Optional['outputs.ModuleErrorInfoResponse']:
         """
-        Gets or sets the error info of the module.
+        Gets the error info of the module.
         """
         return pulumi.get(self, "error")
 
@@ -124,7 +113,7 @@ class GetModuleResult:
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
-        Gets or sets the etag of the resource.
+        Gets the etag of the resource.
         """
         return pulumi.get(self, "etag")
 
@@ -140,7 +129,7 @@ class GetModuleResult:
     @pulumi.getter(name="isComposite")
     def is_composite(self) -> Optional[bool]:
         """
-        Gets or sets type of module, if its composite or not.
+        Gets type of module, if its composite or not.
         """
         return pulumi.get(self, "is_composite")
 
@@ -148,7 +137,7 @@ class GetModuleResult:
     @pulumi.getter(name="isGlobal")
     def is_global(self) -> Optional[bool]:
         """
-        Gets or sets the isGlobal flag of the module.
+        Gets the isGlobal flag of the module.
         """
         return pulumi.get(self, "is_global")
 
@@ -156,7 +145,7 @@ class GetModuleResult:
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[str]:
         """
-        Gets or sets the last modified time.
+        Gets the last modified time.
         """
         return pulumi.get(self, "last_modified_time")
 
@@ -180,7 +169,7 @@ class GetModuleResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
         """
-        Gets or sets the provisioning state of the module.
+        Gets the provisioning state of the module.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -188,7 +177,7 @@ class GetModuleResult:
     @pulumi.getter(name="sizeInBytes")
     def size_in_bytes(self) -> Optional[float]:
         """
-        Gets or sets the size in bytes of the module.
+        Gets the size in bytes of the module.
         """
         return pulumi.get(self, "size_in_bytes")
 
@@ -212,7 +201,7 @@ class GetModuleResult:
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        Gets or sets the version of the module.
+        Gets the version of the module.
         """
         return pulumi.get(self, "version")
 
@@ -224,7 +213,6 @@ class AwaitableGetModuleResult(GetModuleResult):
             yield self
         return GetModuleResult(
             activity_count=self.activity_count,
-            content_link=self.content_link,
             creation_time=self.creation_time,
             description=self.description,
             error=self.error,
@@ -248,9 +236,9 @@ def get_module(automation_account_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModuleResult:
     """
     Retrieve the module identified by module name.
-    Azure REST API version: 2022-08-08.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2022-08-08, 2024-10-23.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -266,7 +254,6 @@ def get_module(automation_account_name: Optional[str] = None,
 
     return AwaitableGetModuleResult(
         activity_count=pulumi.get(__ret__, 'activity_count'),
-        content_link=pulumi.get(__ret__, 'content_link'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         error=pulumi.get(__ret__, 'error'),
@@ -288,9 +275,9 @@ def get_module_output(automation_account_name: Optional[pulumi.Input[str]] = Non
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModuleResult]:
     """
     Retrieve the module identified by module name.
-    Azure REST API version: 2022-08-08.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2022-08-08, 2024-10-23.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -305,7 +292,6 @@ def get_module_output(automation_account_name: Optional[pulumi.Input[str]] = Non
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getModule', __args__, opts=opts, typ=GetModuleResult)
     return __ret__.apply(lambda __response__: GetModuleResult(
         activity_count=pulumi.get(__response__, 'activity_count'),
-        content_link=pulumi.get(__response__, 'content_link'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         error=pulumi.get(__response__, 'error'),

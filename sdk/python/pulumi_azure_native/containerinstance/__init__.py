@@ -6,10 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .cg_profile import *
 from .container_group import *
 from .container_group_profile import *
-from .get_cg_profile import *
 from .get_container_group import *
 from .get_container_group_profile import *
 from .get_n_group import *

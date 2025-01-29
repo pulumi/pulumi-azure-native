@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// A private link scoped resource
-    /// Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
+    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2021-07-01-preview.
     /// 
-    /// Other available API versions: 2021-09-01, 2023-06-01-preview.
+    /// Other available API versions: 2021-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:PrivateLinkScopedResource")]
     public partial class PrivateLinkScopedResource : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The kind of scoped Azure monitor resource.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
+
         /// <summary>
         /// The resource id of the scoped Azure monitor resource.
         /// </summary>
@@ -31,10 +37,16 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// State of the private endpoint connection.
+        /// State of the Azure monitor resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
+        /// </summary>
+        [Output("subscriptionLocation")]
+        public Output<string?> SubscriptionLocation { get; private set; } = null!;
 
         /// <summary>
         /// System data
@@ -101,6 +113,12 @@ namespace Pulumi.AzureNative.Insights
     public sealed class PrivateLinkScopedResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The kind of scoped Azure monitor resource.
+        /// </summary>
+        [Input("kind")]
+        public InputUnion<string, Pulumi.AzureNative.Insights.ScopedResourceKind>? Kind { get; set; }
+
+        /// <summary>
         /// The resource id of the scoped Azure monitor resource.
         /// </summary>
         [Input("linkedResourceId")]
@@ -123,6 +141,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Input("scopeName", required: true)]
         public Input<string> ScopeName { get; set; } = null!;
+
+        /// <summary>
+        /// The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
+        /// </summary>
+        [Input("subscriptionLocation")]
+        public Input<string>? SubscriptionLocation { get; set; }
 
         public PrivateLinkScopedResourceArgs()
         {

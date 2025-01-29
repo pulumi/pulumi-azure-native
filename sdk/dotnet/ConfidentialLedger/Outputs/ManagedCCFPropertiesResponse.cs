@@ -41,9 +41,13 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
         /// </summary>
         public readonly int? NodeCount;
         /// <summary>
-        /// Provisioning state of Ledger Resource
+        /// Provisioning state of Managed CCF Resource
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Object representing RunningState for Managed CCF.
+        /// </summary>
+        public readonly string? RunningState;
 
         [OutputConstructor]
         private ManagedCCFPropertiesResponse(
@@ -59,7 +63,9 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
 
             int? nodeCount,
 
-            string provisioningState)
+            string provisioningState,
+
+            string? runningState)
         {
             AppName = appName;
             AppUri = appUri;
@@ -68,6 +74,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
             MemberIdentityCertificates = memberIdentityCertificates;
             NodeCount = nodeCount;
             ProvisioningState = provisioningState;
+            RunningState = runningState;
         }
     }
 }

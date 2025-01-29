@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Gets the SQL container under an existing Azure Cosmos DB database account.
-        /// Azure REST API version: 2023-04-15.
+        /// Azure REST API version: 2024-11-15.
         /// 
-        /// Other available API versions: 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        /// Other available API versions: 2023-04-15, 2024-12-01-preview.
         /// </summary>
         public static Task<GetSqlResourceSqlContainerResult> InvokeAsync(GetSqlResourceSqlContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlContainerResult>("azure-native:documentdb:getSqlResourceSqlContainer", args ?? new GetSqlResourceSqlContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the SQL container under an existing Azure Cosmos DB database account.
-        /// Azure REST API version: 2023-04-15.
+        /// Azure REST API version: 2024-11-15.
         /// 
-        /// Other available API versions: 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        /// Other available API versions: 2023-04-15, 2024-12-01-preview.
         /// </summary>
         public static Output<GetSqlResourceSqlContainerResult> Invoke(GetSqlResourceSqlContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlContainerResult>("azure-native:documentdb:getSqlResourceSqlContainer", args ?? new GetSqlResourceSqlContainerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the SQL container under an existing Azure Cosmos DB database account.
-        /// Azure REST API version: 2023-04-15.
+        /// Azure REST API version: 2024-11-15.
         /// 
-        /// Other available API versions: 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        /// Other available API versions: 2023-04-15, 2024-12-01-preview.
         /// </summary>
         public static Output<GetSqlResourceSqlContainerResult> Invoke(GetSqlResourceSqlContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlContainerResult>("azure-native:documentdb:getSqlResourceSqlContainer", args ?? new GetSqlResourceSqlContainerInvokeArgs(), options.WithDefaults());

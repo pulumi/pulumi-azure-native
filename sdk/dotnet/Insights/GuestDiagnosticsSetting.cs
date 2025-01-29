@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// Virtual machine guest diagnostics settings resource.
-    /// Azure REST API version: 2018-06-01-preview. Prior API version in Azure Native 1.x: 2018-06-01-preview.
+    /// Azure REST API version: 2018-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:GuestDiagnosticsSetting")]
     public partial class GuestDiagnosticsSetting : global::Pulumi.CustomResource
@@ -81,8 +81,6 @@ namespace Pulumi.AzureNative.Insights
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20180601preview:GuestDiagnosticsSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180601preview:guestDiagnosticsSetting" },
-                    new global::Pulumi.Alias { Type = "azure-native:insights:guestDiagnosticsSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

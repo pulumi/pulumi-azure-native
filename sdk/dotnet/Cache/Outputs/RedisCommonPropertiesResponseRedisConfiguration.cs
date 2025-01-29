@@ -11,11 +11,15 @@ namespace Pulumi.AzureNative.Cache.Outputs
 {
 
     /// <summary>
-    /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+    /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
     /// </summary>
     [OutputType]
     public sealed class RedisCommonPropertiesResponseRedisConfiguration
     {
+        /// <summary>
+        /// Specifies whether AAD based authentication has been enabled or disabled for the cache
+        /// </summary>
+        public readonly string? AadEnabled;
         /// <summary>
         /// Specifies whether the aof backup is enabled
         /// </summary>
@@ -53,6 +57,10 @@ namespace Pulumi.AzureNative.Cache.Outputs
         /// </summary>
         public readonly string? MaxmemoryReserved;
         /// <summary>
+        /// The keyspace events which should be monitored.
+        /// </summary>
+        public readonly string? NotifyKeyspaceEvents;
+        /// <summary>
         /// Preferred auth method to communicate to storage account used for data archive, specify SAS or ManagedIdentity, default value is SAS
         /// </summary>
         public readonly string PreferredDataArchiveAuthMethod;
@@ -87,6 +95,8 @@ namespace Pulumi.AzureNative.Cache.Outputs
 
         [OutputConstructor]
         private RedisCommonPropertiesResponseRedisConfiguration(
+            string? aadEnabled,
+
             string? aofBackupEnabled,
 
             string? aofStorageConnectionString0,
@@ -105,6 +115,8 @@ namespace Pulumi.AzureNative.Cache.Outputs
 
             string? maxmemoryReserved,
 
+            string? notifyKeyspaceEvents,
+
             string preferredDataArchiveAuthMethod,
 
             string? preferredDataPersistenceAuthMethod,
@@ -121,6 +133,7 @@ namespace Pulumi.AzureNative.Cache.Outputs
 
             string zonalConfiguration)
         {
+            AadEnabled = aadEnabled;
             AofBackupEnabled = aofBackupEnabled;
             AofStorageConnectionString0 = aofStorageConnectionString0;
             AofStorageConnectionString1 = aofStorageConnectionString1;
@@ -130,6 +143,7 @@ namespace Pulumi.AzureNative.Cache.Outputs
             MaxmemoryDelta = maxmemoryDelta;
             MaxmemoryPolicy = maxmemoryPolicy;
             MaxmemoryReserved = maxmemoryReserved;
+            NotifyKeyspaceEvents = notifyKeyspaceEvents;
             PreferredDataArchiveAuthMethod = preferredDataArchiveAuthMethod;
             PreferredDataPersistenceAuthMethod = preferredDataPersistenceAuthMethod;
             RdbBackupEnabled = rdbBackupEnabled;

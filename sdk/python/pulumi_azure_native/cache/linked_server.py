@@ -31,7 +31,7 @@ class LinkedServerArgs:
         :param pulumi.Input[str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
         :param pulumi.Input[str] linked_redis_cache_location: Location of the linked redis cache.
         :param pulumi.Input[str] name: The name of the Redis cache.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ReplicationRole'] server_role: Role of the linked server.
         :param pulumi.Input[str] linked_server_name: The name of the linked server that is being added to the Redis cache.
         """
@@ -83,7 +83,7 @@ class LinkedServerArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -130,9 +130,9 @@ class LinkedServer(pulumi.CustomResource):
                  __props__=None):
         """
         Response to put/get linked server (with properties) for Redis cache.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
-        Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+        Other available API versions: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,7 +140,7 @@ class LinkedServer(pulumi.CustomResource):
         :param pulumi.Input[str] linked_redis_cache_location: Location of the linked redis cache.
         :param pulumi.Input[str] linked_server_name: The name of the linked server that is being added to the Redis cache.
         :param pulumi.Input[str] name: The name of the Redis cache.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ReplicationRole'] server_role: Role of the linked server.
         """
         ...
@@ -151,9 +151,9 @@ class LinkedServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response to put/get linked server (with properties) for Redis cache.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
-        Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+        Other available API versions: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param LinkedServerArgs args: The arguments to use to populate this resource's properties.

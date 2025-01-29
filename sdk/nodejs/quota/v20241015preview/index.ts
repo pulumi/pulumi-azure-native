@@ -10,20 +10,10 @@ export const getGroupQuota: typeof import("./getGroupQuota").getGroupQuota = nul
 export const getGroupQuotaOutput: typeof import("./getGroupQuota").getGroupQuotaOutput = null as any;
 utilities.lazyLoad(exports, ["getGroupQuota","getGroupQuotaOutput"], () => require("./getGroupQuota"));
 
-export { GetGroupQuotaSubscriptionArgs, GetGroupQuotaSubscriptionResult, GetGroupQuotaSubscriptionOutputArgs } from "./getGroupQuotaSubscription";
-export const getGroupQuotaSubscription: typeof import("./getGroupQuotaSubscription").getGroupQuotaSubscription = null as any;
-export const getGroupQuotaSubscriptionOutput: typeof import("./getGroupQuotaSubscription").getGroupQuotaSubscriptionOutput = null as any;
-utilities.lazyLoad(exports, ["getGroupQuotaSubscription","getGroupQuotaSubscriptionOutput"], () => require("./getGroupQuotaSubscription"));
-
 export { GroupQuotaArgs } from "./groupQuota";
 export type GroupQuota = import("./groupQuota").GroupQuota;
 export const GroupQuota: typeof import("./groupQuota").GroupQuota = null as any;
 utilities.lazyLoad(exports, ["GroupQuota"], () => require("./groupQuota"));
-
-export { GroupQuotaSubscriptionArgs } from "./groupQuotaSubscription";
-export type GroupQuotaSubscription = import("./groupQuotaSubscription").GroupQuotaSubscription;
-export const GroupQuotaSubscription: typeof import("./groupQuotaSubscription").GroupQuotaSubscription = null as any;
-utilities.lazyLoad(exports, ["GroupQuotaSubscription"], () => require("./groupQuotaSubscription"));
 
 
 // Export enums:
@@ -35,8 +25,6 @@ const _module = {
         switch (type) {
             case "azure-native:quota/v20241015preview:GroupQuota":
                 return new GroupQuota(name, <any>undefined, { urn })
-            case "azure-native:quota/v20241015preview:GroupQuotaSubscription":
-                return new GroupQuotaSubscription(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

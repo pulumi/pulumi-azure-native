@@ -38,7 +38,7 @@ export const ResourceDiscoveryMode = {
      */
     ExistingNonCompliant: "ExistingNonCompliant",
     /**
-     * Re-evaluate the compliance state of resources and then remediate the resources found to be non-compliant.
+     * Re-evaluate the compliance state of resources and then remediate the resources found to be non-compliant. The resourceIds filter cannot be used in this mode.
      */
     ReEvaluateCompliance: "ReEvaluateCompliance",
 } as const;

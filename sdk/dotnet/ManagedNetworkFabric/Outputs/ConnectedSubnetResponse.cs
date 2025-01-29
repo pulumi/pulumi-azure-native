@@ -21,15 +21,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// Prefix of the connected Subnet.
+        /// Prefix of the Connected Subnet.
         /// </summary>
-        public readonly string? Prefix;
+        public readonly string Prefix;
 
         [OutputConstructor]
         private ConnectedSubnetResponse(
             string? annotation,
 
-            string? prefix)
+            string prefix)
         {
             Annotation = annotation;
             Prefix = prefix;

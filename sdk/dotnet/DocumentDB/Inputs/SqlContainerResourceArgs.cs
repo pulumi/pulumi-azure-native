@@ -27,11 +27,29 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         [Input("clientEncryptionPolicy")]
         public Input<Inputs.ClientEncryptionPolicyArgs>? ClientEncryptionPolicy { get; set; }
 
+        [Input("computedProperties")]
+        private InputList<Inputs.ComputedPropertyArgs>? _computedProperties;
+
+        /// <summary>
+        /// List of computed properties
+        /// </summary>
+        public InputList<Inputs.ComputedPropertyArgs> ComputedProperties
+        {
+            get => _computedProperties ?? (_computedProperties = new InputList<Inputs.ComputedPropertyArgs>());
+            set => _computedProperties = value;
+        }
+
         /// <summary>
         /// The conflict resolution policy for the container.
         /// </summary>
         [Input("conflictResolutionPolicy")]
         public Input<Inputs.ConflictResolutionPolicyArgs>? ConflictResolutionPolicy { get; set; }
+
+        /// <summary>
+        /// Enum to indicate the mode of resource creation.
+        /// </summary>
+        [Input("createMode")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// Default time to live
@@ -58,10 +76,22 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         public Input<Inputs.ContainerPartitionKeyArgs>? PartitionKey { get; set; }
 
         /// <summary>
+        /// Parameters to indicate the information about the restore
+        /// </summary>
+        [Input("restoreParameters")]
+        public Input<Inputs.ResourceRestoreParametersArgs>? RestoreParameters { get; set; }
+
+        /// <summary>
         /// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         /// </summary>
         [Input("uniqueKeyPolicy")]
         public Input<Inputs.UniqueKeyPolicyArgs>? UniqueKeyPolicy { get; set; }
+
+        /// <summary>
+        /// The vector embedding policy for the container.
+        /// </summary>
+        [Input("vectorEmbeddingPolicy")]
+        public Input<Inputs.VectorEmbeddingPolicyArgs>? VectorEmbeddingPolicy { get; set; }
 
         public SqlContainerResourceArgs()
         {

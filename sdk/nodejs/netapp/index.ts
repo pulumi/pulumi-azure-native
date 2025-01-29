@@ -25,6 +25,36 @@ export type BackupVault = import("./backupVault").BackupVault;
 export const BackupVault: typeof import("./backupVault").BackupVault = null as any;
 utilities.lazyLoad(exports, ["BackupVault"], () => require("./backupVault"));
 
+export { CapacityPoolBackupArgs } from "./capacityPoolBackup";
+export type CapacityPoolBackup = import("./capacityPoolBackup").CapacityPoolBackup;
+export const CapacityPoolBackup: typeof import("./capacityPoolBackup").CapacityPoolBackup = null as any;
+utilities.lazyLoad(exports, ["CapacityPoolBackup"], () => require("./capacityPoolBackup"));
+
+export { CapacityPoolPoolArgs } from "./capacityPoolPool";
+export type CapacityPoolPool = import("./capacityPoolPool").CapacityPoolPool;
+export const CapacityPoolPool: typeof import("./capacityPoolPool").CapacityPoolPool = null as any;
+utilities.lazyLoad(exports, ["CapacityPoolPool"], () => require("./capacityPoolPool"));
+
+export { CapacityPoolSnapshotArgs } from "./capacityPoolSnapshot";
+export type CapacityPoolSnapshot = import("./capacityPoolSnapshot").CapacityPoolSnapshot;
+export const CapacityPoolSnapshot: typeof import("./capacityPoolSnapshot").CapacityPoolSnapshot = null as any;
+utilities.lazyLoad(exports, ["CapacityPoolSnapshot"], () => require("./capacityPoolSnapshot"));
+
+export { CapacityPoolSubvolumeArgs } from "./capacityPoolSubvolume";
+export type CapacityPoolSubvolume = import("./capacityPoolSubvolume").CapacityPoolSubvolume;
+export const CapacityPoolSubvolume: typeof import("./capacityPoolSubvolume").CapacityPoolSubvolume = null as any;
+utilities.lazyLoad(exports, ["CapacityPoolSubvolume"], () => require("./capacityPoolSubvolume"));
+
+export { CapacityPoolVolumeArgs } from "./capacityPoolVolume";
+export type CapacityPoolVolume = import("./capacityPoolVolume").CapacityPoolVolume;
+export const CapacityPoolVolume: typeof import("./capacityPoolVolume").CapacityPoolVolume = null as any;
+utilities.lazyLoad(exports, ["CapacityPoolVolume"], () => require("./capacityPoolVolume"));
+
+export { CapacityPoolVolumeQuotaRuleArgs } from "./capacityPoolVolumeQuotaRule";
+export type CapacityPoolVolumeQuotaRule = import("./capacityPoolVolumeQuotaRule").CapacityPoolVolumeQuotaRule;
+export const CapacityPoolVolumeQuotaRule: typeof import("./capacityPoolVolumeQuotaRule").CapacityPoolVolumeQuotaRule = null as any;
+utilities.lazyLoad(exports, ["CapacityPoolVolumeQuotaRule"], () => require("./capacityPoolVolumeQuotaRule"));
+
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
@@ -45,95 +75,75 @@ export const getBackupVault: typeof import("./getBackupVault").getBackupVault = 
 export const getBackupVaultOutput: typeof import("./getBackupVault").getBackupVaultOutput = null as any;
 utilities.lazyLoad(exports, ["getBackupVault","getBackupVaultOutput"], () => require("./getBackupVault"));
 
-export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
-export const getPool: typeof import("./getPool").getPool = null as any;
-export const getPoolOutput: typeof import("./getPool").getPoolOutput = null as any;
-utilities.lazyLoad(exports, ["getPool","getPoolOutput"], () => require("./getPool"));
+export { GetCapacityPoolBackupArgs, GetCapacityPoolBackupResult, GetCapacityPoolBackupOutputArgs } from "./getCapacityPoolBackup";
+export const getCapacityPoolBackup: typeof import("./getCapacityPoolBackup").getCapacityPoolBackup = null as any;
+export const getCapacityPoolBackupOutput: typeof import("./getCapacityPoolBackup").getCapacityPoolBackupOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolBackup","getCapacityPoolBackupOutput"], () => require("./getCapacityPoolBackup"));
 
-export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
-export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
-export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
-utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+export { GetCapacityPoolPoolArgs, GetCapacityPoolPoolResult, GetCapacityPoolPoolOutputArgs } from "./getCapacityPoolPool";
+export const getCapacityPoolPool: typeof import("./getCapacityPoolPool").getCapacityPoolPool = null as any;
+export const getCapacityPoolPoolOutput: typeof import("./getCapacityPoolPool").getCapacityPoolPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolPool","getCapacityPoolPoolOutput"], () => require("./getCapacityPoolPool"));
+
+export { GetCapacityPoolSnapshotArgs, GetCapacityPoolSnapshotResult, GetCapacityPoolSnapshotOutputArgs } from "./getCapacityPoolSnapshot";
+export const getCapacityPoolSnapshot: typeof import("./getCapacityPoolSnapshot").getCapacityPoolSnapshot = null as any;
+export const getCapacityPoolSnapshotOutput: typeof import("./getCapacityPoolSnapshot").getCapacityPoolSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolSnapshot","getCapacityPoolSnapshotOutput"], () => require("./getCapacityPoolSnapshot"));
+
+export { GetCapacityPoolSubvolumeArgs, GetCapacityPoolSubvolumeResult, GetCapacityPoolSubvolumeOutputArgs } from "./getCapacityPoolSubvolume";
+export const getCapacityPoolSubvolume: typeof import("./getCapacityPoolSubvolume").getCapacityPoolSubvolume = null as any;
+export const getCapacityPoolSubvolumeOutput: typeof import("./getCapacityPoolSubvolume").getCapacityPoolSubvolumeOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolSubvolume","getCapacityPoolSubvolumeOutput"], () => require("./getCapacityPoolSubvolume"));
+
+export { GetCapacityPoolSubvolumeMetadataArgs, GetCapacityPoolSubvolumeMetadataResult, GetCapacityPoolSubvolumeMetadataOutputArgs } from "./getCapacityPoolSubvolumeMetadata";
+export const getCapacityPoolSubvolumeMetadata: typeof import("./getCapacityPoolSubvolumeMetadata").getCapacityPoolSubvolumeMetadata = null as any;
+export const getCapacityPoolSubvolumeMetadataOutput: typeof import("./getCapacityPoolSubvolumeMetadata").getCapacityPoolSubvolumeMetadataOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolSubvolumeMetadata","getCapacityPoolSubvolumeMetadataOutput"], () => require("./getCapacityPoolSubvolumeMetadata"));
+
+export { GetCapacityPoolVolumeArgs, GetCapacityPoolVolumeResult, GetCapacityPoolVolumeOutputArgs } from "./getCapacityPoolVolume";
+export const getCapacityPoolVolume: typeof import("./getCapacityPoolVolume").getCapacityPoolVolume = null as any;
+export const getCapacityPoolVolumeOutput: typeof import("./getCapacityPoolVolume").getCapacityPoolVolumeOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolVolume","getCapacityPoolVolumeOutput"], () => require("./getCapacityPoolVolume"));
+
+export { GetCapacityPoolVolumeGroupIdForLdapUserArgs, GetCapacityPoolVolumeGroupIdForLdapUserResult, GetCapacityPoolVolumeGroupIdForLdapUserOutputArgs } from "./getCapacityPoolVolumeGroupIdForLdapUser";
+export const getCapacityPoolVolumeGroupIdForLdapUser: typeof import("./getCapacityPoolVolumeGroupIdForLdapUser").getCapacityPoolVolumeGroupIdForLdapUser = null as any;
+export const getCapacityPoolVolumeGroupIdForLdapUserOutput: typeof import("./getCapacityPoolVolumeGroupIdForLdapUser").getCapacityPoolVolumeGroupIdForLdapUserOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolVolumeGroupIdForLdapUser","getCapacityPoolVolumeGroupIdForLdapUserOutput"], () => require("./getCapacityPoolVolumeGroupIdForLdapUser"));
+
+export { GetCapacityPoolVolumeQuotaRuleArgs, GetCapacityPoolVolumeQuotaRuleResult, GetCapacityPoolVolumeQuotaRuleOutputArgs } from "./getCapacityPoolVolumeQuotaRule";
+export const getCapacityPoolVolumeQuotaRule: typeof import("./getCapacityPoolVolumeQuotaRule").getCapacityPoolVolumeQuotaRule = null as any;
+export const getCapacityPoolVolumeQuotaRuleOutput: typeof import("./getCapacityPoolVolumeQuotaRule").getCapacityPoolVolumeQuotaRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityPoolVolumeQuotaRule","getCapacityPoolVolumeQuotaRuleOutput"], () => require("./getCapacityPoolVolumeQuotaRule"));
 
 export { GetSnapshotPolicyArgs, GetSnapshotPolicyResult, GetSnapshotPolicyOutputArgs } from "./getSnapshotPolicy";
 export const getSnapshotPolicy: typeof import("./getSnapshotPolicy").getSnapshotPolicy = null as any;
 export const getSnapshotPolicyOutput: typeof import("./getSnapshotPolicy").getSnapshotPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getSnapshotPolicy","getSnapshotPolicyOutput"], () => require("./getSnapshotPolicy"));
 
-export { GetSubvolumeArgs, GetSubvolumeResult, GetSubvolumeOutputArgs } from "./getSubvolume";
-export const getSubvolume: typeof import("./getSubvolume").getSubvolume = null as any;
-export const getSubvolumeOutput: typeof import("./getSubvolume").getSubvolumeOutput = null as any;
-utilities.lazyLoad(exports, ["getSubvolume","getSubvolumeOutput"], () => require("./getSubvolume"));
-
-export { GetSubvolumeMetadataArgs, GetSubvolumeMetadataResult, GetSubvolumeMetadataOutputArgs } from "./getSubvolumeMetadata";
-export const getSubvolumeMetadata: typeof import("./getSubvolumeMetadata").getSubvolumeMetadata = null as any;
-export const getSubvolumeMetadataOutput: typeof import("./getSubvolumeMetadata").getSubvolumeMetadataOutput = null as any;
-utilities.lazyLoad(exports, ["getSubvolumeMetadata","getSubvolumeMetadataOutput"], () => require("./getSubvolumeMetadata"));
-
-export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
-export const getVolume: typeof import("./getVolume").getVolume = null as any;
-export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
-utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
-
 export { GetVolumeGroupArgs, GetVolumeGroupResult, GetVolumeGroupOutputArgs } from "./getVolumeGroup";
 export const getVolumeGroup: typeof import("./getVolumeGroup").getVolumeGroup = null as any;
 export const getVolumeGroupOutput: typeof import("./getVolumeGroup").getVolumeGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getVolumeGroup","getVolumeGroupOutput"], () => require("./getVolumeGroup"));
 
-export { GetVolumeGroupIdForLdapUserArgs, GetVolumeGroupIdForLdapUserResult, GetVolumeGroupIdForLdapUserOutputArgs } from "./getVolumeGroupIdForLdapUser";
-export const getVolumeGroupIdForLdapUser: typeof import("./getVolumeGroupIdForLdapUser").getVolumeGroupIdForLdapUser = null as any;
-export const getVolumeGroupIdForLdapUserOutput: typeof import("./getVolumeGroupIdForLdapUser").getVolumeGroupIdForLdapUserOutput = null as any;
-utilities.lazyLoad(exports, ["getVolumeGroupIdForLdapUser","getVolumeGroupIdForLdapUserOutput"], () => require("./getVolumeGroupIdForLdapUser"));
+export { ListCapacityPoolVolumeQuotaReportArgs, ListCapacityPoolVolumeQuotaReportResult, ListCapacityPoolVolumeQuotaReportOutputArgs } from "./listCapacityPoolVolumeQuotaReport";
+export const listCapacityPoolVolumeQuotaReport: typeof import("./listCapacityPoolVolumeQuotaReport").listCapacityPoolVolumeQuotaReport = null as any;
+export const listCapacityPoolVolumeQuotaReportOutput: typeof import("./listCapacityPoolVolumeQuotaReport").listCapacityPoolVolumeQuotaReportOutput = null as any;
+utilities.lazyLoad(exports, ["listCapacityPoolVolumeQuotaReport","listCapacityPoolVolumeQuotaReportOutput"], () => require("./listCapacityPoolVolumeQuotaReport"));
 
-export { GetVolumeQuotaRuleArgs, GetVolumeQuotaRuleResult, GetVolumeQuotaRuleOutputArgs } from "./getVolumeQuotaRule";
-export const getVolumeQuotaRule: typeof import("./getVolumeQuotaRule").getVolumeQuotaRule = null as any;
-export const getVolumeQuotaRuleOutput: typeof import("./getVolumeQuotaRule").getVolumeQuotaRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getVolumeQuotaRule","getVolumeQuotaRuleOutput"], () => require("./getVolumeQuotaRule"));
-
-export { ListVolumeQuotaReportArgs, ListVolumeQuotaReportResult, ListVolumeQuotaReportOutputArgs } from "./listVolumeQuotaReport";
-export const listVolumeQuotaReport: typeof import("./listVolumeQuotaReport").listVolumeQuotaReport = null as any;
-export const listVolumeQuotaReportOutput: typeof import("./listVolumeQuotaReport").listVolumeQuotaReportOutput = null as any;
-utilities.lazyLoad(exports, ["listVolumeQuotaReport","listVolumeQuotaReportOutput"], () => require("./listVolumeQuotaReport"));
-
-export { ListVolumeReplicationsArgs, ListVolumeReplicationsResult, ListVolumeReplicationsOutputArgs } from "./listVolumeReplications";
-export const listVolumeReplications: typeof import("./listVolumeReplications").listVolumeReplications = null as any;
-export const listVolumeReplicationsOutput: typeof import("./listVolumeReplications").listVolumeReplicationsOutput = null as any;
-utilities.lazyLoad(exports, ["listVolumeReplications","listVolumeReplicationsOutput"], () => require("./listVolumeReplications"));
-
-export { PoolArgs } from "./pool";
-export type Pool = import("./pool").Pool;
-export const Pool: typeof import("./pool").Pool = null as any;
-utilities.lazyLoad(exports, ["Pool"], () => require("./pool"));
-
-export { SnapshotArgs } from "./snapshot";
-export type Snapshot = import("./snapshot").Snapshot;
-export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
-utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+export { ListCapacityPoolVolumeReplicationsArgs, ListCapacityPoolVolumeReplicationsResult, ListCapacityPoolVolumeReplicationsOutputArgs } from "./listCapacityPoolVolumeReplications";
+export const listCapacityPoolVolumeReplications: typeof import("./listCapacityPoolVolumeReplications").listCapacityPoolVolumeReplications = null as any;
+export const listCapacityPoolVolumeReplicationsOutput: typeof import("./listCapacityPoolVolumeReplications").listCapacityPoolVolumeReplicationsOutput = null as any;
+utilities.lazyLoad(exports, ["listCapacityPoolVolumeReplications","listCapacityPoolVolumeReplicationsOutput"], () => require("./listCapacityPoolVolumeReplications"));
 
 export { SnapshotPolicyArgs } from "./snapshotPolicy";
 export type SnapshotPolicy = import("./snapshotPolicy").SnapshotPolicy;
 export const SnapshotPolicy: typeof import("./snapshotPolicy").SnapshotPolicy = null as any;
 utilities.lazyLoad(exports, ["SnapshotPolicy"], () => require("./snapshotPolicy"));
 
-export { SubvolumeArgs } from "./subvolume";
-export type Subvolume = import("./subvolume").Subvolume;
-export const Subvolume: typeof import("./subvolume").Subvolume = null as any;
-utilities.lazyLoad(exports, ["Subvolume"], () => require("./subvolume"));
-
-export { VolumeArgs } from "./volume";
-export type Volume = import("./volume").Volume;
-export const Volume: typeof import("./volume").Volume = null as any;
-utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
-
 export { VolumeGroupArgs } from "./volumeGroup";
 export type VolumeGroup = import("./volumeGroup").VolumeGroup;
 export const VolumeGroup: typeof import("./volumeGroup").VolumeGroup = null as any;
 utilities.lazyLoad(exports, ["VolumeGroup"], () => require("./volumeGroup"));
-
-export { VolumeQuotaRuleArgs } from "./volumeQuotaRule";
-export type VolumeQuotaRule = import("./volumeQuotaRule").VolumeQuotaRule;
-export const VolumeQuotaRule: typeof import("./volumeQuotaRule").VolumeQuotaRule = null as any;
-utilities.lazyLoad(exports, ["VolumeQuotaRule"], () => require("./volumeQuotaRule"));
 
 
 // Export enums:
@@ -142,42 +152,22 @@ export * from "../types/enums/netapp";
 // Export sub-modules:
 import * as v20210401 from "./v20210401";
 import * as v20210401preview from "./v20210401preview";
+import * as v20210601 from "./v20210601";
 import * as v20211001 from "./v20211001";
 import * as v20220501 from "./v20220501";
 import * as v20221101 from "./v20221101";
 import * as v20221101preview from "./v20221101preview";
-import * as v20230501 from "./v20230501";
-import * as v20230501preview from "./v20230501preview";
-import * as v20230701 from "./v20230701";
-import * as v20230701preview from "./v20230701preview";
-import * as v20231101 from "./v20231101";
-import * as v20231101preview from "./v20231101preview";
-import * as v20240101 from "./v20240101";
-import * as v20240301 from "./v20240301";
-import * as v20240301preview from "./v20240301preview";
-import * as v20240501 from "./v20240501";
-import * as v20240501preview from "./v20240501preview";
 import * as v20240701 from "./v20240701";
 import * as v20240701preview from "./v20240701preview";
 
 export {
     v20210401,
     v20210401preview,
+    v20210601,
     v20211001,
     v20220501,
     v20221101,
     v20221101preview,
-    v20230501,
-    v20230501preview,
-    v20230701,
-    v20230701preview,
-    v20231101,
-    v20231101preview,
-    v20240101,
-    v20240301,
-    v20240301preview,
-    v20240501,
-    v20240501preview,
     v20240701,
     v20240701preview,
 };
@@ -194,20 +184,22 @@ const _module = {
                 return new BackupPolicy(name, <any>undefined, { urn })
             case "azure-native:netapp:BackupVault":
                 return new BackupVault(name, <any>undefined, { urn })
-            case "azure-native:netapp:Pool":
-                return new Pool(name, <any>undefined, { urn })
-            case "azure-native:netapp:Snapshot":
-                return new Snapshot(name, <any>undefined, { urn })
+            case "azure-native:netapp:CapacityPoolBackup":
+                return new CapacityPoolBackup(name, <any>undefined, { urn })
+            case "azure-native:netapp:CapacityPoolPool":
+                return new CapacityPoolPool(name, <any>undefined, { urn })
+            case "azure-native:netapp:CapacityPoolSnapshot":
+                return new CapacityPoolSnapshot(name, <any>undefined, { urn })
+            case "azure-native:netapp:CapacityPoolSubvolume":
+                return new CapacityPoolSubvolume(name, <any>undefined, { urn })
+            case "azure-native:netapp:CapacityPoolVolume":
+                return new CapacityPoolVolume(name, <any>undefined, { urn })
+            case "azure-native:netapp:CapacityPoolVolumeQuotaRule":
+                return new CapacityPoolVolumeQuotaRule(name, <any>undefined, { urn })
             case "azure-native:netapp:SnapshotPolicy":
                 return new SnapshotPolicy(name, <any>undefined, { urn })
-            case "azure-native:netapp:Subvolume":
-                return new Subvolume(name, <any>undefined, { urn })
-            case "azure-native:netapp:Volume":
-                return new Volume(name, <any>undefined, { urn })
             case "azure-native:netapp:VolumeGroup":
                 return new VolumeGroup(name, <any>undefined, { urn })
-            case "azure-native:netapp:VolumeQuotaRule":
-                return new VolumeQuotaRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

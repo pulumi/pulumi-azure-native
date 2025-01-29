@@ -27,7 +27,7 @@ class GetActionGroupResult:
     """
     An action group resource.
     """
-    def __init__(__self__, arm_role_receivers=None, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, event_hub_receivers=None, group_short_name=None, id=None, itsm_receivers=None, location=None, logic_app_receivers=None, name=None, sms_receivers=None, tags=None, type=None, voice_receivers=None, webhook_receivers=None):
+    def __init__(__self__, arm_role_receivers=None, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, event_hub_receivers=None, group_short_name=None, id=None, identity=None, incident_receivers=None, itsm_receivers=None, location=None, logic_app_receivers=None, name=None, sms_receivers=None, tags=None, type=None, voice_receivers=None, webhook_receivers=None):
         if arm_role_receivers and not isinstance(arm_role_receivers, list):
             raise TypeError("Expected argument 'arm_role_receivers' to be a list")
         pulumi.set(__self__, "arm_role_receivers", arm_role_receivers)
@@ -55,6 +55,12 @@ class GetActionGroupResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
+        if incident_receivers and not isinstance(incident_receivers, list):
+            raise TypeError("Expected argument 'incident_receivers' to be a list")
+        pulumi.set(__self__, "incident_receivers", incident_receivers)
         if itsm_receivers and not isinstance(itsm_receivers, list):
             raise TypeError("Expected argument 'itsm_receivers' to be a list")
         pulumi.set(__self__, "itsm_receivers", itsm_receivers)
@@ -156,6 +162,22 @@ class GetActionGroupResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="incidentReceivers")
+    def incident_receivers(self) -> Optional[Sequence['outputs.IncidentReceiverResponse']]:
+        """
+        The list of incident receivers that are part of this action group.
+        """
+        return pulumi.get(self, "incident_receivers")
+
+    @property
     @pulumi.getter(name="itsmReceivers")
     def itsm_receivers(self) -> Optional[Sequence['outputs.ItsmReceiverResponse']]:
         """
@@ -243,6 +265,8 @@ class AwaitableGetActionGroupResult(GetActionGroupResult):
             event_hub_receivers=self.event_hub_receivers,
             group_short_name=self.group_short_name,
             id=self.id,
+            identity=self.identity,
+            incident_receivers=self.incident_receivers,
             itsm_receivers=self.itsm_receivers,
             location=self.location,
             logic_app_receivers=self.logic_app_receivers,
@@ -259,9 +283,9 @@ def get_action_group(action_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionGroupResult:
     """
     Get an action group.
-    Azure REST API version: 2023-01-01.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-01-01.
 
 
     :param str action_group_name: The name of the action group.
@@ -283,6 +307,8 @@ def get_action_group(action_group_name: Optional[str] = None,
         event_hub_receivers=pulumi.get(__ret__, 'event_hub_receivers'),
         group_short_name=pulumi.get(__ret__, 'group_short_name'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        incident_receivers=pulumi.get(__ret__, 'incident_receivers'),
         itsm_receivers=pulumi.get(__ret__, 'itsm_receivers'),
         location=pulumi.get(__ret__, 'location'),
         logic_app_receivers=pulumi.get(__ret__, 'logic_app_receivers'),
@@ -297,9 +323,9 @@ def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionGroupResult]:
     """
     Get an action group.
-    Azure REST API version: 2023-01-01.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-01-01.
 
 
     :param str action_group_name: The name of the action group.
@@ -320,6 +346,8 @@ def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = Non
         event_hub_receivers=pulumi.get(__response__, 'event_hub_receivers'),
         group_short_name=pulumi.get(__response__, 'group_short_name'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
+        incident_receivers=pulumi.get(__response__, 'incident_receivers'),
         itsm_receivers=pulumi.get(__response__, 'itsm_receivers'),
         location=pulumi.get(__response__, 'location'),
         logic_app_receivers=pulumi.get(__response__, 'logic_app_receivers'),

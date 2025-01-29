@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public Input<string> EventHubNameSpace { get; set; } = null!;
 
         /// <summary>
+        /// The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        /// </summary>
+        [Input("managedIdentity")]
+        public Input<string>? ManagedIdentity { get; set; }
+
+        /// <summary>
         /// The name of the Event hub receiver. Names must be unique across all receivers within an action group.
         /// </summary>
         [Input("name", required: true)]

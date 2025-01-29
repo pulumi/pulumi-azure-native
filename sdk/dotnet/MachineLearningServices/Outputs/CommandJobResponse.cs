@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.CommandJobLimitsResponse? Limits;
         /// <summary>
+        /// Notification setting for the job
+        /// </summary>
+        public readonly Outputs.NotificationSettingResponse? NotificationSetting;
+        /// <summary>
         /// Mapping of output data bindings used in the job.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Outputs;
@@ -90,6 +94,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// The asset property dictionary.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
+        /// <summary>
+        /// Queue settings for the job
+        /// </summary>
+        public readonly Outputs.QueueSettingsResponse? QueueSettings;
         /// <summary>
         /// Compute Resource configuration for the job.
         /// </summary>
@@ -140,11 +148,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.CommandJobLimitsResponse? limits,
 
+            Outputs.NotificationSettingResponse? notificationSetting,
+
             ImmutableDictionary<string, object>? outputs,
 
             object parameters,
 
             ImmutableDictionary<string, string>? properties,
+
+            Outputs.QueueSettingsResponse? queueSettings,
 
             Outputs.JobResourceConfigurationResponse? resources,
 
@@ -169,9 +181,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             IsArchived = isArchived;
             JobType = jobType;
             Limits = limits;
+            NotificationSetting = notificationSetting;
             Outputs = outputs;
             Parameters = parameters;
             Properties = properties;
+            QueueSettings = queueSettings;
             Resources = resources;
             Services = services;
             Status = status;

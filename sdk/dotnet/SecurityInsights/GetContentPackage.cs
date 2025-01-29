@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets an installed packages by its id.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetContentPackageResult> InvokeAsync(GetContentPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContentPackageResult>("azure-native:securityinsights:getContentPackage", args ?? new GetContentPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an installed packages by its id.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetContentPackageResult> Invoke(GetContentPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentPackageResult>("azure-native:securityinsights:getContentPackage", args ?? new GetContentPackageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an installed packages by its id.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetContentPackageResult> Invoke(GetContentPackageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentPackageResult>("azure-native:securityinsights:getContentPackage", args ?? new GetContentPackageInvokeArgs(), options.WithDefaults());
@@ -105,13 +105,17 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly Outputs.MetadataCategoriesResponse? Categories;
         /// <summary>
-        /// The package id
+        /// The content id of the package
         /// </summary>
         public readonly string ContentId;
         /// <summary>
         /// The package kind
         /// </summary>
         public readonly string ContentKind;
+        /// <summary>
+        /// Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
+        /// </summary>
+        public readonly string ContentProductId;
         /// <summary>
         /// The version of the content schema.
         /// </summary>
@@ -144,6 +148,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Flag indicates if this template is deprecated
+        /// </summary>
+        public readonly string? IsDeprecated;
         /// <summary>
         /// Flag indicates if this package is among the featured list.
         /// </summary>
@@ -211,6 +219,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string contentKind,
 
+            string contentProductId,
+
             string? contentSchemaVersion,
 
             Outputs.MetadataDependenciesResponse? dependencies,
@@ -226,6 +236,8 @@ namespace Pulumi.AzureNative.SecurityInsights
             string? icon,
 
             string id,
+
+            string? isDeprecated,
 
             string? isFeatured,
 
@@ -259,6 +271,7 @@ namespace Pulumi.AzureNative.SecurityInsights
             Categories = categories;
             ContentId = contentId;
             ContentKind = contentKind;
+            ContentProductId = contentProductId;
             ContentSchemaVersion = contentSchemaVersion;
             Dependencies = dependencies;
             Description = description;
@@ -267,6 +280,7 @@ namespace Pulumi.AzureNative.SecurityInsights
             FirstPublishDate = firstPublishDate;
             Icon = icon;
             Id = id;
+            IsDeprecated = isDeprecated;
             IsFeatured = isFeatured;
             IsNew = isNew;
             IsPreview = isPreview;

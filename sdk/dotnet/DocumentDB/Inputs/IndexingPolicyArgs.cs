@@ -75,6 +75,18 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
             set => _spatialIndexes = value;
         }
 
+        [Input("vectorIndexes")]
+        private InputList<Inputs.VectorIndexArgs>? _vectorIndexes;
+
+        /// <summary>
+        /// List of paths to include in the vector indexing
+        /// </summary>
+        public InputList<Inputs.VectorIndexArgs> VectorIndexes
+        {
+            get => _vectorIndexes ?? (_vectorIndexes = new InputList<Inputs.VectorIndexArgs>());
+            set => _vectorIndexes = value;
+        }
+
         public IndexingPolicyArgs()
         {
             IndexingMode = "consistent";

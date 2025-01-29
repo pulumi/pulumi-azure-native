@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
 {
     /// <summary>
     /// The description of the service.
-    /// Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2021-03-08.
+    /// Azure REST API version: 2021-03-08.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance:PrivateLinkServicesForEDMUpload")]
     public partial class PrivateLinkServicesForEDMUpload : global::Pulumi.CustomResource
@@ -96,10 +96,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForEDMUpload" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload" },
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForEDMUpload" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForEDMUpload" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

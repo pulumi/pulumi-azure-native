@@ -31,7 +31,7 @@ class PrivateEndpointConnectionInitArgs:
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The Private Endpoint resource for this Connection.
         :param pulumi.Input[str] private_endpoint_connection_name: The PrivateEndpointConnection name
         :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Details about the state of the connection.
@@ -64,7 +64,7 @@ class PrivateEndpointConnectionInitArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -135,9 +135,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Properties of the PrivateEndpointConnection.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +146,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[str] private_endpoint_connection_name: The PrivateEndpointConnection name
         :param pulumi.Input[Union['ConnectionStateArgs', 'ConnectionStateArgsDict']] private_link_service_connection_state: Details about the state of the connection.
         :param pulumi.Input[Union[str, 'EndPointProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -156,9 +156,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties of the PrivateEndpointConnection.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.

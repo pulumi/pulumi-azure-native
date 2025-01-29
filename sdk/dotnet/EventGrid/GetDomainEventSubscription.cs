@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of an event subscription of a domain.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Task<GetDomainEventSubscriptionResult> InvokeAsync(GetDomainEventSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainEventSubscriptionResult>("azure-native:eventgrid:getDomainEventSubscription", args ?? new GetDomainEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of an event subscription of a domain.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetDomainEventSubscriptionResult> Invoke(GetDomainEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainEventSubscriptionResult>("azure-native:eventgrid:getDomainEventSubscription", args ?? new GetDomainEventSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of an event subscription of a domain.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetDomainEventSubscriptionResult> Invoke(GetDomainEventSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainEventSubscriptionResult>("azure-native:eventgrid:getDomainEventSubscription", args ?? new GetDomainEventSubscriptionInvokeArgs(), options.WithDefaults());
@@ -43,13 +43,13 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetDomainEventSubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the partner topic.
+        /// Name of the domain.
         /// </summary>
         [Input("domainName", required: true)]
         public string DomainName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the event subscription to be found. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        /// Name of the event subscription to be found.
         /// </summary>
         [Input("eventSubscriptionName", required: true)]
         public string EventSubscriptionName { get; set; } = null!;
@@ -69,13 +69,13 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetDomainEventSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the partner topic.
+        /// Name of the domain.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the event subscription to be found. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        /// Name of the event subscription to be found.
         /// </summary>
         [Input("eventSubscriptionName", required: true)]
         public Input<string> EventSubscriptionName { get; set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly Outputs.RetryPolicyResponse? RetryPolicy;
         /// <summary>
-        /// The system metadata relating to Event Subscription resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

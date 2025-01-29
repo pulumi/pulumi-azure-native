@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A long term retention policy.
- * Azure REST API version: 2017-03-01-preview.
+ * Azure REST API version: 2017-03-01-preview. Prior API version in Azure Native 2.x: 2017-03-01-preview.
  */
 export class BackupLongTermRetentionPolicy extends pulumi.CustomResource {
     /**

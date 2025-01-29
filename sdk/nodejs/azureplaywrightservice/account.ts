@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An account resource
- * Azure REST API version: 2023-10-01-preview.
+ * A Playwright service account resource.
+ * Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  *
- * Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
+ * Other available API versions: 2023-10-01-preview.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -45,13 +45,17 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly dashboardUri!: pulumi.Output<string>;
     /**
+     * When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+     */
+    public readonly localAuth!: pulumi.Output<string | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
@@ -95,19 +99,22 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["localAuth"] = (args ? args.localAuth : undefined) ?? "Disabled";
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["regionalAffinity"] = (args ? args.regionalAffinity : undefined) ?? "Enabled";
-            resourceInputs["reporting"] = (args ? args.reporting : undefined) ?? "Disabled";
+            resourceInputs["reporting"] = (args ? args.reporting : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scalableExecution"] = (args ? args.scalableExecution : undefined) ?? "Enabled";
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["dashboardUri"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["dashboardUri"] = undefined /*out*/;
+            resourceInputs["localAuth"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -130,13 +137,17 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountArgs {
     /**
+     * Name of account.
+     */
+    accountName?: pulumi.Input<string>;
+    /**
+     * When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+     */
+    localAuth?: pulumi.Input<string | enums.azureplaywrightservice.EnablementStatus>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
-    /**
-     * Name of account
-     */
-    name?: pulumi.Input<string>;
     /**
      * This property sets the connection region for Playwright client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
      */

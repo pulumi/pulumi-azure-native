@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Governance assignment over a given scope
- * Azure REST API version: 2022-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  */
 export class GovernanceAssignment extends pulumi.CustomResource {
     /**

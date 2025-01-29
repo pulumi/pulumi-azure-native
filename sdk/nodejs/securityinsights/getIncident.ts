@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a given incident.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+ * Other available API versions: 2021-03-01-preview, 2023-02-01, 2023-02-01-preview, 2023-03-01-preview, 2024-10-01-preview.
  */
 export function getIncident(args: GetIncidentArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -140,9 +140,9 @@ export interface GetIncidentResult {
 }
 /**
  * Gets a given incident.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+ * Other available API versions: 2021-03-01-preview, 2023-02-01, 2023-02-01-preview, 2023-03-01-preview, 2024-10-01-preview.
  */
 export function getIncidentOutput(args: GetIncidentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIncidentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

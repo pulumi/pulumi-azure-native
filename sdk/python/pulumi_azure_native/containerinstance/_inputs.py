@@ -76,6 +76,8 @@ __all__ = [
     'ResourceRequestsArgsDict',
     'ResourceRequirementsArgs',
     'ResourceRequirementsArgsDict',
+    'SecretReferenceArgs',
+    'SecretReferenceArgsDict',
     'SecurityContextCapabilitiesDefinitionArgs',
     'SecurityContextCapabilitiesDefinitionArgsDict',
     'SecurityContextDefinitionArgs',
@@ -2474,6 +2476,79 @@ class ResourceRequirementsArgs:
     @limits.setter
     def limits(self, value: Optional[pulumi.Input['ResourceLimitsArgs']]):
         pulumi.set(self, "limits", value)
+
+
+if not MYPY:
+    class SecretReferenceArgsDict(TypedDict):
+        """
+        A secret reference
+        """
+        identity: pulumi.Input[str]
+        """
+        The ARM resource id of the managed identity that has access to the secret in the key vault
+        """
+        name: pulumi.Input[str]
+        """
+        The identifier of the secret reference
+        """
+        secret_reference_uri: pulumi.Input[str]
+        """
+        The URI to the secret in key vault
+        """
+elif False:
+    SecretReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecretReferenceArgs:
+    def __init__(__self__, *,
+                 identity: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 secret_reference_uri: pulumi.Input[str]):
+        """
+        A secret reference
+        :param pulumi.Input[str] identity: The ARM resource id of the managed identity that has access to the secret in the key vault
+        :param pulumi.Input[str] name: The identifier of the secret reference
+        :param pulumi.Input[str] secret_reference_uri: The URI to the secret in key vault
+        """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "secret_reference_uri", secret_reference_uri)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input[str]:
+        """
+        The ARM resource id of the managed identity that has access to the secret in the key vault
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The identifier of the secret reference
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="secretReferenceUri")
+    def secret_reference_uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the secret in key vault
+        """
+        return pulumi.get(self, "secret_reference_uri")
+
+    @secret_reference_uri.setter
+    def secret_reference_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_reference_uri", value)
 
 
 if not MYPY:

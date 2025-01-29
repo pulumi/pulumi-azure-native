@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly string EventHubNameSpace;
         /// <summary>
+        /// The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        /// </summary>
+        public readonly string? ManagedIdentity;
+        /// <summary>
         /// The name of the Event hub receiver. Names must be unique across all receivers within an action group.
         /// </summary>
         public readonly string Name;
@@ -47,6 +51,8 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
             string eventHubNameSpace,
 
+            string? managedIdentity,
+
             string name,
 
             string subscriptionId,
@@ -57,6 +63,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
         {
             EventHubName = eventHubName;
             EventHubNameSpace = eventHubNameSpace;
+            ManagedIdentity = managedIdentity;
             Name = name;
             SubscriptionId = subscriptionId;
             TenantId = tenantId;

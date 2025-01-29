@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Elastic
 {
     /// <summary>
     /// Monitor resource.
-    /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2020-07-01.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-06-01.
     /// 
-    /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+    /// Other available API versions: 2023-06-01, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.Elastic
         public Input<Inputs.MonitorPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group to which the Elastic resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

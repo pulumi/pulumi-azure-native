@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Gets a scoped resource in a private link scope.
-        /// Azure REST API version: 2021-07-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2021-09-01, 2023-06-01-preview.
+        /// Other available API versions: 2021-07-01-preview.
         /// </summary>
         public static Task<GetPrivateLinkScopedResourceResult> InvokeAsync(GetPrivateLinkScopedResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopedResourceResult>("azure-native:insights:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a scoped resource in a private link scope.
-        /// Azure REST API version: 2021-07-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2021-09-01, 2023-06-01-preview.
+        /// Other available API versions: 2021-07-01-preview.
         /// </summary>
         public static Output<GetPrivateLinkScopedResourceResult> Invoke(GetPrivateLinkScopedResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopedResourceResult>("azure-native:insights:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a scoped resource in a private link scope.
-        /// Azure REST API version: 2021-07-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2021-09-01, 2023-06-01-preview.
+        /// Other available API versions: 2021-07-01-preview.
         /// </summary>
         public static Output<GetPrivateLinkScopedResourceResult> Invoke(GetPrivateLinkScopedResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopedResourceResult>("azure-native:insights:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceInvokeArgs(), options.WithDefaults());
@@ -101,6 +101,10 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The kind of scoped Azure monitor resource.
+        /// </summary>
+        public readonly string? Kind;
+        /// <summary>
         /// The resource id of the scoped Azure monitor resource.
         /// </summary>
         public readonly string? LinkedResourceId;
@@ -109,9 +113,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// State of the private endpoint connection.
+        /// State of the Azure monitor resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The location of a scoped subscription. Only needs to be specified for metric dataplane subscriptions.
+        /// </summary>
+        public readonly string? SubscriptionLocation;
         /// <summary>
         /// System data
         /// </summary>
@@ -125,20 +133,26 @@ namespace Pulumi.AzureNative.Insights
         private GetPrivateLinkScopedResourceResult(
             string id,
 
+            string? kind,
+
             string? linkedResourceId,
 
             string name,
 
             string provisioningState,
 
+            string? subscriptionLocation,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
+            Kind = kind;
             LinkedResourceId = linkedResourceId;
             Name = name;
             ProvisioningState = provisioningState;
+            SubscriptionLocation = subscriptionLocation;
             SystemData = systemData;
             Type = type;
         }

@@ -128,9 +128,9 @@ def get_verifier_workspace(network_manager_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVerifierWorkspaceResult:
     """
     Instance of Verifier Workspace.
-    Azure REST API version: 2024-01-01-preview.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-01-01-preview.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -158,9 +158,9 @@ def get_verifier_workspace_output(network_manager_name: Optional[pulumi.Input[st
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVerifierWorkspaceResult]:
     """
     Instance of Verifier Workspace.
-    Azure REST API version: 2024-01-01-preview.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2024-05-01.
+    Other available API versions: 2024-01-01-preview.
 
 
     :param str network_manager_name: The name of the network manager.

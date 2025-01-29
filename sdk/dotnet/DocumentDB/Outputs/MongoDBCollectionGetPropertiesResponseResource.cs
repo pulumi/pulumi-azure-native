@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly int? AnalyticalStorageTtl;
         /// <summary>
+        /// Enum to indicate the mode of resource creation.
+        /// </summary>
+        public readonly string? CreateMode;
+        /// <summary>
         /// A system generated property representing the resource etag required for optimistic concurrency control.
         /// </summary>
         public readonly string Etag;
@@ -29,6 +33,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// List of index keys
         /// </summary>
         public readonly ImmutableArray<Outputs.MongoIndexResponse> Indexes;
+        /// <summary>
+        /// Parameters to indicate the information about the restore
+        /// </summary>
+        public readonly Outputs.ResourceRestoreParametersResponse? RestoreParameters;
         /// <summary>
         /// A system generated property. A unique identifier.
         /// </summary>
@@ -46,11 +54,15 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         private MongoDBCollectionGetPropertiesResponseResource(
             int? analyticalStorageTtl,
 
+            string? createMode,
+
             string etag,
 
             string id,
 
             ImmutableArray<Outputs.MongoIndexResponse> indexes,
+
+            Outputs.ResourceRestoreParametersResponse? restoreParameters,
 
             string rid,
 
@@ -59,9 +71,11 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
             double ts)
         {
             AnalyticalStorageTtl = analyticalStorageTtl;
+            CreateMode = createMode;
             Etag = etag;
             Id = id;
             Indexes = indexes;
+            RestoreParameters = restoreParameters;
             Rid = rid;
             ShardKey = shardKey;
             Ts = ts;

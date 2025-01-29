@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// An Azure Monitor PrivateLinkScope definition.
-    /// Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
+    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2021-07-01-preview.
     /// 
-    /// Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
+    /// Other available API versions: 2019-10-17-preview, 2021-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:PrivateLinkScope")]
     public partial class PrivateLinkScope : global::Pulumi.CustomResource
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Insights
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
-        /// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+        /// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;

@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Locations;
         /// <summary>
+        /// SubResource as network identifier.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? NetworkIdentifier;
+        /// <summary>
         /// The provisioning state of the service endpoint resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -33,11 +37,14 @@ namespace Pulumi.AzureNative.Network.Outputs
         private ServiceEndpointPropertiesFormatResponse(
             ImmutableArray<string> locations,
 
+            Outputs.SubResourceResponse? networkIdentifier,
+
             string provisioningState,
 
             string? service)
         {
             Locations = locations;
+            NetworkIdentifier = networkIdentifier;
             ProvisioningState = provisioningState;
             Service = service;
         }

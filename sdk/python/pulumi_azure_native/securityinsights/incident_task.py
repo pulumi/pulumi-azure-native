@@ -35,6 +35,7 @@ class IncidentTaskArgs:
         The set of arguments for constructing a IncidentTask resource.
         :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union[str, 'IncidentTaskStatus']] status: The status of the task
         :param pulumi.Input[str] title: The title of the task
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input['ClientInfoArgs'] created_by: Information on the client (user or application) that made some action
@@ -83,6 +84,9 @@ class IncidentTaskArgs:
     @property
     @pulumi.getter
     def status(self) -> pulumi.Input[Union[str, 'IncidentTaskStatus']]:
+        """
+        The status of the task
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -178,9 +182,10 @@ class IncidentTask(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-06-01-preview.
+        Describes incident task properties
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,6 +195,7 @@ class IncidentTask(pulumi.CustomResource):
         :param pulumi.Input[str] incident_task_id: Incident task ID
         :param pulumi.Input[Union['ClientInfoArgs', 'ClientInfoArgsDict']] last_modified_by: Information on the client (user or application) that made some action
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union[str, 'IncidentTaskStatus']] status: The status of the task
         :param pulumi.Input[str] title: The title of the task
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -200,9 +206,10 @@ class IncidentTask(pulumi.CustomResource):
                  args: IncidentTaskArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-06-01-preview.
+        Describes incident task properties
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IncidentTaskArgs args: The arguments to use to populate this resource's properties.
@@ -358,6 +365,9 @@ class IncidentTask(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The status of the task
+        """
         return pulumi.get(self, "status")
 
     @property

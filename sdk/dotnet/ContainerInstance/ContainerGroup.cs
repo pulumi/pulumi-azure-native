@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.ContainerInstance
 {
     /// <summary>
     /// A container group.
-    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-05-01.
     /// 
-    /// Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+    /// Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2023-05-01, 2024-05-01-preview, 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:ContainerGroup")]
     public partial class ContainerGroup : global::Pulumi.CustomResource
@@ -122,6 +122,12 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         [Output("restartPolicy")]
         public Output<string?> RestartPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The secret references that will be referenced within the container group.
+        /// </summary>
+        [Output("secretReferences")]
+        public Output<ImmutableArray<Outputs.SecretReferenceResponse>> SecretReferences { get; private set; } = null!;
 
         /// <summary>
         /// The SKU for a container group.
@@ -351,6 +357,18 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         [Input("restartPolicy")]
         public InputUnion<string, Pulumi.AzureNative.ContainerInstance.ContainerGroupRestartPolicy>? RestartPolicy { get; set; }
+
+        [Input("secretReferences")]
+        private InputList<Inputs.SecretReferenceArgs>? _secretReferences;
+
+        /// <summary>
+        /// The secret references that will be referenced within the container group.
+        /// </summary>
+        public InputList<Inputs.SecretReferenceArgs> SecretReferences
+        {
+            get => _secretReferences ?? (_secretReferences = new InputList<Inputs.SecretReferenceArgs>());
+            set => _secretReferences = value;
+        }
 
         /// <summary>
         /// The SKU for a container group.

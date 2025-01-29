@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
 {
 
     /// <summary>
-    /// The resource Id model.
+    /// The resourceId model.
     /// </summary>
     [OutputType]
     public sealed class ResourceReferenceResponse

@@ -13,9 +13,7 @@ import * as v20230401 from "./v20230401";
 import * as v20230401preview from "./v20230401preview";
 import * as v20230601preview from "./v20230601preview";
 import * as v20230801preview from "./v20230801preview";
-import * as v20231001 from "./v20231001";
 import * as v20240101preview from "./v20240101preview";
-import * as v20240401 from "./v20240401";
 import * as v20240401preview from "./v20240401preview";
 import * as v20240701preview from "./v20240701preview";
 import * as v20241001 from "./v20241001";
@@ -33,9 +31,7 @@ export {
     v20230401preview,
     v20230601preview,
     v20230801preview,
-    v20231001,
     v20240101preview,
-    v20240401,
     v20240401preview,
     v20240701preview,
     v20241001,
@@ -72,16 +68,6 @@ export const AuthMode = {
  */
 export type AuthMode = (typeof AuthMode)[keyof typeof AuthMode];
 
-export const AutoDeleteCondition = {
-    CreatedGreaterThan: "CreatedGreaterThan",
-    LastAccessedGreaterThan: "LastAccessedGreaterThan",
-} as const;
-
-/**
- * When to check if an asset is expired
- */
-export type AutoDeleteCondition = (typeof AutoDeleteCondition)[keyof typeof AutoDeleteCondition];
-
 export const AutoRebuildSetting = {
     Disabled: "Disabled",
     OnBaseImageUpdate: "OnBaseImageUpdate",
@@ -91,6 +77,16 @@ export const AutoRebuildSetting = {
  * Defines if image needs to be rebuilt based on base image changes.
  */
 export type AutoRebuildSetting = (typeof AutoRebuildSetting)[keyof typeof AutoRebuildSetting];
+
+export const BatchDeploymentConfigurationType = {
+    Model: "Model",
+    PipelineComponent: "PipelineComponent",
+} as const;
+
+/**
+ * [Required] The type of the deployment
+ */
+export type BatchDeploymentConfigurationType = (typeof BatchDeploymentConfigurationType)[keyof typeof BatchDeploymentConfigurationType];
 
 export const BatchLoggingLevel = {
     Info: "Info",
@@ -170,6 +166,66 @@ export const CapabilityHostKind = {
  */
 export type CapabilityHostKind = (typeof CapabilityHostKind)[keyof typeof CapabilityHostKind];
 
+export const CategoricalDataDriftMetric = {
+    /**
+     * The Jensen Shannon Distance (JSD) metric.
+     */
+    JensenShannonDistance: "JensenShannonDistance",
+    /**
+     * The Population Stability Index (PSI) metric.
+     */
+    PopulationStabilityIndex: "PopulationStabilityIndex",
+    /**
+     * The Pearsons Chi Squared Test metric.
+     */
+    PearsonsChiSquaredTest: "PearsonsChiSquaredTest",
+} as const;
+
+/**
+ * [Required] The categorical data drift metric to calculate.
+ */
+export type CategoricalDataDriftMetric = (typeof CategoricalDataDriftMetric)[keyof typeof CategoricalDataDriftMetric];
+
+export const CategoricalDataQualityMetric = {
+    /**
+     * Calculates the rate of null values.
+     */
+    NullValueRate: "NullValueRate",
+    /**
+     * Calculates the rate of data type errors.
+     */
+    DataTypeErrorRate: "DataTypeErrorRate",
+    /**
+     * Calculates the rate values are out of bounds.
+     */
+    OutOfBoundsRate: "OutOfBoundsRate",
+} as const;
+
+/**
+ * [Required] The categorical data quality metric to calculate.
+ */
+export type CategoricalDataQualityMetric = (typeof CategoricalDataQualityMetric)[keyof typeof CategoricalDataQualityMetric];
+
+export const CategoricalPredictionDriftMetric = {
+    /**
+     * The Jensen Shannon Distance (JSD) metric.
+     */
+    JensenShannonDistance: "JensenShannonDistance",
+    /**
+     * The Population Stability Index (PSI) metric.
+     */
+    PopulationStabilityIndex: "PopulationStabilityIndex",
+    /**
+     * The Pearsons Chi Squared Test metric.
+     */
+    PearsonsChiSquaredTest: "PearsonsChiSquaredTest",
+} as const;
+
+/**
+ * [Required] The categorical prediction drift metric to calculate.
+ */
+export type CategoricalPredictionDriftMetric = (typeof CategoricalPredictionDriftMetric)[keyof typeof CategoricalPredictionDriftMetric];
+
 export const ClassificationModels = {
     /**
      * Logistic regression is a fundamental classification technique.
@@ -215,7 +271,7 @@ export const ClassificationModels = {
     DecisionTree: "DecisionTree",
     /**
      * Random forest is a supervised learning algorithm.
-     * The "forest" it builds, is an ensemble of decision trees, usually trained with the “bagging” method.
+     * The "forest" it builds, is an ensemble of decision trees, usually trained with the "bagging" method.
      * The general idea of the bagging method is that a combination of learning models increases the overall result.
      */
     RandomForest: "RandomForest",
@@ -340,6 +396,44 @@ export const ComputePowerAction = {
  */
 export type ComputePowerAction = (typeof ComputePowerAction)[keyof typeof ComputePowerAction];
 
+export const ComputeRecurrenceFrequency = {
+    /**
+     * Minute frequency
+     */
+    Minute: "Minute",
+    /**
+     * Hour frequency
+     */
+    Hour: "Hour",
+    /**
+     * Day frequency
+     */
+    Day: "Day",
+    /**
+     * Week frequency
+     */
+    Week: "Week",
+    /**
+     * Month frequency
+     */
+    Month: "Month",
+} as const;
+
+/**
+ * [Required] The frequency to trigger schedule.
+ */
+export type ComputeRecurrenceFrequency = (typeof ComputeRecurrenceFrequency)[keyof typeof ComputeRecurrenceFrequency];
+
+export const ComputeTriggerType = {
+    Recurrence: "Recurrence",
+    Cron: "Cron",
+} as const;
+
+/**
+ * [Required] The schedule trigger type.
+ */
+export type ComputeTriggerType = (typeof ComputeTriggerType)[keyof typeof ComputeTriggerType];
+
 export const ComputeType = {
     AKS: "AKS",
     Kubernetes: "Kubernetes",
@@ -358,12 +452,55 @@ export const ComputeType = {
  */
 export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
+export const ComputeWeekDay = {
+    /**
+     * Monday weekday
+     */
+    Monday: "Monday",
+    /**
+     * Tuesday weekday
+     */
+    Tuesday: "Tuesday",
+    /**
+     * Wednesday weekday
+     */
+    Wednesday: "Wednesday",
+    /**
+     * Thursday weekday
+     */
+    Thursday: "Thursday",
+    /**
+     * Friday weekday
+     */
+    Friday: "Friday",
+    /**
+     * Saturday weekday
+     */
+    Saturday: "Saturday",
+    /**
+     * Sunday weekday
+     */
+    Sunday: "Sunday",
+} as const;
+
+/**
+ * Enum of weekday
+ */
+export type ComputeWeekDay = (typeof ComputeWeekDay)[keyof typeof ComputeWeekDay];
+
 export const ConnectionAuthType = {
     PAT: "PAT",
     ManagedIdentity: "ManagedIdentity",
     UsernamePassword: "UsernamePassword",
     None: "None",
     SAS: "SAS",
+    AccountKey: "AccountKey",
+    ServicePrincipal: "ServicePrincipal",
+    AccessKey: "AccessKey",
+    ApiKey: "ApiKey",
+    CustomKeys: "CustomKeys",
+    OAuth2: "OAuth2",
+    AAD: "AAD",
 } as const;
 
 /**
@@ -375,6 +512,108 @@ export const ConnectionCategory = {
     PythonFeed: "PythonFeed",
     ContainerRegistry: "ContainerRegistry",
     Git: "Git",
+    S3: "S3",
+    Snowflake: "Snowflake",
+    AzureSqlDb: "AzureSqlDb",
+    AzureSynapseAnalytics: "AzureSynapseAnalytics",
+    AzureMySqlDb: "AzureMySqlDb",
+    AzurePostgresDb: "AzurePostgresDb",
+    ADLSGen2: "ADLSGen2",
+    Redis: "Redis",
+    ApiKey: "ApiKey",
+    AzureOpenAI: "AzureOpenAI",
+    AIServices: "AIServices",
+    CognitiveSearch: "CognitiveSearch",
+    CognitiveService: "CognitiveService",
+    CustomKeys: "CustomKeys",
+    AzureBlob: "AzureBlob",
+    AzureOneLake: "AzureOneLake",
+    CosmosDb: "CosmosDb",
+    CosmosDbMongoDbApi: "CosmosDbMongoDbApi",
+    AzureDataExplorer: "AzureDataExplorer",
+    AzureMariaDb: "AzureMariaDb",
+    AzureDatabricksDeltaLake: "AzureDatabricksDeltaLake",
+    AzureSqlMi: "AzureSqlMi",
+    AzureTableStorage: "AzureTableStorage",
+    AmazonRdsForOracle: "AmazonRdsForOracle",
+    AmazonRdsForSqlServer: "AmazonRdsForSqlServer",
+    AmazonRedshift: "AmazonRedshift",
+    Db2: "Db2",
+    Drill: "Drill",
+    GoogleBigQuery: "GoogleBigQuery",
+    Greenplum: "Greenplum",
+    Hbase: "Hbase",
+    Hive: "Hive",
+    Impala: "Impala",
+    Informix: "Informix",
+    MariaDb: "MariaDb",
+    MicrosoftAccess: "MicrosoftAccess",
+    MySql: "MySql",
+    Netezza: "Netezza",
+    Oracle: "Oracle",
+    Phoenix: "Phoenix",
+    PostgreSql: "PostgreSql",
+    Presto: "Presto",
+    SapOpenHub: "SapOpenHub",
+    SapBw: "SapBw",
+    SapHana: "SapHana",
+    SapTable: "SapTable",
+    Spark: "Spark",
+    SqlServer: "SqlServer",
+    Sybase: "Sybase",
+    Teradata: "Teradata",
+    Vertica: "Vertica",
+    Pinecone: "Pinecone",
+    Cassandra: "Cassandra",
+    Couchbase: "Couchbase",
+    MongoDbV2: "MongoDbV2",
+    MongoDbAtlas: "MongoDbAtlas",
+    AmazonS3Compatible: "AmazonS3Compatible",
+    FileServer: "FileServer",
+    FtpServer: "FtpServer",
+    GoogleCloudStorage: "GoogleCloudStorage",
+    Hdfs: "Hdfs",
+    OracleCloudStorage: "OracleCloudStorage",
+    Sftp: "Sftp",
+    GenericHttp: "GenericHttp",
+    ODataRest: "ODataRest",
+    Odbc: "Odbc",
+    GenericRest: "GenericRest",
+    AmazonMws: "AmazonMws",
+    Concur: "Concur",
+    Dynamics: "Dynamics",
+    DynamicsAx: "DynamicsAx",
+    DynamicsCrm: "DynamicsCrm",
+    GoogleAdWords: "GoogleAdWords",
+    Hubspot: "Hubspot",
+    Jira: "Jira",
+    Magento: "Magento",
+    Marketo: "Marketo",
+    Office365: "Office365",
+    Eloqua: "Eloqua",
+    Responsys: "Responsys",
+    OracleServiceCloud: "OracleServiceCloud",
+    PayPal: "PayPal",
+    QuickBooks: "QuickBooks",
+    Salesforce: "Salesforce",
+    SalesforceServiceCloud: "SalesforceServiceCloud",
+    SalesforceMarketingCloud: "SalesforceMarketingCloud",
+    SapCloudForCustomer: "SapCloudForCustomer",
+    SapEcc: "SapEcc",
+    ServiceNow: "ServiceNow",
+    SharePointOnlineList: "SharePointOnlineList",
+    Shopify: "Shopify",
+    Square: "Square",
+    WebTable: "WebTable",
+    Xero: "Xero",
+    Zoho: "Zoho",
+    GenericContainerRegistry: "GenericContainerRegistry",
+    Elasticsearch: "Elasticsearch",
+    OpenAI: "OpenAI",
+    Serp: "Serp",
+    BingLLMSearch: "BingLLMSearch",
+    Serverless: "Serverless",
+    ManagedOnlineEndpoint: "ManagedOnlineEndpoint",
 } as const;
 
 /**
@@ -392,6 +631,16 @@ export const ContainerType = {
  */
 export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
 
+export const ContentSafetyStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * [Required] Specifies the status of content safety.
+ */
+export type ContentSafetyStatus = (typeof ContentSafetyStatus)[keyof typeof ContentSafetyStatus];
+
 export const CredentialsType = {
     AccountKey: "AccountKey",
     Certificate: "Certificate",
@@ -404,6 +653,16 @@ export const CredentialsType = {
  * [Required] Credential type used to authentication with storage.
  */
 export type CredentialsType = (typeof CredentialsType)[keyof typeof CredentialsType];
+
+export const DataCollectionMode = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or disable data collection.
+ */
+export type DataCollectionMode = (typeof DataCollectionMode)[keyof typeof DataCollectionMode];
 
 export const DataType = {
     Uri_file: "uri_file",
@@ -431,6 +690,7 @@ export const DatastoreType = {
     AzureDataLakeGen1: "AzureDataLakeGen1",
     AzureDataLakeGen2: "AzureDataLakeGen2",
     AzureFile: "AzureFile",
+    OneLake: "OneLake",
 } as const;
 
 /**
@@ -535,7 +795,7 @@ export const EndpointAuthMode = {
 } as const;
 
 /**
- * [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+ * [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
  */
 export type EndpointAuthMode = (typeof EndpointAuthMode)[keyof typeof EndpointAuthMode];
 
@@ -571,6 +831,18 @@ export const EnvironmentVariableType = {
  */
 export type EnvironmentVariableType = (typeof EnvironmentVariableType)[keyof typeof EnvironmentVariableType];
 
+export const FeatureAttributionMetric = {
+    /**
+     * The Normalized Discounted Cumulative Gain metric.
+     */
+    NormalizedDiscountedCumulativeGain: "NormalizedDiscountedCumulativeGain",
+} as const;
+
+/**
+ * [Required] The feature attribution metric to calculate.
+ */
+export type FeatureAttributionMetric = (typeof FeatureAttributionMetric)[keyof typeof FeatureAttributionMetric];
+
 export const FeatureDataType = {
     String: "String",
     Integer: "Integer",
@@ -586,6 +858,22 @@ export const FeatureDataType = {
  * Specifies the data type
  */
 export type FeatureDataType = (typeof FeatureDataType)[keyof typeof FeatureDataType];
+
+export const FeatureImportanceMode = {
+    /**
+     * Disables computing feature importance within a signal.
+     */
+    Disabled: "Disabled",
+    /**
+     * Enables computing feature importance within a signal.
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * The mode of operation for computing feature importance.
+ */
+export type FeatureImportanceMode = (typeof FeatureImportanceMode)[keyof typeof FeatureImportanceMode];
 
 export const FeatureLags = {
     /**
@@ -624,6 +912,16 @@ export const FeaturizationMode = {
  * If 'Custom' is selected then user can specify additional inputs to customize how featurization is done.
  */
 export type FeaturizationMode = (typeof FeaturizationMode)[keyof typeof FeaturizationMode];
+
+export const FirewallSku = {
+    Standard: "Standard",
+    Basic: "Basic",
+} as const;
+
+/**
+ * Firewall Sku used for FQDN Rules
+ */
+export type FirewallSku = (typeof FirewallSku)[keyof typeof FirewallSku];
 
 export const ForecastHorizonMode = {
     /**
@@ -711,7 +1009,7 @@ export const ForecastingModels = {
     SGD: "SGD",
     /**
      * Random forest is a supervised learning algorithm.
-     * The "forest" it builds, is an ensemble of decision trees, usually trained with the “bagging” method.
+     * The "forest" it builds, is an ensemble of decision trees, usually trained with the "bagging" method.
      * The general idea of the bagging method is that a combination of learning models increases the overall result.
      */
     RandomForest: "RandomForest",
@@ -849,6 +1147,17 @@ export const InstanceSegmentationPrimaryMetrics = {
  */
 export type InstanceSegmentationPrimaryMetrics = (typeof InstanceSegmentationPrimaryMetrics)[keyof typeof InstanceSegmentationPrimaryMetrics];
 
+export const IsolationMode = {
+    Disabled: "Disabled",
+    AllowInternetOutbound: "AllowInternetOutbound",
+    AllowOnlyApprovedOutbound: "AllowOnlyApprovedOutbound",
+} as const;
+
+/**
+ * Isolation mode for the managed network of a machine learning workspace.
+ */
+export type IsolationMode = (typeof IsolationMode)[keyof typeof IsolationMode];
+
 export const JobInputType = {
     Literal: "literal",
     Uri_file: "uri_file",
@@ -888,11 +1197,25 @@ export const JobOutputType = {
  */
 export type JobOutputType = (typeof JobOutputType)[keyof typeof JobOutputType];
 
+export const JobTier = {
+    Null: "Null",
+    Spot: "Spot",
+    Basic: "Basic",
+    Standard: "Standard",
+    Premium: "Premium",
+} as const;
+
+/**
+ * Controls the compute job tier
+ */
+export type JobTier = (typeof JobTier)[keyof typeof JobTier];
+
 export const JobType = {
     AutoML: "AutoML",
     Command: "Command",
     Sweep: "Sweep",
     Pipeline: "Pipeline",
+    Spark: "Spark",
 } as const;
 
 /**
@@ -981,6 +1304,16 @@ export const MLAssistConfigurationType = {
  */
 export type MLAssistConfigurationType = (typeof MLAssistConfigurationType)[keyof typeof MLAssistConfigurationType];
 
+export const ManagedNetworkStatus = {
+    Inactive: "Inactive",
+    Active: "Active",
+} as const;
+
+/**
+ * Status for the managed network of a machine learning workspace.
+ */
+export type ManagedNetworkStatus = (typeof ManagedNetworkStatus)[keyof typeof ManagedNetworkStatus];
+
 export const ManagedServiceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
@@ -1045,6 +1378,137 @@ export const ModelSize = {
  */
 export type ModelSize = (typeof ModelSize)[keyof typeof ModelSize];
 
+export const ModelTaskType = {
+    Classification: "Classification",
+    Regression: "Regression",
+} as const;
+
+/**
+ * [Required] The machine learning task type of the monitored model.
+ */
+export type ModelTaskType = (typeof ModelTaskType)[keyof typeof ModelTaskType];
+
+export const MonitorComputeIdentityType = {
+    /**
+     * Authenticates through user's AML token.
+     */
+    AmlToken: "AmlToken",
+    /**
+     * Authenticates through a user-provided managed identity.
+     */
+    ManagedIdentity: "ManagedIdentity",
+} as const;
+
+/**
+ * [Required] Specifies the type of identity to use within the monitoring jobs.
+ */
+export type MonitorComputeIdentityType = (typeof MonitorComputeIdentityType)[keyof typeof MonitorComputeIdentityType];
+
+export const MonitorComputeType = {
+    /**
+     * Serverless Spark compute.
+     */
+    ServerlessSpark: "ServerlessSpark",
+} as const;
+
+/**
+ * [Required] Specifies the type of signal to monitor.
+ */
+export type MonitorComputeType = (typeof MonitorComputeType)[keyof typeof MonitorComputeType];
+
+export const MonitoringFeatureDataType = {
+    /**
+     * Used for features of numerical data type.
+     */
+    Numerical: "Numerical",
+    /**
+     * Used for features of categorical data type.
+     */
+    Categorical: "Categorical",
+} as const;
+
+/**
+ * [Required] Specifies the data type of the metric threshold.
+ */
+export type MonitoringFeatureDataType = (typeof MonitoringFeatureDataType)[keyof typeof MonitoringFeatureDataType];
+
+export const MonitoringFeatureFilterType = {
+    /**
+     * Includes all features.
+     */
+    AllFeatures: "AllFeatures",
+    /**
+     * Only includes the top contributing features, measured by feature attribution.
+     */
+    TopNByAttribution: "TopNByAttribution",
+    /**
+     * Includes a user-defined subset of features.
+     */
+    FeatureSubset: "FeatureSubset",
+} as const;
+
+/**
+ * [Required] Specifies the feature filter to leverage when selecting features to calculate metrics over.
+ */
+export type MonitoringFeatureFilterType = (typeof MonitoringFeatureFilterType)[keyof typeof MonitoringFeatureFilterType];
+
+export const MonitoringInputDataType = {
+    /**
+     * An input data with a fixed window size.
+     */
+    Static: "Static",
+    /**
+     * An input data which rolls relatively to the monitor's current run time.
+     */
+    Rolling: "Rolling",
+    /**
+     * An input data with tabular format which doesn't require preprocessing.
+     */
+    Fixed: "Fixed",
+} as const;
+
+/**
+ * [Required] Specifies the type of signal to monitor.
+ */
+export type MonitoringInputDataType = (typeof MonitoringInputDataType)[keyof typeof MonitoringInputDataType];
+
+export const MonitoringNotificationType = {
+    /**
+     * Enables email notifications through AML notifications.
+     */
+    AmlNotification: "AmlNotification",
+} as const;
+
+export type MonitoringNotificationType = (typeof MonitoringNotificationType)[keyof typeof MonitoringNotificationType];
+
+export const MonitoringSignalType = {
+    /**
+     * Tracks model input data distribution change, comparing against training data or past production data.
+     */
+    DataDrift: "DataDrift",
+    /**
+     * Tracks prediction result data distribution change, comparing against validation/test label data or past production data.
+     */
+    PredictionDrift: "PredictionDrift",
+    /**
+     * Tracks model input data integrity.
+     */
+    DataQuality: "DataQuality",
+    /**
+     * Tracks feature importance change in production, comparing against feature importance at training time.
+     */
+    FeatureAttributionDrift: "FeatureAttributionDrift",
+    /**
+     * Tracks a custom signal provided by users.
+     */
+    Custom: "Custom",
+} as const;
+
+/**
+ * [Required] Specifies the type of signal to monitor.
+ */
+export type MonitoringSignalType = (typeof MonitoringSignalType)[keyof typeof MonitoringSignalType];
+
 export const MultiSelect = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -1080,6 +1544,74 @@ export const NodesValueType = {
  */
 export type NodesValueType = (typeof NodesValueType)[keyof typeof NodesValueType];
 
+export const NumericalDataDriftMetric = {
+    /**
+     * The Jensen Shannon Distance (JSD) metric.
+     */
+    JensenShannonDistance: "JensenShannonDistance",
+    /**
+     * The Population Stability Index (PSI) metric.
+     */
+    PopulationStabilityIndex: "PopulationStabilityIndex",
+    /**
+     * The Normalized Wasserstein Distance metric.
+     */
+    NormalizedWassersteinDistance: "NormalizedWassersteinDistance",
+    /**
+     * The Two Sample Kolmogorov-Smirnov Test (two-sample Kâ€“S) metric.
+     */
+    TwoSampleKolmogorovSmirnovTest: "TwoSampleKolmogorovSmirnovTest",
+} as const;
+
+/**
+ * [Required] The numerical data drift metric to calculate.
+ */
+export type NumericalDataDriftMetric = (typeof NumericalDataDriftMetric)[keyof typeof NumericalDataDriftMetric];
+
+export const NumericalDataQualityMetric = {
+    /**
+     * Calculates the rate of null values.
+     */
+    NullValueRate: "NullValueRate",
+    /**
+     * Calculates the rate of data type errors.
+     */
+    DataTypeErrorRate: "DataTypeErrorRate",
+    /**
+     * Calculates the rate values are out of bounds.
+     */
+    OutOfBoundsRate: "OutOfBoundsRate",
+} as const;
+
+/**
+ * [Required] The numerical data quality metric to calculate.
+ */
+export type NumericalDataQualityMetric = (typeof NumericalDataQualityMetric)[keyof typeof NumericalDataQualityMetric];
+
+export const NumericalPredictionDriftMetric = {
+    /**
+     * The Jensen Shannon Distance (JSD) metric.
+     */
+    JensenShannonDistance: "JensenShannonDistance",
+    /**
+     * The Population Stability Index (PSI) metric.
+     */
+    PopulationStabilityIndex: "PopulationStabilityIndex",
+    /**
+     * The Normalized Wasserstein Distance metric.
+     */
+    NormalizedWassersteinDistance: "NormalizedWassersteinDistance",
+    /**
+     * The Two Sample Kolmogorov-Smirnov Test (two-sample Kâ€“S) metric.
+     */
+    TwoSampleKolmogorovSmirnovTest: "TwoSampleKolmogorovSmirnovTest",
+} as const;
+
+/**
+ * [Required] The numerical prediction drift metric to calculate.
+ */
+export type NumericalPredictionDriftMetric = (typeof NumericalPredictionDriftMetric)[keyof typeof NumericalPredictionDriftMetric];
+
 export const ObjectDetectionPrimaryMetrics = {
     /**
      * Mean Average Precision (MAP) is the average of AP (Average Precision).
@@ -1092,6 +1624,15 @@ export const ObjectDetectionPrimaryMetrics = {
  * Primary metric to optimize for this task.
  */
 export type ObjectDetectionPrimaryMetrics = (typeof ObjectDetectionPrimaryMetrics)[keyof typeof ObjectDetectionPrimaryMetrics];
+
+export const OneLakeArtifactType = {
+    LakeHouse: "LakeHouse",
+} as const;
+
+/**
+ * [Required] OneLake artifact type
+ */
+export type OneLakeArtifactType = (typeof OneLakeArtifactType)[keyof typeof OneLakeArtifactType];
 
 export const OperatingSystemType = {
     Linux: "Linux",
@@ -1116,6 +1657,7 @@ export type OsType = (typeof OsType)[keyof typeof OsType];
 export const OutputDeliveryMode = {
     ReadWriteMount: "ReadWriteMount",
     Upload: "Upload",
+    Direct: "Direct",
 } as const;
 
 /**
@@ -1278,7 +1820,7 @@ export const RegressionModels = {
     SGD: "SGD",
     /**
      * Random forest is a supervised learning algorithm.
-     * The "forest" it builds, is an ensemble of decision trees, usually trained with the “bagging” method.
+     * The "forest" it builds, is an ensemble of decision trees, usually trained with the "bagging" method.
      * The general idea of the bagging method is that a combination of learning models increases the overall result.
      */
     RandomForest: "RandomForest",
@@ -1348,10 +1890,37 @@ export const ResourceIdentityType = {
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
+export const RollingRateType = {
+    Year: "Year",
+    Month: "Month",
+    Day: "Day",
+    Hour: "Hour",
+    Minute: "Minute",
+} as const;
+
+/**
+ * When model data is collected to blob storage, we need to roll the data to different path to avoid logging all of them in a single blob file.
+ * If the rolling rate is hour, all data will be collected in the blob path /yyyy/MM/dd/HH/.
+ * If it's day, all data will be collected in blob path /yyyy/MM/dd/.
+ * The other benefit of rolling path is that model monitoring ui is able to select a time range of data very quickly.
+ */
+export type RollingRateType = (typeof RollingRateType)[keyof typeof RollingRateType];
+
+export const RuleAction = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * The action enum for networking rule.
+ */
+export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
+
 export const RuleCategory = {
     Required: "Required",
     Recommended: "Recommended",
     UserDefined: "UserDefined",
+    Dependency: "Dependency",
 } as const;
 
 /**
@@ -1365,7 +1934,7 @@ export const RuleStatus = {
 } as const;
 
 /**
- * Status of a managed network Outbound Rule of a machine learning workspace.
+ * Type of a managed network Outbound Rule of a machine learning workspace.
  */
 export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];
 
@@ -1404,6 +1973,7 @@ export type ScaleType = (typeof ScaleType)[keyof typeof ScaleType];
 export const ScheduleActionType = {
     CreateJob: "CreateJob",
     InvokeBatchEndpoint: "InvokeBatchEndpoint",
+    CreateMonitor: "CreateMonitor",
 } as const;
 
 /**
@@ -1462,11 +2032,10 @@ export type SecretsType = (typeof SecretsType)[keyof typeof SecretsType];
 
 export const ServerlessInferenceEndpointAuthMode = {
     Key: "Key",
-    AAD: "AAD",
 } as const;
 
 /**
- * Specifies the authentication mode for the Serverless endpoint.
+ * [Required] Specifies the authentication mode for the Serverless endpoint.
  */
 export type ServerlessInferenceEndpointAuthMode = (typeof ServerlessInferenceEndpointAuthMode)[keyof typeof ServerlessInferenceEndpointAuthMode];
 
@@ -1536,6 +2105,16 @@ export const SourceType = {
  * Data source type.
  */
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+export const SparkJobEntryType = {
+    SparkJobPythonEntry: "SparkJobPythonEntry",
+    SparkJobScalaEntry: "SparkJobScalaEntry",
+} as const;
+
+/**
+ * [Required] Type of the job's entry point.
+ */
+export type SparkJobEntryType = (typeof SparkJobEntryType)[keyof typeof SparkJobEntryType];
 
 export const SshPublicAccess = {
     Enabled: "Enabled",

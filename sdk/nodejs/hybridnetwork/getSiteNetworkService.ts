@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified site network service.
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01.
  */
 export function getSiteNetworkService(args: GetSiteNetworkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteNetworkServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -75,9 +75,9 @@ export interface GetSiteNetworkServiceResult {
 }
 /**
  * Gets information about the specified site network service.
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01.
  */
 export function getSiteNetworkServiceOutput(args: GetSiteNetworkServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSiteNetworkServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

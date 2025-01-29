@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DestinationPorts;
         /// <summary>
-        /// Describes in which direction signature is being enforced: 0 - Inbound, 1 - OutBound, 2 - Bidirectional
+        /// Describes in which direction signature is being enforced: 0 - OutBound, 1 - InBound, 2 - Any, 3 - Internal, 4 - InternalOutbound, 5 - InternalInbound
         /// </summary>
         public readonly int? Direction;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? Protocol;
         /// <summary>
-        /// Describes the severity of signature: 1 - Low, 2 - Medium, 3 - High
+        /// Describes the severity of signature: 1 - High, 2 - Medium, 3 - Low
         /// </summary>
         public readonly int? Severity;
         /// <summary>

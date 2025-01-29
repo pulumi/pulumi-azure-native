@@ -153,7 +153,7 @@ class Instance(pulumi.CustomResource):
                  __props__=None):
         """
         A SCOM instance resource
-        Azure REST API version: 2023-07-07-preview.
+        Azure REST API version: 2023-07-07-preview. Prior API version in Azure Native 2.x: 2023-07-07-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,7 +173,7 @@ class Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SCOM instance resource
-        Azure REST API version: 2023-07-07-preview.
+        Azure REST API version: 2023-07-07-preview. Prior API version in Azure Native 2.x: 2023-07-07-preview.
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

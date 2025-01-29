@@ -27,7 +27,7 @@ class GetCapacityReservationGroupResult:
     """
     Specifies information about the capacity reservation group that the capacity reservations should be assigned to. Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
     """
-    def __init__(__self__, capacity_reservations=None, id=None, instance_view=None, location=None, name=None, tags=None, type=None, virtual_machines_associated=None, zones=None):
+    def __init__(__self__, capacity_reservations=None, id=None, instance_view=None, location=None, name=None, sharing_profile=None, tags=None, type=None, virtual_machines_associated=None, zones=None):
         if capacity_reservations and not isinstance(capacity_reservations, list):
             raise TypeError("Expected argument 'capacity_reservations' to be a list")
         pulumi.set(__self__, "capacity_reservations", capacity_reservations)
@@ -43,6 +43,9 @@ class GetCapacityReservationGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if sharing_profile and not isinstance(sharing_profile, dict):
+            raise TypeError("Expected argument 'sharing_profile' to be a dict")
+        pulumi.set(__self__, "sharing_profile", sharing_profile)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -97,6 +100,14 @@ class GetCapacityReservationGroupResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="sharingProfile")
+    def sharing_profile(self) -> Optional['outputs.ResourceSharingProfileResponse']:
+        """
+        Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+        """
+        return pulumi.get(self, "sharing_profile")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -140,6 +151,7 @@ class AwaitableGetCapacityReservationGroupResult(GetCapacityReservationGroupResu
             instance_view=self.instance_view,
             location=self.location,
             name=self.name,
+            sharing_profile=self.sharing_profile,
             tags=self.tags,
             type=self.type,
             virtual_machines_associated=self.virtual_machines_associated,
@@ -152,9 +164,9 @@ def get_capacity_reservation_group(capacity_reservation_group_name: Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationGroupResult:
     """
     The operation that retrieves information about a capacity reservation group.
-    Azure REST API version: 2023-03-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-03-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
@@ -174,6 +186,7 @@ def get_capacity_reservation_group(capacity_reservation_group_name: Optional[str
         instance_view=pulumi.get(__ret__, 'instance_view'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        sharing_profile=pulumi.get(__ret__, 'sharing_profile'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machines_associated=pulumi.get(__ret__, 'virtual_machines_associated'),
@@ -184,9 +197,9 @@ def get_capacity_reservation_group_output(capacity_reservation_group_name: Optio
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationGroupResult]:
     """
     The operation that retrieves information about a capacity reservation group.
-    Azure REST API version: 2023-03-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-03-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
@@ -205,6 +218,7 @@ def get_capacity_reservation_group_output(capacity_reservation_group_name: Optio
         instance_view=pulumi.get(__response__, 'instance_view'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        sharing_profile=pulumi.get(__response__, 'sharing_profile'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         virtual_machines_associated=pulumi.get(__response__, 'virtual_machines_associated'),

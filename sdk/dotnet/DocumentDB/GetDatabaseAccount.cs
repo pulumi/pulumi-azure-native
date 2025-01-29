@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB database account.
-        /// Azure REST API version: 2023-04-15.
+        /// Azure REST API version: 2024-11-15.
         /// 
-        /// Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        /// Other available API versions: 2023-04-15, 2023-09-15-preview, 2024-12-01-preview.
         /// </summary>
         public static Task<GetDatabaseAccountResult> InvokeAsync(GetDatabaseAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAccountResult>("azure-native:documentdb:getDatabaseAccount", args ?? new GetDatabaseAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB database account.
-        /// Azure REST API version: 2023-04-15.
+        /// Azure REST API version: 2024-11-15.
         /// 
-        /// Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        /// Other available API versions: 2023-04-15, 2023-09-15-preview, 2024-12-01-preview.
         /// </summary>
         public static Output<GetDatabaseAccountResult> Invoke(GetDatabaseAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountResult>("azure-native:documentdb:getDatabaseAccount", args ?? new GetDatabaseAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of an existing Azure Cosmos DB database account.
-        /// Azure REST API version: 2023-04-15.
+        /// Azure REST API version: 2024-11-15.
         /// 
-        /// Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        /// Other available API versions: 2023-04-15, 2023-09-15-preview, 2024-12-01-preview.
         /// </summary>
         public static Output<GetDatabaseAccountResult> Invoke(GetDatabaseAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountResult>("azure-native:documentdb:getDatabaseAccount", args ?? new GetDatabaseAccountInvokeArgs(), options.WithDefaults());
@@ -121,6 +121,10 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         public readonly string? CreateMode;
         /// <summary>
+        /// Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
+        /// </summary>
+        public readonly string? CustomerManagedKeyStatus;
+        /// <summary>
         /// The offer type for the Cosmos DB database account. Default value: Standard.
         /// </summary>
         public readonly string DatabaseAccountOfferType;
@@ -149,6 +153,10 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         public readonly bool? EnableAutomaticFailover;
         /// <summary>
+        /// Flag to indicate enabling/disabling of Burst Capacity feature on the account
+        /// </summary>
+        public readonly bool? EnableBurstCapacity;
+        /// <summary>
         /// Enables the cassandra connector on the Cosmos DB C* account
         /// </summary>
         public readonly bool? EnableCassandraConnector;
@@ -164,6 +172,10 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Flag to indicate enabling/disabling of Partition Merge feature on the account
         /// </summary>
         public readonly bool? EnablePartitionMerge;
+        /// <summary>
+        /// Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
+        /// </summary>
+        public readonly bool? EnablePerRegionPerPartitionAutoscale;
         /// <summary>
         /// An array that contains the regions ordered by their failover priorities.
         /// </summary>
@@ -285,6 +297,8 @@ namespace Pulumi.AzureNative.DocumentDB
 
             string? createMode,
 
+            string? customerManagedKeyStatus,
+
             string databaseAccountOfferType,
 
             string? defaultIdentity,
@@ -299,6 +313,8 @@ namespace Pulumi.AzureNative.DocumentDB
 
             bool? enableAutomaticFailover,
 
+            bool? enableBurstCapacity,
+
             bool? enableCassandraConnector,
 
             bool? enableFreeTier,
@@ -306,6 +322,8 @@ namespace Pulumi.AzureNative.DocumentDB
             bool? enableMultipleWriteLocations,
 
             bool? enablePartitionMerge,
+
+            bool? enablePerRegionPerPartitionAutoscale,
 
             ImmutableArray<Outputs.FailoverPolicyResponse> failoverPolicies,
 
@@ -366,6 +384,7 @@ namespace Pulumi.AzureNative.DocumentDB
             ConsistencyPolicy = consistencyPolicy;
             Cors = cors;
             CreateMode = createMode;
+            CustomerManagedKeyStatus = customerManagedKeyStatus;
             DatabaseAccountOfferType = databaseAccountOfferType;
             DefaultIdentity = defaultIdentity;
             DisableKeyBasedMetadataWriteAccess = disableKeyBasedMetadataWriteAccess;
@@ -373,10 +392,12 @@ namespace Pulumi.AzureNative.DocumentDB
             DocumentEndpoint = documentEndpoint;
             EnableAnalyticalStorage = enableAnalyticalStorage;
             EnableAutomaticFailover = enableAutomaticFailover;
+            EnableBurstCapacity = enableBurstCapacity;
             EnableCassandraConnector = enableCassandraConnector;
             EnableFreeTier = enableFreeTier;
             EnableMultipleWriteLocations = enableMultipleWriteLocations;
             EnablePartitionMerge = enablePartitionMerge;
+            EnablePerRegionPerPartitionAutoscale = enablePerRegionPerPartitionAutoscale;
             FailoverPolicies = failoverPolicies;
             Id = id;
             Identity = identity;

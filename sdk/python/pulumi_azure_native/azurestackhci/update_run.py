@@ -29,6 +29,7 @@ class UpdateRunArgs:
                  duration: Optional[pulumi.Input[str]] = None,
                  end_time_utc: Optional[pulumi.Input[str]] = None,
                  error_message: Optional[pulumi.Input[str]] = None,
+                 expected_execution_time: Optional[pulumi.Input[str]] = None,
                  last_updated_time: Optional[pulumi.Input[str]] = None,
                  last_updated_time_utc: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -48,6 +49,7 @@ class UpdateRunArgs:
         :param pulumi.Input[str] duration: Duration of the update run.
         :param pulumi.Input[str] end_time_utc: When the step reached a terminal state.
         :param pulumi.Input[str] error_message: Error message, specified if the step is in a failed state.
+        :param pulumi.Input[str] expected_execution_time: Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
         :param pulumi.Input[str] last_updated_time: Timestamp of the most recently completed step in the update run.
         :param pulumi.Input[str] last_updated_time_utc: Completion time of this step or the last completed sub-step.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -70,6 +72,8 @@ class UpdateRunArgs:
             pulumi.set(__self__, "end_time_utc", end_time_utc)
         if error_message is not None:
             pulumi.set(__self__, "error_message", error_message)
+        if expected_execution_time is not None:
+            pulumi.set(__self__, "expected_execution_time", expected_execution_time)
         if last_updated_time is not None:
             pulumi.set(__self__, "last_updated_time", last_updated_time)
         if last_updated_time_utc is not None:
@@ -174,6 +178,18 @@ class UpdateRunArgs:
     @error_message.setter
     def error_message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "error_message", value)
+
+    @property
+    @pulumi.getter(name="expectedExecutionTime")
+    def expected_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
+        """
+        return pulumi.get(self, "expected_execution_time")
+
+    @expected_execution_time.setter
+    def expected_execution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expected_execution_time", value)
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
@@ -306,6 +322,7 @@ class UpdateRun(pulumi.CustomResource):
                  duration: Optional[pulumi.Input[str]] = None,
                  end_time_utc: Optional[pulumi.Input[str]] = None,
                  error_message: Optional[pulumi.Input[str]] = None,
+                 expected_execution_time: Optional[pulumi.Input[str]] = None,
                  last_updated_time: Optional[pulumi.Input[str]] = None,
                  last_updated_time_utc: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -321,9 +338,9 @@ class UpdateRun(pulumi.CustomResource):
                  __props__=None):
         """
         Details of an Update run
-        Azure REST API version: 2023-03-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
-        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Other available API versions: 2023-03-01, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -332,6 +349,7 @@ class UpdateRun(pulumi.CustomResource):
         :param pulumi.Input[str] duration: Duration of the update run.
         :param pulumi.Input[str] end_time_utc: When the step reached a terminal state.
         :param pulumi.Input[str] error_message: Error message, specified if the step is in a failed state.
+        :param pulumi.Input[str] expected_execution_time: Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
         :param pulumi.Input[str] last_updated_time: Timestamp of the most recently completed step in the update run.
         :param pulumi.Input[str] last_updated_time_utc: Completion time of this step or the last completed sub-step.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -353,9 +371,9 @@ class UpdateRun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Details of an Update run
-        Azure REST API version: 2023-03-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
-        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Other available API versions: 2023-03-01, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param UpdateRunArgs args: The arguments to use to populate this resource's properties.
@@ -377,6 +395,7 @@ class UpdateRun(pulumi.CustomResource):
                  duration: Optional[pulumi.Input[str]] = None,
                  end_time_utc: Optional[pulumi.Input[str]] = None,
                  error_message: Optional[pulumi.Input[str]] = None,
+                 expected_execution_time: Optional[pulumi.Input[str]] = None,
                  last_updated_time: Optional[pulumi.Input[str]] = None,
                  last_updated_time_utc: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -405,6 +424,7 @@ class UpdateRun(pulumi.CustomResource):
             __props__.__dict__["duration"] = duration
             __props__.__dict__["end_time_utc"] = end_time_utc
             __props__.__dict__["error_message"] = error_message
+            __props__.__dict__["expected_execution_time"] = expected_execution_time
             __props__.__dict__["last_updated_time"] = last_updated_time
             __props__.__dict__["last_updated_time_utc"] = last_updated_time_utc
             __props__.__dict__["location"] = location
@@ -452,6 +472,7 @@ class UpdateRun(pulumi.CustomResource):
         __props__.__dict__["duration"] = None
         __props__.__dict__["end_time_utc"] = None
         __props__.__dict__["error_message"] = None
+        __props__.__dict__["expected_execution_time"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["last_updated_time_utc"] = None
         __props__.__dict__["location"] = None
@@ -497,6 +518,14 @@ class UpdateRun(pulumi.CustomResource):
         Error message, specified if the step is in a failed state.
         """
         return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="expectedExecutionTime")
+    def expected_execution_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
+        """
+        return pulumi.get(self, "expected_execution_time")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")

@@ -18,14 +18,8 @@ from ._enums import *
 __all__ = [
     'LogSettingsArgs',
     'LogSettingsArgsDict',
-    'PrivateEndpointArgs',
-    'PrivateEndpointArgsDict',
-    'PrivateLinkServiceConnectionStateArgs',
-    'PrivateLinkServiceConnectionStateArgsDict',
     'RetentionPolicyArgs',
     'RetentionPolicyArgsDict',
-    'TagsResourceArgs',
-    'TagsResourceArgsDict',
 ]
 
 MYPY = False
@@ -106,118 +100,6 @@ class LogSettingsArgs:
 
 
 if not MYPY:
-    class PrivateEndpointArgsDict(TypedDict):
-        """
-        Private endpoint object properties.
-        """
-        id: NotRequired[pulumi.Input[str]]
-        """
-        Full identifier of the private endpoint resource.
-        """
-elif False:
-    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Private endpoint object properties.
-        :param pulumi.Input[str] id: Full identifier of the private endpoint resource.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Full identifier of the private endpoint resource.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        An object that represents the approval state of the private link connection.
-        """
-        actions_required: NotRequired[pulumi.Input[str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        The reason for approval or rejection.
-        """
-        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been approved, rejected or removed by the given policy owner.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class PrivateLinkServiceConnectionStateArgs:
-    def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
-        """
-        An object that represents the approval state of the private link connection.
-        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
-        :param pulumi.Input[str] description: The reason for approval or rejection.
-        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been approved, rejected or removed by the given policy owner.
-        """
-        if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[str]]:
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "actions_required", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The reason for approval or rejection.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
-        """
-        Indicates whether the connection has been approved, rejected or removed by the given policy owner.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
-        pulumi.set(self, "status", value)
-
-
-if not MYPY:
     class RetentionPolicyArgsDict(TypedDict):
         """
         Specifies the retention policy for the log.
@@ -269,41 +151,5 @@ class RetentionPolicyArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
-
-
-if not MYPY:
-    class TagsResourceArgsDict(TypedDict):
-        """
-        A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        Resource tags
-        """
-elif False:
-    TagsResourceArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class TagsResourceArgs:
-    def __init__(__self__, *,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        """
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
 
 

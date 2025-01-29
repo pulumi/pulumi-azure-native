@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// </summary>
     public sealed class ServiceTagDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action enum for networking rule.
+        /// </summary>
+        [Input("action")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.RuleAction>? Action { get; set; }
+
         [Input("portRanges")]
         public Input<string>? PortRanges { get; set; }
 

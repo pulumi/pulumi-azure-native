@@ -28,7 +28,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// The power state of the virtual machine instance
         /// </summary>
         public readonly string? PowerState;
-        public readonly Outputs.VirtualMachineInstanceStatusResponseProvisioningStatus? ProvisioningStatus;
+        /// <summary>
+        /// Provisioning status of the virtual machine instance
+        /// </summary>
+        public readonly Outputs.VirtualMachineInstanceStatusProvisioningStatusResponse? ProvisioningStatus;
 
         [OutputConstructor]
         private VirtualMachineInstanceStatusResponse(
@@ -38,7 +41,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string? powerState,
 
-            Outputs.VirtualMachineInstanceStatusResponseProvisioningStatus? provisioningStatus)
+            Outputs.VirtualMachineInstanceStatusProvisioningStatusResponse? provisioningStatus)
         {
             ErrorCode = errorCode;
             ErrorMessage = errorMessage;

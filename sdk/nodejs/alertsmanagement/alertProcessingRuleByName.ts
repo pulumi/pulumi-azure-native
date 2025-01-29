@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Alert processing rule object containing target scopes, conditions and scheduling logic.
- * Azure REST API version: 2021-08-08.
+ * Azure REST API version: 2021-08-08. Prior API version in Azure Native 2.x: 2021-08-08.
+ *
+ * Other available API versions: 2021-08-08-preview.
  */
 export class AlertProcessingRuleByName extends pulumi.CustomResource {
     /**

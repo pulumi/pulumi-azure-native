@@ -134,25 +134,25 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             type=self.type)
 
 
-def get_private_endpoint_connection(cluster_name: Optional[str] = None,
-                                    private_endpoint_connection_name: Optional[str] = None,
+def get_private_endpoint_connection(private_endpoint_connection_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
+                                    server_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Gets private endpoint connection.
-    Azure REST API version: 2022-11-08.
+    Gets a private endpoint connection.
+    Azure REST API version: 2024-08-01.
 
-    Other available API versions: 2018-06-01-privatepreview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    Other available API versions: 2024-11-01-preview.
 
 
-    :param str cluster_name: The name of the cluster.
-    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the cluster.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str server_name: The name of the server.
     """
     __args__ = dict()
-    __args__['clusterName'] = cluster_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:dbforpostgresql:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
@@ -165,25 +165,25 @@ def get_private_endpoint_connection(cluster_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_output(cluster_name: Optional[pulumi.Input[str]] = None,
-                                           private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+def get_private_endpoint_connection_output(private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+                                           server_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    Gets private endpoint connection.
-    Azure REST API version: 2022-11-08.
+    Gets a private endpoint connection.
+    Azure REST API version: 2024-08-01.
 
-    Other available API versions: 2018-06-01-privatepreview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    Other available API versions: 2024-11-01-preview.
 
 
-    :param str cluster_name: The name of the cluster.
-    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the cluster.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str server_name: The name of the server.
     """
     __args__ = dict()
-    __args__['clusterName'] = cluster_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['serverName'] = server_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionResult(

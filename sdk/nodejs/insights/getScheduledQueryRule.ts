@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve an scheduled query rule definition.
- * Azure REST API version: 2023-03-15-preview.
+ * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview.
+ * Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-03-15-preview.
  */
 export function getScheduledQueryRule(args: GetScheduledQueryRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -151,9 +151,9 @@ export interface GetScheduledQueryRuleResult {
 }
 /**
  * Retrieve an scheduled query rule definition.
- * Azure REST API version: 2023-03-15-preview.
+ * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview.
+ * Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-03-15-preview.
  */
 export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledQueryRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

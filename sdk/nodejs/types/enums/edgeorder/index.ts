@@ -12,6 +12,22 @@ export {
     v20240201,
 };
 
+export const AddressClassification = {
+    /**
+     * Shipping address for the order.
+     */
+    Shipping: "Shipping",
+    /**
+     * Site Address.
+     */
+    Site: "Site",
+} as const;
+
+/**
+ * Type of address based on its usage context.
+ */
+export type AddressClassification = (typeof AddressClassification)[keyof typeof AddressClassification];
+
 export const AddressType = {
     /**
      * Address type not known.
@@ -32,6 +48,22 @@ export const AddressType = {
  */
 export type AddressType = (typeof AddressType)[keyof typeof AddressType];
 
+export const AutoProvisioningStatus = {
+    /**
+     * Provisioning Enabled. Will act as pre-approved, and arc extension will be enabled as soon as the device is verified to be at the right edge location.
+     */
+    Enabled: "Enabled",
+    /**
+     * Provisioning Disabled.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Auto Provisioning Details.
+ */
+export type AutoProvisioningStatus = (typeof AutoProvisioningStatus)[keyof typeof AutoProvisioningStatus];
+
 export const ChildConfigurationType = {
     /**
      * Child configuration is a device configuration.
@@ -47,11 +79,11 @@ export type ChildConfigurationType = (typeof ChildConfigurationType)[keyof typeo
 
 export const DoubleEncryptionStatus = {
     /**
-     * Double encryption is disabled
+     * Double encryption is disabled.
      */
     Disabled: "Disabled",
     /**
-     * Double encryption is enabled
+     * Double encryption is enabled.
      */
     Enabled: "Enabled",
 } as const;
@@ -86,6 +118,10 @@ export const OrderItemType = {
      * Rental OrderItem.
      */
     Rental: "Rental",
+    /**
+     * Orders placed outside of azure.
+     */
+    External: "External",
 } as const;
 
 /**
@@ -124,6 +160,26 @@ export const SupportedFilterTypes = {
  * Type of product filter.
  */
 export type SupportedFilterTypes = (typeof SupportedFilterTypes)[keyof typeof SupportedFilterTypes];
+
+export const TermCommitmentType = {
+    /**
+     * Pay as you go Term Commitment Model.
+     */
+    None: "None",
+    /**
+     * Trial Term Commitment Model.
+     */
+    Trial: "Trial",
+    /**
+     * Time based Term Commitment Model.
+     */
+    Timed: "Timed",
+} as const;
+
+/**
+ * Term Commitment Type
+ */
+export type TermCommitmentType = (typeof TermCommitmentType)[keyof typeof TermCommitmentType];
 
 export const TransportShipmentTypes = {
     /**

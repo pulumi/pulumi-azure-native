@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * An action group resource.
- * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2019-06-01.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-01-01.
  *
- * Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-01-01.
  */
 export class ActionGroup extends pulumi.CustomResource {
     /**
@@ -72,6 +72,14 @@ export class ActionGroup extends pulumi.CustomResource {
      * The short name of the action group. This will be used in SMS messages.
      */
     public readonly groupShortName!: pulumi.Output<string>;
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    public readonly identity!: pulumi.Output<outputs.insights.ManagedServiceIdentityResponse | undefined>;
+    /**
+     * The list of incident receivers that are part of this action group.
+     */
+    public readonly incidentReceivers!: pulumi.Output<outputs.insights.IncidentReceiverResponse[] | undefined>;
     /**
      * The list of ITSM receivers that are part of this action group.
      */
@@ -138,6 +146,8 @@ export class ActionGroup extends pulumi.CustomResource {
             resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
             resourceInputs["eventHubReceivers"] = args ? args.eventHubReceivers : undefined;
             resourceInputs["groupShortName"] = args ? args.groupShortName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["incidentReceivers"] = args ? args.incidentReceivers : undefined;
             resourceInputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["logicAppReceivers"] = args ? args.logicAppReceivers : undefined;
@@ -157,6 +167,8 @@ export class ActionGroup extends pulumi.CustomResource {
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["eventHubReceivers"] = undefined /*out*/;
             resourceInputs["groupShortName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["incidentReceivers"] = undefined /*out*/;
             resourceInputs["itsmReceivers"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["logicAppReceivers"] = undefined /*out*/;
@@ -214,6 +226,14 @@ export interface ActionGroupArgs {
      * The short name of the action group. This will be used in SMS messages.
      */
     groupShortName: pulumi.Input<string>;
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    identity?: pulumi.Input<inputs.insights.ManagedServiceIdentityArgs>;
+    /**
+     * The list of incident receivers that are part of this action group.
+     */
+    incidentReceivers?: pulumi.Input<pulumi.Input<inputs.insights.IncidentReceiverArgs>[]>;
     /**
      * The list of ITSM receivers that are part of this action group.
      */

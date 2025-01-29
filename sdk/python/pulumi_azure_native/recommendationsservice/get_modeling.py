@@ -128,9 +128,9 @@ def get_modeling(account_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelingResult:
     """
     Returns Modeling resources for a given name.
-    Azure REST API version: 2022-02-01.
+    Azure REST API version: 2022-03-01-preview.
 
-    Other available API versions: 2022-03-01-preview.
+    Other available API versions: 2022-02-01.
 
 
     :param str account_name: The name of the RecommendationsService Account resource.
@@ -158,9 +158,9 @@ def get_modeling_output(account_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelingResult]:
     """
     Returns Modeling resources for a given name.
-    Azure REST API version: 2022-02-01.
+    Azure REST API version: 2022-03-01-preview.
 
-    Other available API versions: 2022-03-01-preview.
+    Other available API versions: 2022-02-01.
 
 
     :param str account_name: The name of the RecommendationsService Account resource.

@@ -27,10 +27,13 @@ class GetFlowLogResult:
     """
     A flow log resource.
     """
-    def __init__(__self__, enabled=None, etag=None, flow_analytics_configuration=None, format=None, id=None, location=None, name=None, provisioning_state=None, retention_policy=None, storage_id=None, tags=None, target_resource_guid=None, target_resource_id=None, type=None):
+    def __init__(__self__, enabled=None, enabled_filtering_criteria=None, etag=None, flow_analytics_configuration=None, format=None, id=None, identity=None, location=None, name=None, provisioning_state=None, retention_policy=None, storage_id=None, tags=None, target_resource_guid=None, target_resource_id=None, type=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if enabled_filtering_criteria and not isinstance(enabled_filtering_criteria, str):
+            raise TypeError("Expected argument 'enabled_filtering_criteria' to be a str")
+        pulumi.set(__self__, "enabled_filtering_criteria", enabled_filtering_criteria)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -43,6 +46,9 @@ class GetFlowLogResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -80,6 +86,14 @@ class GetFlowLogResult:
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter(name="enabledFilteringCriteria")
+    def enabled_filtering_criteria(self) -> Optional[str]:
+        """
+        Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
+        """
+        return pulumi.get(self, "enabled_filtering_criteria")
+
+    @property
     @pulumi.getter
     def etag(self) -> str:
         """
@@ -110,6 +124,14 @@ class GetFlowLogResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        FlowLog resource Managed Identity
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -191,10 +213,12 @@ class AwaitableGetFlowLogResult(GetFlowLogResult):
             yield self
         return GetFlowLogResult(
             enabled=self.enabled,
+            enabled_filtering_criteria=self.enabled_filtering_criteria,
             etag=self.etag,
             flow_analytics_configuration=self.flow_analytics_configuration,
             format=self.format,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -212,9 +236,9 @@ def get_flow_log(flow_log_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFlowLogResult:
     """
     Gets a flow log resource by name.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2023-02-01.
 
 
     :param str flow_log_name: The name of the flow log resource.
@@ -230,10 +254,12 @@ def get_flow_log(flow_log_name: Optional[str] = None,
 
     return AwaitableGetFlowLogResult(
         enabled=pulumi.get(__ret__, 'enabled'),
+        enabled_filtering_criteria=pulumi.get(__ret__, 'enabled_filtering_criteria'),
         etag=pulumi.get(__ret__, 'etag'),
         flow_analytics_configuration=pulumi.get(__ret__, 'flow_analytics_configuration'),
         format=pulumi.get(__ret__, 'format'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -249,9 +275,9 @@ def get_flow_log_output(flow_log_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowLogResult]:
     """
     Gets a flow log resource by name.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2023-02-01.
 
 
     :param str flow_log_name: The name of the flow log resource.
@@ -266,10 +292,12 @@ def get_flow_log_output(flow_log_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getFlowLog', __args__, opts=opts, typ=GetFlowLogResult)
     return __ret__.apply(lambda __response__: GetFlowLogResult(
         enabled=pulumi.get(__response__, 'enabled'),
+        enabled_filtering_criteria=pulumi.get(__response__, 'enabled_filtering_criteria'),
         etag=pulumi.get(__response__, 'etag'),
         flow_analytics_configuration=pulumi.get(__response__, 'flow_analytics_configuration'),
         format=pulumi.get(__response__, 'format'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

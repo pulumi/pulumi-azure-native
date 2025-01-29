@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a server trust group.
  * Azure REST API version: 2021-11-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2024-05-01-preview.
  */
 export function getServerTrustGroup(args: GetServerTrustGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTrustGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,7 +66,7 @@ export interface GetServerTrustGroupResult {
  * Gets a server trust group.
  * Azure REST API version: 2021-11-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2024-05-01-preview.
  */
 export function getServerTrustGroupOutput(args: GetServerTrustGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerTrustGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

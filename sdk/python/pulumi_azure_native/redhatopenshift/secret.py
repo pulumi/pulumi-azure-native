@@ -99,9 +99,9 @@ class Secret(pulumi.CustomResource):
                  __props__=None):
         """
         Secret represents a secret.
-        Azure REST API version: 2022-09-04.
+        Azure REST API version: 2023-11-22. Prior API version in Azure Native 2.x: 2022-09-04.
 
-        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        Other available API versions: 2022-09-04.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,9 +118,9 @@ class Secret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Secret represents a secret.
-        Azure REST API version: 2022-09-04.
+        Azure REST API version: 2023-11-22. Prior API version in Azure Native 2.x: 2022-09-04.
 
-        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        Other available API versions: 2022-09-04.
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.

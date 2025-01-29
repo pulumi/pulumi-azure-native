@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Inputs
         public Input<string>? Content { get; set; }
 
         /// <summary>
+        /// The direction of the schema.
+        /// </summary>
+        [Input("direction")]
+        public InputUnion<string, Pulumi.AzureNative.AzureDataTransfer.SchemaDirection>? Direction { get; set; }
+
+        /// <summary>
         /// ID associated with this schema
         /// </summary>
         [Input("id")]
@@ -38,6 +44,18 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Inputs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The Schema Type
+        /// </summary>
+        [Input("schemaType")]
+        public InputUnion<string, Pulumi.AzureNative.AzureDataTransfer.SchemaType>? SchemaType { get; set; }
+
+        /// <summary>
+        /// Uri containing SAS token for the zipped schema
+        /// </summary>
+        [Input("schemaUri")]
+        public Input<string>? SchemaUri { get; set; }
 
         /// <summary>
         /// Status of the schema

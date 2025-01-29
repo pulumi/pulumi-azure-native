@@ -543,9 +543,9 @@ class Disk(pulumi.CustomResource):
                  __props__=None):
         """
         Disk resource.
-        Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2024-03-02. Prior API version in Azure Native 2.x: 2022-07-02.
 
-        Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        Other available API versions: 2022-07-02.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -588,9 +588,9 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Disk resource.
-        Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2024-03-02. Prior API version in Azure Native 2.x: 2022-07-02.
 
-        Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        Other available API versions: 2022-07-02.
 
         :param str resource_name: The name of the resource.
         :param DiskArgs args: The arguments to use to populate this resource's properties.
@@ -683,6 +683,7 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["bursting_enabled_time"] = None
             __props__.__dict__["disk_size_bytes"] = None
             __props__.__dict__["disk_state"] = None
+            __props__.__dict__["last_ownership_update_time"] = None
             __props__.__dict__["managed_by"] = None
             __props__.__dict__["managed_by_extended"] = None
             __props__.__dict__["name"] = None
@@ -733,6 +734,7 @@ class Disk(pulumi.CustomResource):
         __props__.__dict__["encryption_settings_collection"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["hyper_v_generation"] = None
+        __props__.__dict__["last_ownership_update_time"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["managed_by"] = None
         __props__.__dict__["managed_by_extended"] = None
@@ -893,6 +895,14 @@ class Disk(pulumi.CustomResource):
         The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         """
         return pulumi.get(self, "hyper_v_generation")
+
+    @property
+    @pulumi.getter(name="lastOwnershipUpdateTime")
+    def last_ownership_update_time(self) -> pulumi.Output[str]:
+        """
+        The UTC time when the ownership state of the disk was last changed i.e., the time the disk was last attached or detached from a VM or the time when the VM to which the disk was attached was deallocated or started.
+        """
+        return pulumi.get(self, "last_ownership_update_time")
 
     @property
     @pulumi.getter

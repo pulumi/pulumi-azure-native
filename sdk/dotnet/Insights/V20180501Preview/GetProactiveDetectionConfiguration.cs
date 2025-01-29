@@ -88,37 +88,21 @@ namespace Pulumi.AzureNative.Insights.V20180501Preview
     public sealed class GetProactiveDetectionConfigurationResult
     {
         /// <summary>
-        /// Custom email addresses for this rule notifications
-        /// </summary>
-        public readonly ImmutableArray<string> CustomEmails;
-        /// <summary>
-        /// A flag that indicates whether this rule is enabled by the user
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
         /// Azure resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The last time this rule was updated
-        /// </summary>
-        public readonly string LastUpdatedTime;
         /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The rule name
+        /// Azure resource name
         /// </summary>
-        public readonly string Name;
+        public readonly string? Name;
         /// <summary>
-        /// Static definitions of the ProactiveDetection configuration rule (same values for all components).
+        /// Properties that define a ProactiveDetection configuration.
         /// </summary>
-        public readonly Outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions? RuleDefinitions;
-        /// <summary>
-        /// A flag that indicated whether notifications on this rule should be sent to subscription owners
-        /// </summary>
-        public readonly bool? SendEmailsToSubscriptionOwners;
+        public readonly Outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponse Properties;
         /// <summary>
         /// Azure resource type
         /// </summary>
@@ -126,32 +110,20 @@ namespace Pulumi.AzureNative.Insights.V20180501Preview
 
         [OutputConstructor]
         private GetProactiveDetectionConfigurationResult(
-            ImmutableArray<string> customEmails,
-
-            bool? enabled,
-
             string id,
-
-            string lastUpdatedTime,
 
             string? location,
 
-            string name,
+            string? name,
 
-            Outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions? ruleDefinitions,
-
-            bool? sendEmailsToSubscriptionOwners,
+            Outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponse properties,
 
             string type)
         {
-            CustomEmails = customEmails;
-            Enabled = enabled;
             Id = id;
-            LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;
-            RuleDefinitions = ruleDefinitions;
-            SendEmailsToSubscriptionOwners = sendEmailsToSubscriptionOwners;
+            Properties = properties;
             Type = type;
         }
     }

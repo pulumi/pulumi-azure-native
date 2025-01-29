@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contains information about a database Threat Detection policy.
- * Azure REST API version: 2014-04-01.
+ * Azure REST API version: 2014-04-01. Prior API version in Azure Native 2.x: 2014-04-01.
  */
 export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
     /**

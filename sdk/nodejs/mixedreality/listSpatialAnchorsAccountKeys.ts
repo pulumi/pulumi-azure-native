@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * List Both of the 2 Keys of a Spatial Anchors Account
- * Azure REST API version: 2021-01-01.
+ * Azure REST API version: 2021-03-01-preview.
  *
- * Other available API versions: 2021-03-01-preview.
+ * Other available API versions: 2021-01-01.
  */
 export function listSpatialAnchorsAccountKeys(args: ListSpatialAnchorsAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSpatialAnchorsAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,9 +44,9 @@ export interface ListSpatialAnchorsAccountKeysResult {
 }
 /**
  * List Both of the 2 Keys of a Spatial Anchors Account
- * Azure REST API version: 2021-01-01.
+ * Azure REST API version: 2021-03-01-preview.
  *
- * Other available API versions: 2021-03-01-preview.
+ * Other available API versions: 2021-01-01.
  */
 export function listSpatialAnchorsAccountKeysOutput(args: ListSpatialAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSpatialAnchorsAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

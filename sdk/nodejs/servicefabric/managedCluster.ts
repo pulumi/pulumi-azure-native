@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * The managed cluster resource
  *
- * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
  *
- * Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
  */
 export class ManagedCluster extends pulumi.CustomResource {
     /**
@@ -102,6 +102,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly clusterUpgradeMode!: pulumi.Output<string | undefined>;
     /**
+     * Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
+     */
+    public readonly ddosProtectionPlanId!: pulumi.Output<string | undefined>;
+    /**
      * The cluster dns name.
      */
     public readonly dnsName!: pulumi.Output<string>;
@@ -109,6 +113,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      * Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
      */
     public readonly enableAutoOSUpgrade!: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
+     */
+    public readonly enableHttpGatewayExclusiveAuthMode!: pulumi.Output<boolean | undefined>;
     /**
      * Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
      */
@@ -134,9 +142,13 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly httpGatewayConnectionPort!: pulumi.Output<number | undefined>;
     /**
+     * The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
+     */
+    public readonly httpGatewayTokenAuthConnectionPort!: pulumi.Output<number | undefined>;
+    /**
      * The list of IP tags associated with the default public IP address of the cluster.
      */
-    public readonly ipTags!: pulumi.Output<outputs.servicefabric.IPTagResponse[] | undefined>;
+    public readonly ipTags!: pulumi.Output<outputs.servicefabric.IpTagResponse[] | undefined>;
     /**
      * The IPv4 address associated with the public load balancer of the cluster.
      */
@@ -166,9 +178,13 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+     * Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
      */
     public readonly publicIPPrefixId!: pulumi.Output<string | undefined>;
+    /**
+     * Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
+     */
+    public readonly publicIPv6PrefixId!: pulumi.Output<string | undefined>;
     /**
      * Service endpoints for subnets in the cluster.
      */
@@ -193,6 +209,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      * Azure resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The policy to use when upgrading the cluster.
+     */
+    public readonly upgradeDescription!: pulumi.Output<outputs.servicefabric.ClusterUpgradePolicyResponse | undefined>;
     /**
      * For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
      */
@@ -242,22 +262,27 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["clusterUpgradeCadence"] = args ? args.clusterUpgradeCadence : undefined;
             resourceInputs["clusterUpgradeMode"] = args ? args.clusterUpgradeMode : undefined;
+            resourceInputs["ddosProtectionPlanId"] = args ? args.ddosProtectionPlanId : undefined;
             resourceInputs["dnsName"] = args ? args.dnsName : undefined;
             resourceInputs["enableAutoOSUpgrade"] = args ? args.enableAutoOSUpgrade : undefined;
+            resourceInputs["enableHttpGatewayExclusiveAuthMode"] = args ? args.enableHttpGatewayExclusiveAuthMode : undefined;
             resourceInputs["enableIpv6"] = args ? args.enableIpv6 : undefined;
             resourceInputs["enableServicePublicIP"] = args ? args.enableServicePublicIP : undefined;
             resourceInputs["fabricSettings"] = args ? args.fabricSettings : undefined;
             resourceInputs["httpGatewayConnectionPort"] = (args ? args.httpGatewayConnectionPort : undefined) ?? 19080;
+            resourceInputs["httpGatewayTokenAuthConnectionPort"] = args ? args.httpGatewayTokenAuthConnectionPort : undefined;
             resourceInputs["ipTags"] = args ? args.ipTags : undefined;
             resourceInputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkSecurityRules"] = args ? args.networkSecurityRules : undefined;
             resourceInputs["publicIPPrefixId"] = args ? args.publicIPPrefixId : undefined;
+            resourceInputs["publicIPv6PrefixId"] = args ? args.publicIPv6PrefixId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upgradeDescription"] = args ? (args.upgradeDescription ? pulumi.output(args.upgradeDescription).apply(inputs.servicefabric.clusterUpgradePolicyArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["useCustomVnet"] = args ? args.useCustomVnet : undefined;
             resourceInputs["zonalResiliency"] = (args ? args.zonalResiliency : undefined) ?? false;
             resourceInputs["zonalUpdateMode"] = args ? args.zonalUpdateMode : undefined;
@@ -288,14 +313,17 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["clusterState"] = undefined /*out*/;
             resourceInputs["clusterUpgradeCadence"] = undefined /*out*/;
             resourceInputs["clusterUpgradeMode"] = undefined /*out*/;
+            resourceInputs["ddosProtectionPlanId"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["enableAutoOSUpgrade"] = undefined /*out*/;
+            resourceInputs["enableHttpGatewayExclusiveAuthMode"] = undefined /*out*/;
             resourceInputs["enableIpv6"] = undefined /*out*/;
             resourceInputs["enableServicePublicIP"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fabricSettings"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["httpGatewayConnectionPort"] = undefined /*out*/;
+            resourceInputs["httpGatewayTokenAuthConnectionPort"] = undefined /*out*/;
             resourceInputs["ipTags"] = undefined /*out*/;
             resourceInputs["ipv4Address"] = undefined /*out*/;
             resourceInputs["ipv6Address"] = undefined /*out*/;
@@ -305,12 +333,14 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["networkSecurityRules"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicIPPrefixId"] = undefined /*out*/;
+            resourceInputs["publicIPv6PrefixId"] = undefined /*out*/;
             resourceInputs["serviceEndpoints"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["upgradeDescription"] = undefined /*out*/;
             resourceInputs["useCustomVnet"] = undefined /*out*/;
             resourceInputs["zonalResiliency"] = undefined /*out*/;
             resourceInputs["zonalUpdateMode"] = undefined /*out*/;
@@ -379,6 +409,10 @@ export interface ManagedClusterArgs {
      */
     clusterUpgradeMode?: pulumi.Input<string | enums.servicefabric.ClusterUpgradeMode>;
     /**
+     * Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
+     */
+    ddosProtectionPlanId?: pulumi.Input<string>;
+    /**
      * The cluster dns name.
      */
     dnsName: pulumi.Input<string>;
@@ -386,6 +420,10 @@ export interface ManagedClusterArgs {
      * Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
      */
     enableAutoOSUpgrade?: pulumi.Input<boolean>;
+    /**
+     * If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
+     */
+    enableHttpGatewayExclusiveAuthMode?: pulumi.Input<boolean>;
     /**
      * Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
      */
@@ -403,9 +441,13 @@ export interface ManagedClusterArgs {
      */
     httpGatewayConnectionPort?: pulumi.Input<number>;
     /**
+     * The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
+     */
+    httpGatewayTokenAuthConnectionPort?: pulumi.Input<number>;
+    /**
      * The list of IP tags associated with the default public IP address of the cluster.
      */
-    ipTags?: pulumi.Input<pulumi.Input<inputs.servicefabric.IPTagArgs>[]>;
+    ipTags?: pulumi.Input<pulumi.Input<inputs.servicefabric.IpTagArgs>[]>;
     /**
      * Load balancing rules that are applied to the public load balancer of the cluster.
      */
@@ -419,9 +461,13 @@ export interface ManagedClusterArgs {
      */
     networkSecurityRules?: pulumi.Input<pulumi.Input<inputs.servicefabric.NetworkSecurityRuleArgs>[]>;
     /**
-     * Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+     * Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
      */
     publicIPPrefixId?: pulumi.Input<string>;
+    /**
+     * Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
+     */
+    publicIPv6PrefixId?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -442,6 +488,10 @@ export interface ManagedClusterArgs {
      * Azure resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The policy to use when upgrading the cluster.
+     */
+    upgradeDescription?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicyArgs>;
     /**
      * For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
      */

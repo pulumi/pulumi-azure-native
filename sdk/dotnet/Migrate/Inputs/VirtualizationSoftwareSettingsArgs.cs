@@ -15,29 +15,11 @@ namespace Pulumi.AzureNative.Migrate.Inputs
     /// </summary>
     public sealed class VirtualizationSoftwareSettingsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("licenseAndSupportList", required: true)]
-        private InputList<Inputs.VsphereLicenseArgs>? _licenseAndSupportList;
-
         /// <summary>
-        /// Licence and support list.
+        /// VMware cloud foundation license cost.
         /// </summary>
-        public InputList<Inputs.VsphereLicenseArgs> LicenseAndSupportList
-        {
-            get => _licenseAndSupportList ?? (_licenseAndSupportList = new InputList<Inputs.VsphereLicenseArgs>());
-            set => _licenseAndSupportList = value;
-        }
-
-        /// <summary>
-        /// Number of physical cores per licence.
-        /// </summary>
-        [Input("numberOfPhysicalCoresPerLicense", required: true)]
-        public Input<int> NumberOfPhysicalCoresPerLicense { get; set; } = null!;
-
-        /// <summary>
-        /// Software Assurance cost.
-        /// </summary>
-        [Input("softwareAssuranceCost", required: true)]
-        public Input<double> SoftwareAssuranceCost { get; set; } = null!;
+        [Input("vMwareCloudFoundationLicenseCost", required: true)]
+        public Input<double> VMwareCloudFoundationLicenseCost { get; set; } = null!;
 
         public VirtualizationSoftwareSettingsArgs()
         {

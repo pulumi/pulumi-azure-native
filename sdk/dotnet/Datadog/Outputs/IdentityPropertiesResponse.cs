@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Datadog.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// Identity type
+        /// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
         /// </summary>
         public readonly string? Type;
 

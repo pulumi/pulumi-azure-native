@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly Outputs.ScheduledEventsProfileResponse? ScheduledEventsProfile;
         /// <summary>
-        /// Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
+        /// Specifies the security posture to be used in the scale set. Minimum api-version: 2023-03-01
         /// </summary>
         public readonly Outputs.SecurityPostureReferenceResponse? SecurityPostureReference;
         /// <summary>
@@ -80,6 +80,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// Specifies the storage settings for the virtual machine disks.
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetStorageProfileResponse? StorageProfile;
+        /// <summary>
+        /// Specifies the time in which this VM profile for the Virtual Machine Scale Set was created. This value will be added to VMSS Flex VM tags when creating/updating the VMSS VM Profile. Minimum API version for this property is 2023-09-01.
+        /// </summary>
+        public readonly string TimeCreated;
         /// <summary>
         /// UserData for the virtual machines in the scale set, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01.
         /// </summary>
@@ -119,6 +123,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             Outputs.VirtualMachineScaleSetStorageProfileResponse? storageProfile,
 
+            string timeCreated,
+
             string? userData)
         {
             ApplicationProfile = applicationProfile;
@@ -137,6 +143,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
             SecurityProfile = securityProfile;
             ServiceArtifactReference = serviceArtifactReference;
             StorageProfile = storageProfile;
+            TimeCreated = timeCreated;
             UserData = userData;
         }
     }

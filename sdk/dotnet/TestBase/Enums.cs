@@ -25,6 +25,7 @@ namespace Pulumi.AzureNative.TestBase
         public static Action Close { get; } = new Action("Close");
         public static Action Uninstall { get; } = new Action("Uninstall");
         public static Action Custom { get; } = new Action("Custom");
+        public static Action FlowDrivenCustom { get; } = new Action("FlowDrivenCustom");
 
         public static bool operator ==(Action left, Action right) => left.Equals(right);
         public static bool operator !=(Action left, Action right) => !left.Equals(right);
@@ -196,6 +197,43 @@ namespace Pulumi.AzureNative.TestBase
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Engagements other && Equals(other);
         public bool Equals(Engagements other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Resource type for file uploading.
+    /// </summary>
+    [EnumType]
+    public readonly struct FileUploadResourceType : IEquatable<FileUploadResourceType>
+    {
+        private readonly string _value;
+
+        private FileUploadResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Upload file for package onboarding.
+        /// </summary>
+        public static FileUploadResourceType Package { get; } = new FileUploadResourceType("Package");
+        /// <summary>
+        /// Upload VHD file for image onboarding.
+        /// </summary>
+        public static FileUploadResourceType VHD { get; } = new FileUploadResourceType("VHD");
+
+        public static bool operator ==(FileUploadResourceType left, FileUploadResourceType right) => left.Equals(right);
+        public static bool operator !=(FileUploadResourceType left, FileUploadResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(FileUploadResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FileUploadResourceType other && Equals(other);
+        public bool Equals(FileUploadResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -482,6 +520,37 @@ namespace Pulumi.AzureNative.TestBase
     }
 
     /// <summary>
+    /// Type of managed service identity (either system assigned, or none).
+    /// </summary>
+    [EnumType]
+    public readonly struct SystemAssignedServiceIdentityType : IEquatable<SystemAssignedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private SystemAssignedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SystemAssignedServiceIdentityType None { get; } = new SystemAssignedServiceIdentityType("None");
+        public static SystemAssignedServiceIdentityType SystemAssigned { get; } = new SystemAssignedServiceIdentityType("SystemAssigned");
+
+        public static bool operator ==(SystemAssignedServiceIdentityType left, SystemAssignedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(SystemAssignedServiceIdentityType left, SystemAssignedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(SystemAssignedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SystemAssignedServiceIdentityType other && Equals(other);
+        public bool Equals(SystemAssignedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the test.
     /// </summary>
     [EnumType]
@@ -496,6 +565,7 @@ namespace Pulumi.AzureNative.TestBase
 
         public static TestType OutOfBoxTest { get; } = new TestType("OutOfBoxTest");
         public static TestType FunctionalTest { get; } = new TestType("FunctionalTest");
+        public static TestType FlowDrivenTest { get; } = new TestType("FlowDrivenTest");
 
         public static bool operator ==(TestType left, TestType right) => left.Equals(right);
         public static bool operator !=(TestType left, TestType right) => !left.Equals(right);

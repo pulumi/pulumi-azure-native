@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
         /// </summary>
         public readonly string DomainNameLabel;
+        /// <summary>
+        /// The Domain name label scope.The concatenation of the hashed domain name label that generated according to the policy from domain name label scope and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+        /// </summary>
+        public readonly string? DomainNameLabelScope;
 
         [OutputConstructor]
-        private VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse(string domainNameLabel)
+        private VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse(
+            string domainNameLabel,
+
+            string? domainNameLabelScope)
         {
             DomainNameLabel = domainNameLabel;
+            DomainNameLabelScope = domainNameLabelScope;
         }
     }
 }

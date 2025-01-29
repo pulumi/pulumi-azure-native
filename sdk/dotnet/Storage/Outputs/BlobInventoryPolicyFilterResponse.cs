@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Storage.Outputs
         /// </summary>
         public readonly ImmutableArray<string> BlobTypes;
         /// <summary>
+        /// This property is used to filter objects based on the object creation time
+        /// </summary>
+        public readonly Outputs.BlobInventoryCreationTimeResponse? CreationTime;
+        /// <summary>
         /// An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
         /// </summary>
         public readonly ImmutableArray<string> ExcludePrefix;
@@ -45,6 +49,8 @@ namespace Pulumi.AzureNative.Storage.Outputs
         private BlobInventoryPolicyFilterResponse(
             ImmutableArray<string> blobTypes,
 
+            Outputs.BlobInventoryCreationTimeResponse? creationTime,
+
             ImmutableArray<string> excludePrefix,
 
             bool? includeBlobVersions,
@@ -56,6 +62,7 @@ namespace Pulumi.AzureNative.Storage.Outputs
             ImmutableArray<string> prefixMatch)
         {
             BlobTypes = blobTypes;
+            CreationTime = creationTime;
             ExcludePrefix = excludePrefix;
             IncludeBlobVersions = includeBlobVersions;
             IncludeDeleted = includeDeleted;

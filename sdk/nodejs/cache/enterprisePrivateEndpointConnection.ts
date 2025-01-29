@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * Azure REST API version: 2023-03-01-preview.
+ * Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2023-03-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+ * Other available API versions: 2023-03-01-preview, 2023-10-01-preview, 2024-10-01.
  */
 export class EnterprisePrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -57,10 +57,6 @@ export class EnterprisePrivateEndpointConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cache.SystemDataResponse>;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -92,14 +88,12 @@ export class EnterprisePrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -114,7 +108,7 @@ export class EnterprisePrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface EnterprisePrivateEndpointConnectionArgs {
     /**
-     * The name of the RedisEnterprise cluster.
+     * The name of the Redis Enterprise cluster.
      */
     clusterName: pulumi.Input<string>;
     /**

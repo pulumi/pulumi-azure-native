@@ -132,37 +132,6 @@ namespace Pulumi.AzureNative.Kusto.V20221229
     }
 
     /// <summary>
-    /// The name of blob storage event type to process.
-    /// </summary>
-    [EnumType]
-    public readonly struct BlobStorageEventType : IEquatable<BlobStorageEventType>
-    {
-        private readonly string _value;
-
-        private BlobStorageEventType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static BlobStorageEventType Microsoft_Storage_BlobCreated { get; } = new BlobStorageEventType("Microsoft.Storage.BlobCreated");
-        public static BlobStorageEventType Microsoft_Storage_BlobRenamed { get; } = new BlobStorageEventType("Microsoft.Storage.BlobRenamed");
-
-        public static bool operator ==(BlobStorageEventType left, BlobStorageEventType right) => left.Equals(right);
-        public static bool operator !=(BlobStorageEventType left, BlobStorageEventType right) => !left.Equals(right);
-
-        public static explicit operator string(BlobStorageEventType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is BlobStorageEventType other && Equals(other);
-        public bool Equals(BlobStorageEventType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
     /// </summary>
     [EnumType]
@@ -225,70 +194,6 @@ namespace Pulumi.AzureNative.Kusto.V20221229
     }
 
     /// <summary>
-    /// The event hub messages compression type
-    /// </summary>
-    [EnumType]
-    public readonly struct Compression : IEquatable<Compression>
-    {
-        private readonly string _value;
-
-        private Compression(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Compression None { get; } = new Compression("None");
-        public static Compression GZip { get; } = new Compression("GZip");
-
-        public static bool operator ==(Compression left, Compression right) => left.Equals(right);
-        public static bool operator !=(Compression left, Compression right) => !left.Equals(right);
-
-        public static explicit operator string(Compression value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Compression other && Equals(other);
-        public bool Equals(Compression other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Kind of the endpoint for the data connection
-    /// </summary>
-    [EnumType]
-    public readonly struct DataConnectionKind : IEquatable<DataConnectionKind>
-    {
-        private readonly string _value;
-
-        private DataConnectionKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DataConnectionKind EventHub { get; } = new DataConnectionKind("EventHub");
-        public static DataConnectionKind EventGrid { get; } = new DataConnectionKind("EventGrid");
-        public static DataConnectionKind IotHub { get; } = new DataConnectionKind("IotHub");
-        public static DataConnectionKind CosmosDb { get; } = new DataConnectionKind("CosmosDb");
-
-        public static bool operator ==(DataConnectionKind left, DataConnectionKind right) => left.Equals(right);
-        public static bool operator !=(DataConnectionKind left, DataConnectionKind right) => !left.Equals(right);
-
-        public static explicit operator string(DataConnectionKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataConnectionKind other && Equals(other);
-        public bool Equals(DataConnectionKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Database principal role.
     /// </summary>
     [EnumType]
@@ -316,37 +221,6 @@ namespace Pulumi.AzureNative.Kusto.V20221229
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DatabasePrincipalRole other && Equals(other);
         public bool Equals(DatabasePrincipalRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Indication for database routing information from the data connection, by default only database routing information is allowed
-    /// </summary>
-    [EnumType]
-    public readonly struct DatabaseRouting : IEquatable<DatabaseRouting>
-    {
-        private readonly string _value;
-
-        private DatabaseRouting(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DatabaseRouting Single { get; } = new DatabaseRouting("Single");
-        public static DatabaseRouting Multi { get; } = new DatabaseRouting("Multi");
-
-        public static bool operator ==(DatabaseRouting left, DatabaseRouting right) => left.Equals(right);
-        public static bool operator !=(DatabaseRouting left, DatabaseRouting right) => !left.Equals(right);
-
-        public static explicit operator string(DatabaseRouting value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DatabaseRouting other && Equals(other);
-        public bool Equals(DatabaseRouting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -418,96 +292,6 @@ namespace Pulumi.AzureNative.Kusto.V20221229
     }
 
     /// <summary>
-    /// The data format of the message. Optionally the data format can be added to each message.
-    /// </summary>
-    [EnumType]
-    public readonly struct EventGridDataFormat : IEquatable<EventGridDataFormat>
-    {
-        private readonly string _value;
-
-        private EventGridDataFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EventGridDataFormat MULTIJSON { get; } = new EventGridDataFormat("MULTIJSON");
-        public static EventGridDataFormat JSON { get; } = new EventGridDataFormat("JSON");
-        public static EventGridDataFormat CSV { get; } = new EventGridDataFormat("CSV");
-        public static EventGridDataFormat TSV { get; } = new EventGridDataFormat("TSV");
-        public static EventGridDataFormat SCSV { get; } = new EventGridDataFormat("SCSV");
-        public static EventGridDataFormat SOHSV { get; } = new EventGridDataFormat("SOHSV");
-        public static EventGridDataFormat PSV { get; } = new EventGridDataFormat("PSV");
-        public static EventGridDataFormat TXT { get; } = new EventGridDataFormat("TXT");
-        public static EventGridDataFormat RAW { get; } = new EventGridDataFormat("RAW");
-        public static EventGridDataFormat SINGLEJSON { get; } = new EventGridDataFormat("SINGLEJSON");
-        public static EventGridDataFormat AVRO { get; } = new EventGridDataFormat("AVRO");
-        public static EventGridDataFormat TSVE { get; } = new EventGridDataFormat("TSVE");
-        public static EventGridDataFormat PARQUET { get; } = new EventGridDataFormat("PARQUET");
-        public static EventGridDataFormat ORC { get; } = new EventGridDataFormat("ORC");
-        public static EventGridDataFormat APACHEAVRO { get; } = new EventGridDataFormat("APACHEAVRO");
-        public static EventGridDataFormat W3CLOGFILE { get; } = new EventGridDataFormat("W3CLOGFILE");
-
-        public static bool operator ==(EventGridDataFormat left, EventGridDataFormat right) => left.Equals(right);
-        public static bool operator !=(EventGridDataFormat left, EventGridDataFormat right) => !left.Equals(right);
-
-        public static explicit operator string(EventGridDataFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EventGridDataFormat other && Equals(other);
-        public bool Equals(EventGridDataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The data format of the message. Optionally the data format can be added to each message.
-    /// </summary>
-    [EnumType]
-    public readonly struct EventHubDataFormat : IEquatable<EventHubDataFormat>
-    {
-        private readonly string _value;
-
-        private EventHubDataFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EventHubDataFormat MULTIJSON { get; } = new EventHubDataFormat("MULTIJSON");
-        public static EventHubDataFormat JSON { get; } = new EventHubDataFormat("JSON");
-        public static EventHubDataFormat CSV { get; } = new EventHubDataFormat("CSV");
-        public static EventHubDataFormat TSV { get; } = new EventHubDataFormat("TSV");
-        public static EventHubDataFormat SCSV { get; } = new EventHubDataFormat("SCSV");
-        public static EventHubDataFormat SOHSV { get; } = new EventHubDataFormat("SOHSV");
-        public static EventHubDataFormat PSV { get; } = new EventHubDataFormat("PSV");
-        public static EventHubDataFormat TXT { get; } = new EventHubDataFormat("TXT");
-        public static EventHubDataFormat RAW { get; } = new EventHubDataFormat("RAW");
-        public static EventHubDataFormat SINGLEJSON { get; } = new EventHubDataFormat("SINGLEJSON");
-        public static EventHubDataFormat AVRO { get; } = new EventHubDataFormat("AVRO");
-        public static EventHubDataFormat TSVE { get; } = new EventHubDataFormat("TSVE");
-        public static EventHubDataFormat PARQUET { get; } = new EventHubDataFormat("PARQUET");
-        public static EventHubDataFormat ORC { get; } = new EventHubDataFormat("ORC");
-        public static EventHubDataFormat APACHEAVRO { get; } = new EventHubDataFormat("APACHEAVRO");
-        public static EventHubDataFormat W3CLOGFILE { get; } = new EventHubDataFormat("W3CLOGFILE");
-
-        public static bool operator ==(EventHubDataFormat left, EventHubDataFormat right) => left.Equals(right);
-        public static bool operator !=(EventHubDataFormat left, EventHubDataFormat right) => !left.Equals(right);
-
-        public static explicit operator string(EventHubDataFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EventHubDataFormat other && Equals(other);
-        public bool Equals(EventHubDataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
     /// </summary>
     [EnumType]
@@ -533,82 +317,6 @@ namespace Pulumi.AzureNative.Kusto.V20221229
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
         public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The data format of the message. Optionally the data format can be added to each message.
-    /// </summary>
-    [EnumType]
-    public readonly struct IotHubDataFormat : IEquatable<IotHubDataFormat>
-    {
-        private readonly string _value;
-
-        private IotHubDataFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static IotHubDataFormat MULTIJSON { get; } = new IotHubDataFormat("MULTIJSON");
-        public static IotHubDataFormat JSON { get; } = new IotHubDataFormat("JSON");
-        public static IotHubDataFormat CSV { get; } = new IotHubDataFormat("CSV");
-        public static IotHubDataFormat TSV { get; } = new IotHubDataFormat("TSV");
-        public static IotHubDataFormat SCSV { get; } = new IotHubDataFormat("SCSV");
-        public static IotHubDataFormat SOHSV { get; } = new IotHubDataFormat("SOHSV");
-        public static IotHubDataFormat PSV { get; } = new IotHubDataFormat("PSV");
-        public static IotHubDataFormat TXT { get; } = new IotHubDataFormat("TXT");
-        public static IotHubDataFormat RAW { get; } = new IotHubDataFormat("RAW");
-        public static IotHubDataFormat SINGLEJSON { get; } = new IotHubDataFormat("SINGLEJSON");
-        public static IotHubDataFormat AVRO { get; } = new IotHubDataFormat("AVRO");
-        public static IotHubDataFormat TSVE { get; } = new IotHubDataFormat("TSVE");
-        public static IotHubDataFormat PARQUET { get; } = new IotHubDataFormat("PARQUET");
-        public static IotHubDataFormat ORC { get; } = new IotHubDataFormat("ORC");
-        public static IotHubDataFormat APACHEAVRO { get; } = new IotHubDataFormat("APACHEAVRO");
-        public static IotHubDataFormat W3CLOGFILE { get; } = new IotHubDataFormat("W3CLOGFILE");
-
-        public static bool operator ==(IotHubDataFormat left, IotHubDataFormat right) => left.Equals(right);
-        public static bool operator !=(IotHubDataFormat left, IotHubDataFormat right) => !left.Equals(right);
-
-        public static explicit operator string(IotHubDataFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IotHubDataFormat other && Equals(other);
-        public bool Equals(IotHubDataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Kind of the database
-    /// </summary>
-    [EnumType]
-    public readonly struct Kind : IEquatable<Kind>
-    {
-        private readonly string _value;
-
-        private Kind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Kind ReadWrite { get; } = new Kind("ReadWrite");
-        public static Kind ReadOnlyFollowing { get; } = new Kind("ReadOnlyFollowing");
-
-        public static bool operator ==(Kind left, Kind right) => left.Equals(right);
-        public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
-
-        public static explicit operator string(Kind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Kind other && Equals(other);
-        public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A container group.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-05-01.
  *
- * Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2024-05-01-preview, 2024-09-01-preview, 2024-10-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2023-05-01, 2024-05-01-preview, 2024-11-01-preview.
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**
@@ -112,6 +112,10 @@ export class ContainerGroup extends pulumi.CustomResource {
      */
     public readonly restartPolicy!: pulumi.Output<string | undefined>;
     /**
+     * The secret references that will be referenced within the container group.
+     */
+    public readonly secretReferences!: pulumi.Output<outputs.containerinstance.SecretReferenceResponse[] | undefined>;
+    /**
      * The SKU for a container group.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
@@ -172,6 +176,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
+            resourceInputs["secretReferences"] = args ? args.secretReferences : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -199,6 +204,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["restartPolicy"] = undefined /*out*/;
+            resourceInputs["secretReferences"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -284,6 +290,10 @@ export interface ContainerGroupArgs {
      * - `Never` Never restart
      */
     restartPolicy?: pulumi.Input<string | enums.containerinstance.ContainerGroupRestartPolicy>;
+    /**
+     * The secret references that will be referenced within the container group.
+     */
+    secretReferences?: pulumi.Input<pulumi.Input<inputs.containerinstance.SecretReferenceArgs>[]>;
     /**
      * The SKU for a container group.
      */

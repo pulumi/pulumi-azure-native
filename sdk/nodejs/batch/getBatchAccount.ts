@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified Batch account.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+ * Other available API versions: 2022-01-01, 2023-05-01.
  */
 export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -125,9 +125,9 @@ export interface GetBatchAccountResult {
 }
 /**
  * Gets information about the specified Batch account.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+ * Other available API versions: 2022-01-01, 2023-05-01.
  */
 export function getBatchAccountOutput(args: GetBatchAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBatchAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

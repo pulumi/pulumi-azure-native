@@ -42,37 +42,21 @@ export interface GetProactiveDetectionConfigurationArgs {
  */
 export interface GetProactiveDetectionConfigurationResult {
     /**
-     * Custom email addresses for this rule notifications
-     */
-    readonly customEmails?: string[];
-    /**
-     * A flag that indicates whether this rule is enabled by the user
-     */
-    readonly enabled?: boolean;
-    /**
      * Azure resource Id
      */
     readonly id: string;
-    /**
-     * The last time this rule was updated
-     */
-    readonly lastUpdatedTime: string;
     /**
      * Resource location
      */
     readonly location?: string;
     /**
-     * The rule name
+     * Azure resource name
      */
-    readonly name: string;
+    readonly name?: string;
     /**
-     * Static definitions of the ProactiveDetection configuration rule (same values for all components).
+     * Properties that define a ProactiveDetection configuration.
      */
-    readonly ruleDefinitions?: outputs.insights.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions;
-    /**
-     * A flag that indicated whether notifications on this rule should be sent to subscription owners
-     */
-    readonly sendEmailsToSubscriptionOwners?: boolean;
+    readonly properties: outputs.insights.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponse;
     /**
      * Azure resource type
      */

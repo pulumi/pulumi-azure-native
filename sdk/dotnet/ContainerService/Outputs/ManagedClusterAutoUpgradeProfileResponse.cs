@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class ManagedClusterAutoUpgradeProfileResponse
     {
         /// <summary>
+        /// Manner in which the OS on your nodes is updated. The default is NodeImage.
+        /// </summary>
+        public readonly string? NodeOSUpgradeChannel;
+        /// <summary>
         /// For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         /// </summary>
         public readonly string? UpgradeChannel;
 
         [OutputConstructor]
-        private ManagedClusterAutoUpgradeProfileResponse(string? upgradeChannel)
+        private ManagedClusterAutoUpgradeProfileResponse(
+            string? nodeOSUpgradeChannel,
+
+            string? upgradeChannel)
         {
+            NodeOSUpgradeChannel = nodeOSUpgradeChannel;
             UpgradeChannel = upgradeChannel;
         }
     }

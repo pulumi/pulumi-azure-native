@@ -6,9 +6,6 @@ from enum import Enum
 
 __all__ = [
     'AlertRuleCreationProperties',
-    'KustoOfferingType',
-    'ManagedServiceIdentityType',
-    'TargetAuthenticationType',
 ]
 
 
@@ -23,46 +20,4 @@ class AlertRuleCreationProperties(str, Enum):
     NONE = "None"
     """
     The alert rule was created with no properties.
-    """
-
-
-class KustoOfferingType(str, Enum):
-    """
-    The type of a Kusto offering.
-    """
-    ADX = "adx"
-    """
-    The Azure Data Explorer cluster Kusto offering.
-    """
-    FREE = "free"
-    """
-    The free Azure Data Explorer cluster Kusto offering.
-    """
-    FABRIC = "fabric"
-    """
-    The Fabric Real-Time Analytics Kusto offering.
-    """
-
-
-class ManagedServiceIdentityType(str, Enum):
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
-
-
-class TargetAuthenticationType(str, Enum):
-    """
-    The type of authentication to use when connecting to a target.
-    """
-    AAD = "Aad"
-    """
-    The Azure Active Directory authentication.
-    """
-    SQL = "Sql"
-    """
-    The SQL password authentication.
     """

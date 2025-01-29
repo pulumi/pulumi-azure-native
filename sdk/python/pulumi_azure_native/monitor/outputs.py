@@ -19,17 +19,21 @@ from ._enums import *
 __all__ = [
     'AzureMonitorWorkspaceLogsApiConfigResponse',
     'AzureMonitorWorkspaceLogsExporterResponse',
-    'AzureMonitorWorkspaceResponseDefaultIngestionSettings',
-    'AzureMonitorWorkspaceResponseMetrics',
     'AzureResourceManagerCommonTypesExtendedLocationResponse',
     'BatchProcessorResponse',
     'CacheConfigurationResponse',
     'ConcurrencyConfigurationResponse',
     'ExporterResponse',
+    'IngestionSettingsResponse',
+    'JsonArrayMapperResponse',
+    'JsonMapperDestinationFieldResponse',
+    'JsonMapperSourceFieldResponse',
+    'MetricsResponse',
     'NetworkingConfigurationResponse',
     'NetworkingRouteResponse',
     'OtlpReceiverResponse',
     'PersistenceConfigurationsResponse',
+    'PipelineGroupPropertiesResponse',
     'PipelineResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -165,110 +169,6 @@ class AzureMonitorWorkspaceLogsExporterResponse(dict):
         Concurrency configuration for the exporter.
         """
         return pulumi.get(self, "concurrency")
-
-
-@pulumi.output_type
-class AzureMonitorWorkspaceResponseDefaultIngestionSettings(dict):
-    """
-    The Data Collection Rule and Endpoint used for ingestion by default.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dataCollectionEndpointResourceId":
-            suggest = "data_collection_endpoint_resource_id"
-        elif key == "dataCollectionRuleResourceId":
-            suggest = "data_collection_rule_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorWorkspaceResponseDefaultIngestionSettings. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AzureMonitorWorkspaceResponseDefaultIngestionSettings.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AzureMonitorWorkspaceResponseDefaultIngestionSettings.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 data_collection_endpoint_resource_id: str,
-                 data_collection_rule_resource_id: str):
-        """
-        The Data Collection Rule and Endpoint used for ingestion by default.
-        :param str data_collection_endpoint_resource_id: The Azure resource Id of the default data collection endpoint for this Azure Monitor Workspace.
-        :param str data_collection_rule_resource_id: The Azure resource Id of the default data collection rule for this Azure Monitor Workspace.
-        """
-        pulumi.set(__self__, "data_collection_endpoint_resource_id", data_collection_endpoint_resource_id)
-        pulumi.set(__self__, "data_collection_rule_resource_id", data_collection_rule_resource_id)
-
-    @property
-    @pulumi.getter(name="dataCollectionEndpointResourceId")
-    def data_collection_endpoint_resource_id(self) -> str:
-        """
-        The Azure resource Id of the default data collection endpoint for this Azure Monitor Workspace.
-        """
-        return pulumi.get(self, "data_collection_endpoint_resource_id")
-
-    @property
-    @pulumi.getter(name="dataCollectionRuleResourceId")
-    def data_collection_rule_resource_id(self) -> str:
-        """
-        The Azure resource Id of the default data collection rule for this Azure Monitor Workspace.
-        """
-        return pulumi.get(self, "data_collection_rule_resource_id")
-
-
-@pulumi.output_type
-class AzureMonitorWorkspaceResponseMetrics(dict):
-    """
-    Properties related to the metrics container in the Azure Monitor Workspace
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "internalId":
-            suggest = "internal_id"
-        elif key == "prometheusQueryEndpoint":
-            suggest = "prometheus_query_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorWorkspaceResponseMetrics. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AzureMonitorWorkspaceResponseMetrics.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AzureMonitorWorkspaceResponseMetrics.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 internal_id: str,
-                 prometheus_query_endpoint: str):
-        """
-        Properties related to the metrics container in the Azure Monitor Workspace
-        :param str internal_id: An internal identifier for the metrics container. Only to be used by the system
-        :param str prometheus_query_endpoint: The Prometheus query endpoint for the Azure Monitor Workspace
-        """
-        pulumi.set(__self__, "internal_id", internal_id)
-        pulumi.set(__self__, "prometheus_query_endpoint", prometheus_query_endpoint)
-
-    @property
-    @pulumi.getter(name="internalId")
-    def internal_id(self) -> str:
-        """
-        An internal identifier for the metrics container. Only to be used by the system
-        """
-        return pulumi.get(self, "internal_id")
-
-    @property
-    @pulumi.getter(name="prometheusQueryEndpoint")
-    def prometheus_query_endpoint(self) -> str:
-        """
-        The Prometheus query endpoint for the Azure Monitor Workspace
-        """
-        return pulumi.get(self, "prometheus_query_endpoint")
 
 
 @pulumi.output_type
@@ -547,6 +447,269 @@ class ExporterResponse(dict):
 
 
 @pulumi.output_type
+class IngestionSettingsResponse(dict):
+    """
+    Settings for data ingestion
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataCollectionEndpointResourceId":
+            suggest = "data_collection_endpoint_resource_id"
+        elif key == "dataCollectionRuleResourceId":
+            suggest = "data_collection_rule_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IngestionSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IngestionSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IngestionSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_collection_endpoint_resource_id: str,
+                 data_collection_rule_resource_id: str):
+        """
+        Settings for data ingestion
+        :param str data_collection_endpoint_resource_id: The Azure resource Id of the default data collection endpoint for this workspace.
+        :param str data_collection_rule_resource_id: The Azure resource Id of the default data collection rule for this workspace.
+        """
+        pulumi.set(__self__, "data_collection_endpoint_resource_id", data_collection_endpoint_resource_id)
+        pulumi.set(__self__, "data_collection_rule_resource_id", data_collection_rule_resource_id)
+
+    @property
+    @pulumi.getter(name="dataCollectionEndpointResourceId")
+    def data_collection_endpoint_resource_id(self) -> str:
+        """
+        The Azure resource Id of the default data collection endpoint for this workspace.
+        """
+        return pulumi.get(self, "data_collection_endpoint_resource_id")
+
+    @property
+    @pulumi.getter(name="dataCollectionRuleResourceId")
+    def data_collection_rule_resource_id(self) -> str:
+        """
+        The Azure resource Id of the default data collection rule for this workspace.
+        """
+        return pulumi.get(self, "data_collection_rule_resource_id")
+
+
+@pulumi.output_type
+class JsonArrayMapperResponse(dict):
+    """
+    A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationField":
+            suggest = "destination_field"
+        elif key == "sourceField":
+            suggest = "source_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JsonArrayMapperResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JsonArrayMapperResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JsonArrayMapperResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 keys: Sequence[str],
+                 destination_field: Optional['outputs.JsonMapperDestinationFieldResponse'] = None,
+                 source_field: Optional['outputs.JsonMapperSourceFieldResponse'] = None):
+        """
+        A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
+        :param Sequence[str] keys: Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
+        :param 'JsonMapperDestinationFieldResponse' destination_field: Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
+        :param 'JsonMapperSourceFieldResponse' source_field: Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
+        """
+        pulumi.set(__self__, "keys", keys)
+        if destination_field is not None:
+            pulumi.set(__self__, "destination_field", destination_field)
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Sequence[str]:
+        """
+        Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
+        """
+        return pulumi.get(self, "keys")
+
+    @property
+    @pulumi.getter(name="destinationField")
+    def destination_field(self) -> Optional['outputs.JsonMapperDestinationFieldResponse']:
+        """
+        Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
+        """
+        return pulumi.get(self, "destination_field")
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional['outputs.JsonMapperSourceFieldResponse']:
+        """
+        Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
+        """
+        return pulumi.get(self, "source_field")
+
+
+@pulumi.output_type
+class JsonMapperDestinationFieldResponse(dict):
+    """
+    JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldName":
+            suggest = "field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JsonMapperDestinationFieldResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JsonMapperDestinationFieldResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JsonMapperDestinationFieldResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional[str] = None,
+                 field_name: Optional[str] = None):
+        """
+        JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
+        :param str destination: Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+        :param str field_name: Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
+        """
+        if destination is None:
+            destination = 'attributes'
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[str]:
+        """
+        Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> Optional[str]:
+        """
+        Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
+        """
+        return pulumi.get(self, "field_name")
+
+
+@pulumi.output_type
+class JsonMapperSourceFieldResponse(dict):
+    """
+    JsonArrayMapper source field used to describe the field from which the json array will be read.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldName":
+            suggest = "field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JsonMapperSourceFieldResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JsonMapperSourceFieldResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JsonMapperSourceFieldResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_name: Optional[str] = None):
+        """
+        JsonArrayMapper source field used to describe the field from which the json array will be read.
+        :param str field_name: Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
+        """
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> Optional[str]:
+        """
+        Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
+        """
+        return pulumi.get(self, "field_name")
+
+
+@pulumi.output_type
+class MetricsResponse(dict):
+    """
+    Information about metrics for the workspace
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "internalId":
+            suggest = "internal_id"
+        elif key == "prometheusQueryEndpoint":
+            suggest = "prometheus_query_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 internal_id: str,
+                 prometheus_query_endpoint: str):
+        """
+        Information about metrics for the workspace
+        :param str internal_id: An internal identifier for the metrics container. Only to be used by the system
+        :param str prometheus_query_endpoint: The Prometheus query endpoint for the workspace
+        """
+        pulumi.set(__self__, "internal_id", internal_id)
+        pulumi.set(__self__, "prometheus_query_endpoint", prometheus_query_endpoint)
+
+    @property
+    @pulumi.getter(name="internalId")
+    def internal_id(self) -> str:
+        """
+        An internal identifier for the metrics container. Only to be used by the system
+        """
+        return pulumi.get(self, "internal_id")
+
+    @property
+    @pulumi.getter(name="prometheusQueryEndpoint")
+    def prometheus_query_endpoint(self) -> str:
+        """
+        The Prometheus query endpoint for the workspace
+        """
+        return pulumi.get(self, "prometheus_query_endpoint")
+
+
+@pulumi.output_type
 class NetworkingConfigurationResponse(dict):
     """
     Networking configuration for the pipeline group instance.
@@ -725,6 +888,115 @@ class PersistenceConfigurationsResponse(dict):
         The name of the mounted persistent volume.
         """
         return pulumi.get(self, "persistent_volume_name")
+
+
+@pulumi.output_type
+class PipelineGroupPropertiesResponse(dict):
+    """
+    Properties that need to be specified to create a new pipeline group instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "networkingConfigurations":
+            suggest = "networking_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineGroupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineGroupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineGroupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exporters: Sequence['outputs.ExporterResponse'],
+                 processors: Sequence['outputs.ProcessorResponse'],
+                 provisioning_state: str,
+                 receivers: Sequence['outputs.ReceiverResponse'],
+                 service: 'outputs.ServiceResponse',
+                 networking_configurations: Optional[Sequence['outputs.NetworkingConfigurationResponse']] = None,
+                 replicas: Optional[int] = None):
+        """
+        Properties that need to be specified to create a new pipeline group instance.
+        :param Sequence['ExporterResponse'] exporters: The exporters specified for a pipeline group instance.
+        :param Sequence['ProcessorResponse'] processors: The processors specified for a pipeline group instance.
+        :param str provisioning_state: The provisioning state of a pipeline group instance. Set to Succeeded if everything is healthy.
+        :param Sequence['ReceiverResponse'] receivers: The receivers specified for a pipeline group instance.
+        :param 'ServiceResponse' service: The service section for a given pipeline group instance.
+        :param Sequence['NetworkingConfigurationResponse'] networking_configurations: Networking configurations for the pipeline group instance.
+        :param int replicas: Defines the amount of replicas of the pipeline group instance.
+        """
+        pulumi.set(__self__, "exporters", exporters)
+        pulumi.set(__self__, "processors", processors)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "receivers", receivers)
+        pulumi.set(__self__, "service", service)
+        if networking_configurations is not None:
+            pulumi.set(__self__, "networking_configurations", networking_configurations)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+
+    @property
+    @pulumi.getter
+    def exporters(self) -> Sequence['outputs.ExporterResponse']:
+        """
+        The exporters specified for a pipeline group instance.
+        """
+        return pulumi.get(self, "exporters")
+
+    @property
+    @pulumi.getter
+    def processors(self) -> Sequence['outputs.ProcessorResponse']:
+        """
+        The processors specified for a pipeline group instance.
+        """
+        return pulumi.get(self, "processors")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of a pipeline group instance. Set to Succeeded if everything is healthy.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def receivers(self) -> Sequence['outputs.ReceiverResponse']:
+        """
+        The receivers specified for a pipeline group instance.
+        """
+        return pulumi.get(self, "receivers")
+
+    @property
+    @pulumi.getter
+    def service(self) -> 'outputs.ServiceResponse':
+        """
+        The service section for a given pipeline group instance.
+        """
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter(name="networkingConfigurations")
+    def networking_configurations(self) -> Optional[Sequence['outputs.NetworkingConfigurationResponse']]:
+        """
+        Networking configurations for the pipeline group instance.
+        """
+        return pulumi.get(self, "networking_configurations")
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Optional[int]:
+        """
+        Defines the amount of replicas of the pipeline group instance.
+        """
+        return pulumi.get(self, "replicas")
 
 
 @pulumi.output_type
@@ -1546,7 +1818,9 @@ class UdpReceiverResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "readQueueLength":
+        if key == "jsonArrayMapper":
+            suggest = "json_array_mapper"
+        elif key == "readQueueLength":
             suggest = "read_queue_length"
 
         if suggest:
@@ -1563,11 +1837,13 @@ class UdpReceiverResponse(dict):
     def __init__(__self__, *,
                  endpoint: str,
                  encoding: Optional[str] = None,
+                 json_array_mapper: Optional['outputs.JsonArrayMapperResponse'] = None,
                  read_queue_length: Optional[int] = None):
         """
         Receiver using UDP as transport protocol.
         :param str endpoint: TCP endpoint definition. Example: 0.0.0.0:<port>.
         :param str encoding: The encoding of the stream being received.
+        :param 'JsonArrayMapperResponse' json_array_mapper: Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
         :param int read_queue_length: Max read queue length.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -1575,6 +1851,8 @@ class UdpReceiverResponse(dict):
             encoding = 'nop'
         if encoding is not None:
             pulumi.set(__self__, "encoding", encoding)
+        if json_array_mapper is not None:
+            pulumi.set(__self__, "json_array_mapper", json_array_mapper)
         if read_queue_length is None:
             read_queue_length = 1000
         if read_queue_length is not None:
@@ -1595,6 +1873,14 @@ class UdpReceiverResponse(dict):
         The encoding of the stream being received.
         """
         return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter(name="jsonArrayMapper")
+    def json_array_mapper(self) -> Optional['outputs.JsonArrayMapperResponse']:
+        """
+        Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
+        """
+        return pulumi.get(self, "json_array_mapper")
 
     @property
     @pulumi.getter(name="readQueueLength")

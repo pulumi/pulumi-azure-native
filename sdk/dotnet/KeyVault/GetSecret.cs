@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.KeyVault
     {
         /// <summary>
         /// Gets the specified secret.  NOTE: This API is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-12-01-preview.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:keyvault:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified secret.  NOTE: This API is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-12-01-preview.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:keyvault:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified secret.  NOTE: This API is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-11-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-12-01-preview.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:keyvault:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());

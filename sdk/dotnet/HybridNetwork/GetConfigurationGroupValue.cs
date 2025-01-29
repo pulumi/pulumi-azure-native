@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Gets information about the specified hybrid configuration group values.
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-04-15.
         /// 
-        /// Other available API versions: 2024-04-15.
+        /// Other available API versions: 2023-09-01.
         /// </summary>
         public static Task<GetConfigurationGroupValueResult> InvokeAsync(GetConfigurationGroupValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationGroupValueResult>("azure-native:hybridnetwork:getConfigurationGroupValue", args ?? new GetConfigurationGroupValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified hybrid configuration group values.
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-04-15.
         /// 
-        /// Other available API versions: 2024-04-15.
+        /// Other available API versions: 2023-09-01.
         /// </summary>
         public static Output<GetConfigurationGroupValueResult> Invoke(GetConfigurationGroupValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationGroupValueResult>("azure-native:hybridnetwork:getConfigurationGroupValue", args ?? new GetConfigurationGroupValueInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified hybrid configuration group values.
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-04-15.
         /// 
-        /// Other available API versions: 2024-04-15.
+        /// Other available API versions: 2023-09-01.
         /// </summary>
         public static Output<GetConfigurationGroupValueResult> Invoke(GetConfigurationGroupValueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationGroupValueResult>("azure-native:hybridnetwork:getConfigurationGroupValue", args ?? new GetConfigurationGroupValueInvokeArgs(), options.WithDefaults());

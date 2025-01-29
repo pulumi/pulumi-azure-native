@@ -250,6 +250,11 @@ export const getMDATPDataConnector: typeof import("./getMDATPDataConnector").get
 export const getMDATPDataConnectorOutput: typeof import("./getMDATPDataConnector").getMDATPDataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getMDATPDataConnector","getMDATPDataConnectorOutput"], () => require("./getMDATPDataConnector"));
 
+export { GetMSTIDataConnectorArgs, GetMSTIDataConnectorResult, GetMSTIDataConnectorOutputArgs } from "./getMSTIDataConnector";
+export const getMSTIDataConnector: typeof import("./getMSTIDataConnector").getMSTIDataConnector = null as any;
+export const getMSTIDataConnectorOutput: typeof import("./getMSTIDataConnector").getMSTIDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getMSTIDataConnector","getMSTIDataConnectorOutput"], () => require("./getMSTIDataConnector"));
+
 export { GetMetadataArgs, GetMetadataResult, GetMetadataOutputArgs } from "./getMetadata";
 export const getMetadata: typeof import("./getMetadata").getMetadata = null as any;
 export const getMetadataOutput: typeof import("./getMetadata").getMetadataOutput = null as any;
@@ -264,6 +269,16 @@ export { GetOfficeDataConnectorArgs, GetOfficeDataConnectorResult, GetOfficeData
 export const getOfficeDataConnector: typeof import("./getOfficeDataConnector").getOfficeDataConnector = null as any;
 export const getOfficeDataConnectorOutput: typeof import("./getOfficeDataConnector").getOfficeDataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getOfficeDataConnector","getOfficeDataConnectorOutput"], () => require("./getOfficeDataConnector"));
+
+export { GetPremiumMicrosoftDefenderForThreatIntelligenceArgs, GetPremiumMicrosoftDefenderForThreatIntelligenceResult, GetPremiumMicrosoftDefenderForThreatIntelligenceOutputArgs } from "./getPremiumMicrosoftDefenderForThreatIntelligence";
+export const getPremiumMicrosoftDefenderForThreatIntelligence: typeof import("./getPremiumMicrosoftDefenderForThreatIntelligence").getPremiumMicrosoftDefenderForThreatIntelligence = null as any;
+export const getPremiumMicrosoftDefenderForThreatIntelligenceOutput: typeof import("./getPremiumMicrosoftDefenderForThreatIntelligence").getPremiumMicrosoftDefenderForThreatIntelligenceOutput = null as any;
+utilities.lazyLoad(exports, ["getPremiumMicrosoftDefenderForThreatIntelligence","getPremiumMicrosoftDefenderForThreatIntelligenceOutput"], () => require("./getPremiumMicrosoftDefenderForThreatIntelligence"));
+
+export { GetRestApiPollerDataConnectorArgs, GetRestApiPollerDataConnectorResult, GetRestApiPollerDataConnectorOutputArgs } from "./getRestApiPollerDataConnector";
+export const getRestApiPollerDataConnector: typeof import("./getRestApiPollerDataConnector").getRestApiPollerDataConnector = null as any;
+export const getRestApiPollerDataConnectorOutput: typeof import("./getRestApiPollerDataConnector").getRestApiPollerDataConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getRestApiPollerDataConnector","getRestApiPollerDataConnectorOutput"], () => require("./getRestApiPollerDataConnector"));
 
 export { GetScheduledAlertRuleArgs, GetScheduledAlertRuleResult, GetScheduledAlertRuleOutputArgs } from "./getScheduledAlertRule";
 export const getScheduledAlertRule: typeof import("./getScheduledAlertRule").getScheduledAlertRule = null as any;
@@ -405,10 +420,25 @@ export type MicrosoftSecurityIncidentCreationAlertRule = import("./microsoftSecu
 export const MicrosoftSecurityIncidentCreationAlertRule: typeof import("./microsoftSecurityIncidentCreationAlertRule").MicrosoftSecurityIncidentCreationAlertRule = null as any;
 utilities.lazyLoad(exports, ["MicrosoftSecurityIncidentCreationAlertRule"], () => require("./microsoftSecurityIncidentCreationAlertRule"));
 
+export { MSTIDataConnectorArgs } from "./mstidataConnector";
+export type MSTIDataConnector = import("./mstidataConnector").MSTIDataConnector;
+export const MSTIDataConnector: typeof import("./mstidataConnector").MSTIDataConnector = null as any;
+utilities.lazyLoad(exports, ["MSTIDataConnector"], () => require("./mstidataConnector"));
+
 export { OfficeDataConnectorArgs } from "./officeDataConnector";
 export type OfficeDataConnector = import("./officeDataConnector").OfficeDataConnector;
 export const OfficeDataConnector: typeof import("./officeDataConnector").OfficeDataConnector = null as any;
 utilities.lazyLoad(exports, ["OfficeDataConnector"], () => require("./officeDataConnector"));
+
+export { PremiumMicrosoftDefenderForThreatIntelligenceArgs } from "./premiumMicrosoftDefenderForThreatIntelligence";
+export type PremiumMicrosoftDefenderForThreatIntelligence = import("./premiumMicrosoftDefenderForThreatIntelligence").PremiumMicrosoftDefenderForThreatIntelligence;
+export const PremiumMicrosoftDefenderForThreatIntelligence: typeof import("./premiumMicrosoftDefenderForThreatIntelligence").PremiumMicrosoftDefenderForThreatIntelligence = null as any;
+utilities.lazyLoad(exports, ["PremiumMicrosoftDefenderForThreatIntelligence"], () => require("./premiumMicrosoftDefenderForThreatIntelligence"));
+
+export { RestApiPollerDataConnectorArgs } from "./restApiPollerDataConnector";
+export type RestApiPollerDataConnector = import("./restApiPollerDataConnector").RestApiPollerDataConnector;
+export const RestApiPollerDataConnector: typeof import("./restApiPollerDataConnector").RestApiPollerDataConnector = null as any;
+utilities.lazyLoad(exports, ["RestApiPollerDataConnector"], () => require("./restApiPollerDataConnector"));
 
 export { ScheduledAlertRuleArgs } from "./scheduledAlertRule";
 export type ScheduledAlertRule = import("./scheduledAlertRule").ScheduledAlertRule;
@@ -608,12 +638,18 @@ const _module = {
                 return new MCASDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:MDATPDataConnector":
                 return new MDATPDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:MSTIDataConnector":
+                return new MSTIDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:Metadata":
                 return new Metadata(name, <any>undefined, { urn })
             case "azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule":
                 return new MicrosoftSecurityIncidentCreationAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:OfficeDataConnector":
                 return new OfficeDataConnector(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:PremiumMicrosoftDefenderForThreatIntelligence":
+                return new PremiumMicrosoftDefenderForThreatIntelligence(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:RestApiPollerDataConnector":
+                return new RestApiPollerDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:ScheduledAlertRule":
                 return new ScheduledAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:SentinelOnboardingState":

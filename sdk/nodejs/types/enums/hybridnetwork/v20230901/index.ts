@@ -135,17 +135,6 @@ export const NFVIType = {
  */
 export type NFVIType = (typeof NFVIType)[keyof typeof NFVIType];
 
-export const NetworkFunctionConfigurationType = {
-    Unknown: "Unknown",
-    Secret: "Secret",
-    Open: "Open",
-} as const;
-
-/**
- * The value which indicates if NF  values are secrets
- */
-export type NetworkFunctionConfigurationType = (typeof NetworkFunctionConfigurationType)[keyof typeof NetworkFunctionConfigurationType];
-
 export const NetworkFunctionType = {
     Unknown: "Unknown",
     VirtualNetworkFunction: "VirtualNetworkFunction",

@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AnalyticalStorageSchemaType',
     'AuthenticationMethod',
+    'AzureConnectionType',
     'BackupPolicyMigrationStatus',
     'BackupPolicyType',
     'BackupStorageRedundancy',
@@ -18,7 +19,9 @@ __all__ = [
     'DataType',
     'DatabaseAccountKind',
     'DatabaseAccountOfferType',
+    'DedicatedGatewayType',
     'DefaultConsistencyLevel',
+    'DistanceFunction',
     'IndexKind',
     'IndexingMode',
     'ManagedCassandraProvisioningState',
@@ -38,6 +41,8 @@ __all__ = [
     'SpatialType',
     'TriggerOperation',
     'TriggerType',
+    'VectorDataType',
+    'VectorIndexType',
 ]
 
 
@@ -56,6 +61,14 @@ class AuthenticationMethod(str, Enum):
     NONE = "None"
     CASSANDRA = "Cassandra"
     LDAP = "Ldap"
+
+
+class AzureConnectionType(str, Enum):
+    """
+    How to connect to the azure services needed for running the cluster
+    """
+    NONE = "None"
+    VPN = "VPN"
 
 
 class BackupPolicyMigrationStatus(str, Enum):
@@ -118,10 +131,10 @@ class ContinuousTier(str, Enum):
 
 class CreateMode(str, Enum):
     """
-    The mode to create a mongo cluster.
+    Enum to indicate the mode of resource creation.
     """
     DEFAULT = "Default"
-    POINT_IN_TIME_RESTORE = "PointInTimeRestore"
+    RESTORE = "Restore"
 
 
 class DataType(str, Enum):
@@ -152,6 +165,14 @@ class DatabaseAccountOfferType(str, Enum):
     STANDARD = "Standard"
 
 
+class DedicatedGatewayType(str, Enum):
+    """
+    DedicatedGatewayType for the service.
+    """
+    INTEGRATED_CACHE = "IntegratedCache"
+    DISTRIBUTED_QUERY = "DistributedQuery"
+
+
 class DefaultConsistencyLevel(str, Enum):
     """
     The default consistency level and configuration settings of the Cosmos DB account.
@@ -161,6 +182,15 @@ class DefaultConsistencyLevel(str, Enum):
     BOUNDED_STALENESS = "BoundedStaleness"
     STRONG = "Strong"
     CONSISTENT_PREFIX = "ConsistentPrefix"
+
+
+class DistanceFunction(str, Enum):
+    """
+    The distance function to use for distance calculation in between vectors.
+    """
+    EUCLIDEAN = "euclidean"
+    COSINE = "cosine"
+    DOTPRODUCT = "dotproduct"
 
 
 class IndexKind(str, Enum):
@@ -278,12 +308,15 @@ class RoleDefinitionType(str, Enum):
 
 class ServerVersion(str, Enum):
     """
-    Describes the ServerVersion of an a MongoDB account.
+    Describes the version of the MongoDB account.
     """
     SERVER_VERSION_3_2 = "3.2"
     SERVER_VERSION_3_6 = "3.6"
     SERVER_VERSION_4_0 = "4.0"
     SERVER_VERSION_4_2 = "4.2"
+    SERVER_VERSION_5_0 = "5.0"
+    SERVER_VERSION_6_0 = "6.0"
+    SERVER_VERSION_7_0 = "7.0"
 
 
 class ServiceSize(str, Enum):
@@ -332,3 +365,21 @@ class TriggerType(str, Enum):
     """
     PRE = "Pre"
     POST = "Post"
+
+
+class VectorDataType(str, Enum):
+    """
+    Indicates the data type of vector.
+    """
+    FLOAT32 = "float32"
+    UINT8 = "uint8"
+    INT8 = "int8"
+
+
+class VectorIndexType(str, Enum):
+    """
+    The index type of the vector. Currently, flat, diskANN, and quantizedFlat are supported.
+    """
+    FLAT = "flat"
+    DISK_ANN = "diskANN"
+    QUANTIZED_FLAT = "quantizedFlat"

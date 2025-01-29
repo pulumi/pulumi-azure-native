@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.PrivateLinkServicePropertiesResponseAutoApproval? AutoApproval;
         /// <summary>
+        /// The destination IP address of the private link service.
+        /// </summary>
+        public readonly string? DestinationIPAddress;
+        /// <summary>
         /// Whether the private link service is enabled for proxy protocol or not.
         /// </summary>
         public readonly bool? EnableProxyProtocol;
@@ -91,6 +95,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             Outputs.PrivateLinkServicePropertiesResponseAutoApproval? autoApproval,
 
+            string? destinationIPAddress,
+
             bool? enableProxyProtocol,
 
             string etag,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         {
             Alias = alias;
             AutoApproval = autoApproval;
+            DestinationIPAddress = destinationIPAddress;
             EnableProxyProtocol = enableProxyProtocol;
             Etag = etag;
             ExtendedLocation = extendedLocation;

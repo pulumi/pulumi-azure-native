@@ -17,13 +17,35 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
     public sealed class ClusterPoolResourcePropertiesResponseNetworkProfile
     {
         /// <summary>
+        /// IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with private AKS clusters. So you cannot set enablePrivateApiServer to true and apiServerAuthorizedIpRanges at the same time. Currently, this property is not supported and please don't use it.
+        /// </summary>
+        public readonly ImmutableArray<string> ApiServerAuthorizedIpRanges;
+        /// <summary>
+        /// ClusterPool is based on AKS cluster. AKS cluster exposes the API server to public internet by default. If you set this property to true, a private AKS cluster will be created, and it will use private apiserver, which is not exposed to public internet.
+        /// </summary>
+        public readonly bool? EnablePrivateApiServer;
+        /// <summary>
+        /// This can only be set at cluster pool creation time and cannot be changed later. 
+        /// </summary>
+        public readonly string? OutboundType;
+        /// <summary>
         /// Cluster pool subnet resource id.
         /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]
-        private ClusterPoolResourcePropertiesResponseNetworkProfile(string subnetId)
+        private ClusterPoolResourcePropertiesResponseNetworkProfile(
+            ImmutableArray<string> apiServerAuthorizedIpRanges,
+
+            bool? enablePrivateApiServer,
+
+            string? outboundType,
+
+            string subnetId)
         {
+            ApiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
+            EnablePrivateApiServer = enablePrivateApiServer;
+            OutboundType = outboundType;
             SubnetId = subnetId;
         }
     }

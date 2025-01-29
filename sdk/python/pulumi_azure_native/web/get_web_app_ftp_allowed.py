@@ -102,9 +102,9 @@ def get_web_app_ftp_allowed(name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppFtpAllowedResult:
     """
     Description for Returns whether FTP is allowed on the site or not.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2020-10-01, 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -127,9 +127,9 @@ def get_web_app_ftp_allowed_output(name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppFtpAllowedResult]:
     """
     Description for Returns whether FTP is allowed on the site or not.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2020-10-01, 2022-09-01.
 
 
     :param str name: Name of the app.

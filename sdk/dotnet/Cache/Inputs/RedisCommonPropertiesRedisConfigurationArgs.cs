@@ -11,10 +11,16 @@ namespace Pulumi.AzureNative.Cache.Inputs
 {
 
     /// <summary>
-    /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+    /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
     /// </summary>
     public sealed class RedisCommonPropertiesRedisConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether AAD based authentication has been enabled or disabled for the cache
+        /// </summary>
+        [Input("aadEnabled")]
+        public Input<string>? AadEnabled { get; set; }
+
         /// <summary>
         /// Specifies whether the aof backup is enabled
         /// </summary>
@@ -62,6 +68,12 @@ namespace Pulumi.AzureNative.Cache.Inputs
         /// </summary>
         [Input("maxmemoryReserved")]
         public Input<string>? MaxmemoryReserved { get; set; }
+
+        /// <summary>
+        /// The keyspace events which should be monitored.
+        /// </summary>
+        [Input("notifyKeyspaceEvents")]
+        public Input<string>? NotifyKeyspaceEvents { get; set; }
 
         /// <summary>
         /// Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS

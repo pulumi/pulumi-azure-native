@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Gets information about a server.
-        /// Azure REST API version: 2022-01-01.
+        /// Azure REST API version: 2023-12-30.
         /// 
-        /// Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2020-07-01-preview, 2020-07-01-privatepreview, 2022-01-01, 2022-09-30-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbformysql:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a server.
-        /// Azure REST API version: 2022-01-01.
+        /// Azure REST API version: 2023-12-30.
         /// 
-        /// Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2020-07-01-preview, 2020-07-01-privatepreview, 2022-01-01, 2022-09-30-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbformysql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a server.
-        /// Azure REST API version: 2022-01-01.
+        /// Azure REST API version: 2023-12-30.
         /// 
-        /// Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2020-07-01-preview, 2020-07-01-privatepreview, 2022-01-01, 2022-09-30-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbformysql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -109,13 +109,17 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly Outputs.HighAvailabilityResponse? HighAvailability;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// The cmk identity for the server.
         /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
+        public readonly Outputs.MySQLServerIdentityResponse? Identity;
+        /// <summary>
+        /// Source properties for import from storage.
+        /// </summary>
+        public readonly Outputs.ImportSourcePropertiesResponse? ImportSourceProperties;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -133,6 +137,10 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly Outputs.NetworkResponse? Network;
         /// <summary>
+        /// PrivateEndpointConnections related properties of a server.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The maximum number of replicas that a primary server can have.
         /// </summary>
         public readonly int ReplicaCapacity;
@@ -143,7 +151,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
+        public readonly Outputs.MySQLServerSkuResponse? Sku;
         /// <summary>
         /// The source MySQL server id.
         /// </summary>
@@ -157,7 +165,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly Outputs.StorageResponse? Storage;
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -189,7 +197,9 @@ namespace Pulumi.AzureNative.DBforMySQL
 
             string id,
 
-            Outputs.IdentityResponse? identity,
+            Outputs.MySQLServerIdentityResponse? identity,
+
+            Outputs.ImportSourcePropertiesResponse? importSourceProperties,
 
             string location,
 
@@ -199,11 +209,13 @@ namespace Pulumi.AzureNative.DBforMySQL
 
             Outputs.NetworkResponse? network,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             int replicaCapacity,
 
             string? replicationRole,
 
-            Outputs.SkuResponse? sku,
+            Outputs.MySQLServerSkuResponse? sku,
 
             string? sourceServerResourceId,
 
@@ -227,10 +239,12 @@ namespace Pulumi.AzureNative.DBforMySQL
             HighAvailability = highAvailability;
             Id = id;
             Identity = identity;
+            ImportSourceProperties = importSourceProperties;
             Location = location;
             MaintenanceWindow = maintenanceWindow;
             Name = name;
             Network = network;
+            PrivateEndpointConnections = privateEndpointConnections;
             ReplicaCapacity = replicaCapacity;
             ReplicationRole = replicationRole;
             Sku = sku;

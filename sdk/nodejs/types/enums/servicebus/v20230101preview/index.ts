@@ -2,24 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AccessRights = {
-    Manage: "Manage",
-    Send: "Send",
-    Listen: "Listen",
-} as const;
-
-export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
-
-export const DefaultAction = {
-    Allow: "Allow",
-    Deny: "Deny",
-} as const;
-
-/**
- * Default Action for Network Rule Set
- */
-export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
-
 export const EndPointProvisioningState = {
     Creating: "Creating",
     Updating: "Updating",
@@ -33,33 +15,6 @@ export const EndPointProvisioningState = {
  * Provisioning state of the Private Endpoint Connection.
  */
 export type EndPointProvisioningState = (typeof EndPointProvisioningState)[keyof typeof EndPointProvisioningState];
-
-export const EntityStatus = {
-    Active: "Active",
-    Disabled: "Disabled",
-    Restoring: "Restoring",
-    SendDisabled: "SendDisabled",
-    ReceiveDisabled: "ReceiveDisabled",
-    Creating: "Creating",
-    Deleting: "Deleting",
-    Renaming: "Renaming",
-    Unknown: "Unknown",
-} as const;
-
-/**
- * Enumerates the possible values for the status of a messaging entity.
- */
-export type EntityStatus = (typeof EntityStatus)[keyof typeof EntityStatus];
-
-export const FilterType = {
-    SqlFilter: "SqlFilter",
-    CorrelationFilter: "CorrelationFilter",
-} as const;
-
-/**
- * Filter type that is evaluated against a BrokeredMessage.
- */
-export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 
 export const GeoDRRoleType = {
     Primary: "Primary",
@@ -92,15 +47,6 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
-export const NetworkRuleIPAction = {
-    Allow: "Allow",
-} as const;
-
-/**
- * The IP Filter Action
- */
-export type NetworkRuleIPAction = (typeof NetworkRuleIPAction)[keyof typeof NetworkRuleIPAction];
-
 export const PrivateLinkConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",
@@ -123,16 +69,6 @@ export const PublicNetworkAccess = {
  * This determines if traffic is allowed over public network. By default it is enabled.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
-
-export const PublicNetworkAccessFlag = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * This determines if traffic is allowed over public network. By default it is enabled.
- */
-export type PublicNetworkAccessFlag = (typeof PublicNetworkAccessFlag)[keyof typeof PublicNetworkAccessFlag];
 
 export const SkuName = {
     Basic: "Basic",

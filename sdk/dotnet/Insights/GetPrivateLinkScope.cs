@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Returns a Azure Monitor PrivateLinkScope.
-        /// Azure REST API version: 2021-07-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
+        /// Other available API versions: 2019-10-17-preview, 2021-07-01-preview.
         /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-native:insights:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a Azure Monitor PrivateLinkScope.
-        /// Azure REST API version: 2021-07-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
+        /// Other available API versions: 2019-10-17-preview, 2021-07-01-preview.
         /// </summary>
         public static Output<GetPrivateLinkScopeResult> Invoke(GetPrivateLinkScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopeResult>("azure-native:insights:getPrivateLinkScope", args ?? new GetPrivateLinkScopeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a Azure Monitor PrivateLinkScope.
-        /// Azure REST API version: 2021-07-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
+        /// Other available API versions: 2019-10-17-preview, 2021-07-01-preview.
         /// </summary>
         public static Output<GetPrivateLinkScopeResult> Invoke(GetPrivateLinkScopeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopeResult>("azure-native:insights:getPrivateLinkScope", args ?? new GetPrivateLinkScopeInvokeArgs(), options.WithDefaults());
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
-        /// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+        /// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>

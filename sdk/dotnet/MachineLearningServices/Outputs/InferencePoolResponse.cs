@@ -17,64 +17,36 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class InferencePoolResponse
     {
         /// <summary>
-        /// Code configuration for the inference pool.
-        /// </summary>
-        public readonly Outputs.CodeConfigurationResponse? CodeConfiguration;
-        /// <summary>
         /// Description of the resource.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// EnvironmentConfiguration for the inference pool.
-        /// </summary>
-        public readonly Outputs.PoolEnvironmentConfigurationResponse? EnvironmentConfiguration;
-        /// <summary>
-        /// ModelConfiguration for the inference pool.
-        /// </summary>
-        public readonly Outputs.PoolModelConfigurationResponse? ModelConfiguration;
-        /// <summary>
-        /// [Required] Compute instance type.
-        /// </summary>
-        public readonly string NodeSkuType;
-        /// <summary>
         /// Property dictionary. Properties can be added, but not removed or altered.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Properties;
+        public readonly ImmutableArray<Outputs.StringStringKeyValuePairResponse> Properties;
         /// <summary>
         /// Provisioning state for the pool.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Request configuration for the inference pool.
+        /// Gets or sets ScaleUnitConfiguration for the inference pool. Used if PoolType=ScaleUnit.
         /// </summary>
-        public readonly Outputs.RequestConfigurationResponse? RequestConfiguration;
+        public readonly Outputs.ScaleUnitConfigurationResponse? ScaleUnitConfiguration;
 
         [OutputConstructor]
         private InferencePoolResponse(
-            Outputs.CodeConfigurationResponse? codeConfiguration,
-
             string? description,
 
-            Outputs.PoolEnvironmentConfigurationResponse? environmentConfiguration,
-
-            Outputs.PoolModelConfigurationResponse? modelConfiguration,
-
-            string nodeSkuType,
-
-            ImmutableDictionary<string, string>? properties,
+            ImmutableArray<Outputs.StringStringKeyValuePairResponse> properties,
 
             string provisioningState,
 
-            Outputs.RequestConfigurationResponse? requestConfiguration)
+            Outputs.ScaleUnitConfigurationResponse? scaleUnitConfiguration)
         {
-            CodeConfiguration = codeConfiguration;
             Description = description;
-            EnvironmentConfiguration = environmentConfiguration;
-            ModelConfiguration = modelConfiguration;
-            NodeSkuType = nodeSkuType;
             Properties = properties;
             ProvisioningState = provisioningState;
-            RequestConfiguration = requestConfiguration;
+            ScaleUnitConfiguration = scaleUnitConfiguration;
         }
     }
 }

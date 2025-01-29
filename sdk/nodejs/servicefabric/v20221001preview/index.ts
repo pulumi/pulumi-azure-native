@@ -5,15 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetManagedAzResiliencyStatusArgs, GetManagedAzResiliencyStatusResult, GetManagedAzResiliencyStatusOutputArgs } from "./getManagedAzResiliencyStatus";
+export const getManagedAzResiliencyStatus: typeof import("./getManagedAzResiliencyStatus").getManagedAzResiliencyStatus = null as any;
+export const getManagedAzResiliencyStatusOutput: typeof import("./getManagedAzResiliencyStatus").getManagedAzResiliencyStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedAzResiliencyStatus","getManagedAzResiliencyStatusOutput"], () => require("./getManagedAzResiliencyStatus"));
+
 export { GetManagedClusterArgs, GetManagedClusterResult, GetManagedClusterOutputArgs } from "./getManagedCluster";
 export const getManagedCluster: typeof import("./getManagedCluster").getManagedCluster = null as any;
 export const getManagedClusterOutput: typeof import("./getManagedCluster").getManagedClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedCluster","getManagedClusterOutput"], () => require("./getManagedCluster"));
-
-export { GetmanagedAzResiliencyStatusArgs, GetmanagedAzResiliencyStatusResult, GetmanagedAzResiliencyStatusOutputArgs } from "./getmanagedAzResiliencyStatus";
-export const getmanagedAzResiliencyStatus: typeof import("./getmanagedAzResiliencyStatus").getmanagedAzResiliencyStatus = null as any;
-export const getmanagedAzResiliencyStatusOutput: typeof import("./getmanagedAzResiliencyStatus").getmanagedAzResiliencyStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getmanagedAzResiliencyStatus","getmanagedAzResiliencyStatusOutput"], () => require("./getmanagedAzResiliencyStatus"));
 
 export { ManagedClusterArgs } from "./managedCluster";
 export type ManagedCluster = import("./managedCluster").ManagedCluster;

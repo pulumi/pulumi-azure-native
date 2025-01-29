@@ -45,8 +45,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
         [Input("ipPrefixId")]
         public Input<string>? IpPrefixId { get; set; }
 
+        /// <summary>
+        /// Type of the condition used.
+        /// </summary>
+        [Input("type")]
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.RoutePolicyConditionType>? Type { get; set; }
+
         public StatementConditionPropertiesArgs()
         {
+            Type = "Or";
         }
         public static new StatementConditionPropertiesArgs Empty => new StatementConditionPropertiesArgs();
     }

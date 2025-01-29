@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The batch configuration resource definition.
- * Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+ * Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
  */
 export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource {
     /**

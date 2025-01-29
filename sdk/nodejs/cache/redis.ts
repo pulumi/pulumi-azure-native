@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A single Redis item in List or Get Operation.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
+ * Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-04-01.
  *
- * Other available API versions: 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+ * Other available API versions: 2020-06-01, 2023-04-01.
  */
 export class Redis extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class Redis extends pulumi.CustomResource {
      * The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
      */
     public /*out*/ readonly accessKeys!: pulumi.Output<outputs.cache.RedisAccessKeysResponse>;
+    /**
+     * Authentication to Redis through access keys is disabled when set as true. Default value is false.
+     */
+    public readonly disableAccessKeyAuthentication!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the non-ssl Redis server port (6379) is enabled.
      */
@@ -89,11 +93,11 @@ export class Redis extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Whether or not public endpoint access is allowed for this cache.  Value is optional, but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'. Note: This setting is important for caches with private endpoints. It has *no effect* on caches that are joined to, or injected into, a virtual network subnet.
+     * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
-     * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+     * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
      */
     public readonly redisConfiguration!: pulumi.Output<outputs.cache.RedisCommonPropertiesResponseRedisConfiguration | undefined>;
     /**
@@ -141,6 +145,14 @@ export class Redis extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
+     * Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
+     */
+    public readonly updateChannel!: pulumi.Output<string | undefined>;
+    /**
+     * Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
+     */
+    public readonly zonalAllocationPolicy!: pulumi.Output<string | undefined>;
+    /**
      * A list of availability zones denoting where the resource needs to come from.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
@@ -162,6 +174,7 @@ export class Redis extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["disableAccessKeyAuthentication"] = (args ? args.disableAccessKeyAuthentication : undefined) ?? false;
             resourceInputs["enableNonSslPort"] = (args ? args.enableNonSslPort : undefined) ?? false;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -179,6 +192,8 @@ export class Redis extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tenantSettings"] = args ? args.tenantSettings : undefined;
+            resourceInputs["updateChannel"] = args ? args.updateChannel : undefined;
+            resourceInputs["zonalAllocationPolicy"] = args ? args.zonalAllocationPolicy : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["accessKeys"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
@@ -191,6 +206,7 @@ export class Redis extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessKeys"] = undefined /*out*/;
+            resourceInputs["disableAccessKeyAuthentication"] = undefined /*out*/;
             resourceInputs["enableNonSslPort"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
@@ -215,6 +231,8 @@ export class Redis extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tenantSettings"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updateChannel"] = undefined /*out*/;
+            resourceInputs["zonalAllocationPolicy"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -228,6 +246,10 @@ export class Redis extends pulumi.CustomResource {
  * The set of arguments for constructing a Redis resource.
  */
 export interface RedisArgs {
+    /**
+     * Authentication to Redis through access keys is disabled when set as true. Default value is false.
+     */
+    disableAccessKeyAuthentication?: pulumi.Input<boolean>;
     /**
      * Specifies whether the non-ssl Redis server port (6379) is enabled.
      */
@@ -249,11 +271,11 @@ export interface RedisArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether or not public endpoint access is allowed for this cache.  Value is optional, but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'. Note: This setting is important for caches with private endpoints. It has *no effect* on caches that are joined to, or injected into, a virtual network subnet.
+     * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
      */
     publicNetworkAccess?: pulumi.Input<string | enums.cache.PublicNetworkAccess>;
     /**
-     * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+     * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
      */
     redisConfiguration?: pulumi.Input<inputs.cache.RedisCommonPropertiesRedisConfigurationArgs>;
     /**
@@ -269,7 +291,7 @@ export interface RedisArgs {
      */
     replicasPerPrimary?: pulumi.Input<number>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -296,6 +318,14 @@ export interface RedisArgs {
      * A dictionary of tenant settings
      */
     tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
+     */
+    updateChannel?: pulumi.Input<string | enums.cache.UpdateChannel>;
+    /**
+     * Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
+     */
+    zonalAllocationPolicy?: pulumi.Input<string | enums.cache.ZonalAllocationPolicy>;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */

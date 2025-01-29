@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration Assignment
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-04-01.
  *
- * Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2023-04-01.
  */
 export class ConfigurationAssignmentsForResourceGroup extends pulumi.CustomResource {
     /**

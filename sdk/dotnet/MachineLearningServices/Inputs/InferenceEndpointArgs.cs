@@ -30,20 +30,26 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// <summary>
         /// [Required] Group within the same pool with which this endpoint needs to be associated with.
         /// </summary>
-        [Input("groupId", required: true)]
-        public Input<string> GroupId { get; set; } = null!;
+        [Input("groupName", required: true)]
+        public Input<string> GroupName { get; set; } = null!;
 
         [Input("properties")]
-        private InputMap<string>? _properties;
+        private InputList<Inputs.StringStringKeyValuePairArgs>? _properties;
 
         /// <summary>
         /// Property dictionary. Properties can be added, but not removed or altered.
         /// </summary>
-        public InputMap<string> Properties
+        public InputList<Inputs.StringStringKeyValuePairArgs> Properties
         {
-            get => _properties ?? (_properties = new InputMap<string>());
+            get => _properties ?? (_properties = new InputList<Inputs.StringStringKeyValuePairArgs>());
             set => _properties = value;
         }
+
+        /// <summary>
+        /// RequestConfiguration for endpoint.
+        /// </summary>
+        [Input("requestConfiguration")]
+        public Input<Inputs.RequestConfigurationArgs>? RequestConfiguration { get; set; }
 
         public InferenceEndpointArgs()
         {

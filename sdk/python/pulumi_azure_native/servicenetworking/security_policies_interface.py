@@ -134,7 +134,7 @@ class SecurityPoliciesInterface(pulumi.CustomResource):
                  __props__=None):
         """
         SecurityPolicy Subresource of Traffic Controller.
-        Azure REST API version: 2024-05-01-preview.
+        Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
 
         Other available API versions: 2025-01-01.
 
@@ -155,7 +155,7 @@ class SecurityPoliciesInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SecurityPolicy Subresource of Traffic Controller.
-        Azure REST API version: 2024-05-01-preview.
+        Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
 
         Other available API versions: 2025-01-01.
 

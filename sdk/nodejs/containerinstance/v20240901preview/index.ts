@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ContainerGroupArgs } from "./containerGroup";
-export type ContainerGroup = import("./containerGroup").ContainerGroup;
-export const ContainerGroup: typeof import("./containerGroup").ContainerGroup = null as any;
-utilities.lazyLoad(exports, ["ContainerGroup"], () => require("./containerGroup"));
-
-export { GetContainerGroupArgs, GetContainerGroupResult, GetContainerGroupOutputArgs } from "./getContainerGroup";
-export const getContainerGroup: typeof import("./getContainerGroup").getContainerGroup = null as any;
-export const getContainerGroupOutput: typeof import("./getContainerGroup").getContainerGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getContainerGroup","getContainerGroupOutput"], () => require("./getContainerGroup"));
-
 export { GetNGroupArgs, GetNGroupResult, GetNGroupOutputArgs } from "./getNGroup";
 export const getNGroup: typeof import("./getNGroup").getNGroup = null as any;
 export const getNGroupOutput: typeof import("./getNGroup").getNGroupOutput = null as any;
@@ -33,8 +23,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:containerinstance/v20240901preview:ContainerGroup":
-                return new ContainerGroup(name, <any>undefined, { urn })
             case "azure-native:containerinstance/v20240901preview:NGroup":
                 return new NGroup(name, <any>undefined, { urn })
             default:

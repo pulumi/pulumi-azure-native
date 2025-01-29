@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly Outputs.ConflictResolutionPolicyResponse? ConflictResolutionPolicy;
         /// <summary>
+        /// Enum to indicate the mode of resource creation.
+        /// </summary>
+        public readonly string? CreateMode;
+        /// <summary>
         /// Default time to live
         /// </summary>
         public readonly int? DefaultTtl;
@@ -42,6 +46,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly Outputs.ContainerPartitionKeyResponse? PartitionKey;
         /// <summary>
+        /// Parameters to indicate the information about the restore
+        /// </summary>
+        public readonly Outputs.ResourceRestoreParametersResponse? RestoreParameters;
+        /// <summary>
         /// A system generated property. A unique identifier.
         /// </summary>
         public readonly string Rid;
@@ -60,6 +68,8 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
             Outputs.ConflictResolutionPolicyResponse? conflictResolutionPolicy,
 
+            string? createMode,
+
             int? defaultTtl,
 
             string etag,
@@ -70,6 +80,8 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
             Outputs.ContainerPartitionKeyResponse? partitionKey,
 
+            Outputs.ResourceRestoreParametersResponse? restoreParameters,
+
             string rid,
 
             double ts,
@@ -78,11 +90,13 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         {
             AnalyticalStorageTtl = analyticalStorageTtl;
             ConflictResolutionPolicy = conflictResolutionPolicy;
+            CreateMode = createMode;
             DefaultTtl = defaultTtl;
             Etag = etag;
             Id = id;
             IndexingPolicy = indexingPolicy;
             PartitionKey = partitionKey;
+            RestoreParameters = restoreParameters;
             Rid = rid;
             Ts = ts;
             UniqueKeyPolicy = uniqueKeyPolicy;

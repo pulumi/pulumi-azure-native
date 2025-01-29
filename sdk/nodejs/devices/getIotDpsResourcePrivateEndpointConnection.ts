@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get private endpoint connection properties
- * Azure REST API version: 2022-12-12.
+ * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2022-12-12, 2025-02-01-preview.
  */
 export function getIotDpsResourcePrivateEndpointConnection(args: GetIotDpsResourcePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourcePrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,9 +64,9 @@ export interface GetIotDpsResourcePrivateEndpointConnectionResult {
 }
 /**
  * Get private endpoint connection properties
- * Azure REST API version: 2022-12-12.
+ * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2022-12-12, 2025-02-01-preview.
  */
 export function getIotDpsResourcePrivateEndpointConnectionOutput(args: GetIotDpsResourcePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotDpsResourcePrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

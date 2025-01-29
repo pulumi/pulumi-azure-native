@@ -17,10 +17,12 @@ __all__ = [
     'FavoriteType',
     'FlowType',
     'IdentityType',
+    'IncidentManagementService',
     'IngestionMode',
     'ItemScope',
     'ItemType',
     'Kind',
+    'KnownAgentSettingName',
     'KnownColumnDefinitionType',
     'KnownDataCollectionEndpointResourceKind',
     'KnownDataCollectionRuleResourceKind',
@@ -31,10 +33,12 @@ __all__ = [
     'KnownPerfCounterDataSourceStreams',
     'KnownPrometheusForwarderDataSourceStreams',
     'KnownPublicNetworkAccessOptions',
+    'KnownStorageBlobLookupType',
     'KnownSyslogDataSourceFacilityNames',
     'KnownSyslogDataSourceLogLevels',
     'KnownSyslogDataSourceStreams',
     'KnownWindowsEventLogDataSourceStreams',
+    'KnownWindowsFirewallLogsDataSourceProfileFilter',
     'ManagedServiceIdentityType',
     'MetricStatisticType',
     'Odatatype',
@@ -48,6 +52,7 @@ __all__ = [
     'ScaleDirection',
     'ScaleRuleMetricDimensionOperationType',
     'ScaleType',
+    'ScopedResourceKind',
     'TimeAggregation',
     'TimeAggregationType',
     'WebTestKind',
@@ -103,6 +108,7 @@ class ConditionOperator(str, Enum):
     GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
     LESS_THAN = "LessThan"
     LESS_THAN_OR_EQUAL = "LessThanOrEqual"
+    GREATER_OR_LESS_THAN = "GreaterOrLessThan"
 
 
 class CriterionType(str, Enum):
@@ -163,6 +169,13 @@ class IdentityType(str, Enum):
     NONE = "None"
 
 
+class IncidentManagementService(str, Enum):
+    """
+    The incident management service type
+    """
+    ICM = "Icm"
+
+
 class IngestionMode(str, Enum):
     """
     Indicates the flow of the ingestion.
@@ -195,7 +208,17 @@ class Kind(str, Enum):
     Indicates the type of scheduled query rule. The default is LogAlert.
     """
     LOG_ALERT = "LogAlert"
+    EVENT_LOG_ALERT = "EventLogAlert"
     LOG_TO_METRIC = "LogToMetric"
+
+
+class KnownAgentSettingName(str, Enum):
+    """
+    The name of the setting. 
+    Must be part of the list of supported settings
+    """
+    MAX_DISK_QUOTA_IN_MB = "MaxDiskQuotaInMB"
+    USE_TIME_RECEIVED_FOR_FORWARDED_EVENTS = "UseTimeReceivedForForwardedEvents"
 
 
 class KnownColumnDefinitionType(str, Enum):
@@ -262,6 +285,7 @@ class KnownLogFilesDataSourceFormat(str, Enum):
     """
     The data format of the log files
     """
+    JSON = "json"
     TEXT = "text"
 
 
@@ -283,7 +307,16 @@ class KnownPublicNetworkAccessOptions(str, Enum):
     SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
+class KnownStorageBlobLookupType(str, Enum):
+    """
+    The type of lookup to perform on the blob
+    """
+    STRING = "String"
+    CIDR = "Cidr"
+
+
 class KnownSyslogDataSourceFacilityNames(str, Enum):
+    ASTERISK = "*"
     ALERT = "alert"
     AUDIT = "audit"
     AUTH = "auth"
@@ -293,6 +326,14 @@ class KnownSyslogDataSourceFacilityNames(str, Enum):
     DAEMON = "daemon"
     FTP = "ftp"
     KERN = "kern"
+    LOCAL0 = "local0"
+    LOCAL1 = "local1"
+    LOCAL2 = "local2"
+    LOCAL3 = "local3"
+    LOCAL4 = "local4"
+    LOCAL5 = "local5"
+    LOCAL6 = "local6"
+    LOCAL7 = "local7"
     LPR = "lpr"
     MAIL = "mail"
     MARK = "mark"
@@ -302,15 +343,6 @@ class KnownSyslogDataSourceFacilityNames(str, Enum):
     SYSLOG = "syslog"
     USER = "user"
     UUCP = "uucp"
-    LOCAL0 = "local0"
-    LOCAL1 = "local1"
-    LOCAL2 = "local2"
-    LOCAL3 = "local3"
-    LOCAL4 = "local4"
-    LOCAL5 = "local5"
-    LOCAL6 = "local6"
-    LOCAL7 = "local7"
-    ASTERISK = "*"
 
 
 class KnownSyslogDataSourceLogLevels(str, Enum):
@@ -332,6 +364,12 @@ class KnownSyslogDataSourceStreams(str, Enum):
 class KnownWindowsEventLogDataSourceStreams(str, Enum):
     MICROSOFT_WINDOWS_EVENT = "Microsoft-WindowsEvent"
     MICROSOFT_EVENT = "Microsoft-Event"
+
+
+class KnownWindowsFirewallLogsDataSourceProfileFilter(str, Enum):
+    DOMAIN = "Domain"
+    PRIVATE = "Private"
+    PUBLIC = "Public"
 
 
 class ManagedServiceIdentityType(str, Enum):
@@ -460,6 +498,14 @@ class ScaleType(str, Enum):
     PERCENT_CHANGE_COUNT = "PercentChangeCount"
     EXACT_COUNT = "ExactCount"
     SERVICE_ALLOWED_NEXT_VALUE = "ServiceAllowedNextValue"
+
+
+class ScopedResourceKind(str, Enum):
+    """
+    The kind of scoped Azure monitor resource.
+    """
+    RESOURCE = "Resource"
+    METRICS = "Metrics"
 
 
 class TimeAggregation(str, Enum):

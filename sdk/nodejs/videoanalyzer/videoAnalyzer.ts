@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Video Analyzer account.
- * Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview.
+ * Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 2.x: 2021-11-01-preview.
  *
  * Other available API versions: 2021-05-01-preview.
  */

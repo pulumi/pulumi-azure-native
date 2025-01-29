@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual machine guest diagnostics settings resource.
- * Azure REST API version: 2018-06-01-preview. Prior API version in Azure Native 1.x: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01-preview.
  */
 export class GuestDiagnosticsSetting extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class GuestDiagnosticsSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20180601preview:GuestDiagnosticsSetting" }, { type: "azure-native:insights/v20180601preview:guestDiagnosticsSetting" }, { type: "azure-native:insights:guestDiagnosticsSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20180601preview:GuestDiagnosticsSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestDiagnosticsSetting.__pulumiType, name, resourceInputs, opts);
     }

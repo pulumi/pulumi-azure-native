@@ -237,9 +237,9 @@ def get_web_app_site_container_slot(container_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSiteContainerSlotResult:
     """
     Container of a site
-    Azure REST API version: 2023-12-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2023-12-01.
 
 
     :param str container_name: Site Container Name
@@ -279,9 +279,9 @@ def get_web_app_site_container_slot_output(container_name: Optional[pulumi.Input
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSiteContainerSlotResult]:
     """
     Container of a site
-    Azure REST API version: 2023-12-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2023-12-01.
 
 
     :param str container_name: Site Container Name

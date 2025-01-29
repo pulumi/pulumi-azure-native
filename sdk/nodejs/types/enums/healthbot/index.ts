@@ -29,6 +29,7 @@ export const SkuName = {
     S1: "S1",
     C0: "C0",
     PES: "PES",
+    C1: "C1",
 } as const;
 
 /**

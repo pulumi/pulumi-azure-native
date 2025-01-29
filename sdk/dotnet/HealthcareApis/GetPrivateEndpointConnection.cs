@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.HealthcareApis
     {
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
-        /// Azure REST API version: 2023-02-28.
+        /// Azure REST API version: 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// Other available API versions: 2023-02-28.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:healthcareapis:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
-        /// Azure REST API version: 2023-02-28.
+        /// Azure REST API version: 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// Other available API versions: 2023-02-28.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:healthcareapis:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the service.
-        /// Azure REST API version: 2023-02-28.
+        /// Azure REST API version: 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// Other available API versions: 2023-02-28.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:healthcareapis:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Rule Collection Group resource.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// 
-    /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Other available API versions: 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:FirewallPolicyRuleCollectionGroup")]
     public partial class FirewallPolicyRuleCollectionGroup : global::Pulumi.CustomResource
@@ -47,6 +47,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("ruleCollections")]
         public Output<ImmutableArray<Union<Outputs.FirewallPolicyFilterRuleCollectionResponse, Outputs.FirewallPolicyNatRuleCollectionResponse>>> RuleCollections { get; private set; } = null!;
+
+        /// <summary>
+        /// A read-only string that represents the size of the FirewallPolicyRuleCollectionGroupProperties in MB. (ex 1.2MB)
+        /// </summary>
+        [Output("size")]
+        public Output<string> Size { get; private set; } = null!;
 
         /// <summary>
         /// Rule Group type.

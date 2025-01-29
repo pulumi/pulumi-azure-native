@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get the certificate from the provisioning service.
- * Azure REST API version: 2022-12-12.
+ * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2021-10-15, 2023-03-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2021-10-15, 2022-12-12, 2025-02-01-preview.
  */
 export function getDpsCertificate(args: GetDpsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,9 +68,9 @@ export interface GetDpsCertificateResult {
 }
 /**
  * Get the certificate from the provisioning service.
- * Azure REST API version: 2022-12-12.
+ * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2021-10-15, 2023-03-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2021-10-15, 2022-12-12, 2025-02-01-preview.
  */
 export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDpsCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

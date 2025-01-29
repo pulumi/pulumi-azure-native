@@ -22,55 +22,32 @@ __all__ = ['GuestAgentArgs', 'GuestAgent']
 @pulumi.input_type
 class GuestAgentArgs:
     def __init__(__self__, *,
-                 resource_group_name: pulumi.Input[str],
-                 virtual_machine_name: pulumi.Input[str],
+                 resource_uri: pulumi.Input[str],
                  credentials: Optional[pulumi.Input['GuestCredentialArgs']] = None,
-                 http_proxy_config: Optional[pulumi.Input['HttpProxyConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]] = None):
         """
         The set of arguments for constructing a GuestAgent resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] virtual_machine_name: Name of the vm.
+        :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input['GuestCredentialArgs'] credentials: Username / Password Credentials to provision guest agent.
-        :param pulumi.Input['HttpProxyConfigurationArgs'] http_proxy_config: HTTP Proxy configuration for the VM.
-        :param pulumi.Input[str] name: Name of the guestAgents.
         :param pulumi.Input[Union[str, 'ProvisioningAction']] provisioning_action: The guest agent provisioning action.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
+        pulumi.set(__self__, "resource_uri", resource_uri)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
-        if http_proxy_config is not None:
-            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if provisioning_action is not None:
             pulumi.set(__self__, "provisioning_action", provisioning_action)
 
     @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="resourceUri")
+    def resource_uri(self) -> pulumi.Input[str]:
         """
-        The name of the resource group. The name is case insensitive.
+        The fully qualified Azure Resource manager identifier of the resource.
         """
-        return pulumi.get(self, "resource_group_name")
+        return pulumi.get(self, "resource_uri")
 
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="virtualMachineName")
-    def virtual_machine_name(self) -> pulumi.Input[str]:
-        """
-        Name of the vm.
-        """
-        return pulumi.get(self, "virtual_machine_name")
-
-    @virtual_machine_name.setter
-    def virtual_machine_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "virtual_machine_name", value)
+    @resource_uri.setter
+    def resource_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_uri", value)
 
     @property
     @pulumi.getter
@@ -83,30 +60,6 @@ class GuestAgentArgs:
     @credentials.setter
     def credentials(self, value: Optional[pulumi.Input['GuestCredentialArgs']]):
         pulumi.set(self, "credentials", value)
-
-    @property
-    @pulumi.getter(name="httpProxyConfig")
-    def http_proxy_config(self) -> Optional[pulumi.Input['HttpProxyConfigurationArgs']]:
-        """
-        HTTP Proxy configuration for the VM.
-        """
-        return pulumi.get(self, "http_proxy_config")
-
-    @http_proxy_config.setter
-    def http_proxy_config(self, value: Optional[pulumi.Input['HttpProxyConfigurationArgs']]):
-        pulumi.set(self, "http_proxy_config", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the guestAgents.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="provisioningAction")
@@ -127,26 +80,20 @@ class GuestAgent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credentials: Optional[pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
-                 http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[str]] = None,
+                 resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Defines the GuestAgent.
-        Azure REST API version: 2022-12-15-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2022-12-15-preview, 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']] credentials: Username / Password Credentials to provision guest agent.
-        :param pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']] http_proxy_config: HTTP Proxy configuration for the VM.
-        :param pulumi.Input[str] name: Name of the guestAgents.
         :param pulumi.Input[Union[str, 'ProvisioningAction']] provisioning_action: The guest agent provisioning action.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] virtual_machine_name: Name of the vm.
+        :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         """
         ...
     @overload
@@ -156,9 +103,9 @@ class GuestAgent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the GuestAgent.
-        Azure REST API version: 2022-12-15-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2022-12-15-preview, 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param GuestAgentArgs args: The arguments to use to populate this resource's properties.
@@ -176,11 +123,8 @@ class GuestAgent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credentials: Optional[pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
-                 http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                 virtual_machine_name: Optional[pulumi.Input[str]] = None,
+                 resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -191,20 +135,16 @@ class GuestAgent(pulumi.CustomResource):
             __props__ = GuestAgentArgs.__new__(GuestAgentArgs)
 
             __props__.__dict__["credentials"] = credentials
-            __props__.__dict__["http_proxy_config"] = http_proxy_config
-            __props__.__dict__["name"] = name
             __props__.__dict__["provisioning_action"] = provisioning_action
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
-            if virtual_machine_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_machine_name'")
-            __props__.__dict__["virtual_machine_name"] = virtual_machine_name
+            if resource_uri is None and not opts.urn:
+                raise TypeError("Missing required property 'resource_uri'")
+            __props__.__dict__["resource_uri"] = resource_uri
+            __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:GuestAgent"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:GuestAgent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:GuestAgent"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:GuestAgent"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:GuestAgent"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:GuestAgent"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:GuestAgent"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:GuestAgent"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:GuestAgent"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:GuestAgent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestAgent, __self__).__init__(
             'azure-native:azurestackhci:GuestAgent',
@@ -229,7 +169,6 @@ class GuestAgent(pulumi.CustomResource):
         __props__ = GuestAgentArgs.__new__(GuestAgentArgs)
 
         __props__.__dict__["credentials"] = None
-        __props__.__dict__["http_proxy_config"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_action"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -245,14 +184,6 @@ class GuestAgent(pulumi.CustomResource):
         Username / Password Credentials to provision guest agent.
         """
         return pulumi.get(self, "credentials")
-
-    @property
-    @pulumi.getter(name="httpProxyConfig")
-    def http_proxy_config(self) -> pulumi.Output[Optional['outputs.HttpProxyConfigurationResponse']]:
-        """
-        HTTP Proxy configuration for the VM.
-        """
-        return pulumi.get(self, "http_proxy_config")
 
     @property
     @pulumi.getter
@@ -274,7 +205,7 @@ class GuestAgent(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The provisioning state.
+        Provisioning state of the virtual machine instance.
         """
         return pulumi.get(self, "provisioning_state")
 

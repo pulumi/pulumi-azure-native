@@ -24,28 +24,29 @@ class ActivityLogAlertArgs:
                  actions: pulumi.Input['ActionListArgs'],
                  condition: pulumi.Input['AlertRuleAllOfConditionArgs'],
                  resource_group_name: pulumi.Input[str],
-                 scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  activity_log_alert_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_scope: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ActivityLogAlert resource.
         :param pulumi.Input['ActionListArgs'] actions: The actions that will activate when the condition is met.
         :param pulumi.Input['AlertRuleAllOfConditionArgs'] condition: The condition that will cause this alert to activate.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
         :param pulumi.Input[str] activity_log_alert_name: The name of the Activity Log Alert rule.
         :param pulumi.Input[str] description: A description of this Activity Log Alert rule.
         :param pulumi.Input[bool] enabled: Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
         :param pulumi.Input[str] location: The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[str] tenant_scope: The tenant GUID. Must be provided for tenant-level and management group events rules.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scopes", scopes)
         if activity_log_alert_name is not None:
             pulumi.set(__self__, "activity_log_alert_name", activity_log_alert_name)
         if description is not None:
@@ -58,8 +59,12 @@ class ActivityLogAlertArgs:
             location = 'global'
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tenant_scope is not None:
+            pulumi.set(__self__, "tenant_scope", tenant_scope)
 
     @property
     @pulumi.getter
@@ -96,18 +101,6 @@ class ActivityLogAlertArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
-        """
-        return pulumi.get(self, "scopes")
-
-    @scopes.setter
-    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "scopes", value)
 
     @property
     @pulumi.getter(name="activityLogAlertName")
@@ -159,6 +152,18 @@ class ActivityLogAlertArgs:
 
     @property
     @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The tags of the resource.
@@ -168,6 +173,18 @@ class ActivityLogAlertArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tenantScope")
+    def tenant_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant GUID. Must be provided for tenant-level and management group events rules.
+        """
+        return pulumi.get(self, "tenant_scope")
+
+    @tenant_scope.setter
+    def tenant_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_scope", value)
 
 
 class ActivityLogAlert(pulumi.CustomResource):
@@ -184,12 +201,13 @@ class ActivityLogAlert(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An Activity Log Alert rule resource.
-        Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2020-10-01.
 
-        Other available API versions: 2017-04-01, 2023-01-01-preview.
+        Other available API versions: 2017-04-01, 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,6 +220,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[str] tenant_scope: The tenant GUID. Must be provided for tenant-level and management group events rules.
         """
         ...
     @overload
@@ -211,9 +230,9 @@ class ActivityLogAlert(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Activity Log Alert rule resource.
-        Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2020-10-01.
 
-        Other available API versions: 2017-04-01, 2023-01-01-preview.
+        Other available API versions: 2017-04-01, 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param ActivityLogAlertArgs args: The arguments to use to populate this resource's properties.
@@ -239,6 +258,7 @@ class ActivityLogAlert(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -265,10 +285,9 @@ class ActivityLogAlert(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if scopes is None and not opts.urn:
-                raise TypeError("Missing required property 'scopes'")
             __props__.__dict__["scopes"] = scopes
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tenant_scope"] = tenant_scope
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20170401:ActivityLogAlert"), pulumi.Alias(type_="azure-native:insights/v20201001:ActivityLogAlert"), pulumi.Alias(type_="azure-native:insights/v20230101preview:ActivityLogAlert")])
@@ -303,6 +322,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["scopes"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tenant_scope"] = None
         __props__.__dict__["type"] = None
         return ActivityLogAlert(resource_name, opts=opts, __props__=__props__)
 
@@ -356,7 +376,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[Sequence[str]]:
+    def scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
         """
@@ -369,6 +389,14 @@ class ActivityLogAlert(pulumi.CustomResource):
         The tags of the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantScope")
+    def tenant_scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        The tenant GUID. Must be provided for tenant-level and management group events rules.
+        """
+        return pulumi.get(self, "tenant_scope")
 
     @property
     @pulumi.getter

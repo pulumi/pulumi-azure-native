@@ -165,7 +165,7 @@ class BackupLongTermRetentionPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         A long term retention policy.
-        Azure REST API version: 2017-03-01-preview.
+        Azure REST API version: 2017-03-01-preview. Prior API version in Azure Native 2.x: 2017-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,7 +186,7 @@ class BackupLongTermRetentionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A long term retention policy.
-        Azure REST API version: 2017-03-01-preview.
+        Azure REST API version: 2017-03-01-preview. Prior API version in Azure Native 2.x: 2017-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param BackupLongTermRetentionPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -26,7 +26,7 @@ vnet = network.VirtualNetwork(
 lb_public_ip = network.PublicIPAddress(
     "lb-public-ip",
     resource_group_name=resource_group.name,
-    public_ip_allocation_method=network.IpAllocationMethod.STATIC,
+    public_ip_allocation_method=network.IPAllocationMethod.STATIC,
     public_ip_address_version="IPV4",
     # required to be paired with below LB type
     sku=network.PublicIPAddressSkuArgs(

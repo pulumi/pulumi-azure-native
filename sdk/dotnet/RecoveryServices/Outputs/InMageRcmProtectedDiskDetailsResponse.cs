@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double CapacityInBytes;
         /// <summary>
+        /// The custom target Azure disk name.
+        /// </summary>
+        public readonly string? CustomTargetDiskName;
+        /// <summary>
         /// The data pending at source agent in MB.
         /// </summary>
         public readonly double DataPendingAtSourceAgentInMB;
@@ -40,6 +44,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The disk name.
         /// </summary>
         public readonly string DiskName;
+        /// <summary>
+        /// The disk state.
+        /// </summary>
+        public readonly string DiskState;
         /// <summary>
         /// The disk type.
         /// </summary>
@@ -65,6 +73,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly Outputs.InMageRcmSyncDetailsResponse? ResyncDetails;
         /// <summary>
+        /// The logical sector size (in bytes), 512 by default.
+        /// </summary>
+        public readonly int? SectorSizeInBytes;
+        /// <summary>
         /// The uri of the seed blob.
         /// </summary>
         public readonly string SeedBlobUri;
@@ -81,6 +93,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         private InMageRcmProtectedDiskDetailsResponse(
             double capacityInBytes,
 
+            string? customTargetDiskName,
+
             double dataPendingAtSourceAgentInMB,
 
             double dataPendingInLogDataStoreInMB,
@@ -90,6 +104,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             string diskId,
 
             string diskName,
+
+            string diskState,
 
             string? diskType,
 
@@ -103,6 +119,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             Outputs.InMageRcmSyncDetailsResponse? resyncDetails,
 
+            int? sectorSizeInBytes,
+
             string seedBlobUri,
 
             string seedManagedDiskId,
@@ -110,17 +128,20 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             string targetManagedDiskId)
         {
             CapacityInBytes = capacityInBytes;
+            CustomTargetDiskName = customTargetDiskName;
             DataPendingAtSourceAgentInMB = dataPendingAtSourceAgentInMB;
             DataPendingInLogDataStoreInMB = dataPendingInLogDataStoreInMB;
             DiskEncryptionSetId = diskEncryptionSetId;
             DiskId = diskId;
             DiskName = diskName;
+            DiskState = diskState;
             DiskType = diskType;
             IrDetails = irDetails;
             IsInitialReplicationComplete = isInitialReplicationComplete;
             IsOSDisk = isOSDisk;
             LogStorageAccountId = logStorageAccountId;
             ResyncDetails = resyncDetails;
+            SectorSizeInBytes = sectorSizeInBytes;
             SeedBlobUri = seedBlobUri;
             SeedManagedDiskId = seedManagedDiskId;
             TargetManagedDiskId = targetManagedDiskId;

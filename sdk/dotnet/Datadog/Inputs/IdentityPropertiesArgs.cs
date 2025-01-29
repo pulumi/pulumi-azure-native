@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Datadog.Inputs
     public sealed class IdentityPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Identity type
+        /// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.Datadog.ManagedIdentityTypes>? Type { get; set; }

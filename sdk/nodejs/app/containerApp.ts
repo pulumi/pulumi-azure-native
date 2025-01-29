@@ -9,11 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Container App.
- * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-10-01.
  *
- * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
- *
- * **Note**: the current default Azure API version for this resource, 2022-10-01, has an issue with referencing Key Vault secrets via the `KeyVaultUrl` property. If you encounter the error _"invalid: value or keyVaultUrl and identity should be provided"_ with such a configuration, you can use API version 2023-05-1 instead. In v3 of this provider, we will update the default API version.
+ * Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
  */
 export class ContainerApp extends pulumi.CustomResource {
     /**
@@ -83,6 +81,10 @@ export class ContainerApp extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+     */
+    public readonly managedBy!: pulumi.Output<string | undefined>;
+    /**
      * Deprecated. Resource ID of the Container App's environment.
      */
     public readonly managedEnvironmentId!: pulumi.Output<string | undefined>;
@@ -115,9 +117,9 @@ export class ContainerApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Workload profile type to pin for container app execution.
+     * Workload profile name to pin for container app execution.
      */
-    public readonly workloadProfileType!: pulumi.Output<string | undefined>;
+    public readonly workloadProfileName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ContainerApp resource with the given unique name, arguments, and options.
@@ -139,11 +141,12 @@ export class ContainerApp extends pulumi.CustomResource {
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
             resourceInputs["managedEnvironmentId"] = args ? args.managedEnvironmentId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["template"] = args ? (args.template ? pulumi.output(args.template).apply(inputs.app.templateArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["workloadProfileType"] = args ? args.workloadProfileType : undefined;
+            resourceInputs["workloadProfileName"] = args ? args.workloadProfileName : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["eventStreamEndpoint"] = undefined /*out*/;
             resourceInputs["latestReadyRevisionName"] = undefined /*out*/;
@@ -165,6 +168,7 @@ export class ContainerApp extends pulumi.CustomResource {
             resourceInputs["latestRevisionFqdn"] = undefined /*out*/;
             resourceInputs["latestRevisionName"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["managedEnvironmentId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
@@ -173,7 +177,7 @@ export class ContainerApp extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["template"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["workloadProfileType"] = undefined /*out*/;
+            resourceInputs["workloadProfileName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:ContainerApp" }, { type: "azure-native:app/v20220301:ContainerApp" }, { type: "azure-native:app/v20220601preview:ContainerApp" }, { type: "azure-native:app/v20221001:ContainerApp" }, { type: "azure-native:app/v20221101preview:ContainerApp" }, { type: "azure-native:app/v20230401preview:ContainerApp" }, { type: "azure-native:app/v20230501:ContainerApp" }, { type: "azure-native:app/v20230502preview:ContainerApp" }, { type: "azure-native:app/v20230801preview:ContainerApp" }, { type: "azure-native:app/v20231102preview:ContainerApp" }, { type: "azure-native:app/v20240202preview:ContainerApp" }, { type: "azure-native:app/v20240301:ContainerApp" }, { type: "azure-native:app/v20240802preview:ContainerApp" }, { type: "azure-native:app/v20241002preview:ContainerApp" }] };
@@ -211,6 +215,10 @@ export interface ContainerAppArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+     */
+    managedBy?: pulumi.Input<string>;
+    /**
      * Deprecated. Resource ID of the Container App's environment.
      */
     managedEnvironmentId?: pulumi.Input<string>;
@@ -227,7 +235,7 @@ export interface ContainerAppArgs {
      */
     template?: pulumi.Input<inputs.app.TemplateArgs>;
     /**
-     * Workload profile type to pin for container app execution.
+     * Workload profile name to pin for container app execution.
      */
-    workloadProfileType?: pulumi.Input<string>;
+    workloadProfileName?: pulumi.Input<string>;
 }

@@ -19,26 +19,33 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// Key used to authenticate to the Azure Active Directory Application
         /// </summary>
-        public readonly string AppKey;
+        public readonly string? AppKey;
         /// <summary>
         /// Application ID of the Azure Active Directory Application
         /// </summary>
-        public readonly string ApplicationId;
+        public readonly string? ApplicationId;
+        /// <summary>
+        /// Ignore checking azure permissions on the AAD app
+        /// </summary>
+        public readonly bool? IgnoreAzurePermissions;
         /// <summary>
         /// Tenant id of the customer
         /// </summary>
-        public readonly string TenantId;
+        public readonly string? TenantId;
 
         [OutputConstructor]
         private AzureActiveDirectoryAppResponse(
-            string appKey,
+            string? appKey,
 
-            string applicationId,
+            string? applicationId,
 
-            string tenantId)
+            bool? ignoreAzurePermissions,
+
+            string? tenantId)
         {
             AppKey = appKey;
             ApplicationId = applicationId;
+            IgnoreAzurePermissions = ignoreAzurePermissions;
             TenantId = tenantId;
         }
     }

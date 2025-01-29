@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string BackupStorageVersion;
         /// <summary>
+        /// Security levels of Recovery Services Vault for business continuity and disaster recovery
+        /// </summary>
+        public readonly string BcdrSecurityLevel;
+        /// <summary>
         /// Customer Managed Key details of the resource.
         /// </summary>
         public readonly Outputs.VaultPropertiesResponseEncryption? Encryption;
@@ -61,6 +65,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly Outputs.VaultPropertiesResponseRedundancySettings? RedundancySettings;
         /// <summary>
+        /// ResourceGuardOperationRequests on which LAC check will be performed
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGuardOperationRequests;
+        /// <summary>
         /// Restore Settings of the vault
         /// </summary>
         public readonly Outputs.RestoreSettingsResponse? RestoreSettings;
@@ -80,6 +88,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         [OutputConstructor]
         private VaultPropertiesResponse(
             string backupStorageVersion,
+
+            string bcdrSecurityLevel,
 
             Outputs.VaultPropertiesResponseEncryption? encryption,
 
@@ -101,6 +111,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             Outputs.VaultPropertiesResponseRedundancySettings? redundancySettings,
 
+            ImmutableArray<string> resourceGuardOperationRequests,
+
             Outputs.RestoreSettingsResponse? restoreSettings,
 
             string secureScore,
@@ -110,6 +122,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             Outputs.UpgradeDetailsResponse? upgradeDetails)
         {
             BackupStorageVersion = backupStorageVersion;
+            BcdrSecurityLevel = bcdrSecurityLevel;
             Encryption = encryption;
             MonitoringSettings = monitoringSettings;
             MoveDetails = moveDetails;
@@ -120,6 +133,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             RedundancySettings = redundancySettings;
+            ResourceGuardOperationRequests = resourceGuardOperationRequests;
             RestoreSettings = restoreSettings;
             SecureScore = secureScore;
             SecuritySettings = securitySettings;

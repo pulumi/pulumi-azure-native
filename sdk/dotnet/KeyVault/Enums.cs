@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.KeyVault
     }
 
     /// <summary>
-    /// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+    /// The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
     /// </summary>
     [EnumType]
     public readonly struct JsonWebKeyCurveName : IEquatable<JsonWebKeyCurveName>
@@ -262,7 +262,7 @@ namespace Pulumi.AzureNative.KeyVault
     }
 
     /// <summary>
-    /// The type of the action. The value should be compared case-insensitively.
+    /// The type of action.
     /// </summary>
     [EnumType]
     public readonly struct KeyRotationPolicyActionType : IEquatable<KeyRotationPolicyActionType>
@@ -274,14 +274,8 @@ namespace Pulumi.AzureNative.KeyVault
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        /// <summary>
-        /// Rotate the key based on the key policy.
-        /// </summary>
-        public static KeyRotationPolicyActionType Rotate { get; } = new KeyRotationPolicyActionType("Rotate");
-        /// <summary>
-        /// Trigger Event Grid events. Defaults to 30 days before expiry. Key Vault only.
-        /// </summary>
-        public static KeyRotationPolicyActionType Notify { get; } = new KeyRotationPolicyActionType("Notify");
+        public static KeyRotationPolicyActionType Rotate { get; } = new KeyRotationPolicyActionType("rotate");
+        public static KeyRotationPolicyActionType Notify { get; } = new KeyRotationPolicyActionType("notify");
 
         public static bool operator ==(KeyRotationPolicyActionType left, KeyRotationPolicyActionType right) => left.Equals(right);
         public static bool operator !=(KeyRotationPolicyActionType left, KeyRotationPolicyActionType right) => !left.Equals(right);
@@ -312,6 +306,7 @@ namespace Pulumi.AzureNative.KeyVault
         }
 
         public static ManagedHsmSkuFamily B { get; } = new ManagedHsmSkuFamily("B");
+        public static ManagedHsmSkuFamily C { get; } = new ManagedHsmSkuFamily("C");
 
         public static bool operator ==(ManagedHsmSkuFamily left, ManagedHsmSkuFamily right) => left.Equals(right);
         public static bool operator !=(ManagedHsmSkuFamily left, ManagedHsmSkuFamily right) => !left.Equals(right);
@@ -344,6 +339,8 @@ namespace Pulumi.AzureNative.KeyVault
         public static ManagedHsmSkuName Standard_B1 { get; } = new ManagedHsmSkuName("Standard_B1");
         public static ManagedHsmSkuName Custom_B32 { get; } = new ManagedHsmSkuName("Custom_B32");
         public static ManagedHsmSkuName Custom_B6 { get; } = new ManagedHsmSkuName("Custom_B6");
+        public static ManagedHsmSkuName Custom_C42 { get; } = new ManagedHsmSkuName("Custom_C42");
+        public static ManagedHsmSkuName Custom_C10 { get; } = new ManagedHsmSkuName("Custom_C10");
 
         public static bool operator ==(ManagedHsmSkuName left, ManagedHsmSkuName right) => left.Equals(right);
         public static bool operator !=(ManagedHsmSkuName left, ManagedHsmSkuName right) => !left.Equals(right);
@@ -353,6 +350,39 @@ namespace Pulumi.AzureNative.KeyVault
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedHsmSkuName other && Equals(other);
         public bool Equals(ManagedHsmSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

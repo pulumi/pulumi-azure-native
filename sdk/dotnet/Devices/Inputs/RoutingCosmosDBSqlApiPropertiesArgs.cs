@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.Devices.Inputs
 {
 
     /// <summary>
-    /// The properties related to a cosmos DB sql collection endpoint.
+    /// The properties related to a cosmos DB sql container endpoint.
     /// </summary>
     public sealed class RoutingCosmosDBSqlApiPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Method used to authenticate against the cosmos DB sql collection endpoint
+        /// Method used to authenticate against the cosmos DB sql container endpoint
         /// </summary>
         [Input("authenticationType")]
         public InputUnion<string, Pulumi.AzureNative.Devices.AuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
-        /// The name of the cosmos DB sql collection in the cosmos DB database.
+        /// The name of the cosmos DB sql container in the cosmos DB database.
         /// </summary>
-        [Input("collectionName", required: true)]
-        public Input<string> CollectionName { get; set; } = null!;
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
         /// The name of the cosmos DB database in the cosmos DB account.
@@ -40,13 +40,7 @@ namespace Pulumi.AzureNative.Devices.Inputs
         public Input<string> EndpointUri { get; set; } = null!;
 
         /// <summary>
-        /// Id of the cosmos DB sql collection endpoint
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Managed identity properties of routing cosmos DB collection endpoint.
+        /// Managed identity properties of routing cosmos DB container endpoint.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedIdentityArgs>? Identity { get; set; }
@@ -58,13 +52,13 @@ namespace Pulumi.AzureNative.Devices.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the partition key associated with this cosmos DB sql collection if one exists. This is an optional parameter.
+        /// The name of the partition key associated with this cosmos DB sql container if one exists. This is an optional parameter.
         /// </summary>
         [Input("partitionKeyName")]
         public Input<string>? PartitionKeyName { get; set; }
 
         /// <summary>
-        /// The template for generating a synthetic partition key value for use with this cosmos DB sql collection. The template must include at least one of the following placeholders: {iothub}, {deviceid}, {DD}, {MM}, and {YYYY}. Any one placeholder may be specified at most once, but order and non-placeholder components are arbitrary. This parameter is only required if PartitionKeyName is specified.
+        /// The template for generating a synthetic partition key value for use with this cosmos DB sql container. The template must include at least one of the following placeholders: {iothub}, {deviceid}, {DD}, {MM}, and {YYYY}. Any one placeholder may be specified at most once, but order and non-placeholder components are arbitrary. This parameter is only required if PartitionKeyName is specified.
         /// </summary>
         [Input("partitionKeyTemplate")]
         public Input<string>? PartitionKeyTemplate { get; set; }

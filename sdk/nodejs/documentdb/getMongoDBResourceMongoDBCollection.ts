@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the MongoDB collection under an existing Azure Cosmos DB database account.
- * Azure REST API version: 2023-04-15.
+ * Azure REST API version: 2024-11-15.
  *
- * Other available API versions: 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+ * Other available API versions: 2023-04-15, 2024-12-01-preview.
  */
 export function getMongoDBResourceMongoDBCollection(args: GetMongoDBResourceMongoDBCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoDBCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,9 +71,9 @@ export interface GetMongoDBResourceMongoDBCollectionResult {
 }
 /**
  * Gets the MongoDB collection under an existing Azure Cosmos DB database account.
- * Azure REST API version: 2023-04-15.
+ * Azure REST API version: 2024-11-15.
  *
- * Other available API versions: 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+ * Other available API versions: 2023-04-15, 2024-12-01-preview.
  */
 export function getMongoDBResourceMongoDBCollectionOutput(args: GetMongoDBResourceMongoDBCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMongoDBResourceMongoDBCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

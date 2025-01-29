@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2022-04-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export function getBillingHubServiceUsage(args: GetBillingHubServiceUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingHubServiceUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -29,7 +29,7 @@ export interface GetBillingHubServiceUsageArgs {
     pageIndex?: number;
     pageSize?: number;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     startTimeStamp: string;
@@ -47,9 +47,9 @@ export interface GetBillingHubServiceUsageResult {
     readonly totalUsedFreeHours?: number;
 }
 /**
- * Azure REST API version: 2022-04-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export function getBillingHubServiceUsageOutput(args: GetBillingHubServiceUsageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingHubServiceUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,7 +68,7 @@ export interface GetBillingHubServiceUsageOutputArgs {
     pageIndex?: pulumi.Input<number>;
     pageSize?: pulumi.Input<number>;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     startTimeStamp: pulumi.Input<string>;

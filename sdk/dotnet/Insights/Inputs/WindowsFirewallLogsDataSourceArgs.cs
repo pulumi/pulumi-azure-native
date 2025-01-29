@@ -16,11 +16,23 @@ namespace Pulumi.AzureNative.Insights.Inputs
     public sealed class WindowsFirewallLogsDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A friendly name for the data source. 
+        /// A friendly name for the data source.
         /// This name should be unique across all data sources (regardless of type) within the data collection rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("profileFilter")]
+        private InputList<Union<string, Pulumi.AzureNative.Insights.KnownWindowsFirewallLogsDataSourceProfileFilter>>? _profileFilter;
+
+        /// <summary>
+        /// Firewall logs profile filter
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.Insights.KnownWindowsFirewallLogsDataSourceProfileFilter>> ProfileFilter
+        {
+            get => _profileFilter ?? (_profileFilter = new InputList<Union<string, Pulumi.AzureNative.Insights.KnownWindowsFirewallLogsDataSourceProfileFilter>>());
+            set => _profileFilter = value;
+        }
 
         [Input("streams", required: true)]
         private InputList<string>? _streams;

@@ -50,6 +50,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? HealthStatus { get; set; }
 
         /// <summary>
+        /// Re-Do Operation
+        /// </summary>
+        [Input("operationType")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.OperationType>? OperationType { get; set; }
+
+        /// <summary>
         /// Type of the protectable object associated with this container
         /// </summary>
         [Input("protectableObjectType")]

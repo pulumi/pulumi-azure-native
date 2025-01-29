@@ -5,48 +5,12 @@
 from enum import Enum
 
 __all__ = [
-    'ArcKindEnum',
-    'AssessmentModeTypes',
-    'LicenseAssignmentState',
     'LicenseCoreType',
     'LicenseEdition',
     'LicenseState',
     'LicenseTarget',
     'LicenseType',
-    'PatchModeTypes',
-    'PublicNetworkAccessType',
-    'ResourceIdentityType',
-    'StatusLevelTypes',
 ]
-
-
-class ArcKindEnum(str, Enum):
-    """
-    Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
-    """
-    AVS = "AVS"
-    HCI = "HCI"
-    SCVMM = "SCVMM"
-    V_MWARE = "VMware"
-    EPS = "EPS"
-    GCP = "GCP"
-    AWS = "AWS"
-
-
-class AssessmentModeTypes(str, Enum):
-    """
-    Specifies the assessment mode.
-    """
-    IMAGE_DEFAULT = "ImageDefault"
-    AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
-
-
-class LicenseAssignmentState(str, Enum):
-    """
-    Describes the license assignment state (Assigned or NotAssigned).
-    """
-    ASSIGNED = "Assigned"
-    NOT_ASSIGNED = "NotAssigned"
 
 
 class LicenseCoreType(str, Enum):
@@ -86,43 +50,3 @@ class LicenseType(str, Enum):
     The type of the license resource.
     """
     ESU = "ESU"
-
-
-class PatchModeTypes(str, Enum):
-    """
-    Specifies the patch mode.
-    """
-    IMAGE_DEFAULT = "ImageDefault"
-    AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
-    AUTOMATIC_BY_OS = "AutomaticByOS"
-    MANUAL = "Manual"
-
-
-class PublicNetworkAccessType(str, Enum):
-    """
-    Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
-    """
-    ENABLED = "Enabled"
-    """
-    Allows Azure Arc agents to communicate with Azure Arc services over both public (internet) and private endpoints.
-    """
-    DISABLED = "Disabled"
-    """
-    Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
-    """
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-
-
-class StatusLevelTypes(str, Enum):
-    """
-    The level code.
-    """
-    INFO = "Info"
-    WARNING = "Warning"
-    ERROR = "Error"

@@ -27,50 +27,22 @@ class GetProactiveDetectionConfigurationResult:
     """
     A ProactiveDetection configuration definition.
     """
-    def __init__(__self__, custom_emails=None, enabled=None, id=None, last_updated_time=None, location=None, name=None, rule_definitions=None, send_emails_to_subscription_owners=None, type=None):
-        if custom_emails and not isinstance(custom_emails, list):
-            raise TypeError("Expected argument 'custom_emails' to be a list")
-        pulumi.set(__self__, "custom_emails", custom_emails)
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError("Expected argument 'enabled' to be a bool")
-        pulumi.set(__self__, "enabled", enabled)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if last_updated_time and not isinstance(last_updated_time, str):
-            raise TypeError("Expected argument 'last_updated_time' to be a str")
-        pulumi.set(__self__, "last_updated_time", last_updated_time)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if rule_definitions and not isinstance(rule_definitions, dict):
-            raise TypeError("Expected argument 'rule_definitions' to be a dict")
-        pulumi.set(__self__, "rule_definitions", rule_definitions)
-        if send_emails_to_subscription_owners and not isinstance(send_emails_to_subscription_owners, bool):
-            raise TypeError("Expected argument 'send_emails_to_subscription_owners' to be a bool")
-        pulumi.set(__self__, "send_emails_to_subscription_owners", send_emails_to_subscription_owners)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="customEmails")
-    def custom_emails(self) -> Optional[Sequence[str]]:
-        """
-        Custom email addresses for this rule notifications
-        """
-        return pulumi.get(self, "custom_emails")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        A flag that indicates whether this rule is enabled by the user
-        """
-        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
@@ -79,14 +51,6 @@ class GetProactiveDetectionConfigurationResult:
         Azure resource Id
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> str:
-        """
-        The last time this rule was updated
-        """
-        return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
@@ -98,27 +62,19 @@ class GetProactiveDetectionConfigurationResult:
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
-        The rule name
+        Azure resource name
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="ruleDefinitions")
-    def rule_definitions(self) -> Optional['outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions']:
+    @pulumi.getter
+    def properties(self) -> 'outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponse':
         """
-        Static definitions of the ProactiveDetection configuration rule (same values for all components).
+        Properties that define a ProactiveDetection configuration.
         """
-        return pulumi.get(self, "rule_definitions")
-
-    @property
-    @pulumi.getter(name="sendEmailsToSubscriptionOwners")
-    def send_emails_to_subscription_owners(self) -> Optional[bool]:
-        """
-        A flag that indicated whether notifications on this rule should be sent to subscription owners
-        """
-        return pulumi.get(self, "send_emails_to_subscription_owners")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -135,14 +91,10 @@ class AwaitableGetProactiveDetectionConfigurationResult(GetProactiveDetectionCon
         if False:
             yield self
         return GetProactiveDetectionConfigurationResult(
-            custom_emails=self.custom_emails,
-            enabled=self.enabled,
             id=self.id,
-            last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
-            rule_definitions=self.rule_definitions,
-            send_emails_to_subscription_owners=self.send_emails_to_subscription_owners,
+            properties=self.properties,
             type=self.type)
 
 
@@ -169,14 +121,10 @@ def get_proactive_detection_configuration(configuration_id: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getProactiveDetectionConfiguration', __args__, opts=opts, typ=GetProactiveDetectionConfigurationResult).value
 
     return AwaitableGetProactiveDetectionConfigurationResult(
-        custom_emails=pulumi.get(__ret__, 'custom_emails'),
-        enabled=pulumi.get(__ret__, 'enabled'),
         id=pulumi.get(__ret__, 'id'),
-        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        rule_definitions=pulumi.get(__ret__, 'rule_definitions'),
-        send_emails_to_subscription_owners=pulumi.get(__ret__, 'send_emails_to_subscription_owners'),
+        properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
 def get_proactive_detection_configuration_output(configuration_id: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -200,12 +148,8 @@ def get_proactive_detection_configuration_output(configuration_id: Optional[pulu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getProactiveDetectionConfiguration', __args__, opts=opts, typ=GetProactiveDetectionConfigurationResult)
     return __ret__.apply(lambda __response__: GetProactiveDetectionConfigurationResult(
-        custom_emails=pulumi.get(__response__, 'custom_emails'),
-        enabled=pulumi.get(__response__, 'enabled'),
         id=pulumi.get(__response__, 'id'),
-        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
-        rule_definitions=pulumi.get(__response__, 'rule_definitions'),
-        send_emails_to_subscription_owners=pulumi.get(__response__, 'send_emails_to_subscription_owners'),
+        properties=pulumi.get(__response__, 'properties'),
         type=pulumi.get(__response__, 'type')))

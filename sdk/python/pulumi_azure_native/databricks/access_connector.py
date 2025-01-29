@@ -30,7 +30,7 @@ class AccessConnectorArgs:
         """
         The set of arguments for constructing a AccessConnector resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] connector_name: The name of the azure databricks accessConnector.
+        :param pulumi.Input[str] connector_name: The name of the Azure Databricks Access Connector.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -61,7 +61,7 @@ class AccessConnectorArgs:
     @pulumi.getter(name="connectorName")
     def connector_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the azure databricks accessConnector.
+        The name of the Azure Databricks Access Connector.
         """
         return pulumi.get(self, "connector_name")
 
@@ -118,14 +118,14 @@ class AccessConnector(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Information about azure databricks accessConnector.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+        Information about Azure Databricks Access Connector.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
-        Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+        Other available API versions: 2022-04-01-preview, 2023-05-01, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connector_name: The name of the azure databricks accessConnector.
+        :param pulumi.Input[str] connector_name: The name of the Azure Databricks Access Connector.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -138,10 +138,10 @@ class AccessConnector(pulumi.CustomResource):
                  args: AccessConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Information about azure databricks accessConnector.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+        Information about Azure Databricks Access Connector.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
-        Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+        Other available API versions: 2022-04-01-preview, 2023-05-01, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AccessConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -244,7 +244,7 @@ class AccessConnector(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.AccessConnectorPropertiesResponse']:
         """
-        Azure Databricks accessConnector properties
+        Azure Databricks Access Connector properties
         """
         return pulumi.get(self, "properties")
 

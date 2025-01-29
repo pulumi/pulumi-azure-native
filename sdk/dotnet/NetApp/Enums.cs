@@ -21,6 +21,7 @@ namespace Pulumi.AzureNative.NetApp
         }
 
         public static ApplicationType SAP_HANA { get; } = new ApplicationType("SAP-HANA");
+        public static ApplicationType ORACLE { get; } = new ApplicationType("ORACLE");
 
         public static bool operator ==(ApplicationType left, ApplicationType right) => left.Equals(right);
         public static bool operator !=(ApplicationType left, ApplicationType right) => !left.Equals(right);
@@ -98,6 +99,41 @@ namespace Pulumi.AzureNative.NetApp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ChownMode other && Equals(other);
         public bool Equals(ChownMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+    ///  Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
+    ///  OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
+    ///  Never - No client-driven data is pulled from cool tier to standard storage.
+    /// </summary>
+    [EnumType]
+    public readonly struct CoolAccessRetrievalPolicy : IEquatable<CoolAccessRetrievalPolicy>
+    {
+        private readonly string _value;
+
+        private CoolAccessRetrievalPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CoolAccessRetrievalPolicy Default { get; } = new CoolAccessRetrievalPolicy("Default");
+        public static CoolAccessRetrievalPolicy OnRead { get; } = new CoolAccessRetrievalPolicy("OnRead");
+        public static CoolAccessRetrievalPolicy Never { get; } = new CoolAccessRetrievalPolicy("Never");
+
+        public static bool operator ==(CoolAccessRetrievalPolicy left, CoolAccessRetrievalPolicy right) => left.Equals(right);
+        public static bool operator !=(CoolAccessRetrievalPolicy left, CoolAccessRetrievalPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(CoolAccessRetrievalPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CoolAccessRetrievalPolicy other && Equals(other);
+        public bool Equals(CoolAccessRetrievalPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -318,7 +354,7 @@ namespace Pulumi.AzureNative.NetApp
     }
 
     /// <summary>
-    /// Basic network, or Standard features available to the volume.
+    /// The original value of the network features type available to the volume at the time it was created.
     /// </summary>
     [EnumType]
     public readonly struct NetworkFeatures : IEquatable<NetworkFeatures>
@@ -331,13 +367,21 @@ namespace Pulumi.AzureNative.NetApp
         }
 
         /// <summary>
-        /// Basic network feature.
+        /// Basic network features.
         /// </summary>
         public static NetworkFeatures Basic { get; } = new NetworkFeatures("Basic");
         /// <summary>
-        /// Standard network feature.
+        /// Standard network features.
         /// </summary>
         public static NetworkFeatures Standard { get; } = new NetworkFeatures("Standard");
+        /// <summary>
+        /// Updating from Basic to Standard network features.
+        /// </summary>
+        public static NetworkFeatures Basic_Standard { get; } = new NetworkFeatures("Basic_Standard");
+        /// <summary>
+        /// Updating from Standard to Basic network features.
+        /// </summary>
+        public static NetworkFeatures Standard_Basic { get; } = new NetworkFeatures("Standard_Basic");
 
         public static bool operator ==(NetworkFeatures left, NetworkFeatures right) => left.Equals(right);
         public static bool operator !=(NetworkFeatures left, NetworkFeatures right) => !left.Equals(right);
@@ -500,7 +544,7 @@ namespace Pulumi.AzureNative.NetApp
     }
 
     /// <summary>
-    /// Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+    /// Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
     /// </summary>
     [EnumType]
     public readonly struct SmbAccessBasedEnumeration : IEquatable<SmbAccessBasedEnumeration>
@@ -537,7 +581,7 @@ namespace Pulumi.AzureNative.NetApp
     }
 
     /// <summary>
-    /// Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+    /// Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
     /// </summary>
     [EnumType]
     public readonly struct SmbNonBrowsable : IEquatable<SmbNonBrowsable>

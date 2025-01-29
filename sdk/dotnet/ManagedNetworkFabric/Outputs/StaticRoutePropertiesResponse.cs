@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
 {
 
     /// <summary>
-    /// Static Route properties.
+    /// Route Properties.
     /// </summary>
     [OutputType]
     public sealed class StaticRoutePropertiesResponse
     {
         /// <summary>
-        /// List of next hop IPv4 | IPv6 addresses.
+        /// List of next hop addresses.
         /// </summary>
         public readonly ImmutableArray<string> NextHop;
         /// <summary>
-        /// IPv4 | IPv6 Prefix.
+        /// Prefix of the route.
         /// </summary>
         public readonly string Prefix;
 

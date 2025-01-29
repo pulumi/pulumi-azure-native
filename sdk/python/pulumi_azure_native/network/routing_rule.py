@@ -17,10 +17,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['RoutingRuleInitArgs', 'RoutingRule']
+__all__ = ['RoutingRuleArgs', 'RoutingRule']
 
 @pulumi.input_type
-class RoutingRuleInitArgs:
+class RoutingRuleArgs:
     def __init__(__self__, *,
                  configuration_name: pulumi.Input[str],
                  destination: pulumi.Input['RoutingRuleRouteDestinationArgs'],
@@ -165,9 +165,9 @@ class RoutingRule(pulumi.CustomResource):
                  __props__=None):
         """
         Network routing rule.
-        Azure REST API version: 2024-03-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-03-01.
 
-        Other available API versions: 2024-05-01.
+        Other available API versions: 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,21 +184,21 @@ class RoutingRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RoutingRuleInitArgs,
+                 args: RoutingRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network routing rule.
-        Azure REST API version: 2024-03-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-03-01.
 
-        Other available API versions: 2024-05-01.
+        Other available API versions: 2024-03-01.
 
         :param str resource_name: The name of the resource.
-        :param RoutingRuleInitArgs args: The arguments to use to populate this resource's properties.
+        :param RoutingRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RoutingRuleInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RoutingRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -222,7 +222,7 @@ class RoutingRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RoutingRuleInitArgs.__new__(RoutingRuleInitArgs)
+            __props__ = RoutingRuleArgs.__new__(RoutingRuleArgs)
 
             if configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_name'")
@@ -272,7 +272,7 @@ class RoutingRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = RoutingRuleInitArgs.__new__(RoutingRuleInitArgs)
+        __props__ = RoutingRuleArgs.__new__(RoutingRuleArgs)
 
         __props__.__dict__["description"] = None
         __props__.__dict__["destination"] = None

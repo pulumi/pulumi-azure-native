@@ -9,11 +9,9 @@ __all__ = [
     'ActivationState',
     'AggregationType',
     'ArcSqlManagedInstanceLicenseType',
-    'ArcSqlServerLicenseType',
     'BillingPlan',
-    'ConnectionStatus',
+    'DatabaseCreateMode',
     'DatabaseState',
-    'DefenderStatus',
     'EditionType',
     'ExtendedLocationTypes',
     'FailoverGroupPartnerSyncMode',
@@ -68,19 +66,6 @@ class ArcSqlManagedInstanceLicenseType(str, Enum):
     DISASTER_RECOVERY = "DisasterRecovery"
 
 
-class ArcSqlServerLicenseType(str, Enum):
-    """
-    SQL Server license type.
-    """
-    UNDEFINED = "Undefined"
-    FREE = "Free"
-    HADR = "HADR"
-    SERVER_CAL = "ServerCAL"
-    LICENSE_ONLY = "LicenseOnly"
-    PAYG = "PAYG"
-    PAID = "Paid"
-
-
 class BillingPlan(str, Enum):
     """
     SQL Server license type.
@@ -89,14 +74,12 @@ class BillingPlan(str, Enum):
     PAID = "Paid"
 
 
-class ConnectionStatus(str, Enum):
+class DatabaseCreateMode(str, Enum):
     """
-    The cloud connectivity status.
+    Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
     """
-    CONNECTED = "Connected"
-    DISCONNECTED = "Disconnected"
-    REGISTERED = "Registered"
-    UNKNOWN = "Unknown"
+    DEFAULT = "Default"
+    POINT_IN_TIME_RESTORE = "PointInTimeRestore"
 
 
 class DatabaseState(str, Enum):
@@ -112,15 +95,6 @@ class DatabaseState(str, Enum):
     OFFLINE = "Offline"
     COPYING = "Copying"
     OFFLINE_SECONDARY = "OfflineSecondary"
-
-
-class DefenderStatus(str, Enum):
-    """
-    Status of Azure Defender.
-    """
-    PROTECTED = "Protected"
-    UNPROTECTED = "Unprotected"
-    UNKNOWN = "Unknown"
 
 
 class EditionType(str, Enum):

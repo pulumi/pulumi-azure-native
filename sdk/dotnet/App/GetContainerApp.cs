@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Container App.
-        /// Azure REST API version: 2022-10-01.
+        /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Task<GetContainerAppResult> InvokeAsync(GetContainerAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container App.
-        /// Azure REST API version: 2022-10-01.
+        /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container App.
-        /// Azure REST API version: 2022-10-01.
+        /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());
@@ -129,6 +129,10 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        /// </summary>
+        public readonly string? ManagedBy;
+        /// <summary>
         /// Deprecated. Resource ID of the Container App's environment.
         /// </summary>
         public readonly string? ManagedEnvironmentId;
@@ -161,9 +165,9 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Workload profile type to pin for container app execution.
+        /// Workload profile name to pin for container app execution.
         /// </summary>
-        public readonly string? WorkloadProfileType;
+        public readonly string? WorkloadProfileName;
 
         [OutputConstructor]
         private GetContainerAppResult(
@@ -189,6 +193,8 @@ namespace Pulumi.AzureNative.App
 
             string location,
 
+            string? managedBy,
+
             string? managedEnvironmentId,
 
             string name,
@@ -205,7 +211,7 @@ namespace Pulumi.AzureNative.App
 
             string type,
 
-            string? workloadProfileType)
+            string? workloadProfileName)
         {
             Configuration = configuration;
             CustomDomainVerificationId = customDomainVerificationId;
@@ -218,6 +224,7 @@ namespace Pulumi.AzureNative.App
             LatestRevisionFqdn = latestRevisionFqdn;
             LatestRevisionName = latestRevisionName;
             Location = location;
+            ManagedBy = managedBy;
             ManagedEnvironmentId = managedEnvironmentId;
             Name = name;
             OutboundIpAddresses = outboundIpAddresses;
@@ -226,7 +233,7 @@ namespace Pulumi.AzureNative.App
             Tags = tags;
             Template = template;
             Type = type;
-            WorkloadProfileType = workloadProfileType;
+            WorkloadProfileName = workloadProfileName;
         }
     }
 }

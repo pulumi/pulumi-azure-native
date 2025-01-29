@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// Azure REST API version: 2021-03-25-preview. Prior API version in Azure Native 1.x: 2021-03-25-preview.
+    /// Azure REST API version: 2021-03-25-preview. Prior API version in Azure Native 2.x: 2021-03-25-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:m365securityandcompliance:PrivateEndpointConnectionsComp")]
     public partial class PrivateEndpointConnectionsComp : global::Pulumi.CustomResource

@@ -27,34 +27,13 @@ class GetWorkflowResult:
     """
     Resource representation of a workflow
     """
-    def __init__(__self__, acr=None, aks_resource_id=None, app_name=None, auth_status=None, branch_name=None, builder_version=None, deployment_properties=None, docker_build_context=None, dockerfile=None, dockerfile_generation_mode=None, dockerfile_output_directory=None, generation_language=None, id=None, image_name=None, image_tag=None, language_version=None, last_workflow_run=None, location=None, manifest_generation_mode=None, manifest_output_directory=None, manifest_type=None, name=None, namespace=None, oidc_credentials=None, port=None, pr_status=None, pr_url=None, pull_number=None, repository_name=None, repository_owner=None, system_data=None, tags=None, type=None):
-        if acr and not isinstance(acr, dict):
-            raise TypeError("Expected argument 'acr' to be a dict")
-        pulumi.set(__self__, "acr", acr)
-        if aks_resource_id and not isinstance(aks_resource_id, str):
-            raise TypeError("Expected argument 'aks_resource_id' to be a str")
-        pulumi.set(__self__, "aks_resource_id", aks_resource_id)
+    def __init__(__self__, app_name=None, builder_version=None, dockerfile_generation_mode=None, dockerfile_output_directory=None, generation_language=None, github_workflow_profile=None, id=None, image_name=None, image_tag=None, language_version=None, location=None, manifest_generation_mode=None, manifest_output_directory=None, manifest_type=None, name=None, namespace=None, port=None, system_data=None, tags=None, type=None):
         if app_name and not isinstance(app_name, str):
             raise TypeError("Expected argument 'app_name' to be a str")
         pulumi.set(__self__, "app_name", app_name)
-        if auth_status and not isinstance(auth_status, str):
-            raise TypeError("Expected argument 'auth_status' to be a str")
-        pulumi.set(__self__, "auth_status", auth_status)
-        if branch_name and not isinstance(branch_name, str):
-            raise TypeError("Expected argument 'branch_name' to be a str")
-        pulumi.set(__self__, "branch_name", branch_name)
         if builder_version and not isinstance(builder_version, str):
             raise TypeError("Expected argument 'builder_version' to be a str")
         pulumi.set(__self__, "builder_version", builder_version)
-        if deployment_properties and not isinstance(deployment_properties, dict):
-            raise TypeError("Expected argument 'deployment_properties' to be a dict")
-        pulumi.set(__self__, "deployment_properties", deployment_properties)
-        if docker_build_context and not isinstance(docker_build_context, str):
-            raise TypeError("Expected argument 'docker_build_context' to be a str")
-        pulumi.set(__self__, "docker_build_context", docker_build_context)
-        if dockerfile and not isinstance(dockerfile, str):
-            raise TypeError("Expected argument 'dockerfile' to be a str")
-        pulumi.set(__self__, "dockerfile", dockerfile)
         if dockerfile_generation_mode and not isinstance(dockerfile_generation_mode, str):
             raise TypeError("Expected argument 'dockerfile_generation_mode' to be a str")
         pulumi.set(__self__, "dockerfile_generation_mode", dockerfile_generation_mode)
@@ -64,6 +43,9 @@ class GetWorkflowResult:
         if generation_language and not isinstance(generation_language, str):
             raise TypeError("Expected argument 'generation_language' to be a str")
         pulumi.set(__self__, "generation_language", generation_language)
+        if github_workflow_profile and not isinstance(github_workflow_profile, dict):
+            raise TypeError("Expected argument 'github_workflow_profile' to be a dict")
+        pulumi.set(__self__, "github_workflow_profile", github_workflow_profile)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -76,9 +58,6 @@ class GetWorkflowResult:
         if language_version and not isinstance(language_version, str):
             raise TypeError("Expected argument 'language_version' to be a str")
         pulumi.set(__self__, "language_version", language_version)
-        if last_workflow_run and not isinstance(last_workflow_run, dict):
-            raise TypeError("Expected argument 'last_workflow_run' to be a dict")
-        pulumi.set(__self__, "last_workflow_run", last_workflow_run)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -97,27 +76,9 @@ class GetWorkflowResult:
         if namespace and not isinstance(namespace, str):
             raise TypeError("Expected argument 'namespace' to be a str")
         pulumi.set(__self__, "namespace", namespace)
-        if oidc_credentials and not isinstance(oidc_credentials, dict):
-            raise TypeError("Expected argument 'oidc_credentials' to be a dict")
-        pulumi.set(__self__, "oidc_credentials", oidc_credentials)
         if port and not isinstance(port, str):
             raise TypeError("Expected argument 'port' to be a str")
         pulumi.set(__self__, "port", port)
-        if pr_status and not isinstance(pr_status, str):
-            raise TypeError("Expected argument 'pr_status' to be a str")
-        pulumi.set(__self__, "pr_status", pr_status)
-        if pr_url and not isinstance(pr_url, str):
-            raise TypeError("Expected argument 'pr_url' to be a str")
-        pulumi.set(__self__, "pr_url", pr_url)
-        if pull_number and not isinstance(pull_number, int):
-            raise TypeError("Expected argument 'pull_number' to be a int")
-        pulumi.set(__self__, "pull_number", pull_number)
-        if repository_name and not isinstance(repository_name, str):
-            raise TypeError("Expected argument 'repository_name' to be a str")
-        pulumi.set(__self__, "repository_name", repository_name)
-        if repository_owner and not isinstance(repository_owner, str):
-            raise TypeError("Expected argument 'repository_owner' to be a str")
-        pulumi.set(__self__, "repository_owner", repository_owner)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -129,22 +90,6 @@ class GetWorkflowResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter
-    def acr(self) -> Optional['outputs.ACRResponse']:
-        """
-        Information on the azure container registry
-        """
-        return pulumi.get(self, "acr")
-
-    @property
-    @pulumi.getter(name="aksResourceId")
-    def aks_resource_id(self) -> Optional[str]:
-        """
-        The Azure Kubernetes Cluster Resource the application will be deployed to.
-        """
-        return pulumi.get(self, "aks_resource_id")
-
-    @property
     @pulumi.getter(name="appName")
     def app_name(self) -> Optional[str]:
         """
@@ -153,49 +98,12 @@ class GetWorkflowResult:
         return pulumi.get(self, "app_name")
 
     @property
-    @pulumi.getter(name="authStatus")
-    def auth_status(self) -> str:
-        """
-        Determines the authorization status of requests.
-        """
-        return pulumi.get(self, "auth_status")
-
-    @property
-    @pulumi.getter(name="branchName")
-    def branch_name(self) -> Optional[str]:
-        """
-        Repository Branch Name
-        """
-        return pulumi.get(self, "branch_name")
-
-    @property
     @pulumi.getter(name="builderVersion")
     def builder_version(self) -> Optional[str]:
         """
         The version of the language image used for building the code in the generated dockerfile.
         """
         return pulumi.get(self, "builder_version")
-
-    @property
-    @pulumi.getter(name="deploymentProperties")
-    def deployment_properties(self) -> Optional['outputs.DeploymentPropertiesResponse']:
-        return pulumi.get(self, "deployment_properties")
-
-    @property
-    @pulumi.getter(name="dockerBuildContext")
-    def docker_build_context(self) -> Optional[str]:
-        """
-        Path to Dockerfile Build Context within the repository.
-        """
-        return pulumi.get(self, "docker_build_context")
-
-    @property
-    @pulumi.getter
-    def dockerfile(self) -> Optional[str]:
-        """
-        Path to the Dockerfile within the repository.
-        """
-        return pulumi.get(self, "dockerfile")
 
     @property
     @pulumi.getter(name="dockerfileGenerationMode")
@@ -220,6 +128,14 @@ class GetWorkflowResult:
         The programming language used.
         """
         return pulumi.get(self, "generation_language")
+
+    @property
+    @pulumi.getter(name="githubWorkflowProfile")
+    def github_workflow_profile(self) -> Optional['outputs.GitHubWorkflowProfileResponse']:
+        """
+        Profile of a github workflow.
+        """
+        return pulumi.get(self, "github_workflow_profile")
 
     @property
     @pulumi.getter
@@ -252,11 +168,6 @@ class GetWorkflowResult:
         The version of the language image used for execution in the generated dockerfile.
         """
         return pulumi.get(self, "language_version")
-
-    @property
-    @pulumi.getter(name="lastWorkflowRun")
-    def last_workflow_run(self) -> Optional['outputs.WorkflowRunResponse']:
-        return pulumi.get(self, "last_workflow_run")
 
     @property
     @pulumi.getter
@@ -302,17 +213,9 @@ class GetWorkflowResult:
     @pulumi.getter
     def namespace(self) -> Optional[str]:
         """
-        Kubernetes namespace the application is deployed to.
+        The namespace to deploy the application to.
         """
         return pulumi.get(self, "namespace")
-
-    @property
-    @pulumi.getter(name="oidcCredentials")
-    def oidc_credentials(self) -> Optional['outputs.GitHubWorkflowProfileResponseOidcCredentials']:
-        """
-        The fields needed for OIDC with GitHub.
-        """
-        return pulumi.get(self, "oidc_credentials")
 
     @property
     @pulumi.getter
@@ -321,46 +224,6 @@ class GetWorkflowResult:
         The port the application is exposed on.
         """
         return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="prStatus")
-    def pr_status(self) -> str:
-        """
-        The status of the Pull Request submitted against the users repository.
-        """
-        return pulumi.get(self, "pr_status")
-
-    @property
-    @pulumi.getter(name="prURL")
-    def pr_url(self) -> str:
-        """
-        The URL to the Pull Request submitted against the users repository.
-        """
-        return pulumi.get(self, "pr_url")
-
-    @property
-    @pulumi.getter(name="pullNumber")
-    def pull_number(self) -> int:
-        """
-        The number associated with the submitted pull request.
-        """
-        return pulumi.get(self, "pull_number")
-
-    @property
-    @pulumi.getter(name="repositoryName")
-    def repository_name(self) -> Optional[str]:
-        """
-        Repository Name
-        """
-        return pulumi.get(self, "repository_name")
-
-    @property
-    @pulumi.getter(name="repositoryOwner")
-    def repository_owner(self) -> Optional[str]:
-        """
-        Repository Owner
-        """
-        return pulumi.get(self, "repository_owner")
 
     @property
     @pulumi.getter(name="systemData")
@@ -393,36 +256,23 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
         if False:
             yield self
         return GetWorkflowResult(
-            acr=self.acr,
-            aks_resource_id=self.aks_resource_id,
             app_name=self.app_name,
-            auth_status=self.auth_status,
-            branch_name=self.branch_name,
             builder_version=self.builder_version,
-            deployment_properties=self.deployment_properties,
-            docker_build_context=self.docker_build_context,
-            dockerfile=self.dockerfile,
             dockerfile_generation_mode=self.dockerfile_generation_mode,
             dockerfile_output_directory=self.dockerfile_output_directory,
             generation_language=self.generation_language,
+            github_workflow_profile=self.github_workflow_profile,
             id=self.id,
             image_name=self.image_name,
             image_tag=self.image_tag,
             language_version=self.language_version,
-            last_workflow_run=self.last_workflow_run,
             location=self.location,
             manifest_generation_mode=self.manifest_generation_mode,
             manifest_output_directory=self.manifest_output_directory,
             manifest_type=self.manifest_type,
             name=self.name,
             namespace=self.namespace,
-            oidc_credentials=self.oidc_credentials,
             port=self.port,
-            pr_status=self.pr_status,
-            pr_url=self.pr_url,
-            pull_number=self.pull_number,
-            repository_name=self.repository_name,
-            repository_owner=self.repository_owner,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -445,36 +295,23 @@ def get_workflow(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devhub/v20230801:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult).value
 
     return AwaitableGetWorkflowResult(
-        acr=pulumi.get(__ret__, 'acr'),
-        aks_resource_id=pulumi.get(__ret__, 'aks_resource_id'),
         app_name=pulumi.get(__ret__, 'app_name'),
-        auth_status=pulumi.get(__ret__, 'auth_status'),
-        branch_name=pulumi.get(__ret__, 'branch_name'),
         builder_version=pulumi.get(__ret__, 'builder_version'),
-        deployment_properties=pulumi.get(__ret__, 'deployment_properties'),
-        docker_build_context=pulumi.get(__ret__, 'docker_build_context'),
-        dockerfile=pulumi.get(__ret__, 'dockerfile'),
         dockerfile_generation_mode=pulumi.get(__ret__, 'dockerfile_generation_mode'),
         dockerfile_output_directory=pulumi.get(__ret__, 'dockerfile_output_directory'),
         generation_language=pulumi.get(__ret__, 'generation_language'),
+        github_workflow_profile=pulumi.get(__ret__, 'github_workflow_profile'),
         id=pulumi.get(__ret__, 'id'),
         image_name=pulumi.get(__ret__, 'image_name'),
         image_tag=pulumi.get(__ret__, 'image_tag'),
         language_version=pulumi.get(__ret__, 'language_version'),
-        last_workflow_run=pulumi.get(__ret__, 'last_workflow_run'),
         location=pulumi.get(__ret__, 'location'),
         manifest_generation_mode=pulumi.get(__ret__, 'manifest_generation_mode'),
         manifest_output_directory=pulumi.get(__ret__, 'manifest_output_directory'),
         manifest_type=pulumi.get(__ret__, 'manifest_type'),
         name=pulumi.get(__ret__, 'name'),
         namespace=pulumi.get(__ret__, 'namespace'),
-        oidc_credentials=pulumi.get(__ret__, 'oidc_credentials'),
         port=pulumi.get(__ret__, 'port'),
-        pr_status=pulumi.get(__ret__, 'pr_status'),
-        pr_url=pulumi.get(__ret__, 'pr_url'),
-        pull_number=pulumi.get(__ret__, 'pull_number'),
-        repository_name=pulumi.get(__ret__, 'repository_name'),
-        repository_owner=pulumi.get(__ret__, 'repository_owner'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -494,36 +331,23 @@ def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devhub/v20230801:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult)
     return __ret__.apply(lambda __response__: GetWorkflowResult(
-        acr=pulumi.get(__response__, 'acr'),
-        aks_resource_id=pulumi.get(__response__, 'aks_resource_id'),
         app_name=pulumi.get(__response__, 'app_name'),
-        auth_status=pulumi.get(__response__, 'auth_status'),
-        branch_name=pulumi.get(__response__, 'branch_name'),
         builder_version=pulumi.get(__response__, 'builder_version'),
-        deployment_properties=pulumi.get(__response__, 'deployment_properties'),
-        docker_build_context=pulumi.get(__response__, 'docker_build_context'),
-        dockerfile=pulumi.get(__response__, 'dockerfile'),
         dockerfile_generation_mode=pulumi.get(__response__, 'dockerfile_generation_mode'),
         dockerfile_output_directory=pulumi.get(__response__, 'dockerfile_output_directory'),
         generation_language=pulumi.get(__response__, 'generation_language'),
+        github_workflow_profile=pulumi.get(__response__, 'github_workflow_profile'),
         id=pulumi.get(__response__, 'id'),
         image_name=pulumi.get(__response__, 'image_name'),
         image_tag=pulumi.get(__response__, 'image_tag'),
         language_version=pulumi.get(__response__, 'language_version'),
-        last_workflow_run=pulumi.get(__response__, 'last_workflow_run'),
         location=pulumi.get(__response__, 'location'),
         manifest_generation_mode=pulumi.get(__response__, 'manifest_generation_mode'),
         manifest_output_directory=pulumi.get(__response__, 'manifest_output_directory'),
         manifest_type=pulumi.get(__response__, 'manifest_type'),
         name=pulumi.get(__response__, 'name'),
         namespace=pulumi.get(__response__, 'namespace'),
-        oidc_credentials=pulumi.get(__response__, 'oidc_credentials'),
         port=pulumi.get(__response__, 'port'),
-        pr_status=pulumi.get(__response__, 'pr_status'),
-        pr_url=pulumi.get(__response__, 'pr_url'),
-        pull_number=pulumi.get(__response__, 'pull_number'),
-        repository_name=pulumi.get(__response__, 'repository_name'),
-        repository_owner=pulumi.get(__response__, 'repository_owner'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

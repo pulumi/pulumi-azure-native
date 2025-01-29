@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * List the two keys used to publish to a namespace topic.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview.
  */
 export function listNamespaceTopicSharedAccessKeys(args: ListNamespaceTopicSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNamespaceTopicSharedAccessKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,9 +49,9 @@ export interface ListNamespaceTopicSharedAccessKeysResult {
 }
 /**
  * List the two keys used to publish to a namespace topic.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview.
  */
 export function listNamespaceTopicSharedAccessKeysOutput(args: ListNamespaceTopicSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNamespaceTopicSharedAccessKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

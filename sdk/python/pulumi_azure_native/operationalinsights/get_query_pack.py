@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetQueryPackResult',
@@ -26,7 +27,7 @@ class GetQueryPackResult:
     """
     An Log Analytics QueryPack definition.
     """
-    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, query_pack_id=None, tags=None, time_created=None, time_modified=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, query_pack_id=None, system_data=None, tags=None, time_created=None, time_modified=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -42,6 +43,9 @@ class GetQueryPackResult:
         if query_pack_id and not isinstance(query_pack_id, str):
             raise TypeError("Expected argument 'query_pack_id' to be a str")
         pulumi.set(__self__, "query_pack_id", query_pack_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -59,7 +63,7 @@ class GetQueryPackResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -67,7 +71,7 @@ class GetQueryPackResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -75,7 +79,7 @@ class GetQueryPackResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -96,10 +100,18 @@ class GetQueryPackResult:
         return pulumi.get(self, "query_pack_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -123,7 +135,7 @@ class GetQueryPackResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -139,6 +151,7 @@ class AwaitableGetQueryPackResult(GetQueryPackResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             query_pack_id=self.query_pack_id,
+            system_data=self.system_data,
             tags=self.tags,
             time_created=self.time_created,
             time_modified=self.time_modified,
@@ -150,9 +163,9 @@ def get_query_pack(query_pack_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueryPackResult:
     """
     Returns a Log Analytics QueryPack.
-    Azure REST API version: 2019-09-01.
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2019-09-01-preview, 2023-09-01.
+    Other available API versions: 2019-09-01.
 
 
     :param str query_pack_name: The name of the Log Analytics QueryPack resource.
@@ -170,6 +183,7 @@ def get_query_pack(query_pack_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         query_pack_id=pulumi.get(__ret__, 'query_pack_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         time_created=pulumi.get(__ret__, 'time_created'),
         time_modified=pulumi.get(__ret__, 'time_modified'),
@@ -179,9 +193,9 @@ def get_query_pack_output(query_pack_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryPackResult]:
     """
     Returns a Log Analytics QueryPack.
-    Azure REST API version: 2019-09-01.
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2019-09-01-preview, 2023-09-01.
+    Other available API versions: 2019-09-01.
 
 
     :param str query_pack_name: The name of the Log Analytics QueryPack resource.
@@ -198,6 +212,7 @@ def get_query_pack_output(query_pack_name: Optional[pulumi.Input[str]] = None,
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         query_pack_id=pulumi.get(__response__, 'query_pack_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         time_created=pulumi.get(__response__, 'time_created'),
         time_modified=pulumi.get(__response__, 'time_modified'),

@@ -10,15 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
+    /// <summary>
+    /// IP Pool info
+    /// </summary>
     [OutputType]
     public sealed class IPPoolInfoResponse
     {
         /// <summary>
-        /// no. of ip addresses available in the ip pool
+        /// Number of IP addresses available in the IP Pool
         /// </summary>
         public readonly string Available;
         /// <summary>
-        /// no. of ip addresses allocated from the ip pool
+        /// Number of IP addresses allocated from the IP Pool
         /// </summary>
         public readonly string Used;
 

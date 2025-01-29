@@ -25,13 +25,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.PrivateEndpointResourceResponse? PrivateEndpoint;
         /// <summary>
-        /// The connection state.
-        /// </summary>
-        public readonly Outputs.RegistryPrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
-        /// <summary>
         /// One of null, "Succeeded", "Provisioning", "Failed". While not approved, it's null.
         /// </summary>
         public readonly string? ProvisioningState;
+        /// <summary>
+        /// The connection state.
+        /// </summary>
+        public readonly Outputs.RegistryPrivateLinkServiceConnectionStateResponse? RegistryPrivateLinkServiceConnectionState;
 
         [OutputConstructor]
         private RegistryPrivateEndpointConnectionPropertiesResponse(
@@ -39,14 +39,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.PrivateEndpointResourceResponse? privateEndpoint,
 
-            Outputs.RegistryPrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
+            string? provisioningState,
 
-            string? provisioningState)
+            Outputs.RegistryPrivateLinkServiceConnectionStateResponse? registryPrivateLinkServiceConnectionState)
         {
             GroupIds = groupIds;
             PrivateEndpoint = privateEndpoint;
-            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            RegistryPrivateLinkServiceConnectionState = registryPrivateLinkServiceConnectionState;
         }
     }
 }

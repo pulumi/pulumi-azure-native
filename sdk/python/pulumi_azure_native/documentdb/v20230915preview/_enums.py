@@ -6,42 +6,24 @@ from enum import Enum
 
 __all__ = [
     'AnalyticalStorageSchemaType',
-    'AuthenticationMethod',
     'BackupPolicyMigrationStatus',
     'BackupPolicyType',
     'BackupStorageRedundancy',
-    'ClusterType',
-    'CompositePathSortOrder',
-    'ConflictResolutionMode',
     'ConnectorOffer',
     'ContinuousTier',
     'CreateMode',
     'CustomerManagedKeyStatus',
-    'DataType',
     'DatabaseAccountKind',
     'DatabaseAccountOfferType',
     'DefaultConsistencyLevel',
     'DefaultPriorityLevel',
     'EnableFullTextQuery',
-    'IndexKind',
-    'IndexingMode',
-    'ManagedCassandraProvisioningState',
-    'ManagedCassandraResourceIdentityType',
     'MinimalTlsVersion',
-    'MongoRoleDefinitionType',
     'NetworkAclBypass',
-    'NodeKind',
-    'PartitionKind',
     'PublicNetworkAccess',
     'ResourceIdentityType',
     'RestoreMode',
-    'RoleDefinitionType',
     'ServerVersion',
-    'ServiceSize',
-    'ServiceType',
-    'SpatialType',
-    'TriggerOperation',
-    'TriggerType',
 ]
 
 
@@ -51,15 +33,6 @@ class AnalyticalStorageSchemaType(str, Enum):
     """
     WELL_DEFINED = "WellDefined"
     FULL_FIDELITY = "FullFidelity"
-
-
-class AuthenticationMethod(str, Enum):
-    """
-    Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
-    """
-    NONE = "None"
-    CASSANDRA = "Cassandra"
-    LDAP = "Ldap"
 
 
 class BackupPolicyMigrationStatus(str, Enum):
@@ -89,30 +62,6 @@ class BackupStorageRedundancy(str, Enum):
     ZONE = "Zone"
 
 
-class ClusterType(str, Enum):
-    """
-    Type of the cluster. If set to Production, some operations might not be permitted on cluster.
-    """
-    PRODUCTION = "Production"
-    NON_PRODUCTION = "NonProduction"
-
-
-class CompositePathSortOrder(str, Enum):
-    """
-    Sort order for composite paths.
-    """
-    ASCENDING = "ascending"
-    DESCENDING = "descending"
-
-
-class ConflictResolutionMode(str, Enum):
-    """
-    Indicates the conflict resolution mode.
-    """
-    LAST_WRITER_WINS = "LastWriterWins"
-    CUSTOM = "Custom"
-
-
 class ConnectorOffer(str, Enum):
     """
     The cassandra connector offer type for the Cosmos DB database C* account.
@@ -130,7 +79,7 @@ class ContinuousTier(str, Enum):
 
 class CreateMode(str, Enum):
     """
-    Enum to indicate the mode of resource creation.
+    Enum to indicate the mode of account creation.
     """
     DEFAULT = "Default"
     RESTORE = "Restore"
@@ -151,18 +100,6 @@ class CustomerManagedKeyStatus(str, Enum):
     ACCESS_TO_YOUR_ACCOUNT_IS_CURRENTLY_REVOKED_BECAUSE_THE_CORRESPONDENT_AZURE_KEY_VAULT_WAS_NOT_FOUND_FOR_MORE_DETAILS_ABOUT_THIS_ERROR_AND_HOW_TO_RESTORE_ACCESS_TO_YOUR_ACCOUNT_PLEASE_VISIT_HTTPS_LEARN_MICROSOFT_COM_EN_US_AZURE_COSMOS_DB_CMK_TROUBLESHOOTING_GUIDE_AZURE_KEY_VAULT_RESOURCE_NOT_FOUND_4017_ = "Access to your account is currently revoked because the correspondent Azure Key Vault was not found; for more details about this error and how to restore access to your account please visit https://learn.microsoft.com/en-us/azure/cosmos-db/cmk-troubleshooting-guide#azure-key-vault-resource-not-found (4017)."
     ACCESS_TO_YOUR_ACCOUNT_IS_CURRENTLY_REVOKED_FOR_MORE_DETAILS_ABOUT_THIS_ERROR_AND_HOW_TO_RESTORE_ACCESS_TO_YOUR_ACCOUNT_PLEASE_VISIT_HTTPS_LEARN_MICROSOFT_COM_EN_US_AZURE_COSMOS_DB_CMK_TROUBLESHOOTING_GUIDE = "Access to your account is currently revoked; for more details about this error and how to restore access to your account please visit https://learn.microsoft.com/en-us/azure/cosmos-db/cmk-troubleshooting-guide"
     ACCESS_TO_THE_CONFIGURED_CUSTOMER_MANAGED_KEY_CONFIRMED_ = "Access to the configured customer managed key confirmed."
-
-
-class DataType(str, Enum):
-    """
-    The datatype for which the indexing behavior is applied to.
-    """
-    STRING = "String"
-    NUMBER = "Number"
-    POINT = "Point"
-    POLYGON = "Polygon"
-    LINE_STRING = "LineString"
-    MULTI_POLYGON = "MultiPolygon"
 
 
 class DatabaseAccountKind(str, Enum):
@@ -209,44 +146,6 @@ class EnableFullTextQuery(str, Enum):
     FALSE = "False"
 
 
-class IndexKind(str, Enum):
-    """
-    Indicates the type of index.
-    """
-    HASH = "Hash"
-    RANGE = "Range"
-    SPATIAL = "Spatial"
-
-
-class IndexingMode(str, Enum):
-    """
-    Indicates the indexing mode.
-    """
-    CONSISTENT = "consistent"
-    LAZY = "lazy"
-    NONE = "none"
-
-
-class ManagedCassandraProvisioningState(str, Enum):
-    """
-    The status of the resource at the time the operation was called.
-    """
-    CREATING = "Creating"
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    CANCELED = "Canceled"
-
-
-class ManagedCassandraResourceIdentityType(str, Enum):
-    """
-    The type of the resource.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    NONE = "None"
-
-
 class MinimalTlsVersion(str, Enum):
     """
     Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2.
@@ -256,36 +155,12 @@ class MinimalTlsVersion(str, Enum):
     TLS12 = "Tls12"
 
 
-class MongoRoleDefinitionType(str, Enum):
-    """
-    Indicates whether the Role Definition was built-in or user created.
-    """
-    BUILT_IN_ROLE = "BuiltInRole"
-    CUSTOM_ROLE = "CustomRole"
-
-
 class NetworkAclBypass(str, Enum):
     """
     Indicates what services are allowed to bypass firewall checks.
     """
     NONE = "None"
     AZURE_SERVICES = "AzureServices"
-
-
-class NodeKind(str, Enum):
-    """
-    The node type deployed in the node group.
-    """
-    SHARD = "Shard"
-
-
-class PartitionKind(str, Enum):
-    """
-    Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
-    """
-    HASH = "Hash"
-    RANGE = "Range"
-    MULTI_HASH = "MultiHash"
 
 
 class PublicNetworkAccess(str, Enum):
@@ -314,14 +189,6 @@ class RestoreMode(str, Enum):
     POINT_IN_TIME = "PointInTime"
 
 
-class RoleDefinitionType(str, Enum):
-    """
-    Indicates whether the Role Definition was built-in or user created.
-    """
-    BUILT_IN_ROLE = "BuiltInRole"
-    CUSTOM_ROLE = "CustomRole"
-
-
 class ServerVersion(str, Enum):
     """
     Describes the ServerVersion of an a MongoDB account.
@@ -330,51 +197,3 @@ class ServerVersion(str, Enum):
     SERVER_VERSION_3_6 = "3.6"
     SERVER_VERSION_4_0 = "4.0"
     SERVER_VERSION_4_2 = "4.2"
-
-
-class ServiceSize(str, Enum):
-    """
-    Instance type for the service.
-    """
-    COSMOS_D4S = "Cosmos.D4s"
-    COSMOS_D8S = "Cosmos.D8s"
-    COSMOS_D16S = "Cosmos.D16s"
-
-
-class ServiceType(str, Enum):
-    """
-    ServiceType for the service.
-    """
-    SQL_DEDICATED_GATEWAY = "SqlDedicatedGateway"
-    DATA_TRANSFER = "DataTransfer"
-    GRAPH_API_COMPUTE = "GraphAPICompute"
-    MATERIALIZED_VIEWS_BUILDER = "MaterializedViewsBuilder"
-
-
-class SpatialType(str, Enum):
-    """
-    Indicates the spatial type of index.
-    """
-    POINT = "Point"
-    LINE_STRING = "LineString"
-    POLYGON = "Polygon"
-    MULTI_POLYGON = "MultiPolygon"
-
-
-class TriggerOperation(str, Enum):
-    """
-    The operation the trigger is associated with
-    """
-    ALL = "All"
-    CREATE = "Create"
-    UPDATE = "Update"
-    DELETE = "Delete"
-    REPLACE = "Replace"
-
-
-class TriggerType(str, Enum):
-    """
-    Type of the Trigger
-    """
-    PRE = "Pre"
-    POST = "Post"

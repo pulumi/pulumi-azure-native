@@ -42,6 +42,10 @@ namespace Pulumi.AzureNative.Batch.Outputs
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
         public readonly string ProvisioningState;
         /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
             string provisioningState,
 
+            ImmutableDictionary<string, string>? tags,
+
             string type)
         {
             Etag = etag;
@@ -71,6 +77,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            Tags = tags;
             Type = type;
         }
     }

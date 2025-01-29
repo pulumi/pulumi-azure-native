@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Easm
 {
     /// <summary>
     /// Label details
-    /// Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+    /// Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 2.x: 2023-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:easm:LabelByWorkspace")]
     public partial class LabelByWorkspace : global::Pulumi.CustomResource

@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get assigned Gateway Certificate Authority details.
- * Azure REST API version: 2022-08-01.
+ * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2022-08-01, 2024-06-01-preview.
  */
 export function getGatewayCertificateAuthority(args: GetGatewayCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayCertificateAuthorityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,9 +62,9 @@ export interface GetGatewayCertificateAuthorityResult {
 }
 /**
  * Get assigned Gateway Certificate Authority details.
- * Azure REST API version: 2022-08-01.
+ * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2022-08-01, 2024-06-01-preview.
  */
 export function getGatewayCertificateAuthorityOutput(args: GetGatewayCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayCertificateAuthorityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

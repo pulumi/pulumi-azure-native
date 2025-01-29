@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Get a Vcenter
-        /// Azure REST API version: 2023-06-06.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview.
         /// </summary>
         public static Task<GetVcenterControllerResult> InvokeAsync(GetVcenterControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVcenterControllerResult>("azure-native:offazure:getVcenterController", args ?? new GetVcenterControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Vcenter
-        /// Azure REST API version: 2023-06-06.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview.
         /// </summary>
         public static Output<GetVcenterControllerResult> Invoke(GetVcenterControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVcenterControllerResult>("azure-native:offazure:getVcenterController", args ?? new GetVcenterControllerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Vcenter
-        /// Azure REST API version: 2023-06-06.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview.
         /// </summary>
         public static Output<GetVcenterControllerResult> Invoke(GetVcenterControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVcenterControllerResult>("azure-native:offazure:getVcenterController", args ?? new GetVcenterControllerInvokeArgs(), options.WithDefaults());

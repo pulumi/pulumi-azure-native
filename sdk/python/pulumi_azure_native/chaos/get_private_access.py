@@ -27,7 +27,7 @@ class GetPrivateAccessResult:
     """
     PrivateAccesses tracked resource.
     """
-    def __init__(__self__, id=None, location=None, name=None, private_endpoint_connections=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +40,12 @@ class GetPrivateAccessResult:
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -83,6 +89,22 @@ class GetPrivateAccessResult:
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Most recent provisioning state for the given privateAccess resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Public Network Access Control for PrivateAccess resource.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -117,6 +139,8 @@ class AwaitableGetPrivateAccessResult(GetPrivateAccessResult):
             location=self.location,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
+            provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -127,9 +151,9 @@ def get_private_access(private_access_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateAccessResult:
     """
     Get a private access resource
-    Azure REST API version: 2023-10-27-preview.
+    Azure REST API version: 2024-03-22-preview.
 
-    Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+    Other available API versions: 2023-10-27-preview, 2024-11-01-preview.
 
 
     :param str private_access_name: The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -146,6 +170,8 @@ def get_private_access(private_access_name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -154,9 +180,9 @@ def get_private_access_output(private_access_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateAccessResult]:
     """
     Get a private access resource
-    Azure REST API version: 2023-10-27-preview.
+    Azure REST API version: 2024-03-22-preview.
 
-    Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+    Other available API versions: 2023-10-27-preview, 2024-11-01-preview.
 
 
     :param str private_access_name: The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -172,6 +198,8 @@ def get_private_access_output(private_access_name: Optional[pulumi.Input[str]] =
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

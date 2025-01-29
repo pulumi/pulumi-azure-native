@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Support information for the service
- * Azure REST API version: 2024-02-07-preview.
+ * Azure REST API version: 2024-01-19-preview.
  *
- * Other available API versions: 2024-01-19-preview.
+ * Other available API versions: 2024-02-07-preview.
  */
 export function listPaloAltoNetworksCloudngfwSupportInfo(args?: ListPaloAltoNetworksCloudngfwSupportInfoArgs, opts?: pulumi.InvokeOptions): Promise<ListPaloAltoNetworksCloudngfwSupportInfoResult> {
     args = args || {};
@@ -87,9 +87,9 @@ export interface ListPaloAltoNetworksCloudngfwSupportInfoResult {
 }
 /**
  * Support information for the service
- * Azure REST API version: 2024-02-07-preview.
+ * Azure REST API version: 2024-01-19-preview.
  *
- * Other available API versions: 2024-01-19-preview.
+ * Other available API versions: 2024-02-07-preview.
  */
 export function listPaloAltoNetworksCloudngfwSupportInfoOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

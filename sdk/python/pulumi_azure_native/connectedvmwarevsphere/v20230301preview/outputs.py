@@ -42,7 +42,6 @@ __all__ = [
     'StorageProfileResponse',
     'SystemDataResponse',
     'UefiSettingsResponse',
-    'VICredentialResponse',
     'VirtualDiskResponse',
     'VirtualSCSIControllerResponse',
 ]
@@ -2107,29 +2106,6 @@ class UefiSettingsResponse(dict):
         Specifies whether secure boot should be enabled on the virtual machine.
         """
         return pulumi.get(self, "secure_boot_enabled")
-
-
-@pulumi.output_type
-class VICredentialResponse(dict):
-    """
-    Username / Password Credentials to connect to vcenter.
-    """
-    def __init__(__self__, *,
-                 username: Optional[str] = None):
-        """
-        Username / Password Credentials to connect to vcenter.
-        :param str username: Gets or sets username to connect with the vCenter.
-        """
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[str]:
-        """
-        Gets or sets username to connect with the vCenter.
-        """
-        return pulumi.get(self, "username")
 
 
 @pulumi.output_type

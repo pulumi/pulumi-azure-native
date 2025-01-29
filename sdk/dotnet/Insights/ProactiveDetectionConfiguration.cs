@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// A ProactiveDetection configuration definition.
-    /// Azure REST API version: 2018-05-01-preview. Prior API version in Azure Native 1.x: 2015-05-01.
+    /// Azure REST API version: 2018-05-01-preview. Prior API version in Azure Native 2.x: 2018-05-01-preview.
     /// 
     /// Other available API versions: 2015-05-01.
     /// </summary>
@@ -19,46 +19,22 @@ namespace Pulumi.AzureNative.Insights
     public partial class ProactiveDetectionConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Custom email addresses for this rule notifications
-        /// </summary>
-        [Output("customEmails")]
-        public Output<ImmutableArray<string>> CustomEmails { get; private set; } = null!;
-
-        /// <summary>
-        /// A flag that indicates whether this rule is enabled by the user
-        /// </summary>
-        [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
-
-        /// <summary>
-        /// The last time this rule was updated
-        /// </summary>
-        [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The rule name
+        /// Azure resource name
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Static definitions of the ProactiveDetection configuration rule (same values for all components).
+        /// Properties that define a ProactiveDetection configuration.
         /// </summary>
-        [Output("ruleDefinitions")]
-        public Output<Outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions?> RuleDefinitions { get; private set; } = null!;
-
-        /// <summary>
-        /// A flag that indicated whether notifications on this rule should be sent to subscription owners
-        /// </summary>
-        [Output("sendEmailsToSubscriptionOwners")]
-        public Output<bool?> SendEmailsToSubscriptionOwners { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource type

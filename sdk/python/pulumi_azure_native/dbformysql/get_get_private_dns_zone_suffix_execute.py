@@ -52,9 +52,9 @@ class AwaitableGetGetPrivateDnsZoneSuffixExecuteResult(GetGetPrivateDnsZoneSuffi
 def get_get_private_dns_zone_suffix_execute(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGetPrivateDnsZoneSuffixExecuteResult:
     """
     Get private DNS zone suffix in the cloud.
-    Azure REST API version: 2022-01-01.
+    Azure REST API version: 2023-12-30.
 
-    Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2023-12-30, 2024-10-01-preview.
+    Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2024-10-01-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -65,9 +65,9 @@ def get_get_private_dns_zone_suffix_execute(opts: Optional[pulumi.InvokeOptions]
 def get_get_private_dns_zone_suffix_execute_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGetPrivateDnsZoneSuffixExecuteResult]:
     """
     Get private DNS zone suffix in the cloud.
-    Azure REST API version: 2022-01-01.
+    Azure REST API version: 2023-12-30.
 
-    Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2023-12-30, 2024-10-01-preview.
+    Other available API versions: 2021-05-01, 2021-05-01-preview, 2021-12-01-preview, 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-12-01-preview, 2024-10-01-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

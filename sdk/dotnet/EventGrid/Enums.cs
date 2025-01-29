@@ -55,6 +55,9 @@ namespace Pulumi.AzureNative.EventGrid
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Alternative authentication name sources related to client authentication settings for namespace resource.
+    /// </summary>
     [EnumType]
     public readonly struct AlternativeAuthenticationNameSource : IEquatable<AlternativeAuthenticationNameSource>
     {
@@ -106,6 +109,7 @@ namespace Pulumi.AzureNative.EventGrid
         public static ChannelProvisioningState Canceled { get; } = new ChannelProvisioningState("Canceled");
         public static ChannelProvisioningState Failed { get; } = new ChannelProvisioningState("Failed");
         public static ChannelProvisioningState IdleDueToMirroredPartnerTopicDeletion { get; } = new ChannelProvisioningState("IdleDueToMirroredPartnerTopicDeletion");
+        public static ChannelProvisioningState IdleDueToMirroredPartnerDestinationDeletion { get; } = new ChannelProvisioningState("IdleDueToMirroredPartnerDestinationDeletion");
 
         public static bool operator ==(ChannelProvisioningState left, ChannelProvisioningState right) => left.Equals(right);
         public static bool operator !=(ChannelProvisioningState left, ChannelProvisioningState right) => !left.Equals(right);
@@ -136,6 +140,7 @@ namespace Pulumi.AzureNative.EventGrid
         }
 
         public static ChannelType PartnerTopic { get; } = new ChannelType("PartnerTopic");
+        public static ChannelType PartnerDestination { get; } = new ChannelType("PartnerDestination");
 
         public static bool operator ==(ChannelType left, ChannelType right) => left.Equals(right);
         public static bool operator !=(ChannelType left, ChannelType right) => !left.Equals(right);
@@ -211,6 +216,100 @@ namespace Pulumi.AzureNative.EventGrid
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ClientState other && Equals(other);
         public bool Equals(ClientState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+    /// </summary>
+    [EnumType]
+    public readonly struct CustomDomainIdentityType : IEquatable<CustomDomainIdentityType>
+    {
+        private readonly string _value;
+
+        private CustomDomainIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CustomDomainIdentityType SystemAssigned { get; } = new CustomDomainIdentityType("SystemAssigned");
+        public static CustomDomainIdentityType UserAssigned { get; } = new CustomDomainIdentityType("UserAssigned");
+
+        public static bool operator ==(CustomDomainIdentityType left, CustomDomainIdentityType right) => left.Equals(right);
+        public static bool operator !=(CustomDomainIdentityType left, CustomDomainIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(CustomDomainIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomDomainIdentityType other && Equals(other);
+        public bool Equals(CustomDomainIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Validation state for the custom domain. This is a read only property and is initially set to 'Pending' and will be updated to 'Approved' by Event Grid only after ownership of the domain name has been successfully validated.
+    /// </summary>
+    [EnumType]
+    public readonly struct CustomDomainValidationState : IEquatable<CustomDomainValidationState>
+    {
+        private readonly string _value;
+
+        private CustomDomainValidationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CustomDomainValidationState Pending { get; } = new CustomDomainValidationState("Pending");
+        public static CustomDomainValidationState Approved { get; } = new CustomDomainValidationState("Approved");
+        public static CustomDomainValidationState ErrorRetrievingDnsRecord { get; } = new CustomDomainValidationState("ErrorRetrievingDnsRecord");
+
+        public static bool operator ==(CustomDomainValidationState left, CustomDomainValidationState right) => left.Equals(right);
+        public static bool operator !=(CustomDomainValidationState left, CustomDomainValidationState right) => !left.Equals(right);
+
+        public static explicit operator string(CustomDomainValidationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomDomainValidationState other && Equals(other);
+        public bool Equals(CustomDomainValidationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+    /// </summary>
+    [EnumType]
+    public readonly struct CustomJwtAuthenticationManagedIdentityType : IEquatable<CustomJwtAuthenticationManagedIdentityType>
+    {
+        private readonly string _value;
+
+        private CustomJwtAuthenticationManagedIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CustomJwtAuthenticationManagedIdentityType SystemAssigned { get; } = new CustomJwtAuthenticationManagedIdentityType("SystemAssigned");
+        public static CustomJwtAuthenticationManagedIdentityType UserAssigned { get; } = new CustomJwtAuthenticationManagedIdentityType("UserAssigned");
+
+        public static bool operator ==(CustomJwtAuthenticationManagedIdentityType left, CustomJwtAuthenticationManagedIdentityType right) => left.Equals(right);
+        public static bool operator !=(CustomJwtAuthenticationManagedIdentityType left, CustomJwtAuthenticationManagedIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(CustomJwtAuthenticationManagedIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomJwtAuthenticationManagedIdentityType other && Equals(other);
+        public bool Equals(CustomJwtAuthenticationManagedIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -324,6 +423,7 @@ namespace Pulumi.AzureNative.EventGrid
         }
 
         public static DeliveryMode Queue { get; } = new DeliveryMode("Queue");
+        public static DeliveryMode Push { get; } = new DeliveryMode("Push");
 
         public static bool operator ==(DeliveryMode left, DeliveryMode right) => left.Equals(right);
         public static bool operator !=(DeliveryMode left, DeliveryMode right) => !left.Equals(right);
@@ -390,6 +490,9 @@ namespace Pulumi.AzureNative.EventGrid
         public static EndpointType ServiceBusQueue { get; } = new EndpointType("ServiceBusQueue");
         public static EndpointType ServiceBusTopic { get; } = new EndpointType("ServiceBusTopic");
         public static EndpointType AzureFunction { get; } = new EndpointType("AzureFunction");
+        public static EndpointType PartnerDestination { get; } = new EndpointType("PartnerDestination");
+        public static EndpointType MonitorAlert { get; } = new EndpointType("MonitorAlert");
+        public static EndpointType NamespaceTopic { get; } = new EndpointType("NamespaceTopic");
 
         public static bool operator ==(EndpointType left, EndpointType right) => left.Equals(right);
         public static bool operator !=(EndpointType left, EndpointType right) => !left.Equals(right);
@@ -499,7 +602,7 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
     /// <summary>
-    /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+    /// The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
     /// </summary>
     [EnumType]
     public readonly struct EventSubscriptionIdentityType : IEquatable<EventSubscriptionIdentityType>
@@ -703,6 +806,71 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
     /// <summary>
+    /// The severity that will be attached to every Alert fired through this event subscription.
+    /// This field must be provided.
+    /// </summary>
+    [EnumType]
+    public readonly struct MonitorAlertSeverity : IEquatable<MonitorAlertSeverity>
+    {
+        private readonly string _value;
+
+        private MonitorAlertSeverity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MonitorAlertSeverity Sev0 { get; } = new MonitorAlertSeverity("Sev0");
+        public static MonitorAlertSeverity Sev1 { get; } = new MonitorAlertSeverity("Sev1");
+        public static MonitorAlertSeverity Sev2 { get; } = new MonitorAlertSeverity("Sev2");
+        public static MonitorAlertSeverity Sev3 { get; } = new MonitorAlertSeverity("Sev3");
+        public static MonitorAlertSeverity Sev4 { get; } = new MonitorAlertSeverity("Sev4");
+
+        public static bool operator ==(MonitorAlertSeverity left, MonitorAlertSeverity right) => left.Equals(right);
+        public static bool operator !=(MonitorAlertSeverity left, MonitorAlertSeverity right) => !left.Equals(right);
+
+        public static explicit operator string(MonitorAlertSeverity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonitorAlertSeverity other && Equals(other);
+        public bool Equals(MonitorAlertSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of client authentication
+    /// </summary>
+    [EnumType]
+    public readonly struct PartnerClientAuthenticationType : IEquatable<PartnerClientAuthenticationType>
+    {
+        private readonly string _value;
+
+        private PartnerClientAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnerClientAuthenticationType AzureAD { get; } = new PartnerClientAuthenticationType("AzureAD");
+
+        public static bool operator ==(PartnerClientAuthenticationType left, PartnerClientAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(PartnerClientAuthenticationType left, PartnerClientAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(PartnerClientAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnerClientAuthenticationType other && Equals(other);
+        public bool Equals(PartnerClientAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Provisioning state of the partner configuration.
     /// </summary>
     [EnumType]
@@ -761,6 +929,36 @@ namespace Pulumi.AzureNative.EventGrid
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PartnerDestinationActivationState other && Equals(other);
         public bool Equals(PartnerDestinationActivationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the endpoint for the partner destination
+    /// </summary>
+    [EnumType]
+    public readonly struct PartnerEndpointType : IEquatable<PartnerEndpointType>
+    {
+        private readonly string _value;
+
+        private PartnerEndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnerEndpointType WebHook { get; } = new PartnerEndpointType("WebHook");
+
+        public static bool operator ==(PartnerEndpointType left, PartnerEndpointType right) => left.Equals(right);
+        public static bool operator !=(PartnerEndpointType left, PartnerEndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(PartnerEndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnerEndpointType other && Equals(other);
+        public bool Equals(PartnerEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -912,6 +1110,7 @@ namespace Pulumi.AzureNative.EventGrid
 
         public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
         public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+        public static PublicNetworkAccess SecuredByPerimeter { get; } = new PublicNetworkAccess("SecuredByPerimeter");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
         public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
@@ -990,6 +1189,37 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
     /// <summary>
+    /// Kind of the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceKind : IEquatable<ResourceKind>
+    {
+        private readonly string _value;
+
+        private ResourceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceKind Azure { get; } = new ResourceKind("Azure");
+        public static ResourceKind AzureArc { get; } = new ResourceKind("AzureArc");
+
+        public static bool operator ==(ResourceKind left, ResourceKind right) => left.Equals(right);
+        public static bool operator !=(ResourceKind left, ResourceKind right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceKind other && Equals(other);
+        public bool Equals(ResourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Provisioning state of the Private Endpoint Connection.
     /// </summary>
     [EnumType]
@@ -1024,6 +1254,9 @@ namespace Pulumi.AzureNative.EventGrid
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Routing identity type for topic spaces configuration.
+    /// </summary>
     [EnumType]
     public readonly struct RoutingIdentityType : IEquatable<RoutingIdentityType>
     {
@@ -1046,6 +1279,37 @@ namespace Pulumi.AzureNative.EventGrid
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RoutingIdentityType other && Equals(other);
         public bool Equals(RoutingIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Sku name of the resource. The possible values are: Basic or Premium.
+    /// </summary>
+    [EnumType]
+    public readonly struct Sku : IEquatable<Sku>
+    {
+        private readonly string _value;
+
+        private Sku(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Sku Basic { get; } = new Sku("Basic");
+        public static Sku Premium { get; } = new Sku("Premium");
+
+        public static bool operator ==(Sku left, Sku right) => left.Equals(right);
+        public static bool operator !=(Sku left, Sku right) => !left.Equals(right);
+
+        public static explicit operator string(Sku value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Sku other && Equals(other);
+        public bool Equals(Sku other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1114,7 +1378,7 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
     /// <summary>
-    /// Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
+    /// Minimum TLS version that should be supported by webhook endpoint
     /// </summary>
     [EnumType]
     public readonly struct TlsVersion : IEquatable<TlsVersion>

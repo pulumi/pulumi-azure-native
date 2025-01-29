@@ -12,28 +12,28 @@ namespace Pulumi.AzureNative.Cache
     public static class GetEnterprisePrivateEndpointConnection
     {
         /// <summary>
-        /// Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-        /// Azure REST API version: 2023-03-01-preview.
+        /// Gets the specified private endpoint connection associated with the Redis Enterprise cluster.
+        /// Azure REST API version: 2024-09-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-10-01-preview, 2024-10-01.
         /// </summary>
         public static Task<GetEnterprisePrivateEndpointConnectionResult> InvokeAsync(GetEnterprisePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnterprisePrivateEndpointConnectionResult>("azure-native:cache:getEnterprisePrivateEndpointConnection", args ?? new GetEnterprisePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-        /// Azure REST API version: 2023-03-01-preview.
+        /// Gets the specified private endpoint connection associated with the Redis Enterprise cluster.
+        /// Azure REST API version: 2024-09-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-10-01-preview, 2024-10-01.
         /// </summary>
         public static Output<GetEnterprisePrivateEndpointConnectionResult> Invoke(GetEnterprisePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterprisePrivateEndpointConnectionResult>("azure-native:cache:getEnterprisePrivateEndpointConnection", args ?? new GetEnterprisePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-        /// Azure REST API version: 2023-03-01-preview.
+        /// Gets the specified private endpoint connection associated with the Redis Enterprise cluster.
+        /// Azure REST API version: 2024-09-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-10-01-preview, 2024-10-01.
         /// </summary>
         public static Output<GetEnterprisePrivateEndpointConnectionResult> Invoke(GetEnterprisePrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterprisePrivateEndpointConnectionResult>("azure-native:cache:getEnterprisePrivateEndpointConnection", args ?? new GetEnterprisePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Cache
     public sealed class GetEnterprisePrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the RedisEnterprise cluster.
+        /// The name of the Redis Enterprise cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.Cache
     public sealed class GetEnterprisePrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the RedisEnterprise cluster.
+        /// The name of the Redis Enterprise cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -117,10 +117,6 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -137,8 +133,6 @@ namespace Pulumi.AzureNative.Cache
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
@@ -146,7 +140,6 @@ namespace Pulumi.AzureNative.Cache
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
-            SystemData = systemData;
             Type = type;
         }
     }

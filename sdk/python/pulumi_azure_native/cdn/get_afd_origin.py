@@ -246,9 +246,9 @@ def get_afd_origin(origin_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDOriginResult:
     """
     Gets an existing origin within an origin group.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the profile.
@@ -289,9 +289,9 @@ def get_afd_origin_output(origin_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAFDOriginResult]:
     """
     Gets an existing origin within an origin group.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Other available API versions: 2023-05-01.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the profile.

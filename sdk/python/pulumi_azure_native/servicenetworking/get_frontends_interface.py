@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetFrontendsInterfaceResult:
     """
-    Frontend Subresource of Traffic Controller.
+    Frontend Sub Resource of Traffic Controller.
     """
     def __init__(__self__, fqdn=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if fqdn and not isinstance(fqdn, str):
@@ -140,9 +140,9 @@ def get_frontends_interface(frontend_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontendsInterfaceResult:
     """
     Get a Frontend
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+    Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2025-01-01.
 
 
     :param str frontend_name: Frontends
@@ -171,9 +171,9 @@ def get_frontends_interface_output(frontend_name: Optional[pulumi.Input[str]] = 
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrontendsInterfaceResult]:
     """
     Get a Frontend
-    Azure REST API version: 2023-05-01-preview.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+    Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2025-01-01.
 
 
     :param str frontend_name: Frontends

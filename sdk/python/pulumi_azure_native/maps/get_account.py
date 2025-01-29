@@ -27,10 +27,13 @@ class GetAccountResult:
     """
     An Azure resource which represents access to a suite of Maps REST APIs.
     """
-    def __init__(__self__, id=None, kind=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, identity=None, kind=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -60,9 +63,17 @@ class GetAccountResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -108,7 +119,7 @@ class GetAccountResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -136,6 +147,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             id=self.id,
+            identity=self.identity,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -151,9 +163,9 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Get a Maps Account.
-    Azure REST API version: 2021-02-01.
+    Azure REST API version: 2024-07-01-preview.
 
-    Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+    Other available API versions: 2018-05-01, 2021-02-01.
 
 
     :param str account_name: The name of the Maps Account.
@@ -167,6 +179,7 @@ def get_account(account_name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -180,9 +193,9 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get a Maps Account.
-    Azure REST API version: 2021-02-01.
+    Azure REST API version: 2024-07-01-preview.
 
-    Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+    Other available API versions: 2018-05-01, 2021-02-01.
 
 
     :param str account_name: The name of the Maps Account.
@@ -195,6 +208,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:maps:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Lists the connection strings for the specified Azure Cosmos DB database account.
-        /// Azure REST API version: 2023-04-15.
+        /// Azure REST API version: 2024-11-15.
         /// 
-        /// Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        /// Other available API versions: 2023-04-15, 2023-09-15-preview, 2024-12-01-preview.
         /// </summary>
         public static Task<ListDatabaseAccountConnectionStringsResult> InvokeAsync(ListDatabaseAccountConnectionStringsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseAccountConnectionStringsResult>("azure-native:documentdb:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the connection strings for the specified Azure Cosmos DB database account.
-        /// Azure REST API version: 2023-04-15.
+        /// Azure REST API version: 2024-11-15.
         /// 
-        /// Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        /// Other available API versions: 2023-04-15, 2023-09-15-preview, 2024-12-01-preview.
         /// </summary>
         public static Output<ListDatabaseAccountConnectionStringsResult> Invoke(ListDatabaseAccountConnectionStringsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDatabaseAccountConnectionStringsResult>("azure-native:documentdb:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the connection strings for the specified Azure Cosmos DB database account.
-        /// Azure REST API version: 2023-04-15.
+        /// Azure REST API version: 2024-11-15.
         /// 
-        /// Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+        /// Other available API versions: 2023-04-15, 2023-09-15-preview, 2024-12-01-preview.
         /// </summary>
         public static Output<ListDatabaseAccountConnectionStringsResult> Invoke(ListDatabaseAccountConnectionStringsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListDatabaseAccountConnectionStringsResult>("azure-native:documentdb:listDatabaseAccountConnectionStrings", args ?? new ListDatabaseAccountConnectionStringsInvokeArgs(), options.WithDefaults());

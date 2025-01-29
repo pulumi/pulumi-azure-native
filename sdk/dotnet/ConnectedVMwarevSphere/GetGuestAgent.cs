@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Implements GuestAgent GET method.
-        /// Azure REST API version: 2022-07-15-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview.
+        /// Other available API versions: 2022-07-15-preview.
         /// </summary>
         public static Task<GetGuestAgentResult> InvokeAsync(GetGuestAgentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestAgentResult>("azure-native:connectedvmwarevsphere:getGuestAgent", args ?? new GetGuestAgentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements GuestAgent GET method.
-        /// Azure REST API version: 2022-07-15-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview.
+        /// Other available API versions: 2022-07-15-preview.
         /// </summary>
         public static Output<GetGuestAgentResult> Invoke(GetGuestAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestAgentResult>("azure-native:connectedvmwarevsphere:getGuestAgent", args ?? new GetGuestAgentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements GuestAgent GET method.
-        /// Azure REST API version: 2022-07-15-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview.
+        /// Other available API versions: 2022-07-15-preview.
         /// </summary>
         public static Output<GetGuestAgentResult> Invoke(GetGuestAgentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestAgentResult>("azure-native:connectedvmwarevsphere:getGuestAgent", args ?? new GetGuestAgentInvokeArgs(), options.WithDefaults());
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly Outputs.HttpProxyConfigurationResponse? HttpProxyConfig;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -117,11 +117,15 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The resource id of the private link scope this machine is assigned to, if any.
+        /// </summary>
+        public readonly string? PrivateLinkScopeResourceId;
+        /// <summary>
         /// Gets or sets the guest agent provisioning action.
         /// </summary>
         public readonly string? ProvisioningAction;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -133,7 +137,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly ImmutableArray<Outputs.ResourceStatusResponse> Statuses;
         /// <summary>
-        /// The system data.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -157,6 +161,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string name,
 
+            string? privateLinkScopeResourceId,
+
             string? provisioningAction,
 
             string provisioningState,
@@ -176,6 +182,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
             HttpProxyConfig = httpProxyConfig;
             Id = id;
             Name = name;
+            PrivateLinkScopeResourceId = privateLinkScopeResourceId;
             ProvisioningAction = provisioningAction;
             ProvisioningState = provisioningState;
             Status = status;

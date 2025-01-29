@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Inputs
             set => _organizations = value;
         }
 
+        /// <summary>
+        /// The type of permission which determines which accounts are admins on the Azure DevOps pool.
+        /// </summary>
+        [Input("permissionProfile")]
+        public Input<Inputs.AzureDevOpsPermissionProfileArgs>? PermissionProfile { get; set; }
+
         public AzureDevOpsOrganizationProfileArgs()
         {
         }

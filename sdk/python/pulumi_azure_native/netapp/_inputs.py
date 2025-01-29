@@ -38,6 +38,8 @@ __all__ = [
     'MonthlyScheduleArgsDict',
     'PlacementKeyValuePairsArgs',
     'PlacementKeyValuePairsArgsDict',
+    'RemotePathArgs',
+    'RemotePathArgsDict',
     'ReplicationObjectArgs',
     'ReplicationObjectArgsDict',
     'VolumeBackupPropertiesArgs',
@@ -181,7 +183,7 @@ if not MYPY:
         """
         kdc_ip: NotRequired[pulumi.Input[str]]
         """
-        kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
+        kdc server IP address for the active directory machine. This optional parameter is used only while creating kerberos volume.
         """
         ldap_over_tls: NotRequired[pulumi.Input[bool]]
         """
@@ -265,7 +267,7 @@ class ActiveDirectoryArgs:
         :param pulumi.Input[str] dns: Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
         :param pulumi.Input[str] domain: Name of the Active Directory domain
         :param pulumi.Input[bool] encrypt_dc_connections: If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
-        :param pulumi.Input[str] kdc_ip: kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
+        :param pulumi.Input[str] kdc_ip: kdc server IP address for the active directory machine. This optional parameter is used only while creating kerberos volume.
         :param pulumi.Input[bool] ldap_over_tls: Specifies whether or not the LDAP traffic needs to be secured via TLS.
         :param pulumi.Input['LdapSearchScopeOptArgs'] ldap_search_scope: LDAP Search scope options
         :param pulumi.Input[bool] ldap_signing: Specifies whether or not the LDAP traffic needs to be signed.
@@ -435,7 +437,7 @@ class ActiveDirectoryArgs:
     @pulumi.getter(name="kdcIP")
     def kdc_ip(self) -> Optional[pulumi.Input[str]]:
         """
-        kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
+        kdc server IP address for the active directory machine. This optional parameter is used only while creating kerberos volume.
         """
         return pulumi.get(self, "kdc_ip")
 
@@ -1125,13 +1127,13 @@ if not MYPY:
         """
         The name of KeyVault key.
         """
-        key_vault_resource_id: pulumi.Input[str]
-        """
-        The resource ID of KeyVault.
-        """
         key_vault_uri: pulumi.Input[str]
         """
         The Uri of KeyVault.
+        """
+        key_vault_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of KeyVault.
         """
 elif False:
     KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -1140,17 +1142,18 @@ elif False:
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
-                 key_vault_resource_id: pulumi.Input[str],
-                 key_vault_uri: pulumi.Input[str]):
+                 key_vault_uri: pulumi.Input[str],
+                 key_vault_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Properties of key vault.
         :param pulumi.Input[str] key_name: The name of KeyVault key.
-        :param pulumi.Input[str] key_vault_resource_id: The resource ID of KeyVault.
         :param pulumi.Input[str] key_vault_uri: The Uri of KeyVault.
+        :param pulumi.Input[str] key_vault_resource_id: The resource ID of KeyVault.
         """
         pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
         pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_vault_resource_id is not None:
+            pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
 
     @property
     @pulumi.getter(name="keyName")
@@ -1165,18 +1168,6 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_name", value)
 
     @property
-    @pulumi.getter(name="keyVaultResourceId")
-    def key_vault_resource_id(self) -> pulumi.Input[str]:
-        """
-        The resource ID of KeyVault.
-        """
-        return pulumi.get(self, "key_vault_resource_id")
-
-    @key_vault_resource_id.setter
-    def key_vault_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key_vault_resource_id", value)
-
-    @property
     @pulumi.getter(name="keyVaultUri")
     def key_vault_uri(self) -> pulumi.Input[str]:
         """
@@ -1187,6 +1178,18 @@ class KeyVaultPropertiesArgs:
     @key_vault_uri.setter
     def key_vault_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter(name="keyVaultResourceId")
+    def key_vault_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_resource_id")
+
+    @key_vault_resource_id.setter
+    def key_vault_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_resource_id", value)
 
 
 if not MYPY:
@@ -1491,25 +1494,98 @@ class PlacementKeyValuePairsArgs:
 
 
 if not MYPY:
+    class RemotePathArgsDict(TypedDict):
+        """
+        The full path to a volume that is to be migrated into ANF. Required for Migration volumes
+        """
+        external_host_name: pulumi.Input[str]
+        """
+        The Path to a ONTAP Host
+        """
+        server_name: pulumi.Input[str]
+        """
+        The name of a server on the ONTAP Host
+        """
+        volume_name: pulumi.Input[str]
+        """
+        The name of a volume on the server
+        """
+elif False:
+    RemotePathArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RemotePathArgs:
+    def __init__(__self__, *,
+                 external_host_name: pulumi.Input[str],
+                 server_name: pulumi.Input[str],
+                 volume_name: pulumi.Input[str]):
+        """
+        The full path to a volume that is to be migrated into ANF. Required for Migration volumes
+        :param pulumi.Input[str] external_host_name: The Path to a ONTAP Host
+        :param pulumi.Input[str] server_name: The name of a server on the ONTAP Host
+        :param pulumi.Input[str] volume_name: The name of a volume on the server
+        """
+        pulumi.set(__self__, "external_host_name", external_host_name)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "volume_name", volume_name)
+
+    @property
+    @pulumi.getter(name="externalHostName")
+    def external_host_name(self) -> pulumi.Input[str]:
+        """
+        The Path to a ONTAP Host
+        """
+        return pulumi.get(self, "external_host_name")
+
+    @external_host_name.setter
+    def external_host_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "external_host_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The name of a server on the ONTAP Host
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> pulumi.Input[str]:
+        """
+        The name of a volume on the server
+        """
+        return pulumi.get(self, "volume_name")
+
+    @volume_name.setter
+    def volume_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "volume_name", value)
+
+
+if not MYPY:
     class ReplicationObjectArgsDict(TypedDict):
         """
         Replication properties
-        """
-        remote_volume_resource_id: pulumi.Input[str]
-        """
-        The resource ID of the remote volume.
         """
         endpoint_type: NotRequired[pulumi.Input[Union[str, 'EndpointType']]]
         """
         Indicates whether the local volume is the source or destination for the Volume Replication
         """
+        remote_path: NotRequired[pulumi.Input['RemotePathArgsDict']]
+        """
+        The full path to a volume that is to be migrated into ANF. Required for Migration volumes
+        """
         remote_volume_region: NotRequired[pulumi.Input[str]]
         """
         The remote region for the other end of the Volume Replication.
         """
-        replication_id: NotRequired[pulumi.Input[str]]
+        remote_volume_resource_id: NotRequired[pulumi.Input[str]]
         """
-        Id
+        The resource ID of the remote volume. Required for cross region and cross zone replication
         """
         replication_schedule: NotRequired[pulumi.Input[Union[str, 'ReplicationSchedule']]]
         """
@@ -1521,40 +1597,29 @@ elif False:
 @pulumi.input_type
 class ReplicationObjectArgs:
     def __init__(__self__, *,
-                 remote_volume_resource_id: pulumi.Input[str],
                  endpoint_type: Optional[pulumi.Input[Union[str, 'EndpointType']]] = None,
+                 remote_path: Optional[pulumi.Input['RemotePathArgs']] = None,
                  remote_volume_region: Optional[pulumi.Input[str]] = None,
-                 replication_id: Optional[pulumi.Input[str]] = None,
+                 remote_volume_resource_id: Optional[pulumi.Input[str]] = None,
                  replication_schedule: Optional[pulumi.Input[Union[str, 'ReplicationSchedule']]] = None):
         """
         Replication properties
-        :param pulumi.Input[str] remote_volume_resource_id: The resource ID of the remote volume.
         :param pulumi.Input[Union[str, 'EndpointType']] endpoint_type: Indicates whether the local volume is the source or destination for the Volume Replication
+        :param pulumi.Input['RemotePathArgs'] remote_path: The full path to a volume that is to be migrated into ANF. Required for Migration volumes
         :param pulumi.Input[str] remote_volume_region: The remote region for the other end of the Volume Replication.
-        :param pulumi.Input[str] replication_id: Id
+        :param pulumi.Input[str] remote_volume_resource_id: The resource ID of the remote volume. Required for cross region and cross zone replication
         :param pulumi.Input[Union[str, 'ReplicationSchedule']] replication_schedule: Schedule
         """
-        pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
         if endpoint_type is not None:
             pulumi.set(__self__, "endpoint_type", endpoint_type)
+        if remote_path is not None:
+            pulumi.set(__self__, "remote_path", remote_path)
         if remote_volume_region is not None:
             pulumi.set(__self__, "remote_volume_region", remote_volume_region)
-        if replication_id is not None:
-            pulumi.set(__self__, "replication_id", replication_id)
+        if remote_volume_resource_id is not None:
+            pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
         if replication_schedule is not None:
             pulumi.set(__self__, "replication_schedule", replication_schedule)
-
-    @property
-    @pulumi.getter(name="remoteVolumeResourceId")
-    def remote_volume_resource_id(self) -> pulumi.Input[str]:
-        """
-        The resource ID of the remote volume.
-        """
-        return pulumi.get(self, "remote_volume_resource_id")
-
-    @remote_volume_resource_id.setter
-    def remote_volume_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "remote_volume_resource_id", value)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -1569,6 +1634,18 @@ class ReplicationObjectArgs:
         pulumi.set(self, "endpoint_type", value)
 
     @property
+    @pulumi.getter(name="remotePath")
+    def remote_path(self) -> Optional[pulumi.Input['RemotePathArgs']]:
+        """
+        The full path to a volume that is to be migrated into ANF. Required for Migration volumes
+        """
+        return pulumi.get(self, "remote_path")
+
+    @remote_path.setter
+    def remote_path(self, value: Optional[pulumi.Input['RemotePathArgs']]):
+        pulumi.set(self, "remote_path", value)
+
+    @property
     @pulumi.getter(name="remoteVolumeRegion")
     def remote_volume_region(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1581,16 +1658,16 @@ class ReplicationObjectArgs:
         pulumi.set(self, "remote_volume_region", value)
 
     @property
-    @pulumi.getter(name="replicationId")
-    def replication_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="remoteVolumeResourceId")
+    def remote_volume_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Id
+        The resource ID of the remote volume. Required for cross region and cross zone replication
         """
-        return pulumi.get(self, "replication_id")
+        return pulumi.get(self, "remote_volume_resource_id")
 
-    @replication_id.setter
-    def replication_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "replication_id", value)
+    @remote_volume_resource_id.setter
+    def remote_volume_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_volume_resource_id", value)
 
     @property
     @pulumi.getter(name="replicationSchedule")
@@ -1610,13 +1687,13 @@ if not MYPY:
         """
         Volume Backup Properties
         """
-        backup_enabled: NotRequired[pulumi.Input[bool]]
-        """
-        Backup Enabled
-        """
         backup_policy_id: NotRequired[pulumi.Input[str]]
         """
         Backup Policy Resource ID
+        """
+        backup_vault_id: NotRequired[pulumi.Input[str]]
+        """
+        Backup Vault Resource ID
         """
         policy_enforced: NotRequired[pulumi.Input[bool]]
         """
@@ -1628,33 +1705,21 @@ elif False:
 @pulumi.input_type
 class VolumeBackupPropertiesArgs:
     def __init__(__self__, *,
-                 backup_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
+                 backup_vault_id: Optional[pulumi.Input[str]] = None,
                  policy_enforced: Optional[pulumi.Input[bool]] = None):
         """
         Volume Backup Properties
-        :param pulumi.Input[bool] backup_enabled: Backup Enabled
         :param pulumi.Input[str] backup_policy_id: Backup Policy Resource ID
+        :param pulumi.Input[str] backup_vault_id: Backup Vault Resource ID
         :param pulumi.Input[bool] policy_enforced: Policy Enforced
         """
-        if backup_enabled is not None:
-            pulumi.set(__self__, "backup_enabled", backup_enabled)
         if backup_policy_id is not None:
             pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        if backup_vault_id is not None:
+            pulumi.set(__self__, "backup_vault_id", backup_vault_id)
         if policy_enforced is not None:
             pulumi.set(__self__, "policy_enforced", policy_enforced)
-
-    @property
-    @pulumi.getter(name="backupEnabled")
-    def backup_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Backup Enabled
-        """
-        return pulumi.get(self, "backup_enabled")
-
-    @backup_enabled.setter
-    def backup_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "backup_enabled", value)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -1667,6 +1732,18 @@ class VolumeBackupPropertiesArgs:
     @backup_policy_id.setter
     def backup_policy_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "backup_policy_id", value)
+
+    @property
+    @pulumi.getter(name="backupVaultId")
+    def backup_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Backup Vault Resource ID
+        """
+        return pulumi.get(self, "backup_vault_id")
+
+    @backup_vault_id.setter
+    def backup_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_vault_id", value)
 
     @property
     @pulumi.getter(name="policyEnforced")
@@ -1694,10 +1771,6 @@ if not MYPY:
         """
         Application Type
         """
-        deployment_spec_id: NotRequired[pulumi.Input[str]]
-        """
-        Application specific identifier of deployment rules for the volume group
-        """
         global_placement_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgsDict']]]]
         """
         Application specific placement rules for the volume group
@@ -1714,14 +1787,12 @@ class VolumeGroupMetaDataArgs:
     def __init__(__self__, *,
                  application_identifier: Optional[pulumi.Input[str]] = None,
                  application_type: Optional[pulumi.Input[Union[str, 'ApplicationType']]] = None,
-                 deployment_spec_id: Optional[pulumi.Input[str]] = None,
                  global_placement_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]]] = None,
                  group_description: Optional[pulumi.Input[str]] = None):
         """
         Volume group properties
         :param pulumi.Input[str] application_identifier: Application specific identifier
         :param pulumi.Input[Union[str, 'ApplicationType']] application_type: Application Type
-        :param pulumi.Input[str] deployment_spec_id: Application specific identifier of deployment rules for the volume group
         :param pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]] global_placement_rules: Application specific placement rules for the volume group
         :param pulumi.Input[str] group_description: Group Description
         """
@@ -1729,8 +1800,6 @@ class VolumeGroupMetaDataArgs:
             pulumi.set(__self__, "application_identifier", application_identifier)
         if application_type is not None:
             pulumi.set(__self__, "application_type", application_type)
-        if deployment_spec_id is not None:
-            pulumi.set(__self__, "deployment_spec_id", deployment_spec_id)
         if global_placement_rules is not None:
             pulumi.set(__self__, "global_placement_rules", global_placement_rules)
         if group_description is not None:
@@ -1759,18 +1828,6 @@ class VolumeGroupMetaDataArgs:
     @application_type.setter
     def application_type(self, value: Optional[pulumi.Input[Union[str, 'ApplicationType']]]):
         pulumi.set(self, "application_type", value)
-
-    @property
-    @pulumi.getter(name="deploymentSpecId")
-    def deployment_spec_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Application specific identifier of deployment rules for the volume group
-        """
-        return pulumi.get(self, "deployment_spec_id")
-
-    @deployment_spec_id.setter
-    def deployment_spec_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "deployment_spec_id", value)
 
     @property
     @pulumi.getter(name="globalPlacementRules")
@@ -1812,7 +1869,7 @@ if not MYPY:
         """
         usage_threshold: pulumi.Input[float]
         """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. For regular volumes, valid values are in the range 50GiB to 100TiB. For large volumes, valid values are in the range 100TiB to 500TiB, and on an exceptional basis, from to 2400GiB to 2400TiB. Values expressed in bytes as multiples of 1 GiB.
         """
         avs_data_store: NotRequired[pulumi.Input[Union[str, 'AvsDataStore']]]
         """
@@ -1820,7 +1877,7 @@ if not MYPY:
         """
         backup_id: NotRequired[pulumi.Input[str]]
         """
-        UUID v4 or resource identifier used to identify the Backup.
+        Resource identifier used to identify the Backup.
         """
         capacity_pool_resource_id: NotRequired[pulumi.Input[str]]
         """
@@ -1829,6 +1886,13 @@ if not MYPY:
         cool_access: NotRequired[pulumi.Input[bool]]
         """
         Specifies whether Cool Access(tiering) is enabled for the volume.
+        """
+        cool_access_retrieval_policy: NotRequired[pulumi.Input[Union[str, 'CoolAccessRetrievalPolicy']]]
+        """
+        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+         Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
+         OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
+         Never - No client-driven data is pulled from cool tier to standard storage.
         """
         coolness_period: NotRequired[pulumi.Input[int]]
         """
@@ -1892,7 +1956,7 @@ if not MYPY:
         """
         network_features: NotRequired[pulumi.Input[Union[str, 'NetworkFeatures']]]
         """
-        Basic network, or Standard features available to the volume.
+        The original value of the network features type available to the volume at the time it was created.
         """
         placement_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgsDict']]]]
         """
@@ -1916,7 +1980,7 @@ if not MYPY:
         """
         smb_access_based_enumeration: NotRequired[pulumi.Input[Union[str, 'SmbAccessBasedEnumeration']]]
         """
-        Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
         """
         smb_continuously_available: NotRequired[pulumi.Input[bool]]
         """
@@ -1928,7 +1992,7 @@ if not MYPY:
         """
         smb_non_browsable: NotRequired[pulumi.Input[Union[str, 'SmbNonBrowsable']]]
         """
-        Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
         """
         snapshot_directory_visible: NotRequired[pulumi.Input[bool]]
         """
@@ -1936,7 +2000,7 @@ if not MYPY:
         """
         snapshot_id: NotRequired[pulumi.Input[str]]
         """
-        UUID v4 or resource identifier used to identify the Snapshot.
+        Resource identifier used to identify the Snapshot.
         """
         tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
@@ -1955,6 +2019,10 @@ if not MYPY:
         """
         What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         """
+        zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Availability Zone
+        """
 elif False:
     VolumeGroupVolumePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1968,6 +2036,7 @@ class VolumeGroupVolumePropertiesArgs:
                  backup_id: Optional[pulumi.Input[str]] = None,
                  capacity_pool_resource_id: Optional[pulumi.Input[str]] = None,
                  cool_access: Optional[pulumi.Input[bool]] = None,
+                 cool_access_retrieval_policy: Optional[pulumi.Input[Union[str, 'CoolAccessRetrievalPolicy']]] = None,
                  coolness_period: Optional[pulumi.Input[int]] = None,
                  data_protection: Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']] = None,
                  default_group_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
@@ -1999,16 +2068,21 @@ class VolumeGroupVolumePropertiesArgs:
                  throughput_mibps: Optional[pulumi.Input[float]] = None,
                  unix_permissions: Optional[pulumi.Input[str]] = None,
                  volume_spec_name: Optional[pulumi.Input[str]] = None,
-                 volume_type: Optional[pulumi.Input[str]] = None):
+                 volume_type: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Volume resource
         :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. For regular volumes, valid values are in the range 50GiB to 100TiB. For large volumes, valid values are in the range 100TiB to 500TiB, and on an exceptional basis, from to 2400GiB to 2400TiB. Values expressed in bytes as multiples of 1 GiB.
         :param pulumi.Input[Union[str, 'AvsDataStore']] avs_data_store: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
-        :param pulumi.Input[str] backup_id: UUID v4 or resource identifier used to identify the Backup.
+        :param pulumi.Input[str] backup_id: Resource identifier used to identify the Backup.
         :param pulumi.Input[str] capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
         :param pulumi.Input[bool] cool_access: Specifies whether Cool Access(tiering) is enabled for the volume.
+        :param pulumi.Input[Union[str, 'CoolAccessRetrievalPolicy']] cool_access_retrieval_policy: coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+                Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
+                OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
+                Never - No client-driven data is pulled from cool tier to standard storage.
         :param pulumi.Input[int] coolness_period: Specifies the number of days after which data that is not accessed by clients will be tiered.
         :param pulumi.Input['VolumePropertiesDataProtectionArgs'] data_protection: DataProtection type volumes include an object containing details of the replication
         :param pulumi.Input[float] default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
@@ -2024,22 +2098,23 @@ class VolumeGroupVolumePropertiesArgs:
         :param pulumi.Input[str] key_vault_private_endpoint_resource_id: The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
         :param pulumi.Input[bool] ldap_enabled: Specifies whether LDAP is enabled or not for a given NFS volume.
         :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input[Union[str, 'NetworkFeatures']] network_features: Basic network, or Standard features available to the volume.
+        :param pulumi.Input[Union[str, 'NetworkFeatures']] network_features: The original value of the network features type available to the volume at the time it was created.
         :param pulumi.Input[Sequence[pulumi.Input['PlacementKeyValuePairsArgs']]] placement_rules: Application specific placement rules for the particular volume
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types, default NFSv3, CIFS for SMB protocol
         :param pulumi.Input[str] proximity_placement_group: Proximity placement group associated with the volume
         :param pulumi.Input[Union[str, 'SecurityStyle']] security_style: The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
-        :param pulumi.Input[Union[str, 'SmbAccessBasedEnumeration']] smb_access_based_enumeration: Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        :param pulumi.Input[Union[str, 'SmbAccessBasedEnumeration']] smb_access_based_enumeration: Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
         :param pulumi.Input[bool] smb_continuously_available: Enables continuously available share property for smb volume. Only applicable for SMB volume
         :param pulumi.Input[bool] smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-        :param pulumi.Input[Union[str, 'SmbNonBrowsable']] smb_non_browsable: Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        :param pulumi.Input[Union[str, 'SmbNonBrowsable']] smb_non_browsable: Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
         :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
-        :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
+        :param pulumi.Input[str] snapshot_id: Resource identifier used to identify the Snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
         :param pulumi.Input[str] volume_spec_name: Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
         :param pulumi.Input[str] volume_type: What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability Zone
         """
         pulumi.set(__self__, "creation_token", creation_token)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -2058,6 +2133,8 @@ class VolumeGroupVolumePropertiesArgs:
             cool_access = False
         if cool_access is not None:
             pulumi.set(__self__, "cool_access", cool_access)
+        if cool_access_retrieval_policy is not None:
+            pulumi.set(__self__, "cool_access_retrieval_policy", cool_access_retrieval_policy)
         if coolness_period is not None:
             pulumi.set(__self__, "coolness_period", coolness_period)
         if data_protection is not None:
@@ -2104,8 +2181,6 @@ class VolumeGroupVolumePropertiesArgs:
             pulumi.set(__self__, "ldap_enabled", ldap_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if network_features is None:
-            network_features = 'Basic'
         if network_features is not None:
             pulumi.set(__self__, "network_features", network_features)
         if placement_rules is not None:
@@ -2142,14 +2217,14 @@ class VolumeGroupVolumePropertiesArgs:
             pulumi.set(__self__, "tags", tags)
         if throughput_mibps is not None:
             pulumi.set(__self__, "throughput_mibps", throughput_mibps)
-        if unix_permissions is None:
-            unix_permissions = '0770'
         if unix_permissions is not None:
             pulumi.set(__self__, "unix_permissions", unix_permissions)
         if volume_spec_name is not None:
             pulumi.set(__self__, "volume_spec_name", volume_spec_name)
         if volume_type is not None:
             pulumi.set(__self__, "volume_type", volume_type)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="creationToken")
@@ -2179,7 +2254,7 @@ class VolumeGroupVolumePropertiesArgs:
     @pulumi.getter(name="usageThreshold")
     def usage_threshold(self) -> pulumi.Input[float]:
         """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. For regular volumes, valid values are in the range 50GiB to 100TiB. For large volumes, valid values are in the range 100TiB to 500TiB, and on an exceptional basis, from to 2400GiB to 2400TiB. Values expressed in bytes as multiples of 1 GiB.
         """
         return pulumi.get(self, "usage_threshold")
 
@@ -2203,7 +2278,7 @@ class VolumeGroupVolumePropertiesArgs:
     @pulumi.getter(name="backupId")
     def backup_id(self) -> Optional[pulumi.Input[str]]:
         """
-        UUID v4 or resource identifier used to identify the Backup.
+        Resource identifier used to identify the Backup.
         """
         return pulumi.get(self, "backup_id")
 
@@ -2234,6 +2309,21 @@ class VolumeGroupVolumePropertiesArgs:
     @cool_access.setter
     def cool_access(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "cool_access", value)
+
+    @property
+    @pulumi.getter(name="coolAccessRetrievalPolicy")
+    def cool_access_retrieval_policy(self) -> Optional[pulumi.Input[Union[str, 'CoolAccessRetrievalPolicy']]]:
+        """
+        coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+         Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
+         OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
+         Never - No client-driven data is pulled from cool tier to standard storage.
+        """
+        return pulumi.get(self, "cool_access_retrieval_policy")
+
+    @cool_access_retrieval_policy.setter
+    def cool_access_retrieval_policy(self, value: Optional[pulumi.Input[Union[str, 'CoolAccessRetrievalPolicy']]]):
+        pulumi.set(self, "cool_access_retrieval_policy", value)
 
     @property
     @pulumi.getter(name="coolnessPeriod")
@@ -2419,7 +2509,7 @@ class VolumeGroupVolumePropertiesArgs:
     @pulumi.getter(name="networkFeatures")
     def network_features(self) -> Optional[pulumi.Input[Union[str, 'NetworkFeatures']]]:
         """
-        Basic network, or Standard features available to the volume.
+        The original value of the network features type available to the volume at the time it was created.
         """
         return pulumi.get(self, "network_features")
 
@@ -2491,7 +2581,7 @@ class VolumeGroupVolumePropertiesArgs:
     @pulumi.getter(name="smbAccessBasedEnumeration")
     def smb_access_based_enumeration(self) -> Optional[pulumi.Input[Union[str, 'SmbAccessBasedEnumeration']]]:
         """
-        Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
         """
         return pulumi.get(self, "smb_access_based_enumeration")
 
@@ -2527,7 +2617,7 @@ class VolumeGroupVolumePropertiesArgs:
     @pulumi.getter(name="smbNonBrowsable")
     def smb_non_browsable(self) -> Optional[pulumi.Input[Union[str, 'SmbNonBrowsable']]]:
         """
-        Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
         """
         return pulumi.get(self, "smb_non_browsable")
 
@@ -2551,7 +2641,7 @@ class VolumeGroupVolumePropertiesArgs:
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[str]]:
         """
-        UUID v4 or resource identifier used to identify the Snapshot.
+        Resource identifier used to identify the Snapshot.
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -2615,6 +2705,18 @@ class VolumeGroupVolumePropertiesArgs:
     @volume_type.setter
     def volume_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "volume_type", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Availability Zone
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
 
 
 if not MYPY:

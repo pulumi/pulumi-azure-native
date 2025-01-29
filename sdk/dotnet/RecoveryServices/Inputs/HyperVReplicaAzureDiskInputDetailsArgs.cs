@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? DiskId { get; set; }
 
         /// <summary>
-        /// The DiskType.
+        /// The disk type.
         /// </summary>
         [Input("diskType")]
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.DiskAccountType>? DiskType { get; set; }
@@ -38,6 +38,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("logStorageAccountId")]
         public Input<string>? LogStorageAccountId { get; set; }
+
+        /// <summary>
+        /// The logical sector size (in bytes), 512 by default.
+        /// </summary>
+        [Input("sectorSizeInBytes")]
+        public Input<int>? SectorSizeInBytes { get; set; }
 
         public HyperVReplicaAzureDiskInputDetailsArgs()
         {

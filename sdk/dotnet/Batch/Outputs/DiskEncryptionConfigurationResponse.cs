@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
 {
 
     /// <summary>
-    /// The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+    /// The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Azure Compute Gallery Image.
     /// </summary>
     [OutputType]
     public sealed class DiskEncryptionConfigurationResponse

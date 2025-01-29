@@ -36,18 +36,8 @@ if typing.TYPE_CHECKING:
     v20230201 = __v20230201
     import pulumi_azure_native.webpubsub.v20230301preview as __v20230301preview
     v20230301preview = __v20230301preview
-    import pulumi_azure_native.webpubsub.v20230601preview as __v20230601preview
-    v20230601preview = __v20230601preview
-    import pulumi_azure_native.webpubsub.v20230801preview as __v20230801preview
-    v20230801preview = __v20230801preview
-    import pulumi_azure_native.webpubsub.v20240101preview as __v20240101preview
-    v20240101preview = __v20240101preview
     import pulumi_azure_native.webpubsub.v20240301 as __v20240301
     v20240301 = __v20240301
-    import pulumi_azure_native.webpubsub.v20240401preview as __v20240401preview
-    v20240401preview = __v20240401preview
-    import pulumi_azure_native.webpubsub.v20240801preview as __v20240801preview
-    v20240801preview = __v20240801preview
     import pulumi_azure_native.webpubsub.v20241001preview as __v20241001preview
     v20241001preview = __v20241001preview
 else:
@@ -56,11 +46,6 @@ else:
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20210901preview')
     v20230201 = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20230201')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20230301preview')
-    v20230601preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20230601preview')
-    v20230801preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20230801preview')
-    v20240101preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20240101preview')
     v20240301 = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20240301')
-    v20240401preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20240401preview')
-    v20240801preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20240801preview')
     v20241001preview = _utilities.lazy_import('pulumi_azure_native.webpubsub.v20241001preview')
 

@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly string ActivateDate;
         /// <summary>
+        /// Indicates whether to automatically synchronize certificate from key vault or not.
+        /// </summary>
+        public readonly string? AutoSync;
+        /// <summary>
         /// The certificate version of key vault.
         /// </summary>
         public readonly string? CertVersion;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         private KeyVaultCertificatePropertiesResponse(
             string activateDate,
 
+            string? autoSync,
+
             string? certVersion,
 
             ImmutableArray<string> dnsNames,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
             string vaultUri)
         {
             ActivateDate = activateDate;
+            AutoSync = autoSync;
             CertVersion = certVersion;
             DnsNames = dnsNames;
             ExcludePrivateKey = excludePrivateKey;

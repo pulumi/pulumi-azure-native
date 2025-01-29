@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
     public sealed class BrokerResourceRuleResponse
     {
         /// <summary>
+        /// A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection. This subfield may be set if the method is Connect.
+        /// </summary>
+        public readonly ImmutableArray<string> ClientIds;
+        /// <summary>
         /// Give access for a Broker method (i.e., Connect, Subscribe, or Publish).
         /// </summary>
         public readonly string Method;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 
         [OutputConstructor]
         private BrokerResourceRuleResponse(
+            ImmutableArray<string> clientIds,
+
             string method,
 
             ImmutableArray<string> topics)
         {
+            ClientIds = clientIds;
             Method = method;
             Topics = topics;
         }

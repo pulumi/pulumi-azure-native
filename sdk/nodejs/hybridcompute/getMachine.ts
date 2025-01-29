@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about the model view or the instance view of a hybrid machine.
- * Azure REST API version: 2022-12-27.
+ * Azure REST API version: 2024-07-10.
  *
- * Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+ * Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2022-12-27, 2024-11-10-preview.
  */
 export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -98,9 +98,17 @@ export interface GetMachineResult {
      */
     readonly identity?: outputs.hybridcompute.IdentityResponse;
     /**
+     * Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+     */
+    readonly kind?: string;
+    /**
      * The time of the last status change.
      */
     readonly lastStatusChange: string;
+    /**
+     * Specifies the License related properties for a machine.
+     */
+    readonly licenseProfile?: outputs.hybridcompute.LicenseProfileMachineInstanceViewResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -121,6 +129,14 @@ export interface GetMachineResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * Information about the network the machine is on.
+     */
+    readonly networkProfile: outputs.hybridcompute.NetworkProfileResponse;
+    /**
+     * The edition of the Operating System.
+     */
+    readonly osEdition: string;
     /**
      * The Operating System running on the hybrid machine.
      */
@@ -188,9 +204,9 @@ export interface GetMachineResult {
 }
 /**
  * Retrieves information about the model view or the instance view of a hybrid machine.
- * Azure REST API version: 2022-12-27.
+ * Azure REST API version: 2024-07-10.
  *
- * Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+ * Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2022-12-27, 2024-11-10-preview.
  */
 export function getMachineOutput(args: GetMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

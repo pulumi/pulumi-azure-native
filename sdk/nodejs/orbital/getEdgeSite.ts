@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified edge site in a specified resource group.
  * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-03-01.
  */
 export function getEdgeSite(args: GetEdgeSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetEdgeSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,8 +66,6 @@ export interface GetEdgeSiteResult {
 /**
  * Gets the specified edge site in a specified resource group.
  * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-03-01.
  */
 export function getEdgeSiteOutput(args: GetEdgeSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEdgeSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

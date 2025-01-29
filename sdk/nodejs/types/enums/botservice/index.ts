@@ -50,6 +50,7 @@ export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServ
 export const PublicNetworkAccess = {
     Enabled: "Enabled",
     Disabled: "Disabled",
+    SecuredByPerimeter: "SecuredByPerimeter",
 } as const;
 
 /**

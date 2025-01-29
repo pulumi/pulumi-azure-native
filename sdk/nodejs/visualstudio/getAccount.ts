@@ -6,7 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Visual Studio Team Services account resource details.
- * Azure REST API version: 2017-11-01-preview.
+ * Azure REST API version: 2014-04-01-preview.
+ *
+ * Other available API versions: 2017-11-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,7 +60,9 @@ export interface GetAccountResult {
 }
 /**
  * Gets the Visual Studio Team Services account resource details.
- * Azure REST API version: 2017-11-01-preview.
+ * Azure REST API version: 2014-04-01-preview.
+ *
+ * Other available API versions: 2017-11-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

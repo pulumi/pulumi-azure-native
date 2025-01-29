@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the certificate identified by certificate name.
-        /// Azure REST API version: 2022-08-08.
+        /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2022-08-08, 2024-10-23.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:automation:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the certificate identified by certificate name.
-        /// Azure REST API version: 2022-08-08.
+        /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2022-08-08, 2024-10-23.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:automation:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the certificate identified by certificate name.
-        /// Azure REST API version: 2022-08-08.
+        /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Other available API versions: 2022-08-08, 2024-10-23.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:automation:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

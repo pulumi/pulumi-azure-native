@@ -154,9 +154,7 @@ namespace Pulumi.AzureNative.StorageCache.V20240301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240301:importJob" },
                     new global::Pulumi.Alias { Type = "azure-native:storagecache:ImportJob" },
-                    new global::Pulumi.Alias { Type = "azure-native:storagecache:importJob" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

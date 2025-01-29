@@ -185,7 +185,7 @@ class IscsiTarget(pulumi.CustomResource):
                  __props__=None):
         """
         Response for iSCSI Target requests.
-        Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-03-15-preview.
+        Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
 
         Other available API versions: 2020-03-15-preview.
 
@@ -209,7 +209,7 @@ class IscsiTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response for iSCSI Target requests.
-        Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-03-15-preview.
+        Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
 
         Other available API versions: 2020-03-15-preview.
 

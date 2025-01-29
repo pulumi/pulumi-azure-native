@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The NetworkFabric resource definition.
- * Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+ * The Network Fabric resource definition.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview.
  */
 export class NetworkFabric extends pulumi.CustomResource {
     /**
@@ -41,27 +41,39 @@ export class NetworkFabric extends pulumi.CustomResource {
     }
 
     /**
+     * Administrative state of the resource.
+     */
+    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
+    /**
      * Switch configuration description.
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration state of the resource.
+     */
+    public /*out*/ readonly configurationState!: pulumi.Output<string>;
     /**
      * ASN of CE devices for CE/PE connectivity.
      */
     public readonly fabricASN!: pulumi.Output<number>;
     /**
+     * The version of Network Fabric.
+     */
+    public readonly fabricVersion!: pulumi.Output<string | undefined>;
+    /**
      * IPv4Prefix for Management Network. Example: 10.1.0.0/19.
      */
-    public readonly ipv4Prefix!: pulumi.Output<string | undefined>;
+    public readonly ipv4Prefix!: pulumi.Output<string>;
     /**
-     * IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
+     * IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
      */
     public readonly ipv6Prefix!: pulumi.Output<string | undefined>;
     /**
-     * List of L2IsolationDomain resource IDs under the Network Fabric.
+     * List of L2 Isolation Domain resource IDs under the Network Fabric.
      */
     public /*out*/ readonly l2IsolationDomains!: pulumi.Output<string[]>;
     /**
-     * List of L3IsolationDomain resource IDs under the Network Fabric.
+     * List of L3 Isolation Domain resource IDs under the Network Fabric.
      */
     public /*out*/ readonly l3IsolationDomains!: pulumi.Output<string[]>;
     /**
@@ -71,7 +83,7 @@ export class NetworkFabric extends pulumi.CustomResource {
     /**
      * Configuration to be used to setup the management network.
      */
-    public readonly managementNetworkConfiguration!: pulumi.Output<outputs.managednetworkfabric.ManagementNetworkConfigurationResponse>;
+    public readonly managementNetworkConfiguration!: pulumi.Output<outputs.managednetworkfabric.ManagementNetworkConfigurationPropertiesResponse>;
     /**
      * The name of the resource
      */
@@ -85,25 +97,21 @@ export class NetworkFabric extends pulumi.CustomResource {
      */
     public readonly networkFabricSku!: pulumi.Output<string>;
     /**
-     * Gets the operational state of the resource.
-     */
-    public /*out*/ readonly operationalState!: pulumi.Output<string>;
-    /**
-     * Gets the provisioning state of the resource.
+     * Provides you the latest status of the NFC service, whether it is Accepted, updating, Succeeded or Failed. During this process, the states keep changing based on the status of NFC provisioning.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Number of racks associated to Network Fabric.Possible values are from 2-8.
+     * Number of compute racks associated to Network Fabric.
      */
-    public readonly rackCount!: pulumi.Output<number>;
+    public readonly rackCount!: pulumi.Output<number | undefined>;
     /**
      * List of NetworkRack resource IDs under the Network Fabric. The number of racks allowed depends on the Network Fabric SKU.
      */
     public /*out*/ readonly racks!: pulumi.Output<string[]>;
     /**
-     * Router Id of CE to be used for MP-BGP between PE and CE
+     * Array of router IDs.
      */
-    public /*out*/ readonly routerId!: pulumi.Output<string>;
+    public /*out*/ readonly routerIds!: pulumi.Output<string[]>;
     /**
      * Number of servers.Possible values are from 1-16.
      */
@@ -139,6 +147,9 @@ export class NetworkFabric extends pulumi.CustomResource {
             if ((!args || args.fabricASN === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fabricASN'");
             }
+            if ((!args || args.ipv4Prefix === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'ipv4Prefix'");
+            }
             if ((!args || args.managementNetworkConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementNetworkConfiguration'");
             }
@@ -147,9 +158,6 @@ export class NetworkFabric extends pulumi.CustomResource {
             }
             if ((!args || args.networkFabricSku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricSku'");
-            }
-            if ((!args || args.rackCount === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'rackCount'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -162,10 +170,11 @@ export class NetworkFabric extends pulumi.CustomResource {
             }
             resourceInputs["annotation"] = args ? args.annotation : undefined;
             resourceInputs["fabricASN"] = args ? args.fabricASN : undefined;
+            resourceInputs["fabricVersion"] = args ? args.fabricVersion : undefined;
             resourceInputs["ipv4Prefix"] = args ? args.ipv4Prefix : undefined;
             resourceInputs["ipv6Prefix"] = args ? args.ipv6Prefix : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementNetworkConfiguration"] = args ? (args.managementNetworkConfiguration ? pulumi.output(args.managementNetworkConfiguration).apply(inputs.managednetworkfabric.managementNetworkConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["managementNetworkConfiguration"] = args ? (args.managementNetworkConfiguration ? pulumi.output(args.managementNetworkConfiguration).apply(inputs.managednetworkfabric.managementNetworkConfigurationPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["networkFabricControllerId"] = args ? args.networkFabricControllerId : undefined;
             resourceInputs["networkFabricName"] = args ? args.networkFabricName : undefined;
             resourceInputs["networkFabricSku"] = args ? args.networkFabricSku : undefined;
@@ -174,18 +183,22 @@ export class NetworkFabric extends pulumi.CustomResource {
             resourceInputs["serverCountPerRack"] = args ? args.serverCountPerRack : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminalServerConfiguration"] = args ? args.terminalServerConfiguration : undefined;
+            resourceInputs["administrativeState"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["l2IsolationDomains"] = undefined /*out*/;
             resourceInputs["l3IsolationDomains"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["operationalState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["racks"] = undefined /*out*/;
-            resourceInputs["routerId"] = undefined /*out*/;
+            resourceInputs["routerIds"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["annotation"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["fabricASN"] = undefined /*out*/;
+            resourceInputs["fabricVersion"] = undefined /*out*/;
             resourceInputs["ipv4Prefix"] = undefined /*out*/;
             resourceInputs["ipv6Prefix"] = undefined /*out*/;
             resourceInputs["l2IsolationDomains"] = undefined /*out*/;
@@ -195,11 +208,10 @@ export class NetworkFabric extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkFabricControllerId"] = undefined /*out*/;
             resourceInputs["networkFabricSku"] = undefined /*out*/;
-            resourceInputs["operationalState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["rackCount"] = undefined /*out*/;
             resourceInputs["racks"] = undefined /*out*/;
-            resourceInputs["routerId"] = undefined /*out*/;
+            resourceInputs["routerIds"] = undefined /*out*/;
             resourceInputs["serverCountPerRack"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -226,11 +238,15 @@ export interface NetworkFabricArgs {
      */
     fabricASN: pulumi.Input<number>;
     /**
+     * The version of Network Fabric.
+     */
+    fabricVersion?: pulumi.Input<string>;
+    /**
      * IPv4Prefix for Management Network. Example: 10.1.0.0/19.
      */
-    ipv4Prefix?: pulumi.Input<string>;
+    ipv4Prefix: pulumi.Input<string>;
     /**
-     * IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
+     * IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
      */
     ipv6Prefix?: pulumi.Input<string>;
     /**
@@ -240,13 +256,13 @@ export interface NetworkFabricArgs {
     /**
      * Configuration to be used to setup the management network.
      */
-    managementNetworkConfiguration: pulumi.Input<inputs.managednetworkfabric.ManagementNetworkConfigurationArgs>;
+    managementNetworkConfiguration: pulumi.Input<inputs.managednetworkfabric.ManagementNetworkConfigurationPropertiesArgs>;
     /**
      * Azure resource ID for the NetworkFabricController the NetworkFabric belongs.
      */
     networkFabricControllerId: pulumi.Input<string>;
     /**
-     * Name of the Network Fabric
+     * Name of the Network Fabric.
      */
     networkFabricName?: pulumi.Input<string>;
     /**
@@ -254,9 +270,9 @@ export interface NetworkFabricArgs {
      */
     networkFabricSku: pulumi.Input<string>;
     /**
-     * Number of racks associated to Network Fabric.Possible values are from 2-8.
+     * Number of compute racks associated to Network Fabric.
      */
-    rackCount: pulumi.Input<number>;
+    rackCount?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

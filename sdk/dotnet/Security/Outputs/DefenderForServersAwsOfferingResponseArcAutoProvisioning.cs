@@ -21,9 +21,9 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// </summary>
         public readonly string? CloudRoleArn;
         /// <summary>
-        /// Configuration for servers Arc auto provisioning
+        /// Configuration for servers Arc auto provisioning for a given environment
         /// </summary>
-        public readonly Outputs.DefenderForServersAwsOfferingResponseConfiguration? Configuration;
+        public readonly Outputs.ArcAutoProvisioningResponseConfiguration? Configuration;
         /// <summary>
         /// Is arc auto provisioning enabled
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         private DefenderForServersAwsOfferingResponseArcAutoProvisioning(
             string? cloudRoleArn,
 
-            Outputs.DefenderForServersAwsOfferingResponseConfiguration? configuration,
+            Outputs.ArcAutoProvisioningResponseConfiguration? configuration,
 
             bool? enabled)
         {

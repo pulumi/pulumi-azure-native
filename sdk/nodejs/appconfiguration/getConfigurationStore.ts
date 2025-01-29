@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified configuration store.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01, 2023-09-01-preview.
  */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +40,10 @@ export interface GetConfigurationStoreResult {
      * The creation date of configuration store.
      */
     readonly creationDate: string;
+    /**
+     * Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
+     */
+    readonly dataPlaneProxy?: outputs.appconfiguration.DataPlaneProxyPropertiesResponse;
     /**
      * Disables all authentication methods other than AAD authentication.
      */
@@ -107,9 +111,9 @@ export interface GetConfigurationStoreResult {
 }
 /**
  * Gets the properties of the specified configuration store.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01, 2023-09-01-preview.
  */
 export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

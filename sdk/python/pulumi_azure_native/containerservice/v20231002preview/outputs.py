@@ -17,7 +17,6 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AbsoluteMonthlyScheduleResponse',
     'AgentPoolArtifactStreamingProfileResponse',
     'AgentPoolGPUProfileResponse',
     'AgentPoolNetworkProfileResponse',
@@ -34,8 +33,6 @@ __all__ = [
     'ContainerServiceSshPublicKeyResponse',
     'CreationDataResponse',
     'CredentialResultResponse',
-    'DailyScheduleResponse',
-    'DateSpanResponse',
     'DelegatedResourceResponse',
     'ExtendedLocationResponse',
     'GuardrailsProfileResponse',
@@ -48,7 +45,6 @@ __all__ = [
     'IstioServiceMeshResponse',
     'KubeletConfigResponse',
     'LinuxOSConfigResponse',
-    'MaintenanceWindowResponse',
     'ManagedClusterAADProfileResponse',
     'ManagedClusterAIToolchainOperatorProfileResponse',
     'ManagedClusterAPIServerAccessProfileResponse',
@@ -86,7 +82,6 @@ __all__ = [
     'ManagedClusterPodIdentityProvisioningErrorResponse',
     'ManagedClusterPodIdentityResponse',
     'ManagedClusterPodIdentityResponseProvisioningInfo',
-    'ManagedClusterPropertiesForSnapshotResponse',
     'ManagedClusterPropertiesResponseAutoScalerProfile',
     'ManagedClusterSKUResponse',
     'ManagedClusterSecurityProfileDefenderResponse',
@@ -108,80 +103,20 @@ __all__ = [
     'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse',
     'ManualScaleProfileResponse',
     'NetworkMonitoringResponse',
-    'NetworkProfileForSnapshotResponse',
     'PortRangeResponse',
     'PowerStateResponse',
-    'PrivateEndpointResponse',
     'PrivateLinkResourceResponse',
-    'PrivateLinkServiceConnectionStateResponse',
-    'RelativeMonthlyScheduleResponse',
     'ResourceReferenceResponse',
     'ScaleProfileResponse',
-    'ScheduleResponse',
     'ServiceMeshProfileResponse',
     'SysctlConfigResponse',
     'SystemDataResponse',
-    'TimeInWeekResponse',
-    'TimeSpanResponse',
     'UpgradeOverrideSettingsResponse',
     'UserAssignedIdentityResponse',
     'VirtualMachineNodesResponse',
     'VirtualMachinesProfileResponse',
-    'WeeklyScheduleResponse',
     'WindowsGmsaProfileResponse',
 ]
-
-@pulumi.output_type
-class AbsoluteMonthlyScheduleResponse(dict):
-    """
-    For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dayOfMonth":
-            suggest = "day_of_month"
-        elif key == "intervalMonths":
-            suggest = "interval_months"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AbsoluteMonthlyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AbsoluteMonthlyScheduleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AbsoluteMonthlyScheduleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 day_of_month: int,
-                 interval_months: int):
-        """
-        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
-        :param int day_of_month: The date of the month.
-        :param int interval_months: Specifies the number of months between each set of occurrences.
-        """
-        pulumi.set(__self__, "day_of_month", day_of_month)
-        pulumi.set(__self__, "interval_months", interval_months)
-
-    @property
-    @pulumi.getter(name="dayOfMonth")
-    def day_of_month(self) -> int:
-        """
-        The date of the month.
-        """
-        return pulumi.get(self, "day_of_month")
-
-    @property
-    @pulumi.getter(name="intervalMonths")
-    def interval_months(self) -> int:
-        """
-        Specifies the number of months between each set of occurrences.
-        """
-        return pulumi.get(self, "interval_months")
-
 
 @pulumi.output_type
 class AgentPoolArtifactStreamingProfileResponse(dict):
@@ -1192,78 +1127,6 @@ class CredentialResultResponse(dict):
 
 
 @pulumi.output_type
-class DailyScheduleResponse(dict):
-    """
-    For schedules like: 'recur every day' or 'recur every 3 days'.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "intervalDays":
-            suggest = "interval_days"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DailyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DailyScheduleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DailyScheduleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 interval_days: int):
-        """
-        For schedules like: 'recur every day' or 'recur every 3 days'.
-        :param int interval_days: Specifies the number of days between each set of occurrences.
-        """
-        pulumi.set(__self__, "interval_days", interval_days)
-
-    @property
-    @pulumi.getter(name="intervalDays")
-    def interval_days(self) -> int:
-        """
-        Specifies the number of days between each set of occurrences.
-        """
-        return pulumi.get(self, "interval_days")
-
-
-@pulumi.output_type
-class DateSpanResponse(dict):
-    """
-    For example, between '2022-12-23' and '2023-01-05'.
-    """
-    def __init__(__self__, *,
-                 end: str,
-                 start: str):
-        """
-        For example, between '2022-12-23' and '2023-01-05'.
-        :param str end: The end date of the date span.
-        :param str start: The start date of the date span.
-        """
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
-
-    @property
-    @pulumi.getter
-    def end(self) -> str:
-        """
-        The end date of the date span.
-        """
-        return pulumi.get(self, "end")
-
-    @property
-    @pulumi.getter
-    def start(self) -> str:
-        """
-        The start date of the date span.
-        """
-        return pulumi.get(self, "start")
-
-
-@pulumi.output_type
 class DelegatedResourceResponse(dict):
     """
     Delegated resource properties - internal use only.
@@ -2085,113 +1948,6 @@ class LinuxOSConfigResponse(dict):
         Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
         """
         return pulumi.get(self, "transparent_huge_page_enabled")
-
-
-@pulumi.output_type
-class MaintenanceWindowResponse(dict):
-    """
-    Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "durationHours":
-            suggest = "duration_hours"
-        elif key == "startTime":
-            suggest = "start_time"
-        elif key == "notAllowedDates":
-            suggest = "not_allowed_dates"
-        elif key == "startDate":
-            suggest = "start_date"
-        elif key == "utcOffset":
-            suggest = "utc_offset"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MaintenanceWindowResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MaintenanceWindowResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 duration_hours: Optional[int] = None,
-                 schedule: 'outputs.ScheduleResponse',
-                 start_time: str,
-                 not_allowed_dates: Optional[Sequence['outputs.DateSpanResponse']] = None,
-                 start_date: Optional[str] = None,
-                 utc_offset: Optional[str] = None):
-        """
-        Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
-        :param int duration_hours: Length of maintenance window range from 4 to 24 hours.
-        :param 'ScheduleResponse' schedule: Recurrence schedule for the maintenance window.
-        :param str start_time: The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
-        :param Sequence['DateSpanResponse'] not_allowed_dates: Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
-        :param str start_date: The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
-        :param str utc_offset: The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
-        """
-        if duration_hours is None:
-            duration_hours = 24
-        pulumi.set(__self__, "duration_hours", duration_hours)
-        pulumi.set(__self__, "schedule", schedule)
-        pulumi.set(__self__, "start_time", start_time)
-        if not_allowed_dates is not None:
-            pulumi.set(__self__, "not_allowed_dates", not_allowed_dates)
-        if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
-        if utc_offset is not None:
-            pulumi.set(__self__, "utc_offset", utc_offset)
-
-    @property
-    @pulumi.getter(name="durationHours")
-    def duration_hours(self) -> int:
-        """
-        Length of maintenance window range from 4 to 24 hours.
-        """
-        return pulumi.get(self, "duration_hours")
-
-    @property
-    @pulumi.getter
-    def schedule(self) -> 'outputs.ScheduleResponse':
-        """
-        Recurrence schedule for the maintenance window.
-        """
-        return pulumi.get(self, "schedule")
-
-    @property
-    @pulumi.getter(name="startTime")
-    def start_time(self) -> str:
-        """
-        The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
-        """
-        return pulumi.get(self, "start_time")
-
-    @property
-    @pulumi.getter(name="notAllowedDates")
-    def not_allowed_dates(self) -> Optional[Sequence['outputs.DateSpanResponse']]:
-        """
-        Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
-        """
-        return pulumi.get(self, "not_allowed_dates")
-
-    @property
-    @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[str]:
-        """
-        The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
-        """
-        return pulumi.get(self, "start_date")
-
-    @property
-    @pulumi.getter(name="utcOffset")
-    def utc_offset(self) -> Optional[str]:
-        """
-        The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
-        """
-        return pulumi.get(self, "utc_offset")
 
 
 @pulumi.output_type
@@ -4951,85 +4707,6 @@ class ManagedClusterPodIdentityResponseProvisioningInfo(dict):
 
 
 @pulumi.output_type
-class ManagedClusterPropertiesForSnapshotResponse(dict):
-    """
-    managed cluster properties for snapshot, these properties are read only.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "networkProfile":
-            suggest = "network_profile"
-        elif key == "enableRbac":
-            suggest = "enable_rbac"
-        elif key == "kubernetesVersion":
-            suggest = "kubernetes_version"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterPropertiesForSnapshotResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ManagedClusterPropertiesForSnapshotResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ManagedClusterPropertiesForSnapshotResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 network_profile: 'outputs.NetworkProfileForSnapshotResponse',
-                 enable_rbac: Optional[bool] = None,
-                 kubernetes_version: Optional[str] = None,
-                 sku: Optional['outputs.ManagedClusterSKUResponse'] = None):
-        """
-        managed cluster properties for snapshot, these properties are read only.
-        :param 'NetworkProfileForSnapshotResponse' network_profile: The current network profile.
-        :param bool enable_rbac: Whether the cluster has enabled Kubernetes Role-Based Access Control or not.
-        :param str kubernetes_version: The current kubernetes version.
-        :param 'ManagedClusterSKUResponse' sku: The current managed cluster sku.
-        """
-        pulumi.set(__self__, "network_profile", network_profile)
-        if enable_rbac is not None:
-            pulumi.set(__self__, "enable_rbac", enable_rbac)
-        if kubernetes_version is not None:
-            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-
-    @property
-    @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> 'outputs.NetworkProfileForSnapshotResponse':
-        """
-        The current network profile.
-        """
-        return pulumi.get(self, "network_profile")
-
-    @property
-    @pulumi.getter(name="enableRbac")
-    def enable_rbac(self) -> Optional[bool]:
-        """
-        Whether the cluster has enabled Kubernetes Role-Based Access Control or not.
-        """
-        return pulumi.get(self, "enable_rbac")
-
-    @property
-    @pulumi.getter(name="kubernetesVersion")
-    def kubernetes_version(self) -> Optional[str]:
-        """
-        The current kubernetes version.
-        """
-        return pulumi.get(self, "kubernetes_version")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional['outputs.ManagedClusterSKUResponse']:
-        """
-        The current managed cluster sku.
-        """
-        return pulumi.get(self, "sku")
-
-
-@pulumi.output_type
 class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     """
     Parameters to be applied to the cluster-autoscaler when enabled
@@ -6200,102 +5877,6 @@ class NetworkMonitoringResponse(dict):
 
 
 @pulumi.output_type
-class NetworkProfileForSnapshotResponse(dict):
-    """
-    network profile for managed cluster snapshot, these properties are read only.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "loadBalancerSku":
-            suggest = "load_balancer_sku"
-        elif key == "networkMode":
-            suggest = "network_mode"
-        elif key == "networkPlugin":
-            suggest = "network_plugin"
-        elif key == "networkPluginMode":
-            suggest = "network_plugin_mode"
-        elif key == "networkPolicy":
-            suggest = "network_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NetworkProfileForSnapshotResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NetworkProfileForSnapshotResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NetworkProfileForSnapshotResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 load_balancer_sku: Optional[str] = None,
-                 network_mode: Optional[str] = None,
-                 network_plugin: Optional[str] = None,
-                 network_plugin_mode: Optional[str] = None,
-                 network_policy: Optional[str] = None):
-        """
-        network profile for managed cluster snapshot, these properties are read only.
-        :param str load_balancer_sku: loadBalancerSku for managed cluster snapshot.
-        :param str network_mode: networkMode for managed cluster snapshot.
-        :param str network_plugin: networkPlugin for managed cluster snapshot.
-        :param str network_plugin_mode: NetworkPluginMode for managed cluster snapshot.
-        :param str network_policy: networkPolicy for managed cluster snapshot.
-        """
-        if load_balancer_sku is not None:
-            pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
-        if network_mode is not None:
-            pulumi.set(__self__, "network_mode", network_mode)
-        if network_plugin is not None:
-            pulumi.set(__self__, "network_plugin", network_plugin)
-        if network_plugin_mode is not None:
-            pulumi.set(__self__, "network_plugin_mode", network_plugin_mode)
-        if network_policy is not None:
-            pulumi.set(__self__, "network_policy", network_policy)
-
-    @property
-    @pulumi.getter(name="loadBalancerSku")
-    def load_balancer_sku(self) -> Optional[str]:
-        """
-        loadBalancerSku for managed cluster snapshot.
-        """
-        return pulumi.get(self, "load_balancer_sku")
-
-    @property
-    @pulumi.getter(name="networkMode")
-    def network_mode(self) -> Optional[str]:
-        """
-        networkMode for managed cluster snapshot.
-        """
-        return pulumi.get(self, "network_mode")
-
-    @property
-    @pulumi.getter(name="networkPlugin")
-    def network_plugin(self) -> Optional[str]:
-        """
-        networkPlugin for managed cluster snapshot.
-        """
-        return pulumi.get(self, "network_plugin")
-
-    @property
-    @pulumi.getter(name="networkPluginMode")
-    def network_plugin_mode(self) -> Optional[str]:
-        """
-        NetworkPluginMode for managed cluster snapshot.
-        """
-        return pulumi.get(self, "network_plugin_mode")
-
-    @property
-    @pulumi.getter(name="networkPolicy")
-    def network_policy(self) -> Optional[str]:
-        """
-        networkPolicy for managed cluster snapshot.
-        """
-        return pulumi.get(self, "network_policy")
-
-
-@pulumi.output_type
 class PortRangeResponse(dict):
     """
     The port range.
@@ -6382,29 +5963,6 @@ class PowerStateResponse(dict):
         Tells whether the cluster is Running or Stopped
         """
         return pulumi.get(self, "code")
-
-
-@pulumi.output_type
-class PrivateEndpointResponse(dict):
-    """
-    Private endpoint which a connection belongs to.
-    """
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-        Private endpoint which a connection belongs to.
-        :param str id: The resource ID of the private endpoint
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The resource ID of the private endpoint
-        """
-        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -6511,106 +6069,6 @@ class PrivateLinkResourceResponse(dict):
 
 
 @pulumi.output_type
-class PrivateLinkServiceConnectionStateResponse(dict):
-    """
-    The state of a private link service connection.
-    """
-    def __init__(__self__, *,
-                 description: Optional[str] = None,
-                 status: Optional[str] = None):
-        """
-        The state of a private link service connection.
-        :param str description: The private link service connection description.
-        :param str status: The private link service connection status.
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The private link service connection description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        The private link service connection status.
-        """
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class RelativeMonthlyScheduleResponse(dict):
-    """
-    For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dayOfWeek":
-            suggest = "day_of_week"
-        elif key == "intervalMonths":
-            suggest = "interval_months"
-        elif key == "weekIndex":
-            suggest = "week_index"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RelativeMonthlyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RelativeMonthlyScheduleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RelativeMonthlyScheduleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 day_of_week: str,
-                 interval_months: int,
-                 week_index: str):
-        """
-        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
-        :param str day_of_week: Specifies on which day of the week the maintenance occurs.
-        :param int interval_months: Specifies the number of months between each set of occurrences.
-        :param str week_index: Specifies on which instance of the allowed days specified in daysOfWeek the maintenance occurs.
-        """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "interval_months", interval_months)
-        pulumi.set(__self__, "week_index", week_index)
-
-    @property
-    @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> str:
-        """
-        Specifies on which day of the week the maintenance occurs.
-        """
-        return pulumi.get(self, "day_of_week")
-
-    @property
-    @pulumi.getter(name="intervalMonths")
-    def interval_months(self) -> int:
-        """
-        Specifies the number of months between each set of occurrences.
-        """
-        return pulumi.get(self, "interval_months")
-
-    @property
-    @pulumi.getter(name="weekIndex")
-    def week_index(self) -> str:
-        """
-        Specifies on which instance of the allowed days specified in daysOfWeek the maintenance occurs.
-        """
-        return pulumi.get(self, "week_index")
-
-
-@pulumi.output_type
 class ResourceReferenceResponse(dict):
     """
     A reference to an Azure resource.
@@ -6654,84 +6112,6 @@ class ScaleProfileResponse(dict):
         Specifications on how to scale the VirtualMachines agent pool to a fixed size.
         """
         return pulumi.get(self, "manual")
-
-
-@pulumi.output_type
-class ScheduleResponse(dict):
-    """
-    One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "absoluteMonthly":
-            suggest = "absolute_monthly"
-        elif key == "relativeMonthly":
-            suggest = "relative_monthly"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScheduleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ScheduleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ScheduleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 absolute_monthly: Optional['outputs.AbsoluteMonthlyScheduleResponse'] = None,
-                 daily: Optional['outputs.DailyScheduleResponse'] = None,
-                 relative_monthly: Optional['outputs.RelativeMonthlyScheduleResponse'] = None,
-                 weekly: Optional['outputs.WeeklyScheduleResponse'] = None):
-        """
-        One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule.
-        :param 'AbsoluteMonthlyScheduleResponse' absolute_monthly: For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
-        :param 'DailyScheduleResponse' daily: For schedules like: 'recur every day' or 'recur every 3 days'.
-        :param 'RelativeMonthlyScheduleResponse' relative_monthly: For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
-        :param 'WeeklyScheduleResponse' weekly: For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
-        """
-        if absolute_monthly is not None:
-            pulumi.set(__self__, "absolute_monthly", absolute_monthly)
-        if daily is not None:
-            pulumi.set(__self__, "daily", daily)
-        if relative_monthly is not None:
-            pulumi.set(__self__, "relative_monthly", relative_monthly)
-        if weekly is not None:
-            pulumi.set(__self__, "weekly", weekly)
-
-    @property
-    @pulumi.getter(name="absoluteMonthly")
-    def absolute_monthly(self) -> Optional['outputs.AbsoluteMonthlyScheduleResponse']:
-        """
-        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
-        """
-        return pulumi.get(self, "absolute_monthly")
-
-    @property
-    @pulumi.getter
-    def daily(self) -> Optional['outputs.DailyScheduleResponse']:
-        """
-        For schedules like: 'recur every day' or 'recur every 3 days'.
-        """
-        return pulumi.get(self, "daily")
-
-    @property
-    @pulumi.getter(name="relativeMonthly")
-    def relative_monthly(self) -> Optional['outputs.RelativeMonthlyScheduleResponse']:
-        """
-        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
-        """
-        return pulumi.get(self, "relative_monthly")
-
-    @property
-    @pulumi.getter
-    def weekly(self) -> Optional['outputs.WeeklyScheduleResponse']:
-        """
-        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
-        """
-        return pulumi.get(self, "weekly")
 
 
 @pulumi.output_type
@@ -7297,93 +6677,6 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
-class TimeInWeekResponse(dict):
-    """
-    Time in a week.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "hourSlots":
-            suggest = "hour_slots"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TimeInWeekResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TimeInWeekResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TimeInWeekResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 day: Optional[str] = None,
-                 hour_slots: Optional[Sequence[int]] = None):
-        """
-        Time in a week.
-        :param str day: The day of the week.
-        :param Sequence[int] hour_slots: Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
-        """
-        if day is not None:
-            pulumi.set(__self__, "day", day)
-        if hour_slots is not None:
-            pulumi.set(__self__, "hour_slots", hour_slots)
-
-    @property
-    @pulumi.getter
-    def day(self) -> Optional[str]:
-        """
-        The day of the week.
-        """
-        return pulumi.get(self, "day")
-
-    @property
-    @pulumi.getter(name="hourSlots")
-    def hour_slots(self) -> Optional[Sequence[int]]:
-        """
-        Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
-        """
-        return pulumi.get(self, "hour_slots")
-
-
-@pulumi.output_type
-class TimeSpanResponse(dict):
-    """
-    For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
-    """
-    def __init__(__self__, *,
-                 end: Optional[str] = None,
-                 start: Optional[str] = None):
-        """
-        For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
-        :param str end: The end of a time span
-        :param str start: The start of a time span
-        """
-        if end is not None:
-            pulumi.set(__self__, "end", end)
-        if start is not None:
-            pulumi.set(__self__, "start", start)
-
-    @property
-    @pulumi.getter
-    def end(self) -> Optional[str]:
-        """
-        The end of a time span
-        """
-        return pulumi.get(self, "end")
-
-    @property
-    @pulumi.getter
-    def start(self) -> Optional[str]:
-        """
-        The start of a time span
-        """
-        return pulumi.get(self, "start")
-
-
-@pulumi.output_type
 class UpgradeOverrideSettingsResponse(dict):
     """
     Settings for overrides when upgrading a cluster.
@@ -7559,58 +6852,6 @@ class VirtualMachinesProfileResponse(dict):
         Specifications on how to scale a VirtualMachines agent pool.
         """
         return pulumi.get(self, "scale")
-
-
-@pulumi.output_type
-class WeeklyScheduleResponse(dict):
-    """
-    For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dayOfWeek":
-            suggest = "day_of_week"
-        elif key == "intervalWeeks":
-            suggest = "interval_weeks"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WeeklyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WeeklyScheduleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WeeklyScheduleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 day_of_week: str,
-                 interval_weeks: int):
-        """
-        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
-        :param str day_of_week: Specifies on which day of the week the maintenance occurs.
-        :param int interval_weeks: Specifies the number of weeks between each set of occurrences.
-        """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "interval_weeks", interval_weeks)
-
-    @property
-    @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> str:
-        """
-        Specifies on which day of the week the maintenance occurs.
-        """
-        return pulumi.get(self, "day_of_week")
-
-    @property
-    @pulumi.getter(name="intervalWeeks")
-    def interval_weeks(self) -> int:
-        """
-        Specifies the number of weeks between each set of occurrences.
-        """
-        return pulumi.get(self, "interval_weeks")
 
 
 @pulumi.output_type

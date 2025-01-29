@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the Workspace resource associated with the given name.
- * Azure REST API version: 2022-01-10-preview.
+ * Azure REST API version: 2023-11-13-preview.
  *
- * Other available API versions: 2023-11-13-preview.
+ * Other available API versions: 2022-01-10-preview.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -23,7 +23,7 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
 
 export interface GetWorkspaceArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -37,11 +37,15 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * Indicator of enablement of the Quantum workspace Api keys.
+     */
+    readonly apiKeyEnabled?: boolean;
+    /**
      * The URI of the workspace endpoint.
      */
     readonly endpointUri: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -69,7 +73,7 @@ export interface GetWorkspaceResult {
      */
     readonly storageAccount?: string;
     /**
-     * System metadata
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.quantum.SystemDataResponse;
     /**
@@ -87,9 +91,9 @@ export interface GetWorkspaceResult {
 }
 /**
  * Returns the Workspace resource associated with the given name.
- * Azure REST API version: 2022-01-10-preview.
+ * Azure REST API version: 2023-11-13-preview.
  *
- * Other available API versions: 2023-11-13-preview.
+ * Other available API versions: 2022-01-10-preview.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -101,7 +105,7 @@ export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.I
 
 export interface GetWorkspaceOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

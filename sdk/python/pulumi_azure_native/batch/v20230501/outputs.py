@@ -2493,7 +2493,9 @@ class ResizeOperationStatusResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resizeTimeout":
+        if key == "nodeDeallocationOption":
+            suggest = "node_deallocation_option"
+        elif key == "resizeTimeout":
             suggest = "resize_timeout"
         elif key == "startTime":
             suggest = "start_time"
@@ -2515,6 +2517,7 @@ class ResizeOperationStatusResponse(dict):
 
     def __init__(__self__, *,
                  errors: Optional[Sequence['outputs.ResizeErrorResponse']] = None,
+                 node_deallocation_option: Optional[str] = None,
                  resize_timeout: Optional[str] = None,
                  start_time: Optional[str] = None,
                  target_dedicated_nodes: Optional[int] = None,
@@ -2522,10 +2525,13 @@ class ResizeOperationStatusResponse(dict):
         """
         Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
         :param Sequence['ResizeErrorResponse'] errors: This property is set only if an error occurred during the last pool resize, and only when the pool allocationState is Steady.
+        :param str node_deallocation_option: The default value is requeue.
         :param str resize_timeout: The default value is 15 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service returns an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
         """
         if errors is not None:
             pulumi.set(__self__, "errors", errors)
+        if node_deallocation_option is not None:
+            pulumi.set(__self__, "node_deallocation_option", node_deallocation_option)
         if resize_timeout is not None:
             pulumi.set(__self__, "resize_timeout", resize_timeout)
         if start_time is not None:
@@ -2542,6 +2548,14 @@ class ResizeOperationStatusResponse(dict):
         This property is set only if an error occurred during the last pool resize, and only when the pool allocationState is Steady.
         """
         return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter(name="nodeDeallocationOption")
+    def node_deallocation_option(self) -> Optional[str]:
+        """
+        The default value is requeue.
+        """
+        return pulumi.get(self, "node_deallocation_option")
 
     @property
     @pulumi.getter(name="resizeTimeout")

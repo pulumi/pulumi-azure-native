@@ -31,15 +31,19 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// [Required] Group within the same pool with which this endpoint needs to be associated with.
         /// </summary>
-        public readonly string GroupId;
+        public readonly string GroupName;
         /// <summary>
         /// Property dictionary. Properties can be added, but not removed or altered.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Properties;
+        public readonly ImmutableArray<Outputs.StringStringKeyValuePairResponse> Properties;
         /// <summary>
         /// Provisioning state for the endpoint.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// RequestConfiguration for endpoint.
+        /// </summary>
+        public readonly Outputs.RequestConfigurationResponse? RequestConfiguration;
 
         [OutputConstructor]
         private InferenceEndpointResponse(
@@ -49,18 +53,21 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string endpointUri,
 
-            string groupId,
+            string groupName,
 
-            ImmutableDictionary<string, string>? properties,
+            ImmutableArray<Outputs.StringStringKeyValuePairResponse> properties,
 
-            string provisioningState)
+            string provisioningState,
+
+            Outputs.RequestConfigurationResponse? requestConfiguration)
         {
             AuthMode = authMode;
             Description = description;
             EndpointUri = endpointUri;
-            GroupId = groupId;
+            GroupName = groupName;
             Properties = properties;
             ProvisioningState = provisioningState;
+            RequestConfiguration = requestConfiguration;
         }
     }
 }

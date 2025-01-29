@@ -134,6 +134,37 @@ namespace Pulumi.AzureNative.ContainerRegistry
     }
 
     /// <summary>
+    /// The value that indicates whether the policy is enabled or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureADAuthenticationAsArmPolicyStatus : IEquatable<AzureADAuthenticationAsArmPolicyStatus>
+    {
+        private readonly string _value;
+
+        private AzureADAuthenticationAsArmPolicyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureADAuthenticationAsArmPolicyStatus Enabled { get; } = new AzureADAuthenticationAsArmPolicyStatus("enabled");
+        public static AzureADAuthenticationAsArmPolicyStatus Disabled { get; } = new AzureADAuthenticationAsArmPolicyStatus("disabled");
+
+        public static bool operator ==(AzureADAuthenticationAsArmPolicyStatus left, AzureADAuthenticationAsArmPolicyStatus right) => left.Equals(right);
+        public static bool operator !=(AzureADAuthenticationAsArmPolicyStatus left, AzureADAuthenticationAsArmPolicyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AzureADAuthenticationAsArmPolicyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureADAuthenticationAsArmPolicyStatus other && Equals(other);
+        public bool Equals(AzureADAuthenticationAsArmPolicyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the auto trigger for base image dependency updates.
     /// </summary>
     [EnumType]

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Resource representation of a workflow
- * Azure REST API version: 2022-10-11-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+ * Azure REST API version: 2023-08-01. Prior API version in Azure Native 2.x: 2022-10-11-preview.
  *
- * Other available API versions: 2023-08-01, 2024-05-01-preview, 2024-08-01-preview.
+ * Other available API versions: 2022-04-01-preview, 2022-10-11-preview, 2024-05-01-preview, 2024-08-01-preview.
  */
 export class Workflow extends pulumi.CustomResource {
     /**
@@ -41,38 +41,13 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /**
-     * Information on the azure container registry
-     */
-    public readonly acr!: pulumi.Output<outputs.devhub.ACRResponse | undefined>;
-    /**
-     * The Azure Kubernetes Cluster Resource the application will be deployed to.
-     */
-    public readonly aksResourceId!: pulumi.Output<string | undefined>;
-    /**
      * The name of the app.
      */
     public readonly appName!: pulumi.Output<string | undefined>;
     /**
-     * Determines the authorization status of requests.
-     */
-    public /*out*/ readonly authStatus!: pulumi.Output<string>;
-    /**
-     * Repository Branch Name
-     */
-    public readonly branchName!: pulumi.Output<string | undefined>;
-    /**
      * The version of the language image used for building the code in the generated dockerfile.
      */
     public readonly builderVersion!: pulumi.Output<string | undefined>;
-    public readonly deploymentProperties!: pulumi.Output<outputs.devhub.DeploymentPropertiesResponse | undefined>;
-    /**
-     * Path to Dockerfile Build Context within the repository.
-     */
-    public readonly dockerBuildContext!: pulumi.Output<string | undefined>;
-    /**
-     * Path to the Dockerfile within the repository.
-     */
-    public readonly dockerfile!: pulumi.Output<string | undefined>;
     /**
      * The mode of generation to be used for generating Dockerfiles.
      */
@@ -86,6 +61,10 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly generationLanguage!: pulumi.Output<string | undefined>;
     /**
+     * Profile of a github workflow.
+     */
+    public readonly githubWorkflowProfile!: pulumi.Output<outputs.devhub.GitHubWorkflowProfileResponse | undefined>;
+    /**
      * The name of the image to be generated.
      */
     public readonly imageName!: pulumi.Output<string | undefined>;
@@ -97,7 +76,6 @@ export class Workflow extends pulumi.CustomResource {
      * The version of the language image used for execution in the generated dockerfile.
      */
     public readonly languageVersion!: pulumi.Output<string | undefined>;
-    public readonly lastWorkflowRun!: pulumi.Output<outputs.devhub.WorkflowRunResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -119,37 +97,13 @@ export class Workflow extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Kubernetes namespace the application is deployed to.
+     * The namespace to deploy the application to.
      */
     public readonly namespace!: pulumi.Output<string | undefined>;
-    /**
-     * The fields needed for OIDC with GitHub.
-     */
-    public readonly oidcCredentials!: pulumi.Output<outputs.devhub.GitHubWorkflowProfileResponseOidcCredentials | undefined>;
     /**
      * The port the application is exposed on.
      */
     public readonly port!: pulumi.Output<string | undefined>;
-    /**
-     * The status of the Pull Request submitted against the users repository.
-     */
-    public /*out*/ readonly prStatus!: pulumi.Output<string>;
-    /**
-     * The URL to the Pull Request submitted against the users repository.
-     */
-    public /*out*/ readonly prURL!: pulumi.Output<string>;
-    /**
-     * The number associated with the submitted pull request.
-     */
-    public /*out*/ readonly pullNumber!: pulumi.Output<number>;
-    /**
-     * Repository Name
-     */
-    public readonly repositoryName!: pulumi.Output<string | undefined>;
-    /**
-     * Repository Owner
-     */
-    public readonly repositoryOwner!: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -177,70 +131,44 @@ export class Workflow extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["acr"] = args ? args.acr : undefined;
-            resourceInputs["aksResourceId"] = args ? args.aksResourceId : undefined;
             resourceInputs["appName"] = args ? args.appName : undefined;
-            resourceInputs["branchName"] = args ? args.branchName : undefined;
             resourceInputs["builderVersion"] = args ? args.builderVersion : undefined;
-            resourceInputs["deploymentProperties"] = args ? args.deploymentProperties : undefined;
-            resourceInputs["dockerBuildContext"] = args ? args.dockerBuildContext : undefined;
-            resourceInputs["dockerfile"] = args ? args.dockerfile : undefined;
             resourceInputs["dockerfileGenerationMode"] = args ? args.dockerfileGenerationMode : undefined;
             resourceInputs["dockerfileOutputDirectory"] = args ? args.dockerfileOutputDirectory : undefined;
             resourceInputs["generationLanguage"] = args ? args.generationLanguage : undefined;
+            resourceInputs["githubWorkflowProfile"] = args ? args.githubWorkflowProfile : undefined;
             resourceInputs["imageName"] = args ? args.imageName : undefined;
             resourceInputs["imageTag"] = args ? args.imageTag : undefined;
             resourceInputs["languageVersion"] = args ? args.languageVersion : undefined;
-            resourceInputs["lastWorkflowRun"] = args ? args.lastWorkflowRun : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["manifestGenerationMode"] = args ? args.manifestGenerationMode : undefined;
             resourceInputs["manifestOutputDirectory"] = args ? args.manifestOutputDirectory : undefined;
             resourceInputs["manifestType"] = args ? args.manifestType : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["oidcCredentials"] = args ? args.oidcCredentials : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
-            resourceInputs["repositoryOwner"] = args ? args.repositoryOwner : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workflowName"] = args ? args.workflowName : undefined;
-            resourceInputs["authStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["prStatus"] = undefined /*out*/;
-            resourceInputs["prURL"] = undefined /*out*/;
-            resourceInputs["pullNumber"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["acr"] = undefined /*out*/;
-            resourceInputs["aksResourceId"] = undefined /*out*/;
             resourceInputs["appName"] = undefined /*out*/;
-            resourceInputs["authStatus"] = undefined /*out*/;
-            resourceInputs["branchName"] = undefined /*out*/;
             resourceInputs["builderVersion"] = undefined /*out*/;
-            resourceInputs["deploymentProperties"] = undefined /*out*/;
-            resourceInputs["dockerBuildContext"] = undefined /*out*/;
-            resourceInputs["dockerfile"] = undefined /*out*/;
             resourceInputs["dockerfileGenerationMode"] = undefined /*out*/;
             resourceInputs["dockerfileOutputDirectory"] = undefined /*out*/;
             resourceInputs["generationLanguage"] = undefined /*out*/;
+            resourceInputs["githubWorkflowProfile"] = undefined /*out*/;
             resourceInputs["imageName"] = undefined /*out*/;
             resourceInputs["imageTag"] = undefined /*out*/;
             resourceInputs["languageVersion"] = undefined /*out*/;
-            resourceInputs["lastWorkflowRun"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["manifestGenerationMode"] = undefined /*out*/;
             resourceInputs["manifestOutputDirectory"] = undefined /*out*/;
             resourceInputs["manifestType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
-            resourceInputs["oidcCredentials"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
-            resourceInputs["prStatus"] = undefined /*out*/;
-            resourceInputs["prURL"] = undefined /*out*/;
-            resourceInputs["pullNumber"] = undefined /*out*/;
-            resourceInputs["repositoryName"] = undefined /*out*/;
-            resourceInputs["repositoryOwner"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -257,34 +185,13 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowArgs {
     /**
-     * Information on the azure container registry
-     */
-    acr?: pulumi.Input<inputs.devhub.ACRArgs>;
-    /**
-     * The Azure Kubernetes Cluster Resource the application will be deployed to.
-     */
-    aksResourceId?: pulumi.Input<string>;
-    /**
      * The name of the app.
      */
     appName?: pulumi.Input<string>;
     /**
-     * Repository Branch Name
-     */
-    branchName?: pulumi.Input<string>;
-    /**
      * The version of the language image used for building the code in the generated dockerfile.
      */
     builderVersion?: pulumi.Input<string>;
-    deploymentProperties?: pulumi.Input<inputs.devhub.DeploymentPropertiesArgs>;
-    /**
-     * Path to Dockerfile Build Context within the repository.
-     */
-    dockerBuildContext?: pulumi.Input<string>;
-    /**
-     * Path to the Dockerfile within the repository.
-     */
-    dockerfile?: pulumi.Input<string>;
     /**
      * The mode of generation to be used for generating Dockerfiles.
      */
@@ -298,6 +205,10 @@ export interface WorkflowArgs {
      */
     generationLanguage?: pulumi.Input<string | enums.devhub.GenerationLanguage>;
     /**
+     * Profile of a github workflow.
+     */
+    githubWorkflowProfile?: pulumi.Input<inputs.devhub.GitHubWorkflowProfileArgs>;
+    /**
      * The name of the image to be generated.
      */
     imageName?: pulumi.Input<string>;
@@ -309,7 +220,6 @@ export interface WorkflowArgs {
      * The version of the language image used for execution in the generated dockerfile.
      */
     languageVersion?: pulumi.Input<string>;
-    lastWorkflowRun?: pulumi.Input<inputs.devhub.WorkflowRunArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -327,25 +237,13 @@ export interface WorkflowArgs {
      */
     manifestType?: pulumi.Input<string | enums.devhub.GenerationManifestType>;
     /**
-     * Kubernetes namespace the application is deployed to.
+     * The namespace to deploy the application to.
      */
     namespace?: pulumi.Input<string>;
-    /**
-     * The fields needed for OIDC with GitHub.
-     */
-    oidcCredentials?: pulumi.Input<inputs.devhub.GitHubWorkflowProfileOidcCredentialsArgs>;
     /**
      * The port the application is exposed on.
      */
     port?: pulumi.Input<string>;
-    /**
-     * Repository Name
-     */
-    repositoryName?: pulumi.Input<string>;
-    /**
-     * Repository Owner
-     */
-    repositoryOwner?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

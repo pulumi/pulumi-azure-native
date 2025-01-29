@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.ServiceLinker.Inputs
     public sealed class DaprMetadataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The description of the metadata, returned from configuration api
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Metadata property name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The value indicating whether the metadata is required or not
+        /// </summary>
+        [Input("required")]
+        public InputUnion<string, Pulumi.AzureNative.ServiceLinker.DaprMetadataRequired>? Required { get; set; }
 
         /// <summary>
         /// The secret name where dapr could get value

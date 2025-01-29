@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
         [Input("privateDnsZoneResourceId")]
         public Input<string>? PrivateDnsZoneResourceId { get; set; }
 
+        /// <summary>
+        /// Whether or not public network access is allowed for this server. Value is 'Disabled' when server has VNet integration.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.EnableStatusEnum>? PublicNetworkAccess { get; set; }
+
         public NetworkArgs()
         {
         }

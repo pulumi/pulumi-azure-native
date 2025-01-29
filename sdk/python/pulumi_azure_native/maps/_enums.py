@@ -5,27 +5,44 @@
 from enum import Enum
 
 __all__ = [
+    'InfrastructureEncryption',
     'Kind',
+    'ManagedServiceIdentityType',
     'Name',
     'PrivateEndpointServiceConnectionStatus',
     'SigningKey',
 ]
 
 
+class InfrastructureEncryption(str, Enum):
+    """
+    (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
 class Kind(str, Enum):
     """
     Get or Set Kind property.
     """
-    GEN1 = "Gen1"
     GEN2 = "Gen2"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class Name(str, Enum):
     """
-    The name of the SKU, in standard format (such as S0).
+    The name of the SKU, in standard format (such as G2).
     """
-    S0 = "S0"
-    S1 = "S1"
     G2 = "G2"
 
 
@@ -40,7 +57,8 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
 
 class SigningKey(str, Enum):
     """
-    The Map account key to use for signing.
+    The Maps account key to use for signing. Picking `primaryKey` or `secondaryKey` will use the Maps account Shared Keys, and using `managedIdentity` will use the auto-renewed private key to sign the SAS.
     """
     PRIMARY_KEY = "primaryKey"
     SECONDARY_KEY = "secondaryKey"
+    MANAGED_IDENTITY = "managedIdentity"

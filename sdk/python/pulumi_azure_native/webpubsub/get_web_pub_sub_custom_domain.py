@@ -70,7 +70,7 @@ class GetWebPubSubCustomDomainResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -78,7 +78,7 @@ class GetWebPubSubCustomDomainResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -94,7 +94,7 @@ class GetWebPubSubCustomDomainResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -102,7 +102,7 @@ class GetWebPubSubCustomDomainResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -128,13 +128,13 @@ def get_web_pub_sub_custom_domain(name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubCustomDomainResult:
     """
     Get a custom domain.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-02-01, 2024-10-01-preview.
 
 
     :param str name: Custom domain name.
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
     __args__ = dict()
@@ -158,13 +158,13 @@ def get_web_pub_sub_custom_domain_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebPubSubCustomDomainResult]:
     """
     Get a custom domain.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-02-01, 2024-10-01-preview.
 
 
     :param str name: Custom domain name.
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
     __args__ = dict()

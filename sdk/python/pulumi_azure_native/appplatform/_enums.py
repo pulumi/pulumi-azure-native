@@ -5,23 +5,37 @@
 from enum import Enum
 
 __all__ = [
+    'ApiPortalApiTryOutEnabledState',
     'ApmType',
     'BackendProtocol',
     'BindingType',
     'ConfigServerEnabledState',
     'ConfigurationServiceGeneration',
+    'CustomizedAcceleratorType',
     'DevToolPortalFeatureState',
+    'Frequency',
     'GatewayCertificateVerification',
     'GatewayRouteConfigProtocol',
     'GitImplementation',
     'HTTPSchemeType',
+    'KeyVaultCertificateAutoSync',
     'ManagedIdentityType',
     'ProbeActionType',
     'SessionAffinity',
     'StorageType',
+    'TestEndpointAuthState',
     'TriggerType',
     'Type',
+    'WeekDay',
 ]
+
+
+class ApiPortalApiTryOutEnabledState(str, Enum):
+    """
+    Indicates whether the API try-out feature is enabled or disabled. When enabled, users can try out the API by sending requests and viewing responses in API portal. When disabled, users cannot try out the API.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ApmType(str, Enum):
@@ -78,6 +92,14 @@ class ConfigurationServiceGeneration(str, Enum):
     GEN2 = "Gen2"
 
 
+class CustomizedAcceleratorType(str, Enum):
+    """
+    Type of the customized accelerator.
+    """
+    ACCELERATOR = "Accelerator"
+    FRAGMENT = "Fragment"
+
+
 class DevToolPortalFeatureState(str, Enum):
     """
     State of the plugin
@@ -90,6 +112,13 @@ class DevToolPortalFeatureState(str, Enum):
     """
     Disable the plugin in Dev Tool Portal.
     """
+
+
+class Frequency(str, Enum):
+    """
+    The frequency to run the maintenance job
+    """
+    WEEKLY = "Weekly"
 
 
 class GatewayCertificateVerification(str, Enum):
@@ -134,6 +163,14 @@ class HTTPSchemeType(str, Enum):
     HTTPS = "HTTPS"
 
 
+class KeyVaultCertificateAutoSync(str, Enum):
+    """
+    Indicates whether to automatically synchronize certificate from key vault or not.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
 class ManagedIdentityType(str, Enum):
     """
     Type of the managed identity
@@ -168,6 +205,20 @@ class StorageType(str, Enum):
     STORAGE_ACCOUNT = "StorageAccount"
 
 
+class TestEndpointAuthState(str, Enum):
+    """
+    State of test endpoint auth.
+    """
+    ENABLED = "Enabled"
+    """
+    Enable test endpoint auth.
+    """
+    DISABLED = "Disabled"
+    """
+    Disable test endpoint auth
+    """
+
+
 class TriggerType(str, Enum):
     """
     Type of job trigger
@@ -180,3 +231,16 @@ class Type(str, Enum):
     The type of the underlying resource to mount as a persistent disk.
     """
     AZURE_FILE_VOLUME = "AzureFileVolume"
+
+
+class WeekDay(str, Enum):
+    """
+    The day to run the maintenance job
+    """
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+    SUNDAY = "Sunday"

@@ -35,7 +35,7 @@ export const ClusterSkuNameEnum = {
 } as const;
 
 /**
- * The name of the SKU.
+ * The SKU (tier) of a cluster.
  */
 export type ClusterSkuNameEnum = (typeof ClusterSkuNameEnum)[keyof typeof ClusterSkuNameEnum];
 
@@ -156,6 +156,18 @@ export const MachineGroupType = {
  */
 export type MachineGroupType = (typeof MachineGroupType)[keyof typeof MachineGroupType];
 
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const PublicNetworkAccessType = {
     /**
      * Enables connectivity to Log Analytics through public DNS.
@@ -174,7 +186,7 @@ export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typ
 
 export const TablePlanEnum = {
     /**
-     * Logs  that are adjusted to support high volume low value verbose logs.
+     * Logs that are adjusted to support high volume low value verbose logs.
      */
     Basic: "Basic",
     /**

@@ -21,11 +21,11 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
         /// </summary>
         public readonly string GroupId;
         /// <summary>
-        /// Fully qualified resource Id for the resource.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -45,11 +45,11 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
