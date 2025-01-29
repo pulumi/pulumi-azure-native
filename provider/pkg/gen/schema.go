@@ -58,6 +58,7 @@ type Versioning interface {
 	ShouldInclude(moduleName openapi.ModuleName, version *openapi.ApiVersion, typeName, token string) bool
 	GetDeprecation(token string) (ResourceDeprecation, bool)
 	GetAllVersions(openapi.ModuleName, openapi.ResourceName) []openapi.ApiVersion
+	GetPreviousCompatibleTokensLookup() (*CompatibleTokensLookup, error)
 }
 
 type GenerationResult struct {
@@ -284,6 +285,10 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 	flattenedPropertyConflicts := map[string]map[string]any{}
 	exampleMap := make(map[string][]resources.AzureAPIExample)
 	resourcesPathTracker := newResourcesPathConflictsTracker()
+	previousCompatibleTokensLookup, err := versioning.GetPreviousCompatibleTokensLookup()
+	if err != nil {
+		return nil, err
+	}
 
 	for moduleName, moduleVersions := range util.MapOrdered(modules) {
 		resourcePaths := map[openapi.ResourceName]map[string][]openapi.ApiVersion{}
@@ -302,19 +307,20 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 			}
 
 			gen := packageGenerator{
-				pkg:                        &pkg,
-				metadata:                   &metadata,
-				moduleName:                 moduleName,
-				apiVersion:                 apiVersion,
-				sdkVersion:                 sdkVersion,
-				allVersions:                allVersions,
-				examples:                   exampleMap,
-				versioning:                 versioning,
-				caseSensitiveTypes:         caseSensitiveTypes,
-				rootDir:                    rootDir,
-				flattenedPropertyConflicts: flattenedPropertyConflicts,
-				majorVersion:               int(providerVersion.Major),
-				resourcePaths:              map[openapi.ResourceName]map[string]openapi.ApiVersion{},
+				pkg:                            &pkg,
+				metadata:                       &metadata,
+				moduleName:                     moduleName,
+				apiVersion:                     apiVersion,
+				sdkVersion:                     sdkVersion,
+				allVersions:                    allVersions,
+				examples:                       exampleMap,
+				versioning:                     versioning,
+				caseSensitiveTypes:             caseSensitiveTypes,
+				rootDir:                        rootDir,
+				flattenedPropertyConflicts:     flattenedPropertyConflicts,
+				majorVersion:                   int(providerVersion.Major),
+				resourcePaths:                  map[openapi.ResourceName]map[string]openapi.ApiVersion{},
+				previousCompatibleTokensLookup: previousCompatibleTokensLookup,
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -354,7 +360,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 		return nil, fmt.Errorf("path conflicts detected. You probably need to add a case to schema.go/dedupResourceNameByPath.\n%+v", resourcesPathTracker.pathConflicts)
 	}
 
-	err := genMixins(&pkg, &metadata)
+	err = genMixins(&pkg, &metadata)
 	if err != nil {
 		return nil, err
 	}
@@ -676,7 +682,8 @@ type packageGenerator struct {
 	majorVersion               int
 	// A resource -> path -> API version map to record API paths per resource and later detect conflicts.
 	// Each packageGenerator instance is only used for a single API version, so there won't be conflicting paths here.
-	resourcePaths map[openapi.ResourceName]map[string]openapi.ApiVersion
+	resourcePaths                  map[openapi.ResourceName]map[string]openapi.ApiVersion
+	previousCompatibleTokensLookup *CompatibleTokensLookup
 }
 
 func (g *packageGenerator) genResources(typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
@@ -1045,6 +1052,11 @@ func isSingleton(resource *resourceVariant) bool {
 
 func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
 	typeAliases := collections.NewOrderableSet[string]()
+
+	previousCompatibleTokens := g.previousCompatibleTokensLookup.FindCompatibleTokens(resource.ModuleNaming.ResolvedName, resource.typeName, resource.Path)
+	for _, token := range previousCompatibleTokens {
+		typeAliases.Add(token)
+	}
 
 	// Add an alias for the same version of the resource, but in its old module.
 	if resource.ModuleNaming.PreviousName != nil {

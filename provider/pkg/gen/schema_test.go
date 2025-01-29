@@ -43,15 +43,21 @@ func (v versioningStub) GetAllVersions(moduleName openapi.ModuleName, resource s
 	return []openapi.ApiVersion{}
 }
 
+func (v versioningStub) GetPreviousCompatibleTokensLookup() (*CompatibleTokensLookup, error) {
+	return NewCompatibleTokensLookup(map[string]string{})
+}
+
 func TestAliases(t *testing.T) {
 	// Wrap the generation of type aliases in a function to make it easier to test
 	generateTypeAliases := func(moduleName, typeName string, sdkVersion openapi.SdkVersion, previousModuleName string, typeNameAliases []string, versions []openapi.ApiVersion) []string {
+		previousCompatibleTokensLookup, _ := NewCompatibleTokensLookup(map[string]string{})
 		generator := packageGenerator{
-			pkg:          &pschema.PackageSpec{Name: "azure-native"},
-			sdkVersion:   sdkVersion,
-			versioning:   versioningStub{},
-			moduleName:   openapi.ModuleName(moduleName),
-			majorVersion: 2,
+			pkg:                            &pschema.PackageSpec{Name: "azure-native"},
+			sdkVersion:                     sdkVersion,
+			versioning:                     versioningStub{},
+			moduleName:                     openapi.ModuleName(moduleName),
+			majorVersion:                   2,
+			previousCompatibleTokensLookup: previousCompatibleTokensLookup,
 		}
 
 		resource := &resourceVariant{

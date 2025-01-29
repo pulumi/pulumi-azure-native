@@ -86,6 +86,10 @@ func (v VersionMetadata) GetAllVersions(moduleName openapi.ModuleName, resource 
 	return v.AllResourceVersionsByResource[moduleName][resource]
 }
 
+func (v VersionMetadata) GetPreviousCompatibleTokensLookup() (*gen.CompatibleTokensLookup, error) {
+	return gen.NewCompatibleTokensLookup(v.PreviousTokenPaths)
+}
+
 // Collect, for each module, the API versions that are older than any _previous_ default version and that weren't
 // explicitly removed.
 func (v VersionMetadata) GetOldApiVersionsPerModule() map[openapi.ModuleName][]openapi.ApiVersion {

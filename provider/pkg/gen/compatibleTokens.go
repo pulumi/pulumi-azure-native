@@ -61,6 +61,9 @@ func (lookup *CompatibleTokensLookup) add(moduleName openapi.ModuleName, resourc
 }
 
 func (lookup *CompatibleTokensLookup) FindCompatibleTokens(moduleName openapi.ModuleName, resourceName openapi.ResourceName, path string) []string {
+	if lookup == nil || lookup.byLoweredModuleResourceName == nil || lookup.byNormalizedPath == nil {
+		return nil
+	}
 	matches := map[string]struct{}{}
 	moduleLowered := ModuleLowered(moduleName.Lowered())
 	resourceLowered := ResourceLowered(strings.ToLower(resourceName))
