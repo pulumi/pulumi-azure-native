@@ -1,0 +1,81 @@
+{
+  "AadIam": [
+    "2017-04-01-preview"
+  ],
+  "AnalysisServices": [
+    "2017-08-01-beta"
+  ],
+  "App": [
+    "2022-01-01-preview"
+  ],
+  "Communication": [
+    "2020-08-20-preview"
+  ],
+  "Confluent": [
+    "2020-03-01-preview"
+  ],
+  "DBforMariaDB": [
+    "2018-06-01-privatepreview",
+    "2018-06-01-preview"
+  ],
+  "DBforMySQL": [
+    "2017-12-01-preview"
+  ],
+  "DBforPostgreSQL": [
+    "2017-12-01-preview"
+  ],
+  "Dashboard": [
+    "2021-09-01-preview"
+  ],
+  "DesktopVirtualization": [
+    "2021-01-14-preview"
+  ],
+  "DevCenter": [
+    "2022-08-01-preview"
+  ],
+  "DocumentDB": [
+    "2021-01-15"
+  ],
+  "Elastic": [
+    "2020-07-01-preview"
+  ],
+  "HealthBot": [
+    "2020-12-08-preview"
+  ],
+  "HealthcareApis": [
+    "2021-01-11",
+    "2021-06-01-preview",
+    "2021-11-01",
+    "2022-01-31-preview"
+  ],
+  "HybridConnectivity": [
+    "2021-10-06-preview"
+  ],
+  "Intune": [
+    "2015-01-14-privatepreview"
+  ],
+  "Logz": [
+    "2020-10-01-preview"
+  ],
+  "MobileNetwork": [
+    "2022-03-01-preview"
+  ],
+  "NetworkFunction": [
+    "2021-09-01-preview"
+  ],
+  "OpenEnergyPlatform": [
+    "2021-06-01-preview"
+  ],
+  "Portal": [
+    "2018-10-01-preview"
+  ],
+  "Search": [
+    "2020-08-01-preview"
+  ],
+  "SecurityAndCompliance": [
+    "2021-01-11"
+  ],
+  "Storage": [
+    "2021-01-01"
+  ]
+}

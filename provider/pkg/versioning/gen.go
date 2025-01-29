@@ -8,12 +8,14 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"slices"
 	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"gopkg.in/yaml.v3"
 )
 
@@ -83,6 +85,50 @@ func (v VersionMetadata) GetDeprecation(token string) (gen.ResourceDeprecation, 
 
 func (v VersionMetadata) GetAllVersions(moduleName openapi.ModuleName, resource openapi.ResourceName) []openapi.ApiVersion {
 	return v.AllResourceVersionsByResource[moduleName][resource]
+}
+
+// Collect, for each module, the API versions that are older than any _previous_ default version and that weren't
+// explicitly removed.
+func (v VersionMetadata) GetOldApiVersionsPerModule() map[openapi.ModuleName][]openapi.ApiVersion {
+	result := map[openapi.ModuleName][]openapi.ApiVersion{}
+	for moduleName, resourceVersions := range v.AllResourceVersionsByResource {
+		// Collect the explicitly removed versions in a set for easy lookup. We don't want to list them as removable
+		// when they're already removed.
+		removedFromModule := map[openapi.ApiVersion]struct{}{}
+		for _, version := range v.RemovedVersions[moduleName] {
+			removedFromModule[version] = struct{}{}
+		}
+
+		// API versions can be removed by module, not by resource. Determine the oldest previous default version for
+		// this module. It's the cut-off below which we can safely remove versions.
+		previousDefaultVersions := []openapi.ApiVersion{}
+		for _, version := range v.PreviousDefaultVersions[moduleName] {
+			previousDefaultVersions = append(previousDefaultVersions, version.ApiVersion)
+		}
+		if len(previousDefaultVersions) == 0 {
+			continue
+		}
+		oldestPreviousDefaultVersion := slices.MinFunc(previousDefaultVersions, openapi.CompareApiVersions)
+
+		// With oldestPreviousDefaultVersion as cut-off, iterate over all resources and their versions and collect the
+		// versions that are older than the cut-off.
+		oldVersionsSet := map[openapi.ApiVersion]struct{}{}
+		for _, versions := range resourceVersions {
+			for _, version := range versions {
+				if _, ok := removedFromModule[version]; !ok && openapi.CompareApiVersions(version, oldestPreviousDefaultVersion) < 0 {
+					oldVersionsSet[version] = struct{}{}
+				}
+			}
+		}
+
+		// If there are any old versions, sort them and add them to the result.
+		if len(oldVersionsSet) > 0 {
+			oldVersions := util.UnsortedKeys(oldVersionsSet)
+			slices.SortStableFunc(oldVersions, openapi.CompareApiVersions)
+			result[moduleName] = oldVersions
+		}
+	}
+	return result
 }
 
 func LoadVersionMetadata(rootDir string, modules openapi.AzureModules, majorVersion int) (VersionMetadata, error) {
