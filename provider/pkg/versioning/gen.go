@@ -6,7 +6,6 @@ import (
 	"io"
 	"log"
 	"os"
-	"path"
 	"path/filepath"
 	"slices"
 	"strings"
@@ -199,6 +198,8 @@ type VersionSources struct {
 	ResourcesToRemove     ResourceRemovals
 	RemovedInvokes        ResourceRemovals
 	NextResourcesToRemove ResourceRemovals
+	// This is not required and will be empty if the file does not exist.
+	PreviousTokenPaths map[string]string
 }
 
 func ReadVersionSources(rootDir string, modules openapi.AzureModules, majorVersion int) (VersionSources, error) {
@@ -207,51 +208,58 @@ func ReadVersionSources(rootDir string, modules openapi.AzureModules, majorVersi
 		return VersionSources{}, err
 	}
 
-	knownExplicitResources, err := ReadRequiredExplicitResources(path.Join(rootDir, "versions", "required-explicit-resources.txt"))
+	knownExplicitResources, err := ReadRequiredExplicitResources(filepath.Join(rootDir, "versions", "required-explicit-resources.txt"))
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	previousLockPath := path.Join(rootDir, "versions", fmt.Sprintf("v%d.yaml", majorVersion-1))
+	previousPrefix := fmt.Sprintf("v%d", majorVersion-1)
+	previousLockPath := filepath.Join(rootDir, "versions", previousPrefix+".yaml")
 	previousLock, err := openapi.ReadDefaultVersions(previousLockPath)
 	if err != nil {
 		return VersionSources{}, err
 	}
 
 	filePrefix := fmt.Sprintf("v%d-", majorVersion)
-	removed, err := ReadDeprecations(path.Join(rootDir, "versions", filePrefix+"removed.json"))
+	removed, err := ReadDeprecations(filepath.Join(rootDir, "versions", filePrefix+"removed.json"))
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	spec, err := ReadSpec(path.Join(rootDir, "versions", filePrefix+"spec.yaml"))
+	spec, err := ReadSpec(filepath.Join(rootDir, "versions", filePrefix+"spec.yaml"))
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	configPath := path.Join(rootDir, "versions", filePrefix+"config.yaml")
+	configPath := filepath.Join(rootDir, "versions", filePrefix+"config.yaml")
 	config, err := ReadManualCurations(configPath)
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	resourcesToRemovePath := path.Join(rootDir, "versions", filePrefix+"removed-resources.json")
+	resourcesToRemovePath := filepath.Join(rootDir, "versions", filePrefix+"removed-resources.json")
 	resourcesToRemove, err := ReadResourceRemovals(resourcesToRemovePath)
 	if err != nil {
 		return VersionSources{}, fmt.Errorf("could not read %s: %v", resourcesToRemovePath, err)
 	}
 
-	removedInvokesPath := path.Join(rootDir, "versions", filePrefix+"removed-invokes.yaml")
+	removedInvokesPath := filepath.Join(rootDir, "versions", filePrefix+"removed-invokes.yaml")
 	removedInvokes, err := ReadResourceRemovals(removedInvokesPath)
 	if err != nil {
 		return VersionSources{}, fmt.Errorf("could not read %s: %v", removedInvokesPath, err)
 	}
 
 	nextVersionFilePrefix := fmt.Sprintf("v%d-", majorVersion+1)
-	nextResourcesToRemovePath := path.Join(rootDir, "versions", nextVersionFilePrefix+"removed-resources.json")
+	nextResourcesToRemovePath := filepath.Join(rootDir, "versions", nextVersionFilePrefix+"removed-resources.json")
 	nextResourcesToRemove, err := ReadResourceRemovals(nextResourcesToRemovePath)
 	if err != nil {
 		return VersionSources{}, fmt.Errorf("could not read %s: %v", nextResourcesToRemovePath, err)
+	}
+
+	previousTokenPathsPath := filepath.Join(rootDir, "versions", previousPrefix+"-token-paths.json")
+	previousTokenPaths, err := ReadTokenPaths(previousTokenPathsPath)
+	if err != nil {
+		return VersionSources{}, fmt.Errorf("could not read %s: %v", previousTokenPathsPath, err)
 	}
 
 	return VersionSources{
@@ -267,6 +275,7 @@ func ReadVersionSources(rootDir string, modules openapi.AzureModules, majorVersi
 		ResourcesToRemove:         resourcesToRemove,
 		RemovedInvokes:            removedInvokes,
 		NextResourcesToRemove:     nextResourcesToRemove,
+		PreviousTokenPaths:        previousTokenPaths,
 	}, nil
 }
 
@@ -274,7 +283,26 @@ func ReadVersionSources(rootDir string, modules openapi.AzureModules, majorVersi
 type ResourceRemovals map[string]string
 
 func ReadResourceRemovals(path string) (ResourceRemovals, error) {
-	isYaml := strings.HasSuffix(path, ".yaml")
+	resourceRemovals, err := ReadSource[ResourceRemovals](path)
+	if err != nil {
+		return nil, err
+	}
+	return *resourceRemovals, nil
+}
+
+func ReadTokenPaths(path string) (map[string]string, error) {
+	tokenPaths, err := ReadSource[map[string]string](path)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return map[string]string{}, nil
+		}
+		return nil, err
+	}
+	return *tokenPaths, nil
+}
+
+func ReadSource[T any](path string) (*T, error) {
+	isYaml := filepath.Ext(path) == ".yaml"
 	sourceFile, err := os.Open(path)
 	if err != nil {
 		return nil, err
@@ -286,7 +314,7 @@ func ReadResourceRemovals(path string) (ResourceRemovals, error) {
 		return nil, err
 	}
 
-	result := make(ResourceRemovals)
+	var result T
 	if isYaml {
 		err = yaml.Unmarshal(byteValue, &result)
 	} else {
@@ -295,7 +323,7 @@ func ReadResourceRemovals(path string) (ResourceRemovals, error) {
 	if err != nil {
 		return nil, err
 	}
-	return result, nil
+	return &result, nil
 }
 
 func (s ResourceRemovals) PreserveResources(tokens []string) {
