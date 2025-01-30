@@ -160,6 +160,12 @@ ConfidentialLedger:
 ConnectedVMwarevSphere:
   expectTracking: preview
   notes: Only preview versions
+ContainerInstance:
+  exclusions:
+    NGroup: 2024-11-01-preview
+  notes: |
+    Latest version that's live and contains ContainerGroup and ContainerGroupProfile is 2024-05-01-preview so we're manually pinning that for v3.
+    The NGroup resource doesn't appear in `az provider list`. TODO: review in v4.
 ContainerRegistry:
   explicit: true
   expectAdditions: true
