@@ -85,7 +85,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 		if variants.isTopLevel && variants.isOutput {
 			// Emit the actual apiVersion of the resource as a output property.
 			result.specs["apiVersion"] = pschema.PropertySpec{
-				Description: "The API version of the resource or function.",
+				Description: "The API version of the resource.",
 				TypeSpec: pschema.TypeSpec{
 					Type: "string",
 				},

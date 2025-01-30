@@ -236,6 +236,7 @@ type AzureAPIExample struct {
 type AzureAPIInvoke struct {
 	APIVersion     string                      `json:"apiVersion"`
 	Path           string                      `json:"path"`
+	GetResource    bool                        `json:"getResource"`
 	GetParameters  []AzureAPIParameter         `json:"GET"`
 	PostParameters []AzureAPIParameter         `json:"POST"`
 	Response       map[string]AzureAPIProperty `json:"response"`

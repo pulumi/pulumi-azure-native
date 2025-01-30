@@ -408,11 +408,22 @@ func tokenRequestOpts(endpoint string) policy.TokenRequestOptions {
 }
 
 func (k *azureNativeProvider) invokeResponseToOutputs(response any, res resources.AzureAPIInvoke) map[string]any {
+	var outputs map[string]any
 	if responseMap, ok := response.(map[string]any); ok {
 		// Map the raw response to the shape of outputs that the SDKs expect.
-		return k.converter.ResponseBodyToSdkOutputs(res.Response, responseMap)
+		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, responseMap)
+	} else {
+		outputs = map[string]any{resources.SingleValueProperty: response}
 	}
-	return map[string]any{resources.SingleValueProperty: response}
+
+	if res.GetResource {
+		if version.GetVersion().Major >= 3 {
+			// resources have an apiVersion output property.
+			outputs["apiVersion"] = res.APIVersion
+		}
+	}
+
+	return outputs
 }
 
 // StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
