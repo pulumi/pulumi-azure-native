@@ -3,7 +3,13 @@
 {
  "aliases": [
   {
+   "type": "azure-native:portal/v20190101preview:Dashboard"
+  },
+  {
    "type": "azure-native:portal/v20200901preview:Dashboard"
+  },
+  {
+   "type": "azure-native:portal/v20221201preview:Dashboard"
   }
  ],
  "description": "The shared dashboard resource definition.\nAzure REST API version: 2020-09-01-preview.",

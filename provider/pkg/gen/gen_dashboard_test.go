@@ -36,7 +36,16 @@ func TestPortalDashboardGen(t *testing.T) {
 			},
 		},
 	}, openapi.DefaultVersions{}, nil, nil)
-	generationResult, err := PulumiSchema(rootDir, modules, versioningStub{}, semver.MustParse("3.0.0"))
+	versioning := versioningStub{
+		// These are extracted from versions/v2-token-paths.json
+		previousTokenPaths: map[string]string{
+			"azure-native:portal/v20190101preview:Dashboard": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Portal/dashboards/{dashboardName}",
+			"azure-native:portal/v20200901preview:Dashboard": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Portal/dashboards/{dashboardName}",
+			"azure-native:portal/v20221201preview:Dashboard": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Portal/dashboards/{dashboardName}",
+			"azure-native:portal:Dashboard":                  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Portal/dashboards/{dashboardName}",
+		},
+	}
+	generationResult, err := PulumiSchema(rootDir, modules, versioning, semver.MustParse("3.0.0"))
 	if err != nil {
 		t.Fatal(err)
 	}
