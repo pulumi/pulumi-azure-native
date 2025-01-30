@@ -359,7 +359,6 @@ func TestResourceModuleNaming(t *testing.T) {
 		assert.Nil(t, err)
 		assert.Equal(t, ModuleNaming{
 			ResolvedName:           "Dns",
-			PreviousName:           ptr(ModuleName("Network")),
 			SpecFolderName:         "dns",
 			NamespaceWithoutPrefix: "Network",
 			RpNamespace:            "Microsoft.Network",
