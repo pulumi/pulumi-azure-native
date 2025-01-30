@@ -53,6 +53,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:VMwareCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:VMwareCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:VMwareCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:VMwareCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:VMwareCollector" },
                 },
             };

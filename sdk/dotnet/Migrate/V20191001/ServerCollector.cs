@@ -53,6 +53,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:ServerCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:ServerCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:ServerCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:ServerCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:ServerCollector" },
                 },
             };

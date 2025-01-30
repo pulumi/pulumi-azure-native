@@ -364,7 +364,8 @@
         "2024-05-01",
         "2024-05-01-preview",
         "2024-07-01",
-        "2024-07-01-preview"
+        "2024-07-01-preview",
+        "2024-09-01"
       ],
       "/subscriptions/{}/resourcegroups/{}/providers/microsoft.netapp/netappaccounts/{}/capacitypools/{}/volumes/{}/backups/{}": [
         "2022-11-01",

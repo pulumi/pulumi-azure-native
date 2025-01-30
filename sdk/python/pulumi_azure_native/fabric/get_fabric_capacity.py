@@ -165,6 +165,8 @@ def get_fabric_capacity(capacity_name: Optional[str] = None,
     Get a FabricCapacity
     Azure REST API version: 2023-11-01.
 
+    Other available API versions: 2025-01-15-preview.
+
 
     :param str capacity_name: The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -192,6 +194,8 @@ def get_fabric_capacity_output(capacity_name: Optional[pulumi.Input[str]] = None
     """
     Get a FabricCapacity
     Azure REST API version: 2023-11-01.
+
+    Other available API versions: 2025-01-15-preview.
 
 
     :param str capacity_name: The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.

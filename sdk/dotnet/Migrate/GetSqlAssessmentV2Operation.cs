@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a SqlAssessmentV2
         /// Azure REST API version: 2023-03-15.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
         public static Task<GetSqlAssessmentV2OperationResult> InvokeAsync(GetSqlAssessmentV2OperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlAssessmentV2OperationResult>("azure-native:migrate:getSqlAssessmentV2Operation", args ?? new GetSqlAssessmentV2OperationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a SqlAssessmentV2
         /// Azure REST API version: 2023-03-15.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetSqlAssessmentV2OperationResult> Invoke(GetSqlAssessmentV2OperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlAssessmentV2OperationResult>("azure-native:migrate:getSqlAssessmentV2Operation", args ?? new GetSqlAssessmentV2OperationInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a SqlAssessmentV2
         /// Azure REST API version: 2023-03-15.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetSqlAssessmentV2OperationResult> Invoke(GetSqlAssessmentV2OperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlAssessmentV2OperationResult>("azure-native:migrate:getSqlAssessmentV2Operation", args ?? new GetSqlAssessmentV2OperationInvokeArgs(), options.WithDefaults());

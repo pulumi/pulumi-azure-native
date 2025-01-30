@@ -557,6 +557,15 @@ export const ODataAuthenticationType = {
  */
 export type ODataAuthenticationType = (typeof ODataAuthenticationType)[keyof typeof ODataAuthenticationType];
 
+export const OracleAuthenticationType = {
+    Basic: "Basic",
+} as const;
+
+/**
+ * Authentication type for connecting to the Oracle database. Only used for Version 2.0.
+ */
+export type OracleAuthenticationType = (typeof OracleAuthenticationType)[keyof typeof OracleAuthenticationType];
+
 export const ParameterType = {
     Object: "Object",
     String: "String",

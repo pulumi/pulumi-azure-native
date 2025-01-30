@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Backup Vault information
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01.
  */
 export class BackupVault extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class BackupVault extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20221101preview:BackupVault" }, { type: "azure-native:netapp/v20230501preview:BackupVault" }, { type: "azure-native:netapp/v20230701preview:BackupVault" }, { type: "azure-native:netapp/v20231101:BackupVault" }, { type: "azure-native:netapp/v20231101preview:BackupVault" }, { type: "azure-native:netapp/v20240101:BackupVault" }, { type: "azure-native:netapp/v20240301:BackupVault" }, { type: "azure-native:netapp/v20240301preview:BackupVault" }, { type: "azure-native:netapp/v20240501:BackupVault" }, { type: "azure-native:netapp/v20240501preview:BackupVault" }, { type: "azure-native:netapp/v20240701:BackupVault" }, { type: "azure-native:netapp/v20240701preview:BackupVault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20221101preview:BackupVault" }, { type: "azure-native:netapp/v20230501preview:BackupVault" }, { type: "azure-native:netapp/v20230701preview:BackupVault" }, { type: "azure-native:netapp/v20231101:BackupVault" }, { type: "azure-native:netapp/v20231101preview:BackupVault" }, { type: "azure-native:netapp/v20240101:BackupVault" }, { type: "azure-native:netapp/v20240301:BackupVault" }, { type: "azure-native:netapp/v20240301preview:BackupVault" }, { type: "azure-native:netapp/v20240501:BackupVault" }, { type: "azure-native:netapp/v20240501preview:BackupVault" }, { type: "azure-native:netapp/v20240701:BackupVault" }, { type: "azure-native:netapp/v20240701preview:BackupVault" }, { type: "azure-native:netapp/v20240901:BackupVault" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupVault.__pulumiType, name, resourceInputs, opts);
     }

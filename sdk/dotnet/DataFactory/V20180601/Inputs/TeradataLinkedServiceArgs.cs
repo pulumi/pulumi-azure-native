@@ -34,13 +34,19 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.TeradataAuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
+        /// The character set to use for the connection. Type: string (or Expression with resultType string). Only applied for version 2.0.
+        /// </summary>
+        [Input("characterSet")]
+        public Input<object>? CharacterSet { get; set; }
+
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
-        /// Teradata ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        /// Teradata ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only applied for version 1.0.
         /// </summary>
         [Input("connectionString")]
         public Input<object>? ConnectionString { get; set; }
@@ -56,6 +62,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("encryptedCredential")]
         public Input<string>? EncryptedCredential { get; set; }
+
+        /// <summary>
+        /// The port numbers when connecting to server through HTTPS/TLS connections. Type: integer (or Expression with resultType integer). Only applied for version 2.0.
+        /// </summary>
+        [Input("httpsPortNumber")]
+        public Input<object>? HttpsPortNumber { get; set; }
+
+        /// <summary>
+        /// The maximum size of the response buffer for SQL requests, in bytes. Type: integer. Only applied for version 2.0.
+        /// </summary>
+        [Input("maxRespSize")]
+        public Input<object>? MaxRespSize { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -76,10 +94,22 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
 
         /// <summary>
+        /// The port numbers when connecting to server through non HTTPS/TLS connections. Type: integer (or Expression with resultType integer). Only used for V2. Only applied for version 2.0.
+        /// </summary>
+        [Input("portNumber")]
+        public Input<object>? PortNumber { get; set; }
+
+        /// <summary>
         /// Server name for connection. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("server")]
         public Input<object>? Server { get; set; }
+
+        /// <summary>
+        /// SSL mode for connection. Valid values including: “Disable”, “Allow”, “Prefer”, “Require”, “Verify-CA”, “Verify-Full”. Default value is “Verify-Full”. Type: string (or Expression with resultType string). Only applied for version 2.0.
+        /// </summary>
+        [Input("sslMode")]
+        public Input<object>? SslMode { get; set; }
 
         /// <summary>
         /// Type of linked service.
@@ -87,6 +117,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to encrypt all communication with the Teradata database. Allowed values are 0 or 1. This setting will be ignored for HTTPS/TLS connections. Type: integer (or Expression with resultType integer). Only applied for version 2.0.
+        /// </summary>
+        [Input("useDataEncryption")]
+        public Input<object>? UseDataEncryption { get; set; }
 
         /// <summary>
         /// Username for authentication. Type: string (or Expression with resultType string).

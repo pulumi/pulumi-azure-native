@@ -116,6 +116,7 @@ namespace Pulumi.AzureNative.Migrate.V20230909Preview
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:GroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:GroupsOperation" },
                 },
             };

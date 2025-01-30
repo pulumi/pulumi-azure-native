@@ -1324,6 +1324,9 @@ Migrate:
         - modulename: Migrate
           resourcename: AssessmentsOperation
           detail: version 2023-09-09-preview is greater than 2023-03-15
+        - modulename: Migrate
+          resourcename: AssessmentsOperation
+          detail: version 2024-01-01-preview is greater than 2023-03-15
 MixedReality:
     tracking: "2021-01-01"
     additions:

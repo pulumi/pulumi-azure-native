@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Fabric
         /// <summary>
         /// Get a FabricCapacity
         /// Azure REST API version: 2023-11-01.
+        /// 
+        /// Other available API versions: 2025-01-15-preview.
         /// </summary>
         public static Task<GetFabricCapacityResult> InvokeAsync(GetFabricCapacityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFabricCapacityResult>("azure-native:fabric:getFabricCapacity", args ?? new GetFabricCapacityArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Fabric
         /// <summary>
         /// Get a FabricCapacity
         /// Azure REST API version: 2023-11-01.
+        /// 
+        /// Other available API versions: 2025-01-15-preview.
         /// </summary>
         public static Output<GetFabricCapacityResult> Invoke(GetFabricCapacityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFabricCapacityResult>("azure-native:fabric:getFabricCapacity", args ?? new GetFabricCapacityInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Fabric
         /// <summary>
         /// Get a FabricCapacity
         /// Azure REST API version: 2023-11-01.
+        /// 
+        /// Other available API versions: 2025-01-15-preview.
         /// </summary>
         public static Output<GetFabricCapacityResult> Invoke(GetFabricCapacityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFabricCapacityResult>("azure-native:fabric:getFabricCapacity", args ?? new GetFabricCapacityInvokeArgs(), options.WithDefaults());

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Get the URL for downloading the business case in a report format.
  * Azure REST API version: 2023-04-01-preview.
  *
- * Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
  */
 export function getBusinessCaseOperationReportDownloadUrl(args: GetBusinessCaseOperationReportDownloadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessCaseOperationReportDownloadUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,7 +51,7 @@ export interface GetBusinessCaseOperationReportDownloadUrlResult {
  * Get the URL for downloading the business case in a report format.
  * Azure REST API version: 2023-04-01-preview.
  *
- * Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
  */
 export function getBusinessCaseOperationReportDownloadUrlOutput(args: GetBusinessCaseOperationReportDownloadUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBusinessCaseOperationReportDownloadUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a WebAppAssessmentV2
         /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
         public static Task<GetWebAppAssessmentV2OperationResult> InvokeAsync(GetWebAppAssessmentV2OperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppAssessmentV2OperationResult>("azure-native:migrate:getWebAppAssessmentV2Operation", args ?? new GetWebAppAssessmentV2OperationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a WebAppAssessmentV2
         /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetWebAppAssessmentV2OperationResult> Invoke(GetWebAppAssessmentV2OperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppAssessmentV2OperationResult>("azure-native:migrate:getWebAppAssessmentV2Operation", args ?? new GetWebAppAssessmentV2OperationInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a WebAppAssessmentV2
         /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetWebAppAssessmentV2OperationResult> Invoke(GetWebAppAssessmentV2OperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppAssessmentV2OperationResult>("azure-native:migrate:getWebAppAssessmentV2Operation", args ?? new GetWebAppAssessmentV2OperationInvokeArgs(), options.WithDefaults());

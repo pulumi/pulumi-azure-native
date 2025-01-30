@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a BusinessCase
         /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
         public static Task<GetBusinessCaseOperationResult> InvokeAsync(GetBusinessCaseOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBusinessCaseOperationResult>("azure-native:migrate:getBusinessCaseOperation", args ?? new GetBusinessCaseOperationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a BusinessCase
         /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetBusinessCaseOperationResult> Invoke(GetBusinessCaseOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessCaseOperationResult>("azure-native:migrate:getBusinessCaseOperation", args ?? new GetBusinessCaseOperationInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a BusinessCase
         /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetBusinessCaseOperationResult> Invoke(GetBusinessCaseOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessCaseOperationResult>("azure-native:migrate:getBusinessCaseOperation", args ?? new GetBusinessCaseOperationInvokeArgs(), options.WithDefaults());

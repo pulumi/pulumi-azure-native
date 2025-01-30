@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.Migrate.V20230315
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:ServerCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:ServerCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:ServerCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:ServerCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:ServerCollectorsOperation" },
                 },
             };

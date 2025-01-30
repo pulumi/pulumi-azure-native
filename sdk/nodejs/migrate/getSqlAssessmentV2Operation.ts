@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a SqlAssessmentV2
  * Azure REST API version: 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
  */
 export function getSqlAssessmentV2Operation(args: GetSqlAssessmentV2OperationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlAssessmentV2OperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -224,7 +224,7 @@ export interface GetSqlAssessmentV2OperationResult {
  * Get a SqlAssessmentV2
  * Azure REST API version: 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
  */
 export function getSqlAssessmentV2OperationOutput(args: GetSqlAssessmentV2OperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlAssessmentV2OperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.Migrate.V20230909Preview
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:SqlCollectorOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:SqlCollectorOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:SqlCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:SqlCollectorOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:SqlCollectorOperation" },
                 },
             };

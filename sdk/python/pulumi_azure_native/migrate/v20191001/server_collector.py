@@ -163,7 +163,7 @@ class ServerCollector(pulumi.CustomResource):
             __props__.__dict__["server_collector_name"] = server_collector_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230315:ServerCollector"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:ServerCollector"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:ServerCollector"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:ServerCollector"), pulumi.Alias(type_="azure-native:migrate:ServerCollector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230315:ServerCollector"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:ServerCollector"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:ServerCollector"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:ServerCollector"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:ServerCollector"), pulumi.Alias(type_="azure-native:migrate:ServerCollector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerCollector, __self__).__init__(
             'azure-native:migrate/v20191001:ServerCollector',

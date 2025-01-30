@@ -56,6 +56,7 @@ __all__ = [
     'NotebookReferenceType',
     'ODataAadServicePrincipalCredentialType',
     'ODataAuthenticationType',
+    'OracleAuthenticationType',
     'ParameterType',
     'PhoenixAuthenticationType',
     'PolybaseSettingsRejectType',
@@ -548,6 +549,13 @@ class ODataAuthenticationType(str, Enum):
     WINDOWS = "Windows"
     AAD_SERVICE_PRINCIPAL = "AadServicePrincipal"
     MANAGED_SERVICE_IDENTITY = "ManagedServiceIdentity"
+
+
+class OracleAuthenticationType(str, Enum):
+    """
+    Authentication type for connecting to the Oracle database. Only used for Version 2.0.
+    """
+    BASIC = "Basic"
 
 
 class ParameterType(str, Enum):

@@ -204,7 +204,7 @@ class Assessment(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230315:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:Assessment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230315:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:Assessment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Assessment, __self__).__init__(
             'azure-native:migrate:Assessment',

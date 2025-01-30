@@ -136,6 +136,8 @@ class FabricCapacity(pulumi.CustomResource):
         Fabric Capacity resource
         Azure REST API version: 2023-11-01.
 
+        Other available API versions: 2025-01-15-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CapacityAdministrationArgs', 'CapacityAdministrationArgsDict']] administration: The capacity administration
@@ -154,6 +156,8 @@ class FabricCapacity(pulumi.CustomResource):
         """
         Fabric Capacity resource
         Azure REST API version: 2023-11-01.
+
+        Other available API versions: 2025-01-15-preview.
 
         :param str resource_name: The name of the resource.
         :param FabricCapacityArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +206,7 @@ class FabricCapacity(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:fabric/v20231101:FabricCapacity")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:fabric/v20231101:FabricCapacity"), pulumi.Alias(type_="azure-native:fabric/v20250115preview:FabricCapacity")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FabricCapacity, __self__).__init__(
             'azure-native:fabric:FabricCapacity',

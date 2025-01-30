@@ -593,7 +593,7 @@ def get_avs_assessments_operation(assessment_name: Optional[str] = None,
     Get a AvsAssessment
     Azure REST API version: 2023-03-15.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
 
 
     :param str assessment_name: AVS Assessment ARM name
@@ -664,7 +664,7 @@ def get_avs_assessments_operation_output(assessment_name: Optional[pulumi.Input[
     Get a AvsAssessment
     Azure REST API version: 2023-03-15.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
 
 
     :param str assessment_name: AVS Assessment ARM name

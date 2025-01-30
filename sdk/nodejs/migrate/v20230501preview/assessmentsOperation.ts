@@ -347,7 +347,7 @@ export class AssessmentsOperation extends pulumi.CustomResource {
             resourceInputs["vmUptime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentsOperation" }, { type: "azure-native:migrate:AssessmentsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentsOperation" }, { type: "azure-native:migrate:AssessmentsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentsOperation.__pulumiType, name, resourceInputs, opts);
     }
