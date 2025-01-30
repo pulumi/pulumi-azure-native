@@ -899,7 +899,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		updateMethod = "PATCH"
 	}
 
-	resourceResponse, err := gen.genResponse(updateOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
+	resourceResponse, err := gen.genResponse(updateOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response, true)
 	if err != nil {
 		return errors.Wrapf(err, "failed to generate '%s': response type", resourceTok)
 	}
@@ -912,7 +912,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	parameters := resource.Swagger.MergeParameters(updateOp.Parameters, path.Parameters)
 	autoNamer := resources.NewAutoNamer(resource.Path)
 
-	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &autoNamer, resource.body)
+	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &autoNamer, resource.body, true)
 	if err != nil {
 		return errors.Wrapf(err, "failed to generate '%s': request type", resourceTok)
 	}
@@ -969,11 +969,11 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		}
 
 		parameters = swagger.MergeParameters(readOp.Parameters, path.Parameters)
-		requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, resource.body)
+		requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, resource.body, true)
 		if err != nil {
 			return errors.Wrapf(err, "failed to generate '%s': request type", functionTok)
 		}
-		responseFunction, err := gen.genResponse(readOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
+		responseFunction, err := gen.genResponse(readOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response, true)
 		if err != nil {
 			return errors.Wrapf(err, "failed to generate '%s': response type", functionTok)
 		}
@@ -1002,6 +1002,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 				Path:          resource.Path,
 				GetParameters: requestFunction.parameters,
 				Response:      responseFunction.properties,
+				GetResource:   true,
 			}
 			g.metadata.Invokes[functionTok] = f
 		}
@@ -1163,12 +1164,12 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 	}
 
 	parameters := swagger.MergeParameters(operation.Parameters, specParams)
-	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, nil)
+	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, nil, false)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
 	}
-	response, err := gen.genResponse(operation.Responses.StatusCodeResponses, swagger.ReferenceContext, nil)
+	response, err := gen.genResponse(operation.Responses.StatusCodeResponses, swagger.ReferenceContext, nil, false)
 	if err != nil {
 		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
 		return
@@ -1201,6 +1202,7 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 		Path:           path,
 		PostParameters: request.parameters,
 		Response:       response.properties,
+		GetResource:    false,
 	}
 	g.metadata.Invokes[functionTok] = f
 }
@@ -1452,7 +1454,7 @@ func normalizeParamPattern(param *openapi.Parameter) string {
 }
 
 func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext,
-	namer *resources.AutoNamer, bodySchema *openapi.Schema) (*parameterBag, error) {
+	namer *resources.AutoNamer, bodySchema *openapi.Schema, isTopLevel bool) (*parameterBag, error) {
 	result := newParameterBag()
 	var autoNamedSpec string
 
@@ -1499,7 +1501,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 
 			// The body parameter is flattened, so that all its properties become the properties of the type.
 			props, err := m.genProperties(bodySchema, genPropertiesVariant{
-				isTopLevel: true,
+				isTopLevel: isTopLevel,
 				isOutput:   false,
 				isType:     false,
 				isResponse: false,
@@ -1600,7 +1602,7 @@ func (m *moduleGenerator) paramIsSetByProvider(param *openapi.Parameter, bodySch
 }
 
 func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response, ctx *openapi.ReferenceContext,
-	responseSchema *openapi.Schema) (*propertyBag, error) {
+	responseSchema *openapi.Schema, isTopLevel bool) (*propertyBag, error) {
 
 	if responseSchema == nil {
 		v, err := getResponseSchema(ctx, statusCodeResponses)
@@ -1616,7 +1618,7 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 	}
 
 	result, err := m.genProperties(responseSchema, genPropertiesVariant{
-		isTopLevel: true,
+		isTopLevel: isTopLevel,
 		isOutput:   true,
 		isType:     false,
 		isResponse: true,
