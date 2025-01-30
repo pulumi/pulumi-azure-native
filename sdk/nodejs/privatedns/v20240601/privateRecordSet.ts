@@ -155,7 +155,7 @@ export class PrivateRecordSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180901:PrivateRecordSet" }, { type: "azure-native:network/v20200101:PrivateRecordSet" }, { type: "azure-native:network/v20200601:PrivateRecordSet" }, { type: "azure-native:network/v20240601:PrivateRecordSet" }, { type: "azure-native:network:PrivateRecordSet" }, { type: "azure-native:privatedns/v20180901:PrivateRecordSet" }, { type: "azure-native:privatedns/v20200101:PrivateRecordSet" }, { type: "azure-native:privatedns/v20200601:PrivateRecordSet" }, { type: "azure-native:privatedns:PrivateRecordSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200601:PrivateRecordSet" }, { type: "azure-native:network/v20240601:PrivateRecordSet" }, { type: "azure-native:network:PrivateRecordSet" }, { type: "azure-native:privatedns/v20180901:PrivateRecordSet" }, { type: "azure-native:privatedns/v20200101:PrivateRecordSet" }, { type: "azure-native:privatedns/v20200601:PrivateRecordSet" }, { type: "azure-native:privatedns:PrivateRecordSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateRecordSet.__pulumiType, name, resourceInputs, opts);
     }

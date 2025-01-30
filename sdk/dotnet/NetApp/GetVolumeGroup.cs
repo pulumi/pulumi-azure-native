@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Get details of the specified volume group
-        /// Azure REST API version: 2024-07-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
         /// Other available API versions: 2021-10-01, 2022-11-01, 2024-07-01-preview.
         /// </summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.NetApp
 
         /// <summary>
         /// Get details of the specified volume group
-        /// Azure REST API version: 2024-07-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
         /// Other available API versions: 2021-10-01, 2022-11-01, 2024-07-01-preview.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.NetApp
 
         /// <summary>
         /// Get details of the specified volume group
-        /// Azure REST API version: 2024-07-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
         /// Other available API versions: 2021-10-01, 2022-11-01, 2024-07-01-preview.
         /// </summary>

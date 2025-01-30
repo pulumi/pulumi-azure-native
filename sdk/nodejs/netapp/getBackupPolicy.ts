@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a particular backup Policy
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2021-04-01, 2021-04-01-preview, 2021-06-01, 2022-11-01, 2024-07-01-preview.
  */
@@ -104,7 +104,7 @@ export interface GetBackupPolicyResult {
 }
 /**
  * Get a particular backup Policy
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2021-04-01, 2021-04-01-preview, 2021-06-01, 2022-11-01, 2024-07-01-preview.
  */

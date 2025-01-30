@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Business case resource.
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export class AssessmentProjectsBusinessCaseOperation extends pulumi.CustomResource {
     /**
@@ -104,7 +106,7 @@ export class AssessmentProjectsBusinessCaseOperation extends pulumi.CustomResour
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230401preview:AssessmentProjectsBusinessCaseOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsBusinessCaseOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsBusinessCaseOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230401preview:AssessmentProjectsBusinessCaseOperation" }, { type: "azure-native:migrate/v20230401preview:BusinessCaseOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsBusinessCaseOperation" }, { type: "azure-native:migrate/v20230501preview:BusinessCaseOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsBusinessCaseOperation" }, { type: "azure-native:migrate/v20230909preview:BusinessCaseOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentProjectsBusinessCaseOperation" }, { type: "azure-native:migrate/v20240101preview:BusinessCaseOperation" }, { type: "azure-native:migrate:BusinessCaseOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsBusinessCaseOperation.__pulumiType, name, resourceInputs, opts);
     }

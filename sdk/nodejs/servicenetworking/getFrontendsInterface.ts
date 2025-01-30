@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Frontend
- * Azure REST API version: 2023-11-01.
+ * Azure REST API version: 2025-01-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2025-01-01.
+ * Other available API versions: 2022-10-01-preview, 2023-05-01-preview.
  */
 export function getFrontendsInterface(args: GetFrontendsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontendsInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,9 +76,9 @@ export interface GetFrontendsInterfaceResult {
 }
 /**
  * Get a Frontend
- * Azure REST API version: 2023-11-01.
+ * Azure REST API version: 2025-01-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2025-01-01.
+ * Other available API versions: 2022-10-01-preview, 2023-05-01-preview.
  */
 export function getFrontendsInterfaceOutput(args: GetFrontendsInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontendsInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

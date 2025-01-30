@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a HypervCollector
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export function getAssessmentProjectsHypervCollectorsOperation(args: GetAssessmentProjectsHypervCollectorsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentProjectsHypervCollectorsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +80,9 @@ export interface GetAssessmentProjectsHypervCollectorsOperationResult {
 }
 /**
  * Get a HypervCollector
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export function getAssessmentProjectsHypervCollectorsOperationOutput(args: GetAssessmentProjectsHypervCollectorsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentProjectsHypervCollectorsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

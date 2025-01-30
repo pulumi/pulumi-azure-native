@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20240901preview:AccessPolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240901preview:EnterpriseAccessPolicyAssignment" },
                 },
             };

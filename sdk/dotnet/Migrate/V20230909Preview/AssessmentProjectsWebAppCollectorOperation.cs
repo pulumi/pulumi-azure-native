@@ -89,8 +89,14 @@ namespace Pulumi.AzureNative.Migrate.V20230909Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsWebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:WebAppCollectorOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsWebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:WebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:WebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentProjectsWebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:WebAppCollectorOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:AssessmentProjectsWebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:WebAppCollectorOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -107,7 +107,7 @@ export class ServerGroupRole extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20221108:ServerGroupRole" }, { type: "azure-native:dbforpostgresql/v20230302preview:ServerGroupRole" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20221108:Role" }, { type: "azure-native:dbforpostgresql/v20221108:ServerGroupRole" }, { type: "azure-native:dbforpostgresql/v20230302preview:Role" }, { type: "azure-native:dbforpostgresql/v20230302preview:ServerGroupRole" }, { type: "azure-native:dbforpostgresql:Role" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerGroupRole.__pulumiType, name, resourceInputs, opts);
     }

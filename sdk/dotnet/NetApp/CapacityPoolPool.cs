@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Capacity pool resource
-    /// Azure REST API version: 2024-07-01.
+    /// Azure REST API version: 2024-09-01.
     /// 
     /// Other available API versions: 2024-07-01-preview.
     /// </summary>
@@ -160,20 +160,38 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:CapacityPoolPool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:CapacityPoolPool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:CapacityPoolPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:Pool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

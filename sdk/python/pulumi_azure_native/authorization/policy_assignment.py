@@ -308,7 +308,7 @@ class PolicyAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         The policy assignment.
-        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-06-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
         Other available API versions: 2019-06-01, 2020-03-01, 2022-06-01, 2025-01-01.
 
@@ -339,7 +339,7 @@ class PolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy assignment.
-        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-06-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
         Other available API versions: 2019-06-01, 2020-03-01, 2022-06-01, 2025-01-01.
 

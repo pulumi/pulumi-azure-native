@@ -16,8 +16,6 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ApiEntityReferenceArgs',
-    'ApiEntityReferenceArgsDict',
     'AzureFileVolumeArgs',
     'AzureFileVolumeArgsDict',
     'ConfidentialComputePropertiesArgs',
@@ -30,8 +28,8 @@ __all__ = [
     'ContainerGroupDiagnosticsArgsDict',
     'ContainerGroupIdentityArgs',
     'ContainerGroupIdentityArgsDict',
-    'ContainerGroupProfileStubArgs',
-    'ContainerGroupProfileStubArgsDict',
+    'ContainerGroupProfileReferenceDefinitionArgs',
+    'ContainerGroupProfileReferenceDefinitionArgsDict',
     'ContainerGroupSubnetIdArgs',
     'ContainerGroupSubnetIdArgsDict',
     'ContainerHttpGetArgs',
@@ -46,8 +44,6 @@ __all__ = [
     'DeploymentExtensionSpecArgsDict',
     'DnsConfigurationArgs',
     'DnsConfigurationArgsDict',
-    'ElasticProfileArgs',
-    'ElasticProfileArgsDict',
     'EncryptionPropertiesArgs',
     'EncryptionPropertiesArgsDict',
     'EnvironmentVariableArgs',
@@ -66,8 +62,6 @@ __all__ = [
     'IpAddressArgsDict',
     'LogAnalyticsArgs',
     'LogAnalyticsArgsDict',
-    'NGroupIdentityArgs',
-    'NGroupIdentityArgsDict',
     'PortArgs',
     'PortArgsDict',
     'ResourceLimitsArgs',
@@ -76,12 +70,12 @@ __all__ = [
     'ResourceRequestsArgsDict',
     'ResourceRequirementsArgs',
     'ResourceRequirementsArgsDict',
-    'SecretReferenceArgs',
-    'SecretReferenceArgsDict',
     'SecurityContextCapabilitiesDefinitionArgs',
     'SecurityContextCapabilitiesDefinitionArgsDict',
     'SecurityContextDefinitionArgs',
     'SecurityContextDefinitionArgsDict',
+    'StandbyPoolProfileDefinitionArgs',
+    'StandbyPoolProfileDefinitionArgsDict',
     'VolumeMountArgs',
     'VolumeMountArgsDict',
     'VolumeArgs',
@@ -89,42 +83,6 @@ __all__ = [
 ]
 
 MYPY = False
-
-if not MYPY:
-    class ApiEntityReferenceArgsDict(TypedDict):
-        """
-        The API entity reference.
-        """
-        id: NotRequired[pulumi.Input[str]]
-        """
-        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-elif False:
-    ApiEntityReferenceArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ApiEntityReferenceArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        The API entity reference.
-        :param pulumi.Input[str] id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
 
 if not MYPY:
     class AzureFileVolumeArgsDict(TypedDict):
@@ -147,10 +105,6 @@ if not MYPY:
         """
         The storage account access key used to access the Azure File share.
         """
-        storage_account_key_reference: NotRequired[pulumi.Input[str]]
-        """
-        The reference to the storage account access key used to access the Azure File share.
-        """
 elif False:
     AzureFileVolumeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -160,15 +114,13 @@ class AzureFileVolumeArgs:
                  share_name: pulumi.Input[str],
                  storage_account_name: pulumi.Input[str],
                  read_only: Optional[pulumi.Input[bool]] = None,
-                 storage_account_key: Optional[pulumi.Input[str]] = None,
-                 storage_account_key_reference: Optional[pulumi.Input[str]] = None):
+                 storage_account_key: Optional[pulumi.Input[str]] = None):
         """
         The properties of the Azure File volume. Azure File shares are mounted as volumes.
         :param pulumi.Input[str] share_name: The name of the Azure File share to be mounted as a volume.
         :param pulumi.Input[str] storage_account_name: The name of the storage account that contains the Azure File share.
         :param pulumi.Input[bool] read_only: The flag indicating whether the Azure File shared mounted as a volume is read-only.
         :param pulumi.Input[str] storage_account_key: The storage account access key used to access the Azure File share.
-        :param pulumi.Input[str] storage_account_key_reference: The reference to the storage account access key used to access the Azure File share.
         """
         pulumi.set(__self__, "share_name", share_name)
         pulumi.set(__self__, "storage_account_name", storage_account_name)
@@ -176,8 +128,6 @@ class AzureFileVolumeArgs:
             pulumi.set(__self__, "read_only", read_only)
         if storage_account_key is not None:
             pulumi.set(__self__, "storage_account_key", storage_account_key)
-        if storage_account_key_reference is not None:
-            pulumi.set(__self__, "storage_account_key_reference", storage_account_key_reference)
 
     @property
     @pulumi.getter(name="shareName")
@@ -226,18 +176,6 @@ class AzureFileVolumeArgs:
     @storage_account_key.setter
     def storage_account_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_key", value)
-
-    @property
-    @pulumi.getter(name="storageAccountKeyReference")
-    def storage_account_key_reference(self) -> Optional[pulumi.Input[str]]:
-        """
-        The reference to the storage account access key used to access the Azure File share.
-        """
-        return pulumi.get(self, "storage_account_key_reference")
-
-    @storage_account_key_reference.setter
-    def storage_account_key_reference(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account_key_reference", value)
 
 
 if not MYPY:
@@ -441,39 +379,59 @@ class ContainerGroupIdentityArgs:
 
 
 if not MYPY:
-    class ContainerGroupProfileStubArgsDict(TypedDict):
+    class ContainerGroupProfileReferenceDefinitionArgsDict(TypedDict):
         """
-        The object that contains a reference to a Container Group Profile
+        The container group profile reference.
         """
-        resource: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
+        id: NotRequired[pulumi.Input[str]]
         """
-        The API entity reference.
+        The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
+        """
+        revision: NotRequired[pulumi.Input[int]]
+        """
+        The container group profile reference revision.
         """
 elif False:
-    ContainerGroupProfileStubArgsDict: TypeAlias = Mapping[str, Any]
+    ContainerGroupProfileReferenceDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class ContainerGroupProfileStubArgs:
+class ContainerGroupProfileReferenceDefinitionArgs:
     def __init__(__self__, *,
-                 resource: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None):
+                 id: Optional[pulumi.Input[str]] = None,
+                 revision: Optional[pulumi.Input[int]] = None):
         """
-        The object that contains a reference to a Container Group Profile
-        :param pulumi.Input['ApiEntityReferenceArgs'] resource: The API entity reference.
+        The container group profile reference.
+        :param pulumi.Input[str] id: The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
+        :param pulumi.Input[int] revision: The container group profile reference revision.
         """
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input['ApiEntityReferenceArgs']]:
+    def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The API entity reference.
+        The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
         """
-        return pulumi.get(self, "resource")
+        return pulumi.get(self, "id")
 
-    @resource.setter
-    def resource(self, value: Optional[pulumi.Input['ApiEntityReferenceArgs']]):
-        pulumi.set(self, "resource", value)
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[pulumi.Input[int]]:
+        """
+        The container group profile reference revision.
+        """
+        return pulumi.get(self, "revision")
+
+    @revision.setter
+    def revision(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "revision", value)
 
 
 if not MYPY:
@@ -1261,35 +1219,6 @@ class DnsConfigurationArgs:
 
 
 if not MYPY:
-    class ElasticProfileArgsDict(TypedDict):
-        """
-        Describes the elastic profile of the Container Scale Set
-        """
-        desired_count: NotRequired[pulumi.Input[int]]
-elif False:
-    ElasticProfileArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ElasticProfileArgs:
-    def __init__(__self__, *,
-                 desired_count: Optional[pulumi.Input[int]] = None):
-        """
-        Describes the elastic profile of the Container Scale Set
-        """
-        if desired_count is not None:
-            pulumi.set(__self__, "desired_count", desired_count)
-
-    @property
-    @pulumi.getter(name="desiredCount")
-    def desired_count(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "desired_count")
-
-    @desired_count.setter
-    def desired_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "desired_count", value)
-
-
-if not MYPY:
     class EncryptionPropertiesArgsDict(TypedDict):
         """
         The container group encryption properties.
@@ -1395,10 +1324,6 @@ if not MYPY:
         """
         The value of the secure environment variable.
         """
-        secure_value_reference: NotRequired[pulumi.Input[str]]
-        """
-        The reference of the secure environment variable.
-        """
         value: NotRequired[pulumi.Input[str]]
         """
         The value of the environment variable.
@@ -1411,20 +1336,16 @@ class EnvironmentVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  secure_value: Optional[pulumi.Input[str]] = None,
-                 secure_value_reference: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         The environment variable to set within the container instance.
         :param pulumi.Input[str] name: The name of the environment variable.
         :param pulumi.Input[str] secure_value: The value of the secure environment variable.
-        :param pulumi.Input[str] secure_value_reference: The reference of the secure environment variable.
         :param pulumi.Input[str] value: The value of the environment variable.
         """
         pulumi.set(__self__, "name", name)
         if secure_value is not None:
             pulumi.set(__self__, "secure_value", secure_value)
-        if secure_value_reference is not None:
-            pulumi.set(__self__, "secure_value_reference", secure_value_reference)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -1451,18 +1372,6 @@ class EnvironmentVariableArgs:
     @secure_value.setter
     def secure_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secure_value", value)
-
-    @property
-    @pulumi.getter(name="secureValueReference")
-    def secure_value_reference(self) -> Optional[pulumi.Input[str]]:
-        """
-        The reference of the secure environment variable.
-        """
-        return pulumi.get(self, "secure_value_reference")
-
-    @secure_value_reference.setter
-    def secure_value_reference(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secure_value_reference", value)
 
     @property
     @pulumi.getter
@@ -1683,10 +1592,6 @@ if not MYPY:
         """
         The password for the private registry.
         """
-        password_reference: NotRequired[pulumi.Input[str]]
-        """
-        The reference for the private registry password.
-        """
         username: NotRequired[pulumi.Input[str]]
         """
         The username for the private registry.
@@ -1701,7 +1606,6 @@ class ImageRegistryCredentialArgs:
                  identity: Optional[pulumi.Input[str]] = None,
                  identity_url: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 password_reference: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Image registry credential.
@@ -1709,7 +1613,6 @@ class ImageRegistryCredentialArgs:
         :param pulumi.Input[str] identity: The identity for the private registry.
         :param pulumi.Input[str] identity_url: The identity URL for the private registry.
         :param pulumi.Input[str] password: The password for the private registry.
-        :param pulumi.Input[str] password_reference: The reference for the private registry password.
         :param pulumi.Input[str] username: The username for the private registry.
         """
         pulumi.set(__self__, "server", server)
@@ -1719,8 +1622,6 @@ class ImageRegistryCredentialArgs:
             pulumi.set(__self__, "identity_url", identity_url)
         if password is not None:
             pulumi.set(__self__, "password", password)
-        if password_reference is not None:
-            pulumi.set(__self__, "password_reference", password_reference)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -1771,18 +1672,6 @@ class ImageRegistryCredentialArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter(name="passwordReference")
-    def password_reference(self) -> Optional[pulumi.Input[str]]:
-        """
-        The reference for the private registry password.
-        """
-        return pulumi.get(self, "password_reference")
-
-    @password_reference.setter
-    def password_reference(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password_reference", value)
 
     @property
     @pulumi.getter
@@ -2163,62 +2052,6 @@ class LogAnalyticsArgs:
 
 
 if not MYPY:
-    class NGroupIdentityArgsDict(TypedDict):
-        """
-        Identity for the nGroup.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The type of identity used for the container scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the nGroup.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The list of user identities associated with the container scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    NGroupIdentityArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class NGroupIdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        Identity for the nGroup.
-        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the container scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the nGroup.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the container scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
-        """
-        The type of identity used for the container scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the nGroup.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of user identities associated with the container scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "user_assigned_identities", value)
-
-
-if not MYPY:
     class PortArgsDict(TypedDict):
         """
         The port exposed on the container group.
@@ -2479,79 +2312,6 @@ class ResourceRequirementsArgs:
 
 
 if not MYPY:
-    class SecretReferenceArgsDict(TypedDict):
-        """
-        A secret reference
-        """
-        identity: pulumi.Input[str]
-        """
-        The ARM resource id of the managed identity that has access to the secret in the key vault
-        """
-        name: pulumi.Input[str]
-        """
-        The identifier of the secret reference
-        """
-        secret_reference_uri: pulumi.Input[str]
-        """
-        The URI to the secret in key vault
-        """
-elif False:
-    SecretReferenceArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class SecretReferenceArgs:
-    def __init__(__self__, *,
-                 identity: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 secret_reference_uri: pulumi.Input[str]):
-        """
-        A secret reference
-        :param pulumi.Input[str] identity: The ARM resource id of the managed identity that has access to the secret in the key vault
-        :param pulumi.Input[str] name: The identifier of the secret reference
-        :param pulumi.Input[str] secret_reference_uri: The URI to the secret in key vault
-        """
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "secret_reference_uri", secret_reference_uri)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Input[str]:
-        """
-        The ARM resource id of the managed identity that has access to the secret in the key vault
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: pulumi.Input[str]):
-        pulumi.set(self, "identity", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The identifier of the secret reference
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="secretReferenceUri")
-    def secret_reference_uri(self) -> pulumi.Input[str]:
-        """
-        The URI to the secret in key vault
-        """
-        return pulumi.get(self, "secret_reference_uri")
-
-    @secret_reference_uri.setter
-    def secret_reference_uri(self, value: pulumi.Input[str]):
-        pulumi.set(self, "secret_reference_uri", value)
-
-
-if not MYPY:
     class SecurityContextCapabilitiesDefinitionArgsDict(TypedDict):
         """
         The capabilities to add or drop from a container.
@@ -2744,6 +2504,62 @@ class SecurityContextDefinitionArgs:
 
 
 if not MYPY:
+    class StandbyPoolProfileDefinitionArgsDict(TypedDict):
+        """
+        The standby pool profile reference.
+        """
+        fail_container_group_create_on_reuse_failure: NotRequired[pulumi.Input[bool]]
+        """
+        The flag to determine whether ACI should fail the create request if the container group can not be obtained from standby pool.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The standby pool profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyPoolName}'.
+        """
+elif False:
+    StandbyPoolProfileDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StandbyPoolProfileDefinitionArgs:
+    def __init__(__self__, *,
+                 fail_container_group_create_on_reuse_failure: Optional[pulumi.Input[bool]] = None,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        The standby pool profile reference.
+        :param pulumi.Input[bool] fail_container_group_create_on_reuse_failure: The flag to determine whether ACI should fail the create request if the container group can not be obtained from standby pool.
+        :param pulumi.Input[str] id: The standby pool profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyPoolName}'.
+        """
+        if fail_container_group_create_on_reuse_failure is not None:
+            pulumi.set(__self__, "fail_container_group_create_on_reuse_failure", fail_container_group_create_on_reuse_failure)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="failContainerGroupCreateOnReuseFailure")
+    def fail_container_group_create_on_reuse_failure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag to determine whether ACI should fail the create request if the container group can not be obtained from standby pool.
+        """
+        return pulumi.get(self, "fail_container_group_create_on_reuse_failure")
+
+    @fail_container_group_create_on_reuse_failure.setter
+    def fail_container_group_create_on_reuse_failure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fail_container_group_create_on_reuse_failure", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The standby pool profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyPoolName}'.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
     class VolumeMountArgsDict(TypedDict):
         """
         The properties of the volume mount.
@@ -2842,10 +2658,6 @@ if not MYPY:
         """
         The secret volume.
         """
-        secret_reference: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
-        """
-        The secret reference volume.
-        """
 elif False:
     VolumeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2856,8 +2668,7 @@ class VolumeArgs:
                  azure_file: Optional[pulumi.Input['AzureFileVolumeArgs']] = None,
                  empty_dir: Optional[Any] = None,
                  git_repo: Optional[pulumi.Input['GitRepoVolumeArgs']] = None,
-                 secret: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 secret_reference: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 secret: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The properties of the volume.
         :param pulumi.Input[str] name: The name of the volume.
@@ -2865,7 +2676,6 @@ class VolumeArgs:
         :param Any empty_dir: The empty directory volume.
         :param pulumi.Input['GitRepoVolumeArgs'] git_repo: The git repo volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secret: The secret volume.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secret_reference: The secret reference volume.
         """
         pulumi.set(__self__, "name", name)
         if azure_file is not None:
@@ -2876,8 +2686,6 @@ class VolumeArgs:
             pulumi.set(__self__, "git_repo", git_repo)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
-        if secret_reference is not None:
-            pulumi.set(__self__, "secret_reference", secret_reference)
 
     @property
     @pulumi.getter
@@ -2938,17 +2746,5 @@ class VolumeArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "secret", value)
-
-    @property
-    @pulumi.getter(name="secretReference")
-    def secret_reference(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The secret reference volume.
-        """
-        return pulumi.get(self, "secret_reference")
-
-    @secret_reference.setter
-    def secret_reference(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "secret_reference", value)
 
 

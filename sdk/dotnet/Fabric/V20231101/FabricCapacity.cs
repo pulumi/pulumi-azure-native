@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Fabric.V20231101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:fabric/v20250115preview:FabricCapacity" },
                     new global::Pulumi.Alias { Type = "azure-native:fabric:FabricCapacity" },
                 },
             };

@@ -101,7 +101,9 @@ class AssessmentProjectsBusinessCaseOperation(pulumi.CustomResource):
                  __props__=None):
         """
         Business case resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +120,9 @@ class AssessmentProjectsBusinessCaseOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Business case resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param AssessmentProjectsBusinessCaseOperationArgs args: The arguments to use to populate this resource's properties.
@@ -162,7 +166,7 @@ class AssessmentProjectsBusinessCaseOperation(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsBusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsBusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsBusinessCaseOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsBusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:BusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsBusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:BusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsBusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:BusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsBusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:BusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate:BusinessCaseOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsBusinessCaseOperation, __self__).__init__(
             'azure-native:migrate:AssessmentProjectsBusinessCaseOperation',

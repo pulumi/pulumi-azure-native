@@ -117,7 +117,9 @@ class AssessmentProjectsImportCollectorsOperation(pulumi.CustomResource):
                  __props__=None):
         """
         Import collector resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +137,9 @@ class AssessmentProjectsImportCollectorsOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Import collector resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param AssessmentProjectsImportCollectorsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -180,7 +184,7 @@ class AssessmentProjectsImportCollectorsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsImportCollectorsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20191001:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate:ImportCollector"), pulumi.Alias(type_="azure-native:migrate:ImportCollectorsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsImportCollectorsOperation, __self__).__init__(
             'azure-native:migrate:AssessmentProjectsImportCollectorsOperation',

@@ -301,7 +301,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devopsinfrastructure/v20231213preview:Pool"), pulumi.Alias(type_="azure-native:devopsinfrastructure/v20240326preview:Pool"), pulumi.Alias(type_="azure-native:devopsinfrastructure/v20240404preview:Pool"), pulumi.Alias(type_="azure-native:devopsinfrastructure/v20241019:Pool"), pulumi.Alias(type_="azure-native:devopsinfrastructure:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devopsinfrastructure/v20231213preview:Pool"), pulumi.Alias(type_="azure-native:devopsinfrastructure/v20240326preview:Pool"), pulumi.Alias(type_="azure-native:devopsinfrastructure/v20240404preview:Pool"), pulumi.Alias(type_="azure-native:devopsinfrastructure/v20241019:Pool"), pulumi.Alias(type_="azure-native:devopsinfrastructure/v20250121:Pool"), pulumi.Alias(type_="azure-native:devopsinfrastructure:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-native:devopsinfrastructure/v20231030preview:Pool',

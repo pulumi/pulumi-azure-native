@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a BusinessCase
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export function getAssessmentProjectsBusinessCaseOperation(args: GetAssessmentProjectsBusinessCaseOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentProjectsBusinessCaseOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,7 +76,9 @@ export interface GetAssessmentProjectsBusinessCaseOperationResult {
 }
 /**
  * Get a BusinessCase
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export function getAssessmentProjectsBusinessCaseOperationOutput(args: GetAssessmentProjectsBusinessCaseOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentProjectsBusinessCaseOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

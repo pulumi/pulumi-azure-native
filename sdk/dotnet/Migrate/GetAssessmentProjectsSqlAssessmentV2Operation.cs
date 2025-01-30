@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a SqlAssessmentV2
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Task<GetAssessmentProjectsSqlAssessmentV2OperationResult> InvokeAsync(GetAssessmentProjectsSqlAssessmentV2OperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentProjectsSqlAssessmentV2OperationResult>("azure-native:migrate:getAssessmentProjectsSqlAssessmentV2Operation", args ?? new GetAssessmentProjectsSqlAssessmentV2OperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SqlAssessmentV2
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsSqlAssessmentV2OperationResult> Invoke(GetAssessmentProjectsSqlAssessmentV2OperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsSqlAssessmentV2OperationResult>("azure-native:migrate:getAssessmentProjectsSqlAssessmentV2Operation", args ?? new GetAssessmentProjectsSqlAssessmentV2OperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SqlAssessmentV2
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsSqlAssessmentV2OperationResult> Invoke(GetAssessmentProjectsSqlAssessmentV2OperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsSqlAssessmentV2OperationResult>("azure-native:migrate:getAssessmentProjectsSqlAssessmentV2Operation", args ?? new GetAssessmentProjectsSqlAssessmentV2OperationInvokeArgs(), options.WithDefaults());

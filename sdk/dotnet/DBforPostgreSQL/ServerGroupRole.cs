@@ -79,8 +79,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:Role" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:ServerGroupRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230302preview:Role" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230302preview:ServerGroupRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Role" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -41,7 +41,16 @@ func TestAliasesGen(t *testing.T) {
 	})
 
 	t.Run("v3", func(t *testing.T) {
-		generationResult, err := PulumiSchema(rootDir, modules, versioningStub{}, semver.MustParse("3.0.0"))
+		versioning := versioningStub{
+			// These are extracted from versions/v2-token-paths.json
+			previousTokenPaths: map[string]string{
+				"azure-native:aadiam/v20200301:PrivateEndpointConnection":    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}/privateEndpointConnections/{privateEndpointConnectionName}",
+				"azure-native:aadiam:PrivateEndpointConnection":              "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}/privateEndpointConnections/{privateEndpointConnectionName}",
+				"azure-native:aadiam:PrivateLinkForAzureAd":                  "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}",
+				"azure-native:aadiam/v20200301preview:PrivateLinkForAzureAd": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}",
+			},
+		}
+		generationResult, err := PulumiSchema(rootDir, modules, versioning, semver.MustParse("3.0.0"))
 		if err != nil {
 			t.Fatal(err)
 		}

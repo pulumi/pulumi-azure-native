@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// This operation retrieves a single policy assignment, given its name and the scope it was created at.
-        /// Azure REST API version: 2024-04-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
         /// Other available API versions: 2019-06-01, 2020-03-01, 2022-06-01, 2025-01-01.
         /// </summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Authorization
 
         /// <summary>
         /// This operation retrieves a single policy assignment, given its name and the scope it was created at.
-        /// Azure REST API version: 2024-04-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
         /// Other available API versions: 2019-06-01, 2020-03-01, 2022-06-01, 2025-01-01.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Authorization
 
         /// <summary>
         /// This operation retrieves a single policy assignment, given its name and the scope it was created at.
-        /// Azure REST API version: 2024-04-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
         /// Other available API versions: 2019-06-01, 2020-03-01, 2022-06-01, 2025-01-01.
         /// </summary>

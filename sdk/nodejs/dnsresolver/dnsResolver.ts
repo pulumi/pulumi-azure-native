@@ -121,7 +121,7 @@ export class DnsResolver extends pulumi.CustomResource {
             resourceInputs["virtualNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dnsresolver/v20200401preview:DnsResolver" }, { type: "azure-native:dnsresolver/v20220701:DnsResolver" }, { type: "azure-native:dnsresolver/v20230701preview:DnsResolver" }, { type: "azure-native:network/v20200401preview:DnsResolver" }, { type: "azure-native:network/v20220701:DnsResolver" }, { type: "azure-native:network/v20230701preview:DnsResolver" }, { type: "azure-native:network:DnsResolver" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dnsresolver/v20200401preview:DnsResolver" }, { type: "azure-native:dnsresolver/v20220701:DnsResolver" }, { type: "azure-native:dnsresolver/v20230701preview:DnsResolver" }, { type: "azure-native:network/v20220701:DnsResolver" }, { type: "azure-native:network/v20230701preview:DnsResolver" }, { type: "azure-native:network:DnsResolver" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DnsResolver.__pulumiType, name, resourceInputs, opts);
     }

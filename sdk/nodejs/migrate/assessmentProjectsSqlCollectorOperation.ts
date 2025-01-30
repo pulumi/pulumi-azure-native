@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The SQL collector REST object.
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export class AssessmentProjectsSqlCollectorOperation extends pulumi.CustomResource {
     /**
@@ -110,7 +112,7 @@ export class AssessmentProjectsSqlCollectorOperation extends pulumi.CustomResour
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsSqlCollectorOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20230315:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20230909preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20240101preview:SqlCollectorOperation" }, { type: "azure-native:migrate:SqlCollectorOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsSqlCollectorOperation.__pulumiType, name, resourceInputs, opts);
     }

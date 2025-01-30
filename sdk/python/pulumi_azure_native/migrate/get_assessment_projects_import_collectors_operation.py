@@ -140,7 +140,9 @@ def get_assessment_projects_import_collectors_operation(import_collector_name: O
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentProjectsImportCollectorsOperationResult:
     """
     Get a ImportCollector
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str import_collector_name: Import collector ARM name
@@ -169,7 +171,9 @@ def get_assessment_projects_import_collectors_operation_output(import_collector_
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentProjectsImportCollectorsOperationResult]:
     """
     Get a ImportCollector
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str import_collector_name: Import collector ARM name

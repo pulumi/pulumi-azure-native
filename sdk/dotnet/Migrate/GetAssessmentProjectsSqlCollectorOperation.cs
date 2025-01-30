@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a SqlCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Task<GetAssessmentProjectsSqlCollectorOperationResult> InvokeAsync(GetAssessmentProjectsSqlCollectorOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentProjectsSqlCollectorOperationResult>("azure-native:migrate:getAssessmentProjectsSqlCollectorOperation", args ?? new GetAssessmentProjectsSqlCollectorOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SqlCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsSqlCollectorOperationResult> Invoke(GetAssessmentProjectsSqlCollectorOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsSqlCollectorOperationResult>("azure-native:migrate:getAssessmentProjectsSqlCollectorOperation", args ?? new GetAssessmentProjectsSqlCollectorOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SqlCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsSqlCollectorOperationResult> Invoke(GetAssessmentProjectsSqlCollectorOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsSqlCollectorOperationResult>("azure-native:migrate:getAssessmentProjectsSqlCollectorOperation", args ?? new GetAssessmentProjectsSqlCollectorOperationInvokeArgs(), options.WithDefaults());

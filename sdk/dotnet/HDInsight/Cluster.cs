@@ -101,7 +101,10 @@ namespace Pulumi.AzureNative.HDInsight
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230415preview:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230601preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230815preview:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20231101preview:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20240501preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20240801preview:Cluster" },
                 },
             };

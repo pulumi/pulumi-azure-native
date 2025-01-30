@@ -15,6 +15,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.fabric.v20231101 as __v20231101
     v20231101 = __v20231101
+    import pulumi_azure_native.fabric.v20250115preview as __v20250115preview
+    v20250115preview = __v20250115preview
 else:
     v20231101 = _utilities.lazy_import('pulumi_azure_native.fabric.v20231101')
+    v20250115preview = _utilities.lazy_import('pulumi_azure_native.fabric.v20250115preview')
 

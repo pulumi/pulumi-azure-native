@@ -2052,22 +2052,26 @@ _utilities.register(
   "mod": "authorization/v20230401",
   "fqn": "pulumi_azure_native.authorization.v20230401",
   "classes": {
-   "azure-native:authorization/v20230401:PolicyDefinition": "PolicyDefinition",
-   "azure-native:authorization/v20230401:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
    "azure-native:authorization/v20230401:PolicyDefinitionVersion": "PolicyDefinitionVersion",
    "azure-native:authorization/v20230401:PolicyDefinitionVersionAtManagementGroup": "PolicyDefinitionVersionAtManagementGroup",
-   "azure-native:authorization/v20230401:PolicySetDefinition": "PolicySetDefinition",
-   "azure-native:authorization/v20230401:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup",
    "azure-native:authorization/v20230401:PolicySetDefinitionVersion": "PolicySetDefinitionVersion",
    "azure-native:authorization/v20230401:PolicySetDefinitionVersionAtManagementGroup": "PolicySetDefinitionVersionAtManagementGroup"
   }
  },
  {
   "pkg": "azure-native",
-  "mod": "authorization/v20240401",
-  "fqn": "pulumi_azure_native.authorization.v20240401",
+  "mod": "authorization/v20240501",
+  "fqn": "pulumi_azure_native.authorization.v20240501",
   "classes": {
-   "azure-native:authorization/v20240401:PolicyAssignment": "PolicyAssignment"
+   "azure-native:authorization/v20240501:PolicyAssignment": "PolicyAssignment",
+   "azure-native:authorization/v20240501:PolicyDefinition": "PolicyDefinition",
+   "azure-native:authorization/v20240501:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
+   "azure-native:authorization/v20240501:PolicyDefinitionVersion": "PolicyDefinitionVersion",
+   "azure-native:authorization/v20240501:PolicyDefinitionVersionAtManagementGroup": "PolicyDefinitionVersionAtManagementGroup",
+   "azure-native:authorization/v20240501:PolicySetDefinition": "PolicySetDefinition",
+   "azure-native:authorization/v20240501:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup",
+   "azure-native:authorization/v20240501:PolicySetDefinitionVersion": "PolicySetDefinitionVersion",
+   "azure-native:authorization/v20240501:PolicySetDefinitionVersionAtManagementGroup": "PolicySetDefinitionVersionAtManagementGroup"
   }
  },
  {
@@ -4245,8 +4249,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.containerinstance",
   "classes": {
    "azure-native:containerinstance:ContainerGroup": "ContainerGroup",
-   "azure-native:containerinstance:ContainerGroupProfile": "ContainerGroupProfile",
-   "azure-native:containerinstance:NGroup": "NGroup"
+   "azure-native:containerinstance:ContainerGroupProfile": "ContainerGroupProfile"
   }
  },
  {
@@ -4296,14 +4299,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.containerinstance.v20240901preview",
   "classes": {
    "azure-native:containerinstance/v20240901preview:NGroup": "NGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "containerinstance/v20241001preview",
-  "fqn": "pulumi_azure_native.containerinstance.v20241001preview",
-  "classes": {
-   "azure-native:containerinstance/v20241001preview:ContainerGroup": "ContainerGroup"
   }
  },
  {
@@ -6487,6 +6482,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devopsinfrastructure/v20250121",
+  "fqn": "pulumi_azure_native.devopsinfrastructure.v20250121",
+  "classes": {
+   "azure-native:devopsinfrastructure/v20250121:Pool": "Pool"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "devspaces",
   "fqn": "pulumi_azure_native.devspaces",
   "classes": {
@@ -7398,6 +7401,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.fabric.v20231101",
   "classes": {
    "azure-native:fabric/v20231101:FabricCapacity": "FabricCapacity"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "fabric/v20250115preview",
+  "fqn": "pulumi_azure_native.fabric.v20250115preview",
+  "classes": {
+   "azure-native:fabric/v20250115preview:FabricCapacity": "FabricCapacity"
   }
  },
  {
@@ -9666,6 +9677,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "managedidentity/v20241130",
+  "fqn": "pulumi_azure_native.managedidentity.v20241130",
+  "classes": {
+   "azure-native:managedidentity/v20241130:FederatedIdentityCredential": "FederatedIdentityCredential",
+   "azure-native:managedidentity/v20241130:UserAssignedIdentity": "UserAssignedIdentity"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "managednetwork",
   "fqn": "pulumi_azure_native.managednetwork",
   "classes": {
@@ -10158,6 +10178,28 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "migrate/v20240101preview",
+  "fqn": "pulumi_azure_native.migrate.v20240101preview",
+  "classes": {
+   "azure-native:migrate/v20240101preview:AssessmentProjectsAksAssessmentOperation": "AssessmentProjectsAksAssessmentOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsAssessmentsOperation": "AssessmentProjectsAssessmentsOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsAvsAssessmentsOperation": "AssessmentProjectsAvsAssessmentsOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsBusinessCaseOperation": "AssessmentProjectsBusinessCaseOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsGroupsOperation": "AssessmentProjectsGroupsOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsHypervCollectorsOperation": "AssessmentProjectsHypervCollectorsOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsImportCollectorsOperation": "AssessmentProjectsImportCollectorsOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsOperation": "AssessmentProjectsOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsPrivateEndpointConnectionOperation": "AssessmentProjectsPrivateEndpointConnectionOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsServerCollectorsOperation": "AssessmentProjectsServerCollectorsOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsSqlAssessmentV2Operation": "AssessmentProjectsSqlAssessmentV2Operation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsSqlCollectorOperation": "AssessmentProjectsSqlCollectorOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsVmwareCollectorsOperation": "AssessmentProjectsVmwareCollectorsOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsWebAppAssessmentV2Operation": "AssessmentProjectsWebAppAssessmentV2Operation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsWebAppCollectorOperation": "AssessmentProjectsWebAppCollectorOperation"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "mixedreality",
   "fqn": "pulumi_azure_native.mixedreality",
   "classes": {
@@ -10425,24 +10467,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "netapp/v20240701",
-  "fqn": "pulumi_azure_native.netapp.v20240701",
-  "classes": {
-   "azure-native:netapp/v20240701:Account": "Account",
-   "azure-native:netapp/v20240701:Backup": "Backup",
-   "azure-native:netapp/v20240701:BackupPolicy": "BackupPolicy",
-   "azure-native:netapp/v20240701:BackupVault": "BackupVault",
-   "azure-native:netapp/v20240701:CapacityPoolPool": "CapacityPoolPool",
-   "azure-native:netapp/v20240701:CapacityPoolSnapshot": "CapacityPoolSnapshot",
-   "azure-native:netapp/v20240701:CapacityPoolSubvolume": "CapacityPoolSubvolume",
-   "azure-native:netapp/v20240701:CapacityPoolVolume": "CapacityPoolVolume",
-   "azure-native:netapp/v20240701:CapacityPoolVolumeQuotaRule": "CapacityPoolVolumeQuotaRule",
-   "azure-native:netapp/v20240701:SnapshotPolicy": "SnapshotPolicy",
-   "azure-native:netapp/v20240701:VolumeGroup": "VolumeGroup"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "netapp/v20240701preview",
   "fqn": "pulumi_azure_native.netapp.v20240701preview",
   "classes": {
@@ -10457,6 +10481,24 @@ _utilities.register(
    "azure-native:netapp/v20240701preview:CapacityPoolVolumeQuotaRule": "CapacityPoolVolumeQuotaRule",
    "azure-native:netapp/v20240701preview:SnapshotPolicy": "SnapshotPolicy",
    "azure-native:netapp/v20240701preview:VolumeGroup": "VolumeGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "netapp/v20240901",
+  "fqn": "pulumi_azure_native.netapp.v20240901",
+  "classes": {
+   "azure-native:netapp/v20240901:Account": "Account",
+   "azure-native:netapp/v20240901:Backup": "Backup",
+   "azure-native:netapp/v20240901:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20240901:BackupVault": "BackupVault",
+   "azure-native:netapp/v20240901:CapacityPoolPool": "CapacityPoolPool",
+   "azure-native:netapp/v20240901:CapacityPoolSnapshot": "CapacityPoolSnapshot",
+   "azure-native:netapp/v20240901:CapacityPoolSubvolume": "CapacityPoolSubvolume",
+   "azure-native:netapp/v20240901:CapacityPoolVolume": "CapacityPoolVolume",
+   "azure-native:netapp/v20240901:CapacityPoolVolumeQuotaRule": "CapacityPoolVolumeQuotaRule",
+   "azure-native:netapp/v20240901:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20240901:VolumeGroup": "VolumeGroup"
   }
  },
  {
@@ -13535,16 +13577,6 @@ _utilities.register(
    "azure-native:servicenetworking/v20230501preview:AssociationsInterface": "AssociationsInterface",
    "azure-native:servicenetworking/v20230501preview:FrontendsInterface": "FrontendsInterface",
    "azure-native:servicenetworking/v20230501preview:TrafficControllerInterface": "TrafficControllerInterface"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "servicenetworking/v20231101",
-  "fqn": "pulumi_azure_native.servicenetworking.v20231101",
-  "classes": {
-   "azure-native:servicenetworking/v20231101:AssociationsInterface": "AssociationsInterface",
-   "azure-native:servicenetworking/v20231101:FrontendsInterface": "FrontendsInterface",
-   "azure-native:servicenetworking/v20231101:TrafficControllerInterface": "TrafficControllerInterface"
   }
  },
  {

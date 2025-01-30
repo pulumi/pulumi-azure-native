@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Assessment
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export function getAssessmentProjectsAssessmentsOperation(args: GetAssessmentProjectsAssessmentsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentProjectsAssessmentsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -243,7 +245,9 @@ export interface GetAssessmentProjectsAssessmentsOperationResult {
 }
 /**
  * Get a Assessment
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export function getAssessmentProjectsAssessmentsOperationOutput(args: GetAssessmentProjectsAssessmentsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentProjectsAssessmentsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

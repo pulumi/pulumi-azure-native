@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a AKSAssessment
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Task<GetAssessmentProjectsAksAssessmentOperationResult> InvokeAsync(GetAssessmentProjectsAksAssessmentOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentProjectsAksAssessmentOperationResult>("azure-native:migrate:getAssessmentProjectsAksAssessmentOperation", args ?? new GetAssessmentProjectsAksAssessmentOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AKSAssessment
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsAksAssessmentOperationResult> Invoke(GetAssessmentProjectsAksAssessmentOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsAksAssessmentOperationResult>("azure-native:migrate:getAssessmentProjectsAksAssessmentOperation", args ?? new GetAssessmentProjectsAksAssessmentOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AKSAssessment
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsAksAssessmentOperationResult> Invoke(GetAssessmentProjectsAksAssessmentOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsAksAssessmentOperationResult>("azure-native:migrate:getAssessmentProjectsAksAssessmentOperation", args ?? new GetAssessmentProjectsAksAssessmentOperationInvokeArgs(), options.WithDefaults());

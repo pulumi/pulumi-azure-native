@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Snapshot policy information
-    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2022-11-01.
+    /// Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2022-11-01.
     /// 
     /// Other available API versions: 2022-11-01, 2024-07-01-preview.
     /// </summary>
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:SnapshotPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:SnapshotPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:SnapshotPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:SnapshotPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

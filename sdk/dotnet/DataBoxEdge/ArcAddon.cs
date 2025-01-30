@@ -129,11 +129,15 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:ArcAddon" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:IoTAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:ArcAddon" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:IoTAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:ArcAddon" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:IoTAddon" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:IoTAddon" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

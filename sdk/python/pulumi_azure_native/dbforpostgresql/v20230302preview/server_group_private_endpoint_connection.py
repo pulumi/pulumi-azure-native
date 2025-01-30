@@ -161,7 +161,7 @@ class ServerGroupPrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:ServerGroupPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql:ServerGroupPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:ServerGroupPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql:ServerGroupPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerGroupPrivateEndpointConnection, __self__).__init__(
             'azure-native:dbforpostgresql/v20230302preview:ServerGroupPrivateEndpointConnection',

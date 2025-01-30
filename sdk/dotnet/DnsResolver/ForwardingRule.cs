@@ -98,7 +98,6 @@ namespace Pulumi.AzureNative.DnsResolver
                     new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20200401preview:ForwardingRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20220701:ForwardingRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20230701preview:ForwardingRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:ForwardingRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ForwardingRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:ForwardingRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network:ForwardingRule" },

@@ -1634,6 +1634,36 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
     /// <summary>
+    /// Authentication type for connecting to the Oracle database. Only used for Version 2.0.
+    /// </summary>
+    [EnumType]
+    public readonly struct OracleAuthenticationType : IEquatable<OracleAuthenticationType>
+    {
+        private readonly string _value;
+
+        private OracleAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OracleAuthenticationType Basic { get; } = new OracleAuthenticationType("Basic");
+
+        public static bool operator ==(OracleAuthenticationType left, OracleAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(OracleAuthenticationType left, OracleAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(OracleAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OracleAuthenticationType other && Equals(other);
+        public bool Equals(OracleAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Parameter type.
     /// </summary>
     [EnumType]

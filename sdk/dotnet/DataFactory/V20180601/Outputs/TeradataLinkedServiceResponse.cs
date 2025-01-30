@@ -25,11 +25,15 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? AuthenticationType;
         /// <summary>
+        /// The character set to use for the connection. Type: string (or Expression with resultType string). Only applied for version 2.0.
+        /// </summary>
+        public readonly object? CharacterSet;
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// Teradata ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        /// Teradata ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only applied for version 1.0.
         /// </summary>
         public readonly object? ConnectionString;
         /// <summary>
@@ -41,6 +45,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? EncryptedCredential;
         /// <summary>
+        /// The port numbers when connecting to server through HTTPS/TLS connections. Type: integer (or Expression with resultType integer). Only applied for version 2.0.
+        /// </summary>
+        public readonly object? HttpsPortNumber;
+        /// <summary>
+        /// The maximum size of the response buffer for SQL requests, in bytes. Type: integer. Only applied for version 2.0.
+        /// </summary>
+        public readonly object? MaxRespSize;
+        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
@@ -49,14 +61,26 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
+        /// The port numbers when connecting to server through non HTTPS/TLS connections. Type: integer (or Expression with resultType integer). Only used for V2. Only applied for version 2.0.
+        /// </summary>
+        public readonly object? PortNumber;
+        /// <summary>
         /// Server name for connection. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Server;
+        /// <summary>
+        /// SSL mode for connection. Valid values including: “Disable”, “Allow”, “Prefer”, “Require”, “Verify-CA”, “Verify-Full”. Default value is “Verify-Full”. Type: string (or Expression with resultType string). Only applied for version 2.0.
+        /// </summary>
+        public readonly object? SslMode;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'Teradata'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Specifies whether to encrypt all communication with the Teradata database. Allowed values are 0 or 1. This setting will be ignored for HTTPS/TLS connections. Type: integer (or Expression with resultType integer). Only applied for version 2.0.
+        /// </summary>
+        public readonly object? UseDataEncryption;
         /// <summary>
         /// Username for authentication. Type: string (or Expression with resultType string).
         /// </summary>
@@ -72,6 +96,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? authenticationType,
 
+            object? characterSet,
+
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             object? connectionString,
@@ -80,13 +106,23 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? encryptedCredential,
 
+            object? httpsPortNumber,
+
+            object? maxRespSize,
+
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
+            object? portNumber,
+
             object? server,
 
+            object? sslMode,
+
             string type,
+
+            object? useDataEncryption,
 
             object? username,
 
@@ -94,14 +130,20 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;
+            CharacterSet = characterSet;
             ConnectVia = connectVia;
             ConnectionString = connectionString;
             Description = description;
             EncryptedCredential = encryptedCredential;
+            HttpsPortNumber = httpsPortNumber;
+            MaxRespSize = maxRespSize;
             Parameters = parameters;
             Password = password;
+            PortNumber = portNumber;
             Server = server;
+            SslMode = sslMode;
             Type = type;
+            UseDataEncryption = useDataEncryption;
             Username = username;
             Version = version;
         }

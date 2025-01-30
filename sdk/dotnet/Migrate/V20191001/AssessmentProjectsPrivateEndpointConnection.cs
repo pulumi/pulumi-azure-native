@@ -64,11 +64,20 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentProjectsPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:PrivateEndpointConnectionOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentProjectsPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:AssessmentProjectsPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:PrivateEndpointConnectionOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

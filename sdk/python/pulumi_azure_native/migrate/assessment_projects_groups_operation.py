@@ -134,7 +134,9 @@ class AssessmentProjectsGroupsOperation(pulumi.CustomResource):
                  __props__=None):
         """
         Group resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,7 +155,9 @@ class AssessmentProjectsGroupsOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Group resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param AssessmentProjectsGroupsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -204,7 +208,7 @@ class AssessmentProjectsGroupsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsGroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsGroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsGroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsGroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsGroupsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsGroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20191001:Group"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsGroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsGroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsGroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsGroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsGroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate:Group"), pulumi.Alias(type_="azure-native:migrate:GroupsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsGroupsOperation, __self__).__init__(
             'azure-native:migrate:AssessmentProjectsGroupsOperation',

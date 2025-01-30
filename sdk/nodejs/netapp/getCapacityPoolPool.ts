@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get details of the specified capacity pool
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2024-07-01-preview.
  */
@@ -108,7 +108,7 @@ export interface GetCapacityPoolPoolResult {
 }
 /**
  * Get details of the specified capacity pool
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2024-07-01-preview.
  */

@@ -152,7 +152,9 @@ def get_assessment_projects_server_collectors_operation(project_name: Optional[s
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentProjectsServerCollectorsOperationResult:
     """
     Get a ServerCollector
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str project_name: Assessment Project Name
@@ -182,7 +184,9 @@ def get_assessment_projects_server_collectors_operation_output(project_name: Opt
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentProjectsServerCollectorsOperationResult]:
     """
     Get a ServerCollector
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str project_name: Assessment Project Name

@@ -128,7 +128,7 @@ def get_volume_group(account_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeGroupResult:
     """
     Get details of the specified volume group
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2021-10-01, 2022-11-01, 2024-07-01-preview.
 
@@ -158,7 +158,7 @@ def get_volume_group_output(account_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeGroupResult]:
     """
     Get details of the specified volume group
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2021-10-01, 2022-11-01, 2024-07-01-preview.
 

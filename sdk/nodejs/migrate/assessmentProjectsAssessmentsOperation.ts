@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Machine assessment resource.
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export class AssessmentProjectsAssessmentsOperation extends pulumi.CustomResource {
     /**
@@ -348,7 +350,7 @@ export class AssessmentProjectsAssessmentsOperation extends pulumi.CustomResourc
             resourceInputs["vmUptime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsAssessmentsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsAssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsAssessmentsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsAssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsAssessmentsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:Assessment" }, { type: "azure-native:migrate/v20191001:AssessmentProjectsAssessmentsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsAssessmentsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsAssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsAssessmentsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsAssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentsOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentProjectsAssessmentsOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentsOperation" }, { type: "azure-native:migrate:Assessment" }, { type: "azure-native:migrate:AssessmentsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsAssessmentsOperation.__pulumiType, name, resourceInputs, opts);
     }

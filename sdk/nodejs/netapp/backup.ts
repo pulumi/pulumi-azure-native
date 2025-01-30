@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Backup under a Backup Vault
- * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2022-11-01.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2022-11-01.
  *
  * Other available API versions: 2024-07-01-preview.
  */
@@ -155,7 +155,7 @@ export class Backup extends pulumi.CustomResource {
             resourceInputs["volumeResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20221101preview:Backup" }, { type: "azure-native:netapp/v20230501preview:Backup" }, { type: "azure-native:netapp/v20230701preview:Backup" }, { type: "azure-native:netapp/v20231101:Backup" }, { type: "azure-native:netapp/v20231101preview:Backup" }, { type: "azure-native:netapp/v20240101:Backup" }, { type: "azure-native:netapp/v20240301:Backup" }, { type: "azure-native:netapp/v20240301preview:Backup" }, { type: "azure-native:netapp/v20240501:Backup" }, { type: "azure-native:netapp/v20240501preview:Backup" }, { type: "azure-native:netapp/v20240701:Backup" }, { type: "azure-native:netapp/v20240701preview:Backup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20221101:Backup" }, { type: "azure-native:netapp/v20221101preview:Backup" }, { type: "azure-native:netapp/v20230501preview:Backup" }, { type: "azure-native:netapp/v20230701preview:Backup" }, { type: "azure-native:netapp/v20231101:Backup" }, { type: "azure-native:netapp/v20231101preview:Backup" }, { type: "azure-native:netapp/v20240101:Backup" }, { type: "azure-native:netapp/v20240301:Backup" }, { type: "azure-native:netapp/v20240301preview:Backup" }, { type: "azure-native:netapp/v20240501:Backup" }, { type: "azure-native:netapp/v20240501preview:Backup" }, { type: "azure-native:netapp/v20240701:Backup" }, { type: "azure-native:netapp/v20240701preview:Backup" }, { type: "azure-native:netapp/v20240901:Backup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Backup.__pulumiType, name, resourceInputs, opts);
     }

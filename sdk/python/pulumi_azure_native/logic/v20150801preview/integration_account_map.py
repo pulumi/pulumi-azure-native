@@ -314,7 +314,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
             __props__.__dict__["changed_time"] = None
             __props__.__dict__["content_link"] = None
             __props__.__dict__["created_time"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountMap"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountMap"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountMap"), pulumi.Alias(type_="azure-native:logic:IntegrationAccountMap")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountMap"), pulumi.Alias(type_="azure-native:logic/v20160601:Map"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountMap"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountMap"), pulumi.Alias(type_="azure-native:logic:IntegrationAccountMap")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountMap, __self__).__init__(
             'azure-native:logic/v20150801preview:IntegrationAccountMap',

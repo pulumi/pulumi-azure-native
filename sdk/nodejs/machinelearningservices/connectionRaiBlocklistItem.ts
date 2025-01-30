@@ -97,7 +97,7 @@ export class ConnectionRaiBlocklistItem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices/v20240701preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices/v20241001preview:ConnectionRaiBlocklistItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklist" }, { type: "azure-native:machinelearningservices/v20240401preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices/v20240701preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices/v20241001preview:ConnectionRaiBlocklistItem" }, { type: "azure-native:machinelearningservices:ConnectionRaiBlocklist" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionRaiBlocklistItem.__pulumiType, name, resourceInputs, opts);
     }

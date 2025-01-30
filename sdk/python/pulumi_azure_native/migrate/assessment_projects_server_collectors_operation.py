@@ -135,7 +135,9 @@ class AssessmentProjectsServerCollectorsOperation(pulumi.CustomResource):
                  __props__=None):
         """
         Physical server collector resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +156,9 @@ class AssessmentProjectsServerCollectorsOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Physical server collector resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param AssessmentProjectsServerCollectorsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -201,7 +205,7 @@ class AssessmentProjectsServerCollectorsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsServerCollectorsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20191001:ServerCollector"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:ServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:ServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:ServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:ServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:ServerCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate:ServerCollector"), pulumi.Alias(type_="azure-native:migrate:ServerCollectorsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsServerCollectorsOperation, __self__).__init__(
             'azure-native:migrate:AssessmentProjectsServerCollectorsOperation',

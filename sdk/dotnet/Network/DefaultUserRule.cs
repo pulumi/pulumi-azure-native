@@ -135,10 +135,16 @@ namespace Pulumi.AzureNative.Network
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:DefaultUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:DefaultUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:DefaultUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:DefaultUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:UserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:DefaultUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240301:SecurityUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:DefaultUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:SecurityUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:SecurityUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:UserRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

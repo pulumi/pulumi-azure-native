@@ -236,7 +236,7 @@ def get_capacity_pool_pool(account_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityPoolPoolResult:
     """
     Get details of the specified capacity pool
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2024-07-01-preview.
 
@@ -275,7 +275,7 @@ def get_capacity_pool_pool_output(account_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolPoolResult]:
     """
     Get details of the specified capacity pool
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2024-07-01-preview.
 

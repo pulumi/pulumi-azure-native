@@ -711,7 +711,9 @@ def get_assessment_projects_avs_assessments_operation(assessment_name: Optional[
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentProjectsAvsAssessmentsOperationResult:
     """
     Get a AvsAssessment
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str assessment_name: AVS Assessment ARM name
@@ -790,7 +792,9 @@ def get_assessment_projects_avs_assessments_operation_output(assessment_name: Op
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentProjectsAvsAssessmentsOperationResult]:
     """
     Get a AvsAssessment
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str assessment_name: AVS Assessment ARM name

@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a Group
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Task<GetAssessmentProjectsGroupsOperationResult> InvokeAsync(GetAssessmentProjectsGroupsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentProjectsGroupsOperationResult>("azure-native:migrate:getAssessmentProjectsGroupsOperation", args ?? new GetAssessmentProjectsGroupsOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Group
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsGroupsOperationResult> Invoke(GetAssessmentProjectsGroupsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsGroupsOperationResult>("azure-native:migrate:getAssessmentProjectsGroupsOperation", args ?? new GetAssessmentProjectsGroupsOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Group
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsGroupsOperationResult> Invoke(GetAssessmentProjectsGroupsOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsGroupsOperationResult>("azure-native:migrate:getAssessmentProjectsGroupsOperation", args ?? new GetAssessmentProjectsGroupsOperationInvokeArgs(), options.WithDefaults());

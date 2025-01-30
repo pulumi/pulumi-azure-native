@@ -67,6 +67,8 @@ namespace Pulumi.AzureNative.Security
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20221120preview:APICollection" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20231115:APICollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20231115:APICollectionByAzureApiManagementService" },
+                    new global::Pulumi.Alias { Type = "azure-native:security:APICollectionByAzureApiManagementService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -142,6 +142,37 @@ namespace Pulumi.AzureNative.NetApp
     }
 
     /// <summary>
+    /// coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+    /// </summary>
+    [EnumType]
+    public readonly struct CoolAccessTieringPolicy : IEquatable<CoolAccessTieringPolicy>
+    {
+        private readonly string _value;
+
+        private CoolAccessTieringPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CoolAccessTieringPolicy Auto { get; } = new CoolAccessTieringPolicy("Auto");
+        public static CoolAccessTieringPolicy SnapshotOnly { get; } = new CoolAccessTieringPolicy("SnapshotOnly");
+
+        public static bool operator ==(CoolAccessTieringPolicy left, CoolAccessTieringPolicy right) => left.Equals(right);
+        public static bool operator !=(CoolAccessTieringPolicy left, CoolAccessTieringPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(CoolAccessTieringPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CoolAccessTieringPolicy other && Equals(other);
+        public bool Equals(CoolAccessTieringPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Flag indicating whether subvolume operations are enabled on the volume
     /// </summary>
     [EnumType]

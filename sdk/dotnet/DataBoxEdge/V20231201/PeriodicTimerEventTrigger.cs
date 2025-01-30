@@ -104,8 +104,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:PeriodicTimerEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:PeriodicTimerEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:PeriodicTimerEventTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:FileEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:FileEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:PeriodicTimerEventTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:FileEventTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:FileEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge:PeriodicTimerEventTrigger" },
                 },
             };

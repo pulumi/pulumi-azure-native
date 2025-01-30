@@ -87,7 +87,7 @@ export class EdgeDevice extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230801preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20231101preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240215preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240401:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240901preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20241201preview:EdgeDevice" }, { type: "azure-native:azurestackhci:EdgeDevice" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230801preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20231101preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240215preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240215preview:HciEdgeDevice" }, { type: "azure-native:azurestackhci/v20240401:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240401:HciEdgeDevice" }, { type: "azure-native:azurestackhci/v20240901preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240901preview:HciEdgeDevice" }, { type: "azure-native:azurestackhci/v20241201preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20241201preview:HciEdgeDevice" }, { type: "azure-native:azurestackhci:EdgeDevice" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EdgeDevice.__pulumiType, name, resourceInputs, opts);
     }

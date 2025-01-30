@@ -201,7 +201,7 @@ def get_capacity_pool_subvolume_metadata(account_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityPoolSubvolumeMetadataResult:
     """
     Get details of the specified subvolume
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2024-07-01-preview.
 
@@ -243,7 +243,7 @@ def get_capacity_pool_subvolume_metadata_output(account_name: Optional[pulumi.In
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolSubvolumeMetadataResult]:
     """
     Get details of the specified subvolume
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2024-07-01-preview.
 

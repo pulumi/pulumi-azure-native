@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Backup Vault
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
  */
@@ -72,7 +72,7 @@ export interface GetBackupVaultResult {
 }
 /**
  * Get the Backup Vault
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
  */

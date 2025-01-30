@@ -109,7 +109,7 @@ export class AssessmentProjectsWebAppCollectorOperation extends pulumi.CustomRes
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230401preview:AssessmentProjectsWebAppCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsWebAppCollectorOperation" }, { type: "azure-native:migrate:AssessmentProjectsWebAppCollectorOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230401preview:AssessmentProjectsWebAppCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:WebAppCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsWebAppCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:WebAppCollectorOperation" }, { type: "azure-native:migrate/v20230909preview:WebAppCollectorOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentProjectsWebAppCollectorOperation" }, { type: "azure-native:migrate/v20240101preview:WebAppCollectorOperation" }, { type: "azure-native:migrate:AssessmentProjectsWebAppCollectorOperation" }, { type: "azure-native:migrate:WebAppCollectorOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsWebAppCollectorOperation.__pulumiType, name, resourceInputs, opts);
     }

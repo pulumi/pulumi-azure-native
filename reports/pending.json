@@ -395,7 +395,9 @@
     "2024-08-01-preview"
   ],
   "DevOps": [],
-  "DevOpsInfrastructure": [],
+  "DevOpsInfrastructure": [
+    "2025-01-21"
+  ],
   "DevSpaces": [],
   "DevTestLab": [],
   "DeviceRegistry": [
@@ -453,7 +455,9 @@
     "2024-05-01-preview"
   ],
   "ExtendedLocation": [],
-  "Fabric": [],
+  "Fabric": [
+    "2025-01-15-preview"
+  ],
   "Features": [],
   "FluidRelay": [],
   "FrontDoor": [
@@ -667,7 +671,8 @@
   ],
   "Maintenance": [],
   "ManagedIdentity": [
-    "2023-07-31-preview"
+    "2023-07-31-preview",
+    "2024-11-30"
   ],
   "ManagedNetwork": [],
   "ManagedNetworkFabric": [
@@ -719,7 +724,8 @@
     "2023-04-01-preview",
     "2023-05-01-preview",
     "2023-08-01",
-    "2023-09-09-preview"
+    "2023-09-09-preview",
+    "2024-01-01-preview"
   ],
   "MixedReality": [],
   "MobileNetwork": [
@@ -749,7 +755,8 @@
     "2024-05-01",
     "2024-05-01-preview",
     "2024-07-01",
-    "2024-07-01-preview"
+    "2024-07-01-preview",
+    "2024-09-01"
   ],
   "Network": [
     "2019-04-01",
@@ -960,10 +967,7 @@
   "ServiceLinker": [
     "2024-07-01-preview"
   ],
-  "ServiceNetworking": [
-    "2024-05-01-preview",
-    "2025-01-01"
-  ],
+  "ServiceNetworking": [],
   "SignalRService": [
     "2024-04-01-preview",
     "2024-08-01-preview",

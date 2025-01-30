@@ -113,8 +113,10 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20221120preview:APICollection" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20221120preview:APICollectionByAzureApiManagementService" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20231115:APICollectionByAzureApiManagementService" },
+                    new global::Pulumi.Alias { Type = "azure-native:security:APICollection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

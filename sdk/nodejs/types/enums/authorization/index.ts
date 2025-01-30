@@ -14,7 +14,7 @@ import * as v20220401 from "./v20220401";
 import * as v20220601 from "./v20220601";
 import * as v20220701preview from "./v20220701preview";
 import * as v20230401 from "./v20230401";
-import * as v20240401 from "./v20240401";
+import * as v20240501 from "./v20240501";
 import * as v20250101 from "./v20250101";
 
 export {
@@ -30,7 +30,7 @@ export {
     v20220601,
     v20220701preview,
     v20230401,
-    v20240401,
+    v20240501,
     v20250101,
 };
 
@@ -155,6 +155,10 @@ export const OverrideKind = {
      * It will override the policy effect type.
      */
     PolicyEffect: "policyEffect",
+    /**
+     * It will override the definition version property value of the policy assignment.
+     */
+    DefinitionVersion: "definitionVersion",
 } as const;
 
 /**

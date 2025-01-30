@@ -162,7 +162,7 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VMInstanceGuestAgent"), pulumi.Alias(type_="azure-native:scvmm/v20231007:VMInstanceGuestAgent"), pulumi.Alias(type_="azure-native:scvmm/v20240601:VMInstanceGuestAgent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm/v20230401preview:VMInstanceGuestAgent"), pulumi.Alias(type_="azure-native:scvmm/v20231007:GuestAgent"), pulumi.Alias(type_="azure-native:scvmm/v20231007:VMInstanceGuestAgent"), pulumi.Alias(type_="azure-native:scvmm/v20240601:GuestAgent"), pulumi.Alias(type_="azure-native:scvmm/v20240601:VMInstanceGuestAgent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VMInstanceGuestAgent, __self__).__init__(
             'azure-native:scvmm:VMInstanceGuestAgent',

@@ -124,7 +124,7 @@ export class DataManagerForAgricultureResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20200512preview:DataManagerForAgricultureResource" }, { type: "azure-native:agfoodplatform/v20210901preview:DataManagerForAgricultureResource" }, { type: "azure-native:agfoodplatform/v20230601preview:DataManagerForAgricultureResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20200512preview:DataManagerForAgricultureResource" }, { type: "azure-native:agfoodplatform/v20200512preview:FarmBeatsModel" }, { type: "azure-native:agfoodplatform/v20210901preview:DataManagerForAgricultureResource" }, { type: "azure-native:agfoodplatform/v20210901preview:FarmBeatsModel" }, { type: "azure-native:agfoodplatform/v20230601preview:DataManagerForAgricultureResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataManagerForAgricultureResource.__pulumiType, name, resourceInputs, opts);
     }

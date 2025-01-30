@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiTagDescription" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:ApiTagDescription" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:ApiTagDescription" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:TagDescription" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:ApiTagDescription" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:ApiTagDescription" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:ApiTagDescription" },

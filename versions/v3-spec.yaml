@@ -70,7 +70,7 @@ AppPlatform:
 Attestation:
     tracking: "2021-06-01"
 Authorization:
-    tracking: "2024-04-01"
+    tracking: "2024-05-01"
     additions:
         AccessReviewHistoryDefinitionById: 2021-12-01-preview
         AccessReviewScheduleDefinitionById: 2021-12-01-preview
@@ -78,15 +78,7 @@ Authorization:
         ManagementLockAtResourceLevel: "2020-05-01"
         ManagementLockAtSubscriptionLevel: "2020-05-01"
         ManagementLockByScope: "2020-05-01"
-        PolicyDefinition: "2023-04-01"
-        PolicyDefinitionAtManagementGroup: "2023-04-01"
-        PolicyDefinitionVersion: "2023-04-01"
-        PolicyDefinitionVersionAtManagementGroup: "2023-04-01"
         PolicyExemption: 2022-07-01-preview
-        PolicySetDefinition: "2023-04-01"
-        PolicySetDefinitionAtManagementGroup: "2023-04-01"
-        PolicySetDefinitionVersion: "2023-04-01"
-        PolicySetDefinitionVersionAtManagementGroup: "2023-04-01"
         PrivateLinkAssociation: "2020-05-01"
         ResourceManagementPrivateLink: "2020-05-01"
         RoleAssignment: "2022-04-01"
@@ -98,12 +90,6 @@ Authorization:
         VariableAtManagementGroup: 2022-08-01-preview
         VariableValue: 2022-08-01-preview
         VariableValueAtManagementGroup: 2022-08-01-preview
-        listPolicyDefinitionVersionAll: "2023-04-01"
-        listPolicyDefinitionVersionAllAtManagementGroup: "2023-04-01"
-        listPolicyDefinitionVersionAllBuiltins: "2023-04-01"
-        listPolicySetDefinitionVersionAll: "2023-04-01"
-        listPolicySetDefinitionVersionAllAtManagementGroup: "2023-04-01"
-        listPolicySetDefinitionVersionAllBuiltins: "2023-04-01"
 Automanage:
     tracking: "2022-05-04"
 Automation:
@@ -258,10 +244,7 @@ ConnectedVMwarevSphere:
 Consumption:
     tracking: "2024-08-01"
 ContainerInstance:
-    tracking: 2024-10-01-preview
-    additions:
-        ContainerGroupProfile: 2024-05-01-preview
-        NGroup: 2024-09-01-preview
+    tracking: 2024-05-01-preview
 ContainerRegistry:
     additions:
         AgentPool: 2019-06-01-preview
@@ -1032,29 +1015,29 @@ Media:
         listStreamingLocatorPaths: "2023-01-01"
 Migrate:
     additions:
-        AssessmentProjectsAksAssessmentOperation: 2023-09-09-preview
+        AssessmentProjectsAksAssessmentOperation: 2024-01-01-preview
         AssessmentProjectsAssessment: "2019-10-01"
-        AssessmentProjectsAssessmentsOperation: 2023-09-09-preview
-        AssessmentProjectsAvsAssessmentsOperation: 2023-09-09-preview
-        AssessmentProjectsBusinessCaseOperation: 2023-09-09-preview
+        AssessmentProjectsAssessmentsOperation: 2024-01-01-preview
+        AssessmentProjectsAvsAssessmentsOperation: 2024-01-01-preview
+        AssessmentProjectsBusinessCaseOperation: 2024-01-01-preview
         AssessmentProjectsGroup: "2019-10-01"
-        AssessmentProjectsGroupsOperation: 2023-09-09-preview
+        AssessmentProjectsGroupsOperation: 2024-01-01-preview
         AssessmentProjectsHyperVCollector: "2019-10-01"
-        AssessmentProjectsHypervCollectorsOperation: 2023-09-09-preview
+        AssessmentProjectsHypervCollectorsOperation: 2024-01-01-preview
         AssessmentProjectsImportCollector: "2019-10-01"
-        AssessmentProjectsImportCollectorsOperation: 2023-09-09-preview
-        AssessmentProjectsOperation: 2023-09-09-preview
+        AssessmentProjectsImportCollectorsOperation: 2024-01-01-preview
+        AssessmentProjectsOperation: 2024-01-01-preview
         AssessmentProjectsPrivateEndpointConnection: "2019-10-01"
-        AssessmentProjectsPrivateEndpointConnectionOperation: 2023-09-09-preview
+        AssessmentProjectsPrivateEndpointConnectionOperation: 2024-01-01-preview
         AssessmentProjectsProject: "2019-10-01"
         AssessmentProjectsServerCollector: "2019-10-01"
-        AssessmentProjectsServerCollectorsOperation: 2023-09-09-preview
-        AssessmentProjectsSqlAssessmentV2Operation: 2023-09-09-preview
-        AssessmentProjectsSqlCollectorOperation: 2023-09-09-preview
+        AssessmentProjectsServerCollectorsOperation: 2024-01-01-preview
+        AssessmentProjectsSqlAssessmentV2Operation: 2024-01-01-preview
+        AssessmentProjectsSqlCollectorOperation: 2024-01-01-preview
         AssessmentProjectsVMwareCollector: "2019-10-01"
-        AssessmentProjectsVmwareCollectorsOperation: 2023-09-09-preview
-        AssessmentProjectsWebAppAssessmentV2Operation: 2023-09-09-preview
-        AssessmentProjectsWebAppCollectorOperation: 2023-09-09-preview
+        AssessmentProjectsVmwareCollectorsOperation: 2024-01-01-preview
+        AssessmentProjectsWebAppAssessmentV2Operation: 2024-01-01-preview
+        AssessmentProjectsWebAppCollectorOperation: 2024-01-01-preview
         MigrateAgent: 2022-05-01-preview
         MigrateProject: 2018-09-01-preview
         MigrateProjectsControllerMigrateProject: "2020-05-01"
@@ -1065,7 +1048,7 @@ Migrate:
         Solution: 2018-09-01-preview
         WorkloadDeployment: 2022-05-01-preview
         WorkloadInstance: 2022-05-01-preview
-        getAssessmentProjectsBusinessCaseOperationReportDownloadUrl: 2023-09-09-preview
+        getAssessmentProjectsBusinessCaseOperationReportDownloadUrl: 2024-01-01-preview
         getSolutionConfig: 2018-09-01-preview
         getWorkloadDeploymentSecretConfigurations: 2022-05-01-preview
 MixedReality:
@@ -1081,10 +1064,9 @@ Monitor:
     additions:
         AzureMonitorWorkspace: 2023-10-01-preview
 NetApp:
-    tracking: "2024-07-01"
+    tracking: "2024-09-01"
     additions:
         CapacityPoolBackup: "2022-11-01"
-        getAccountChangeKeyVaultInformation: 2024-07-01-preview
         listCapacityPoolVolumeQuotaReport: 2024-07-01-preview
 Network:
     additions:
@@ -1480,9 +1462,7 @@ ServiceFabricMesh:
 ServiceLinker:
     tracking: "2024-04-01"
 ServiceNetworking:
-    tracking: "2023-11-01"
-    additions:
-        SecurityPoliciesInterface: 2024-05-01-preview
+    tracking: "2025-01-01"
 SignalRService:
     tracking: "2024-03-01"
 SoftwarePlan:

@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a HypervCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Task<GetAssessmentProjectsHypervCollectorsOperationResult> InvokeAsync(GetAssessmentProjectsHypervCollectorsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentProjectsHypervCollectorsOperationResult>("azure-native:migrate:getAssessmentProjectsHypervCollectorsOperation", args ?? new GetAssessmentProjectsHypervCollectorsOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a HypervCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsHypervCollectorsOperationResult> Invoke(GetAssessmentProjectsHypervCollectorsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsHypervCollectorsOperationResult>("azure-native:migrate:getAssessmentProjectsHypervCollectorsOperation", args ?? new GetAssessmentProjectsHypervCollectorsOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a HypervCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsHypervCollectorsOperationResult> Invoke(GetAssessmentProjectsHypervCollectorsOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsHypervCollectorsOperationResult>("azure-native:migrate:getAssessmentProjectsHypervCollectorsOperation", args ?? new GetAssessmentProjectsHypervCollectorsOperationInvokeArgs(), options.WithDefaults());

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// This operation retrieves the policy set definition in the given management group with the given name.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
         /// Other available API versions: 2019-06-01, 2021-06-01, 2025-01-01.
         /// </summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Authorization
 
         /// <summary>
         /// This operation retrieves the policy set definition in the given management group with the given name.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
         /// Other available API versions: 2019-06-01, 2021-06-01, 2025-01-01.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Authorization
 
         /// <summary>
         /// This operation retrieves the policy set definition in the given management group with the given name.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
         /// Other available API versions: 2019-06-01, 2021-06-01, 2025-01-01.
         /// </summary>

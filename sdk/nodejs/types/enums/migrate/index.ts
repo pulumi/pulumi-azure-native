@@ -11,6 +11,7 @@ import * as v20230101 from "./v20230101";
 import * as v20230315 from "./v20230315";
 import * as v20230801 from "./v20230801";
 import * as v20230909preview from "./v20230909preview";
+import * as v20240101preview from "./v20240101preview";
 
 export {
     v20180901preview,
@@ -22,6 +23,7 @@ export {
     v20230315,
     v20230801,
     v20230909preview,
+    v20240101preview,
 };
 
 export const AssessmentSizingCriterion = {

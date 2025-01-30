@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Snapshot of a Volume
-    /// Azure REST API version: 2024-07-01.
+    /// Azure REST API version: 2024-09-01.
     /// 
     /// Other available API versions: 2024-07-01-preview.
     /// </summary>
@@ -112,20 +112,38 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:CapacityPoolSnapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:CapacityPoolSnapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Snapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:CapacityPoolSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:Snapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:Snapshot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

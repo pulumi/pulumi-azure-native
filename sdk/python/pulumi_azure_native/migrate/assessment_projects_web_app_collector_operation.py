@@ -117,7 +117,9 @@ class AssessmentProjectsWebAppCollectorOperation(pulumi.CustomResource):
                  __props__=None):
         """
         The web app collector REST object.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +137,9 @@ class AssessmentProjectsWebAppCollectorOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The web app collector REST object.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param AssessmentProjectsWebAppCollectorOperationArgs args: The arguments to use to populate this resource's properties.
@@ -181,7 +185,7 @@ class AssessmentProjectsWebAppCollectorOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsWebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsWebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsWebAppCollectorOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsWebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:WebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsWebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:WebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsWebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:WebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsWebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:WebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate:WebAppCollectorOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsWebAppCollectorOperation, __self__).__init__(
             'azure-native:migrate:AssessmentProjectsWebAppCollectorOperation',

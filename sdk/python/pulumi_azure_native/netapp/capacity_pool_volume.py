@@ -33,6 +33,7 @@ class CapacityPoolVolumeArgs:
                  capacity_pool_resource_id: Optional[pulumi.Input[str]] = None,
                  cool_access: Optional[pulumi.Input[bool]] = None,
                  cool_access_retrieval_policy: Optional[pulumi.Input[Union[str, 'CoolAccessRetrievalPolicy']]] = None,
+                 cool_access_tiering_policy: Optional[pulumi.Input[Union[str, 'CoolAccessTieringPolicy']]] = None,
                  coolness_period: Optional[pulumi.Input[int]] = None,
                  data_protection: Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']] = None,
                  default_group_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
@@ -83,6 +84,7 @@ class CapacityPoolVolumeArgs:
                 Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
                 OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
                 Never - No client-driven data is pulled from cool tier to standard storage.
+        :param pulumi.Input[Union[str, 'CoolAccessTieringPolicy']] cool_access_tiering_policy: coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
         :param pulumi.Input[int] coolness_period: Specifies the number of days after which data that is not accessed by clients will be tiered.
         :param pulumi.Input['VolumePropertiesDataProtectionArgs'] data_protection: DataProtection type volumes include an object containing details of the replication
         :param pulumi.Input[float] default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
@@ -139,6 +141,8 @@ class CapacityPoolVolumeArgs:
             pulumi.set(__self__, "cool_access", cool_access)
         if cool_access_retrieval_policy is not None:
             pulumi.set(__self__, "cool_access_retrieval_policy", cool_access_retrieval_policy)
+        if cool_access_tiering_policy is not None:
+            pulumi.set(__self__, "cool_access_tiering_policy", cool_access_tiering_policy)
         if coolness_period is not None:
             pulumi.set(__self__, "coolness_period", coolness_period)
         if data_protection is not None:
@@ -366,6 +370,18 @@ class CapacityPoolVolumeArgs:
     @cool_access_retrieval_policy.setter
     def cool_access_retrieval_policy(self, value: Optional[pulumi.Input[Union[str, 'CoolAccessRetrievalPolicy']]]):
         pulumi.set(self, "cool_access_retrieval_policy", value)
+
+    @property
+    @pulumi.getter(name="coolAccessTieringPolicy")
+    def cool_access_tiering_policy(self) -> Optional[pulumi.Input[Union[str, 'CoolAccessTieringPolicy']]]:
+        """
+        coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+        """
+        return pulumi.get(self, "cool_access_tiering_policy")
+
+    @cool_access_tiering_policy.setter
+    def cool_access_tiering_policy(self, value: Optional[pulumi.Input[Union[str, 'CoolAccessTieringPolicy']]]):
+        pulumi.set(self, "cool_access_tiering_policy", value)
 
     @property
     @pulumi.getter(name="coolnessPeriod")
@@ -784,6 +800,7 @@ class CapacityPoolVolume(pulumi.CustomResource):
                  capacity_pool_resource_id: Optional[pulumi.Input[str]] = None,
                  cool_access: Optional[pulumi.Input[bool]] = None,
                  cool_access_retrieval_policy: Optional[pulumi.Input[Union[str, 'CoolAccessRetrievalPolicy']]] = None,
+                 cool_access_tiering_policy: Optional[pulumi.Input[Union[str, 'CoolAccessTieringPolicy']]] = None,
                  coolness_period: Optional[pulumi.Input[int]] = None,
                  creation_token: Optional[pulumi.Input[str]] = None,
                  data_protection: Optional[pulumi.Input[Union['VolumePropertiesDataProtectionArgs', 'VolumePropertiesDataProtectionArgsDict']]] = None,
@@ -826,7 +843,7 @@ class CapacityPoolVolume(pulumi.CustomResource):
                  __props__=None):
         """
         Volume resource
-        Azure REST API version: 2024-07-01.
+        Azure REST API version: 2024-09-01.
 
         Other available API versions: 2021-10-01, 2024-07-01-preview.
 
@@ -841,6 +858,7 @@ class CapacityPoolVolume(pulumi.CustomResource):
                 Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
                 OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
                 Never - No client-driven data is pulled from cool tier to standard storage.
+        :param pulumi.Input[Union[str, 'CoolAccessTieringPolicy']] cool_access_tiering_policy: coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
         :param pulumi.Input[int] coolness_period: Specifies the number of days after which data that is not accessed by clients will be tiered.
         :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
         :param pulumi.Input[Union['VolumePropertiesDataProtectionArgs', 'VolumePropertiesDataProtectionArgsDict']] data_protection: DataProtection type volumes include an object containing details of the replication
@@ -888,7 +906,7 @@ class CapacityPoolVolume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Volume resource
-        Azure REST API version: 2024-07-01.
+        Azure REST API version: 2024-09-01.
 
         Other available API versions: 2021-10-01, 2024-07-01-preview.
 
@@ -913,6 +931,7 @@ class CapacityPoolVolume(pulumi.CustomResource):
                  capacity_pool_resource_id: Optional[pulumi.Input[str]] = None,
                  cool_access: Optional[pulumi.Input[bool]] = None,
                  cool_access_retrieval_policy: Optional[pulumi.Input[Union[str, 'CoolAccessRetrievalPolicy']]] = None,
+                 cool_access_tiering_policy: Optional[pulumi.Input[Union[str, 'CoolAccessTieringPolicy']]] = None,
                  coolness_period: Optional[pulumi.Input[int]] = None,
                  creation_token: Optional[pulumi.Input[str]] = None,
                  data_protection: Optional[pulumi.Input[Union['VolumePropertiesDataProtectionArgs', 'VolumePropertiesDataProtectionArgsDict']]] = None,
@@ -973,6 +992,7 @@ class CapacityPoolVolume(pulumi.CustomResource):
                 cool_access = False
             __props__.__dict__["cool_access"] = cool_access
             __props__.__dict__["cool_access_retrieval_policy"] = cool_access_retrieval_policy
+            __props__.__dict__["cool_access_tiering_policy"] = cool_access_tiering_policy
             __props__.__dict__["coolness_period"] = coolness_period
             if creation_token is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_token'")
@@ -1069,7 +1089,7 @@ class CapacityPoolVolume(pulumi.CustomResource):
             __props__.__dict__["t2_network"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["volume_group_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20170815:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20190501:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20190601:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20190701:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20190801:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20191001:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20191101:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200201:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200301:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200501:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200601:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200701:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200801:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200901:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20201101:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20201201:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20210201:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20210401:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20210601:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20210801:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20211001:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20220101:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20220301:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20220501:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20220901:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20221101:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20221101preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20230501:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20230501preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20230701:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20230701preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20231101:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20231101preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240101:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240301:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240301preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240501:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240501preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240701:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240701preview:CapacityPoolVolume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20170815:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20190501:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20190601:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20190701:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20190801:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20191001:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20191101:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200201:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200301:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200501:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200601:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200701:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200801:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20200901:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20201101:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20201201:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20210201:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20210401:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20210601:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20210801:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20211001:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20211001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220101:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20220301:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20220501:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20220901:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20221101:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20221101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20221101preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20221101preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20230501:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20230501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20230501preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20230501preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20230701:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20230701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20230701preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20230701preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20231101:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20231101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20231101preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20231101preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20240101:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20240301:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20240301preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240301preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20240501:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20240501preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240501preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20240701:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20240701preview:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240701preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20240901:CapacityPoolVolume"), pulumi.Alias(type_="azure-native:netapp/v20240901:Volume"), pulumi.Alias(type_="azure-native:netapp:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CapacityPoolVolume, __self__).__init__(
             'azure-native:netapp:CapacityPoolVolume',
@@ -1101,6 +1121,7 @@ class CapacityPoolVolume(pulumi.CustomResource):
         __props__.__dict__["clone_progress"] = None
         __props__.__dict__["cool_access"] = None
         __props__.__dict__["cool_access_retrieval_policy"] = None
+        __props__.__dict__["cool_access_tiering_policy"] = None
         __props__.__dict__["coolness_period"] = None
         __props__.__dict__["creation_token"] = None
         __props__.__dict__["data_protection"] = None
@@ -1223,6 +1244,14 @@ class CapacityPoolVolume(pulumi.CustomResource):
          Never - No client-driven data is pulled from cool tier to standard storage.
         """
         return pulumi.get(self, "cool_access_retrieval_policy")
+
+    @property
+    @pulumi.getter(name="coolAccessTieringPolicy")
+    def cool_access_tiering_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+        """
+        return pulumi.get(self, "cool_access_tiering_policy")
 
     @property
     @pulumi.getter(name="coolnessPeriod")

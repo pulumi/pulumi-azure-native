@@ -100,10 +100,6 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "ModuleName": "ContainerInstance",
-    "Detail": "expected no additions but found some"
-  },
-  {
     "ModuleName": "Contoso",
     "Detail": "expected tracking stable but found preview"
   },
@@ -398,10 +394,6 @@
   {
     "ModuleName": "ServiceNetworking",
     "Detail": "expected tracking preview but found stable"
-  },
-  {
-    "ModuleName": "ServiceNetworking",
-    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "SignalRService",

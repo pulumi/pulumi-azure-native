@@ -131,7 +131,7 @@ export class HypervSitesController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:HypervSitesController" }, { type: "azure-native:offazure/v20200707:HypervSitesController" }, { type: "azure-native:offazure/v20230606:HypervSitesController" }, { type: "azure-native:offazure/v20231001preview:HypervSitesController" }, { type: "azure-native:offazure:HypervSitesController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:HypervSitesController" }, { type: "azure-native:offazure/v20200707:HyperVSite" }, { type: "azure-native:offazure/v20200707:HypervSitesController" }, { type: "azure-native:offazure/v20230606:HypervSitesController" }, { type: "azure-native:offazure/v20231001preview:HypervSitesController" }, { type: "azure-native:offazure:HyperVSite" }, { type: "azure-native:offazure:HypervSitesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HypervSitesController.__pulumiType, name, resourceInputs, opts);
     }

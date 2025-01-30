@@ -108,7 +108,7 @@ export class PrivateLinkForAzureAd extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:aadiam/v20200301:PrivateLinkForAzureAd" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:aadiam/v20200301:PrivateLinkForAzureAd" }, { type: "azure-native:aadiam:PrivateLinkForAzureAd" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkForAzureAd.__pulumiType, name, resourceInputs, opts);
     }

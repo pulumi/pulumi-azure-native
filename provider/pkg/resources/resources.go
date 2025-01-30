@@ -271,7 +271,6 @@ var wellKnownModuleNames = map[string]string{
 
 type ModuleNaming struct {
 	ResolvedName           ModuleName
-	PreviousName           *ModuleName
 	SpecFolderName         string
 	NamespaceWithoutPrefix string
 	RpNamespace            string
@@ -296,10 +295,9 @@ func GetModuleName(majorVersion uint64, filePath, apiUri string) (ModuleNaming, 
 	// Start with extracting the namespace from the folder path. If the folder name is explicitly listed,
 	// use it as the module name. This is the new style we use for newer resources after 1.0. Older
 	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
-	if override, oldModule, hasOverride := getNameOverride(majorVersion, specFolderName, namespaceWithoutPrefixFromSpecFilePath); hasOverride {
+	if override, hasOverride := getNameOverride(majorVersion, specFolderName, namespaceWithoutPrefixFromSpecFilePath); hasOverride {
 		return ModuleNaming{
 			ResolvedName:           override,
-			PreviousName:           oldModule,
 			SpecFolderName:         specFolderName,
 			NamespaceWithoutPrefix: namespaceWithoutPrefixFromSpecFilePath,
 			RpNamespace:            namespace,
@@ -340,24 +338,23 @@ var moduleNameOverridesWithAliases = map[string]map[string]string{
 
 // getNameOverride returns a name override for a given folder name, and non-prefixed namespace.
 // The second return value is true if an override is found.
-func getNameOverride(majorVersion uint64, specFolderName, namespaceWithoutPrefix string) (ModuleName, *ModuleName, bool) {
+func getNameOverride(majorVersion uint64, specFolderName, namespaceWithoutPrefix string) (ModuleName, bool) {
 	// For the cases below, we use folder (SDK) moduleName for module names instead of the ARM moduleName.
 	if moduleName, ok := modulesNamedByFolder[specFolderName]; ok {
-		return moduleName, nil, true
+		return moduleName, true
 	}
 	// Disable additional rules for v2 and below.
 	// TODO: Remove after v3 release.
 	if majorVersion < 3 {
-		return "", nil, false
+		return "", false
 	}
 	// New rules for v3 and above which include aliases back to the original namespace.
 	if namespaceOverrides, ok := moduleNameOverridesWithAliases[namespaceWithoutPrefix]; ok {
 		if folderName, ok := namespaceOverrides[specFolderName]; ok {
-			oldModule := ModuleName(namespaceWithoutPrefix)
-			return ModuleName(folderName), &oldModule, true
+			return ModuleName(folderName), true
 		}
 	}
-	return "", nil, false
+	return "", false
 }
 
 // Identify the first segment of the path that contains a namespace.

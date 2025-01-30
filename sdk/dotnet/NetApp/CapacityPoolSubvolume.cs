@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Subvolume Information properties
-    /// Azure REST API version: 2024-07-01.
+    /// Azure REST API version: 2024-09-01.
     /// 
     /// Other available API versions: 2024-07-01-preview.
     /// </summary>
@@ -91,20 +91,38 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:CapacityPoolSubvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:CapacityPoolSubvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:Subvolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Subvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:CapacityPoolSubvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:Subvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:Subvolume" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

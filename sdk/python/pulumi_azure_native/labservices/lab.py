@@ -349,7 +349,7 @@ class Lab(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20211001preview:Lab"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:Lab"), pulumi.Alias(type_="azure-native:labservices/v20220801:Lab"), pulumi.Alias(type_="azure-native:labservices/v20230607:Lab")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20181015:Lab"), pulumi.Alias(type_="azure-native:labservices/v20211001preview:Lab"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:Lab"), pulumi.Alias(type_="azure-native:labservices/v20220801:Lab"), pulumi.Alias(type_="azure-native:labservices/v20230607:Lab")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Lab, __self__).__init__(
             'azure-native:labservices:Lab',

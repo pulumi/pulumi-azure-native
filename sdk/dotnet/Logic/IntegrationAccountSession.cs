@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Logic
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountSession" },
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:Session" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountSession" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountSession" },
                 },

@@ -27,10 +27,13 @@ class GetContainerGroupResult:
     """
     A container group.
     """
-    def __init__(__self__, confidential_compute_properties=None, containers=None, diagnostics=None, dns_config=None, encryption_properties=None, extensions=None, id=None, identity=None, image_registry_credentials=None, init_containers=None, instance_view=None, ip_address=None, location=None, name=None, os_type=None, priority=None, provisioning_state=None, restart_policy=None, secret_references=None, sku=None, subnet_ids=None, tags=None, type=None, volumes=None, zones=None):
+    def __init__(__self__, confidential_compute_properties=None, container_group_profile=None, containers=None, diagnostics=None, dns_config=None, encryption_properties=None, extensions=None, id=None, identity=None, image_registry_credentials=None, init_containers=None, instance_view=None, ip_address=None, is_created_from_standby_pool=None, location=None, name=None, os_type=None, priority=None, provisioning_state=None, restart_policy=None, sku=None, standby_pool_profile=None, subnet_ids=None, tags=None, type=None, volumes=None, zones=None):
         if confidential_compute_properties and not isinstance(confidential_compute_properties, dict):
             raise TypeError("Expected argument 'confidential_compute_properties' to be a dict")
         pulumi.set(__self__, "confidential_compute_properties", confidential_compute_properties)
+        if container_group_profile and not isinstance(container_group_profile, dict):
+            raise TypeError("Expected argument 'container_group_profile' to be a dict")
+        pulumi.set(__self__, "container_group_profile", container_group_profile)
         if containers and not isinstance(containers, list):
             raise TypeError("Expected argument 'containers' to be a list")
         pulumi.set(__self__, "containers", containers)
@@ -64,6 +67,9 @@ class GetContainerGroupResult:
         if ip_address and not isinstance(ip_address, dict):
             raise TypeError("Expected argument 'ip_address' to be a dict")
         pulumi.set(__self__, "ip_address", ip_address)
+        if is_created_from_standby_pool and not isinstance(is_created_from_standby_pool, bool):
+            raise TypeError("Expected argument 'is_created_from_standby_pool' to be a bool")
+        pulumi.set(__self__, "is_created_from_standby_pool", is_created_from_standby_pool)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -82,12 +88,12 @@ class GetContainerGroupResult:
         if restart_policy and not isinstance(restart_policy, str):
             raise TypeError("Expected argument 'restart_policy' to be a str")
         pulumi.set(__self__, "restart_policy", restart_policy)
-        if secret_references and not isinstance(secret_references, list):
-            raise TypeError("Expected argument 'secret_references' to be a list")
-        pulumi.set(__self__, "secret_references", secret_references)
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
+        if standby_pool_profile and not isinstance(standby_pool_profile, dict):
+            raise TypeError("Expected argument 'standby_pool_profile' to be a dict")
+        pulumi.set(__self__, "standby_pool_profile", standby_pool_profile)
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -111,6 +117,14 @@ class GetContainerGroupResult:
         The properties for confidential container group
         """
         return pulumi.get(self, "confidential_compute_properties")
+
+    @property
+    @pulumi.getter(name="containerGroupProfile")
+    def container_group_profile(self) -> Optional['outputs.ContainerGroupProfileReferenceDefinitionResponse']:
+        """
+        The reference container group profile properties.
+        """
+        return pulumi.get(self, "container_group_profile")
 
     @property
     @pulumi.getter
@@ -201,6 +215,14 @@ class GetContainerGroupResult:
         return pulumi.get(self, "ip_address")
 
     @property
+    @pulumi.getter(name="isCreatedFromStandbyPool")
+    def is_created_from_standby_pool(self) -> bool:
+        """
+        The flag indicating whether the container group is created by standby pool.
+        """
+        return pulumi.get(self, "is_created_from_standby_pool")
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
@@ -218,7 +240,7 @@ class GetContainerGroupResult:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> str:
+    def os_type(self) -> Optional[str]:
         """
         The operating system type required by the containers in the container group.
         """
@@ -252,20 +274,20 @@ class GetContainerGroupResult:
         return pulumi.get(self, "restart_policy")
 
     @property
-    @pulumi.getter(name="secretReferences")
-    def secret_references(self) -> Optional[Sequence['outputs.SecretReferenceResponse']]:
-        """
-        The secret references that will be referenced within the container group.
-        """
-        return pulumi.get(self, "secret_references")
-
-    @property
     @pulumi.getter
     def sku(self) -> Optional[str]:
         """
         The SKU for a container group.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="standbyPoolProfile")
+    def standby_pool_profile(self) -> Optional['outputs.StandbyPoolProfileDefinitionResponse']:
+        """
+        The reference standby pool profile properties.
+        """
+        return pulumi.get(self, "standby_pool_profile")
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -315,6 +337,7 @@ class AwaitableGetContainerGroupResult(GetContainerGroupResult):
             yield self
         return GetContainerGroupResult(
             confidential_compute_properties=self.confidential_compute_properties,
+            container_group_profile=self.container_group_profile,
             containers=self.containers,
             diagnostics=self.diagnostics,
             dns_config=self.dns_config,
@@ -326,14 +349,15 @@ class AwaitableGetContainerGroupResult(GetContainerGroupResult):
             init_containers=self.init_containers,
             instance_view=self.instance_view,
             ip_address=self.ip_address,
+            is_created_from_standby_pool=self.is_created_from_standby_pool,
             location=self.location,
             name=self.name,
             os_type=self.os_type,
             priority=self.priority,
             provisioning_state=self.provisioning_state,
             restart_policy=self.restart_policy,
-            secret_references=self.secret_references,
             sku=self.sku,
+            standby_pool_profile=self.standby_pool_profile,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
             type=self.type,
@@ -346,13 +370,13 @@ def get_container_group(container_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerGroupResult:
     """
     Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-    Azure REST API version: 2024-10-01-preview.
+    Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2023-05-01, 2024-05-01-preview, 2024-11-01-preview.
+    Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2023-05-01, 2024-11-01-preview.
 
 
     :param str container_group_name: The name of the container group.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['containerGroupName'] = container_group_name
@@ -362,6 +386,7 @@ def get_container_group(container_group_name: Optional[str] = None,
 
     return AwaitableGetContainerGroupResult(
         confidential_compute_properties=pulumi.get(__ret__, 'confidential_compute_properties'),
+        container_group_profile=pulumi.get(__ret__, 'container_group_profile'),
         containers=pulumi.get(__ret__, 'containers'),
         diagnostics=pulumi.get(__ret__, 'diagnostics'),
         dns_config=pulumi.get(__ret__, 'dns_config'),
@@ -373,14 +398,15 @@ def get_container_group(container_group_name: Optional[str] = None,
         init_containers=pulumi.get(__ret__, 'init_containers'),
         instance_view=pulumi.get(__ret__, 'instance_view'),
         ip_address=pulumi.get(__ret__, 'ip_address'),
+        is_created_from_standby_pool=pulumi.get(__ret__, 'is_created_from_standby_pool'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         os_type=pulumi.get(__ret__, 'os_type'),
         priority=pulumi.get(__ret__, 'priority'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         restart_policy=pulumi.get(__ret__, 'restart_policy'),
-        secret_references=pulumi.get(__ret__, 'secret_references'),
         sku=pulumi.get(__ret__, 'sku'),
+        standby_pool_profile=pulumi.get(__ret__, 'standby_pool_profile'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
@@ -391,13 +417,13 @@ def get_container_group_output(container_group_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerGroupResult]:
     """
     Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-    Azure REST API version: 2024-10-01-preview.
+    Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2023-05-01, 2024-05-01-preview, 2024-11-01-preview.
+    Other available API versions: 2021-03-01, 2021-07-01, 2023-02-01-preview, 2023-05-01, 2024-11-01-preview.
 
 
     :param str container_group_name: The name of the container group.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['containerGroupName'] = container_group_name
@@ -406,6 +432,7 @@ def get_container_group_output(container_group_name: Optional[pulumi.Input[str]]
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerinstance:getContainerGroup', __args__, opts=opts, typ=GetContainerGroupResult)
     return __ret__.apply(lambda __response__: GetContainerGroupResult(
         confidential_compute_properties=pulumi.get(__response__, 'confidential_compute_properties'),
+        container_group_profile=pulumi.get(__response__, 'container_group_profile'),
         containers=pulumi.get(__response__, 'containers'),
         diagnostics=pulumi.get(__response__, 'diagnostics'),
         dns_config=pulumi.get(__response__, 'dns_config'),
@@ -417,14 +444,15 @@ def get_container_group_output(container_group_name: Optional[pulumi.Input[str]]
         init_containers=pulumi.get(__response__, 'init_containers'),
         instance_view=pulumi.get(__response__, 'instance_view'),
         ip_address=pulumi.get(__response__, 'ip_address'),
+        is_created_from_standby_pool=pulumi.get(__response__, 'is_created_from_standby_pool'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         os_type=pulumi.get(__response__, 'os_type'),
         priority=pulumi.get(__response__, 'priority'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         restart_policy=pulumi.get(__response__, 'restart_policy'),
-        secret_references=pulumi.get(__response__, 'secret_references'),
         sku=pulumi.get(__response__, 'sku'),
+        standby_pool_profile=pulumi.get(__response__, 'standby_pool_profile'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),

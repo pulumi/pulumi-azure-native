@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Import collector resource.
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export class AssessmentProjectsImportCollectorsOperation extends pulumi.CustomResource {
     /**
@@ -104,7 +106,7 @@ export class AssessmentProjectsImportCollectorsOperation extends pulumi.CustomRe
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsImportCollectorsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsImportCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsImportCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsImportCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsImportCollectorsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsImportCollectorsOperation" }, { type: "azure-native:migrate/v20191001:ImportCollector" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsImportCollectorsOperation" }, { type: "azure-native:migrate/v20230315:ImportCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsImportCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:ImportCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsImportCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:ImportCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsImportCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:ImportCollectorsOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentProjectsImportCollectorsOperation" }, { type: "azure-native:migrate/v20240101preview:ImportCollectorsOperation" }, { type: "azure-native:migrate:ImportCollector" }, { type: "azure-native:migrate:ImportCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsImportCollectorsOperation.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Quota Rule of a Volume
-    /// Azure REST API version: 2024-07-01.
+    /// Azure REST API version: 2024-09-01.
     /// 
     /// Other available API versions: 2024-07-01-preview.
     /// </summary>
@@ -102,20 +102,38 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:CapacityPoolVolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:CapacityPoolVolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:VolumeQuotaRule" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:VolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:CapacityPoolVolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:VolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:VolumeQuotaRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

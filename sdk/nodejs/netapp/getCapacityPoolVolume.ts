@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of the specified volume
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2021-10-01, 2024-07-01-preview.
  */
@@ -81,6 +81,10 @@ export interface GetCapacityPoolVolumeResult {
      *  Never - No client-driven data is pulled from cool tier to standard storage.
      */
     readonly coolAccessRetrievalPolicy?: string;
+    /**
+     * coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+     */
+    readonly coolAccessTieringPolicy?: string;
     /**
      * Specifies the number of days after which data that is not accessed by clients will be tiered.
      */
@@ -301,7 +305,7 @@ export interface GetCapacityPoolVolumeResult {
 }
 /**
  * Get the details of the specified volume
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2021-10-01, 2024-07-01-preview.
  */

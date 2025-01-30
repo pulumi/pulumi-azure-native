@@ -5,15 +5,15 @@
 import * as v20211001 from "./v20211001";
 import * as v20220501 from "./v20220501";
 import * as v20221101 from "./v20221101";
-import * as v20240701 from "./v20240701";
 import * as v20240701preview from "./v20240701preview";
+import * as v20240901 from "./v20240901";
 
 export {
     v20211001,
     v20220501,
     v20221101,
-    v20240701,
     v20240701preview,
+    v20240901,
 };
 
 export const ApplicationType = {
@@ -65,6 +65,16 @@ export const CoolAccessRetrievalPolicy = {
  *  Never - No client-driven data is pulled from cool tier to standard storage.
  */
 export type CoolAccessRetrievalPolicy = (typeof CoolAccessRetrievalPolicy)[keyof typeof CoolAccessRetrievalPolicy];
+
+export const CoolAccessTieringPolicy = {
+    Auto: "Auto",
+    SnapshotOnly: "SnapshotOnly",
+} as const;
+
+/**
+ * coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+ */
+export type CoolAccessTieringPolicy = (typeof CoolAccessTieringPolicy)[keyof typeof CoolAccessTieringPolicy];
 
 export const EnableSubvolumes = {
     /**

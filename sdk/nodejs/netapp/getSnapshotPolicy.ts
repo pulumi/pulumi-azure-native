@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a snapshot Policy
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2022-11-01, 2024-07-01-preview.
  */
@@ -96,7 +96,7 @@ export interface GetSnapshotPolicyResult {
 }
 /**
  * Get a snapshot Policy
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2022-11-01, 2024-07-01-preview.
  */

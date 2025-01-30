@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a WebAppCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Task<GetAssessmentProjectsWebAppCollectorOperationResult> InvokeAsync(GetAssessmentProjectsWebAppCollectorOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentProjectsWebAppCollectorOperationResult>("azure-native:migrate:getAssessmentProjectsWebAppCollectorOperation", args ?? new GetAssessmentProjectsWebAppCollectorOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a WebAppCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsWebAppCollectorOperationResult> Invoke(GetAssessmentProjectsWebAppCollectorOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsWebAppCollectorOperationResult>("azure-native:migrate:getAssessmentProjectsWebAppCollectorOperation", args ?? new GetAssessmentProjectsWebAppCollectorOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a WebAppCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsWebAppCollectorOperationResult> Invoke(GetAssessmentProjectsWebAppCollectorOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsWebAppCollectorOperationResult>("azure-native:migrate:getAssessmentProjectsWebAppCollectorOperation", args ?? new GetAssessmentProjectsWebAppCollectorOperationInvokeArgs(), options.WithDefaults());

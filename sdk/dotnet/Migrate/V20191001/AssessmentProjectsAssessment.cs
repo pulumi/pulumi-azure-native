@@ -64,11 +64,20 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:Assessment" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsAssessment" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsAssessment" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsAssessment" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentProjectsAssessment" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentProjectsAssessment" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:Assessment" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:AssessmentProjectsAssessment" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:AssessmentsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -49,6 +49,12 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public InputUnion<string, Pulumi.AzureNative.NetApp.CoolAccessRetrievalPolicy>? CoolAccessRetrievalPolicy { get; set; }
 
         /// <summary>
+        /// coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+        /// </summary>
+        [Input("coolAccessTieringPolicy")]
+        public InputUnion<string, Pulumi.AzureNative.NetApp.CoolAccessTieringPolicy>? CoolAccessTieringPolicy { get; set; }
+
+        /// <summary>
         /// Specifies the number of days after which data that is not accessed by clients will be tiered.
         /// </summary>
         [Input("coolnessPeriod")]

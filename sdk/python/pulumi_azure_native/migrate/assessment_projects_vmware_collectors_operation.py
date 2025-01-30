@@ -135,7 +135,9 @@ class AssessmentProjectsVmwareCollectorsOperation(pulumi.CustomResource):
                  __props__=None):
         """
         VMware collector resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +156,9 @@ class AssessmentProjectsVmwareCollectorsOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VMware collector resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param AssessmentProjectsVmwareCollectorsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -201,7 +205,7 @@ class AssessmentProjectsVmwareCollectorsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsVmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsVmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsVmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsVmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsVmwareCollectorsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsVmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20191001:VMwareCollector"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsVmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:VmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsVmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:VmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsVmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:VmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsVmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:VmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsVmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:VmwareCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate:VMwareCollector"), pulumi.Alias(type_="azure-native:migrate:VmwareCollectorsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsVmwareCollectorsOperation, __self__).__init__(
             'azure-native:migrate:AssessmentProjectsVmwareCollectorsOperation',

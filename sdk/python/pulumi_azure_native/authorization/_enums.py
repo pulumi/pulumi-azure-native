@@ -130,6 +130,10 @@ class OverrideKind(str, Enum):
     """
     It will override the policy effect type.
     """
+    DEFINITION_VERSION = "definitionVersion"
+    """
+    It will override the definition version property value of the policy assignment.
+    """
 
 
 class ParameterType(str, Enum):

@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Import collector resource.
-    /// Azure REST API version: 2023-09-09-preview.
+    /// Azure REST API version: 2024-01-01-preview.
+    /// 
+    /// Other available API versions: 2023-09-09-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AssessmentProjectsImportCollectorsOperation")]
     public partial class AssessmentProjectsImportCollectorsOperation : global::Pulumi.CustomResource
@@ -84,10 +86,19 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:AssessmentProjectsImportCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:ImportCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsImportCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsImportCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsImportCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentProjectsImportCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:ImportCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentProjectsImportCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:ImportCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:ImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:ImportCollectorsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

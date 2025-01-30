@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a Assessment
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Task<GetAssessmentProjectsAssessmentsOperationResult> InvokeAsync(GetAssessmentProjectsAssessmentsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentProjectsAssessmentsOperationResult>("azure-native:migrate:getAssessmentProjectsAssessmentsOperation", args ?? new GetAssessmentProjectsAssessmentsOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Assessment
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsAssessmentsOperationResult> Invoke(GetAssessmentProjectsAssessmentsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsAssessmentsOperationResult>("azure-native:migrate:getAssessmentProjectsAssessmentsOperation", args ?? new GetAssessmentProjectsAssessmentsOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Assessment
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsAssessmentsOperationResult> Invoke(GetAssessmentProjectsAssessmentsOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsAssessmentsOperationResult>("azure-native:migrate:getAssessmentProjectsAssessmentsOperation", args ?? new GetAssessmentProjectsAssessmentsOperationInvokeArgs(), options.WithDefaults());

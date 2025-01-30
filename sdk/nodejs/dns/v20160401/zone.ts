@@ -117,7 +117,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["zoneType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dns/v20150504preview:Zone" }, { type: "azure-native:dns/v20170901:Zone" }, { type: "azure-native:dns/v20171001:Zone" }, { type: "azure-native:dns/v20180301preview:Zone" }, { type: "azure-native:dns/v20180501:Zone" }, { type: "azure-native:dns/v20230701preview:Zone" }, { type: "azure-native:dns:Zone" }, { type: "azure-native:network/v20150504preview:Zone" }, { type: "azure-native:network/v20160401:Zone" }, { type: "azure-native:network/v20170901:Zone" }, { type: "azure-native:network/v20171001:Zone" }, { type: "azure-native:network/v20180301preview:Zone" }, { type: "azure-native:network/v20180501:Zone" }, { type: "azure-native:network/v20230701preview:Zone" }, { type: "azure-native:network:Zone" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dns/v20150504preview:Zone" }, { type: "azure-native:dns/v20170901:Zone" }, { type: "azure-native:dns/v20171001:Zone" }, { type: "azure-native:dns/v20180301preview:Zone" }, { type: "azure-native:dns/v20180501:Zone" }, { type: "azure-native:dns/v20230701preview:Zone" }, { type: "azure-native:dns:Zone" }, { type: "azure-native:network/v20180501:Zone" }, { type: "azure-native:network/v20230701preview:Zone" }, { type: "azure-native:network:Zone" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Zone.__pulumiType, name, resourceInputs, opts);
     }

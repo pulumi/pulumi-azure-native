@@ -204,7 +204,7 @@ class PolicySetDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         The policy set definition.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 2.x: 2021-06-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         Other available API versions: 2019-06-01, 2021-06-01, 2025-01-01.
 
@@ -229,7 +229,7 @@ class PolicySetDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy set definition.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 2.x: 2021-06-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         Other available API versions: 2019-06-01, 2021-06-01, 2025-01-01.
 

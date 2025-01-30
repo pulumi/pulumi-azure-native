@@ -2119,6 +2119,8 @@ class VolumeGroupVolumePropertiesResponse(dict):
             suggest = "cool_access"
         elif key == "coolAccessRetrievalPolicy":
             suggest = "cool_access_retrieval_policy"
+        elif key == "coolAccessTieringPolicy":
+            suggest = "cool_access_tiering_policy"
         elif key == "coolnessPeriod":
             suggest = "coolness_period"
         elif key == "dataProtection":
@@ -2219,6 +2221,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
                  capacity_pool_resource_id: Optional[str] = None,
                  cool_access: Optional[bool] = None,
                  cool_access_retrieval_policy: Optional[str] = None,
+                 cool_access_tiering_policy: Optional[str] = None,
                  coolness_period: Optional[int] = None,
                  data_protection: Optional['outputs.VolumePropertiesResponseDataProtection'] = None,
                  default_group_quota_in_ki_bs: Optional[float] = None,
@@ -2284,6 +2287,7 @@ class VolumeGroupVolumePropertiesResponse(dict):
                 Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
                 OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
                 Never - No client-driven data is pulled from cool tier to standard storage.
+        :param str cool_access_tiering_policy: coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
         :param int coolness_period: Specifies the number of days after which data that is not accessed by clients will be tiered.
         :param 'VolumePropertiesResponseDataProtection' data_protection: DataProtection type volumes include an object containing details of the replication
         :param float default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
@@ -2357,6 +2361,8 @@ class VolumeGroupVolumePropertiesResponse(dict):
             pulumi.set(__self__, "cool_access", cool_access)
         if cool_access_retrieval_policy is not None:
             pulumi.set(__self__, "cool_access_retrieval_policy", cool_access_retrieval_policy)
+        if cool_access_tiering_policy is not None:
+            pulumi.set(__self__, "cool_access_tiering_policy", cool_access_tiering_policy)
         if coolness_period is not None:
             pulumi.set(__self__, "coolness_period", coolness_period)
         if data_protection is not None:
@@ -2666,6 +2672,14 @@ class VolumeGroupVolumePropertiesResponse(dict):
          Never - No client-driven data is pulled from cool tier to standard storage.
         """
         return pulumi.get(self, "cool_access_retrieval_policy")
+
+    @property
+    @pulumi.getter(name="coolAccessTieringPolicy")
+    def cool_access_tiering_policy(self) -> Optional[str]:
+        """
+        coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+        """
+        return pulumi.get(self, "cool_access_tiering_policy")
 
     @property
     @pulumi.getter(name="coolnessPeriod")

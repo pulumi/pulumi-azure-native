@@ -316,7 +316,7 @@ export class AssessmentProjectsSqlAssessmentV2Operation extends pulumi.CustomRes
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AssessmentProjectsSqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsSqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsSqlAssessmentV2Operation" }, { type: "azure-native:migrate:AssessmentProjectsSqlAssessmentV2Operation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AssessmentProjectsSqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20230315:SqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsSqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20230401preview:SqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsSqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20230501preview:SqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20230909preview:SqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20240101preview:AssessmentProjectsSqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20240101preview:SqlAssessmentV2Operation" }, { type: "azure-native:migrate:AssessmentProjectsSqlAssessmentV2Operation" }, { type: "azure-native:migrate:SqlAssessmentV2Operation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsSqlAssessmentV2Operation.__pulumiType, name, resourceInputs, opts);
     }

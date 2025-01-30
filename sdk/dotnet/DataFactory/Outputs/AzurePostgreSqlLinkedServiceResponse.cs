@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
+        /// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? AzureCloudType;
+        /// <summary>
         /// The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer.
         /// </summary>
         public readonly object? CommandTimeout;
@@ -32,6 +36,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
         public readonly object? ConnectionString;
+        /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
         /// <summary>
         /// Database name for connection. Type: string.
         /// </summary>
@@ -69,9 +77,33 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? Server;
         /// <summary>
+        /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? ServicePrincipalCredentialType;
+        /// <summary>
+        /// Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalEmbeddedCert;
+        /// <summary>
+        /// Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalEmbeddedCertPassword;
+        /// <summary>
+        /// The ID of the service principal used to authenticate against Azure Database for PostgreSQL Flexible server. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? ServicePrincipalId;
+        /// <summary>
+        /// The key of the service principal used to authenticate against Azure Database for PostgreSQL Flexible server.
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalKey;
+        /// <summary>
         /// SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer.
         /// </summary>
         public readonly object? SslMode;
+        /// <summary>
+        /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Tenant;
         /// <summary>
         /// The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. Type: integer.
         /// </summary>
@@ -102,11 +134,15 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private AzurePostgreSqlLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
+            object? azureCloudType,
+
             object? commandTimeout,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             object? connectionString,
+
+            Outputs.CredentialReferenceResponse? credential,
 
             object? database,
 
@@ -126,7 +162,19 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? server,
 
+            object? servicePrincipalCredentialType,
+
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalEmbeddedCert,
+
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalEmbeddedCertPassword,
+
+            object? servicePrincipalId,
+
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
+
             object? sslMode,
+
+            object? tenant,
 
             object? timeout,
 
@@ -141,9 +189,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             string? version)
         {
             Annotations = annotations;
+            AzureCloudType = azureCloudType;
             CommandTimeout = commandTimeout;
             ConnectVia = connectVia;
             ConnectionString = connectionString;
+            Credential = credential;
             Database = database;
             Description = description;
             Encoding = encoding;
@@ -153,7 +203,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Port = port;
             ReadBufferSize = readBufferSize;
             Server = server;
+            ServicePrincipalCredentialType = servicePrincipalCredentialType;
+            ServicePrincipalEmbeddedCert = servicePrincipalEmbeddedCert;
+            ServicePrincipalEmbeddedCertPassword = servicePrincipalEmbeddedCertPassword;
+            ServicePrincipalId = servicePrincipalId;
+            ServicePrincipalKey = servicePrincipalKey;
             SslMode = sslMode;
+            Tenant = tenant;
             Timeout = timeout;
             Timezone = timezone;
             TrustServerCertificate = trustServerCertificate;

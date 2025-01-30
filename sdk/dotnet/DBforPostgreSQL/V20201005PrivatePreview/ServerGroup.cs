@@ -178,8 +178,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:ServerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230302preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230302preview:ServerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:ServerGroup" },
                 },
             };

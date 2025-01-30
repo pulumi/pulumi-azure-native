@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// NetApp account resource
-    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2022-11-01.
+    /// Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2022-11-01.
     /// 
     /// Other available API versions: 2022-05-01, 2022-11-01, 2024-07-01-preview.
     /// </summary>
@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -9661,7 +9661,8 @@
       "2023-12-13-preview",
       "2024-03-26-preview",
       "2024-04-04-preview",
-      "2024-10-19"
+      "2024-10-19",
+      "2025-01-21"
     ]
   },
   "DevSpaces": {
@@ -12368,7 +12369,8 @@
   },
   "Fabric": {
     "FabricCapacity": [
-      "2023-11-01"
+      "2023-11-01",
+      "2025-01-15-preview"
     ]
   },
   "Features": {
@@ -15447,7 +15449,8 @@
     "FederatedIdentityCredential": [
       "2022-01-31-preview",
       "2023-01-31",
-      "2023-07-31-preview"
+      "2023-07-31-preview",
+      "2024-11-30"
     ],
     "UserAssignedIdentity": [
       "2015-08-31-preview",
@@ -15455,7 +15458,8 @@
       "2021-09-30-preview",
       "2022-01-31-preview",
       "2023-01-31",
-      "2023-07-31-preview"
+      "2023-07-31-preview",
+      "2024-11-30"
     ],
     "listUserAssignedIdentityAssociatedResources": [
       "2021-09-30-preview",
@@ -15960,7 +15964,8 @@
     "AssessmentProjectsAksAssessmentOperation": [
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsAssessment": [
       "2019-10-01"
@@ -15969,18 +15974,21 @@
       "2023-03-15",
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsAvsAssessmentsOperation": [
       "2023-03-15",
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsBusinessCaseOperation": [
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsGroup": [
       "2019-10-01"
@@ -15989,7 +15997,8 @@
       "2023-03-15",
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsHyperVCollector": [
       "2019-10-01"
@@ -15998,7 +16007,8 @@
       "2023-03-15",
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsImportCollector": [
       "2019-10-01"
@@ -16007,13 +16017,15 @@
       "2023-03-15",
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsOperation": [
       "2023-03-15",
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsPrivateEndpointConnection": [
       "2019-10-01"
@@ -16022,7 +16034,8 @@
       "2023-03-15",
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsProject": [
       "2019-10-01"
@@ -16034,19 +16047,22 @@
       "2023-03-15",
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsSqlAssessmentV2Operation": [
       "2023-03-15",
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsSqlCollectorOperation": [
       "2023-03-15",
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsVMwareCollector": [
       "2019-10-01"
@@ -16055,17 +16071,20 @@
       "2023-03-15",
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsWebAppAssessmentV2Operation": [
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "AssessmentProjectsWebAppCollectorOperation": [
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "Group": [
       "2017-11-11-preview",
@@ -16124,7 +16143,8 @@
     "getAssessmentProjectsBusinessCaseOperationReportDownloadUrl": [
       "2023-04-01-preview",
       "2023-05-01-preview",
-      "2023-09-09-preview"
+      "2023-09-09-preview",
+      "2024-01-01-preview"
     ],
     "getProjectKeys": [
       "2017-11-11-preview",
@@ -16371,7 +16391,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "Backup": [
       "2022-11-01-preview",
@@ -16385,7 +16406,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "BackupPolicy": [
       "2020-05-01",
@@ -16419,7 +16441,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "BackupVault": [
       "2022-11-01-preview",
@@ -16433,7 +16456,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "CapacityPoolBackup": [
       "2020-05-01",
@@ -16496,7 +16520,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "CapacityPoolSnapshot": [
       "2017-08-15",
@@ -16539,7 +16564,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "CapacityPoolSubvolume": [
       "2021-10-01",
@@ -16561,7 +16587,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "CapacityPoolVolume": [
       "2017-08-15",
@@ -16604,7 +16631,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "CapacityPoolVolumeQuotaRule": [
       "2022-01-01",
@@ -16625,7 +16653,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "SnapshotPolicy": [
       "2020-05-01",
@@ -16659,7 +16688,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "VolumeGroup": [
       "2021-08-01",
@@ -16682,13 +16712,15 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "getAccountChangeKeyVaultInformation": [
       "2023-11-01-preview",
       "2024-03-01-preview",
       "2024-05-01-preview",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "getCapacityPoolSubvolumeMetadata": [
       "2021-10-01",
@@ -16710,7 +16742,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "getCapacityPoolVolumeGroupIdForLdapUser": [
       "2022-11-01",
@@ -16727,7 +16760,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ],
     "listCapacityPoolVolumeQuotaReport": [
       "2024-03-01-preview",
@@ -16753,7 +16787,8 @@
       "2024-05-01",
       "2024-05-01-preview",
       "2024-07-01",
-      "2024-07-01-preview"
+      "2024-07-01-preview",
+      "2024-09-01"
     ]
   },
   "Network": {

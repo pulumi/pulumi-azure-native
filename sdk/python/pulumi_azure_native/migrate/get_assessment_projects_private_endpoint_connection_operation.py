@@ -140,7 +140,9 @@ def get_assessment_projects_private_endpoint_connection_operation(private_endpoi
                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentProjectsPrivateEndpointConnectionOperationResult:
     """
     Get a PrivateEndpointConnection
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str private_endpoint_connection_name: Private endpoint connection ARM name
@@ -169,7 +171,9 @@ def get_assessment_projects_private_endpoint_connection_operation_output(private
                                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentProjectsPrivateEndpointConnectionOperationResult]:
     """
     Get a PrivateEndpointConnection
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str private_endpoint_connection_name: Private endpoint connection ARM name

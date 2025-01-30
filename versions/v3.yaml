@@ -1288,28 +1288,28 @@ Authorization:
         ResourceUri: /{scope}/providers/Microsoft.Authorization/locks/{lockName}
         RpNamespace: Microsoft.Authorization
     PolicyAssignment:
-        ApiVersion: "2024-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-04-01/policyAssignments.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policyAssignments.json
         ResourceUri: /{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}
         RpNamespace: Microsoft.Authorization
     PolicyDefinition:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policyDefinitions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policyDefinitions.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}
         RpNamespace: Microsoft.Authorization
     PolicyDefinitionAtManagementGroup:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policyDefinitions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policyDefinitions.json
         ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}
         RpNamespace: Microsoft.Authorization
     PolicyDefinitionVersion:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policyDefinitionVersions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policyDefinitionVersions.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}/versions/{policyDefinitionVersion}
         RpNamespace: Microsoft.Authorization
     PolicyDefinitionVersionAtManagementGroup:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policyDefinitionVersions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policyDefinitionVersions.json
         ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}/versions/{policyDefinitionVersion}
         RpNamespace: Microsoft.Authorization
     PolicyExemption:
@@ -1318,23 +1318,23 @@ Authorization:
         ResourceUri: /{scope}/providers/Microsoft.Authorization/policyExemptions/{policyExemptionName}
         RpNamespace: Microsoft.Authorization
     PolicySetDefinition:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policySetDefinitions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policySetDefinitions.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}
         RpNamespace: Microsoft.Authorization
     PolicySetDefinitionAtManagementGroup:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policySetDefinitions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policySetDefinitions.json
         ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}
         RpNamespace: Microsoft.Authorization
     PolicySetDefinitionVersion:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policySetDefinitionVersions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policySetDefinitionVersions.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}/versions/{policyDefinitionVersion}
         RpNamespace: Microsoft.Authorization
     PolicySetDefinitionVersionAtManagementGroup:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policySetDefinitionVersions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policySetDefinitionVersions.json
         ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}/versions/{policyDefinitionVersion}
         RpNamespace: Microsoft.Authorization
     PrivateLinkAssociation:
@@ -1393,33 +1393,33 @@ Authorization:
         ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Authorization/variables/{variableName}/values/{variableValueName}
         RpNamespace: Microsoft.Authorization
     listPolicyDefinitionVersionAll:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policyDefinitionVersions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policyDefinitionVersions.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/listPolicyDefinitionVersions
         RpNamespace: Microsoft.Authorization
     listPolicyDefinitionVersionAllAtManagementGroup:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policyDefinitionVersions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policyDefinitionVersions.json
         ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/Microsoft.Authorization/listPolicyDefinitionVersions
         RpNamespace: Microsoft.Authorization
     listPolicyDefinitionVersionAllBuiltins:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policyDefinitionVersions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policyDefinitionVersions.json
         ResourceUri: /providers/Microsoft.Authorization/listPolicyDefinitionVersions
         RpNamespace: Microsoft.Authorization
     listPolicySetDefinitionVersionAll:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policySetDefinitionVersions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policySetDefinitionVersions.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/listPolicySetDefinitionVersions
         RpNamespace: Microsoft.Authorization
     listPolicySetDefinitionVersionAllAtManagementGroup:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policySetDefinitionVersions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policySetDefinitionVersions.json
         ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/Microsoft.Authorization/listPolicySetDefinitionVersions
         RpNamespace: Microsoft.Authorization
     listPolicySetDefinitionVersionAllBuiltins:
-        ApiVersion: "2023-04-01"
-        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policySetDefinitionVersions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policySetDefinitionVersions.json
         ResourceUri: /providers/Microsoft.Authorization/listPolicySetDefinitionVersions
         RpNamespace: Microsoft.Authorization
 Automanage:
@@ -3523,19 +3523,14 @@ Consumption:
         RpNamespace: Microsoft.Consumption
 ContainerInstance:
     ContainerGroup:
-        ApiVersion: 2024-10-01-preview
-        SpecFilePath: specification/containerinstance/resource-manager/Microsoft.ContainerInstance/preview/2024-10-01-preview/containerInstance.json
+        ApiVersion: 2024-05-01-preview
+        SpecFilePath: specification/containerinstance/resource-manager/Microsoft.ContainerInstance/preview/2024-05-01-preview/containerInstance.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}
         RpNamespace: Microsoft.ContainerInstance
     ContainerGroupProfile:
         ApiVersion: 2024-05-01-preview
         SpecFilePath: specification/containerinstance/resource-manager/Microsoft.ContainerInstance/preview/2024-05-01-preview/containerInstance.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}
-        RpNamespace: Microsoft.ContainerInstance
-    NGroup:
-        ApiVersion: 2024-09-01-preview
-        SpecFilePath: specification/containerinstance/resource-manager/Microsoft.ContainerInstance/preview/2024-09-01-preview/containerInstance.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/ngroups/{ngroupsName}
         RpNamespace: Microsoft.ContainerInstance
 ContainerRegistry:
     AgentPool:
@@ -8181,8 +8176,8 @@ Media:
         RpNamespace: Microsoft.Media
 Migrate:
     AssessmentProjectsAksAssessmentOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/aksAssessments/{assessmentName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsAssessment:
@@ -8191,18 +8186,18 @@ Migrate:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsAssessmentsOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsAvsAssessmentsOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/avsAssessments/{assessmentName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsBusinessCaseOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/businessCases/{businessCaseName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsGroup:
@@ -8211,8 +8206,8 @@ Migrate:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsGroupsOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsHyperVCollector:
@@ -8221,8 +8216,8 @@ Migrate:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/hypervcollectors/{hyperVCollectorName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsHypervCollectorsOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/hypervcollectors/{hypervCollectorName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsImportCollector:
@@ -8231,13 +8226,13 @@ Migrate:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importcollectors/{importCollectorName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsImportCollectorsOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importcollectors/{importCollectorName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsPrivateEndpointConnection:
@@ -8246,8 +8241,8 @@ Migrate:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentprojects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsPrivateEndpointConnectionOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsProject:
@@ -8261,18 +8256,18 @@ Migrate:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/servercollectors/{serverCollectorName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsServerCollectorsOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/servercollectors/{serverCollectorName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsSqlAssessmentV2Operation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/sqlAssessments/{assessmentName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsSqlCollectorOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/sqlcollectors/{collectorName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsVMwareCollector:
@@ -8281,18 +8276,18 @@ Migrate:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/vmwarecollectors/{vmWareCollectorName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsVmwareCollectorsOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/vmwarecollectors/{vmWareCollectorName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsWebAppAssessmentV2Operation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/webAppAssessments/{assessmentName}
         RpNamespace: Microsoft.Migrate
     AssessmentProjectsWebAppCollectorOperation:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppCollectors/{collectorName}
         RpNamespace: Microsoft.Migrate
     MigrateAgent:
@@ -8346,8 +8341,8 @@ Migrate:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/workloadInstances/{workloadInstanceName}
         RpNamespace: Microsoft.Migrate
     getAssessmentProjectsBusinessCaseOperationReportDownloadUrl:
-        ApiVersion: 2023-09-09-preview
-        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2023-09-09-preview/migrate.json
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/businessCases/{businessCaseName}/getReportDownloadUrl
         RpNamespace: Microsoft.Migrate
     getSolutionConfig:
@@ -8501,23 +8496,23 @@ Monitor:
         RpNamespace: Microsoft.Monitor
 NetApp:
     Account:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}
         RpNamespace: Microsoft.NetApp
     Backup:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/backupVaults/{backupVaultName}/backups/{backupName}
         RpNamespace: Microsoft.NetApp
     BackupPolicy:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/backupPolicies/{backupPolicyName}
         RpNamespace: Microsoft.NetApp
     BackupVault:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/backupVaults/{backupVaultName}
         RpNamespace: Microsoft.NetApp
     CapacityPoolBackup:
@@ -8526,53 +8521,53 @@ NetApp:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/backups/{backupName}
         RpNamespace: Microsoft.NetApp
     CapacityPoolPool:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}
         RpNamespace: Microsoft.NetApp
     CapacityPoolSnapshot:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}
         RpNamespace: Microsoft.NetApp
     CapacityPoolSubvolume:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}
         RpNamespace: Microsoft.NetApp
     CapacityPoolVolume:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}
         RpNamespace: Microsoft.NetApp
     CapacityPoolVolumeQuotaRule:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}
         RpNamespace: Microsoft.NetApp
     SnapshotPolicy:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/snapshotPolicies/{snapshotPolicyName}
         RpNamespace: Microsoft.NetApp
     VolumeGroup:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/volumeGroups/{volumeGroupName}
         RpNamespace: Microsoft.NetApp
     getAccountChangeKeyVaultInformation:
-        ApiVersion: 2024-07-01-preview
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/preview/2024-07-01-preview/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/getKeyVaultStatus
         RpNamespace: Microsoft.NetApp
     getCapacityPoolSubvolumeMetadata:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}/getMetadata
         RpNamespace: Microsoft.NetApp
     getCapacityPoolVolumeGroupIdForLdapUser:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/getGroupIdListForLdapUser
         RpNamespace: Microsoft.NetApp
     listCapacityPoolVolumeQuotaReport:
@@ -8581,8 +8576,8 @@ NetApp:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/listQuotaReport
         RpNamespace: Microsoft.NetApp
     listCapacityPoolVolumeReplications:
-        ApiVersion: "2024-07-01"
-        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json
+        ApiVersion: "2024-09-01"
+        SpecFilePath: specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/listReplications
         RpNamespace: Microsoft.NetApp
 Network:
@@ -11144,23 +11139,23 @@ ServiceLinker:
         RpNamespace: Microsoft.ServiceLinker
 ServiceNetworking:
     AssociationsInterface:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/stable/2023-11-01/TrafficController.json
+        ApiVersion: "2025-01-01"
+        SpecFilePath: specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/stable/2025-01-01/TrafficController.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceNetworking/trafficControllers/{trafficControllerName}/associations/{associationName}
         RpNamespace: Microsoft.ServiceNetworking
     FrontendsInterface:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/stable/2023-11-01/TrafficController.json
+        ApiVersion: "2025-01-01"
+        SpecFilePath: specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/stable/2025-01-01/TrafficController.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceNetworking/trafficControllers/{trafficControllerName}/frontends/{frontendName}
         RpNamespace: Microsoft.ServiceNetworking
     SecurityPoliciesInterface:
-        ApiVersion: 2024-05-01-preview
-        SpecFilePath: specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/preview/2024-05-01-preview/TrafficController.json
+        ApiVersion: "2025-01-01"
+        SpecFilePath: specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/stable/2025-01-01/TrafficController.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceNetworking/trafficControllers/{trafficControllerName}/securityPolicies/{securityPolicyName}
         RpNamespace: Microsoft.ServiceNetworking
     TrafficControllerInterface:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/stable/2023-11-01/TrafficController.json
+        ApiVersion: "2025-01-01"
+        SpecFilePath: specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/stable/2025-01-01/TrafficController.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceNetworking/trafficControllers/{trafficControllerName}
         RpNamespace: Microsoft.ServiceNetworking
 SignalRService:

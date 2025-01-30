@@ -66,10 +66,19 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:AssessmentProjectsGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:Group" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentProjectsGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:GroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentProjectsGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:GroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:Group" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:GroupsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

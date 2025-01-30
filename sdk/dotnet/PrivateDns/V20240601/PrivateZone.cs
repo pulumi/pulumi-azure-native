@@ -118,8 +118,6 @@ namespace Pulumi.AzureNative.PrivateDns.V20240601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateZone" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateZone" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateZone" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240601:PrivateZone" },
                     new global::Pulumi.Alias { Type = "azure-native:network:PrivateZone" },

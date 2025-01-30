@@ -152,7 +152,9 @@ def get_assessment_projects_sql_collector_operation(collector_name: Optional[str
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentProjectsSqlCollectorOperationResult:
     """
     Get a SqlCollector
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str collector_name: Sql collector ARM name.
@@ -182,7 +184,9 @@ def get_assessment_projects_sql_collector_operation_output(collector_name: Optio
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentProjectsSqlCollectorOperationResult]:
     """
     Get a SqlCollector
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str collector_name: Sql collector ARM name.

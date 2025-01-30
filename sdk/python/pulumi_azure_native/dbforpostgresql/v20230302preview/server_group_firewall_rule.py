@@ -178,7 +178,7 @@ class ServerGroupFirewallRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20201005privatepreview:ServerGroupFirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:ServerGroupFirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql:ServerGroupFirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20201005privatepreview:FirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20201005privatepreview:ServerGroupFirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:FirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:ServerGroupFirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:FirewallRule"), pulumi.Alias(type_="azure-native:dbforpostgresql:ServerGroupFirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerGroupFirewallRule, __self__).__init__(
             'azure-native:dbforpostgresql/v20230302preview:ServerGroupFirewallRule',

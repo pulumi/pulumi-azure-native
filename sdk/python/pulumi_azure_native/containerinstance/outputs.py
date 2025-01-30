@@ -17,14 +17,13 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ApiEntityReferenceResponse',
     'AzureFileVolumeResponse',
     'ConfidentialComputePropertiesResponse',
     'ConfigMapResponse',
     'ContainerExecResponse',
     'ContainerGroupDiagnosticsResponse',
     'ContainerGroupIdentityResponse',
-    'ContainerGroupProfileStubResponse',
+    'ContainerGroupProfileReferenceDefinitionResponse',
     'ContainerGroupPropertiesResponseInstanceView',
     'ContainerGroupSubnetIdResponse',
     'ContainerHttpGetResponse',
@@ -35,7 +34,6 @@ __all__ = [
     'ContainerStateResponse',
     'DeploymentExtensionSpecResponse',
     'DnsConfigurationResponse',
-    'ElasticProfileResponse',
     'EncryptionPropertiesResponse',
     'EnvironmentVariableResponse',
     'EventResponse',
@@ -47,43 +45,17 @@ __all__ = [
     'InitContainerPropertiesDefinitionResponseInstanceView',
     'IpAddressResponse',
     'LogAnalyticsResponse',
-    'NGroupIdentityResponse',
     'PortResponse',
     'ResourceLimitsResponse',
     'ResourceRequestsResponse',
     'ResourceRequirementsResponse',
-    'SecretReferenceResponse',
     'SecurityContextCapabilitiesDefinitionResponse',
     'SecurityContextDefinitionResponse',
-    'SystemDataResponse',
+    'StandbyPoolProfileDefinitionResponse',
     'UserAssignedIdentitiesResponse',
-    'UserAssignedIdentityResponse',
     'VolumeMountResponse',
     'VolumeResponse',
 ]
-
-@pulumi.output_type
-class ApiEntityReferenceResponse(dict):
-    """
-    The API entity reference.
-    """
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-        The API entity reference.
-        :param str id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-        return pulumi.get(self, "id")
-
 
 @pulumi.output_type
 class AzureFileVolumeResponse(dict):
@@ -101,8 +73,6 @@ class AzureFileVolumeResponse(dict):
             suggest = "read_only"
         elif key == "storageAccountKey":
             suggest = "storage_account_key"
-        elif key == "storageAccountKeyReference":
-            suggest = "storage_account_key_reference"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureFileVolumeResponse. Access the value via the '{suggest}' property getter instead.")
@@ -119,15 +89,13 @@ class AzureFileVolumeResponse(dict):
                  share_name: str,
                  storage_account_name: str,
                  read_only: Optional[bool] = None,
-                 storage_account_key: Optional[str] = None,
-                 storage_account_key_reference: Optional[str] = None):
+                 storage_account_key: Optional[str] = None):
         """
         The properties of the Azure File volume. Azure File shares are mounted as volumes.
         :param str share_name: The name of the Azure File share to be mounted as a volume.
         :param str storage_account_name: The name of the storage account that contains the Azure File share.
         :param bool read_only: The flag indicating whether the Azure File shared mounted as a volume is read-only.
         :param str storage_account_key: The storage account access key used to access the Azure File share.
-        :param str storage_account_key_reference: The reference to the storage account access key used to access the Azure File share.
         """
         pulumi.set(__self__, "share_name", share_name)
         pulumi.set(__self__, "storage_account_name", storage_account_name)
@@ -135,8 +103,6 @@ class AzureFileVolumeResponse(dict):
             pulumi.set(__self__, "read_only", read_only)
         if storage_account_key is not None:
             pulumi.set(__self__, "storage_account_key", storage_account_key)
-        if storage_account_key_reference is not None:
-            pulumi.set(__self__, "storage_account_key_reference", storage_account_key_reference)
 
     @property
     @pulumi.getter(name="shareName")
@@ -169,14 +135,6 @@ class AzureFileVolumeResponse(dict):
         The storage account access key used to access the Azure File share.
         """
         return pulumi.get(self, "storage_account_key")
-
-    @property
-    @pulumi.getter(name="storageAccountKeyReference")
-    def storage_account_key_reference(self) -> Optional[str]:
-        """
-        The reference to the storage account access key used to access the Azure File share.
-        """
-        return pulumi.get(self, "storage_account_key_reference")
 
 
 @pulumi.output_type
@@ -401,26 +359,38 @@ class ContainerGroupIdentityResponse(dict):
 
 
 @pulumi.output_type
-class ContainerGroupProfileStubResponse(dict):
+class ContainerGroupProfileReferenceDefinitionResponse(dict):
     """
-    The object that contains a reference to a Container Group Profile
+    The container group profile reference.
     """
     def __init__(__self__, *,
-                 resource: Optional['outputs.ApiEntityReferenceResponse'] = None):
+                 id: Optional[str] = None,
+                 revision: Optional[int] = None):
         """
-        The object that contains a reference to a Container Group Profile
-        :param 'ApiEntityReferenceResponse' resource: The API entity reference.
+        The container group profile reference.
+        :param str id: The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
+        :param int revision: The container group profile reference revision.
         """
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
 
     @property
     @pulumi.getter
-    def resource(self) -> Optional['outputs.ApiEntityReferenceResponse']:
+    def id(self) -> Optional[str]:
         """
-        The API entity reference.
+        The container group profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName}'.
         """
-        return pulumi.get(self, "resource")
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[int]:
+        """
+        The container group profile reference revision.
+        """
+        return pulumi.get(self, "revision")
 
 
 @pulumi.output_type
@@ -1223,42 +1193,6 @@ class DnsConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class ElasticProfileResponse(dict):
-    """
-    Describes the elastic profile of the Container Scale Set
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "desiredCount":
-            suggest = "desired_count"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ElasticProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ElasticProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ElasticProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 desired_count: Optional[int] = None):
-        """
-        Describes the elastic profile of the Container Scale Set
-        """
-        if desired_count is not None:
-            pulumi.set(__self__, "desired_count", desired_count)
-
-    @property
-    @pulumi.getter(name="desiredCount")
-    def desired_count(self) -> Optional[int]:
-        return pulumi.get(self, "desired_count")
-
-
-@pulumi.output_type
 class EncryptionPropertiesResponse(dict):
     """
     The container group encryption properties.
@@ -1345,8 +1279,6 @@ class EnvironmentVariableResponse(dict):
         suggest = None
         if key == "secureValue":
             suggest = "secure_value"
-        elif key == "secureValueReference":
-            suggest = "secure_value_reference"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EnvironmentVariableResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1362,20 +1294,16 @@ class EnvironmentVariableResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  secure_value: Optional[str] = None,
-                 secure_value_reference: Optional[str] = None,
                  value: Optional[str] = None):
         """
         The environment variable to set within the container instance.
         :param str name: The name of the environment variable.
         :param str secure_value: The value of the secure environment variable.
-        :param str secure_value_reference: The reference of the secure environment variable.
         :param str value: The value of the environment variable.
         """
         pulumi.set(__self__, "name", name)
         if secure_value is not None:
             pulumi.set(__self__, "secure_value", secure_value)
-        if secure_value_reference is not None:
-            pulumi.set(__self__, "secure_value_reference", secure_value_reference)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -1394,14 +1322,6 @@ class EnvironmentVariableResponse(dict):
         The value of the secure environment variable.
         """
         return pulumi.get(self, "secure_value")
-
-    @property
-    @pulumi.getter(name="secureValueReference")
-    def secure_value_reference(self) -> Optional[str]:
-        """
-        The reference of the secure environment variable.
-        """
-        return pulumi.get(self, "secure_value_reference")
 
     @property
     @pulumi.getter
@@ -1632,8 +1552,6 @@ class ImageRegistryCredentialResponse(dict):
         suggest = None
         if key == "identityUrl":
             suggest = "identity_url"
-        elif key == "passwordReference":
-            suggest = "password_reference"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ImageRegistryCredentialResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1651,7 +1569,6 @@ class ImageRegistryCredentialResponse(dict):
                  identity: Optional[str] = None,
                  identity_url: Optional[str] = None,
                  password: Optional[str] = None,
-                 password_reference: Optional[str] = None,
                  username: Optional[str] = None):
         """
         Image registry credential.
@@ -1659,7 +1576,6 @@ class ImageRegistryCredentialResponse(dict):
         :param str identity: The identity for the private registry.
         :param str identity_url: The identity URL for the private registry.
         :param str password: The password for the private registry.
-        :param str password_reference: The reference for the private registry password.
         :param str username: The username for the private registry.
         """
         pulumi.set(__self__, "server", server)
@@ -1669,8 +1585,6 @@ class ImageRegistryCredentialResponse(dict):
             pulumi.set(__self__, "identity_url", identity_url)
         if password is not None:
             pulumi.set(__self__, "password", password)
-        if password_reference is not None:
-            pulumi.set(__self__, "password_reference", password_reference)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -1705,14 +1619,6 @@ class ImageRegistryCredentialResponse(dict):
         The password for the private registry.
         """
         return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="passwordReference")
-    def password_reference(self) -> Optional[str]:
-        """
-        The reference for the private registry password.
-        """
-        return pulumi.get(self, "password_reference")
 
     @property
     @pulumi.getter
@@ -2109,84 +2015,6 @@ class LogAnalyticsResponse(dict):
 
 
 @pulumi.output_type
-class NGroupIdentityResponse(dict):
-    """
-    Identity for the nGroup.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NGroupIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NGroupIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NGroupIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
-                 type: Optional[str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
-        """
-        Identity for the nGroup.
-        :param str principal_id: The principal id of the nGroup identity. This property will only be provided for a system assigned identity.
-        :param str tenant_id: The tenant id associated with the nGroup. This property will only be provided for a system assigned identity.
-        :param str type: The type of identity used for the container scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the nGroup.
-        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user identities associated with the container scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal id of the nGroup identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The tenant id associated with the nGroup. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The type of identity used for the container scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the nGroup.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
-        """
-        The list of user identities associated with the container scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
 class PortResponse(dict):
     """
     The port exposed on the container group.
@@ -2381,67 +2209,6 @@ class ResourceRequirementsResponse(dict):
 
 
 @pulumi.output_type
-class SecretReferenceResponse(dict):
-    """
-    A secret reference
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "secretReferenceUri":
-            suggest = "secret_reference_uri"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SecretReferenceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SecretReferenceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SecretReferenceResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 identity: str,
-                 name: str,
-                 secret_reference_uri: str):
-        """
-        A secret reference
-        :param str identity: The ARM resource id of the managed identity that has access to the secret in the key vault
-        :param str name: The identifier of the secret reference
-        :param str secret_reference_uri: The URI to the secret in key vault
-        """
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "secret_reference_uri", secret_reference_uri)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> str:
-        """
-        The ARM resource id of the managed identity that has access to the secret in the key vault
-        """
-        return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The identifier of the secret reference
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="secretReferenceUri")
-    def secret_reference_uri(self) -> str:
-        """
-        The URI to the secret in key vault
-        """
-        return pulumi.get(self, "secret_reference_uri")
-
-
-@pulumi.output_type
 class SecurityContextCapabilitiesDefinitionResponse(dict):
     """
     The capabilities to add or drop from a container.
@@ -2583,113 +2350,55 @@ class SecurityContextDefinitionResponse(dict):
 
 
 @pulumi.output_type
-class SystemDataResponse(dict):
+class StandbyPoolProfileDefinitionResponse(dict):
     """
-    Metadata pertaining to creation and last modification of the resource.
+    The standby pool profile reference.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
+        if key == "failContainerGroupCreateOnReuseFailure":
+            suggest = "fail_container_group_create_on_reuse_failure"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in StandbyPoolProfileDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
+        StandbyPoolProfileDefinitionResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
+        StandbyPoolProfileDefinitionResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 created_at: Optional[str] = None,
-                 created_by: Optional[str] = None,
-                 created_by_type: Optional[str] = None,
-                 last_modified_at: Optional[str] = None,
-                 last_modified_by: Optional[str] = None,
-                 last_modified_by_type: Optional[str] = None):
+                 fail_container_group_create_on_reuse_failure: Optional[bool] = None,
+                 id: Optional[str] = None):
         """
-        Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The timestamp of resource creation (UTC).
-        :param str created_by: The identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
-        :param str last_modified_by: The identity that last modified the resource.
-        :param str last_modified_by_type: The type of identity that last modified the resource.
+        The standby pool profile reference.
+        :param bool fail_container_group_create_on_reuse_failure: The flag to determine whether ACI should fail the create request if the container group can not be obtained from standby pool.
+        :param str id: The standby pool profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyPoolName}'.
         """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+        if fail_container_group_create_on_reuse_failure is not None:
+            pulumi.set(__self__, "fail_container_group_create_on_reuse_failure", fail_container_group_create_on_reuse_failure)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
+    @pulumi.getter(name="failContainerGroupCreateOnReuseFailure")
+    def fail_container_group_create_on_reuse_failure(self) -> Optional[bool]:
         """
-        The timestamp of resource creation (UTC).
+        The flag to determine whether ACI should fail the create request if the container group can not be obtained from standby pool.
         """
-        return pulumi.get(self, "created_at")
+        return pulumi.get(self, "fail_container_group_create_on_reuse_failure")
 
     @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
+    @pulumi.getter
+    def id(self) -> Optional[str]:
         """
-        The identity that created the resource.
+        The standby pool profile reference id.This will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyPoolName}'.
         """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -2740,58 +2449,6 @@ class UserAssignedIdentitiesResponse(dict):
     def principal_id(self) -> str:
         """
         The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-
-@pulumi.output_type
-class UserAssignedIdentityResponse(dict):
-    """
-    User assigned identity properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
-        """
-        User assigned identity properties
-        :param str client_id: The client ID of the assigned identity.
-        :param str principal_id: The principal ID of the assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        The client ID of the assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -2874,8 +2531,6 @@ class VolumeResponse(dict):
             suggest = "empty_dir"
         elif key == "gitRepo":
             suggest = "git_repo"
-        elif key == "secretReference":
-            suggest = "secret_reference"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VolumeResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2893,8 +2548,7 @@ class VolumeResponse(dict):
                  azure_file: Optional['outputs.AzureFileVolumeResponse'] = None,
                  empty_dir: Optional[Any] = None,
                  git_repo: Optional['outputs.GitRepoVolumeResponse'] = None,
-                 secret: Optional[Mapping[str, str]] = None,
-                 secret_reference: Optional[Mapping[str, str]] = None):
+                 secret: Optional[Mapping[str, str]] = None):
         """
         The properties of the volume.
         :param str name: The name of the volume.
@@ -2902,7 +2556,6 @@ class VolumeResponse(dict):
         :param Any empty_dir: The empty directory volume.
         :param 'GitRepoVolumeResponse' git_repo: The git repo volume.
         :param Mapping[str, str] secret: The secret volume.
-        :param Mapping[str, str] secret_reference: The secret reference volume.
         """
         pulumi.set(__self__, "name", name)
         if azure_file is not None:
@@ -2913,8 +2566,6 @@ class VolumeResponse(dict):
             pulumi.set(__self__, "git_repo", git_repo)
         if secret is not None:
             pulumi.set(__self__, "secret", secret)
-        if secret_reference is not None:
-            pulumi.set(__self__, "secret_reference", secret_reference)
 
     @property
     @pulumi.getter
@@ -2955,13 +2606,5 @@ class VolumeResponse(dict):
         The secret volume.
         """
         return pulumi.get(self, "secret")
-
-    @property
-    @pulumi.getter(name="secretReference")
-    def secret_reference(self) -> Optional[Mapping[str, str]]:
-        """
-        The secret reference volume.
-        """
-        return pulumi.get(self, "secret_reference")
 
 

@@ -140,7 +140,9 @@ def get_assessment_projects_business_case_operation(business_case_name: Optional
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentProjectsBusinessCaseOperationResult:
     """
     Get a BusinessCase
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str business_case_name: Business case ARM name
@@ -169,7 +171,9 @@ def get_assessment_projects_business_case_operation_output(business_case_name: O
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentProjectsBusinessCaseOperationResult]:
     """
     Get a BusinessCase
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str business_case_name: Business case ARM name

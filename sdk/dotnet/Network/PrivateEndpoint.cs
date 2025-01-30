@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181001:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181101:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181201:PrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190201:InterfaceEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190201:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190401:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20190601:PrivateEndpoint" },
@@ -170,6 +171,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:PrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:InterfaceEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

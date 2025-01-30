@@ -160,7 +160,7 @@ class AssessmentProjectsBusinessCaseOperation(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsBusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsBusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate:AssessmentProjectsBusinessCaseOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsBusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:BusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsBusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:BusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:BusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsBusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:BusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate:AssessmentProjectsBusinessCaseOperation"), pulumi.Alias(type_="azure-native:migrate:BusinessCaseOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsBusinessCaseOperation, __self__).__init__(
             'azure-native:migrate/v20230909preview:AssessmentProjectsBusinessCaseOperation',

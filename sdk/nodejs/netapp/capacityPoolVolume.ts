@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Volume resource
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2021-10-01, 2024-07-01-preview.
  */
@@ -75,6 +75,10 @@ export class CapacityPoolVolume extends pulumi.CustomResource {
      *  Never - No client-driven data is pulled from cool tier to standard storage.
      */
     public readonly coolAccessRetrievalPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+     */
+    public readonly coolAccessTieringPolicy!: pulumi.Output<string | undefined>;
     /**
      * Specifies the number of days after which data that is not accessed by clients will be tiered.
      */
@@ -324,6 +328,7 @@ export class CapacityPoolVolume extends pulumi.CustomResource {
             resourceInputs["capacityPoolResourceId"] = args ? args.capacityPoolResourceId : undefined;
             resourceInputs["coolAccess"] = (args ? args.coolAccess : undefined) ?? false;
             resourceInputs["coolAccessRetrievalPolicy"] = args ? args.coolAccessRetrievalPolicy : undefined;
+            resourceInputs["coolAccessTieringPolicy"] = args ? args.coolAccessTieringPolicy : undefined;
             resourceInputs["coolnessPeriod"] = args ? args.coolnessPeriod : undefined;
             resourceInputs["creationToken"] = args ? args.creationToken : undefined;
             resourceInputs["dataProtection"] = args ? args.dataProtection : undefined;
@@ -393,6 +398,7 @@ export class CapacityPoolVolume extends pulumi.CustomResource {
             resourceInputs["cloneProgress"] = undefined /*out*/;
             resourceInputs["coolAccess"] = undefined /*out*/;
             resourceInputs["coolAccessRetrievalPolicy"] = undefined /*out*/;
+            resourceInputs["coolAccessTieringPolicy"] = undefined /*out*/;
             resourceInputs["coolnessPeriod"] = undefined /*out*/;
             resourceInputs["creationToken"] = undefined /*out*/;
             resourceInputs["dataProtection"] = undefined /*out*/;
@@ -449,7 +455,7 @@ export class CapacityPoolVolume extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20170815:CapacityPoolVolume" }, { type: "azure-native:netapp/v20190501:CapacityPoolVolume" }, { type: "azure-native:netapp/v20190601:CapacityPoolVolume" }, { type: "azure-native:netapp/v20190701:CapacityPoolVolume" }, { type: "azure-native:netapp/v20190801:CapacityPoolVolume" }, { type: "azure-native:netapp/v20191001:CapacityPoolVolume" }, { type: "azure-native:netapp/v20191101:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200201:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200301:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200501:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200601:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200701:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200801:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200901:CapacityPoolVolume" }, { type: "azure-native:netapp/v20201101:CapacityPoolVolume" }, { type: "azure-native:netapp/v20201201:CapacityPoolVolume" }, { type: "azure-native:netapp/v20210201:CapacityPoolVolume" }, { type: "azure-native:netapp/v20210401:CapacityPoolVolume" }, { type: "azure-native:netapp/v20210401preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20210601:CapacityPoolVolume" }, { type: "azure-native:netapp/v20210801:CapacityPoolVolume" }, { type: "azure-native:netapp/v20211001:CapacityPoolVolume" }, { type: "azure-native:netapp/v20220101:CapacityPoolVolume" }, { type: "azure-native:netapp/v20220301:CapacityPoolVolume" }, { type: "azure-native:netapp/v20220501:CapacityPoolVolume" }, { type: "azure-native:netapp/v20220901:CapacityPoolVolume" }, { type: "azure-native:netapp/v20221101:CapacityPoolVolume" }, { type: "azure-native:netapp/v20221101preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20230501:CapacityPoolVolume" }, { type: "azure-native:netapp/v20230501preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20230701:CapacityPoolVolume" }, { type: "azure-native:netapp/v20230701preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20231101:CapacityPoolVolume" }, { type: "azure-native:netapp/v20231101preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240101:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240301:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240301preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240501:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240501preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240701:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240701preview:CapacityPoolVolume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20170815:CapacityPoolVolume" }, { type: "azure-native:netapp/v20190501:CapacityPoolVolume" }, { type: "azure-native:netapp/v20190601:CapacityPoolVolume" }, { type: "azure-native:netapp/v20190701:CapacityPoolVolume" }, { type: "azure-native:netapp/v20190801:CapacityPoolVolume" }, { type: "azure-native:netapp/v20191001:CapacityPoolVolume" }, { type: "azure-native:netapp/v20191101:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200201:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200301:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200501:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200601:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200701:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200801:CapacityPoolVolume" }, { type: "azure-native:netapp/v20200901:CapacityPoolVolume" }, { type: "azure-native:netapp/v20201101:CapacityPoolVolume" }, { type: "azure-native:netapp/v20201201:CapacityPoolVolume" }, { type: "azure-native:netapp/v20210201:CapacityPoolVolume" }, { type: "azure-native:netapp/v20210401:CapacityPoolVolume" }, { type: "azure-native:netapp/v20210401preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20210601:CapacityPoolVolume" }, { type: "azure-native:netapp/v20210801:CapacityPoolVolume" }, { type: "azure-native:netapp/v20211001:CapacityPoolVolume" }, { type: "azure-native:netapp/v20211001:Volume" }, { type: "azure-native:netapp/v20220101:CapacityPoolVolume" }, { type: "azure-native:netapp/v20220301:CapacityPoolVolume" }, { type: "azure-native:netapp/v20220501:CapacityPoolVolume" }, { type: "azure-native:netapp/v20220901:CapacityPoolVolume" }, { type: "azure-native:netapp/v20221101:CapacityPoolVolume" }, { type: "azure-native:netapp/v20221101:Volume" }, { type: "azure-native:netapp/v20221101preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20221101preview:Volume" }, { type: "azure-native:netapp/v20230501:CapacityPoolVolume" }, { type: "azure-native:netapp/v20230501:Volume" }, { type: "azure-native:netapp/v20230501preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20230501preview:Volume" }, { type: "azure-native:netapp/v20230701:CapacityPoolVolume" }, { type: "azure-native:netapp/v20230701:Volume" }, { type: "azure-native:netapp/v20230701preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20230701preview:Volume" }, { type: "azure-native:netapp/v20231101:CapacityPoolVolume" }, { type: "azure-native:netapp/v20231101:Volume" }, { type: "azure-native:netapp/v20231101preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20231101preview:Volume" }, { type: "azure-native:netapp/v20240101:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240101:Volume" }, { type: "azure-native:netapp/v20240301:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240301:Volume" }, { type: "azure-native:netapp/v20240301preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240301preview:Volume" }, { type: "azure-native:netapp/v20240501:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240501:Volume" }, { type: "azure-native:netapp/v20240501preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240501preview:Volume" }, { type: "azure-native:netapp/v20240701:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240701:Volume" }, { type: "azure-native:netapp/v20240701preview:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240701preview:Volume" }, { type: "azure-native:netapp/v20240901:CapacityPoolVolume" }, { type: "azure-native:netapp/v20240901:Volume" }, { type: "azure-native:netapp:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CapacityPoolVolume.__pulumiType, name, resourceInputs, opts);
     }
@@ -486,6 +492,10 @@ export interface CapacityPoolVolumeArgs {
      *  Never - No client-driven data is pulled from cool tier to standard storage.
      */
     coolAccessRetrievalPolicy?: pulumi.Input<string | enums.netapp.CoolAccessRetrievalPolicy>;
+    /**
+     * coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+     */
+    coolAccessTieringPolicy?: pulumi.Input<string | enums.netapp.CoolAccessTieringPolicy>;
     /**
      * Specifies the number of days after which data that is not accessed by clients will be tiered.
      */

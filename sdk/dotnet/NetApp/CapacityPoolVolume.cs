@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Volume resource
-    /// Azure REST API version: 2024-07-01.
+    /// Azure REST API version: 2024-09-01.
     /// 
     /// Other available API versions: 2021-10-01, 2024-07-01-preview.
     /// </summary>
@@ -68,6 +68,12 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         [Output("coolAccessRetrievalPolicy")]
         public Output<string?> CoolAccessRetrievalPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+        /// </summary>
+        [Output("coolAccessTieringPolicy")]
+        public Output<string?> CoolAccessTieringPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the number of days after which data that is not accessed by clients will be tiered.
@@ -437,25 +443,44 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210601:CapacityPoolVolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:CapacityPoolVolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:CapacityPoolVolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:CapacityPoolVolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:CapacityPoolVolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:CapacityPoolVolume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101preview:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240101:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240301preview:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Volume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:CapacityPoolVolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:Volume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:Volume" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -517,6 +542,12 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         [Input("coolAccessRetrievalPolicy")]
         public InputUnion<string, Pulumi.AzureNative.NetApp.CoolAccessRetrievalPolicy>? CoolAccessRetrievalPolicy { get; set; }
+
+        /// <summary>
+        /// coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+        /// </summary>
+        [Input("coolAccessTieringPolicy")]
+        public InputUnion<string, Pulumi.AzureNative.NetApp.CoolAccessTieringPolicy>? CoolAccessTieringPolicy { get; set; }
 
         /// <summary>
         /// Specifies the number of days after which data that is not accessed by clients will be tiered.

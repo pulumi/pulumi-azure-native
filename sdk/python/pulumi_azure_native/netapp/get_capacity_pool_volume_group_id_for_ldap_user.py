@@ -57,7 +57,7 @@ def get_capacity_pool_volume_group_id_for_ldap_user(account_name: Optional[str] 
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityPoolVolumeGroupIdForLdapUserResult:
     """
     Returns the list of group Ids for a specific LDAP User
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2024-07-01-preview.
 
@@ -87,7 +87,7 @@ def get_capacity_pool_volume_group_id_for_ldap_user_output(account_name: Optiona
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolVolumeGroupIdForLdapUserResult]:
     """
     Returns the list of group Ids for a specific LDAP User
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2024-07-01-preview.
 

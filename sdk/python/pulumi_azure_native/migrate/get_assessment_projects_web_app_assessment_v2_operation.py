@@ -433,7 +433,9 @@ def get_assessment_projects_web_app_assessment_v2_operation(assessment_name: Opt
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentProjectsWebAppAssessmentV2OperationResult:
     """
     Get a WebAppAssessmentV2
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str assessment_name: Web app Assessment arm name.
@@ -489,7 +491,9 @@ def get_assessment_projects_web_app_assessment_v2_operation_output(assessment_na
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentProjectsWebAppAssessmentV2OperationResult]:
     """
     Get a WebAppAssessmentV2
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str assessment_name: Web app Assessment arm name.

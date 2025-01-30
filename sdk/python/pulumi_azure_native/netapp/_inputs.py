@@ -1894,6 +1894,10 @@ if not MYPY:
          OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
          Never - No client-driven data is pulled from cool tier to standard storage.
         """
+        cool_access_tiering_policy: NotRequired[pulumi.Input[Union[str, 'CoolAccessTieringPolicy']]]
+        """
+        coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+        """
         coolness_period: NotRequired[pulumi.Input[int]]
         """
         Specifies the number of days after which data that is not accessed by clients will be tiered.
@@ -2037,6 +2041,7 @@ class VolumeGroupVolumePropertiesArgs:
                  capacity_pool_resource_id: Optional[pulumi.Input[str]] = None,
                  cool_access: Optional[pulumi.Input[bool]] = None,
                  cool_access_retrieval_policy: Optional[pulumi.Input[Union[str, 'CoolAccessRetrievalPolicy']]] = None,
+                 cool_access_tiering_policy: Optional[pulumi.Input[Union[str, 'CoolAccessTieringPolicy']]] = None,
                  coolness_period: Optional[pulumi.Input[int]] = None,
                  data_protection: Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']] = None,
                  default_group_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
@@ -2083,6 +2088,7 @@ class VolumeGroupVolumePropertiesArgs:
                 Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
                 OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
                 Never - No client-driven data is pulled from cool tier to standard storage.
+        :param pulumi.Input[Union[str, 'CoolAccessTieringPolicy']] cool_access_tiering_policy: coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
         :param pulumi.Input[int] coolness_period: Specifies the number of days after which data that is not accessed by clients will be tiered.
         :param pulumi.Input['VolumePropertiesDataProtectionArgs'] data_protection: DataProtection type volumes include an object containing details of the replication
         :param pulumi.Input[float] default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
@@ -2135,6 +2141,8 @@ class VolumeGroupVolumePropertiesArgs:
             pulumi.set(__self__, "cool_access", cool_access)
         if cool_access_retrieval_policy is not None:
             pulumi.set(__self__, "cool_access_retrieval_policy", cool_access_retrieval_policy)
+        if cool_access_tiering_policy is not None:
+            pulumi.set(__self__, "cool_access_tiering_policy", cool_access_tiering_policy)
         if coolness_period is not None:
             pulumi.set(__self__, "coolness_period", coolness_period)
         if data_protection is not None:
@@ -2324,6 +2332,18 @@ class VolumeGroupVolumePropertiesArgs:
     @cool_access_retrieval_policy.setter
     def cool_access_retrieval_policy(self, value: Optional[pulumi.Input[Union[str, 'CoolAccessRetrievalPolicy']]]):
         pulumi.set(self, "cool_access_retrieval_policy", value)
+
+    @property
+    @pulumi.getter(name="coolAccessTieringPolicy")
+    def cool_access_tiering_policy(self) -> Optional[pulumi.Input[Union[str, 'CoolAccessTieringPolicy']]]:
+        """
+        coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+        """
+        return pulumi.get(self, "cool_access_tiering_policy")
+
+    @cool_access_tiering_policy.setter
+    def cool_access_tiering_policy(self, value: Optional[pulumi.Input[Union[str, 'CoolAccessTieringPolicy']]]):
+        pulumi.set(self, "cool_access_tiering_policy", value)
 
     @property
     @pulumi.getter(name="coolnessPeriod")

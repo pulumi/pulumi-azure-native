@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
     /// Describes an identity resource.
     /// Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
     /// 
-    /// Other available API versions: 2023-07-31-preview.
+    /// Other available API versions: 2023-07-31-preview, 2024-11-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:managedidentity:UserAssignedIdentity")]
     public partial class UserAssignedIdentity : global::Pulumi.CustomResource
@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20220131preview:UserAssignedIdentity" },
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20230131:UserAssignedIdentity" },
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20230731preview:UserAssignedIdentity" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20241130:UserAssignedIdentity" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

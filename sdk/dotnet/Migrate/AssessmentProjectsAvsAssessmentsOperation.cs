@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// AVS assessment resource.
-    /// Azure REST API version: 2023-09-09-preview.
+    /// Azure REST API version: 2024-01-01-preview.
+    /// 
+    /// Other available API versions: 2023-09-09-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AssessmentProjectsAvsAssessmentsOperation")]
     public partial class AssessmentProjectsAvsAssessmentsOperation : global::Pulumi.CustomResource
@@ -372,9 +374,16 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsAvsAssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AvsAssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsAvsAssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AvsAssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsAvsAssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AvsAssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentProjectsAvsAssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AvsAssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentProjectsAvsAssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AvsAssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:AvsAssessmentsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

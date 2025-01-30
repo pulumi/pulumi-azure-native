@@ -117,7 +117,9 @@ class AssessmentProjectsAksAssessmentOperation(pulumi.CustomResource):
                  __props__=None):
         """
         ARM model of AKS Assessment.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +137,9 @@ class AssessmentProjectsAksAssessmentOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ARM model of AKS Assessment.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param AssessmentProjectsAksAssessmentOperationArgs args: The arguments to use to populate this resource's properties.
@@ -183,7 +187,7 @@ class AssessmentProjectsAksAssessmentOperation(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsAksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsAksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsAksAssessmentOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsAksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsAksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsAksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsAksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate:AksAssessmentOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsAksAssessmentOperation, __self__).__init__(
             'azure-native:migrate:AssessmentProjectsAksAssessmentOperation',

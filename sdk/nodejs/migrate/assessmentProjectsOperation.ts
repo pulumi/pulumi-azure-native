@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * An Assessment project site resource.
- * Azure REST API version: 2023-09-09-preview. Prior API version in Azure Native 2.x: 2023-03-15.
+ * Azure REST API version: 2024-01-01-preview. Prior API version in Azure Native 2.x: 2023-03-15.
  *
- * Other available API versions: 2023-03-15.
+ * Other available API versions: 2023-03-15, 2023-09-09-preview.
  */
 export class AssessmentProjectsOperation extends pulumi.CustomResource {
     /**
@@ -161,7 +161,7 @@ export class AssessmentProjectsOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20191001:Project" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentProjectsOperation" }, { type: "azure-native:migrate:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsOperation.__pulumiType, name, resourceInputs, opts);
     }

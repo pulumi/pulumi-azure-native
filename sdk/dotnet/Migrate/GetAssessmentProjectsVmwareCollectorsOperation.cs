@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a VmwareCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Task<GetAssessmentProjectsVmwareCollectorsOperationResult> InvokeAsync(GetAssessmentProjectsVmwareCollectorsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentProjectsVmwareCollectorsOperationResult>("azure-native:migrate:getAssessmentProjectsVmwareCollectorsOperation", args ?? new GetAssessmentProjectsVmwareCollectorsOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a VmwareCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsVmwareCollectorsOperationResult> Invoke(GetAssessmentProjectsVmwareCollectorsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsVmwareCollectorsOperationResult>("azure-native:migrate:getAssessmentProjectsVmwareCollectorsOperation", args ?? new GetAssessmentProjectsVmwareCollectorsOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a VmwareCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsVmwareCollectorsOperationResult> Invoke(GetAssessmentProjectsVmwareCollectorsOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsVmwareCollectorsOperationResult>("azure-native:migrate:getAssessmentProjectsVmwareCollectorsOperation", args ?? new GetAssessmentProjectsVmwareCollectorsOperationInvokeArgs(), options.WithDefaults());

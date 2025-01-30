@@ -135,7 +135,9 @@ class AssessmentProjectsHypervCollectorsOperation(pulumi.CustomResource):
                  __props__=None):
         """
         Hyper-V collector resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +156,9 @@ class AssessmentProjectsHypervCollectorsOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Hyper-V collector resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param AssessmentProjectsHypervCollectorsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -201,7 +205,7 @@ class AssessmentProjectsHypervCollectorsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsHypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsHypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsHypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsHypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsHypervCollectorsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsHypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20191001:HyperVCollector"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsHypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsHypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsHypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsHypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsHypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate:HyperVCollector"), pulumi.Alias(type_="azure-native:migrate:HypervCollectorsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsHypervCollectorsOperation, __self__).__init__(
             'azure-native:migrate:AssessmentProjectsHypervCollectorsOperation',

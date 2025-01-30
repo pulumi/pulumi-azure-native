@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Hyper-V collector resource.
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export class AssessmentProjectsHypervCollectorsOperation extends pulumi.CustomResource {
     /**
@@ -110,7 +112,7 @@ export class AssessmentProjectsHypervCollectorsOperation extends pulumi.CustomRe
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsHypervCollectorsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsHypervCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsHypervCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsHypervCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsHypervCollectorsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsHypervCollectorsOperation" }, { type: "azure-native:migrate/v20191001:HyperVCollector" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsHypervCollectorsOperation" }, { type: "azure-native:migrate/v20230315:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsHypervCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsHypervCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsHypervCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentProjectsHypervCollectorsOperation" }, { type: "azure-native:migrate/v20240101preview:HypervCollectorsOperation" }, { type: "azure-native:migrate:HyperVCollector" }, { type: "azure-native:migrate:HypervCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsHypervCollectorsOperation.__pulumiType, name, resourceInputs, opts);
     }

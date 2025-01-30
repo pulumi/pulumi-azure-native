@@ -111,6 +111,8 @@ export class LabAccount extends pulumi.CustomResource {
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:labservices:LabAccount" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LabAccount.__pulumiType, name, resourceInputs, opts);
     }
 }

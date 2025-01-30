@@ -166,7 +166,7 @@ def get_capacity_pool_volume_quota_rule(account_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityPoolVolumeQuotaRuleResult:
     """
     Get details of the specified quota rule
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2024-07-01-preview.
 
@@ -205,7 +205,7 @@ def get_capacity_pool_volume_quota_rule_output(account_name: Optional[pulumi.Inp
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolVolumeQuotaRuleResult]:
     """
     Get details of the specified quota rule
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2024-07-01-preview.
 

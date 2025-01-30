@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the path associated with the subvolumeName provided
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2024-07-01-preview.
  */
@@ -86,7 +86,7 @@ export interface GetCapacityPoolSubvolumeResult {
 }
 /**
  * Returns the path associated with the subvolumeName provided
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-09-01.
  *
  * Other available API versions: 2024-07-01-preview.
  */

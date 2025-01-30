@@ -156,7 +156,7 @@ export class SecurityUserRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:SecurityUserRule" }, { type: "azure-native:network/v20210501preview:SecurityUserRule" }, { type: "azure-native:network/v20220201preview:SecurityUserRule" }, { type: "azure-native:network/v20220401preview:SecurityUserRule" }, { type: "azure-native:network/v20240301:SecurityUserRule" }, { type: "azure-native:network/v20240501:SecurityUserRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:SecurityUserRule" }, { type: "azure-native:network/v20210501preview:DefaultUserRule" }, { type: "azure-native:network/v20210501preview:SecurityUserRule" }, { type: "azure-native:network/v20210501preview:UserRule" }, { type: "azure-native:network/v20220201preview:SecurityUserRule" }, { type: "azure-native:network/v20220401preview:DefaultUserRule" }, { type: "azure-native:network/v20220401preview:SecurityUserRule" }, { type: "azure-native:network/v20220401preview:UserRule" }, { type: "azure-native:network/v20240301:SecurityUserRule" }, { type: "azure-native:network/v20240501:SecurityUserRule" }, { type: "azure-native:network:DefaultUserRule" }, { type: "azure-native:network:UserRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityUserRule.__pulumiType, name, resourceInputs, opts);
     }

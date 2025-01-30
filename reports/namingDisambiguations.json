@@ -595,6 +595,111 @@
     "DisambiguatedName": "AssessmentProjectsWebAppCollectorOperation"
   },
   {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "AksAssessmentOperations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/aksAssessments/{assessmentName}",
+    "GeneratedName": "AksAssessmentOperation",
+    "DisambiguatedName": "AssessmentProjectsAksAssessmentOperation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "BusinessCaseOperations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/businessCases/{businessCaseName}",
+    "GeneratedName": "BusinessCaseOperation",
+    "DisambiguatedName": "AssessmentProjectsBusinessCaseOperation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "BusinessCaseOperations_GetReportDownloadUrl",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/businessCases/{businessCaseName}/getReportDownloadUrl",
+    "GeneratedName": "BusinessCaseOperationReportDownloadUrl",
+    "DisambiguatedName": "AssessmentProjectsBusinessCaseOperationReportDownloadUrl"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "GroupsOperations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}",
+    "GeneratedName": "GroupsOperation",
+    "DisambiguatedName": "AssessmentProjectsGroupsOperation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "AssessmentsOperations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessments/{assessmentName}",
+    "GeneratedName": "AssessmentsOperation",
+    "DisambiguatedName": "AssessmentProjectsAssessmentsOperation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "AvsAssessmentsOperations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/avsAssessments/{assessmentName}",
+    "GeneratedName": "AvsAssessmentsOperation",
+    "DisambiguatedName": "AssessmentProjectsAvsAssessmentsOperation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "SqlAssessmentV2Operations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/sqlAssessments/{assessmentName}",
+    "GeneratedName": "SqlAssessmentV2Operation",
+    "DisambiguatedName": "AssessmentProjectsSqlAssessmentV2Operation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "WebAppAssessmentV2Operations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/webAppAssessments/{assessmentName}",
+    "GeneratedName": "WebAppAssessmentV2Operation",
+    "DisambiguatedName": "AssessmentProjectsWebAppAssessmentV2Operation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "HypervCollectorsOperations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/hypervcollectors/{hypervCollectorName}",
+    "GeneratedName": "HypervCollectorsOperation",
+    "DisambiguatedName": "AssessmentProjectsHypervCollectorsOperation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "ImportCollectorsOperations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importcollectors/{importCollectorName}",
+    "GeneratedName": "ImportCollectorsOperation",
+    "DisambiguatedName": "AssessmentProjectsImportCollectorsOperation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "PrivateEndpointConnectionOperations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}",
+    "GeneratedName": "PrivateEndpointConnectionOperation",
+    "DisambiguatedName": "AssessmentProjectsPrivateEndpointConnectionOperation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "ServerCollectorsOperations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/servercollectors/{serverCollectorName}",
+    "GeneratedName": "ServerCollectorsOperation",
+    "DisambiguatedName": "AssessmentProjectsServerCollectorsOperation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "SqlCollectorOperations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/sqlcollectors/{collectorName}",
+    "GeneratedName": "SqlCollectorOperation",
+    "DisambiguatedName": "AssessmentProjectsSqlCollectorOperation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "VmwareCollectorsOperations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/vmwarecollectors/{vmWareCollectorName}",
+    "GeneratedName": "VmwareCollectorsOperation",
+    "DisambiguatedName": "AssessmentProjectsVmwareCollectorsOperation"
+  },
+  {
+    "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/preview/2024-01-01-preview/migrate.json",
+    "OperationID": "WebAppCollectorOperations_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppCollectors/{collectorName}",
+    "GeneratedName": "WebAppCollectorOperation",
+    "DisambiguatedName": "AssessmentProjectsWebAppCollectorOperation"
+  },
+  {
     "FileLocation": "specification/migrate/resource-manager/Microsoft.Migrate/AssessmentProjects/stable/2019-10-01/migrate.json",
     "OperationID": "Groups_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}",
@@ -3949,6 +4054,97 @@
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-07-01/netapp.json",
+    "OperationID": "VolumeQuotaRules_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
+    "GeneratedName": "VolumeQuotaRule",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
+    "OperationID": "Pools_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
+    "GeneratedName": "Pool",
+    "DisambiguatedName": "CapacityPoolPool"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
+    "OperationID": "Pools_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
+    "GeneratedName": "Pool",
+    "DisambiguatedName": "CapacityPoolPool"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
+    "OperationID": "Volumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
+    "GeneratedName": "Volume",
+    "DisambiguatedName": "CapacityPoolVolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
+    "OperationID": "Volumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
+    "GeneratedName": "Volume",
+    "DisambiguatedName": "CapacityPoolVolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
+    "OperationID": "Volumes_ListGetGroupIdListForLdapUser",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/getGroupIdListForLdapUser",
+    "GeneratedName": "VolumeGroupIdForLdapUser",
+    "DisambiguatedName": "CapacityPoolVolumeGroupIdForLdapUser"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
+    "OperationID": "Volumes_ListReplications",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/listReplications",
+    "GeneratedName": "VolumeReplications",
+    "DisambiguatedName": "CapacityPoolVolumeReplications"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
+    "OperationID": "Snapshots_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
+    "GeneratedName": "Snapshot",
+    "DisambiguatedName": "CapacityPoolSnapshot"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
+    "OperationID": "Snapshots_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
+    "GeneratedName": "Snapshot",
+    "DisambiguatedName": "CapacityPoolSnapshot"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
+    "OperationID": "Subvolumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}",
+    "GeneratedName": "Subvolume",
+    "DisambiguatedName": "CapacityPoolSubvolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
+    "OperationID": "Subvolumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}",
+    "GeneratedName": "Subvolume",
+    "DisambiguatedName": "CapacityPoolSubvolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
+    "OperationID": "Subvolumes_GetMetadata",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}/getMetadata",
+    "GeneratedName": "SubvolumeMetadata",
+    "DisambiguatedName": "CapacityPoolSubvolumeMetadata"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
+    "OperationID": "VolumeQuotaRules_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
+    "GeneratedName": "VolumeQuotaRule",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/stable/2024-09-01/netapp.json",
     "OperationID": "VolumeQuotaRules_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
     "GeneratedName": "VolumeQuotaRule",

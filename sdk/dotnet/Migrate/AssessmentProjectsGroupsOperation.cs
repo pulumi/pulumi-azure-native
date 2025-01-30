@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Group resource.
-    /// Azure REST API version: 2023-09-09-preview.
+    /// Azure REST API version: 2024-01-01-preview.
+    /// 
+    /// Other available API versions: 2023-09-09-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AssessmentProjectsGroupsOperation")]
     public partial class AssessmentProjectsGroupsOperation : global::Pulumi.CustomResource
@@ -114,10 +116,19 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:AssessmentProjectsGroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:Group" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsGroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsGroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsGroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:GroupsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentProjectsGroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:GroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentProjectsGroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:GroupsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:Group" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:GroupsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -133,7 +133,7 @@ export class PrivateZone extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180901:PrivateZone" }, { type: "azure-native:network/v20200101:PrivateZone" }, { type: "azure-native:network/v20200601:PrivateZone" }, { type: "azure-native:network/v20240601:PrivateZone" }, { type: "azure-native:network:PrivateZone" }, { type: "azure-native:privatedns/v20180901:PrivateZone" }, { type: "azure-native:privatedns/v20200101:PrivateZone" }, { type: "azure-native:privatedns/v20200601:PrivateZone" }, { type: "azure-native:privatedns/v20240601:PrivateZone" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200601:PrivateZone" }, { type: "azure-native:network/v20240601:PrivateZone" }, { type: "azure-native:network:PrivateZone" }, { type: "azure-native:privatedns/v20180901:PrivateZone" }, { type: "azure-native:privatedns/v20200101:PrivateZone" }, { type: "azure-native:privatedns/v20200601:PrivateZone" }, { type: "azure-native:privatedns/v20240601:PrivateZone" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateZone.__pulumiType, name, resourceInputs, opts);
     }

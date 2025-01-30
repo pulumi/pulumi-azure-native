@@ -27,7 +27,7 @@ class GetCapacityPoolVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, actual_throughput_mibps=None, avs_data_store=None, backup_id=None, baremetal_tenant_id=None, capacity_pool_resource_id=None, clone_progress=None, cool_access=None, cool_access_retrieval_policy=None, coolness_period=None, creation_token=None, data_protection=None, data_store_resource_id=None, default_group_quota_in_ki_bs=None, default_user_quota_in_ki_bs=None, delete_base_snapshot=None, effective_network_features=None, enable_subvolumes=None, encrypted=None, encryption_key_source=None, etag=None, export_policy=None, file_access_logs=None, file_system_id=None, id=None, is_default_quota_enabled=None, is_large_volume=None, is_restoring=None, kerberos_enabled=None, key_vault_private_endpoint_resource_id=None, ldap_enabled=None, location=None, maximum_number_of_files=None, mount_targets=None, name=None, network_features=None, network_sibling_set_id=None, originating_resource_id=None, placement_rules=None, protocol_types=None, provisioned_availability_zone=None, provisioning_state=None, proximity_placement_group=None, security_style=None, service_level=None, smb_access_based_enumeration=None, smb_continuously_available=None, smb_encryption=None, smb_non_browsable=None, snapshot_directory_visible=None, snapshot_id=None, storage_to_network_proximity=None, subnet_id=None, system_data=None, t2_network=None, tags=None, throughput_mibps=None, type=None, unix_permissions=None, usage_threshold=None, volume_group_name=None, volume_spec_name=None, volume_type=None, zones=None):
+    def __init__(__self__, actual_throughput_mibps=None, avs_data_store=None, backup_id=None, baremetal_tenant_id=None, capacity_pool_resource_id=None, clone_progress=None, cool_access=None, cool_access_retrieval_policy=None, cool_access_tiering_policy=None, coolness_period=None, creation_token=None, data_protection=None, data_store_resource_id=None, default_group_quota_in_ki_bs=None, default_user_quota_in_ki_bs=None, delete_base_snapshot=None, effective_network_features=None, enable_subvolumes=None, encrypted=None, encryption_key_source=None, etag=None, export_policy=None, file_access_logs=None, file_system_id=None, id=None, is_default_quota_enabled=None, is_large_volume=None, is_restoring=None, kerberos_enabled=None, key_vault_private_endpoint_resource_id=None, ldap_enabled=None, location=None, maximum_number_of_files=None, mount_targets=None, name=None, network_features=None, network_sibling_set_id=None, originating_resource_id=None, placement_rules=None, protocol_types=None, provisioned_availability_zone=None, provisioning_state=None, proximity_placement_group=None, security_style=None, service_level=None, smb_access_based_enumeration=None, smb_continuously_available=None, smb_encryption=None, smb_non_browsable=None, snapshot_directory_visible=None, snapshot_id=None, storage_to_network_proximity=None, subnet_id=None, system_data=None, t2_network=None, tags=None, throughput_mibps=None, type=None, unix_permissions=None, usage_threshold=None, volume_group_name=None, volume_spec_name=None, volume_type=None, zones=None):
         if actual_throughput_mibps and not isinstance(actual_throughput_mibps, float):
             raise TypeError("Expected argument 'actual_throughput_mibps' to be a float")
         pulumi.set(__self__, "actual_throughput_mibps", actual_throughput_mibps)
@@ -52,6 +52,9 @@ class GetCapacityPoolVolumeResult:
         if cool_access_retrieval_policy and not isinstance(cool_access_retrieval_policy, str):
             raise TypeError("Expected argument 'cool_access_retrieval_policy' to be a str")
         pulumi.set(__self__, "cool_access_retrieval_policy", cool_access_retrieval_policy)
+        if cool_access_tiering_policy and not isinstance(cool_access_tiering_policy, str):
+            raise TypeError("Expected argument 'cool_access_tiering_policy' to be a str")
+        pulumi.set(__self__, "cool_access_tiering_policy", cool_access_tiering_policy)
         if coolness_period and not isinstance(coolness_period, int):
             raise TypeError("Expected argument 'coolness_period' to be a int")
         pulumi.set(__self__, "coolness_period", coolness_period)
@@ -284,6 +287,14 @@ class GetCapacityPoolVolumeResult:
          Never - No client-driven data is pulled from cool tier to standard storage.
         """
         return pulumi.get(self, "cool_access_retrieval_policy")
+
+    @property
+    @pulumi.getter(name="coolAccessTieringPolicy")
+    def cool_access_tiering_policy(self) -> Optional[str]:
+        """
+        coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+        """
+        return pulumi.get(self, "cool_access_tiering_policy")
 
     @property
     @pulumi.getter(name="coolnessPeriod")
@@ -737,6 +748,7 @@ class AwaitableGetCapacityPoolVolumeResult(GetCapacityPoolVolumeResult):
             clone_progress=self.clone_progress,
             cool_access=self.cool_access,
             cool_access_retrieval_policy=self.cool_access_retrieval_policy,
+            cool_access_tiering_policy=self.cool_access_tiering_policy,
             coolness_period=self.coolness_period,
             creation_token=self.creation_token,
             data_protection=self.data_protection,
@@ -801,7 +813,7 @@ def get_capacity_pool_volume(account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityPoolVolumeResult:
     """
     Get the details of the specified volume
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2021-10-01, 2024-07-01-preview.
 
@@ -828,6 +840,7 @@ def get_capacity_pool_volume(account_name: Optional[str] = None,
         clone_progress=pulumi.get(__ret__, 'clone_progress'),
         cool_access=pulumi.get(__ret__, 'cool_access'),
         cool_access_retrieval_policy=pulumi.get(__ret__, 'cool_access_retrieval_policy'),
+        cool_access_tiering_policy=pulumi.get(__ret__, 'cool_access_tiering_policy'),
         coolness_period=pulumi.get(__ret__, 'coolness_period'),
         creation_token=pulumi.get(__ret__, 'creation_token'),
         data_protection=pulumi.get(__ret__, 'data_protection'),
@@ -890,7 +903,7 @@ def get_capacity_pool_volume_output(account_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolVolumeResult]:
     """
     Get the details of the specified volume
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2021-10-01, 2024-07-01-preview.
 
@@ -916,6 +929,7 @@ def get_capacity_pool_volume_output(account_name: Optional[pulumi.Input[str]] = 
         clone_progress=pulumi.get(__response__, 'clone_progress'),
         cool_access=pulumi.get(__response__, 'cool_access'),
         cool_access_retrieval_policy=pulumi.get(__response__, 'cool_access_retrieval_policy'),
+        cool_access_tiering_policy=pulumi.get(__response__, 'cool_access_tiering_policy'),
         coolness_period=pulumi.get(__response__, 'coolness_period'),
         creation_token=pulumi.get(__response__, 'creation_token'),
         data_protection=pulumi.get(__response__, 'data_protection'),

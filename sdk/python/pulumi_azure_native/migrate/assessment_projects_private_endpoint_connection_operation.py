@@ -100,7 +100,9 @@ class AssessmentProjectsPrivateEndpointConnectionOperation(pulumi.CustomResource
                  __props__=None):
         """
         Private endpoint connection resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +119,9 @@ class AssessmentProjectsPrivateEndpointConnectionOperation(pulumi.CustomResource
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private endpoint connection resource.
-        Azure REST API version: 2023-09-09-preview.
+        Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2023-09-09-preview.
 
         :param str resource_name: The name of the resource.
         :param AssessmentProjectsPrivateEndpointConnectionOperationArgs args: The arguments to use to populate this resource's properties.
@@ -163,7 +167,7 @@ class AssessmentProjectsPrivateEndpointConnectionOperation(pulumi.CustomResource
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsPrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsPrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsPrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsPrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsPrivateEndpointConnectionOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:AssessmentProjectsPrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20191001:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsPrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:PrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsPrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:PrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsPrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:PrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsPrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:PrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsPrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:PrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:migrate:PrivateEndpointConnectionOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsPrivateEndpointConnectionOperation, __self__).__init__(
             'azure-native:migrate:AssessmentProjectsPrivateEndpointConnectionOperation',

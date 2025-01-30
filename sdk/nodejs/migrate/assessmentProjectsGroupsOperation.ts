@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Group resource.
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export class AssessmentProjectsGroupsOperation extends pulumi.CustomResource {
     /**
@@ -134,7 +136,7 @@ export class AssessmentProjectsGroupsOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsGroupsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsGroupsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsGroupsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsGroupsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsGroupsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsGroupsOperation" }, { type: "azure-native:migrate/v20191001:Group" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsGroupsOperation" }, { type: "azure-native:migrate/v20230315:GroupsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsGroupsOperation" }, { type: "azure-native:migrate/v20230401preview:GroupsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsGroupsOperation" }, { type: "azure-native:migrate/v20230501preview:GroupsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsGroupsOperation" }, { type: "azure-native:migrate/v20230909preview:GroupsOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentProjectsGroupsOperation" }, { type: "azure-native:migrate/v20240101preview:GroupsOperation" }, { type: "azure-native:migrate:Group" }, { type: "azure-native:migrate:GroupsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsGroupsOperation.__pulumiType, name, resourceInputs, opts);
     }

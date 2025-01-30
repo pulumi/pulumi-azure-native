@@ -179,7 +179,7 @@ class AssessmentProjectsWebAppCollectorOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsWebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsWebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate:AssessmentProjectsWebAppCollectorOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsWebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:WebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsWebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:WebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:WebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:AssessmentProjectsWebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:WebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate:AssessmentProjectsWebAppCollectorOperation"), pulumi.Alias(type_="azure-native:migrate:WebAppCollectorOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsWebAppCollectorOperation, __self__).__init__(
             'azure-native:migrate/v20230909preview:AssessmentProjectsWebAppCollectorOperation',

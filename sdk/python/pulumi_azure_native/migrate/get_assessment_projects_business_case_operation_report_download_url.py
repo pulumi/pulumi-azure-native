@@ -67,7 +67,9 @@ def get_assessment_projects_business_case_operation_report_download_url(business
                                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentProjectsBusinessCaseOperationReportDownloadUrlResult:
     """
     Get the URL for downloading the business case in a report format.
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str business_case_name: Business case ARM name
@@ -90,7 +92,9 @@ def get_assessment_projects_business_case_operation_report_download_url_output(b
                                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentProjectsBusinessCaseOperationReportDownloadUrlResult]:
     """
     Get the URL for downloading the business case in a report format.
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str business_case_name: Business case ARM name

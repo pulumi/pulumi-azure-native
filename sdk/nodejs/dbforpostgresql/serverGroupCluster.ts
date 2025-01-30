@@ -281,7 +281,7 @@ export class ServerGroupCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20201005privatepreview:ServerGroupCluster" }, { type: "azure-native:dbforpostgresql/v20221108:ServerGroupCluster" }, { type: "azure-native:dbforpostgresql/v20230302preview:ServerGroupCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup" }, { type: "azure-native:dbforpostgresql/v20201005privatepreview:ServerGroupCluster" }, { type: "azure-native:dbforpostgresql/v20221108:Cluster" }, { type: "azure-native:dbforpostgresql/v20221108:ServerGroupCluster" }, { type: "azure-native:dbforpostgresql/v20230302preview:Cluster" }, { type: "azure-native:dbforpostgresql/v20230302preview:ServerGroupCluster" }, { type: "azure-native:dbforpostgresql:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerGroupCluster.__pulumiType, name, resourceInputs, opts);
     }

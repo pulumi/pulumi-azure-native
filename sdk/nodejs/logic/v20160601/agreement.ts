@@ -157,7 +157,7 @@ export class Agreement extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:Agreement" }, { type: "azure-native:logic/v20180701preview:Agreement" }, { type: "azure-native:logic/v20190501:Agreement" }, { type: "azure-native:logic:Agreement" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:Agreement" }, { type: "azure-native:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20180701preview:Agreement" }, { type: "azure-native:logic/v20190501:Agreement" }, { type: "azure-native:logic/v20190501:IntegrationAccountAgreement" }, { type: "azure-native:logic:Agreement" }, { type: "azure-native:logic:IntegrationAccountAgreement" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Agreement.__pulumiType, name, resourceInputs, opts);
     }

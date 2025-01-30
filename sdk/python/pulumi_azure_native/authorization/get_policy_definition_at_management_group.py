@@ -199,7 +199,7 @@ def get_policy_definition_at_management_group(management_group_id: Optional[str]
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDefinitionAtManagementGroupResult:
     """
     This operation retrieves the policy definition in the given management group with the given name.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-05-01.
 
     Other available API versions: 2018-05-01, 2019-06-01, 2021-06-01, 2025-01-01.
 
@@ -232,7 +232,7 @@ def get_policy_definition_at_management_group_output(management_group_id: Option
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyDefinitionAtManagementGroupResult]:
     """
     This operation retrieves the policy definition in the given management group with the given name.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-05-01.
 
     Other available API versions: 2018-05-01, 2019-06-01, 2021-06-01, 2025-01-01.
 

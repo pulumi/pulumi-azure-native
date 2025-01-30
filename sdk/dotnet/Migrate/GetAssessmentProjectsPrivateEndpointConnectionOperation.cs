@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a PrivateEndpointConnection
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Task<GetAssessmentProjectsPrivateEndpointConnectionOperationResult> InvokeAsync(GetAssessmentProjectsPrivateEndpointConnectionOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentProjectsPrivateEndpointConnectionOperationResult>("azure-native:migrate:getAssessmentProjectsPrivateEndpointConnectionOperation", args ?? new GetAssessmentProjectsPrivateEndpointConnectionOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a PrivateEndpointConnection
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsPrivateEndpointConnectionOperationResult> Invoke(GetAssessmentProjectsPrivateEndpointConnectionOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsPrivateEndpointConnectionOperationResult>("azure-native:migrate:getAssessmentProjectsPrivateEndpointConnectionOperation", args ?? new GetAssessmentProjectsPrivateEndpointConnectionOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a PrivateEndpointConnection
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsPrivateEndpointConnectionOperationResult> Invoke(GetAssessmentProjectsPrivateEndpointConnectionOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsPrivateEndpointConnectionOperationResult>("azure-native:migrate:getAssessmentProjectsPrivateEndpointConnectionOperation", args ?? new GetAssessmentProjectsPrivateEndpointConnectionOperationInvokeArgs(), options.WithDefaults());

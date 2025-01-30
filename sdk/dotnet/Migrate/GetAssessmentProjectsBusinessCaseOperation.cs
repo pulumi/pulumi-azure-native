@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a BusinessCase
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Task<GetAssessmentProjectsBusinessCaseOperationResult> InvokeAsync(GetAssessmentProjectsBusinessCaseOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentProjectsBusinessCaseOperationResult>("azure-native:migrate:getAssessmentProjectsBusinessCaseOperation", args ?? new GetAssessmentProjectsBusinessCaseOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a BusinessCase
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsBusinessCaseOperationResult> Invoke(GetAssessmentProjectsBusinessCaseOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsBusinessCaseOperationResult>("azure-native:migrate:getAssessmentProjectsBusinessCaseOperation", args ?? new GetAssessmentProjectsBusinessCaseOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a BusinessCase
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsBusinessCaseOperationResult> Invoke(GetAssessmentProjectsBusinessCaseOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsBusinessCaseOperationResult>("azure-native:migrate:getAssessmentProjectsBusinessCaseOperation", args ?? new GetAssessmentProjectsBusinessCaseOperationInvokeArgs(), options.WithDefaults());

@@ -122,6 +122,7 @@ namespace Pulumi.AzureNative.Logic
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountAgreement" },
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:Agreement" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountAgreement" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountAgreement" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountAgreement" },

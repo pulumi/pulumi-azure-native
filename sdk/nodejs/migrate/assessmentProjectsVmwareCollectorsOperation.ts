@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * VMware collector resource.
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export class AssessmentProjectsVmwareCollectorsOperation extends pulumi.CustomResource {
     /**
@@ -110,7 +112,7 @@ export class AssessmentProjectsVmwareCollectorsOperation extends pulumi.CustomRe
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsVmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsVmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsVmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsVmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsVmwareCollectorsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsVmwareCollectorsOperation" }, { type: "azure-native:migrate/v20191001:VMwareCollector" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsVmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230315:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsVmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsVmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsVmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentProjectsVmwareCollectorsOperation" }, { type: "azure-native:migrate/v20240101preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate:VMwareCollector" }, { type: "azure-native:migrate:VmwareCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsVmwareCollectorsOperation.__pulumiType, name, resourceInputs, opts);
     }

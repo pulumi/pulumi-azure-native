@@ -610,8 +610,10 @@ __all__ = [
     'TarGZipReadSettingsResponse',
     'TarReadSettingsResponse',
     'TeamDeskLinkedServiceResponse',
+    'TeradataImportCommandResponse',
     'TeradataLinkedServiceResponse',
     'TeradataPartitionSettingsResponse',
+    'TeradataSinkResponse',
     'TeradataSourceResponse',
     'TeradataTableDatasetResponse',
     'TextFormatResponse',
@@ -13926,7 +13928,9 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "commandTimeout":
+        if key == "azureCloudType":
+            suggest = "azure_cloud_type"
+        elif key == "commandTimeout":
             suggest = "command_timeout"
         elif key == "connectVia":
             suggest = "connect_via"
@@ -13936,6 +13940,16 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
             suggest = "encrypted_credential"
         elif key == "readBufferSize":
             suggest = "read_buffer_size"
+        elif key == "servicePrincipalCredentialType":
+            suggest = "service_principal_credential_type"
+        elif key == "servicePrincipalEmbeddedCert":
+            suggest = "service_principal_embedded_cert"
+        elif key == "servicePrincipalEmbeddedCertPassword":
+            suggest = "service_principal_embedded_cert_password"
+        elif key == "servicePrincipalId":
+            suggest = "service_principal_id"
+        elif key == "servicePrincipalKey":
+            suggest = "service_principal_key"
         elif key == "sslMode":
             suggest = "ssl_mode"
         elif key == "trustServerCertificate":
@@ -13955,9 +13969,11 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
+                 azure_cloud_type: Optional[Any] = None,
                  command_timeout: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
+                 credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  database: Optional[Any] = None,
                  description: Optional[str] = None,
                  encoding: Optional[Any] = None,
@@ -13967,7 +13983,13 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
                  port: Optional[Any] = None,
                  read_buffer_size: Optional[Any] = None,
                  server: Optional[Any] = None,
+                 service_principal_credential_type: Optional[Any] = None,
+                 service_principal_embedded_cert: Optional[Any] = None,
+                 service_principal_embedded_cert_password: Optional[Any] = None,
+                 service_principal_id: Optional[Any] = None,
+                 service_principal_key: Optional[Any] = None,
                  ssl_mode: Optional[Any] = None,
+                 tenant: Optional[Any] = None,
                  timeout: Optional[Any] = None,
                  timezone: Optional[Any] = None,
                  trust_server_certificate: Optional[Any] = None,
@@ -13978,9 +14000,11 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzurePostgreSql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param Any command_timeout: The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param Any database: Database name for connection. Type: string.
         :param str description: Linked service description.
         :param Any encoding: Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. Type: string
@@ -13990,7 +14014,13 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         :param Any port: The port for the connection. Type: integer.
         :param Any read_buffer_size: Determines the size of the internal buffer uses when reading. Increasing may improve performance if transferring large values from the database. Type: integer.
         :param Any server: Server name for connection. Type: string.
+        :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_embedded_cert: Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_embedded_cert_password: Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the service principal used to authenticate against Azure Database for PostgreSQL Flexible server. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Azure Database for PostgreSQL Flexible server.
         :param Any ssl_mode: SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer.
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param Any timeout: The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. Type: integer.
         :param Any timezone: Gets or sets the session timezone. Type: string.
         :param Any trust_server_certificate: Whether to trust the server certificate without validating it. Type: boolean.
@@ -14000,12 +14030,16 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         pulumi.set(__self__, "type", 'AzurePostgreSql')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if azure_cloud_type is not None:
+            pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
         if command_timeout is not None:
             pulumi.set(__self__, "command_timeout", command_timeout)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if database is not None:
             pulumi.set(__self__, "database", database)
         if description is not None:
@@ -14024,8 +14058,20 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
             pulumi.set(__self__, "read_buffer_size", read_buffer_size)
         if server is not None:
             pulumi.set(__self__, "server", server)
+        if service_principal_credential_type is not None:
+            pulumi.set(__self__, "service_principal_credential_type", service_principal_credential_type)
+        if service_principal_embedded_cert is not None:
+            pulumi.set(__self__, "service_principal_embedded_cert", service_principal_embedded_cert)
+        if service_principal_embedded_cert_password is not None:
+            pulumi.set(__self__, "service_principal_embedded_cert_password", service_principal_embedded_cert_password)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
+        if service_principal_key is not None:
+            pulumi.set(__self__, "service_principal_key", service_principal_key)
         if ssl_mode is not None:
             pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if tenant is not None:
+            pulumi.set(__self__, "tenant", tenant)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if timezone is not None:
@@ -14055,6 +14101,14 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         return pulumi.get(self, "annotations")
 
     @property
+    @pulumi.getter(name="azureCloudType")
+    def azure_cloud_type(self) -> Optional[Any]:
+        """
+        Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "azure_cloud_type")
+
+    @property
     @pulumi.getter(name="commandTimeout")
     def command_timeout(self) -> Optional[Any]:
         """
@@ -14077,6 +14131,14 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional['outputs.CredentialReferenceResponse']:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
 
     @property
     @pulumi.getter
@@ -14151,12 +14213,60 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         return pulumi.get(self, "server")
 
     @property
+    @pulumi.getter(name="servicePrincipalCredentialType")
+    def service_principal_credential_type(self) -> Optional[Any]:
+        """
+        The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_credential_type")
+
+    @property
+    @pulumi.getter(name="servicePrincipalEmbeddedCert")
+    def service_principal_embedded_cert(self) -> Optional[Any]:
+        """
+        Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_embedded_cert")
+
+    @property
+    @pulumi.getter(name="servicePrincipalEmbeddedCertPassword")
+    def service_principal_embedded_cert_password(self) -> Optional[Any]:
+        """
+        Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_embedded_cert_password")
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[Any]:
+        """
+        The ID of the service principal used to authenticate against Azure Database for PostgreSQL Flexible server. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @property
+    @pulumi.getter(name="servicePrincipalKey")
+    def service_principal_key(self) -> Optional[Any]:
+        """
+        The key of the service principal used to authenticate against Azure Database for PostgreSQL Flexible server.
+        """
+        return pulumi.get(self, "service_principal_key")
+
+    @property
     @pulumi.getter(name="sslMode")
     def ssl_mode(self) -> Optional[Any]:
         """
         SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer.
         """
         return pulumi.get(self, "ssl_mode")
+
+    @property
+    @pulumi.getter
+    def tenant(self) -> Optional[Any]:
+        """
+        The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "tenant")
 
     @property
     @pulumi.getter
@@ -22103,7 +22213,7 @@ class CopyActivityResponse(dict):
         """
         Copy activity.
         :param str name: Activity name.
-        :param Union['AvroSinkResponse', 'AzureBlobFSSinkResponse', 'AzureDataExplorerSinkResponse', 'AzureDataLakeStoreSinkResponse', 'AzureDatabricksDeltaLakeSinkResponse', 'AzureMySqlSinkResponse', 'AzurePostgreSqlSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureSqlSinkResponse', 'AzureTableSinkResponse', 'BinarySinkResponse', 'BlobSinkResponse', 'CommonDataServiceForAppsSinkResponse', 'CosmosDbMongoDbApiSinkResponse', 'CosmosDbSqlApiSinkResponse', 'DelimitedTextSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsCrmSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'IcebergSinkResponse', 'InformixSinkResponse', 'JsonSinkResponse', 'LakeHouseTableSinkResponse', 'MicrosoftAccessSinkResponse', 'MongoDbAtlasSinkResponse', 'MongoDbV2SinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'OrcSinkResponse', 'ParquetSinkResponse', 'RestSinkResponse', 'SalesforceServiceCloudSinkResponse', 'SalesforceServiceCloudV2SinkResponse', 'SalesforceSinkResponse', 'SalesforceV2SinkResponse', 'SapCloudForCustomerSinkResponse', 'SnowflakeSinkResponse', 'SnowflakeV2SinkResponse', 'SqlDWSinkResponse', 'SqlMISinkResponse', 'SqlServerSinkResponse', 'SqlSinkResponse', 'WarehouseSinkResponse'] sink: Copy activity sink.
+        :param Union['AvroSinkResponse', 'AzureBlobFSSinkResponse', 'AzureDataExplorerSinkResponse', 'AzureDataLakeStoreSinkResponse', 'AzureDatabricksDeltaLakeSinkResponse', 'AzureMySqlSinkResponse', 'AzurePostgreSqlSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureSqlSinkResponse', 'AzureTableSinkResponse', 'BinarySinkResponse', 'BlobSinkResponse', 'CommonDataServiceForAppsSinkResponse', 'CosmosDbMongoDbApiSinkResponse', 'CosmosDbSqlApiSinkResponse', 'DelimitedTextSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsCrmSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'IcebergSinkResponse', 'InformixSinkResponse', 'JsonSinkResponse', 'LakeHouseTableSinkResponse', 'MicrosoftAccessSinkResponse', 'MongoDbAtlasSinkResponse', 'MongoDbV2SinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'OrcSinkResponse', 'ParquetSinkResponse', 'RestSinkResponse', 'SalesforceServiceCloudSinkResponse', 'SalesforceServiceCloudV2SinkResponse', 'SalesforceSinkResponse', 'SalesforceV2SinkResponse', 'SapCloudForCustomerSinkResponse', 'SnowflakeSinkResponse', 'SnowflakeV2SinkResponse', 'SqlDWSinkResponse', 'SqlMISinkResponse', 'SqlServerSinkResponse', 'SqlSinkResponse', 'TeradataSinkResponse', 'WarehouseSinkResponse'] sink: Copy activity sink.
         :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GoogleBigQueryV2SourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PostgreSqlV2SourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceServiceCloudV2SourceResponse', 'SalesforceSourceResponse', 'SalesforceV2SourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'ServiceNowV2SourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SnowflakeV2SourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WarehouseSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
         :param str type: Type of activity.
                Expected value is 'Copy'.
@@ -57108,17 +57218,41 @@ class OracleCloudStorageReadSettingsResponse(dict):
 @pulumi.output_type
 class OracleLinkedServiceResponse(dict):
     """
-    Oracle database.
+    Oracle database. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "connectionString":
             suggest = "connection_string"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
         elif key == "connectVia":
             suggest = "connect_via"
+        elif key == "cryptoChecksumClient":
+            suggest = "crypto_checksum_client"
+        elif key == "cryptoChecksumTypesClient":
+            suggest = "crypto_checksum_types_client"
+        elif key == "enableBulkLoad":
+            suggest = "enable_bulk_load"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "encryptionClient":
+            suggest = "encryption_client"
+        elif key == "encryptionTypesClient":
+            suggest = "encryption_types_client"
+        elif key == "fetchSize":
+            suggest = "fetch_size"
+        elif key == "fetchTswtzAsTimestamp":
+            suggest = "fetch_tswtz_as_timestamp"
+        elif key == "initialLobFetchSize":
+            suggest = "initial_lob_fetch_size"
+        elif key == "initializationString":
+            suggest = "initialization_string"
+        elif key == "statementCacheSize":
+            suggest = "statement_cache_size"
+        elif key == "supportV1DataTypes":
+            suggest = "support_v1_data_types"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OracleLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -57135,39 +57269,95 @@ class OracleLinkedServiceResponse(dict):
                  connection_string: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
+                 authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 crypto_checksum_client: Optional[Any] = None,
+                 crypto_checksum_types_client: Optional[Any] = None,
                  description: Optional[str] = None,
+                 enable_bulk_load: Optional[Any] = None,
                  encrypted_credential: Optional[str] = None,
+                 encryption_client: Optional[Any] = None,
+                 encryption_types_client: Optional[Any] = None,
+                 fetch_size: Optional[Any] = None,
+                 fetch_tswtz_as_timestamp: Optional[Any] = None,
+                 initial_lob_fetch_size: Optional[Any] = None,
+                 initialization_string: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 server: Optional[Any] = None,
+                 statement_cache_size: Optional[Any] = None,
+                 support_v1_data_types: Optional[Any] = None,
+                 username: Optional[Any] = None,
                  version: Optional[str] = None):
         """
-        Oracle database.
-        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        Oracle database. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
         :param str type: Type of linked service.
                Expected value is 'Oracle'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param str authentication_type: Authentication type for connecting to the Oracle database. Only used for Version 2.0.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param Any crypto_checksum_client: Specifies the desired data integrity behavior when this client connects to a server. Supported values are accepted, rejected, requested or required, default value is required. Type: string. Only used for Version 2.0.
+        :param Any crypto_checksum_types_client: Specifies the crypto-checksum algorithms that client can use. Supported values are SHA1, SHA256, SHA384, SHA512, default value is (SHA512). Type: string. Only used for Version 2.0.
         :param str description: Linked service description.
+        :param Any enable_bulk_load: Specifies whether to use bulk copy or batch insert when loading data into the database, default value is true. Type: boolean. Only used for Version 2.0.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any encryption_client: Specifies the encryption client behavior. Supported values are accepted, rejected, requested or required, default value is required. Type: string. Only used for Version 2.0.
+        :param Any encryption_types_client: Specifies the encryption algorithms that client can use. Supported values are AES128, AES192, AES256, 3DES112, 3DES168, default value is (AES256). Type: string. Only used for Version 2.0.
+        :param Any fetch_size: Specifies the number of bytes that the driver allocates to fetch the data in one database round-trip, default value is 10485760. Type: integer. Only used for Version 2.0.
+        :param Any fetch_tswtz_as_timestamp: Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportV1DataTypes is not true, default value is true. Type: boolean. Only used for Version 2.0.
+        :param Any initial_lob_fetch_size: Specifies the amount that the source initially fetches for LOB columns, default value is 0. Type: integer. Only used for Version 2.0.
+        :param Any initialization_string: Specifies a command that is issued immediately after connecting to the database to manage session settings. Type: string. Only used for Version 2.0.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
+        :param Any server: The location of Oracle database you want to connect to, the supported forms include connector descriptor, Easy Connect (Plus) Naming and Oracle Net Services Name (Only self-hosted IR). Type: string. Only used for Version 2.0.
+        :param Any statement_cache_size: Specifies the number of cursors or statements to be cached for each database connection, default value is 0. Type: integer. Only used for Version 2.0.
+        :param Any support_v1_data_types: Specifies whether to use the Version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with Version 1.0's data type mappings, default value is false. Type: boolean. Only used for Version 2.0.
+        :param Any username: The Oracle database username. Type: string. Only used for Version 2.0.
         :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'Oracle')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if crypto_checksum_client is not None:
+            pulumi.set(__self__, "crypto_checksum_client", crypto_checksum_client)
+        if crypto_checksum_types_client is not None:
+            pulumi.set(__self__, "crypto_checksum_types_client", crypto_checksum_types_client)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_bulk_load is not None:
+            pulumi.set(__self__, "enable_bulk_load", enable_bulk_load)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if encryption_client is not None:
+            pulumi.set(__self__, "encryption_client", encryption_client)
+        if encryption_types_client is not None:
+            pulumi.set(__self__, "encryption_types_client", encryption_types_client)
+        if fetch_size is not None:
+            pulumi.set(__self__, "fetch_size", fetch_size)
+        if fetch_tswtz_as_timestamp is not None:
+            pulumi.set(__self__, "fetch_tswtz_as_timestamp", fetch_tswtz_as_timestamp)
+        if initial_lob_fetch_size is not None:
+            pulumi.set(__self__, "initial_lob_fetch_size", initial_lob_fetch_size)
+        if initialization_string is not None:
+            pulumi.set(__self__, "initialization_string", initialization_string)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if statement_cache_size is not None:
+            pulumi.set(__self__, "statement_cache_size", statement_cache_size)
+        if support_v1_data_types is not None:
+            pulumi.set(__self__, "support_v1_data_types", support_v1_data_types)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -57175,7 +57365,7 @@ class OracleLinkedServiceResponse(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Any:
         """
-        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
         """
         return pulumi.get(self, "connection_string")
 
@@ -57197,12 +57387,36 @@ class OracleLinkedServiceResponse(dict):
         return pulumi.get(self, "annotations")
 
     @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[str]:
+        """
+        Authentication type for connecting to the Oracle database. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
         """
         The integration runtime reference.
         """
         return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter(name="cryptoChecksumClient")
+    def crypto_checksum_client(self) -> Optional[Any]:
+        """
+        Specifies the desired data integrity behavior when this client connects to a server. Supported values are accepted, rejected, requested or required, default value is required. Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "crypto_checksum_client")
+
+    @property
+    @pulumi.getter(name="cryptoChecksumTypesClient")
+    def crypto_checksum_types_client(self) -> Optional[Any]:
+        """
+        Specifies the crypto-checksum algorithms that client can use. Supported values are SHA1, SHA256, SHA384, SHA512, default value is (SHA512). Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "crypto_checksum_types_client")
 
     @property
     @pulumi.getter
@@ -57213,12 +57427,68 @@ class OracleLinkedServiceResponse(dict):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="enableBulkLoad")
+    def enable_bulk_load(self) -> Optional[Any]:
+        """
+        Specifies whether to use bulk copy or batch insert when loading data into the database, default value is true. Type: boolean. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "enable_bulk_load")
+
+    @property
     @pulumi.getter(name="encryptedCredential")
     def encrypted_credential(self) -> Optional[str]:
         """
         The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter(name="encryptionClient")
+    def encryption_client(self) -> Optional[Any]:
+        """
+        Specifies the encryption client behavior. Supported values are accepted, rejected, requested or required, default value is required. Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "encryption_client")
+
+    @property
+    @pulumi.getter(name="encryptionTypesClient")
+    def encryption_types_client(self) -> Optional[Any]:
+        """
+        Specifies the encryption algorithms that client can use. Supported values are AES128, AES192, AES256, 3DES112, 3DES168, default value is (AES256). Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "encryption_types_client")
+
+    @property
+    @pulumi.getter(name="fetchSize")
+    def fetch_size(self) -> Optional[Any]:
+        """
+        Specifies the number of bytes that the driver allocates to fetch the data in one database round-trip, default value is 10485760. Type: integer. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "fetch_size")
+
+    @property
+    @pulumi.getter(name="fetchTswtzAsTimestamp")
+    def fetch_tswtz_as_timestamp(self) -> Optional[Any]:
+        """
+        Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportV1DataTypes is not true, default value is true. Type: boolean. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "fetch_tswtz_as_timestamp")
+
+    @property
+    @pulumi.getter(name="initialLobFetchSize")
+    def initial_lob_fetch_size(self) -> Optional[Any]:
+        """
+        Specifies the amount that the source initially fetches for LOB columns, default value is 0. Type: integer. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "initial_lob_fetch_size")
+
+    @property
+    @pulumi.getter(name="initializationString")
+    def initialization_string(self) -> Optional[Any]:
+        """
+        Specifies a command that is issued immediately after connecting to the database to manage session settings. Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "initialization_string")
 
     @property
     @pulumi.getter
@@ -57235,6 +57505,38 @@ class OracleLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        The location of Oracle database you want to connect to, the supported forms include connector descriptor, Easy Connect (Plus) Naming and Oracle Net Services Name (Only self-hosted IR). Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter(name="statementCacheSize")
+    def statement_cache_size(self) -> Optional[Any]:
+        """
+        Specifies the number of cursors or statements to be cached for each database connection, default value is 0. Type: integer. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "statement_cache_size")
+
+    @property
+    @pulumi.getter(name="supportV1DataTypes")
+    def support_v1_data_types(self) -> Optional[Any]:
+        """
+        Specifies whether to use the Version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with Version 1.0's data type mappings, default value is false. Type: boolean. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "support_v1_data_types")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[Any]:
+        """
+        The Oracle database username. Type: string. Only used for Version 2.0.
+        """
+        return pulumi.get(self, "username")
 
     @property
     @pulumi.getter
@@ -85467,6 +85769,59 @@ class TeamDeskLinkedServiceResponse(dict):
 
 
 @pulumi.output_type
+class TeradataImportCommandResponse(dict):
+    """
+    Teradata import command settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalFormatOptions":
+            suggest = "additional_format_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeradataImportCommandResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeradataImportCommandResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeradataImportCommandResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 additional_format_options: Optional[Any] = None):
+        """
+        Teradata import command settings.
+        :param str type: The import setting type.
+               Expected value is 'TeradataImportCommand'.
+        :param Any additional_format_options: Additional format options for Teradata Copy Command. The format options only applies to direct copy from CSV source. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "timeFormat": "HHhMImSSs" }
+        """
+        pulumi.set(__self__, "type", 'TeradataImportCommand')
+        if additional_format_options is not None:
+            pulumi.set(__self__, "additional_format_options", additional_format_options)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The import setting type.
+        Expected value is 'TeradataImportCommand'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="additionalFormatOptions")
+    def additional_format_options(self) -> Optional[Any]:
+        """
+        Additional format options for Teradata Copy Command. The format options only applies to direct copy from CSV source. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "timeFormat": "HHhMImSSs" }
+        """
+        return pulumi.get(self, "additional_format_options")
+
+
+@pulumi.output_type
 class TeradataLinkedServiceResponse(dict):
     """
     Linked service for Teradata data source.
@@ -85476,12 +85831,24 @@ class TeradataLinkedServiceResponse(dict):
         suggest = None
         if key == "authenticationType":
             suggest = "authentication_type"
+        elif key == "characterSet":
+            suggest = "character_set"
         elif key == "connectVia":
             suggest = "connect_via"
         elif key == "connectionString":
             suggest = "connection_string"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "httpsPortNumber":
+            suggest = "https_port_number"
+        elif key == "maxRespSize":
+            suggest = "max_resp_size"
+        elif key == "portNumber":
+            suggest = "port_number"
+        elif key == "sslMode":
+            suggest = "ssl_mode"
+        elif key == "useDataEncryption":
+            suggest = "use_data_encryption"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TeradataLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -85498,13 +85865,19 @@ class TeradataLinkedServiceResponse(dict):
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
                  authentication_type: Optional[str] = None,
+                 character_set: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
+                 https_port_number: Optional[Any] = None,
+                 max_resp_size: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
+                 port_number: Optional[Any] = None,
                  server: Optional[Any] = None,
+                 ssl_mode: Optional[Any] = None,
+                 use_data_encryption: Optional[Any] = None,
                  username: Optional[Any] = None,
                  version: Optional[str] = None):
         """
@@ -85513,13 +85886,19 @@ class TeradataLinkedServiceResponse(dict):
                Expected value is 'Teradata'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: AuthenticationType to be used for connection.
+        :param Any character_set: The character set to use for the connection. Type: string (or Expression with resultType string). Only applied for version 2.0.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
-        :param Any connection_string: Teradata ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: Teradata ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only applied for version 1.0.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any https_port_number: The port numbers when connecting to server through HTTPS/TLS connections. Type: integer (or Expression with resultType integer). Only applied for version 2.0.
+        :param Any max_resp_size: The maximum size of the response buffer for SQL requests, in bytes. Type: integer. Only applied for version 2.0.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
+        :param Any port_number: The port numbers when connecting to server through non HTTPS/TLS connections. Type: integer (or Expression with resultType integer). Only used for V2. Only applied for version 2.0.
         :param Any server: Server name for connection. Type: string (or Expression with resultType string).
+        :param Any ssl_mode: SSL mode for connection. Valid values including: “Disable”, “Allow”, “Prefer”, “Require”, “Verify-CA”, “Verify-Full”. Default value is “Verify-Full”. Type: string (or Expression with resultType string). Only applied for version 2.0.
+        :param Any use_data_encryption: Specifies whether to encrypt all communication with the Teradata database. Allowed values are 0 or 1. This setting will be ignored for HTTPS/TLS connections. Type: integer (or Expression with resultType integer). Only applied for version 2.0.
         :param Any username: Username for authentication. Type: string (or Expression with resultType string).
         :param str version: Version of the linked service.
         """
@@ -85528,6 +85907,8 @@ class TeradataLinkedServiceResponse(dict):
             pulumi.set(__self__, "annotations", annotations)
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
+        if character_set is not None:
+            pulumi.set(__self__, "character_set", character_set)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
@@ -85536,12 +85917,22 @@ class TeradataLinkedServiceResponse(dict):
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if https_port_number is not None:
+            pulumi.set(__self__, "https_port_number", https_port_number)
+        if max_resp_size is not None:
+            pulumi.set(__self__, "max_resp_size", max_resp_size)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if port_number is not None:
+            pulumi.set(__self__, "port_number", port_number)
         if server is not None:
             pulumi.set(__self__, "server", server)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if use_data_encryption is not None:
+            pulumi.set(__self__, "use_data_encryption", use_data_encryption)
         if username is not None:
             pulumi.set(__self__, "username", username)
         if version is not None:
@@ -85573,6 +85964,14 @@ class TeradataLinkedServiceResponse(dict):
         return pulumi.get(self, "authentication_type")
 
     @property
+    @pulumi.getter(name="characterSet")
+    def character_set(self) -> Optional[Any]:
+        """
+        The character set to use for the connection. Type: string (or Expression with resultType string). Only applied for version 2.0.
+        """
+        return pulumi.get(self, "character_set")
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
         """
@@ -85584,7 +85983,7 @@ class TeradataLinkedServiceResponse(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[Any]:
         """
-        Teradata ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        Teradata ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only applied for version 1.0.
         """
         return pulumi.get(self, "connection_string")
 
@@ -85605,6 +86004,22 @@ class TeradataLinkedServiceResponse(dict):
         return pulumi.get(self, "encrypted_credential")
 
     @property
+    @pulumi.getter(name="httpsPortNumber")
+    def https_port_number(self) -> Optional[Any]:
+        """
+        The port numbers when connecting to server through HTTPS/TLS connections. Type: integer (or Expression with resultType integer). Only applied for version 2.0.
+        """
+        return pulumi.get(self, "https_port_number")
+
+    @property
+    @pulumi.getter(name="maxRespSize")
+    def max_resp_size(self) -> Optional[Any]:
+        """
+        The maximum size of the response buffer for SQL requests, in bytes. Type: integer. Only applied for version 2.0.
+        """
+        return pulumi.get(self, "max_resp_size")
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
         """
@@ -85621,12 +86036,36 @@ class TeradataLinkedServiceResponse(dict):
         return pulumi.get(self, "password")
 
     @property
+    @pulumi.getter(name="portNumber")
+    def port_number(self) -> Optional[Any]:
+        """
+        The port numbers when connecting to server through non HTTPS/TLS connections. Type: integer (or Expression with resultType integer). Only used for V2. Only applied for version 2.0.
+        """
+        return pulumi.get(self, "port_number")
+
+    @property
     @pulumi.getter
     def server(self) -> Optional[Any]:
         """
         Server name for connection. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional[Any]:
+        """
+        SSL mode for connection. Valid values including: “Disable”, “Allow”, “Prefer”, “Require”, “Verify-CA”, “Verify-Full”. Default value is “Verify-Full”. Type: string (or Expression with resultType string). Only applied for version 2.0.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @property
+    @pulumi.getter(name="useDataEncryption")
+    def use_data_encryption(self) -> Optional[Any]:
+        """
+        Specifies whether to encrypt all communication with the Teradata database. Allowed values are 0 or 1. This setting will be ignored for HTTPS/TLS connections. Type: integer (or Expression with resultType integer). Only applied for version 2.0.
+        """
+        return pulumi.get(self, "use_data_encryption")
 
     @property
     @pulumi.getter
@@ -85711,6 +86150,143 @@ class TeradataPartitionSettingsResponse(dict):
         The maximum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "partition_upper_bound")
+
+
+@pulumi.output_type
+class TeradataSinkResponse(dict):
+    """
+    A copy activity Teradata sink.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "importSettings":
+            suggest = "import_settings"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeradataSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeradataSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeradataSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 disable_metrics_collection: Optional[Any] = None,
+                 import_settings: Optional['outputs.TeradataImportCommandResponse'] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity Teradata sink.
+        :param str type: Copy sink type.
+               Expected value is 'TeradataSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param 'TeradataImportCommandResponse' import_settings: Teradata import settings.
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'TeradataSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if import_settings is not None:
+            pulumi.set(__self__, "import_settings", import_settings)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy sink type.
+        Expected value is 'TeradataSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="importSettings")
+    def import_settings(self) -> Optional['outputs.TeradataImportCommandResponse']:
+        """
+        Teradata import settings.
+        """
+        return pulumi.get(self, "import_settings")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
 
 
 @pulumi.output_type

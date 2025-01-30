@@ -179,7 +179,7 @@ class SingleServerDatabase(pulumi.CustomResource):
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20171201:SingleServerDatabase"), pulumi.Alias(type_="azure-native:dbformysql/v20171201preview:SingleServerDatabase"), pulumi.Alias(type_="azure-native:dbformysql/v20180601privatepreview:SingleServerDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20171201:Database"), pulumi.Alias(type_="azure-native:dbformysql/v20171201:SingleServerDatabase"), pulumi.Alias(type_="azure-native:dbformysql/v20171201preview:SingleServerDatabase"), pulumi.Alias(type_="azure-native:dbformysql/v20180601privatepreview:SingleServerDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SingleServerDatabase, __self__).__init__(
             'azure-native:dbformysql:SingleServerDatabase',

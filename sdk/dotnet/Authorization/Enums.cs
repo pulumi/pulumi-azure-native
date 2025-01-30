@@ -329,6 +329,10 @@ namespace Pulumi.AzureNative.Authorization
         /// It will override the policy effect type.
         /// </summary>
         public static OverrideKind PolicyEffect { get; } = new OverrideKind("policyEffect");
+        /// <summary>
+        /// It will override the definition version property value of the policy assignment.
+        /// </summary>
+        public static OverrideKind DefinitionVersion { get; } = new OverrideKind("definitionVersion");
 
         public static bool operator ==(OverrideKind left, OverrideKind right) => left.Equals(right);
         public static bool operator !=(OverrideKind left, OverrideKind right) => !left.Equals(right);

@@ -106,13 +106,6 @@ namespace Pulumi.AzureNative.TrafficManager.V20170301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20151101:Endpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:Endpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170501:Endpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:Endpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180301:Endpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:Endpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network:Endpoint" },

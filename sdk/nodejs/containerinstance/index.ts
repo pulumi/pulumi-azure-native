@@ -25,16 +25,6 @@ export const getContainerGroupProfile: typeof import("./getContainerGroupProfile
 export const getContainerGroupProfileOutput: typeof import("./getContainerGroupProfile").getContainerGroupProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getContainerGroupProfile","getContainerGroupProfileOutput"], () => require("./getContainerGroupProfile"));
 
-export { GetNGroupArgs, GetNGroupResult, GetNGroupOutputArgs } from "./getNGroup";
-export const getNGroup: typeof import("./getNGroup").getNGroup = null as any;
-export const getNGroupOutput: typeof import("./getNGroup").getNGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getNGroup","getNGroupOutput"], () => require("./getNGroup"));
-
-export { NGroupArgs } from "./ngroup";
-export type NGroup = import("./ngroup").NGroup;
-export const NGroup: typeof import("./ngroup").NGroup = null as any;
-utilities.lazyLoad(exports, ["NGroup"], () => require("./ngroup"));
-
 
 // Export enums:
 export * from "../types/enums/containerinstance";
@@ -46,7 +36,6 @@ import * as v20230201preview from "./v20230201preview";
 import * as v20230501 from "./v20230501";
 import * as v20240501preview from "./v20240501preview";
 import * as v20240901preview from "./v20240901preview";
-import * as v20241001preview from "./v20241001preview";
 import * as v20241101preview from "./v20241101preview";
 
 export {
@@ -56,7 +45,6 @@ export {
     v20230501,
     v20240501preview,
     v20240901preview,
-    v20241001preview,
     v20241101preview,
 };
 
@@ -68,8 +56,6 @@ const _module = {
                 return new ContainerGroup(name, <any>undefined, { urn })
             case "azure-native:containerinstance:ContainerGroupProfile":
                 return new ContainerGroupProfile(name, <any>undefined, { urn })
-            case "azure-native:containerinstance:NGroup":
-                return new NGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

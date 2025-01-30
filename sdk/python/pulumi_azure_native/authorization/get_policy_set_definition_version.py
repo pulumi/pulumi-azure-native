@@ -188,9 +188,9 @@ def get_policy_set_definition_version(expand: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionVersionResult:
     """
     This operation retrieves the policy set definition version in the given subscription with the given name and version.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2025-01-01.
+    Other available API versions: 2023-04-01, 2025-01-01.
 
 
     :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
@@ -223,9 +223,9 @@ def get_policy_set_definition_version_output(expand: Optional[pulumi.Input[Optio
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicySetDefinitionVersionResult]:
     """
     This operation retrieves the policy set definition version in the given subscription with the given name and version.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2025-01-01.
+    Other available API versions: 2023-04-01, 2025-01-01.
 
 
     :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.

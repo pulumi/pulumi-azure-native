@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Private endpoint connection resource.
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export class AssessmentProjectsPrivateEndpointConnectionOperation extends pulumi.CustomResource {
     /**
@@ -107,7 +109,7 @@ export class AssessmentProjectsPrivateEndpointConnectionOperation extends pulumi
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsPrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsPrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsPrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsPrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsPrivateEndpointConnectionOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsPrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20191001:PrivateEndpointConnection" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsPrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20230315:PrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsPrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20230401preview:PrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsPrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20230501preview:PrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsPrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20230909preview:PrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentProjectsPrivateEndpointConnectionOperation" }, { type: "azure-native:migrate/v20240101preview:PrivateEndpointConnectionOperation" }, { type: "azure-native:migrate:PrivateEndpointConnection" }, { type: "azure-native:migrate:PrivateEndpointConnectionOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsPrivateEndpointConnectionOperation.__pulumiType, name, resourceInputs, opts);
     }

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Fabric
     /// <summary>
     /// Fabric Capacity resource
     /// Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2023-11-01.
+    /// 
+    /// Other available API versions: 2025-01-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:fabric:FabricCapacity")]
     public partial class FabricCapacity : global::Pulumi.CustomResource
@@ -96,6 +98,7 @@ namespace Pulumi.AzureNative.Fabric
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:fabric/v20231101:FabricCapacity" },
+                    new global::Pulumi.Alias { Type = "azure-native:fabric/v20250115preview:FabricCapacity" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

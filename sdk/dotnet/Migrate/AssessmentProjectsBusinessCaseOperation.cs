@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Business case resource.
-    /// Azure REST API version: 2023-09-09-preview.
+    /// Azure REST API version: 2024-01-01-preview.
+    /// 
+    /// Other available API versions: 2023-09-09-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AssessmentProjectsBusinessCaseOperation")]
     public partial class AssessmentProjectsBusinessCaseOperation : global::Pulumi.CustomResource
@@ -84,8 +86,14 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsBusinessCaseOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:BusinessCaseOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsBusinessCaseOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:BusinessCaseOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentProjectsBusinessCaseOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:BusinessCaseOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentProjectsBusinessCaseOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:BusinessCaseOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:BusinessCaseOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

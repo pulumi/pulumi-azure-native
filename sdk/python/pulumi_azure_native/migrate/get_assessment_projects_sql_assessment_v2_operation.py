@@ -554,7 +554,9 @@ def get_assessment_projects_sql_assessment_v2_operation(assessment_name: Optiona
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentProjectsSqlAssessmentV2OperationResult:
     """
     Get a SqlAssessmentV2
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str assessment_name: SQL Assessment arm name.
@@ -620,7 +622,9 @@ def get_assessment_projects_sql_assessment_v2_operation_output(assessment_name: 
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentProjectsSqlAssessmentV2OperationResult]:
     """
     Get a SqlAssessmentV2
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str assessment_name: SQL Assessment arm name.

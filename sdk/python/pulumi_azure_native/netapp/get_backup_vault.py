@@ -128,7 +128,7 @@ def get_backup_vault(account_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupVaultResult:
     """
     Get the Backup Vault
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
 
@@ -158,7 +158,7 @@ def get_backup_vault_output(account_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupVaultResult]:
     """
     Get the Backup Vault
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
 

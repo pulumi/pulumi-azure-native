@@ -124,10 +124,12 @@ namespace Pulumi.AzureNative.OffAzure
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:SitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:SitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:SitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:SitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:SitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:Site" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20180601PrivatePreview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20180601:SingleServerPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:SingleServerPrivateEndpointConnection" },
                 },
             };

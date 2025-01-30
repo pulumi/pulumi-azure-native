@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * ARM model of AKS Assessment.
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export class AssessmentProjectsAksAssessmentOperation extends pulumi.CustomResource {
     /**
@@ -113,7 +115,7 @@ export class AssessmentProjectsAksAssessmentOperation extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230401preview:AssessmentProjectsAksAssessmentOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsAksAssessmentOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsAksAssessmentOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230401preview:AksAssessmentOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsAksAssessmentOperation" }, { type: "azure-native:migrate/v20230501preview:AksAssessmentOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsAksAssessmentOperation" }, { type: "azure-native:migrate/v20230909preview:AksAssessmentOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsAksAssessmentOperation" }, { type: "azure-native:migrate/v20240101preview:AksAssessmentOperation" }, { type: "azure-native:migrate/v20240101preview:AssessmentProjectsAksAssessmentOperation" }, { type: "azure-native:migrate:AksAssessmentOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsAksAssessmentOperation.__pulumiType, name, resourceInputs, opts);
     }

@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Get a ImportCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Task<GetAssessmentProjectsImportCollectorsOperationResult> InvokeAsync(GetAssessmentProjectsImportCollectorsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentProjectsImportCollectorsOperationResult>("azure-native:migrate:getAssessmentProjectsImportCollectorsOperation", args ?? new GetAssessmentProjectsImportCollectorsOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ImportCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsImportCollectorsOperationResult> Invoke(GetAssessmentProjectsImportCollectorsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsImportCollectorsOperationResult>("azure-native:migrate:getAssessmentProjectsImportCollectorsOperation", args ?? new GetAssessmentProjectsImportCollectorsOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ImportCollector
-        /// Azure REST API version: 2023-09-09-preview.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-09-preview.
         /// </summary>
         public static Output<GetAssessmentProjectsImportCollectorsOperationResult> Invoke(GetAssessmentProjectsImportCollectorsOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentProjectsImportCollectorsOperationResult>("azure-native:migrate:getAssessmentProjectsImportCollectorsOperation", args ?? new GetAssessmentProjectsImportCollectorsOperationInvokeArgs(), options.WithDefaults());

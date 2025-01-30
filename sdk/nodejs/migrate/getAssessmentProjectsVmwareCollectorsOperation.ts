@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a VmwareCollector
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export function getAssessmentProjectsVmwareCollectorsOperation(args: GetAssessmentProjectsVmwareCollectorsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentProjectsVmwareCollectorsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +80,9 @@ export interface GetAssessmentProjectsVmwareCollectorsOperationResult {
 }
 /**
  * Get a VmwareCollector
- * Azure REST API version: 2023-09-09-preview.
+ * Azure REST API version: 2024-01-01-preview.
+ *
+ * Other available API versions: 2023-09-09-preview.
  */
 export function getAssessmentProjectsVmwareCollectorsOperationOutput(args: GetAssessmentProjectsVmwareCollectorsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentProjectsVmwareCollectorsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -166,7 +166,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:EventGridDataConnection" }, { type: "azure-native:synapse:EventGridDataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:EventGridDataConnection" }, { type: "azure-native:synapse/v20210601preview:EventHubDataConnection" }, { type: "azure-native:synapse/v20210601preview:IotHubDataConnection" }, { type: "azure-native:synapse:EventGridDataConnection" }, { type: "azure-native:synapse:EventHubDataConnection" }, { type: "azure-native:synapse:IotHubDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventGridDataConnection.__pulumiType, name, resourceInputs, opts);
     }

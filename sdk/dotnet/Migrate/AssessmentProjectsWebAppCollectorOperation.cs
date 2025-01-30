@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// The web app collector REST object.
-    /// Azure REST API version: 2023-09-09-preview.
+    /// Azure REST API version: 2024-01-01-preview.
+    /// 
+    /// Other available API versions: 2023-09-09-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AssessmentProjectsWebAppCollectorOperation")]
     public partial class AssessmentProjectsWebAppCollectorOperation : global::Pulumi.CustomResource
@@ -90,8 +92,14 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsWebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:WebAppCollectorOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsWebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:WebAppCollectorOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentProjectsWebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:WebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentProjectsWebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:WebAppCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:WebAppCollectorOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

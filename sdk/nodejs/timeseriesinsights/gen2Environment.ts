@@ -155,7 +155,7 @@ export class Gen2Environment extends pulumi.CustomResource {
             resourceInputs["warmStoreConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20170228preview:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20171115:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20180815preview:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20200515:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20210331preview:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20210630preview:Gen2Environment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20170228preview:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20171115:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20180815preview:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20200515:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20210331preview:Gen2Environment" }, { type: "azure-native:timeseriesinsights/v20210630preview:Gen1Environment" }, { type: "azure-native:timeseriesinsights/v20210630preview:Gen2Environment" }, { type: "azure-native:timeseriesinsights:Gen1Environment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gen2Environment.__pulumiType, name, resourceInputs, opts);
     }

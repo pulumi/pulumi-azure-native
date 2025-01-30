@@ -67,6 +67,8 @@ namespace Pulumi.AzureNative.Migrate
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:Solution" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230101:Solution" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230101:SolutionsControllerSolution" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:SolutionsControllerSolution" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

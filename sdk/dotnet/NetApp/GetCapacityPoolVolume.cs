@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Get the details of the specified volume
-        /// Azure REST API version: 2024-07-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
         /// Other available API versions: 2021-10-01, 2024-07-01-preview.
         /// </summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.NetApp
 
         /// <summary>
         /// Get the details of the specified volume
-        /// Azure REST API version: 2024-07-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
         /// Other available API versions: 2021-10-01, 2024-07-01-preview.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.NetApp
 
         /// <summary>
         /// Get the details of the specified volume
-        /// Azure REST API version: 2024-07-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
         /// Other available API versions: 2021-10-01, 2024-07-01-preview.
         /// </summary>
@@ -143,6 +143,10 @@ namespace Pulumi.AzureNative.NetApp
         ///  Never - No client-driven data is pulled from cool tier to standard storage.
         /// </summary>
         public readonly string? CoolAccessRetrievalPolicy;
+        /// <summary>
+        /// coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+        /// </summary>
+        public readonly string? CoolAccessTieringPolicy;
         /// <summary>
         /// Specifies the number of days after which data that is not accessed by clients will be tiered.
         /// </summary>
@@ -379,6 +383,8 @@ namespace Pulumi.AzureNative.NetApp
 
             string? coolAccessRetrievalPolicy,
 
+            string? coolAccessTieringPolicy,
+
             int? coolnessPeriod,
 
             string creationToken,
@@ -497,6 +503,7 @@ namespace Pulumi.AzureNative.NetApp
             CloneProgress = cloneProgress;
             CoolAccess = coolAccess;
             CoolAccessRetrievalPolicy = coolAccessRetrievalPolicy;
+            CoolAccessTieringPolicy = coolAccessTieringPolicy;
             CoolnessPeriod = coolnessPeriod;
             CreationToken = creationToken;
             DataProtection = dataProtection;

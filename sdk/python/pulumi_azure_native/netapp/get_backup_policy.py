@@ -224,7 +224,7 @@ def get_backup_policy(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
     Get a particular backup Policy
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2021-04-01, 2021-04-01-preview, 2021-06-01, 2022-11-01, 2024-07-01-preview.
 
@@ -262,7 +262,7 @@ def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
     Get a particular backup Policy
-    Azure REST API version: 2024-07-01.
+    Azure REST API version: 2024-09-01.
 
     Other available API versions: 2021-04-01, 2021-04-01-preview, 2021-06-01, 2022-11-01, 2024-07-01-preview.
 

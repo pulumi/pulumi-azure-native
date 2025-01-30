@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.Cache.V20241101
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230801:AccessPolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240301:AccessPolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240401preview:AccessPolicyAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20240901preview:AccessPolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:cache:AccessPolicyAssignment" },
                 },
             };

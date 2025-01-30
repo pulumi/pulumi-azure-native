@@ -152,7 +152,9 @@ def get_assessment_projects_hyperv_collectors_operation(hyperv_collector_name: O
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssessmentProjectsHypervCollectorsOperationResult:
     """
     Get a HypervCollector
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str hyperv_collector_name: Hyper-V collector ARM name
@@ -182,7 +184,9 @@ def get_assessment_projects_hyperv_collectors_operation_output(hyperv_collector_
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentProjectsHypervCollectorsOperationResult]:
     """
     Get a HypervCollector
-    Azure REST API version: 2023-09-09-preview.
+    Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2023-09-09-preview.
 
 
     :param str hyperv_collector_name: Hyper-V collector ARM name

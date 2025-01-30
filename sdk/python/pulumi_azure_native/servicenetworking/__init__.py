@@ -23,8 +23,6 @@ if typing.TYPE_CHECKING:
     v20221001preview = __v20221001preview
     import pulumi_azure_native.servicenetworking.v20230501preview as __v20230501preview
     v20230501preview = __v20230501preview
-    import pulumi_azure_native.servicenetworking.v20231101 as __v20231101
-    v20231101 = __v20231101
     import pulumi_azure_native.servicenetworking.v20240501preview as __v20240501preview
     v20240501preview = __v20240501preview
     import pulumi_azure_native.servicenetworking.v20250101 as __v20250101
@@ -32,7 +30,6 @@ if typing.TYPE_CHECKING:
 else:
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.servicenetworking.v20221001preview')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.servicenetworking.v20230501preview')
-    v20231101 = _utilities.lazy_import('pulumi_azure_native.servicenetworking.v20231101')
     v20240501preview = _utilities.lazy_import('pulumi_azure_native.servicenetworking.v20240501preview')
     v20250101 = _utilities.lazy_import('pulumi_azure_native.servicenetworking.v20250101')
 

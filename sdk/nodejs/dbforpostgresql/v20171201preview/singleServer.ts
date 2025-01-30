@@ -187,7 +187,7 @@ export class SingleServer extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20171201:SingleServer" }, { type: "azure-native:dbforpostgresql:SingleServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20171201:Server" }, { type: "azure-native:dbforpostgresql/v20171201:SingleServer" }, { type: "azure-native:dbforpostgresql/v20171201preview:Server" }, { type: "azure-native:dbforpostgresql:SingleServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SingleServer.__pulumiType, name, resourceInputs, opts);
     }

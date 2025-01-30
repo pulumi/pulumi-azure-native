@@ -153,7 +153,7 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
     Gets the identity.
     Azure REST API version: 2023-01-31.
 
-    Other available API versions: 2023-07-31-preview.
+    Other available API versions: 2023-07-31-preview, 2024-11-30.
 
 
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
@@ -182,7 +182,7 @@ def get_user_assigned_identity_output(resource_group_name: Optional[pulumi.Input
     Gets the identity.
     Azure REST API version: 2023-01-31.
 
-    Other available API versions: 2023-07-31-preview.
+    Other available API versions: 2023-07-31-preview, 2024-11-30.
 
 
     :param str resource_group_name: The name of the Resource Group to which the identity belongs.
