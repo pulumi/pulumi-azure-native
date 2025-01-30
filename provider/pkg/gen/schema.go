@@ -1062,36 +1062,17 @@ func (g *packageGenerator) generateAliases(resourceTok string, resource *resourc
 		typeAliases.Add(token)
 	}
 
-	// Add an alias for the same version of the resource, but in its old module.
-	if resource.ModuleNaming.PreviousName != nil {
-		typeAliases.Add(generateTok(*resource.ModuleNaming.PreviousName, resource.typeName, g.sdkVersion))
-	}
-
 	for _, alias := range typeNameAliases {
 		typeAliases.Add(generateTok(g.moduleName, alias, g.sdkVersion))
-		// Add an alias for the same alias, but in its old module.
-		if resource.ModuleNaming.PreviousName != nil {
-			typeAliases.Add(generateTok(*resource.ModuleNaming.PreviousName, alias, g.sdkVersion))
-		}
 	}
 
 	// Add an alias for each API version that has the same path in it.
 	for _, version := range resource.CompatibleVersions {
 		typeAliases.Add(generateTok(g.moduleName, resource.typeName, version.ToSdkVersion()))
 
-		// Add an alias for the other versions, but from its old module.
-		if resource.ModuleNaming.PreviousName != nil {
-			typeAliases.Add(generateTok(*resource.ModuleNaming.PreviousName, resource.typeName, version.ToSdkVersion()))
-		}
-
 		// Add type name aliases for each compatible version.
 		for _, alias := range typeNameAliases {
 			typeAliases.Add(generateTok(g.moduleName, alias, version.ToSdkVersion()))
-
-			// Add an alias for the other version, with alias, from its old module.
-			if resource.ModuleNaming.PreviousName != nil {
-				typeAliases.Add(generateTok(*resource.ModuleNaming.PreviousName, alias, version.ToSdkVersion()))
-			}
 		}
 	}
 
