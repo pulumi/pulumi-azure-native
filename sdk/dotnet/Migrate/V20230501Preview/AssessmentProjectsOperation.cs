@@ -145,6 +145,7 @@ namespace Pulumi.AzureNative.Migrate.V20230501Preview
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentProjectsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentProjectsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:AssessmentProjectsOperation" },
                 },
             };

@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.Migrate
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:Assessment" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:Assessment" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:Assessment" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:Assessment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

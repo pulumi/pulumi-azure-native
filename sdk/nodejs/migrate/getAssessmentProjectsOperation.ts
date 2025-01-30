@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a AssessmentProject
  * Azure REST API version: 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
  */
 export function getAssessmentProjectsOperation(args: GetAssessmentProjectsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentProjectsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -114,7 +114,7 @@ export interface GetAssessmentProjectsOperationResult {
  * Get a AssessmentProject
  * Azure REST API version: 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
  */
 export function getAssessmentProjectsOperationOutput(args: GetAssessmentProjectsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentProjectsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

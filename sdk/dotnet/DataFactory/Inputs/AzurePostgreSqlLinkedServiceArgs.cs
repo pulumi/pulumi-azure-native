@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
+        /// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("azureCloudType")]
+        public Input<object>? AzureCloudType { get; set; }
+
+        /// <summary>
         /// The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer.
         /// </summary>
         [Input("commandTimeout")]
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("connectionString")]
         public Input<object>? ConnectionString { get; set; }
+
+        /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
 
         /// <summary>
         /// Database name for connection. Type: string.
@@ -106,10 +118,46 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? Server { get; set; }
 
         /// <summary>
+        /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("servicePrincipalCredentialType")]
+        public Input<object>? ServicePrincipalCredentialType { get; set; }
+
+        /// <summary>
+        /// Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("servicePrincipalEmbeddedCert")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalEmbeddedCert { get; set; }
+
+        /// <summary>
+        /// Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("servicePrincipalEmbeddedCertPassword")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalEmbeddedCertPassword { get; set; }
+
+        /// <summary>
+        /// The ID of the service principal used to authenticate against Azure Database for PostgreSQL Flexible server. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("servicePrincipalId")]
+        public Input<object>? ServicePrincipalId { get; set; }
+
+        /// <summary>
+        /// The key of the service principal used to authenticate against Azure Database for PostgreSQL Flexible server.
+        /// </summary>
+        [Input("servicePrincipalKey")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalKey { get; set; }
+
+        /// <summary>
         /// SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer.
         /// </summary>
         [Input("sslMode")]
         public Input<object>? SslMode { get; set; }
+
+        /// <summary>
+        /// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("tenant")]
+        public Input<object>? Tenant { get; set; }
 
         /// <summary>
         /// The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. Type: integer.

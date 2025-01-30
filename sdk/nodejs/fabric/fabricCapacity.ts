@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Fabric Capacity resource
  * Azure REST API version: 2023-11-01.
+ *
+ * Other available API versions: 2025-01-15-preview.
  */
 export class FabricCapacity extends pulumi.CustomResource {
     /**
@@ -118,7 +120,7 @@ export class FabricCapacity extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:fabric/v20231101:FabricCapacity" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:fabric/v20231101:FabricCapacity" }, { type: "azure-native:fabric/v20250115preview:FabricCapacity" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FabricCapacity.__pulumiType, name, resourceInputs, opts);
     }

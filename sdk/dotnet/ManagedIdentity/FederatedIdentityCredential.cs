@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
     /// Describes a federated identity credential.
     /// Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2022-01-31-preview.
     /// 
-    /// Other available API versions: 2023-07-31-preview.
+    /// Other available API versions: 2023-07-31-preview, 2024-11-30.
     /// </summary>
     [AzureNativeResourceType("azure-native:managedidentity:FederatedIdentityCredential")]
     public partial class FederatedIdentityCredential : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20220131preview:FederatedIdentityCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20230131:FederatedIdentityCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20230731preview:FederatedIdentityCredential" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20241130:FederatedIdentityCredential" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * AVS assessment resource.
  * Azure REST API version: 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
  */
 export class AvsAssessmentsOperation extends pulumi.CustomResource {
     /**
@@ -338,7 +338,7 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
             resourceInputs["vcpuOversubscription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230501preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AvsAssessmentsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230501preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20240101preview:AvsAssessmentsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvsAssessmentsOperation.__pulumiType, name, resourceInputs, opts);
     }

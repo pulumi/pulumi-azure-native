@@ -294,6 +294,7 @@ namespace Pulumi.AzureNative.Migrate.V20230315
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:SqlAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:SqlAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:SqlAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:SqlAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:SqlAssessmentV2Operation" },
                 },
             };

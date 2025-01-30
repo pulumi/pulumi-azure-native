@@ -109,7 +109,7 @@ export class VmwareCollectorsOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate:VmwareCollectorsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20240101preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate:VmwareCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VmwareCollectorsOperation.__pulumiType, name, resourceInputs, opts);
     }

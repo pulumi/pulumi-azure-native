@@ -389,7 +389,7 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
             resourceInputs["vcpuOversubscription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate:AvsAssessmentsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20240101preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate:AvsAssessmentsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvsAssessmentsOperation.__pulumiType, name, resourceInputs, opts);
     }

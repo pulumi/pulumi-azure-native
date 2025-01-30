@@ -59206,6 +59206,48 @@
     "Property": "zones"
   },
   {
+    "VersionedModule": "netapp/v20240901",
+    "Module": "NetApp",
+    "ResourceName": "Volume",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20240901",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "VersionedModule": "netapp/v20240901",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20240901",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20240901",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "VersionedModule": "netapp/v20240901",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
     "VersionedModule": "network",
     "Module": "Network",
     "ResourceName": "InboundEndpoint",

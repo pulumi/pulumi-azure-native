@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.Migrate.V20230501Preview
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:HypervCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:HypervCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:HypervCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:HypervCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:HypervCollectorsOperation" },
                 },
             };

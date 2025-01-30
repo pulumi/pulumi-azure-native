@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Migrate.V20230909Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:BusinessCaseOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:BusinessCaseOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:BusinessCaseOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:BusinessCaseOperation" },
                 },
             };

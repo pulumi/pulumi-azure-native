@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a PrivateEndpointConnection
         /// Azure REST API version: 2023-03-15.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionOperationResult> InvokeAsync(GetPrivateEndpointConnectionOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionOperationResult>("azure-native:migrate:getPrivateEndpointConnectionOperation", args ?? new GetPrivateEndpointConnectionOperationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a PrivateEndpointConnection
         /// Azure REST API version: 2023-03-15.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionOperationResult> Invoke(GetPrivateEndpointConnectionOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionOperationResult>("azure-native:migrate:getPrivateEndpointConnectionOperation", args ?? new GetPrivateEndpointConnectionOperationInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a PrivateEndpointConnection
         /// Azure REST API version: 2023-03-15.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionOperationResult> Invoke(GetPrivateEndpointConnectionOperationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionOperationResult>("azure-native:migrate:getPrivateEndpointConnectionOperation", args ?? new GetPrivateEndpointConnectionOperationInvokeArgs(), options.WithDefaults());

@@ -316,7 +316,7 @@ export class SqlAssessmentV2Operation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230401preview:SqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20230501preview:SqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20230909preview:SqlAssessmentV2Operation" }, { type: "azure-native:migrate:SqlAssessmentV2Operation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230401preview:SqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20230501preview:SqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20230909preview:SqlAssessmentV2Operation" }, { type: "azure-native:migrate/v20240101preview:SqlAssessmentV2Operation" }, { type: "azure-native:migrate:SqlAssessmentV2Operation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlAssessmentV2Operation.__pulumiType, name, resourceInputs, opts);
     }

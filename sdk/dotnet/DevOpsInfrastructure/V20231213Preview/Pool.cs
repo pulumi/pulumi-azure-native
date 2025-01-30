@@ -116,6 +116,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.V20231213Preview
                     new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20240326preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20240404preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20241019:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20250121:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure:Pool" },
                 },
             };

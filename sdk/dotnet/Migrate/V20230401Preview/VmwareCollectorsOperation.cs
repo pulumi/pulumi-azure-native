@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.Migrate.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:VmwareCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:VmwareCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:VmwareCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:VmwareCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:VmwareCollectorsOperation" },
                 },
             };

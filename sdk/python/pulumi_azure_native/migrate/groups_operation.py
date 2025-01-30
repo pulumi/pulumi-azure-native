@@ -136,7 +136,7 @@ class GroupsOperation(pulumi.CustomResource):
         Group resource.
         Azure REST API version: 2023-03-15.
 
-        Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+        Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +157,7 @@ class GroupsOperation(pulumi.CustomResource):
         Group resource.
         Azure REST API version: 2023-03-15.
 
-        Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+        Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param GroupsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -208,7 +208,7 @@ class GroupsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:GroupsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:GroupsOperation"), pulumi.Alias(type_="azure-native:migrate/v20240101preview:GroupsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GroupsOperation, __self__).__init__(
             'azure-native:migrate:GroupsOperation',

@@ -130,6 +130,7 @@ import * as m365securityandcompliance from "./m365securityandcompliance";
 import * as machinelearning from "./machinelearning";
 import * as machinelearningservices from "./machinelearningservices";
 import * as maintenance from "./maintenance";
+import * as managedidentity from "./managedidentity";
 import * as managednetwork from "./managednetwork";
 import * as managednetworkfabric from "./managednetworkfabric";
 import * as managedservices from "./managedservices";
@@ -339,6 +340,7 @@ export {
     machinelearning,
     machinelearningservices,
     maintenance,
+    managedidentity,
     managednetwork,
     managednetworkfabric,
     managedservices,

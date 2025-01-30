@@ -8916,6 +8916,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devopsinfrastructure/v20250121",
+  "fqn": "pulumi_azure_native.devopsinfrastructure.v20250121",
+  "classes": {
+   "azure-native:devopsinfrastructure/v20250121:Pool": "Pool"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "devspaces",
   "fqn": "pulumi_azure_native.devspaces",
   "classes": {
@@ -10249,6 +10257,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.fabric.v20231101",
   "classes": {
    "azure-native:fabric/v20231101:FabricCapacity": "FabricCapacity"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "fabric/v20250115preview",
+  "fqn": "pulumi_azure_native.fabric.v20250115preview",
+  "classes": {
+   "azure-native:fabric/v20250115preview:FabricCapacity": "FabricCapacity"
   }
  },
  {
@@ -13152,6 +13168,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "managedidentity/v20241130",
+  "fqn": "pulumi_azure_native.managedidentity.v20241130",
+  "classes": {
+   "azure-native:managedidentity/v20241130:FederatedIdentityCredential": "FederatedIdentityCredential",
+   "azure-native:managedidentity/v20241130:UserAssignedIdentity": "UserAssignedIdentity"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "managednetwork",
   "fqn": "pulumi_azure_native.managednetwork",
   "classes": {
@@ -13742,6 +13767,28 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "migrate/v20240101preview",
+  "fqn": "pulumi_azure_native.migrate.v20240101preview",
+  "classes": {
+   "azure-native:migrate/v20240101preview:AksAssessmentOperation": "AksAssessmentOperation",
+   "azure-native:migrate/v20240101preview:AssessmentProjectsOperation": "AssessmentProjectsOperation",
+   "azure-native:migrate/v20240101preview:AssessmentsOperation": "AssessmentsOperation",
+   "azure-native:migrate/v20240101preview:AvsAssessmentsOperation": "AvsAssessmentsOperation",
+   "azure-native:migrate/v20240101preview:BusinessCaseOperation": "BusinessCaseOperation",
+   "azure-native:migrate/v20240101preview:GroupsOperation": "GroupsOperation",
+   "azure-native:migrate/v20240101preview:HypervCollectorsOperation": "HypervCollectorsOperation",
+   "azure-native:migrate/v20240101preview:ImportCollectorsOperation": "ImportCollectorsOperation",
+   "azure-native:migrate/v20240101preview:PrivateEndpointConnectionOperation": "PrivateEndpointConnectionOperation",
+   "azure-native:migrate/v20240101preview:ServerCollectorsOperation": "ServerCollectorsOperation",
+   "azure-native:migrate/v20240101preview:SqlAssessmentV2Operation": "SqlAssessmentV2Operation",
+   "azure-native:migrate/v20240101preview:SqlCollectorOperation": "SqlCollectorOperation",
+   "azure-native:migrate/v20240101preview:VmwareCollectorsOperation": "VmwareCollectorsOperation",
+   "azure-native:migrate/v20240101preview:WebAppAssessmentV2Operation": "WebAppAssessmentV2Operation",
+   "azure-native:migrate/v20240101preview:WebAppCollectorOperation": "WebAppCollectorOperation"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "mixedreality",
   "fqn": "pulumi_azure_native.mixedreality",
   "classes": {
@@ -14262,6 +14309,24 @@ _utilities.register(
    "azure-native:netapp/v20240701preview:Volume": "Volume",
    "azure-native:netapp/v20240701preview:VolumeGroup": "VolumeGroup",
    "azure-native:netapp/v20240701preview:VolumeQuotaRule": "VolumeQuotaRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "netapp/v20240901",
+  "fqn": "pulumi_azure_native.netapp.v20240901",
+  "classes": {
+   "azure-native:netapp/v20240901:Account": "Account",
+   "azure-native:netapp/v20240901:Backup": "Backup",
+   "azure-native:netapp/v20240901:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20240901:BackupVault": "BackupVault",
+   "azure-native:netapp/v20240901:Pool": "Pool",
+   "azure-native:netapp/v20240901:Snapshot": "Snapshot",
+   "azure-native:netapp/v20240901:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20240901:Subvolume": "Subvolume",
+   "azure-native:netapp/v20240901:Volume": "Volume",
+   "azure-native:netapp/v20240901:VolumeGroup": "VolumeGroup",
+   "azure-native:netapp/v20240901:VolumeQuotaRule": "VolumeQuotaRule"
   }
  },
  {

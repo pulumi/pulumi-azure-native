@@ -326,6 +326,7 @@ namespace Pulumi.AzureNative.Migrate.V20230909Preview
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:AssessmentsOperation" },
                 },
             };

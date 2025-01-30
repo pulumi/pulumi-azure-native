@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Physical server collector resource.
  * Azure REST API version: 2023-03-15.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
  */
 export class ServerCollectorsOperation extends pulumi.CustomResource {
     /**
@@ -112,7 +112,7 @@ export class ServerCollectorsOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:ServerCollectorsOperation" }, { type: "azure-native:migrate/v20230315:ServerCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:ServerCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:ServerCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:ServerCollectorsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:ServerCollectorsOperation" }, { type: "azure-native:migrate/v20230315:ServerCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:ServerCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:ServerCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:ServerCollectorsOperation" }, { type: "azure-native:migrate/v20240101preview:ServerCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerCollectorsOperation.__pulumiType, name, resourceInputs, opts);
     }

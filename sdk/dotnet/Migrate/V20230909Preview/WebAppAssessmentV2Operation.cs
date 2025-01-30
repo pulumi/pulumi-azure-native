@@ -232,6 +232,7 @@ namespace Pulumi.AzureNative.Migrate.V20230909Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:WebAppAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:WebAppAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:WebAppAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:WebAppAssessmentV2Operation" },
                 },
             };

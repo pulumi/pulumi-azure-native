@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.Migrate.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:PrivateEndpointConnectionOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:PrivateEndpointConnectionOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:PrivateEndpointConnectionOperation" },
                 },
             };

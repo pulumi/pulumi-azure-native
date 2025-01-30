@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Migrate
     /// Import collector resource.
     /// Azure REST API version: 2023-03-15.
     /// 
-    /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+    /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:ImportCollectorsOperation")]
     public partial class ImportCollectorsOperation : global::Pulumi.CustomResource
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Migrate
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:ImportCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20240101preview:ImportCollectorsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

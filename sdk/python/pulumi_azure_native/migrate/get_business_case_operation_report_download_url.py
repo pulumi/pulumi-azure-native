@@ -69,7 +69,7 @@ def get_business_case_operation_report_download_url(business_case_name: Optional
     Get the URL for downloading the business case in a report format.
     Azure REST API version: 2023-04-01-preview.
 
-    Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
+    Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
 
 
     :param str business_case_name: Business case ARM name
@@ -94,7 +94,7 @@ def get_business_case_operation_report_download_url_output(business_case_name: O
     Get the URL for downloading the business case in a report format.
     Azure REST API version: 2023-04-01-preview.
 
-    Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
+    Other available API versions: 2023-05-01-preview, 2023-09-09-preview, 2024-01-01-preview.
 
 
     :param str business_case_name: Business case ARM name

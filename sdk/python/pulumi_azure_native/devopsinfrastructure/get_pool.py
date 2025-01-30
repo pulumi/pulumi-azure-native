@@ -201,7 +201,7 @@ def get_pool(pool_name: Optional[str] = None,
     Get a Pool
     Azure REST API version: 2023-10-30-preview.
 
-    Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19.
+    Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
 
 
     :param str pool_name: Name of the pool. It needs to be globally unique.
@@ -234,7 +234,7 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
     Get a Pool
     Azure REST API version: 2023-10-30-preview.
 
-    Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19.
+    Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
 
 
     :param str pool_name: Name of the pool. It needs to be globally unique.

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.NetApp
         /// Get a snapshot Policy
         /// Azure REST API version: 2022-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01.
         /// </summary>
         public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure-native:netapp:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.NetApp
         /// Get a snapshot Policy
         /// Azure REST API version: 2022-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01.
         /// </summary>
         public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure-native:netapp:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.NetApp
         /// Get a snapshot Policy
         /// Azure REST API version: 2022-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01.
         /// </summary>
         public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure-native:netapp:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());
