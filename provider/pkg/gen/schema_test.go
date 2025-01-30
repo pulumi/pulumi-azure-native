@@ -17,9 +17,10 @@ import (
 var _ Versioning = (*versioningStub)(nil)
 
 type versioningStub struct {
-	shouldInclude   func(moduleName openapi.ModuleName, version *openapi.ApiVersion, typeName, token string) bool
-	getDeprecations func(token string) (ResourceDeprecation, bool)
-	getAllVersions  func(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion
+	shouldInclude      func(moduleName openapi.ModuleName, version *openapi.ApiVersion, typeName, token string) bool
+	getDeprecations    func(token string) (ResourceDeprecation, bool)
+	getAllVersions     func(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion
+	previousTokenPaths map[string]string
 }
 
 func (v versioningStub) ShouldInclude(moduleName openapi.ModuleName, version *openapi.ApiVersion, typeName, token string) bool {
@@ -44,7 +45,7 @@ func (v versioningStub) GetAllVersions(moduleName openapi.ModuleName, resource s
 }
 
 func (v versioningStub) GetPreviousCompatibleTokensLookup() (*CompatibleTokensLookup, error) {
-	return NewCompatibleTokensLookup(map[string]string{})
+	return NewCompatibleTokensLookup(v.previousTokenPaths)
 }
 
 func TestAliases(t *testing.T) {
