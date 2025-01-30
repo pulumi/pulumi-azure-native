@@ -295,7 +295,7 @@ func GetModuleName(majorVersion uint64, filePath, apiUri string) (ModuleNaming, 
 	// Start with extracting the namespace from the folder path. If the folder name is explicitly listed,
 	// use it as the module name. This is the new style we use for newer resources after 1.0. Older
 	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
-	if override, hasOverride := getNameOverride(majorVersion, specFolderName, namespaceWithoutPrefixFromSpecFilePath); hasOverride {
+	if override, hasOverride := getNameOverride(majorVersion, specFolderName); hasOverride {
 		return ModuleNaming{
 			ResolvedName:           override,
 			SpecFolderName:         specFolderName,
@@ -318,29 +318,27 @@ func GetModuleName(majorVersion uint64, filePath, apiUri string) (ModuleNaming, 
 	}, nil
 }
 
-var modulesNamedByFolder = map[string]ModuleName{
+var v2ModulesNamedByFolder = map[string]ModuleName{
 	"videoanalyzer": "VideoAnalyzer",
 	"webpubsub":     "WebPubSub",
 }
 
-var moduleNameOverridesWithAliases = map[string]map[string]string{
-	"Network": {
-		"dns":            "Dns",
-		"dnsresolver":    "DnsResolver",
-		"frontdoor":      "FrontDoor",
-		"privatedns":     "PrivateDns",
-		"trafficmanager": "TrafficManager",
-	},
-	"DocumentDB": {
-		"mongocluster": "MongoCluster",
-	},
+var v3ModulesNamedByFolder = map[string]ModuleName{
+	// "Network":
+	"dns":            "Dns",
+	"dnsresolver":    "DnsResolver",
+	"frontdoor":      "FrontDoor",
+	"privatedns":     "PrivateDns",
+	"trafficmanager": "TrafficManager",
+	// "DocumentDB":
+	"mongocluster": "MongoCluster",
 }
 
 // getNameOverride returns a name override for a given folder name, and non-prefixed namespace.
 // The second return value is true if an override is found.
-func getNameOverride(majorVersion uint64, specFolderName, namespaceWithoutPrefix string) (ModuleName, bool) {
+func getNameOverride(majorVersion uint64, specFolderName string) (ModuleName, bool) {
 	// For the cases below, we use folder (SDK) moduleName for module names instead of the ARM moduleName.
-	if moduleName, ok := modulesNamedByFolder[specFolderName]; ok {
+	if moduleName, ok := v2ModulesNamedByFolder[specFolderName]; ok {
 		return moduleName, true
 	}
 	// Disable additional rules for v2 and below.
@@ -349,10 +347,8 @@ func getNameOverride(majorVersion uint64, specFolderName, namespaceWithoutPrefix
 		return "", false
 	}
 	// New rules for v3 and above which include aliases back to the original namespace.
-	if namespaceOverrides, ok := moduleNameOverridesWithAliases[namespaceWithoutPrefix]; ok {
-		if folderName, ok := namespaceOverrides[specFolderName]; ok {
-			return ModuleName(folderName), true
-		}
+	if moduleName, ok := v3ModulesNamedByFolder[specFolderName]; ok {
+		return moduleName, true
 	}
 	return "", false
 }
