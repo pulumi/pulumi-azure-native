@@ -438,6 +438,11 @@
  "repository": "https://github.com/pulumi/pulumi-azure-native",
  "resources": {
   "azure-native:aadiam/v20200301:PrivateEndpointConnection": {
+   "aliases": [
+    {
+     "type": "azure-native:aadiam:PrivateEndpointConnection"
+    }
+   ],
    "description": "Private endpoint connection resource.",
    "inputProperties": {
     "policyName": {
@@ -507,6 +512,14 @@
    "type": "object"
   },
   "azure-native:aadiam/v20200301:PrivateLinkForAzureAd": {
+   "aliases": [
+    {
+     "type": "azure-native:aadiam/v20200301preview:PrivateLinkForAzureAd"
+    },
+    {
+     "type": "azure-native:aadiam:PrivateLinkForAzureAd"
+    }
+   ],
    "description": "PrivateLink Policy configuration object.",
    "inputProperties": {
     "allTenants": {

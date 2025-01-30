@@ -17,9 +17,10 @@ import (
 var _ Versioning = (*versioningStub)(nil)
 
 type versioningStub struct {
-	shouldInclude   func(moduleName openapi.ModuleName, version *openapi.ApiVersion, typeName, token string) bool
-	getDeprecations func(token string) (ResourceDeprecation, bool)
-	getAllVersions  func(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion
+	shouldInclude      func(moduleName openapi.ModuleName, version *openapi.ApiVersion, typeName, token string) bool
+	getDeprecations    func(token string) (ResourceDeprecation, bool)
+	getAllVersions     func(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion
+	previousTokenPaths map[string]string
 }
 
 func (v versioningStub) ShouldInclude(moduleName openapi.ModuleName, version *openapi.ApiVersion, typeName, token string) bool {
@@ -43,15 +44,21 @@ func (v versioningStub) GetAllVersions(moduleName openapi.ModuleName, resource s
 	return []openapi.ApiVersion{}
 }
 
+func (v versioningStub) GetPreviousCompatibleTokensLookup() (*CompatibleTokensLookup, error) {
+	return NewCompatibleTokensLookup(v.previousTokenPaths)
+}
+
 func TestAliases(t *testing.T) {
 	// Wrap the generation of type aliases in a function to make it easier to test
 	generateTypeAliases := func(moduleName, typeName string, sdkVersion openapi.SdkVersion, previousModuleName string, typeNameAliases []string, versions []openapi.ApiVersion) []string {
+		previousCompatibleTokensLookup, _ := NewCompatibleTokensLookup(map[string]string{})
 		generator := packageGenerator{
-			pkg:          &pschema.PackageSpec{Name: "azure-native"},
-			sdkVersion:   sdkVersion,
-			versioning:   versioningStub{},
-			moduleName:   openapi.ModuleName(moduleName),
-			majorVersion: 2,
+			pkg:                            &pschema.PackageSpec{Name: "azure-native"},
+			sdkVersion:                     sdkVersion,
+			versioning:                     versioningStub{},
+			moduleName:                     openapi.ModuleName(moduleName),
+			majorVersion:                   2,
+			previousCompatibleTokensLookup: previousCompatibleTokensLookup,
 		}
 
 		resource := &resourceVariant{
@@ -65,7 +72,9 @@ func TestAliases(t *testing.T) {
 			resource.ModuleNaming.PreviousName = &previousName
 		}
 
-		aliasSpecs := generator.generateAliases(resource, typeNameAliases...)
+		resourceTok := generateTok(openapi.ModuleName(moduleName), typeName, sdkVersion)
+
+		aliasSpecs := generator.generateAliases(resourceTok, resource, typeNameAliases...)
 		typeAliases := []string{}
 		for _, alias := range aliasSpecs {
 			typeAliases = append(typeAliases, *alias.Type)
