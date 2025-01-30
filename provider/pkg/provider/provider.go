@@ -638,8 +638,11 @@ func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, ran
 	}
 
 	// Apply the apiVersion of this resource.
+	// Note that some resource types do not have an apiVersion property (e.g. storage:Blob).
 	if version.GetVersion().Major >= 3 {
-		news["apiVersion"] = resource.NewStringProperty(res.APIVersion)
+		if res.APIVersion != "" {
+			news["apiVersion"] = resource.NewStringProperty(res.APIVersion)
+		}
 	}
 }
 
@@ -846,14 +849,14 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 		logging.V(9).Infof("no __inputs found for '%s'", urn)
 	}
 
-	
+	// v2-to-v3 migration: apiVersion might be available in the old state and we use it to suppress spurious diffs.
 	migratedApiVersion := false
 	if version.GetVersion().Major >= 3 {
 		if _, ok := oldInputs["apiVersion"]; !ok {
-			// migration case: apiVersion might be available in the old state
-			// and we use it to suppress spurious diffs
-			oldInputs["apiVersion"] = oldState["apiVersion"]
-			migratedApiVersion = true
+			if v, ok := oldState["apiVersion"]; ok {
+				oldInputs["apiVersion"] = v
+				migratedApiVersion = true
+			}
 		}
 	}
 
@@ -888,9 +891,9 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 	// Based on the detailed diff above, calculate the list of changes and replacements.
 	changes, replaces := calculateChangesAndReplacements(detailedDiff, oldInputs, newResInputs, oldState, *res)
 
-	if version.GetVersion().Major >= 3 && migratedApiVersion {
+	if migratedApiVersion {
 		if v, ok := detailedDiff["apiVersion"]; ok {
-			// in this case, the diff is between the old state and the new inputs
+			// in this case, the diff is between the old state and the new inputs.
 			v.InputDiff = false
 		}
 	}
@@ -1648,8 +1651,10 @@ func checkpointObject(res *resources.AzureAPIResource, inputs resource.PropertyM
 		object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
 	}
 
-	// emit the actual apiversion as an output property
-	object["apiVersion"] = resource.NewStringProperty(res.APIVersion)
+	// emit the actual apiversion as an output property, for resources that have an apiVersion property.
+	if res.APIVersion != "" {
+		object["apiVersion"] = resource.NewStringProperty(res.APIVersion)
+	}
 	return object
 }
 
