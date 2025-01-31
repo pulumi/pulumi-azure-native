@@ -71,6 +71,12 @@ AppComplianceAutomation:
 AppConfiguration:
   exclusions:
     listConfigurationStoreKeyValue: "2020-06-01" # was renamed to KeyValues_ListByConfigurationStore, endpoint from listKeyValue to keyValues
+ApplicationInsights:
+  explicit: true
+  notes: |
+    Each API version only includes changed resources so no benefit in tracking a version
+    Path: /azure-rest-api-specs/specification/applicationinsights/resource-manager/Microsoft.Insights
+    Docs: https://learn.microsoft.com/en-us/rest/api/application-insights/
 AppPlatform:
   notes: |
     AppPlatform is also called "Azure Spring Apps".
@@ -397,14 +403,6 @@ HybridNetwork:
   notes: |
     https://learn.microsoft.com/en-us/rest/api/hybridnetwork/
 ImportExport:
-Insights:
-  explicit: true
-  notes: |
-    Each API version only includes changed resources so no benefit in tracking a version
-    Path: /azure-rest-api-specs/specification/applicationinsights/resource-manager/Microsoft.Insights
-    Docs: https://learn.microsoft.com/en-us/rest/api/application-insights/
-    - Components and Web Tests pinned on 2015-05-01
-    - Workbooks pinned on 2021-08-01
 Intune:
   expectTracking: preview
   notes: Only preview versions
@@ -531,8 +529,13 @@ MobileNetwork:
   notes: |
     https://learn.microsoft.com/en-us/rest/api/mobilenetwork/mobile-networks
 Monitor:
+  explicit: true
   notes: |
-    This is *not* Azure Monitor
+    Each API version only includes changed resources so no benefit in tracking a version
+    Docs: https://learn.microsoft.com/en-us/rest/api/monitor/
+    This was previously known as Insights (included in the namespace), which is now referred to as "Classic Insights".
+    This has more recently been renamed to "Monitor", with the addition of the Microsoft.Monitor namespace.
+    The new Monitor namespace contains a "Workspace" resource to which the "classic" insights resources are parented to to modernize them.
 NetApp:
 Network:
   explicit: true
