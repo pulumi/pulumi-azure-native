@@ -392,6 +392,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "Sovereign",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "StandbyPool",
     "Detail": "expected tracking stable but found preview"
   },
