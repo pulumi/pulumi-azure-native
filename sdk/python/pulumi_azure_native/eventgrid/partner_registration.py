@@ -121,7 +121,7 @@ class PartnerRegistration(pulumi.CustomResource):
         Information about a partner registration.
         Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2022-06-15.
 
-        Other available API versions: 2021-10-15-preview, 2022-06-15.
+        Other available API versions: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +142,7 @@ class PartnerRegistration(pulumi.CustomResource):
         Information about a partner registration.
         Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2022-06-15.
 
-        Other available API versions: 2021-10-15-preview, 2022-06-15.
+        Other available API versions: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param PartnerRegistrationArgs args: The arguments to use to populate this resource's properties.

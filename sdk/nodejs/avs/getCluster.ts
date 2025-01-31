@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a Cluster
  * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2020-03-20, 2021-06-01, 2022-05-01.
+ * Other available API versions: 2022-05-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,7 +86,7 @@ export interface GetClusterResult {
  * Get a Cluster
  * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2020-03-20, 2021-06-01, 2022-05-01.
+ * Other available API versions: 2022-05-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

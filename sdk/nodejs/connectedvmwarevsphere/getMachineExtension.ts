@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The operation to get the extension.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2022-01-10-preview, 2022-07-15-preview.
+ * Other available API versions: 2022-07-15-preview.
  */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,7 +106,7 @@ export interface GetMachineExtensionResult {
  * The operation to get the extension.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2022-01-10-preview, 2022-07-15-preview.
+ * Other available API versions: 2022-07-15-preview.
  */
 export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

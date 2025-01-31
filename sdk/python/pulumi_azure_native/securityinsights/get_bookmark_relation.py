@@ -155,7 +155,7 @@ def get_bookmark_relation(bookmark_id: Optional[str] = None,
     Gets a bookmark relation.
     Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2019-01-01-preview, 2023-06-01-preview.
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str bookmark_id: Bookmark ID
@@ -190,7 +190,7 @@ def get_bookmark_relation_output(bookmark_id: Optional[pulumi.Input[str]] = None
     Gets a bookmark relation.
     Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2019-01-01-preview, 2023-06-01-preview.
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str bookmark_id: Bookmark ID

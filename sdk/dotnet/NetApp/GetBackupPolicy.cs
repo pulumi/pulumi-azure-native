@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.NetApp
         /// Get a particular backup Policy
         /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2021-04-01, 2021-04-01-preview, 2021-06-01, 2022-11-01, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01, 2024-07-01-preview.
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:netapp:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.NetApp
         /// Get a particular backup Policy
         /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2021-04-01, 2021-04-01-preview, 2021-06-01, 2022-11-01, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01, 2024-07-01-preview.
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:netapp:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.NetApp
         /// Get a particular backup Policy
         /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2021-04-01, 2021-04-01-preview, 2021-06-01, 2022-11-01, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01, 2024-07-01-preview.
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:netapp:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// PNS credentials.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+        /// Other available API versions: 2023-01-01-preview, 2023-09-01.
         /// </summary>
         public static Task<GetNotificationHubPnsCredentialsResult> InvokeAsync(GetNotificationHubPnsCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// PNS credentials.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+        /// Other available API versions: 2023-01-01-preview, 2023-09-01.
         /// </summary>
         public static Output<GetNotificationHubPnsCredentialsResult> Invoke(GetNotificationHubPnsCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// PNS credentials.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+        /// Other available API versions: 2023-01-01-preview, 2023-09-01.
         /// </summary>
         public static Output<GetNotificationHubPnsCredentialsResult> Invoke(GetNotificationHubPnsCredentialsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubPnsCredentialsResult>("azure-native:notificationhubs:getNotificationHubPnsCredentials", args ?? new GetNotificationHubPnsCredentialsInvokeArgs(), options.WithDefaults());

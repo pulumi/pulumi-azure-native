@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.App
         /// Container App SourceControl.
         /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        /// Other available API versions: 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Task<GetContainerAppsSourceControlResult> InvokeAsync(GetContainerAppsSourceControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppsSourceControlResult>("azure-native:app:getContainerAppsSourceControl", args ?? new GetContainerAppsSourceControlArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.App
         /// Container App SourceControl.
         /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        /// Other available API versions: 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Output<GetContainerAppsSourceControlResult> Invoke(GetContainerAppsSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppsSourceControlResult>("azure-native:app:getContainerAppsSourceControl", args ?? new GetContainerAppsSourceControlInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.App
         /// Container App SourceControl.
         /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        /// Other available API versions: 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Output<GetContainerAppsSourceControlResult> Invoke(GetContainerAppsSourceControlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppsSourceControlResult>("azure-native:app:getContainerAppsSourceControl", args ?? new GetContainerAppsSourceControlInvokeArgs(), options.WithDefaults());

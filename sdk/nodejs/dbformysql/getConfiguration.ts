@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets information about a configuration of server.
  * Azure REST API version: 2023-12-30.
  *
- * Other available API versions: 2020-07-01-privatepreview, 2022-01-01.
+ * Other available API versions: 2022-01-01.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,7 +106,7 @@ export interface GetConfigurationResult {
  * Gets information about a configuration of server.
  * Azure REST API version: 2023-12-30.
  *
- * Other available API versions: 2020-07-01-privatepreview, 2022-01-01.
+ * Other available API versions: 2022-01-01.
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

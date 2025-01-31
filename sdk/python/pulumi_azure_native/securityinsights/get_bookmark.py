@@ -262,7 +262,7 @@ def get_bookmark(bookmark_id: Optional[str] = None,
     Gets a bookmark.
     Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2019-01-01-preview, 2023-02-01, 2024-10-01-preview.
+    Other available API versions: 2023-02-01, 2024-10-01-preview.
 
 
     :param str bookmark_id: Bookmark ID
@@ -303,7 +303,7 @@ def get_bookmark_output(bookmark_id: Optional[pulumi.Input[str]] = None,
     Gets a bookmark.
     Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2019-01-01-preview, 2023-02-01, 2024-10-01-preview.
+    Other available API versions: 2023-02-01, 2024-10-01-preview.
 
 
     :param str bookmark_id: Bookmark ID

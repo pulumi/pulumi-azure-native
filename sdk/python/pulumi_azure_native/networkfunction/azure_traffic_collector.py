@@ -102,8 +102,6 @@ class AzureTrafficCollector(pulumi.CustomResource):
         Azure Traffic Collector resource.
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
-        Other available API versions: 2022-08-01.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_traffic_collector_name: Azure Traffic Collector name
@@ -120,8 +118,6 @@ class AzureTrafficCollector(pulumi.CustomResource):
         """
         Azure Traffic Collector resource.
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
-
-        Other available API versions: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param AzureTrafficCollectorArgs args: The arguments to use to populate this resource's properties.

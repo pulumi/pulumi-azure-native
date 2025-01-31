@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// Gets information about the specified packet core control plane.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-06-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01.
         /// </summary>
         public static Task<GetPacketCoreControlPlaneResult> InvokeAsync(GetPacketCoreControlPlaneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCoreControlPlaneResult>("azure-native:mobilenetwork:getPacketCoreControlPlane", args ?? new GetPacketCoreControlPlaneArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// Gets information about the specified packet core control plane.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-06-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01.
         /// </summary>
         public static Output<GetPacketCoreControlPlaneResult> Invoke(GetPacketCoreControlPlaneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreControlPlaneResult>("azure-native:mobilenetwork:getPacketCoreControlPlane", args ?? new GetPacketCoreControlPlaneInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// Gets information about the specified packet core control plane.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-06-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01.
         /// </summary>
         public static Output<GetPacketCoreControlPlaneResult> Invoke(GetPacketCoreControlPlaneInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreControlPlaneResult>("azure-native:mobilenetwork:getPacketCoreControlPlane", args ?? new GetPacketCoreControlPlaneInvokeArgs(), options.WithDefaults());

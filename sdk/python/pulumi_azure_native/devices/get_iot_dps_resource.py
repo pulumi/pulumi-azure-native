@@ -189,7 +189,7 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
     Get the metadata of the provisioning service without SAS keys.
     Azure REST API version: 2023-03-01-preview.
 
-    Other available API versions: 2020-09-01-preview, 2022-12-12, 2025-02-01-preview.
+    Other available API versions: 2022-12-12, 2025-02-01-preview.
 
 
     :param str provisioning_service_name: Name of the provisioning service to retrieve.
@@ -221,7 +221,7 @@ def get_iot_dps_resource_output(provisioning_service_name: Optional[pulumi.Input
     Get the metadata of the provisioning service without SAS keys.
     Azure REST API version: 2023-03-01-preview.
 
-    Other available API versions: 2020-09-01-preview, 2022-12-12, 2025-02-01-preview.
+    Other available API versions: 2022-12-12, 2025-02-01-preview.
 
 
     :param str provisioning_service_name: Name of the provisioning service to retrieve.

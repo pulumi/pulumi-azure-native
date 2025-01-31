@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Get the access keys of the resource.
  * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-02-01, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export function listWebPubSubKeys(args: ListWebPubSubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebPubSubKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,7 +54,7 @@ export interface ListWebPubSubKeysResult {
  * Get the access keys of the resource.
  * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-02-01, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export function listWebPubSubKeysOutput(args: ListWebPubSubKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebPubSubKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

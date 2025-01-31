@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01.
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -108,7 +108,7 @@ export interface GetNamespaceAuthorizationRuleResult {
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01.
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

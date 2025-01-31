@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.App
         /// Dapr Component.
         /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        /// Other available API versions: 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Task<GetDaprComponentResult> InvokeAsync(GetDaprComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDaprComponentResult>("azure-native:app:getDaprComponent", args ?? new GetDaprComponentArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.App
         /// Dapr Component.
         /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        /// Other available API versions: 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Output<GetDaprComponentResult> Invoke(GetDaprComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaprComponentResult>("azure-native:app:getDaprComponent", args ?? new GetDaprComponentInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.App
         /// Dapr Component.
         /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        /// Other available API versions: 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Output<GetDaprComponentResult> Invoke(GetDaprComponentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaprComponentResult>("azure-native:app:getDaprComponent", args ?? new GetDaprComponentInvokeArgs(), options.WithDefaults());

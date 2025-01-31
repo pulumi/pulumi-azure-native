@@ -204,8 +204,6 @@ class TemplateSpecVersion(pulumi.CustomResource):
         Template Spec Version object.
         Azure REST API version: 2022-02-01. Prior API version in Azure Native 2.x: 2022-02-01.
 
-        Other available API versions: 2019-06-01-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Template Spec version description.
@@ -228,8 +226,6 @@ class TemplateSpecVersion(pulumi.CustomResource):
         """
         Template Spec Version object.
         Azure REST API version: 2022-02-01. Prior API version in Azure Native 2.x: 2022-02-01.
-
-        Other available API versions: 2019-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TemplateSpecVersionArgs args: The arguments to use to populate this resource's properties.

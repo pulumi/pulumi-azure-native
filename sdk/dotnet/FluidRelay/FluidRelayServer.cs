@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.FluidRelay
     /// <summary>
     /// A FluidRelay Server.
     /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 2.x: 2022-06-01.
-    /// 
-    /// Other available API versions: 2021-06-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:fluidrelay:FluidRelayServer")]
     public partial class FluidRelayServer : global::Pulumi.CustomResource

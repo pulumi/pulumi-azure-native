@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.Attestation
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
-    /// 
-    /// Other available API versions: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:attestation:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

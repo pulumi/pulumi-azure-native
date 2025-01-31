@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An object that represents a container registry.
  * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2022-12-01.
  *
- * Other available API versions: 2017-03-01, 2019-05-01, 2022-12-01, 2024-11-01-preview.
+ * Other available API versions: 2022-12-01, 2024-11-01-preview.
  */
 export class Registry extends pulumi.CustomResource {
     /**

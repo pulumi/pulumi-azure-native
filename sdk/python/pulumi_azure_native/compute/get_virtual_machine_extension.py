@@ -251,7 +251,7 @@ def get_virtual_machine_extension(expand: Optional[str] = None,
     The operation to get the extension.
     Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2021-11-01, 2023-03-01.
+    Other available API versions: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -294,7 +294,7 @@ def get_virtual_machine_extension_output(expand: Optional[pulumi.Input[Optional[
     The operation to get the extension.
     Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2021-11-01, 2023-03-01.
+    Other available API versions: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.

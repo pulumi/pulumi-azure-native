@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Lists impacted resources in the tenant by an event (Security Advisory).
  * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2022-10-01, 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview.
  */
 export function listSecurityAdvisoryImpactedResourceByTenantIdAndEventId(args: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdArgs, opts?: pulumi.InvokeOptions): Promise<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,7 +49,7 @@ export interface ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult 
  * Lists impacted resources in the tenant by an event (Security Advisory).
  * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2022-10-01, 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2022-10-01, 2023-07-01-preview, 2023-10-01-preview.
  */
 export function listSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutput(args: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

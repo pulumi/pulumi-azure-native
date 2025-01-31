@@ -68,7 +68,7 @@ def get_git_hub_o_auth(location: Optional[str] = None,
     URL used to authorize the Developer Hub GitHub App
     Azure REST API version: 2023-08-01.
 
-    Other available API versions: 2022-04-01-preview, 2022-10-11-preview, 2024-05-01-preview, 2024-08-01-preview.
+    Other available API versions: 2022-10-11-preview, 2024-05-01-preview, 2024-08-01-preview.
 
 
     :param str location: The name of Azure region.
@@ -90,7 +90,7 @@ def get_git_hub_o_auth_output(location: Optional[pulumi.Input[str]] = None,
     URL used to authorize the Developer Hub GitHub App
     Azure REST API version: 2023-08-01.
 
-    Other available API versions: 2022-04-01-preview, 2022-10-11-preview, 2024-05-01-preview, 2024-08-01-preview.
+    Other available API versions: 2022-10-11-preview, 2024-05-01-preview, 2024-08-01-preview.
 
 
     :param str location: The name of Azure region.

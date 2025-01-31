@@ -256,7 +256,7 @@ class Cluster(pulumi.CustomResource):
         Cluster details.
         Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
-        Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
+        Other available API versions: 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,7 +284,7 @@ class Cluster(pulumi.CustomResource):
         Cluster details.
         Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
-        Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
+        Other available API versions: 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

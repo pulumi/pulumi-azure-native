@@ -80,11 +80,6 @@ utilities.lazyLoad(exports, ["NodeType"], () => require("./nodeType"));
 export * from "../types/enums/servicefabric";
 
 // Export sub-modules:
-import * as v20200101preview from "./v20200101preview";
-import * as v20201201preview from "./v20201201preview";
-import * as v20210601 from "./v20210601";
-import * as v20220101 from "./v20220101";
-import * as v20221001preview from "./v20221001preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20240201preview from "./v20240201preview";
 import * as v20240401 from "./v20240401";
@@ -92,11 +87,6 @@ import * as v20240601preview from "./v20240601preview";
 import * as v20240901preview from "./v20240901preview";
 
 export {
-    v20200101preview,
-    v20201201preview,
-    v20210601,
-    v20220101,
-    v20221001preview,
     v20230301preview,
     v20240201preview,
     v20240401,

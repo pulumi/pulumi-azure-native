@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:servicefabric:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:servicefabric:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:servicefabric:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// Represents a server.
     /// Azure REST API version: 2023-12-30. Prior API version in Azure Native 2.x: 2022-01-01.
     /// 
-    /// Other available API versions: 2020-07-01-preview, 2020-07-01-privatepreview, 2022-01-01, 2022-09-30-preview, 2024-10-01-preview.
+    /// Other available API versions: 2022-01-01, 2022-09-30-preview, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Server")]
     public partial class Server : global::Pulumi.CustomResource

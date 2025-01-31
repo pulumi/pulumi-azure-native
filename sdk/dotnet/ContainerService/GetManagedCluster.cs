@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// Managed cluster.
         /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2019-06-01, 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
+        /// Other available API versions: 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:containerservice:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// Managed cluster.
         /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2019-06-01, 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
+        /// Other available API versions: 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:containerservice:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// Managed cluster.
         /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2019-06-01, 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
+        /// Other available API versions: 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:containerservice:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());

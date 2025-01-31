@@ -142,7 +142,7 @@ def get_logger(logger_id: Optional[str] = None,
     Gets the details of the logger specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-08-01, 2024-06-01-preview.
+    Other available API versions: 2022-08-01, 2024-06-01-preview.
 
 
     :param str logger_id: Logger identifier. Must be unique in the API Management service instance.
@@ -173,7 +173,7 @@ def get_logger_output(logger_id: Optional[pulumi.Input[str]] = None,
     Gets the details of the logger specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2017-03-01, 2018-01-01, 2019-12-01-preview, 2022-08-01, 2024-06-01-preview.
+    Other available API versions: 2022-08-01, 2024-06-01-preview.
 
 
     :param str logger_id: Logger identifier. Must be unique in the API Management service instance.

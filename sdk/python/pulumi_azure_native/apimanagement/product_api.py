@@ -100,7 +100,7 @@ class ProductApi(pulumi.CustomResource):
         API details.
         Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
-        Other available API versions: 2017-03-01, 2018-06-01-preview, 2022-08-01, 2024-06-01-preview.
+        Other available API versions: 2022-08-01, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,7 +119,7 @@ class ProductApi(pulumi.CustomResource):
         API details.
         Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
-        Other available API versions: 2017-03-01, 2018-06-01-preview, 2022-08-01, 2024-06-01-preview.
+        Other available API versions: 2022-08-01, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ProductApiArgs args: The arguments to use to populate this resource's properties.

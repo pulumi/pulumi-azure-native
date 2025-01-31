@@ -116,8 +116,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
         A virtual network rule.
         Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
 
-        Other available API versions: 2018-06-01-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.
@@ -135,8 +133,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         A virtual network rule.
         Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
-
-        Other available API versions: 2018-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkRuleArgs args: The arguments to use to populate this resource's properties.

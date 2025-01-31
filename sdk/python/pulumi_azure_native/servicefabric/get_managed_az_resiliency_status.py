@@ -69,7 +69,7 @@ def get_managed_az_resiliency_status(cluster_name: Optional[str] = None,
     Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
     Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2022-10-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -91,7 +91,7 @@ def get_managed_az_resiliency_status_output(cluster_name: Optional[pulumi.Input[
     Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
     Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2022-10-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.

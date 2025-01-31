@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.LoadTestService
         /// Get a LoadTestResource
         /// Azure REST API version: 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2021-12-01-preview, 2022-12-01.
+        /// Other available API versions: 2022-12-01.
         /// </summary>
         public static Task<GetLoadTestResult> InvokeAsync(GetLoadTestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.LoadTestService
         /// Get a LoadTestResource
         /// Azure REST API version: 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2021-12-01-preview, 2022-12-01.
+        /// Other available API versions: 2022-12-01.
         /// </summary>
         public static Output<GetLoadTestResult> Invoke(GetLoadTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.LoadTestService
         /// Get a LoadTestResource
         /// Azure REST API version: 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2021-12-01-preview, 2022-12-01.
+        /// Other available API versions: 2022-12-01.
         /// </summary>
         public static Output<GetLoadTestResult> Invoke(GetLoadTestInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestInvokeArgs(), options.WithDefaults());

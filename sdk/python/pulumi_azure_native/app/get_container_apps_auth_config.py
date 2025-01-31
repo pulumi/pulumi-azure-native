@@ -166,7 +166,7 @@ def get_container_apps_auth_config(auth_config_name: Optional[str] = None,
     Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+    Other available API versions: 2022-10-01, 2024-10-02-preview.
 
 
     :param str auth_config_name: Name of the Container App AuthConfig.
@@ -199,7 +199,7 @@ def get_container_apps_auth_config_output(auth_config_name: Optional[pulumi.Inpu
     Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+    Other available API versions: 2022-10-01, 2024-10-02-preview.
 
 
     :param str auth_config_name: Name of the Container App AuthConfig.

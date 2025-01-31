@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Get the policy configuration at the API Operation level.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2018-06-01-preview, 2022-08-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetApiOperationPolicyResult> InvokeAsync(GetApiOperationPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiOperationPolicyResult>("azure-native:apimanagement:getApiOperationPolicy", args ?? new GetApiOperationPolicyArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Get the policy configuration at the API Operation level.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2018-06-01-preview, 2022-08-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetApiOperationPolicyResult> Invoke(GetApiOperationPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiOperationPolicyResult>("azure-native:apimanagement:getApiOperationPolicy", args ?? new GetApiOperationPolicyInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Get the policy configuration at the API Operation level.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2018-06-01-preview, 2022-08-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetApiOperationPolicyResult> Invoke(GetApiOperationPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiOperationPolicyResult>("azure-native:apimanagement:getApiOperationPolicy", args ?? new GetApiOperationPolicyInvokeArgs(), options.WithDefaults());

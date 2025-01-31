@@ -170,7 +170,7 @@ class B2CTenant(pulumi.CustomResource):
         """
         Azure REST API version: 2023-05-17-preview. Prior API version in Azure Native 2.x: 2021-04-01.
 
-        Other available API versions: 2019-01-01-preview, 2021-04-01.
+        Other available API versions: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,7 +192,7 @@ class B2CTenant(pulumi.CustomResource):
         """
         Azure REST API version: 2023-05-17-preview. Prior API version in Azure Native 2.x: 2021-04-01.
 
-        Other available API versions: 2019-01-01-preview, 2021-04-01.
+        Other available API versions: 2021-04-01.
 
         :param str resource_name: The name of the resource.
         :param B2CTenantArgs args: The arguments to use to populate this resource's properties.

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets an API Management service resource description.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2017-03-01, 2022-08-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetApiManagementServiceResult> InvokeAsync(GetApiManagementServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceResult>("azure-native:apimanagement:getApiManagementService", args ?? new GetApiManagementServiceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets an API Management service resource description.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2017-03-01, 2022-08-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetApiManagementServiceResult> Invoke(GetApiManagementServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceResult>("azure-native:apimanagement:getApiManagementService", args ?? new GetApiManagementServiceInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets an API Management service resource description.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2017-03-01, 2022-08-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetApiManagementServiceResult> Invoke(GetApiManagementServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceResult>("azure-native:apimanagement:getApiManagementService", args ?? new GetApiManagementServiceInvokeArgs(), options.WithDefaults());

@@ -130,8 +130,6 @@ utilities.lazyLoad(exports, ["RedisEnterprise"], () => require("./redisEnterpris
 export * from "../types/enums/cache";
 
 // Export sub-modules:
-import * as v20200601 from "./v20200601";
-import * as v20201001preview from "./v20201001preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230401 from "./v20230401";
 import * as v20230501preview from "./v20230501preview";
@@ -141,8 +139,6 @@ import * as v20241001 from "./v20241001";
 import * as v20241101 from "./v20241101";
 
 export {
-    v20200601,
-    v20201001preview,
     v20230301preview,
     v20230401,
     v20230501preview,

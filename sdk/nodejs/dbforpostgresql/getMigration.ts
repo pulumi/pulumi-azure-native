@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets details of a migration.
  * Azure REST API version: 2024-08-01.
  *
- * Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-03-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2024-11-01-preview.
  */
 export function getMigration(args: GetMigrationArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -171,7 +171,7 @@ export interface GetMigrationResult {
  * Gets details of a migration.
  * Azure REST API version: 2024-08-01.
  *
- * Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-03-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2024-11-01-preview.
  */
 export function getMigrationOutput(args: GetMigrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

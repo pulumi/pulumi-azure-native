@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Cdn
         /// Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
         /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2020-09-01, 2023-05-01.
+        /// Other available API versions: 2023-05-01.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Cdn
         /// Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
         /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2020-09-01, 2023-05-01.
+        /// Other available API versions: 2023-05-01.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Cdn
         /// Gets an Azure Front Door Standard or Azure Front Door Premium or CDN profile with the specified profile name under the specified subscription and resource group.
         /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2020-09-01, 2023-05-01.
+        /// Other available API versions: 2023-05-01.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());

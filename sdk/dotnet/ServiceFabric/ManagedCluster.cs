@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// 
     /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
     /// 
-    /// Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+    /// Other available API versions: 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:ManagedCluster")]
     public partial class ManagedCluster : global::Pulumi.CustomResource

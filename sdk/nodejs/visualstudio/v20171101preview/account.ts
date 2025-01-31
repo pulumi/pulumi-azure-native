@@ -89,7 +89,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:visualstudio/v20140401preview:Account" }, { type: "azure-native:visualstudio:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:visualstudio/v20140401preview:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

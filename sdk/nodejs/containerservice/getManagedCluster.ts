@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Managed cluster.
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2019-06-01, 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
+ * Other available API versions: 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -249,7 +249,7 @@ export interface GetManagedClusterResult {
  * Managed cluster.
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2019-06-01, 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
+ * Other available API versions: 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
  */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

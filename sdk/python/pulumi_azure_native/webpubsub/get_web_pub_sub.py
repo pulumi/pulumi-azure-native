@@ -391,7 +391,7 @@ def get_web_pub_sub(resource_group_name: Optional[str] = None,
     Get the resource and its properties.
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-02-01, 2024-10-01-preview.
+    Other available API versions: 2023-02-01, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -439,7 +439,7 @@ def get_web_pub_sub_output(resource_group_name: Optional[pulumi.Input[str]] = No
     Get the resource and its properties.
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-02-01, 2024-10-01-preview.
+    Other available API versions: 2023-02-01, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

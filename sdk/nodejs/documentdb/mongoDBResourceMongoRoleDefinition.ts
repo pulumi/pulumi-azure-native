@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An Azure Cosmos DB Mongo Role Definition.
  * Azure REST API version: 2024-11-15. Prior API version in Azure Native 2.x: 2023-04-15.
  *
- * Other available API versions: 2023-03-01-preview, 2023-04-15, 2024-12-01-preview.
+ * Other available API versions: 2023-04-15, 2024-12-01-preview.
  */
 export class MongoDBResourceMongoRoleDefinition extends pulumi.CustomResource {
     /**

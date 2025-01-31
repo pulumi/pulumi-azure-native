@@ -59,15 +59,6 @@
   "azure-native:insights:ProactiveDetectionConfiguration": {
     "properties.name": {}
   },
-  "azure-native:netapp/v20210401:BackupPolicy": {
-    "properties.name": {}
-  },
-  "azure-native:netapp/v20210401preview:BackupPolicy": {
-    "properties.name": {}
-  },
-  "azure-native:netapp/v20210601:BackupPolicy": {
-    "properties.name": {}
-  },
   "azure-native:network/v20190701:P2sVpnServerConfiguration": {
     "properties.etag": {},
     "properties.name": {}

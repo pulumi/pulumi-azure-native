@@ -207,7 +207,7 @@ class PartnerDestination(pulumi.CustomResource):
         Event Grid Partner Destination.
         Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2021-10-15-preview, 2023-06-01-preview.
+        Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,7 +233,7 @@ class PartnerDestination(pulumi.CustomResource):
         Event Grid Partner Destination.
         Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2021-10-15-preview, 2023-06-01-preview.
+        Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PartnerDestinationArgs args: The arguments to use to populate this resource's properties.

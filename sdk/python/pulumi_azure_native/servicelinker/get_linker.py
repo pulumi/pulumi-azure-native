@@ -201,7 +201,7 @@ def get_linker(linker_name: Optional[str] = None,
     Returns Linker resource for a given name.
     Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2021-11-01-preview, 2022-11-01-preview, 2024-07-01-preview.
+    Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
 
 
     :param str linker_name: The name Linker resource.
@@ -234,7 +234,7 @@ def get_linker_output(linker_name: Optional[pulumi.Input[str]] = None,
     Returns Linker resource for a given name.
     Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2021-11-01-preview, 2022-11-01-preview, 2024-07-01-preview.
+    Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
 
 
     :param str linker_name: The name Linker resource.

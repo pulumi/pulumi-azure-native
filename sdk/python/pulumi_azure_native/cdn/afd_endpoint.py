@@ -153,7 +153,7 @@ class AFDEndpoint(pulumi.CustomResource):
         Azure Front Door endpoint is the entity within a Azure Front Door profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
         Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
-        Other available API versions: 2020-09-01, 2023-05-01.
+        Other available API versions: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +175,7 @@ class AFDEndpoint(pulumi.CustomResource):
         Azure Front Door endpoint is the entity within a Azure Front Door profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
         Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
-        Other available API versions: 2020-09-01, 2023-05-01.
+        Other available API versions: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param AFDEndpointArgs args: The arguments to use to populate this resource's properties.

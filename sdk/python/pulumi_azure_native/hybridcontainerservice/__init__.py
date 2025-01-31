@@ -25,8 +25,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.hybridcontainerservice.v20220501preview as __v20220501preview
-    v20220501preview = __v20220501preview
     import pulumi_azure_native.hybridcontainerservice.v20220901preview as __v20220901preview
     v20220901preview = __v20220901preview
     import pulumi_azure_native.hybridcontainerservice.v20231115preview as __v20231115preview
@@ -34,7 +32,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.hybridcontainerservice.v20240101 as __v20240101
     v20240101 = __v20240101
 else:
-    v20220501preview = _utilities.lazy_import('pulumi_azure_native.hybridcontainerservice.v20220501preview')
     v20220901preview = _utilities.lazy_import('pulumi_azure_native.hybridcontainerservice.v20220901preview')
     v20231115preview = _utilities.lazy_import('pulumi_azure_native.hybridcontainerservice.v20231115preview')
     v20240101 = _utilities.lazy_import('pulumi_azure_native.hybridcontainerservice.v20240101')

@@ -39,8 +39,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.mobilenetwork.v20220301preview as __v20220301preview
-    v20220301preview = __v20220301preview
     import pulumi_azure_native.mobilenetwork.v20220401preview as __v20220401preview
     v20220401preview = __v20220401preview
     import pulumi_azure_native.mobilenetwork.v20221101 as __v20221101
@@ -50,7 +48,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.mobilenetwork.v20240401 as __v20240401
     v20240401 = __v20240401
 else:
-    v20220301preview = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20220301preview')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20220401preview')
     v20221101 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20221101')
     v20230601 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20230601')

@@ -136,7 +136,7 @@ class Configuration(pulumi.CustomResource):
         Represents a Configuration.
         Azure REST API version: 2023-12-30. Prior API version in Azure Native 2.x: 2022-01-01.
 
-        Other available API versions: 2020-07-01-privatepreview, 2022-01-01.
+        Other available API versions: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +157,7 @@ class Configuration(pulumi.CustomResource):
         Represents a Configuration.
         Azure REST API version: 2023-12-30. Prior API version in Azure Native 2.x: 2022-01-01.
 
-        Other available API versions: 2020-07-01-privatepreview, 2022-01-01.
+        Other available API versions: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets information about a Redis Enterprise cluster
  * Azure REST API version: 2024-09-01-preview.
  *
- * Other available API versions: 2020-10-01-preview, 2023-03-01-preview, 2023-10-01-preview, 2024-10-01.
+ * Other available API versions: 2023-03-01-preview, 2023-10-01-preview, 2024-10-01.
  */
 export function getRedisEnterprise(args: GetRedisEnterpriseArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisEnterpriseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -113,7 +113,7 @@ export interface GetRedisEnterpriseResult {
  * Gets information about a Redis Enterprise cluster
  * Azure REST API version: 2024-09-01-preview.
  *
- * Other available API versions: 2020-10-01-preview, 2023-03-01-preview, 2023-10-01-preview, 2024-10-01.
+ * Other available API versions: 2023-03-01-preview, 2023-10-01-preview, 2024-10-01.
  */
 export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRedisEnterpriseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

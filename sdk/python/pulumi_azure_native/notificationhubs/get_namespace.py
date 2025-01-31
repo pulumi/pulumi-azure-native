@@ -359,7 +359,7 @@ def get_namespace(namespace_name: Optional[str] = None,
     Notification Hubs Namespace Resource.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+    Other available API versions: 2023-01-01-preview, 2023-09-01.
 
 
     :param str namespace_name: Namespace name
@@ -405,7 +405,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
     Notification Hubs Namespace Resource.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+    Other available API versions: 2023-01-01-preview, 2023-09-01.
 
 
     :param str namespace_name: Namespace name

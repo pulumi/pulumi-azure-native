@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.StoragePool
     /// <summary>
     /// Response for Disk Pool request.
     /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
-    /// 
-    /// Other available API versions: 2020-03-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagepool:DiskPool")]
     public partial class DiskPool : global::Pulumi.CustomResource

@@ -75,12 +75,10 @@ utilities.lazyLoad(exports, ["SuppressionListAddress"], () => require("./suppres
 export * from "../types/enums/communication";
 
 // Export sub-modules:
-import * as v20220701preview from "./v20220701preview";
 import * as v20230331 from "./v20230331";
 import * as v20230601preview from "./v20230601preview";
 
 export {
-    v20220701preview,
     v20230331,
     v20230601preview,
 };

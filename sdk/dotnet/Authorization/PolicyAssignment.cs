@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization
     /// The policy assignment.
     /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-06-01.
     /// 
-    /// Other available API versions: 2019-06-01, 2020-03-01, 2022-06-01, 2025-01-01.
+    /// Other available API versions: 2022-06-01, 2025-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyAssignment")]
     public partial class PolicyAssignment : global::Pulumi.CustomResource

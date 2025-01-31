@@ -116,8 +116,6 @@ class ServerGroupFirewallRule(pulumi.CustomResource):
         Represents a cluster firewall rule.
         Azure REST API version: 2023-03-02-preview.
 
-        Other available API versions: 2020-10-05-privatepreview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
@@ -135,8 +133,6 @@ class ServerGroupFirewallRule(pulumi.CustomResource):
         """
         Represents a cluster firewall rule.
         Azure REST API version: 2023-03-02-preview.
-
-        Other available API versions: 2020-10-05-privatepreview.
 
         :param str resource_name: The name of the resource.
         :param ServerGroupFirewallRuleArgs args: The arguments to use to populate this resource's properties.

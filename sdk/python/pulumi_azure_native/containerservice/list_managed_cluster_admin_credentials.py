@@ -58,7 +58,7 @@ def list_managed_cluster_admin_credentials(resource_group_name: Optional[str] = 
     The list credential result response.
     Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2019-06-01, 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
+    Other available API versions: 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -82,7 +82,7 @@ def list_managed_cluster_admin_credentials_output(resource_group_name: Optional[
     The list credential result response.
     Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2019-06-01, 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
+    Other available API versions: 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -304,20 +304,6 @@
     "2020-01-01-privatepreview"
   ],
   "DBforMySQL": [
-    "2017-12-01-preview",
-    "2018-06-01",
-    "2018-06-01-privatepreview",
-    "2020-01-01",
-    "2020-01-01-privatepreview",
-    "2020-07-01-preview",
-    "2020-07-01-privatepreview",
-    "2021-05-01",
-    "2021-05-01-preview",
-    "2021-12-01-preview",
-    "2022-01-01",
-    "2022-09-30-preview",
-    "2023-06-01-preview",
-    "2023-06-30",
     "2023-10-01-preview",
     "2023-12-01-preview",
     "2023-12-30",
@@ -326,28 +312,6 @@
     "2024-10-01-preview"
   ],
   "DBforPostgreSQL": [
-    "2017-12-01-preview",
-    "2018-06-01",
-    "2018-06-01-privatepreview",
-    "2020-01-01",
-    "2020-01-01-privatepreview",
-    "2020-02-14-preview",
-    "2020-02-14-privatepreview",
-    "2020-10-05-privatepreview",
-    "2020-11-05-preview",
-    "2021-03-31-privatepreview",
-    "2021-04-10-privatepreview",
-    "2021-06-01",
-    "2021-06-01-preview",
-    "2021-06-15-privatepreview",
-    "2022-01-20-preview",
-    "2022-03-08-preview",
-    "2022-03-08-privatepreview",
-    "2022-05-01-preview",
-    "2022-11-08",
-    "2022-12-01",
-    "2023-03-01-preview",
-    "2023-03-02-preview",
     "2023-06-01-preview",
     "2023-12-01-preview",
     "2024-03-01-preview",
@@ -970,6 +934,7 @@
     "2024-10-01-preview"
   ],
   "SoftwarePlan": [
+    "2019-06-01-preview",
     "2019-12-01"
   ],
   "Solutions": [
@@ -1039,6 +1004,7 @@
   ],
   "VirtualMachineImages": [],
   "VisualStudio": [
+    "2014-04-01-preview",
     "2017-11-01-preview"
   ],
   "VoiceServices": [

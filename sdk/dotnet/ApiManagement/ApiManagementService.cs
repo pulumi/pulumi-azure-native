@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// A single API Management service resource in List or Get response.
     /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
     /// 
-    /// Other available API versions: 2017-03-01, 2022-08-01, 2024-06-01-preview.
+    /// Other available API versions: 2022-08-01, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiManagementService")]
     public partial class ApiManagementService : global::Pulumi.CustomResource

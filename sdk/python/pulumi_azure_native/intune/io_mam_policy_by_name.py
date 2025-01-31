@@ -343,8 +343,6 @@ class IoMAMPolicyByName(pulumi.CustomResource):
         iOS Policy entity for Intune MAM.
         Azure REST API version: 2015-01-14-preview. Prior API version in Azure Native 2.x: 2015-01-14-preview.
 
-        Other available API versions: 2015-01-14-privatepreview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] host_name: Location hostName for the tenant
@@ -361,8 +359,6 @@ class IoMAMPolicyByName(pulumi.CustomResource):
         """
         iOS Policy entity for Intune MAM.
         Azure REST API version: 2015-01-14-preview. Prior API version in Azure Native 2.x: 2015-01-14-preview.
-
-        Other available API versions: 2015-01-14-privatepreview.
 
         :param str resource_name: The name of the resource.
         :param IoMAMPolicyByNameArgs args: The arguments to use to populate this resource's properties.

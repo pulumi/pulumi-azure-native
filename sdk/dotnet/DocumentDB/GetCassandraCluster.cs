@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Get the properties of a managed Cassandra cluster.
         /// Azure REST API version: 2024-11-15.
         /// 
-        /// Other available API versions: 2021-07-01-preview, 2023-04-15, 2024-12-01-preview.
+        /// Other available API versions: 2023-04-15, 2024-12-01-preview.
         /// </summary>
         public static Task<GetCassandraClusterResult> InvokeAsync(GetCassandraClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCassandraClusterResult>("azure-native:documentdb:getCassandraCluster", args ?? new GetCassandraClusterArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Get the properties of a managed Cassandra cluster.
         /// Azure REST API version: 2024-11-15.
         /// 
-        /// Other available API versions: 2021-07-01-preview, 2023-04-15, 2024-12-01-preview.
+        /// Other available API versions: 2023-04-15, 2024-12-01-preview.
         /// </summary>
         public static Output<GetCassandraClusterResult> Invoke(GetCassandraClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCassandraClusterResult>("azure-native:documentdb:getCassandraCluster", args ?? new GetCassandraClusterInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Get the properties of a managed Cassandra cluster.
         /// Azure REST API version: 2024-11-15.
         /// 
-        /// Other available API versions: 2021-07-01-preview, 2023-04-15, 2024-12-01-preview.
+        /// Other available API versions: 2023-04-15, 2024-12-01-preview.
         /// </summary>
         public static Output<GetCassandraClusterResult> Invoke(GetCassandraClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCassandraClusterResult>("azure-native:documentdb:getCassandraCluster", args ?? new GetCassandraClusterInvokeArgs(), options.WithDefaults());

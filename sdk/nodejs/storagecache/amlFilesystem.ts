@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
  * Azure REST API version: 2024-03-01.
- *
- * Other available API versions: 2023-03-01-preview.
  */
 export class AmlFilesystem extends pulumi.CustomResource {
     /**

@@ -19,8 +19,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.dashboard.v20210901preview as __v20210901preview
-    v20210901preview = __v20210901preview
     import pulumi_azure_native.dashboard.v20220801 as __v20220801
     v20220801 = __v20220801
     import pulumi_azure_native.dashboard.v20221001preview as __v20221001preview
@@ -30,7 +28,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.dashboard.v20241001 as __v20241001
     v20241001 = __v20241001
 else:
-    v20210901preview = _utilities.lazy_import('pulumi_azure_native.dashboard.v20210901preview')
     v20220801 = _utilities.lazy_import('pulumi_azure_native.dashboard.v20220801')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.dashboard.v20221001preview')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.dashboard.v20231001preview')

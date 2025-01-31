@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// Gets the endpoint to the resource.
         /// Azure REST API version: 2024-12-01.
         /// 
-        /// Other available API versions: 2022-05-01-preview, 2023-03-15.
+        /// Other available API versions: 2023-03-15.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// Gets the endpoint to the resource.
         /// Azure REST API version: 2024-12-01.
         /// 
-        /// Other available API versions: 2022-05-01-preview, 2023-03-15.
+        /// Other available API versions: 2023-03-15.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// Gets the endpoint to the resource.
         /// Azure REST API version: 2024-12-01.
         /// 
-        /// Other available API versions: 2022-05-01-preview, 2023-03-15.
+        /// Other available API versions: 2023-03-15.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());

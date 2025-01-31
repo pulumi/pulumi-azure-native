@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a bookmark.
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2019-01-01-preview, 2023-02-01, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export function getBookmark(args: GetBookmarkArgs, opts?: pulumi.InvokeOptions): Promise<GetBookmarkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -118,7 +118,7 @@ export interface GetBookmarkResult {
  * Gets a bookmark.
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2019-01-01-preview, 2023-02-01, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export function getBookmarkOutput(args: GetBookmarkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBookmarkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Response for Disk Pool request.
  * Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
- *
- * Other available API versions: 2020-03-15-preview.
  */
 export class DiskPool extends pulumi.CustomResource {
     /**

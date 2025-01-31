@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Packet core control plane resource.
  * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
  *
- * Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-06-01.
+ * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01.
  */
 export class PacketCoreControlPlane extends pulumi.CustomResource {
     /**

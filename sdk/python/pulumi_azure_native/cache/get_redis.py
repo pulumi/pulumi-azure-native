@@ -405,7 +405,7 @@ def get_redis(name: Optional[str] = None,
     Gets a Redis cache (resource description).
     Azure REST API version: 2024-11-01.
 
-    Other available API versions: 2020-06-01, 2023-04-01.
+    Other available API versions: 2023-04-01.
 
 
     :param str name: The name of the Redis cache.
@@ -455,7 +455,7 @@ def get_redis_output(name: Optional[pulumi.Input[str]] = None,
     Gets a Redis cache (resource description).
     Azure REST API version: 2024-11-01.
 
-    Other available API versions: 2020-06-01, 2023-04-01.
+    Other available API versions: 2023-04-01.
 
 
     :param str name: The name of the Redis cache.

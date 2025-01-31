@@ -165,8 +165,6 @@ def get_azure_traffic_collector(azure_traffic_collector_name: Optional[str] = No
     Gets the specified Azure Traffic Collector in a specified resource group
     Azure REST API version: 2022-11-01.
 
-    Other available API versions: 2022-08-01.
-
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name
     :param str resource_group_name: The name of the resource group.
@@ -194,8 +192,6 @@ def get_azure_traffic_collector_output(azure_traffic_collector_name: Optional[pu
     """
     Gets the specified Azure Traffic Collector in a specified resource group
     Azure REST API version: 2022-11-01.
-
-    Other available API versions: 2022-08-01.
 
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a watchlist, without its watchlist items.
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-02-01, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export function getWatchlist(args: GetWatchlistArgs, opts?: pulumi.InvokeOptions): Promise<GetWatchlistResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -154,7 +154,7 @@ export interface GetWatchlistResult {
  * Get a watchlist, without its watchlist items.
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-02-01, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export function getWatchlistOutput(args: GetWatchlistOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWatchlistResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

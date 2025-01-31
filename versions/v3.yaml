@@ -4012,41 +4012,6 @@ DBforMySQL:
         SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/FlexibleServers/stable/2023-12-30/FlexibleServers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}
         RpNamespace: Microsoft.DBforMySQL
-    SingleServer:
-        ApiVersion: "2017-12-01"
-        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}
-        RpNamespace: Microsoft.DBforMySQL
-    SingleServerDatabase:
-        ApiVersion: "2017-12-01"
-        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName}
-        RpNamespace: Microsoft.DBforMySQL
-    SingleServerFirewallRule:
-        ApiVersion: "2017-12-01"
-        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/firewallRules/{firewallRuleName}
-        RpNamespace: Microsoft.DBforMySQL
-    SingleServerPrivateEndpointConnection:
-        ApiVersion: "2018-06-01"
-        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2018-06-01/PrivateEndpointConnections.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/privateEndpointConnections/{privateEndpointConnectionName}
-        RpNamespace: Microsoft.DBforMySQL
-    SingleServerServerAdministrator:
-        ApiVersion: "2017-12-01"
-        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/administrators/activeDirectory
-        RpNamespace: Microsoft.DBforMySQL
-    SingleServerServerKey:
-        ApiVersion: "2020-01-01"
-        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2020-01-01/DataEncryptionKeys.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/keys/{keyName}
-        RpNamespace: Microsoft.DBforMySQL
-    SingleServerVirtualNetworkRule:
-        ApiVersion: "2017-12-01"
-        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName}
-        RpNamespace: Microsoft.DBforMySQL
     getGetPrivateDnsZoneSuffixExecute:
         ApiVersion: "2023-12-30"
         SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/ServiceOperations/stable/2023-12-30/ServiceOperations.json
@@ -4112,46 +4077,6 @@ DBforPostgreSQL:
         ApiVersion: 2023-03-02-preview
         SpecFilePath: specification/postgresqlhsc/resource-manager/Microsoft.DBforPostgreSQL/preview/2023-03-02-preview/postgresqlhsc.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{clusterName}/roles/{roleName}
-        RpNamespace: Microsoft.DBforPostgreSQL
-    SingleServer:
-        ApiVersion: "2017-12-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/postgresql.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}
-        RpNamespace: Microsoft.DBforPostgreSQL
-    SingleServerDatabase:
-        ApiVersion: "2017-12-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/postgresql.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/databases/{databaseName}
-        RpNamespace: Microsoft.DBforPostgreSQL
-    SingleServerFirewallRule:
-        ApiVersion: "2017-12-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/postgresql.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/firewallRules/{firewallRuleName}
-        RpNamespace: Microsoft.DBforPostgreSQL
-    SingleServerPrivateEndpointConnection:
-        ApiVersion: "2018-06-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2018-06-01/PrivateEndpointConnections.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/privateEndpointConnections/{privateEndpointConnectionName}
-        RpNamespace: Microsoft.DBforPostgreSQL
-    SingleServerServerAdministrator:
-        ApiVersion: "2017-12-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/postgresql.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/administrators/activeDirectory
-        RpNamespace: Microsoft.DBforPostgreSQL
-    SingleServerServerKey:
-        ApiVersion: "2020-01-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2020-01-01/DataEncryptionKeys.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/keys/{keyName}
-        RpNamespace: Microsoft.DBforPostgreSQL
-    SingleServerServerSecurityAlertPolicy:
-        ApiVersion: "2017-12-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/ServerSecurityAlertPolicies.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/securityAlertPolicies/{securityAlertPolicyName}
-        RpNamespace: Microsoft.DBforPostgreSQL
-    SingleServerVirtualNetworkRule:
-        ApiVersion: "2017-12-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/postgresql.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName}
         RpNamespace: Microsoft.DBforPostgreSQL
     VirtualEndpoint:
         ApiVersion: "2024-08-01"
@@ -11199,12 +11124,7 @@ SignalRService:
         SpecFilePath: specification/signalr/resource-manager/Microsoft.SignalRService/stable/2024-03-01/signalr.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/signalR/{resourceName}/listKeys
         RpNamespace: Microsoft.SignalRService
-SoftwarePlan:
-    HybridUseBenefit:
-        ApiVersion: 2019-06-01-preview
-        SpecFilePath: specification/softwareplan/resource-manager/Microsoft.SoftwarePlan/preview/2019-06-01-preview/softwareplan.json
-        ResourceUri: /{scope}/providers/Microsoft.SoftwarePlan/hybridUseBenefits/{planId}
-        RpNamespace: Microsoft.SoftwarePlan
+SoftwarePlan: {}
 Solutions:
     Application:
         ApiVersion: "2021-07-01"
@@ -12309,17 +12229,7 @@ VirtualMachineImages:
         SpecFilePath: specification/imagebuilder/resource-manager/Microsoft.VirtualMachineImages/stable/2024-02-01/imagebuilder.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VirtualMachineImages/imageTemplates/{imageTemplateName}
         RpNamespace: Microsoft.VirtualMachineImages
-VisualStudio:
-    Account:
-        ApiVersion: 2014-04-01-preview
-        SpecFilePath: specification/visualstudio/resource-manager/Microsoft.VisualStudio/preview/2014-04-01-preview/Csm.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.visualstudio/account/{resourceName}
-        RpNamespace: Microsoft.VisualStudio
-    Extension:
-        ApiVersion: 2014-04-01-preview
-        SpecFilePath: specification/visualstudio/resource-manager/Microsoft.VisualStudio/preview/2014-04-01-preview/Csm.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.visualstudio/account/{accountResourceName}/extension/{extensionResourceName}
-        RpNamespace: Microsoft.VisualStudio
+VisualStudio: {}
 VoiceServices:
     CommunicationsGateway:
         ApiVersion: "2023-09-01"

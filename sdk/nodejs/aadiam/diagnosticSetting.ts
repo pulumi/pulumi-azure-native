@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * The diagnostic setting resource.
  * Azure REST API version: 2017-04-01. Prior API version in Azure Native 2.x: 2017-04-01.
- *
- * Other available API versions: 2017-04-01-preview.
  */
 export class DiagnosticSetting extends pulumi.CustomResource {
     /**

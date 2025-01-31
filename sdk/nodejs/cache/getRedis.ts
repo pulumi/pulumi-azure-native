@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a Redis cache (resource description).
  * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2020-06-01, 2023-04-01.
+ * Other available API versions: 2023-04-01.
  */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -161,7 +161,7 @@ export interface GetRedisResult {
  * Gets a Redis cache (resource description).
  * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2020-06-01, 2023-04-01.
+ * Other available API versions: 2023-04-01.
  */
 export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRedisResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

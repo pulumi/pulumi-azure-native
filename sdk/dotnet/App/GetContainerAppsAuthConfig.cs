@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.App
         /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        /// Other available API versions: 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Task<GetContainerAppsAuthConfigResult> InvokeAsync(GetContainerAppsAuthConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppsAuthConfigResult>("azure-native:app:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.App
         /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        /// Other available API versions: 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Output<GetContainerAppsAuthConfigResult> Invoke(GetContainerAppsAuthConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppsAuthConfigResult>("azure-native:app:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.App
         /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        /// Other available API versions: 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Output<GetContainerAppsAuthConfigResult> Invoke(GetContainerAppsAuthConfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppsAuthConfigResult>("azure-native:app:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigInvokeArgs(), options.WithDefaults());

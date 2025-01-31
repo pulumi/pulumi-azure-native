@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The grafana resource type.
  * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2022-08-01.
  *
- * Other available API versions: 2021-09-01-preview, 2022-08-01.
+ * Other available API versions: 2022-08-01.
  */
 export class Grafana extends pulumi.CustomResource {
     /**

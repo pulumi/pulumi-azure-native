@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Returns an AML file system.
  * Azure REST API version: 2024-03-01.
- *
- * Other available API versions: 2023-03-01-preview.
  */
 export function getAmlFilesystem(args: GetAmlFilesystemArgs, opts?: pulumi.InvokeOptions): Promise<GetAmlFilesystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -116,8 +114,6 @@ export interface GetAmlFilesystemResult {
 /**
  * Returns an AML file system.
  * Azure REST API version: 2024-03-01.
- *
- * Other available API versions: 2023-03-01-preview.
  */
 export function getAmlFilesystemOutput(args: GetAmlFilesystemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAmlFilesystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

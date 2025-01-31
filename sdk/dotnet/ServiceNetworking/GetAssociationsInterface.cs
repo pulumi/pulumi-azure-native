@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// Get a Association
         /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2025-01-01.
+        /// Other available API versions: 2023-05-01-preview, 2025-01-01.
         /// </summary>
         public static Task<GetAssociationsInterfaceResult> InvokeAsync(GetAssociationsInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssociationsInterfaceResult>("azure-native:servicenetworking:getAssociationsInterface", args ?? new GetAssociationsInterfaceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// Get a Association
         /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2025-01-01.
+        /// Other available API versions: 2023-05-01-preview, 2025-01-01.
         /// </summary>
         public static Output<GetAssociationsInterfaceResult> Invoke(GetAssociationsInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssociationsInterfaceResult>("azure-native:servicenetworking:getAssociationsInterface", args ?? new GetAssociationsInterfaceInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// Get a Association
         /// Azure REST API version: 2023-11-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2025-01-01.
+        /// Other available API versions: 2023-05-01-preview, 2025-01-01.
         /// </summary>
         public static Output<GetAssociationsInterfaceResult> Invoke(GetAssociationsInterfaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssociationsInterfaceResult>("azure-native:servicenetworking:getAssociationsInterface", args ?? new GetAssociationsInterfaceInvokeArgs(), options.WithDefaults());

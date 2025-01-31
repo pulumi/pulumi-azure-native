@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cache
     /// A single Redis item in List or Get Operation.
     /// Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// 
-    /// Other available API versions: 2020-06-01, 2023-04-01.
+    /// Other available API versions: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:Redis")]
     public partial class Redis : global::Pulumi.CustomResource

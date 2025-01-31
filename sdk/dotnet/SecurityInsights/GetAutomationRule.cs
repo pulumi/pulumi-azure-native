@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Gets the automation rule.
         /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2019-01-01-preview, 2023-02-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Task<GetAutomationRuleResult> InvokeAsync(GetAutomationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationRuleResult>("azure-native:securityinsights:getAutomationRule", args ?? new GetAutomationRuleArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Gets the automation rule.
         /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2019-01-01-preview, 2023-02-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetAutomationRuleResult> Invoke(GetAutomationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("azure-native:securityinsights:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Gets the automation rule.
         /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2019-01-01-preview, 2023-02-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetAutomationRuleResult> Invoke(GetAutomationRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("azure-native:securityinsights:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithDefaults());

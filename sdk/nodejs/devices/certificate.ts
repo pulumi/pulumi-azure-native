@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The X509 Certificate.
  * Azure REST API version: 2023-06-30. Prior API version in Azure Native 2.x: 2022-04-30-preview.
  *
- * Other available API versions: 2020-04-01, 2022-04-30-preview, 2023-06-30-preview.
+ * Other available API versions: 2022-04-30-preview, 2023-06-30-preview.
  */
 export class Certificate extends pulumi.CustomResource {
     /**

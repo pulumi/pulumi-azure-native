@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// Gets information about a server firewall rule.
         /// Azure REST API version: 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbformariadb:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// Gets information about a server firewall rule.
         /// Azure REST API version: 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbformariadb:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// Gets information about a server firewall rule.
         /// Azure REST API version: 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbformariadb:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());

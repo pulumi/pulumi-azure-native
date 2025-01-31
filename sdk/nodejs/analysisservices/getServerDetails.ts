@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets details about the specified Analysis Services server.
  * Azure REST API version: 2017-08-01.
- *
- * Other available API versions: 2017-08-01-beta.
  */
 export function getServerDetails(args: GetServerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -104,8 +102,6 @@ export interface GetServerDetailsResult {
 /**
  * Gets details about the specified Analysis Services server.
  * Azure REST API version: 2017-08-01.
- *
- * Other available API versions: 2017-08-01-beta.
  */
 export function getServerDetailsOutput(args: GetServerDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

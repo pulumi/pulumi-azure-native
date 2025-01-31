@@ -142,8 +142,6 @@ def get_private_endpoint_connection(data_manager_for_agriculture_resource_name: 
     Get Private endpoint connection object.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2021-09-01-preview.
-
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str private_endpoint_connection_name: Private endpoint connection name.
@@ -172,8 +170,6 @@ def get_private_endpoint_connection_output(data_manager_for_agriculture_resource
     """
     Get Private endpoint connection object.
     Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2021-09-01-preview.
 
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.

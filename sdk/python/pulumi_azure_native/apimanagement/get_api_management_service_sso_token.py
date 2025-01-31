@@ -56,7 +56,7 @@ def get_api_management_service_sso_token(resource_group_name: Optional[str] = No
     Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2017-03-01, 2022-08-01, 2024-06-01-preview.
+    Other available API versions: 2022-08-01, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -77,7 +77,7 @@ def get_api_management_service_sso_token_output(resource_group_name: Optional[pu
     Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2017-03-01, 2022-08-01, 2024-06-01-preview.
+    Other available API versions: 2022-08-01, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

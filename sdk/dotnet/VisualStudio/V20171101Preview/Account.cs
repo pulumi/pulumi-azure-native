@@ -71,7 +71,6 @@ namespace Pulumi.AzureNative.VisualStudio.V20171101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:visualstudio/v20140401preview:Account" },
-                    new global::Pulumi.Alias { Type = "azure-native:visualstudio:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

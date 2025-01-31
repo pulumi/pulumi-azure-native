@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.App
         /// Container App.
         /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        /// Other available API versions: 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Task<GetContainerAppResult> InvokeAsync(GetContainerAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.App
         /// Container App.
         /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        /// Other available API versions: 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.App
         /// Container App.
         /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        /// Other available API versions: 2022-10-01, 2024-10-02-preview.
         /// </summary>
         public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());

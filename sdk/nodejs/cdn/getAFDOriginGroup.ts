@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets an existing origin group within a profile.
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2020-09-01, 2023-05-01.
+ * Other available API versions: 2023-05-01.
  */
 export function getAFDOriginGroup(args: GetAFDOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,7 +87,7 @@ export interface GetAFDOriginGroupResult {
  * Gets an existing origin group within a profile.
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2020-09-01, 2023-05-01.
+ * Other available API versions: 2023-05-01.
  */
 export function getAFDOriginGroupOutput(args: GetAFDOriginGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAFDOriginGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

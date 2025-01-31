@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The operation to get the extension.
  * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2021-11-01, 2023-03-01.
+ * Other available API versions: 2023-03-01.
  */
 export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -119,7 +119,7 @@ export interface GetVirtualMachineExtensionResult {
  * The operation to get the extension.
  * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2021-11-01, 2023-03-01.
+ * Other available API versions: 2023-03-01.
  */
 export function getVirtualMachineExtensionOutput(args: GetVirtualMachineExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

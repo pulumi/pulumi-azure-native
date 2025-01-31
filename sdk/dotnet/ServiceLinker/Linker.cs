@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker
     /// Linker of source and target resource
     /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-11-01-preview.
     /// 
-    /// Other available API versions: 2021-11-01-preview, 2022-11-01-preview, 2024-07-01-preview.
+    /// Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker:Linker")]
     public partial class Linker : global::Pulumi.CustomResource

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Devices
     /// The properties of the EventHubConsumerGroupInfo object.
     /// Azure REST API version: 2023-06-30. Prior API version in Azure Native 2.x: 2022-04-30-preview.
     /// 
-    /// Other available API versions: 2021-03-03-preview, 2022-04-30-preview, 2023-06-30-preview.
+    /// Other available API versions: 2022-04-30-preview, 2023-06-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:IotHubResourceEventHubConsumerGroup")]
     public partial class IotHubResourceEventHubConsumerGroup : global::Pulumi.CustomResource

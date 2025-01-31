@@ -75,10 +75,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.documentdb.v20210701preview as __v20210701preview
-    v20210701preview = __v20210701preview
-    import pulumi_azure_native.documentdb.v20230301preview as __v20230301preview
-    v20230301preview = __v20230301preview
     import pulumi_azure_native.documentdb.v20230315preview as __v20230315preview
     v20230315preview = __v20230315preview
     import pulumi_azure_native.documentdb.v20230415 as __v20230415
@@ -94,8 +90,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.documentdb.v20241201preview as __v20241201preview
     v20241201preview = __v20241201preview
 else:
-    v20210701preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210701preview')
-    v20230301preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20230301preview')
     v20230315preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20230315preview')
     v20230415 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20230415')
     v20230915preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20230915preview')

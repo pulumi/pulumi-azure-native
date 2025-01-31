@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * A FluidRelay Server.
  * Azure REST API version: 2022-06-01. Prior API version in Azure Native 2.x: 2022-06-01.
- *
- * Other available API versions: 2021-06-15-preview.
  */
 export class FluidRelayServer extends pulumi.CustomResource {
     /**

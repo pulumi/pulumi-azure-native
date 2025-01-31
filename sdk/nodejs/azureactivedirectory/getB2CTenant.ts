@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get the Azure AD B2C tenant resource.
  * Azure REST API version: 2023-05-17-preview.
  *
- * Other available API versions: 2019-01-01-preview, 2021-04-01.
+ * Other available API versions: 2021-04-01.
  */
 export function getB2CTenant(args: GetB2CTenantArgs, opts?: pulumi.InvokeOptions): Promise<GetB2CTenantResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +78,7 @@ export interface GetB2CTenantResult {
  * Get the Azure AD B2C tenant resource.
  * Azure REST API version: 2023-05-17-preview.
  *
- * Other available API versions: 2019-01-01-preview, 2021-04-01.
+ * Other available API versions: 2021-04-01.
  */
 export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetB2CTenantResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

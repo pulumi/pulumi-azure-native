@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.HybridContainerService
     /// <summary>
     /// Defines the hybridIdentityMetadata.
     /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-09-01-preview.
-    /// 
-    /// Other available API versions: 2022-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:HybridIdentityMetadatum")]
     public partial class HybridIdentityMetadatum : global::Pulumi.CustomResource

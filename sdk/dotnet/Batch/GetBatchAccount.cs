@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Batch
         /// Gets information about the specified Batch account.
         /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2022-01-01, 2023-05-01.
+        /// Other available API versions: 2023-05-01.
         /// </summary>
         public static Task<GetBatchAccountResult> InvokeAsync(GetBatchAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-native:batch:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Batch
         /// Gets information about the specified Batch account.
         /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2022-01-01, 2023-05-01.
+        /// Other available API versions: 2023-05-01.
         /// </summary>
         public static Output<GetBatchAccountResult> Invoke(GetBatchAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchAccountResult>("azure-native:batch:getBatchAccount", args ?? new GetBatchAccountInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Batch
         /// Gets information about the specified Batch account.
         /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2022-01-01, 2023-05-01.
+        /// Other available API versions: 2023-05-01.
         /// </summary>
         public static Output<GetBatchAccountResult> Invoke(GetBatchAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchAccountResult>("azure-native:batch:getBatchAccount", args ?? new GetBatchAccountInvokeArgs(), options.WithDefaults());

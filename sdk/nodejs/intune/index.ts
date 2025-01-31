@@ -28,11 +28,9 @@ utilities.lazyLoad(exports, ["IoMAMPolicyByName"], () => require("./ioMAMPolicyB
 
 // Export sub-modules:
 import * as v20150114preview from "./v20150114preview";
-import * as v20150114privatepreview from "./v20150114privatepreview";
 
 export {
     v20150114preview,
-    v20150114privatepreview,
 };
 
 const _module = {

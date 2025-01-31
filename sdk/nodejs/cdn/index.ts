@@ -195,14 +195,12 @@ utilities.lazyLoad(exports, ["TunnelPolicy"], () => require("./tunnelPolicy"));
 export * from "../types/enums/cdn";
 
 // Export sub-modules:
-import * as v20200901 from "./v20200901";
 import * as v20230501 from "./v20230501";
 import * as v20230701preview from "./v20230701preview";
 import * as v20240601preview from "./v20240601preview";
 import * as v20240901 from "./v20240901";
 
 export {
-    v20200901,
     v20230501,
     v20230701preview,
     v20240601preview,

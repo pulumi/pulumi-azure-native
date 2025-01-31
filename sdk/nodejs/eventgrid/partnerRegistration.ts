@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Information about a partner registration.
  * Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2022-06-15.
  *
- * Other available API versions: 2021-10-15-preview, 2022-06-15.
+ * Other available API versions: 2022-06-15.
  */
 export class PartnerRegistration extends pulumi.CustomResource {
     /**

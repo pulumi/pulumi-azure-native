@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// Description for Get ownership identifier for domain
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2022-09-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Task<GetDomainOwnershipIdentifierResult> InvokeAsync(GetDomainOwnershipIdentifierArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// Description for Get ownership identifier for domain
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2022-09-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Output<GetDomainOwnershipIdentifierResult> Invoke(GetDomainOwnershipIdentifierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// Description for Get ownership identifier for domain
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2022-09-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Output<GetDomainOwnershipIdentifierResult> Invoke(GetDomainOwnershipIdentifierInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierInvokeArgs(), options.WithDefaults());

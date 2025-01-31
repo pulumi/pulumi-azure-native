@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the Cache specified by its identifier.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2019-12-01-preview, 2022-08-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure-native:apimanagement:getCache", args ?? new GetCacheArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the Cache specified by its identifier.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2019-12-01-preview, 2022-08-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:apimanagement:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the Cache specified by its identifier.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2019-12-01-preview, 2022-08-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:apimanagement:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());

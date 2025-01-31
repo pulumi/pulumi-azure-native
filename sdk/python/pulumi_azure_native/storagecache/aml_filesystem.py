@@ -254,8 +254,6 @@ class AmlFilesystem(pulumi.CustomResource):
         An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
         Azure REST API version: 2024-03-01.
 
-        Other available API versions: 2023-03-01-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
@@ -281,8 +279,6 @@ class AmlFilesystem(pulumi.CustomResource):
         """
         An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
         Azure REST API version: 2024-03-01.
-
-        Other available API versions: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AmlFilesystemArgs args: The arguments to use to populate this resource's properties.

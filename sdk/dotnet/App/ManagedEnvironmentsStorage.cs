@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.App
     /// Storage resource for managedEnvironment.
     /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-10-01.
     /// 
-    /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+    /// Other available API versions: 2022-10-01, 2024-10-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ManagedEnvironmentsStorage")]
     public partial class ManagedEnvironmentsStorage : global::Pulumi.CustomResource

@@ -330,8 +330,6 @@ utilities.lazyLoad(exports, ["ThroughputPoolAccount"], () => require("./throughp
 export * from "../types/enums/documentdb";
 
 // Export sub-modules:
-import * as v20210701preview from "./v20210701preview";
-import * as v20230301preview from "./v20230301preview";
 import * as v20230315preview from "./v20230315preview";
 import * as v20230415 from "./v20230415";
 import * as v20230915preview from "./v20230915preview";
@@ -341,8 +339,6 @@ import * as v20241115 from "./v20241115";
 import * as v20241201preview from "./v20241201preview";
 
 export {
-    v20210701preview,
-    v20230301preview,
     v20230315preview,
     v20230415,
     v20230915preview,

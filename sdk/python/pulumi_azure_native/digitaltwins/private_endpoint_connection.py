@@ -102,8 +102,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The private endpoint connection of a Digital Twin.
         Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
 
-        Other available API versions: 2020-12-01.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
@@ -120,8 +118,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The private endpoint connection of a Digital Twin.
         Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
-
-        Other available API versions: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.

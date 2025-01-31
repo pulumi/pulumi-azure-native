@@ -270,7 +270,7 @@ class Incident(pulumi.CustomResource):
         Represents an incident in Azure Security Insights.
         Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2021-03-01-preview, 2023-02-01, 2023-02-01-preview, 2023-03-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-02-01, 2023-03-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -299,7 +299,7 @@ class Incident(pulumi.CustomResource):
         Represents an incident in Azure Security Insights.
         Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2021-03-01-preview, 2023-02-01, 2023-02-01-preview, 2023-03-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-02-01, 2023-03-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IncidentArgs args: The arguments to use to populate this resource's properties.

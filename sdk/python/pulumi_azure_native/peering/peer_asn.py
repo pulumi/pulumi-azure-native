@@ -105,8 +105,6 @@ class PeerAsn(pulumi.CustomResource):
         The essential information related to the peer's ASN.
         Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
-        Other available API versions: 2021-01-01.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] peer_asn: The Autonomous System Number (ASN) of the peer.
@@ -123,8 +121,6 @@ class PeerAsn(pulumi.CustomResource):
         """
         The essential information related to the peer's ASN.
         Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2022-10-01.
-
-        Other available API versions: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param PeerAsnArgs args: The arguments to use to populate this resource's properties.

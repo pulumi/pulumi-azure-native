@@ -173,7 +173,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         Response for POST requests that return single SharedAccessAuthorizationRule.
         Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
 
-        Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+        Other available API versions: 2023-01-01-preview, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +198,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         Response for POST requests that return single SharedAccessAuthorizationRule.
         Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
 
-        Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+        Other available API versions: 2023-01-01-preview, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param NamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

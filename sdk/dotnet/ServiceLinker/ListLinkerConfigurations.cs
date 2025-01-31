@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// list source configurations for a Linker.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2021-11-01-preview, 2022-11-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
         /// </summary>
         public static Task<ListLinkerConfigurationsResult> InvokeAsync(ListLinkerConfigurationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListLinkerConfigurationsResult>("azure-native:servicelinker:listLinkerConfigurations", args ?? new ListLinkerConfigurationsArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// list source configurations for a Linker.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2021-11-01-preview, 2022-11-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
         /// </summary>
         public static Output<ListLinkerConfigurationsResult> Invoke(ListLinkerConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLinkerConfigurationsResult>("azure-native:servicelinker:listLinkerConfigurations", args ?? new ListLinkerConfigurationsInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// list source configurations for a Linker.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2021-11-01-preview, 2022-11-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
         /// </summary>
         public static Output<ListLinkerConfigurationsResult> Invoke(ListLinkerConfigurationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListLinkerConfigurationsResult>("azure-native:servicelinker:listLinkerConfigurations", args ?? new ListLinkerConfigurationsInvokeArgs(), options.WithDefaults());

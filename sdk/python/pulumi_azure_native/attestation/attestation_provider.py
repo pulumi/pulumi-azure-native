@@ -120,8 +120,6 @@ class AttestationProvider(pulumi.CustomResource):
         Attestation service response message.
         Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
-        Other available API versions: 2021-06-01-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the attestation provider should be created.
@@ -139,8 +137,6 @@ class AttestationProvider(pulumi.CustomResource):
         """
         Attestation service response message.
         Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
-
-        Other available API versions: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AttestationProviderArgs args: The arguments to use to populate this resource's properties.

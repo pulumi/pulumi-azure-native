@@ -52,8 +52,6 @@ def list_private_store_subscriptions_context(private_store_id: Optional[str] = N
     List all the subscriptions in the private store context
     Azure REST API version: 2023-01-01.
 
-    Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
-
 
     :param str private_store_id: The store ID - must use the tenant ID
     """
@@ -69,8 +67,6 @@ def list_private_store_subscriptions_context_output(private_store_id: Optional[p
     """
     List all the subscriptions in the private store context
     Azure REST API version: 2023-01-01.
-
-    Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
 
 
     :param str private_store_id: The store ID - must use the tenant ID

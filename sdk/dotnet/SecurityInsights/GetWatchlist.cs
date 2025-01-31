@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Get a watchlist, without its watchlist items.
         /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-02-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Task<GetWatchlistResult> InvokeAsync(GetWatchlistArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Get a watchlist, without its watchlist items.
         /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-02-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetWatchlistResult> Invoke(GetWatchlistInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Get a watchlist, without its watchlist items.
         /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2019-01-01-preview, 2021-03-01-preview, 2021-04-01, 2021-10-01-preview, 2022-01-01-preview, 2023-02-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetWatchlistResult> Invoke(GetWatchlistInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatchlistResult>("azure-native:securityinsights:getWatchlist", args ?? new GetWatchlistInvokeArgs(), options.WithDefaults());

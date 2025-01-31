@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a relation between two resources
  * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
  *
- * Other available API versions: 2021-03-01-preview, 2023-02-01, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export class IncidentRelation extends pulumi.CustomResource {
     /**
