@@ -165,7 +165,7 @@ def get_account(account_name: Optional[str] = None,
     Get a Maps Account.
     Azure REST API version: 2024-07-01-preview.
 
-    Other available API versions: 2018-05-01, 2021-02-01.
+    Other available API versions: 2021-02-01.
 
 
     :param str account_name: The name of the Maps Account.
@@ -195,7 +195,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     Get a Maps Account.
     Azure REST API version: 2024-07-01-preview.
 
-    Other available API versions: 2018-05-01, 2021-02-01.
+    Other available API versions: 2021-02-01.
 
 
     :param str account_name: The name of the Maps Account.

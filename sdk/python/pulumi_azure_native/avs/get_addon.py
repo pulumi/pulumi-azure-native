@@ -118,7 +118,7 @@ def get_addon(addon_name: Optional[str] = None,
     Get a Addon
     Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2021-01-01-preview, 2022-05-01, 2023-03-01.
+    Other available API versions: 2022-05-01, 2023-03-01.
 
 
     :param str addon_name: Name of the addon.
@@ -147,7 +147,7 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     Get a Addon
     Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2021-01-01-preview, 2022-05-01, 2023-03-01.
+    Other available API versions: 2022-05-01, 2023-03-01.
 
 
     :param str addon_name: Name of the addon.

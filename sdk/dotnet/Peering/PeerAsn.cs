@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.Peering
     /// <summary>
     /// The essential information related to the peer's ASN.
     /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2022-10-01.
-    /// 
-    /// Other available API versions: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:PeerAsn")]
     public partial class PeerAsn : global::Pulumi.CustomResource

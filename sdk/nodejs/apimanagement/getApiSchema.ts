@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Get the schema configuration at the API level.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2019-01-01, 2022-08-01, 2024-06-01-preview.
+ * Other available API versions: 2022-08-01, 2024-06-01-preview.
  */
 export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetApiSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,7 +76,7 @@ export interface GetApiSchemaResult {
  * Get the schema configuration at the API level.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2019-01-01, 2022-08-01, 2024-06-01-preview.
+ * Other available API versions: 2022-08-01, 2024-06-01-preview.
  */
 export function getApiSchemaOutput(args: GetApiSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

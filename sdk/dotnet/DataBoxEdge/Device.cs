@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// The Data Box Edge/Gateway device.
     /// Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
     /// 
-    /// Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-03-01, 2022-04-01-preview, 2023-01-01-preview, 2023-12-01.
+    /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2023-01-01-preview, 2023-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Device")]
     public partial class Device : global::Pulumi.CustomResource

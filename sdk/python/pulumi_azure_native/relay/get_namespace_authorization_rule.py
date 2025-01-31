@@ -118,7 +118,7 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
     Authorization rule for a namespace by name.
     Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2017-04-01, 2021-11-01.
+    Other available API versions: 2021-11-01.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -147,7 +147,7 @@ def get_namespace_authorization_rule_output(authorization_rule_name: Optional[pu
     Authorization rule for a namespace by name.
     Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2017-04-01, 2021-11-01.
+    Other available API versions: 2021-11-01.
 
 
     :param str authorization_rule_name: The authorization rule name.

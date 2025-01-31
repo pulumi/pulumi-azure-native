@@ -21,14 +21,12 @@ export * from "../types/enums/aadiam";
 
 // Export sub-modules:
 import * as v20170401 from "./v20170401";
-import * as v20170401preview from "./v20170401preview";
 import * as v20200301 from "./v20200301";
 import * as v20200301preview from "./v20200301preview";
 import * as v20200701preview from "./v20200701preview";
 
 export {
     v20170401,
-    v20170401preview,
     v20200301,
     v20200301preview,
     v20200701preview,

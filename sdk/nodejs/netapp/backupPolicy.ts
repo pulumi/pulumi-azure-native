@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Backup policy information
  * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2022-11-01.
  *
- * Other available API versions: 2021-04-01, 2021-04-01-preview, 2021-06-01, 2022-11-01, 2024-07-01-preview.
+ * Other available API versions: 2022-11-01, 2024-07-01-preview.
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**

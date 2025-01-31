@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes a Virtual Machine Scale Set Extension.
  * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
  *
- * Other available API versions: 2021-11-01, 2023-03-01.
+ * Other available API versions: 2023-03-01.
  */
 export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     /**

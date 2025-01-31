@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a server firewall rule.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01-preview.
         /// </summary>
         public static Task<GetSingleServerFirewallRuleResult> InvokeAsync(GetSingleServerFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSingleServerFirewallRuleResult>("azure-native:dbforpostgresql:getSingleServerFirewallRule", args ?? new GetSingleServerFirewallRuleArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a server firewall rule.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01-preview.
         /// </summary>
         public static Output<GetSingleServerFirewallRuleResult> Invoke(GetSingleServerFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSingleServerFirewallRuleResult>("azure-native:dbforpostgresql:getSingleServerFirewallRule", args ?? new GetSingleServerFirewallRuleInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a server firewall rule.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01-preview.
         /// </summary>
         public static Output<GetSingleServerFirewallRuleResult> Invoke(GetSingleServerFirewallRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSingleServerFirewallRuleResult>("azure-native:dbforpostgresql:getSingleServerFirewallRule", args ?? new GetSingleServerFirewallRuleInvokeArgs(), options.WithDefaults());

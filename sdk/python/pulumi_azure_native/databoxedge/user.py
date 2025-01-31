@@ -119,7 +119,7 @@ class User(pulumi.CustomResource):
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
         Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
 
-        Other available API versions: 2021-02-01-preview, 2022-03-01, 2023-12-01.
+        Other available API versions: 2022-03-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +139,7 @@ class User(pulumi.CustomResource):
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
         Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
 
-        Other available API versions: 2021-02-01-preview, 2022-03-01, 2023-12-01.
+        Other available API versions: 2022-03-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

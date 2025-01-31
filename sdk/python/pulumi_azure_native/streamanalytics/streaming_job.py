@@ -410,7 +410,7 @@ class StreamingJob(pulumi.CustomResource):
         A streaming job object, containing all information associated with the named streaming job.
         Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
 
-        Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
+        Other available API versions: 2021-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -447,7 +447,7 @@ class StreamingJob(pulumi.CustomResource):
         A streaming job object, containing all information associated with the named streaming job.
         Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
 
-        Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
+        Other available API versions: 2021-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param StreamingJobArgs args: The arguments to use to populate this resource's properties.

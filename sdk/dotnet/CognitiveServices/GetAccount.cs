@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Returns a Cognitive Services account specified by the parameters.
         /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2017-04-18, 2023-05-01.
+        /// Other available API versions: 2023-05-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:cognitiveservices:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Returns a Cognitive Services account specified by the parameters.
         /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2017-04-18, 2023-05-01.
+        /// Other available API versions: 2023-05-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:cognitiveservices:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Returns a Cognitive Services account specified by the parameters.
         /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2017-04-18, 2023-05-01.
+        /// Other available API versions: 2023-05-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:cognitiveservices:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

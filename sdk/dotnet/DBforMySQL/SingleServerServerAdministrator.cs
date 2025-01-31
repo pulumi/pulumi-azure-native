@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// <summary>
     /// Represents a and external administrator to be created.
     /// Azure REST API version: 2017-12-01.
-    /// 
-    /// Other available API versions: 2018-06-01-privatepreview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:SingleServerServerAdministrator")]
     public partial class SingleServerServerAdministrator : global::Pulumi.CustomResource

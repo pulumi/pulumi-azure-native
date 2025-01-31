@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the details of the Diagnostic specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2018-01-01, 2019-01-01, 2022-08-01, 2024-06-01-preview.
+ * Other available API versions: 2022-08-01, 2024-06-01-preview.
  */
 export function getDiagnostic(args: GetDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -98,7 +98,7 @@ export interface GetDiagnosticResult {
  * Gets the details of the Diagnostic specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2018-01-01, 2019-01-01, 2022-08-01, 2024-06-01-preview.
+ * Other available API versions: 2022-08-01, 2024-06-01-preview.
  */
 export function getDiagnosticOutput(args: GetDiagnosticOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

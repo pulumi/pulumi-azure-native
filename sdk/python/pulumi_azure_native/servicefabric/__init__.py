@@ -25,16 +25,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.servicefabric.v20200101preview as __v20200101preview
-    v20200101preview = __v20200101preview
-    import pulumi_azure_native.servicefabric.v20201201preview as __v20201201preview
-    v20201201preview = __v20201201preview
-    import pulumi_azure_native.servicefabric.v20210601 as __v20210601
-    v20210601 = __v20210601
-    import pulumi_azure_native.servicefabric.v20220101 as __v20220101
-    v20220101 = __v20220101
-    import pulumi_azure_native.servicefabric.v20221001preview as __v20221001preview
-    v20221001preview = __v20221001preview
     import pulumi_azure_native.servicefabric.v20230301preview as __v20230301preview
     v20230301preview = __v20230301preview
     import pulumi_azure_native.servicefabric.v20240201preview as __v20240201preview
@@ -46,11 +36,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.servicefabric.v20240901preview as __v20240901preview
     v20240901preview = __v20240901preview
 else:
-    v20200101preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20200101preview')
-    v20201201preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20201201preview')
-    v20210601 = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20210601')
-    v20220101 = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20220101')
-    v20221001preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20221001preview')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20230301preview')
     v20240201preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20240201preview')
     v20240401 = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20240401')

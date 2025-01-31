@@ -309,7 +309,7 @@ class Extension(pulumi.CustomResource):
         The Extension object.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
-        Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
+        Other available API versions: 2022-04-02-preview, 2022-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -340,7 +340,7 @@ class Extension(pulumi.CustomResource):
         The Extension object.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
-        Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
+        Other available API versions: 2022-04-02-preview, 2022-07-01.
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

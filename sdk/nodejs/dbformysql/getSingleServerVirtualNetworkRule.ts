@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a virtual network rule.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2018-06-01-privatepreview.
  */
 export function getSingleServerVirtualNetworkRule(args: GetSingleServerVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSingleServerVirtualNetworkRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,8 +64,6 @@ export interface GetSingleServerVirtualNetworkRuleResult {
 /**
  * Gets a virtual network rule.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2018-06-01-privatepreview.
  */
 export function getSingleServerVirtualNetworkRuleOutput(args: GetSingleServerVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSingleServerVirtualNetworkRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

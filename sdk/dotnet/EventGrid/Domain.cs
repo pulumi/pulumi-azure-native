@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// EventGrid Domain.
     /// Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2022-06-15.
     /// 
-    /// Other available API versions: 2020-04-01-preview, 2022-06-15.
+    /// Other available API versions: 2022-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

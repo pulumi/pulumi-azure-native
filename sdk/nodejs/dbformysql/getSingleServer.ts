@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets information about a server.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2018-06-01-privatepreview.
  */
 export function getSingleServer(args: GetSingleServerArgs, opts?: pulumi.InvokeOptions): Promise<GetSingleServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -128,8 +126,6 @@ export interface GetSingleServerResult {
 /**
  * Gets information about a server.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2018-06-01-privatepreview.
  */
 export function getSingleServerOutput(args: GetSingleServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSingleServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

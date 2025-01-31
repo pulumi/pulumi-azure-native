@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get the details of the specified Video Analyzer account
  * Azure REST API version: 2021-11-01-preview.
- *
- * Other available API versions: 2021-05-01-preview.
  */
 export function getVideoAnalyzer(args: GetVideoAnalyzerArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoAnalyzerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -100,8 +98,6 @@ export interface GetVideoAnalyzerResult {
 /**
  * Get the details of the specified Video Analyzer account
  * Azure REST API version: 2021-11-01-preview.
- *
- * Other available API versions: 2021-05-01-preview.
  */
 export function getVideoAnalyzerOutput(args: GetVideoAnalyzerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVideoAnalyzerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

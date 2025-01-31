@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// <summary>
     /// A virtual network rule.
     /// Azure REST API version: 2017-12-01.
-    /// 
-    /// Other available API versions: 2017-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:SingleServerVirtualNetworkRule")]
     public partial class SingleServerVirtualNetworkRule : global::Pulumi.CustomResource

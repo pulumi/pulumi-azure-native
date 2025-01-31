@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-01-01.
+ * Other available API versions: 2023-01-01.
  */
 export function getResourceGuard(args: GetResourceGuardArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,7 +68,7 @@ export interface GetResourceGuardResult {
 /**
  * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-01-01.
+ * Other available API versions: 2023-01-01.
  */
 export function getResourceGuardOutput(args: GetResourceGuardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceGuardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

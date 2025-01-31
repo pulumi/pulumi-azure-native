@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Gets information about a server.
         /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2022-12-01, 2024-11-01-preview.
+        /// Other available API versions: 2022-12-01, 2024-11-01-preview.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbforpostgresql:getServer", args ?? new GetServerArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Gets information about a server.
         /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2022-12-01, 2024-11-01-preview.
+        /// Other available API versions: 2022-12-01, 2024-11-01-preview.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbforpostgresql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Gets information about a server.
         /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2022-12-01, 2024-11-01-preview.
+        /// Other available API versions: 2022-12-01, 2024-11-01-preview.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbforpostgresql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());

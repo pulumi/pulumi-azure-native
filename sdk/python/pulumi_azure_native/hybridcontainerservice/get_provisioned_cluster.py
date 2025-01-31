@@ -147,8 +147,6 @@ def get_provisioned_cluster(resource_group_name: Optional[str] = None,
     Gets the Hybrid AKS provisioned cluster
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2022-05-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Parameter for the name of the provisioned cluster
@@ -175,8 +173,6 @@ def get_provisioned_cluster_output(resource_group_name: Optional[pulumi.Input[st
     """
     Gets the Hybrid AKS provisioned cluster
     Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2022-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

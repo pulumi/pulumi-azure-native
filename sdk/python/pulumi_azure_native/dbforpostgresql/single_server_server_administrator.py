@@ -131,8 +131,6 @@ class SingleServerServerAdministrator(pulumi.CustomResource):
         Represents a and external administrator to be created.
         Azure REST API version: 2017-12-01.
 
-        Other available API versions: 2017-12-01-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AdministratorType']] administrator_type: The type of administrator.
@@ -151,8 +149,6 @@ class SingleServerServerAdministrator(pulumi.CustomResource):
         """
         Represents a and external administrator to be created.
         Azure REST API version: 2017-12-01.
-
-        Other available API versions: 2017-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SingleServerServerAdministratorArgs args: The arguments to use to populate this resource's properties.

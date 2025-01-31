@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Cluster details.
  * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
  *
- * Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

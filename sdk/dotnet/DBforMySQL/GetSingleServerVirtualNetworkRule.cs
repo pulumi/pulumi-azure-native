@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// Gets a virtual network rule.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2018-06-01-privatepreview.
         /// </summary>
         public static Task<GetSingleServerVirtualNetworkRuleResult> InvokeAsync(GetSingleServerVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSingleServerVirtualNetworkRuleResult>("azure-native:dbformysql:getSingleServerVirtualNetworkRule", args ?? new GetSingleServerVirtualNetworkRuleArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// Gets a virtual network rule.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2018-06-01-privatepreview.
         /// </summary>
         public static Output<GetSingleServerVirtualNetworkRuleResult> Invoke(GetSingleServerVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSingleServerVirtualNetworkRuleResult>("azure-native:dbformysql:getSingleServerVirtualNetworkRule", args ?? new GetSingleServerVirtualNetworkRuleInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// Gets a virtual network rule.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2018-06-01-privatepreview.
         /// </summary>
         public static Output<GetSingleServerVirtualNetworkRuleResult> Invoke(GetSingleServerVirtualNetworkRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSingleServerVirtualNetworkRuleResult>("azure-native:dbformysql:getSingleServerVirtualNetworkRule", args ?? new GetSingleServerVirtualNetworkRuleInvokeArgs(), options.WithDefaults());

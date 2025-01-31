@@ -171,7 +171,7 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
         An Azure Cosmos DB Mongo Role Definition.
         Azure REST API version: 2024-11-15. Prior API version in Azure Native 2.x: 2023-04-15.
 
-        Other available API versions: 2023-03-01-preview, 2023-04-15, 2024-12-01-preview.
+        Other available API versions: 2023-04-15, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,7 +194,7 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
         An Azure Cosmos DB Mongo Role Definition.
         Azure REST API version: 2024-11-15. Prior API version in Azure Native 2.x: 2023-04-15.
 
-        Other available API versions: 2023-03-01-preview, 2023-04-15, 2024-12-01-preview.
+        Other available API versions: 2023-04-15, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MongoDBResourceMongoRoleDefinitionArgs args: The arguments to use to populate this resource's properties.

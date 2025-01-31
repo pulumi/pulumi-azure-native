@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Purview
     /// Account resource
     /// Azure REST API version: 2024-04-01-preview. Prior API version in Azure Native 2.x: 2021-12-01.
     /// 
-    /// Other available API versions: 2020-12-01-preview, 2021-12-01, 2023-05-01-preview.
+    /// Other available API versions: 2021-12-01, 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:purview:Account")]
     public partial class Account : global::Pulumi.CustomResource

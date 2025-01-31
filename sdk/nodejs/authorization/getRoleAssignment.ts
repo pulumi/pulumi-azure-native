@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Get a role assignment by scope and name.
  * Azure REST API version: 2022-04-01.
- *
- * Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
  */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -102,8 +100,6 @@ export interface GetRoleAssignmentResult {
 /**
  * Get a role assignment by scope and name.
  * Azure REST API version: 2022-04-01.
- *
- * Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
  */
 export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -63,7 +63,7 @@ def get_sap_supported_sku(app_location: Optional[str] = None,
     Get a list of SAP supported SKUs for ASCS, Application and Database tier.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-04-01.
+    Other available API versions: 2023-04-01.
 
 
     :param str app_location: The geo-location where the resource is to be created.
@@ -99,7 +99,7 @@ def get_sap_supported_sku_output(app_location: Optional[pulumi.Input[str]] = Non
     Get a list of SAP supported SKUs for ASCS, Application and Database tier.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-04-01.
+    Other available API versions: 2023-04-01.
 
 
     :param str app_location: The geo-location where the resource is to be created.

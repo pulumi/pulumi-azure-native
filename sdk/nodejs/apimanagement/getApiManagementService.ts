@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets an API Management service resource description.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2017-03-01, 2022-08-01, 2024-06-01-preview.
+ * Other available API versions: 2022-08-01, 2024-06-01-preview.
  */
 export function getApiManagementService(args: GetApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -201,7 +201,7 @@ export interface GetApiManagementServiceResult {
  * Gets an API Management service resource description.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2017-03-01, 2022-08-01, 2024-06-01-preview.
+ * Other available API versions: 2022-08-01, 2024-06-01-preview.
  */
 export function getApiManagementServiceOutput(args: GetApiManagementServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiManagementServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

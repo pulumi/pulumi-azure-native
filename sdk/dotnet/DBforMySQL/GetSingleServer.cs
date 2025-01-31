@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// Gets information about a server.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2018-06-01-privatepreview.
         /// </summary>
         public static Task<GetSingleServerResult> InvokeAsync(GetSingleServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSingleServerResult>("azure-native:dbformysql:getSingleServer", args ?? new GetSingleServerArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// Gets information about a server.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2018-06-01-privatepreview.
         /// </summary>
         public static Output<GetSingleServerResult> Invoke(GetSingleServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSingleServerResult>("azure-native:dbformysql:getSingleServer", args ?? new GetSingleServerInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// Gets information about a server.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2018-06-01-privatepreview.
         /// </summary>
         public static Output<GetSingleServerResult> Invoke(GetSingleServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSingleServerResult>("azure-native:dbformysql:getSingleServer", args ?? new GetSingleServerInvokeArgs(), options.WithDefaults());

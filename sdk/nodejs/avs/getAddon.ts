@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a Addon
  * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2021-01-01-preview, 2022-05-01, 2023-03-01.
+ * Other available API versions: 2022-05-01, 2023-03-01.
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,7 +70,7 @@ export interface GetAddonResult {
  * Get a Addon
  * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2021-01-01-preview, 2022-05-01, 2023-03-01.
+ * Other available API versions: 2022-05-01, 2023-03-01.
  */
 export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

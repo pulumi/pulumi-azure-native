@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * List the two keys used to publish to a domain.
  * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2020-04-01-preview, 2022-06-15.
+ * Other available API versions: 2022-06-15.
  */
 export function listDomainSharedAccessKeys(args: ListDomainSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainSharedAccessKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,7 +46,7 @@ export interface ListDomainSharedAccessKeysResult {
  * List the two keys used to publish to a domain.
  * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2020-04-01-preview, 2022-06-15.
+ * Other available API versions: 2022-06-15.
  */
 export function listDomainSharedAccessKeysOutput(args: ListDomainSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDomainSharedAccessKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

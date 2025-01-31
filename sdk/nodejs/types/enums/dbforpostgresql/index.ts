@@ -3,17 +3,6 @@
 
 // Export sub-modules:
 import * as v20171201 from "./v20171201";
-import * as v20171201preview from "./v20171201preview";
-import * as v20200101 from "./v20200101";
-import * as v20200101privatepreview from "./v20200101privatepreview";
-import * as v20200214preview from "./v20200214preview";
-import * as v20200214privatepreview from "./v20200214privatepreview";
-import * as v20201005privatepreview from "./v20201005privatepreview";
-import * as v20210410privatepreview from "./v20210410privatepreview";
-import * as v20210615privatepreview from "./v20210615privatepreview";
-import * as v20220308preview from "./v20220308preview";
-import * as v20220308privatepreview from "./v20220308privatepreview";
-import * as v20220501preview from "./v20220501preview";
 import * as v20221201 from "./v20221201";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230302preview from "./v20230302preview";
@@ -23,17 +12,6 @@ import * as v20241101preview from "./v20241101preview";
 
 export {
     v20171201,
-    v20171201preview,
-    v20200101,
-    v20200101privatepreview,
-    v20200214preview,
-    v20200214privatepreview,
-    v20201005privatepreview,
-    v20210410privatepreview,
-    v20210615privatepreview,
-    v20220308preview,
-    v20220308privatepreview,
-    v20220501preview,
     v20221201,
     v20230301preview,
     v20230302preview,
@@ -342,15 +320,6 @@ export const RoleType = {
 } as const;
 
 export type RoleType = (typeof RoleType)[keyof typeof RoleType];
-
-export const ServerKeyType = {
-    AzureKeyVault: "AzureKeyVault",
-} as const;
-
-/**
- * The key type like 'AzureKeyVault'.
- */
-export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
 
 export const ServerPublicNetworkAccessState = {
     Enabled: "Enabled",

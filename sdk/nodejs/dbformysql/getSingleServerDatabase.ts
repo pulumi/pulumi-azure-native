@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets information about a database.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2018-06-01-privatepreview.
  */
 export function getSingleServerDatabase(args: GetSingleServerDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSingleServerDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,8 +60,6 @@ export interface GetSingleServerDatabaseResult {
 /**
  * Gets information about a database.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2018-06-01-privatepreview.
  */
 export function getSingleServerDatabaseOutput(args: GetSingleServerDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSingleServerDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

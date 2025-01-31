@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// Represents a server.
     /// Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2022-12-01.
     /// 
-    /// Other available API versions: 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2022-12-01, 2024-11-01-preview.
+    /// Other available API versions: 2022-12-01, 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Server")]
     public partial class Server : global::Pulumi.CustomResource

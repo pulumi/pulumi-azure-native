@@ -355,11 +355,9 @@ utilities.lazyLoad(exports, ["SynapseWorkspaceSqlPoolTableDataSetMapping"], () =
 export * from "../types/enums/datashare";
 
 // Export sub-modules:
-import * as v20201001preview from "./v20201001preview";
 import * as v20210801 from "./v20210801";
 
 export {
-    v20201001preview,
     v20210801,
 };
 

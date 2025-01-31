@@ -202,8 +202,6 @@ class SingleServerServerSecurityAlertPolicy(pulumi.CustomResource):
         A server security alert policy.
         Azure REST API version: 2017-12-01.
 
-        Other available API versions: 2017-12-01-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly
@@ -226,8 +224,6 @@ class SingleServerServerSecurityAlertPolicy(pulumi.CustomResource):
         """
         A server security alert policy.
         Azure REST API version: 2017-12-01.
-
-        Other available API versions: 2017-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SingleServerServerSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.

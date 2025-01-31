@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Represents a Database.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2018-06-01-privatepreview.
  */
 export class SingleServerDatabase extends pulumi.CustomResource {
     /**

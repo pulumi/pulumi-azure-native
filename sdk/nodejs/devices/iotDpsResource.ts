@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The description of the provisioning service.
  * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 2.x: 2022-12-12.
  *
- * Other available API versions: 2020-09-01-preview, 2022-12-12, 2025-02-01-preview.
+ * Other available API versions: 2022-12-12, 2025-02-01-preview.
  */
 export class IotDpsResource extends pulumi.CustomResource {
     /**

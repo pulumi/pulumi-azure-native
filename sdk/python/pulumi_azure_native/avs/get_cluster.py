@@ -166,7 +166,7 @@ def get_cluster(cluster_name: Optional[str] = None,
     Get a Cluster
     Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2020-03-20, 2021-06-01, 2022-05-01.
+    Other available API versions: 2022-05-01.
 
 
     :param str cluster_name: Name of the cluster
@@ -199,7 +199,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     Get a Cluster
     Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2020-03-20, 2021-06-01, 2022-05-01.
+    Other available API versions: 2022-05-01.
 
 
     :param str cluster_name: Name of the cluster

@@ -245,7 +245,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         SSL certificate purchase order.
         Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2022-09-01.
+        Other available API versions: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,7 +272,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         SSL certificate purchase order.
         Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2022-09-01.
+        Other available API versions: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param AppServiceCertificateOrderArgs args: The arguments to use to populate this resource's properties.

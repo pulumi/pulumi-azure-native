@@ -20,18 +20,14 @@ from .get_server import *
 from .get_single_server import *
 from .get_single_server_database import *
 from .get_single_server_firewall_rule import *
-from .get_single_server_private_endpoint_connection import *
 from .get_single_server_server_administrator import *
-from .get_single_server_server_key import *
 from .get_single_server_virtual_network_rule import *
 from .private_endpoint_connection import *
 from .server import *
 from .single_server import *
 from .single_server_database import *
 from .single_server_firewall_rule import *
-from .single_server_private_endpoint_connection import *
 from .single_server_server_administrator import *
-from .single_server_server_key import *
 from .single_server_virtual_network_rule import *
 from ._inputs import *
 from . import outputs
@@ -40,24 +36,6 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.dbformysql.v20171201 as __v20171201
     v20171201 = __v20171201
-    import pulumi_azure_native.dbformysql.v20180601 as __v20180601
-    v20180601 = __v20180601
-    import pulumi_azure_native.dbformysql.v20180601privatepreview as __v20180601privatepreview
-    v20180601privatepreview = __v20180601privatepreview
-    import pulumi_azure_native.dbformysql.v20200101 as __v20200101
-    v20200101 = __v20200101
-    import pulumi_azure_native.dbformysql.v20200101privatepreview as __v20200101privatepreview
-    v20200101privatepreview = __v20200101privatepreview
-    import pulumi_azure_native.dbformysql.v20200701preview as __v20200701preview
-    v20200701preview = __v20200701preview
-    import pulumi_azure_native.dbformysql.v20200701privatepreview as __v20200701privatepreview
-    v20200701privatepreview = __v20200701privatepreview
-    import pulumi_azure_native.dbformysql.v20210501 as __v20210501
-    v20210501 = __v20210501
-    import pulumi_azure_native.dbformysql.v20210501preview as __v20210501preview
-    v20210501preview = __v20210501preview
-    import pulumi_azure_native.dbformysql.v20211201preview as __v20211201preview
-    v20211201preview = __v20211201preview
     import pulumi_azure_native.dbformysql.v20220101 as __v20220101
     v20220101 = __v20220101
     import pulumi_azure_native.dbformysql.v20220930preview as __v20220930preview
@@ -74,15 +52,6 @@ if typing.TYPE_CHECKING:
     v20241001preview = __v20241001preview
 else:
     v20171201 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20171201')
-    v20180601 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20180601')
-    v20180601privatepreview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20180601privatepreview')
-    v20200101 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200101')
-    v20200101privatepreview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200101privatepreview')
-    v20200701preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200701preview')
-    v20200701privatepreview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20200701privatepreview')
-    v20210501 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20210501')
-    v20210501preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20210501preview')
-    v20211201preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20211201preview')
     v20220101 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20220101')
     v20220930preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20220930preview')
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20230601preview')

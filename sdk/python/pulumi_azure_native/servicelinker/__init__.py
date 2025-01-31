@@ -20,8 +20,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.servicelinker.v20211101preview as __v20211101preview
-    v20211101preview = __v20211101preview
     import pulumi_azure_native.servicelinker.v20221101preview as __v20221101preview
     v20221101preview = __v20221101preview
     import pulumi_azure_native.servicelinker.v20240401 as __v20240401
@@ -29,7 +27,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.servicelinker.v20240701preview as __v20240701preview
     v20240701preview = __v20240701preview
 else:
-    v20211101preview = _utilities.lazy_import('pulumi_azure_native.servicelinker.v20211101preview')
     v20221101preview = _utilities.lazy_import('pulumi_azure_native.servicelinker.v20221101preview')
     v20240401 = _utilities.lazy_import('pulumi_azure_native.servicelinker.v20240401')
     v20240701preview = _utilities.lazy_import('pulumi_azure_native.servicelinker.v20240701preview')

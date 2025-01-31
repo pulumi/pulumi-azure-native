@@ -116,7 +116,7 @@ class BookmarkRelation(pulumi.CustomResource):
         Represents a relation between two resources
         Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2019-01-01-preview, 2023-06-01-preview.
+        Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,7 +136,7 @@ class BookmarkRelation(pulumi.CustomResource):
         Represents a relation between two resources
         Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2019-01-01-preview, 2023-06-01-preview.
+        Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param BookmarkRelationArgs args: The arguments to use to populate this resource's properties.

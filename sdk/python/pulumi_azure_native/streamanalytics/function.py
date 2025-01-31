@@ -119,7 +119,7 @@ class Function(pulumi.CustomResource):
         A function object, containing all information associated with the named function. All functions are contained under a streaming job.
         Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
 
-        Other available API versions: 2016-03-01, 2021-10-01-preview.
+        Other available API versions: 2021-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +139,7 @@ class Function(pulumi.CustomResource):
         A function object, containing all information associated with the named function. All functions are contained under a streaming job.
         Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
 
-        Other available API versions: 2016-03-01, 2021-10-01-preview.
+        Other available API versions: 2021-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param FunctionInitArgs args: The arguments to use to populate this resource's properties.

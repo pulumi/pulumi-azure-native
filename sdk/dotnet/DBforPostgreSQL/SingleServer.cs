@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// <summary>
     /// Represents a server.
     /// Azure REST API version: 2017-12-01.
-    /// 
-    /// Other available API versions: 2017-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:SingleServer")]
     public partial class SingleServer : global::Pulumi.CustomResource

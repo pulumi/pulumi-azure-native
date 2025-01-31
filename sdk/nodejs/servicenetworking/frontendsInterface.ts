@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Frontend Sub Resource of Traffic Controller.
  * Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2023-05-01-preview.
  *
- * Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2025-01-01.
+ * Other available API versions: 2023-05-01-preview, 2025-01-01.
  */
 export class FrontendsInterface extends pulumi.CustomResource {
     /**

@@ -103,7 +103,7 @@ class ManagedEnvironmentsStorage(pulumi.CustomResource):
         Storage resource for managedEnvironment.
         Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
-        Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        Other available API versions: 2022-10-01, 2024-10-02-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,7 +122,7 @@ class ManagedEnvironmentsStorage(pulumi.CustomResource):
         Storage resource for managedEnvironment.
         Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
-        Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+        Other available API versions: 2022-10-01, 2024-10-02-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagedEnvironmentsStorageArgs args: The arguments to use to populate this resource's properties.

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The list credential result response.
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2019-06-01, 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
+ * Other available API versions: 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
  */
 export function listManagedClusterAdminCredentials(args: ListManagedClusterAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListManagedClusterAdminCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,7 +50,7 @@ export interface ListManagedClusterAdminCredentialsResult {
  * The list credential result response.
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2019-06-01, 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
+ * Other available API versions: 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
  */
 export function listManagedClusterAdminCredentialsOutput(args: ListManagedClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListManagedClusterAdminCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

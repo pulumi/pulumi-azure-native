@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.Attestation
     /// <summary>
     /// Attestation service response message.
     /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
-    /// 
-    /// Other available API versions: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:attestation:AttestationProvider")]
     public partial class AttestationProvider : global::Pulumi.CustomResource

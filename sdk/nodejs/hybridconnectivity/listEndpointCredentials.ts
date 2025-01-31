@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the endpoint access credentials to the resource.
  * Azure REST API version: 2024-12-01.
  *
- * Other available API versions: 2022-05-01-preview, 2023-03-15.
+ * Other available API versions: 2023-03-15.
  */
 export function listEndpointCredentials(args: ListEndpointCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -75,7 +75,7 @@ export interface ListEndpointCredentialsResult {
  * Gets the endpoint access credentials to the resource.
  * Azure REST API version: 2024-12-01.
  *
- * Other available API versions: 2022-05-01-preview, 2023-03-15.
+ * Other available API versions: 2023-03-15.
  */
 export function listEndpointCredentialsOutput(args: ListEndpointCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEndpointCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

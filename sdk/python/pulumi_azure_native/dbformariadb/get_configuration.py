@@ -153,8 +153,6 @@ def get_configuration(configuration_name: Optional[str] = None,
     Gets information about a configuration of server.
     Azure REST API version: 2018-06-01.
 
-    Other available API versions: 2018-06-01-preview.
-
 
     :param str configuration_name: The name of the server configuration.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -184,8 +182,6 @@ def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = N
     """
     Gets information about a configuration of server.
     Azure REST API version: 2018-06-01.
-
-    Other available API versions: 2018-06-01-preview.
 
 
     :param str configuration_name: The name of the server configuration.

@@ -276,7 +276,7 @@ def get_application_group(application_group_name: Optional[str] = None,
     Get an application group.
     Azure REST API version: 2024-04-03.
 
-    Other available API versions: 2022-04-01-preview, 2022-09-09, 2024-08-08-preview.
+    Other available API versions: 2022-09-09, 2024-08-08-preview.
 
 
     :param str application_group_name: The name of the application group
@@ -316,7 +316,7 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
     Get an application group.
     Azure REST API version: 2024-04-03.
 
-    Other available API versions: 2022-04-01-preview, 2022-09-09, 2024-08-08-preview.
+    Other available API versions: 2022-09-09, 2024-08-08-preview.
 
 
     :param str application_group_name: The name of the application group

@@ -150,22 +150,12 @@ utilities.lazyLoad(exports, ["VolumeGroup"], () => require("./volumeGroup"));
 export * from "../types/enums/netapp";
 
 // Export sub-modules:
-import * as v20210401 from "./v20210401";
-import * as v20210401preview from "./v20210401preview";
-import * as v20210601 from "./v20210601";
-import * as v20211001 from "./v20211001";
-import * as v20220501 from "./v20220501";
 import * as v20221101 from "./v20221101";
 import * as v20221101preview from "./v20221101preview";
 import * as v20240701 from "./v20240701";
 import * as v20240701preview from "./v20240701preview";
 
 export {
-    v20210401,
-    v20210401preview,
-    v20210601,
-    v20211001,
-    v20220501,
     v20221101,
     v20221101preview,
     v20240701,

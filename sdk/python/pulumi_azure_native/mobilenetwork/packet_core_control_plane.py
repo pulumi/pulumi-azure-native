@@ -373,7 +373,7 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         Packet core control plane resource.
         Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
 
-        Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-06-01.
+        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -408,7 +408,7 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         Packet core control plane resource.
         Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
 
-        Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-06-01.
+        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param PacketCoreControlPlaneArgs args: The arguments to use to populate this resource's properties.

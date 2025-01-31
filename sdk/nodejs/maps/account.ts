@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An Azure resource which represents access to a suite of Maps REST APIs.
  * Azure REST API version: 2024-07-01-preview. Prior API version in Azure Native 2.x: 2021-02-01.
  *
- * Other available API versions: 2018-05-01, 2021-02-01.
+ * Other available API versions: 2021-02-01.
  */
 export class Account extends pulumi.CustomResource {
     /**

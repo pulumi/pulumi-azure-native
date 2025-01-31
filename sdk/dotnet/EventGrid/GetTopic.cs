@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get properties of a topic.
         /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2022-06-15.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:eventgrid:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get properties of a topic.
         /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2022-06-15.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:eventgrid:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get properties of a topic.
         /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2022-06-15.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:eventgrid:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());

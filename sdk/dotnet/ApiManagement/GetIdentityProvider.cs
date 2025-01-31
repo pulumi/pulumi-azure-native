@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the configuration details of the identity Provider configured in specified service instance.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2019-01-01, 2022-08-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetIdentityProviderResult> InvokeAsync(GetIdentityProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityProviderResult>("azure-native:apimanagement:getIdentityProvider", args ?? new GetIdentityProviderArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the configuration details of the identity Provider configured in specified service instance.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2019-01-01, 2022-08-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetIdentityProviderResult> Invoke(GetIdentityProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("azure-native:apimanagement:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the configuration details of the identity Provider configured in specified service instance.
         /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2019-01-01, 2022-08-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetIdentityProviderResult> Invoke(GetIdentityProviderInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("azure-native:apimanagement:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithDefaults());

@@ -297,7 +297,7 @@ def get_container_app(container_app_name: Optional[str] = None,
     Container App.
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+    Other available API versions: 2022-10-01, 2024-10-02-preview.
 
 
     :param str container_app_name: Name of the Container App.
@@ -338,7 +338,7 @@ def get_container_app_output(container_app_name: Optional[pulumi.Input[str]] = N
     Container App.
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+    Other available API versions: 2022-10-01, 2024-10-02-preview.
 
 
     :param str container_app_name: Name of the Container App.

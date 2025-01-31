@@ -130,8 +130,6 @@ def get_server_group_firewall_rule(cluster_name: Optional[str] = None,
     Gets information about a cluster firewall rule.
     Azure REST API version: 2023-03-02-preview.
 
-    Other available API versions: 2020-10-05-privatepreview.
-
 
     :param str cluster_name: The name of the cluster.
     :param str firewall_rule_name: The name of the cluster firewall rule.
@@ -159,8 +157,6 @@ def get_server_group_firewall_rule_output(cluster_name: Optional[pulumi.Input[st
     """
     Gets information about a cluster firewall rule.
     Azure REST API version: 2023-03-02-preview.
-
-    Other available API versions: 2020-10-05-privatepreview.
 
 
     :param str cluster_name: The name of the cluster.

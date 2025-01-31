@@ -49,8 +49,6 @@ class OperationByProviderRegistration(pulumi.CustomResource):
         """
         Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 2.x: 2021-09-01-preview.
 
-        Other available API versions: 2021-05-01-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -63,8 +61,6 @@ class OperationByProviderRegistration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 2.x: 2021-09-01-preview.
-
-        Other available API versions: 2021-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param OperationByProviderRegistrationArgs args: The arguments to use to populate this resource's properties.

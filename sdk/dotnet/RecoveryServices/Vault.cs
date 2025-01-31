@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Resource information, as returned by the resource provider.
     /// Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// 
-    /// Other available API versions: 2020-02-02, 2023-04-01.
+    /// Other available API versions: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:Vault")]
     public partial class Vault : global::Pulumi.CustomResource

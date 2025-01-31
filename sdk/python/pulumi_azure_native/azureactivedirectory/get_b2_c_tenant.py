@@ -162,7 +162,7 @@ def get_b2_c_tenant(resource_group_name: Optional[str] = None,
     Get the Azure AD B2C tenant resource.
     Azure REST API version: 2023-05-17-preview.
 
-    Other available API versions: 2019-01-01-preview, 2021-04-01.
+    Other available API versions: 2021-04-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -192,7 +192,7 @@ def get_b2_c_tenant_output(resource_group_name: Optional[pulumi.Input[str]] = No
     Get the Azure AD B2C tenant resource.
     Azure REST API version: 2023-05-17-preview.
 
-    Other available API versions: 2019-01-01-preview, 2021-04-01.
+    Other available API versions: 2021-04-01.
 
 
     :param str resource_group_name: The name of the resource group.

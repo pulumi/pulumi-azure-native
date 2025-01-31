@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
  * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2018-05-01, 2021-02-01.
+ * Other available API versions: 2021-02-01.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,7 +54,7 @@ export interface ListAccountKeysResult {
  * Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
  * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2018-05-01, 2021-02-01.
+ * Other available API versions: 2021-02-01.
  */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

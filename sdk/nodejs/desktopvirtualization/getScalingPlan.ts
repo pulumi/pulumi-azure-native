@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a scaling plan.
  * Azure REST API version: 2024-04-03.
  *
- * Other available API versions: 2021-02-01-preview, 2022-02-10-preview, 2022-09-09, 2024-08-08-preview.
+ * Other available API versions: 2022-09-09, 2024-08-08-preview.
  */
 export function getScalingPlan(args: GetScalingPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -112,7 +112,7 @@ export interface GetScalingPlanResult {
  * Get a scaling plan.
  * Azure REST API version: 2024-04-03.
  *
- * Other available API versions: 2021-02-01-preview, 2022-02-10-preview, 2022-09-09, 2024-08-08-preview.
+ * Other available API versions: 2022-09-09, 2024-08-08-preview.
  */
 export function getScalingPlanOutput(args: GetScalingPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScalingPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

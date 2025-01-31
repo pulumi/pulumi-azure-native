@@ -141,7 +141,7 @@ def get_access_connector(connector_name: Optional[str] = None,
     Gets an Azure Databricks Access Connector.
     Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2022-04-01-preview, 2023-05-01, 2024-09-01-preview.
+    Other available API versions: 2023-05-01, 2024-09-01-preview.
 
 
     :param str connector_name: The name of the Azure Databricks Access Connector.
@@ -169,7 +169,7 @@ def get_access_connector_output(connector_name: Optional[pulumi.Input[str]] = No
     Gets an Azure Databricks Access Connector.
     Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2022-04-01-preview, 2023-05-01, 2024-09-01-preview.
+    Other available API versions: 2023-05-01, 2024-09-01-preview.
 
 
     :param str connector_name: The name of the Azure Databricks Access Connector.

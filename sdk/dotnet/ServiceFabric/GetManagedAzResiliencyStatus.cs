@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Task<GetManagedAzResiliencyStatusResult> InvokeAsync(GetManagedAzResiliencyStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedAzResiliencyStatusResult>("azure-native:servicefabric:getManagedAzResiliencyStatus", args ?? new GetManagedAzResiliencyStatusArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetManagedAzResiliencyStatusResult> Invoke(GetManagedAzResiliencyStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedAzResiliencyStatusResult>("azure-native:servicefabric:getManagedAzResiliencyStatus", args ?? new GetManagedAzResiliencyStatusInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetManagedAzResiliencyStatusResult> Invoke(GetManagedAzResiliencyStatusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedAzResiliencyStatusResult>("azure-native:servicefabric:getManagedAzResiliencyStatus", args ?? new GetManagedAzResiliencyStatusInvokeArgs(), options.WithDefaults());

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified contact in a specified resource group.
         /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-03-01.
         /// </summary>
         public static Task<GetContactResult> InvokeAsync(GetContactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("azure-native:orbital:getContact", args ?? new GetContactArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified contact in a specified resource group.
         /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-03-01.
         /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:orbital:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified contact in a specified resource group.
         /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-03-01.
         /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:orbital:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());

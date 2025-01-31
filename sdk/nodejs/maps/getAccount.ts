@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a Maps Account.
  * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2018-05-01, 2021-02-01.
+ * Other available API versions: 2021-02-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,7 +81,7 @@ export interface GetAccountResult {
  * Get a Maps Account.
  * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2018-05-01, 2021-02-01.
+ * Other available API versions: 2021-02-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

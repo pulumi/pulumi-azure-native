@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Get the properties of a specified task.
         /// Azure REST API version: 2019-06-01-preview.
-        /// 
-        /// Other available API versions: 2018-09-01, 2019-04-01.
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Get the properties of a specified task.
         /// Azure REST API version: 2019-06-01-preview.
-        /// 
-        /// Other available API versions: 2018-09-01, 2019-04-01.
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Get the properties of a specified task.
         /// Azure REST API version: 2019-06-01-preview.
-        /// 
-        /// Other available API versions: 2018-09-01, 2019-04-01.
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());

@@ -136,7 +136,7 @@ class ResourceGuard(pulumi.CustomResource):
         """
         Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-01-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-01-01.
+        Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +156,7 @@ class ResourceGuard(pulumi.CustomResource):
         """
         Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-01-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-01-01.
+        Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param ResourceGuardInitArgs args: The arguments to use to populate this resource's properties.

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Registration token of the host pool.
  * Azure REST API version: 2024-04-03.
  *
- * Other available API versions: 2022-04-01-preview, 2022-09-09, 2024-03-06-preview, 2024-08-08-preview.
+ * Other available API versions: 2022-09-09, 2024-03-06-preview, 2024-08-08-preview.
  */
 export function getHostPoolRegistrationToken(args: GetHostPoolRegistrationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolRegistrationTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,7 +50,7 @@ export interface GetHostPoolRegistrationTokenResult {
  * Registration token of the host pool.
  * Azure REST API version: 2024-04-03.
  *
- * Other available API versions: 2022-04-01-preview, 2022-09-09, 2024-03-06-preview, 2024-08-08-preview.
+ * Other available API versions: 2022-09-09, 2024-03-06-preview, 2024-08-08-preview.
  */
 export function getHostPoolRegistrationTokenOutput(args: GetHostPoolRegistrationTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHostPoolRegistrationTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

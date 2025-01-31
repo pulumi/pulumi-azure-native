@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Account resource
  * Azure REST API version: 2024-04-01-preview. Prior API version in Azure Native 2.x: 2021-12-01.
  *
- * Other available API versions: 2020-12-01-preview, 2021-12-01, 2023-05-01-preview.
+ * Other available API versions: 2021-12-01, 2023-05-01-preview.
  */
 export class Account extends pulumi.CustomResource {
     /**

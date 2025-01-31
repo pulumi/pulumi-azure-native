@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Get Tag description in scope of API
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2019-01-01, 2022-08-01, 2024-06-01-preview.
+ * Other available API versions: 2022-08-01, 2024-06-01-preview.
  */
 export function getApiTagDescription(args: GetApiTagDescriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiTagDescriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,7 +80,7 @@ export interface GetApiTagDescriptionResult {
  * Get Tag description in scope of API
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2019-01-01, 2022-08-01, 2024-06-01-preview.
+ * Other available API versions: 2022-08-01, 2024-06-01-preview.
  */
 export function getApiTagDescriptionOutput(args: GetApiTagDescriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiTagDescriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

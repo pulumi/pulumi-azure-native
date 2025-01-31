@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a relation for a given incident.
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2021-03-01-preview, 2023-02-01, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export function getIncidentRelation(args: GetIncidentRelationArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentRelationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,7 +87,7 @@ export interface GetIncidentRelationResult {
  * Gets a relation for a given incident.
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2021-03-01-preview, 2023-02-01, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export function getIncidentRelationOutput(args: GetIncidentRelationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIncidentRelationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

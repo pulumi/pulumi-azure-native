@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01.
  */
 export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -113,7 +113,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01.
  */
 export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

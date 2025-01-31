@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a cluster firewall rule.
         /// Azure REST API version: 2023-03-02-preview.
-        /// 
-        /// Other available API versions: 2020-10-05-privatepreview.
         /// </summary>
         public static Task<GetServerGroupFirewallRuleResult> InvokeAsync(GetServerGroupFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerGroupFirewallRuleResult>("azure-native:dbforpostgresql:getServerGroupFirewallRule", args ?? new GetServerGroupFirewallRuleArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a cluster firewall rule.
         /// Azure REST API version: 2023-03-02-preview.
-        /// 
-        /// Other available API versions: 2020-10-05-privatepreview.
         /// </summary>
         public static Output<GetServerGroupFirewallRuleResult> Invoke(GetServerGroupFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerGroupFirewallRuleResult>("azure-native:dbforpostgresql:getServerGroupFirewallRule", args ?? new GetServerGroupFirewallRuleInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a cluster firewall rule.
         /// Azure REST API version: 2023-03-02-preview.
-        /// 
-        /// Other available API versions: 2020-10-05-privatepreview.
         /// </summary>
         public static Output<GetServerGroupFirewallRuleResult> Invoke(GetServerGroupFirewallRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerGroupFirewallRuleResult>("azure-native:dbforpostgresql:getServerGroupFirewallRule", args ?? new GetServerGroupFirewallRuleInvokeArgs(), options.WithDefaults());

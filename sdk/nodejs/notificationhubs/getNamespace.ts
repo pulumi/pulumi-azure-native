@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Notification Hubs Namespace Resource.
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -147,7 +147,7 @@ export interface GetNamespaceResult {
  * Notification Hubs Namespace Resource.
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Represents an instance of an Analysis Services resource.
  * Azure REST API version: 2017-08-01. Prior API version in Azure Native 2.x: 2017-08-01.
- *
- * Other available API versions: 2017-08-01-beta.
  */
 export class ServerDetails extends pulumi.CustomResource {
     /**

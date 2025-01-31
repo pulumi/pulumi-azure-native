@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a database.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01-preview.
         /// </summary>
         public static Task<GetSingleServerDatabaseResult> InvokeAsync(GetSingleServerDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSingleServerDatabaseResult>("azure-native:dbforpostgresql:getSingleServerDatabase", args ?? new GetSingleServerDatabaseArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a database.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01-preview.
         /// </summary>
         public static Output<GetSingleServerDatabaseResult> Invoke(GetSingleServerDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSingleServerDatabaseResult>("azure-native:dbforpostgresql:getSingleServerDatabase", args ?? new GetSingleServerDatabaseInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a database.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01-preview.
         /// </summary>
         public static Output<GetSingleServerDatabaseResult> Invoke(GetSingleServerDatabaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSingleServerDatabaseResult>("azure-native:dbforpostgresql:getSingleServerDatabase", args ?? new GetSingleServerDatabaseInvokeArgs(), options.WithDefaults());

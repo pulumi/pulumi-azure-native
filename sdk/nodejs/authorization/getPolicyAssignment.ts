@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * This operation retrieves a single policy assignment, given its name and the scope it was created at.
  * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2019-06-01, 2020-03-01, 2022-06-01, 2025-01-01.
+ * Other available API versions: 2022-06-01, 2025-01-01.
  */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -130,7 +130,7 @@ export interface GetPolicyAssignmentResult {
  * This operation retrieves a single policy assignment, given its name and the scope it was created at.
  * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2019-06-01, 2020-03-01, 2022-06-01, 2025-01-01.
+ * Other available API versions: 2022-06-01, 2025-01-01.
  */
 export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

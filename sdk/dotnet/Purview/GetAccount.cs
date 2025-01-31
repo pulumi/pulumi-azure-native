@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Purview
         /// Get an account
         /// Azure REST API version: 2024-04-01-preview.
         /// 
-        /// Other available API versions: 2020-12-01-preview, 2021-12-01, 2023-05-01-preview.
+        /// Other available API versions: 2021-12-01, 2023-05-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Purview
         /// Get an account
         /// Azure REST API version: 2024-04-01-preview.
         /// 
-        /// Other available API versions: 2020-12-01-preview, 2021-12-01, 2023-05-01-preview.
+        /// Other available API versions: 2021-12-01, 2023-05-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Purview
         /// Get an account
         /// Azure REST API version: 2024-04-01-preview.
         /// 
-        /// Other available API versions: 2020-12-01-preview, 2021-12-01, 2023-05-01-preview.
+        /// Other available API versions: 2021-12-01, 2023-05-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

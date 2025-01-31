@@ -189,8 +189,6 @@ def get_attestation_provider(provider_name: Optional[str] = None,
     Get the status of Attestation Provider.
     Azure REST API version: 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
-
 
     :param str provider_name: Name of the attestation provider.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -220,8 +218,6 @@ def get_attestation_provider_output(provider_name: Optional[pulumi.Input[str]] =
     """
     Get the status of Attestation Provider.
     Azure REST API version: 2021-06-01.
-
-    Other available API versions: 2021-06-01-preview.
 
 
     :param str provider_name: Name of the attestation provider.

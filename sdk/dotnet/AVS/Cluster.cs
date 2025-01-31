@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     /// A cluster resource
     /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
     /// 
-    /// Other available API versions: 2020-03-20, 2021-06-01, 2022-05-01.
+    /// Other available API versions: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

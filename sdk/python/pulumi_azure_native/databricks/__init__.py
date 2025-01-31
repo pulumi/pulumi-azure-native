@@ -19,8 +19,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.databricks.v20220401preview as __v20220401preview
-    v20220401preview = __v20220401preview
     import pulumi_azure_native.databricks.v20230201 as __v20230201
     v20230201 = __v20230201
     import pulumi_azure_native.databricks.v20230501 as __v20230501
@@ -30,7 +28,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.databricks.v20240901preview as __v20240901preview
     v20240901preview = __v20240901preview
 else:
-    v20220401preview = _utilities.lazy_import('pulumi_azure_native.databricks.v20220401preview')
     v20230201 = _utilities.lazy_import('pulumi_azure_native.databricks.v20230201')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.databricks.v20230501')
     v20240501 = _utilities.lazy_import('pulumi_azure_native.databricks.v20240501')

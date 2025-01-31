@@ -3,11 +3,6 @@
 
 // Export sub-modules:
 import * as v20171201 from "./v20171201";
-import * as v20180601privatepreview from "./v20180601privatepreview";
-import * as v20200101 from "./v20200101";
-import * as v20200101privatepreview from "./v20200101privatepreview";
-import * as v20200701preview from "./v20200701preview";
-import * as v20200701privatepreview from "./v20200701privatepreview";
 import * as v20220101 from "./v20220101";
 import * as v20220930preview from "./v20220930preview";
 import * as v20230630 from "./v20230630";
@@ -16,11 +11,6 @@ import * as v20241001preview from "./v20241001preview";
 
 export {
     v20171201,
-    v20180601privatepreview,
-    v20200101,
-    v20200101privatepreview,
-    v20200701preview,
-    v20200701privatepreview,
     v20220101,
     v20220930preview,
     v20230630,
@@ -186,15 +176,6 @@ export const ReplicationRole = {
  * The replication role.
  */
 export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
-
-export const ServerKeyType = {
-    AzureKeyVault: "AzureKeyVault",
-} as const;
-
-/**
- * The key type like 'AzureKeyVault'.
- */
-export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
 
 export const ServerSkuTier = {
     Burstable: "Burstable",

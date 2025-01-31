@@ -191,8 +191,6 @@ class Appliance(pulumi.CustomResource):
         Appliances definition.
         Azure REST API version: 2022-10-27. Prior API version in Azure Native 2.x: 2022-10-27.
 
-        Other available API versions: 2021-10-31-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Distro']] distro: Represents a supported Fabric/Infra. (AKSEdge etc...).
@@ -214,8 +212,6 @@ class Appliance(pulumi.CustomResource):
         """
         Appliances definition.
         Azure REST API version: 2022-10-27. Prior API version in Azure Native 2.x: 2022-10-27.
-
-        Other available API versions: 2021-10-31-preview.
 
         :param str resource_name: The name of the resource.
         :param ApplianceArgs args: The arguments to use to populate this resource's properties.

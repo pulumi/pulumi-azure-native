@@ -323,7 +323,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         Describes a VMSS VM Extension.
         Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
-        Other available API versions: 2021-11-01, 2023-03-01.
+        Other available API versions: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,7 +355,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         Describes a VMSS VM Extension.
         Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
-        Other available API versions: 2021-11-01, 2023-03-01.
+        Other available API versions: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetVMExtensionArgs args: The arguments to use to populate this resource's properties.

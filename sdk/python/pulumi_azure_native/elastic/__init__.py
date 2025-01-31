@@ -30,10 +30,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.elastic.v20230201preview as __v20230201preview
-    v20230201preview = __v20230201preview
-    import pulumi_azure_native.elastic.v20230501preview as __v20230501preview
-    v20230501preview = __v20230501preview
     import pulumi_azure_native.elastic.v20230601 as __v20230601
     v20230601 = __v20230601
     import pulumi_azure_native.elastic.v20230615preview as __v20230615preview
@@ -55,8 +51,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.elastic.v20241001preview as __v20241001preview
     v20241001preview = __v20241001preview
 else:
-    v20230201preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230201preview')
-    v20230501preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230501preview')
     v20230601 = _utilities.lazy_import('pulumi_azure_native.elastic.v20230601')
     v20230615preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230615preview')
     v20230701preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230701preview')

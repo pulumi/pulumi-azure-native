@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * A virtual network rule.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2017-12-01-preview.
  */
 export class SingleServerVirtualNetworkRule extends pulumi.CustomResource {
     /**

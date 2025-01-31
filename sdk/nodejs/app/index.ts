@@ -310,7 +310,6 @@ utilities.lazyLoad(exports, ["ManagedEnvironmentsStorage"], () => require("./man
 export * from "../types/enums/app";
 
 // Export sub-modules:
-import * as v20220101preview from "./v20220101preview";
 import * as v20221001 from "./v20221001";
 import * as v20230401preview from "./v20230401preview";
 import * as v20230502preview from "./v20230502preview";
@@ -322,7 +321,6 @@ import * as v20240802preview from "./v20240802preview";
 import * as v20241002preview from "./v20241002preview";
 
 export {
-    v20220101preview,
     v20221001,
     v20230401preview,
     v20230502preview,

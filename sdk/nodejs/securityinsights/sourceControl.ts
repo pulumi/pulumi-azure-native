@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Represents a SourceControl in Azure Security Insights.
  * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 2.x: 2023-05-01-preview.
- *
- * Other available API versions: 2021-03-01-preview.
  */
 export class SourceControl extends pulumi.CustomResource {
     /**

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// Get the Azure AD B2C tenant resource.
         /// Azure REST API version: 2023-05-17-preview.
         /// 
-        /// Other available API versions: 2019-01-01-preview, 2021-04-01.
+        /// Other available API versions: 2021-04-01.
         /// </summary>
         public static Task<GetB2CTenantResult> InvokeAsync(GetB2CTenantArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// Get the Azure AD B2C tenant resource.
         /// Azure REST API version: 2023-05-17-preview.
         /// 
-        /// Other available API versions: 2019-01-01-preview, 2021-04-01.
+        /// Other available API versions: 2021-04-01.
         /// </summary>
         public static Output<GetB2CTenantResult> Invoke(GetB2CTenantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// Get the Azure AD B2C tenant resource.
         /// Azure REST API version: 2023-05-17-preview.
         /// 
-        /// Other available API versions: 2019-01-01-preview, 2021-04-01.
+        /// Other available API versions: 2021-04-01.
         /// </summary>
         public static Output<GetB2CTenantResult> Invoke(GetB2CTenantInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantInvokeArgs(), options.WithDefaults());

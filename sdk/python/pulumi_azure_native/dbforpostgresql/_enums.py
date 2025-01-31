@@ -34,7 +34,6 @@ __all__ = [
     'ReplicationPromoteOption',
     'ReplicationRole',
     'RoleType',
-    'ServerKeyType',
     'ServerPublicNetworkAccessState',
     'ServerSecurityAlertPolicyState',
     'ServerVersion',
@@ -292,13 +291,6 @@ class ReplicationRole(str, Enum):
 class RoleType(str, Enum):
     USER = "user"
     ADMIN = "admin"
-
-
-class ServerKeyType(str, Enum):
-    """
-    The key type like 'AzureKeyVault'.
-    """
-    AZURE_KEY_VAULT = "AzureKeyVault"
 
 
 class ServerPublicNetworkAccessState(str, Enum):

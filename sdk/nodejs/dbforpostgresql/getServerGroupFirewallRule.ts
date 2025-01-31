@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets information about a cluster firewall rule.
  * Azure REST API version: 2023-03-02-preview.
- *
- * Other available API versions: 2020-10-05-privatepreview.
  */
 export function getServerGroupFirewallRule(args: GetServerGroupFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetServerGroupFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,8 +71,6 @@ export interface GetServerGroupFirewallRuleResult {
 /**
  * Gets information about a cluster firewall rule.
  * Azure REST API version: 2023-03-02-preview.
- *
- * Other available API versions: 2020-10-05-privatepreview.
  */
 export function getServerGroupFirewallRuleOutput(args: GetServerGroupFirewallRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerGroupFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

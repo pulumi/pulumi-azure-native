@@ -201,7 +201,7 @@ def get_policy_set_definition(expand: Optional[str] = None,
     This operation retrieves the policy set definition in the given subscription with the given name.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2019-06-01, 2021-06-01, 2025-01-01.
+    Other available API versions: 2021-06-01, 2025-01-01.
 
 
     :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
@@ -234,7 +234,7 @@ def get_policy_set_definition_output(expand: Optional[pulumi.Input[Optional[str]
     This operation retrieves the policy set definition in the given subscription with the given name.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2019-06-01, 2021-06-01, 2025-01-01.
+    Other available API versions: 2021-06-01, 2025-01-01.
 
 
     :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.

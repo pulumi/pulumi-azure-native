@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a partner registration with the specified parameters.
  * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2021-10-15-preview, 2022-06-15.
+ * Other available API versions: 2022-06-15.
  */
 export function getPartnerRegistration(args: GetPartnerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,7 +74,7 @@ export interface GetPartnerRegistrationResult {
  * Gets a partner registration with the specified parameters.
  * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2021-10-15-preview, 2022-06-15.
+ * Other available API versions: 2022-06-15.
  */
 export function getPartnerRegistrationOutput(args: GetPartnerRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

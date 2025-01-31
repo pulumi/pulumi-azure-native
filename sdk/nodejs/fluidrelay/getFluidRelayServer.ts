@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * A FluidRelay Server.
  * Azure REST API version: 2022-06-01.
- *
- * Other available API versions: 2021-06-15-preview.
  */
 export function getFluidRelayServer(args: GetFluidRelayServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFluidRelayServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -88,8 +86,6 @@ export interface GetFluidRelayServerResult {
 /**
  * A FluidRelay Server.
  * Azure REST API version: 2022-06-01.
- *
- * Other available API versions: 2021-06-15-preview.
  */
 export function getFluidRelayServerOutput(args: GetFluidRelayServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFluidRelayServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

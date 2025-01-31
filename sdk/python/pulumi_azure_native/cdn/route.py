@@ -294,7 +294,7 @@ class Route(pulumi.CustomResource):
         Friendly Routes name mapping to the any Routes or secret related information.
         Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
-        Other available API versions: 2020-09-01, 2023-05-01, 2024-06-01-preview.
+        Other available API versions: 2023-05-01, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -324,7 +324,7 @@ class Route(pulumi.CustomResource):
         Friendly Routes name mapping to the any Routes or secret related information.
         Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
-        Other available API versions: 2020-09-01, 2023-05-01, 2024-06-01-preview.
+        Other available API versions: 2023-05-01, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

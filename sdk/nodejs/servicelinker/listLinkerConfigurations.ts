@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * list source configurations for a Linker.
  * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2021-11-01-preview, 2022-11-01-preview, 2024-07-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
  */
 export function listLinkerConfigurations(args: ListLinkerConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListLinkerConfigurationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,7 +45,7 @@ export interface ListLinkerConfigurationsResult {
  * list source configurations for a Linker.
  * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2021-11-01-preview, 2022-11-01-preview, 2024-07-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
  */
 export function listLinkerConfigurationsOutput(args: ListLinkerConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLinkerConfigurationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

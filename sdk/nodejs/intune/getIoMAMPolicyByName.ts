@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Returns Intune iOS policies.
  * Azure REST API version: 2015-01-14-preview.
- *
- * Other available API versions: 2015-01-14-privatepreview.
  */
 export function getIoMAMPolicyByName(args: GetIoMAMPolicyByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetIoMAMPolicyByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -82,8 +80,6 @@ export interface GetIoMAMPolicyByNameResult {
 /**
  * Returns Intune iOS policies.
  * Azure REST API version: 2015-01-14-preview.
- *
- * Other available API versions: 2015-01-14-privatepreview.
  */
 export function getIoMAMPolicyByNameOutput(args: GetIoMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIoMAMPolicyByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

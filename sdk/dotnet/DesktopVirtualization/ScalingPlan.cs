@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// Represents a scaling plan definition.
     /// Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
     /// 
-    /// Other available API versions: 2021-02-01-preview, 2022-02-10-preview, 2022-09-09, 2024-08-08-preview.
+    /// Other available API versions: 2022-09-09, 2024-08-08-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ScalingPlan")]
     public partial class ScalingPlan : global::Pulumi.CustomResource

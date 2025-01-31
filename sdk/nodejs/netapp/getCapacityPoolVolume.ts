@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get the details of the specified volume
  * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2021-10-01, 2024-07-01-preview.
+ * Other available API versions: 2024-07-01-preview.
  */
 export function getCapacityPoolVolume(args: GetCapacityPoolVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityPoolVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -303,7 +303,7 @@ export interface GetCapacityPoolVolumeResult {
  * Get the details of the specified volume
  * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2021-10-01, 2024-07-01-preview.
+ * Other available API versions: 2024-07-01-preview.
  */
 export function getCapacityPoolVolumeOutput(args: GetCapacityPoolVolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityPoolVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

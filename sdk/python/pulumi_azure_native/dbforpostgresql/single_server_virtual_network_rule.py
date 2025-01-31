@@ -116,8 +116,6 @@ class SingleServerVirtualNetworkRule(pulumi.CustomResource):
         A virtual network rule.
         Azure REST API version: 2017-12-01.
 
-        Other available API versions: 2017-12-01-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.
@@ -135,8 +133,6 @@ class SingleServerVirtualNetworkRule(pulumi.CustomResource):
         """
         A virtual network rule.
         Azure REST API version: 2017-12-01.
-
-        Other available API versions: 2017-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SingleServerVirtualNetworkRuleArgs args: The arguments to use to populate this resource's properties.

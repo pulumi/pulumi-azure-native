@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Organization resource.
  * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2021-12-01.
  *
- * Other available API versions: 2020-03-01-preview, 2021-12-01.
+ * Other available API versions: 2021-12-01.
  */
 export class Organization extends pulumi.CustomResource {
     /**

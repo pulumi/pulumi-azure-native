@@ -100,7 +100,6 @@ utilities.lazyLoad(exports, ["PrivateLinkScopedResource"], () => require("./priv
 export * from "../types/enums/hybridcompute";
 
 // Export sub-modules:
-import * as v20200802 from "./v20200802";
 import * as v20200815preview from "./v20200815preview";
 import * as v20220510preview from "./v20220510preview";
 import * as v20221227 from "./v20221227";
@@ -113,7 +112,6 @@ import * as v20240731preview from "./v20240731preview";
 import * as v20241110preview from "./v20241110preview";
 
 export {
-    v20200802,
     v20200815preview,
     v20220510preview,
     v20221227,

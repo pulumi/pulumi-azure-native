@@ -165,8 +165,6 @@ def get_single_server_server_security_alert_policy(resource_group_name: Optional
     Get a server's security alert policy.
     Azure REST API version: 2017-12-01.
 
-    Other available API versions: 2017-12-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str security_alert_policy_name: The name of the security alert policy.
@@ -197,8 +195,6 @@ def get_single_server_server_security_alert_policy_output(resource_group_name: O
     """
     Get a server's security alert policy.
     Azure REST API version: 2017-12-01.
-
-    Other available API versions: 2017-12-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

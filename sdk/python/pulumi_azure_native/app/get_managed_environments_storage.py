@@ -106,7 +106,7 @@ def get_managed_environments_storage(environment_name: Optional[str] = None,
     Get storage for a managedEnvironment.
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+    Other available API versions: 2022-10-01, 2024-10-02-preview.
 
 
     :param str environment_name: Name of the Environment.
@@ -134,7 +134,7 @@ def get_managed_environments_storage_output(environment_name: Optional[pulumi.In
     Get storage for a managedEnvironment.
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
+    Other available API versions: 2022-10-01, 2024-10-02-preview.
 
 
     :param str environment_name: Name of the Environment.

@@ -28,7 +28,6 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateEndpointResponse',
-    'PrivateLinkServiceConnectionStatePropertyResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ResourceIdentityResponse',
     'ServerPrivateEndpointConnectionPropertiesResponse',
@@ -774,63 +773,6 @@ class PrivateEndpointResponse(dict):
         The ARM identifier for private endpoint.
         """
         return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class PrivateLinkServiceConnectionStatePropertyResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "actionsRequired":
-            suggest = "actions_required"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStatePropertyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateLinkServiceConnectionStatePropertyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateLinkServiceConnectionStatePropertyResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 actions_required: str,
-                 description: str,
-                 status: str):
-        """
-        :param str actions_required: The actions required for private link service connection.
-        :param str description: The private link service connection description.
-        :param str status: The private link service connection status.
-        """
-        pulumi.set(__self__, "actions_required", actions_required)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> str:
-        """
-        The actions required for private link service connection.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @property
-    @pulumi.getter
-    def description(self) -> str:
-        """
-        The private link service connection description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        The private link service connection status.
-        """
-        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

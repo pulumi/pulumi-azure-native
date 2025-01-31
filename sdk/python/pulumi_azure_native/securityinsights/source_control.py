@@ -235,8 +235,6 @@ class SourceControl(pulumi.CustomResource):
         Represents a SourceControl in Azure Security Insights.
         Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 2.x: 2023-05-01-preview.
 
-        Other available API versions: 2021-03-01-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ContentType']]]] content_types: Array of source control content types.
@@ -261,8 +259,6 @@ class SourceControl(pulumi.CustomResource):
         """
         Represents a SourceControl in Azure Security Insights.
         Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 2.x: 2023-05-01-preview.
-
-        Other available API versions: 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SourceControlArgs args: The arguments to use to populate this resource's properties.

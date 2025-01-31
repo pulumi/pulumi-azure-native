@@ -155,7 +155,7 @@ class LoadTest(pulumi.CustomResource):
         LoadTest details.
         Azure REST API version: 2023-12-01-preview. Prior API version in Azure Native 2.x: 2022-12-01.
 
-        Other available API versions: 2021-12-01-preview, 2022-12-01.
+        Other available API versions: 2022-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,7 +177,7 @@ class LoadTest(pulumi.CustomResource):
         LoadTest details.
         Azure REST API version: 2023-12-01-preview. Prior API version in Azure Native 2.x: 2022-12-01.
 
-        Other available API versions: 2021-12-01-preview, 2022-12-01.
+        Other available API versions: 2022-12-01.
 
         :param str resource_name: The name of the resource.
         :param LoadTestArgs args: The arguments to use to populate this resource's properties.

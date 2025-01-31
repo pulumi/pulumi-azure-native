@@ -273,8 +273,6 @@ def get_aml_filesystem(aml_filesystem_name: Optional[str] = None,
     Returns an AML file system.
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-03-01-preview.
-
 
     :param str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -311,8 +309,6 @@ def get_aml_filesystem_output(aml_filesystem_name: Optional[pulumi.Input[str]] =
     """
     Returns an AML file system.
     Azure REST API version: 2024-03-01.
-
-    Other available API versions: 2023-03-01-preview.
 
 
     :param str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.

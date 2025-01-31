@@ -105,8 +105,6 @@ def get_single_server_database(database_name: Optional[str] = None,
     Gets information about a database.
     Azure REST API version: 2017-12-01.
 
-    Other available API versions: 2017-12-01-preview.
-
 
     :param str database_name: The name of the database.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -132,8 +130,6 @@ def get_single_server_database_output(database_name: Optional[pulumi.Input[str]]
     """
     Gets information about a database.
     Azure REST API version: 2017-12-01.
-
-    Other available API versions: 2017-12-01-preview.
 
 
     :param str database_name: The name of the database.

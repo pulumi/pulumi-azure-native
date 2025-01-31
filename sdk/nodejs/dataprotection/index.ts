@@ -60,12 +60,10 @@ utilities.lazyLoad(exports, ["ResourceGuard"], () => require("./resourceGuard"))
 export * from "../types/enums/dataprotection";
 
 // Export sub-modules:
-import * as v20221101preview from "./v20221101preview";
 import * as v20230101 from "./v20230101";
 import * as v20240401 from "./v20240401";
 
 export {
-    v20221101preview,
     v20230101,
     v20240401,
 };

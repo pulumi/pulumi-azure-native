@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get the Vault details.
  * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2020-02-02, 2023-04-01.
+ * Other available API versions: 2023-04-01.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,7 +81,7 @@ export interface GetVaultResult {
  * Get the Vault details.
  * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2020-02-02, 2023-04-01.
+ * Other available API versions: 2023-04-01.
  */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

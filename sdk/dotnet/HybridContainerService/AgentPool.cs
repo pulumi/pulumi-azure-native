@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.HybridContainerService
     /// <summary>
     /// The agentPool resource definition
     /// Azure REST API version: 2022-09-01-preview.
-    /// 
-    /// Other available API versions: 2022-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource

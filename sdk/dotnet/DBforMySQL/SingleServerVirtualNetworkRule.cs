@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// <summary>
     /// A virtual network rule.
     /// Azure REST API version: 2017-12-01.
-    /// 
-    /// Other available API versions: 2018-06-01-privatepreview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:SingleServerVirtualNetworkRule")]
     public partial class SingleServerVirtualNetworkRule : global::Pulumi.CustomResource

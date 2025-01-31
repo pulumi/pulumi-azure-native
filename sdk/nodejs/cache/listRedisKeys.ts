@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
  * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2020-06-01, 2023-04-01.
+ * Other available API versions: 2023-04-01.
  */
 export function listRedisKeys(args: ListRedisKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRedisKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,7 +46,7 @@ export interface ListRedisKeysResult {
  * Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
  * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2020-06-01, 2023-04-01.
+ * Other available API versions: 2023-04-01.
  */
 export function listRedisKeysOutput(args: ListRedisKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRedisKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

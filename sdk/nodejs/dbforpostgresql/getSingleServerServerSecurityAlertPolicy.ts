@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Get a server's security alert policy.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2017-12-01-preview.
  */
 export function getSingleServerServerSecurityAlertPolicy(args: GetSingleServerServerSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSingleServerServerSecurityAlertPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -82,8 +80,6 @@ export interface GetSingleServerServerSecurityAlertPolicyResult {
 /**
  * Get a server's security alert policy.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2017-12-01-preview.
  */
 export function getSingleServerServerSecurityAlertPolicyOutput(args: GetSingleServerServerSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSingleServerServerSecurityAlertPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

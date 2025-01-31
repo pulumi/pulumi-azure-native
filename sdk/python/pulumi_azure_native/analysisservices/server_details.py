@@ -245,8 +245,6 @@ class ServerDetails(pulumi.CustomResource):
         Represents an instance of an Analysis Services resource.
         Azure REST API version: 2017-08-01. Prior API version in Azure Native 2.x: 2017-08-01.
 
-        Other available API versions: 2017-08-01-beta.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServerAdministratorsArgs', 'ServerAdministratorsArgsDict']] as_administrators: A collection of AS server administrators
@@ -271,8 +269,6 @@ class ServerDetails(pulumi.CustomResource):
         """
         Represents an instance of an Analysis Services resource.
         Azure REST API version: 2017-08-01. Prior API version in Azure Native 2.x: 2017-08-01.
-
-        Other available API versions: 2017-08-01-beta.
 
         :param str resource_name: The name of the resource.
         :param ServerDetailsArgs args: The arguments to use to populate this resource's properties.

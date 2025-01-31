@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get Sentinel onboarding state
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2021-03-01-preview, 2023-02-01, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export function getSentinelOnboardingState(args: GetSentinelOnboardingStateArgs, opts?: pulumi.InvokeOptions): Promise<GetSentinelOnboardingStateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,7 +70,7 @@ export interface GetSentinelOnboardingStateResult {
  * Get Sentinel onboarding state
  * Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2021-03-01-preview, 2023-02-01, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export function getSentinelOnboardingStateOutput(args: GetSentinelOnboardingStateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSentinelOnboardingStateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -187,8 +187,6 @@ class RoleAssignment(pulumi.CustomResource):
         Role Assignments
         Azure REST API version: 2022-04-01. Prior API version in Azure Native 2.x: 2022-04-01.
 
-        Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
@@ -210,8 +208,6 @@ class RoleAssignment(pulumi.CustomResource):
         """
         Role Assignments
         Azure REST API version: 2022-04-01. Prior API version in Azure Native 2.x: 2022-04-01.
-
-        Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.

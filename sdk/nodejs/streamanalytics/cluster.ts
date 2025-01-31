@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * A Stream Analytics Cluster object
  * Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
- *
- * Other available API versions: 2020-03-01-preview.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

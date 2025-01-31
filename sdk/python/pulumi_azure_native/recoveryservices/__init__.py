@@ -48,14 +48,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.recoveryservices.v20181220 as __v20181220
-    v20181220 = __v20181220
-    import pulumi_azure_native.recoveryservices.v20200202 as __v20200202
-    v20200202 = __v20200202
-    import pulumi_azure_native.recoveryservices.v20210301 as __v20210301
-    v20210301 = __v20210301
-    import pulumi_azure_native.recoveryservices.v20211115 as __v20211115
-    v20211115 = __v20211115
     import pulumi_azure_native.recoveryservices.v20230115 as __v20230115
     v20230115 = __v20230115
     import pulumi_azure_native.recoveryservices.v20230401 as __v20230401
@@ -65,10 +57,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.recoveryservices.v20241001 as __v20241001
     v20241001 = __v20241001
 else:
-    v20181220 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20181220')
-    v20200202 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20200202')
-    v20210301 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20210301')
-    v20211115 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20211115')
     v20230115 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20230115')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20230401')
     v20240201 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20240201')

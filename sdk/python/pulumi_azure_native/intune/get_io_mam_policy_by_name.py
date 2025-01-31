@@ -285,8 +285,6 @@ def get_io_mam_policy_by_name(host_name: Optional[str] = None,
     Returns Intune iOS policies.
     Azure REST API version: 2015-01-14-preview.
 
-    Other available API versions: 2015-01-14-privatepreview.
-
 
     :param str host_name: Location hostName for the tenant
     :param str policy_name: Unique name for the policy
@@ -332,8 +330,6 @@ def get_io_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]] = No
     """
     Returns Intune iOS policies.
     Azure REST API version: 2015-01-14-preview.
-
-    Other available API versions: 2015-01-14-privatepreview.
 
 
     :param str host_name: Location hostName for the tenant

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Gets a partner registration with the specified parameters.
         /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2021-10-15-preview, 2022-06-15.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Task<GetPartnerRegistrationResult> InvokeAsync(GetPartnerRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerRegistrationResult>("azure-native:eventgrid:getPartnerRegistration", args ?? new GetPartnerRegistrationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Gets a partner registration with the specified parameters.
         /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2021-10-15-preview, 2022-06-15.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetPartnerRegistrationResult> Invoke(GetPartnerRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerRegistrationResult>("azure-native:eventgrid:getPartnerRegistration", args ?? new GetPartnerRegistrationInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Gets a partner registration with the specified parameters.
         /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2021-10-15-preview, 2022-06-15.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetPartnerRegistrationResult> Invoke(GetPartnerRegistrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerRegistrationResult>("azure-native:eventgrid:getPartnerRegistration", args ?? new GetPartnerRegistrationInvokeArgs(), options.WithDefaults());

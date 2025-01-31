@@ -128,8 +128,6 @@ def get_single_server_server_administrator(resource_group_name: Optional[str] = 
     Gets information about a AAD server administrator.
     Azure REST API version: 2017-12-01.
 
-    Other available API versions: 2017-12-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str server_name: The name of the server.
@@ -154,8 +152,6 @@ def get_single_server_server_administrator_output(resource_group_name: Optional[
     """
     Gets information about a AAD server administrator.
     Azure REST API version: 2017-12-01.
-
-    Other available API versions: 2017-12-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

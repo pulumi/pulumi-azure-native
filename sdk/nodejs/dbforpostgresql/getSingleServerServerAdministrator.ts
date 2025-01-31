@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets information about a AAD server administrator.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2017-12-01-preview.
  */
 export function getSingleServerServerAdministrator(args: GetSingleServerServerAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetSingleServerServerAdministratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,8 +63,6 @@ export interface GetSingleServerServerAdministratorResult {
 /**
  * Gets information about a AAD server administrator.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2017-12-01-preview.
  */
 export function getSingleServerServerAdministratorOutput(args: GetSingleServerServerAdministratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSingleServerServerAdministratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

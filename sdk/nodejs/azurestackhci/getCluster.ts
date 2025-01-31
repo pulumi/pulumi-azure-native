@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get HCI cluster.
  * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -165,7 +165,7 @@ export interface GetClusterResult {
  * Get HCI cluster.
  * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

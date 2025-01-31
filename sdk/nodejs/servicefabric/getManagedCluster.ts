@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
  * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -229,7 +229,7 @@ export interface GetManagedClusterResult {
  * Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
  * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
  */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

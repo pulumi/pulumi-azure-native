@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.StorageCache
     /// Type of the Storage Target.
     /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-05-01.
     /// 
-    /// Other available API versions: 2021-03-01, 2023-05-01.
+    /// Other available API versions: 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache:StorageTarget")]
     public partial class StorageTarget : global::Pulumi.CustomResource

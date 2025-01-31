@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Collector policy resource.
  * Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
- *
- * Other available API versions: 2022-05-01.
  */
 export class CollectorPolicy extends pulumi.CustomResource {
     /**

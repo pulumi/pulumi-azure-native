@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Gets Kubernetes Cluster Extension.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
+        /// Other available API versions: 2022-04-02-preview, 2022-07-01.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:kubernetesconfiguration:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Gets Kubernetes Cluster Extension.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
+        /// Other available API versions: 2022-04-02-preview, 2022-07-01.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:kubernetesconfiguration:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Gets Kubernetes Cluster Extension.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
+        /// Other available API versions: 2022-04-02-preview, 2022-07-01.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:kubernetesconfiguration:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());

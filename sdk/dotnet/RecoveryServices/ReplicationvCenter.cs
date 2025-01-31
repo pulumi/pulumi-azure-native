@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// vCenter definition.
     /// Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// 
-    /// Other available API versions: 2021-03-01, 2023-04-01.
+    /// Other available API versions: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationvCenter")]
     public partial class ReplicationvCenter : global::Pulumi.CustomResource

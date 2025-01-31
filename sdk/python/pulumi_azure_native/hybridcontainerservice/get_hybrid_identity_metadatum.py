@@ -142,8 +142,6 @@ def get_hybrid_identity_metadatum(hybrid_identity_metadata_resource_name: Option
     Get the hybrid identity metadata proxy resource.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2022-05-01-preview.
-
 
     :param str hybrid_identity_metadata_resource_name: Parameter for the name of the hybrid identity metadata resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -172,8 +170,6 @@ def get_hybrid_identity_metadatum_output(hybrid_identity_metadata_resource_name:
     """
     Get the hybrid identity metadata proxy resource.
     Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2022-05-01-preview.
 
 
     :param str hybrid_identity_metadata_resource_name: Parameter for the name of the hybrid identity metadata resource.

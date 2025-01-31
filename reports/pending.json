@@ -970,6 +970,7 @@
     "2024-10-01-preview"
   ],
   "SoftwarePlan": [
+    "2019-06-01-preview",
     "2019-12-01"
   ],
   "Solutions": [
@@ -1039,6 +1040,7 @@
   ],
   "VirtualMachineImages": [],
   "VisualStudio": [
+    "2014-04-01-preview",
     "2017-11-01-preview"
   ],
   "VoiceServices": [

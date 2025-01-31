@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes a hybrid machine.
  * Azure REST API version: 2024-07-10. Prior API version in Azure Native 2.x: 2022-12-27.
  *
- * Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2022-12-27, 2024-11-10-preview.
+ * Other available API versions: 2020-08-15-preview, 2022-05-10-preview, 2022-12-27, 2024-11-10-preview.
  */
 export class Machine extends pulumi.CustomResource {
     /**

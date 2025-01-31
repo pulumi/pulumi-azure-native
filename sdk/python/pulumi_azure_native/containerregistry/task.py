@@ -312,8 +312,6 @@ class Task(pulumi.CustomResource):
         The task will have all information to schedule a run against it.
         Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 2.x: 2019-06-01-preview.
 
-        Other available API versions: 2018-09-01, 2019-04-01.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AgentPropertiesArgs', 'AgentPropertiesArgsDict']] agent_configuration: The machine configuration of the run agent.
@@ -343,8 +341,6 @@ class Task(pulumi.CustomResource):
         The task that has the ARM resource and task properties.
         The task will have all information to schedule a run against it.
         Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 2.x: 2019-06-01-preview.
-
-        Other available API versions: 2018-09-01, 2019-04-01.
 
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.

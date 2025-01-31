@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a HealthBot.
  * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2020-12-08-preview, 2023-05-01.
+ * Other available API versions: 2023-05-01.
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +77,7 @@ export interface GetBotResult {
  * Get a HealthBot.
  * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2020-12-08-preview, 2023-05-01.
+ * Other available API versions: 2023-05-01.
  */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

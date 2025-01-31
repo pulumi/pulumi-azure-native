@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// Returns Linker resource for a given name.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2021-11-01-preview, 2022-11-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
         /// </summary>
         public static Task<GetLinkerResult> InvokeAsync(GetLinkerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkerResult>("azure-native:servicelinker:getLinker", args ?? new GetLinkerArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// Returns Linker resource for a given name.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2021-11-01-preview, 2022-11-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
         /// </summary>
         public static Output<GetLinkerResult> Invoke(GetLinkerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkerResult>("azure-native:servicelinker:getLinker", args ?? new GetLinkerInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// Returns Linker resource for a given name.
         /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2021-11-01-preview, 2022-11-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
         /// </summary>
         public static Output<GetLinkerResult> Invoke(GetLinkerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkerResult>("azure-native:servicelinker:getLinker", args ?? new GetLinkerInvokeArgs(), options.WithDefaults());

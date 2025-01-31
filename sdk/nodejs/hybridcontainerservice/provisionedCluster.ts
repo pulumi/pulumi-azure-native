@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * The provisionedClusters resource definition.
  * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-09-01-preview.
- *
- * Other available API versions: 2022-05-01-preview.
  */
 export class ProvisionedCluster extends pulumi.CustomResource {
     /**

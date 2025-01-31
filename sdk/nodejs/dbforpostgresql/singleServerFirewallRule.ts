@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Represents a server firewall rule.
  * Azure REST API version: 2017-12-01.
- *
- * Other available API versions: 2017-12-01-preview.
  */
 export class SingleServerFirewallRule extends pulumi.CustomResource {
     /**

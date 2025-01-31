@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get properties of a domain.
  * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2020-04-01-preview, 2022-06-15.
+ * Other available API versions: 2022-06-15.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -143,7 +143,7 @@ export interface GetDomainResult {
  * Get properties of a domain.
  * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2020-04-01-preview, 2022-06-15.
+ * Other available API versions: 2022-06-15.
  */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

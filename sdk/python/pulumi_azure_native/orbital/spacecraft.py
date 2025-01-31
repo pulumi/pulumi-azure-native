@@ -185,8 +185,6 @@ class Spacecraft(pulumi.CustomResource):
         Customer creates a spacecraft resource to schedule a contact.
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
-        Other available API versions: 2022-03-01.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict']]]] links: Immutable list of Spacecraft links.
@@ -208,8 +206,6 @@ class Spacecraft(pulumi.CustomResource):
         """
         Customer creates a spacecraft resource to schedule a contact.
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
-
-        Other available API versions: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param SpacecraftArgs args: The arguments to use to populate this resource's properties.

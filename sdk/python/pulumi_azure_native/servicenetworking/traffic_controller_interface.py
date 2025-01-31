@@ -102,7 +102,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
         Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2023-05-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2025-01-01.
+        Other available API versions: 2023-05-01-preview, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +121,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
         Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2023-05-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-05-01-preview, 2025-01-01.
+        Other available API versions: 2023-05-01-preview, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param TrafficControllerInterfaceArgs args: The arguments to use to populate this resource's properties.

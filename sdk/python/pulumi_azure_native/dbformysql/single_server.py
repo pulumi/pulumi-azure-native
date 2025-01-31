@@ -154,8 +154,6 @@ class SingleServer(pulumi.CustomResource):
         Represents a server.
         Azure REST API version: 2017-12-01.
 
-        Other available API versions: 2018-06-01-privatepreview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']] identity: The Azure Active Directory identity of the server.
@@ -175,8 +173,6 @@ class SingleServer(pulumi.CustomResource):
         """
         Represents a server.
         Azure REST API version: 2017-12-01.
-
-        Other available API versions: 2018-06-01-privatepreview.
 
         :param str resource_name: The name of the resource.
         :param SingleServerArgs args: The arguments to use to populate this resource's properties.

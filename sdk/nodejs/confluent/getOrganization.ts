@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Organization resource.
  * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2020-03-01-preview, 2021-12-01.
+ * Other available API versions: 2021-12-01.
  */
 export function getOrganization(args: GetOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +89,7 @@ export interface GetOrganizationResult {
  * Organization resource.
  * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2020-03-01-preview, 2021-12-01.
+ * Other available API versions: 2021-12-01.
  */
 export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

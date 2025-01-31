@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a AAD server administrator.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01-preview.
         /// </summary>
         public static Task<GetSingleServerServerAdministratorResult> InvokeAsync(GetSingleServerServerAdministratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSingleServerServerAdministratorResult>("azure-native:dbforpostgresql:getSingleServerServerAdministrator", args ?? new GetSingleServerServerAdministratorArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a AAD server administrator.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01-preview.
         /// </summary>
         public static Output<GetSingleServerServerAdministratorResult> Invoke(GetSingleServerServerAdministratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSingleServerServerAdministratorResult>("azure-native:dbforpostgresql:getSingleServerServerAdministrator", args ?? new GetSingleServerServerAdministratorInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a AAD server administrator.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01-preview.
         /// </summary>
         public static Output<GetSingleServerServerAdministratorResult> Invoke(GetSingleServerServerAdministratorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSingleServerServerAdministratorResult>("azure-native:dbforpostgresql:getSingleServerServerAdministrator", args ?? new GetSingleServerServerAdministratorInvokeArgs(), options.WithDefaults());

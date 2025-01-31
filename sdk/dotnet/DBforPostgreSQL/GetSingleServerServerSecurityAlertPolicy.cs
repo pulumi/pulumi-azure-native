@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Get a server's security alert policy.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01-preview.
         /// </summary>
         public static Task<GetSingleServerServerSecurityAlertPolicyResult> InvokeAsync(GetSingleServerServerSecurityAlertPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSingleServerServerSecurityAlertPolicyResult>("azure-native:dbforpostgresql:getSingleServerServerSecurityAlertPolicy", args ?? new GetSingleServerServerSecurityAlertPolicyArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Get a server's security alert policy.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01-preview.
         /// </summary>
         public static Output<GetSingleServerServerSecurityAlertPolicyResult> Invoke(GetSingleServerServerSecurityAlertPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSingleServerServerSecurityAlertPolicyResult>("azure-native:dbforpostgresql:getSingleServerServerSecurityAlertPolicy", args ?? new GetSingleServerServerSecurityAlertPolicyInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Get a server's security alert policy.
         /// Azure REST API version: 2017-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01-preview.
         /// </summary>
         public static Output<GetSingleServerServerSecurityAlertPolicyResult> Invoke(GetSingleServerServerSecurityAlertPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSingleServerServerSecurityAlertPolicyResult>("azure-native:dbforpostgresql:getSingleServerServerSecurityAlertPolicy", args ?? new GetSingleServerServerSecurityAlertPolicyInvokeArgs(), options.WithDefaults());

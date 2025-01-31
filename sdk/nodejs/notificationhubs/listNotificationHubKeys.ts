@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01.
  */
 export function listNotificationHubKeys(args: ListNotificationHubKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListNotificationHubKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,7 +69,7 @@ export interface ListNotificationHubKeysResult {
  * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01.
  */
 export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNotificationHubKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// <summary>
     /// Represents a cluster firewall rule.
     /// Azure REST API version: 2023-03-02-preview.
-    /// 
-    /// Other available API versions: 2020-10-05-privatepreview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:ServerGroupFirewallRule")]
     public partial class ServerGroupFirewallRule : global::Pulumi.CustomResource

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     /// <summary>
     /// Azure REST API version: 2023-05-17-preview. Prior API version in Azure Native 2.x: 2021-04-01.
     /// 
-    /// Other available API versions: 2019-01-01-preview, 2021-04-01.
+    /// Other available API versions: 2021-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azureactivedirectory:B2CTenant")]
     public partial class B2CTenant : global::Pulumi.CustomResource

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.LoadTestService
     /// LoadTest details.
     /// Azure REST API version: 2023-12-01-preview. Prior API version in Azure Native 2.x: 2022-12-01.
     /// 
-    /// Other available API versions: 2021-12-01-preview, 2022-12-01.
+    /// Other available API versions: 2022-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:loadtestservice:LoadTest")]
     public partial class LoadTest : global::Pulumi.CustomResource
