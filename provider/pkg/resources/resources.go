@@ -337,6 +337,7 @@ var v3ModulesNamedByFolder = map[string]ModuleName{
 	"iothub":                     "IoTHub",
 	"deviceprovisioningservices": "DeviceProvisioningServices",
 	// "DocumentDB":
+	"cosmos-db":    "CosmosDB",
 	"mongocluster": "MongoCluster",
 }
 
