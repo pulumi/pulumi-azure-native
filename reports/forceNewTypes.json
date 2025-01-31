@@ -1911,6 +1911,307 @@
     "Property": "skuName"
   },
   {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "clusterNameOverride"
+  },
+  {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "delegatedManagementSubnetId"
+  },
+  {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "initialCassandraAdminPassword"
+  },
+  {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "restoreFromBackupId"
+  },
+  {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "dataCenterLocation"
+  },
+  {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "delegatedSubnetId"
+  },
+  {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "GremlinResourceGremlinDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "GremlinResourceGremlinGraph",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "MongoDBResourceMongoDBCollection",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "MongoDBResourceMongoDBDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "SqlResourceSqlContainer",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "SqlResourceSqlDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb",
+    "Module": "CosmosDB",
+    "ResourceName": "TableResourceTable",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20210701preview",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "clusterNameOverride"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20210701preview",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "delegatedManagementSubnetId"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20210701preview",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "initialCassandraAdminPassword"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20210701preview",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "restoreFromBackupId"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "clusterNameOverride"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "delegatedManagementSubnetId"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "initialCassandraAdminPassword"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "restoreFromBackupId"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "dataCenterLocation"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "delegatedSubnetId"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "GremlinResourceGremlinDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "GremlinResourceGremlinGraph",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "MongoDBResourceMongoDBCollection",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "MongoDBResourceMongoDBDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "SqlResourceSqlContainer",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "SqlResourceSqlDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241115",
+    "Module": "CosmosDB",
+    "ResourceName": "TableResourceTable",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "clusterNameOverride"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "delegatedManagementSubnetId"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "initialCassandraAdminPassword"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "restoreFromBackupId"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "dataCenterLocation"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "delegatedSubnetId"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "GremlinResourceGremlinDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "GremlinResourceGremlinGraph",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "MongoDBResourceMongoDBCollection",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "MongoDBResourceMongoDBDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "SqlResourceSqlContainer",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "SqlResourceSqlDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "cosmosdb/v20241201preview",
+    "Module": "CosmosDB",
+    "ResourceName": "TableResourceTable",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
     "VersionedModule": "dbformysql",
     "Module": "DBforMySQL",
     "ResourceName": "Server",
@@ -2385,349 +2686,6 @@
     "ResourceName": "InboundEndpoint",
     "ReferenceName": "SubResource",
     "Property": "subnet"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "clusterNameOverride"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "delegatedManagementSubnetId"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "initialCassandraAdminPassword"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "restoreFromBackupId"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraDataCenter",
-    "ReferenceName": "DataCenterResource",
-    "Property": "dataCenterLocation"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraDataCenter",
-    "ReferenceName": "DataCenterResource",
-    "Property": "delegatedSubnetId"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "GremlinResourceGremlinDatabase",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "GremlinResourceGremlinGraph",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "MongoDBResourceMongoDBCollection",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "MongoDBResourceMongoDBDatabase",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "SqlResourceSqlContainer",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "SqlResourceSqlDatabase",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb",
-    "Module": "DocumentDB",
-    "ResourceName": "TableResourceTable",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20210701preview",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "clusterNameOverride"
-  },
-  {
-    "VersionedModule": "documentdb/v20210701preview",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "delegatedManagementSubnetId"
-  },
-  {
-    "VersionedModule": "documentdb/v20210701preview",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "initialCassandraAdminPassword"
-  },
-  {
-    "VersionedModule": "documentdb/v20210701preview",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "restoreFromBackupId"
-  },
-  {
-    "VersionedModule": "documentdb/v20230415",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "clusterNameOverride"
-  },
-  {
-    "VersionedModule": "documentdb/v20230415",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "delegatedManagementSubnetId"
-  },
-  {
-    "VersionedModule": "documentdb/v20230415",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "initialCassandraAdminPassword"
-  },
-  {
-    "VersionedModule": "documentdb/v20230415",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "restoreFromBackupId"
-  },
-  {
-    "VersionedModule": "documentdb/v20230415",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraDataCenter",
-    "ReferenceName": "DataCenterResource",
-    "Property": "dataCenterLocation"
-  },
-  {
-    "VersionedModule": "documentdb/v20230415",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraDataCenter",
-    "ReferenceName": "DataCenterResource",
-    "Property": "delegatedSubnetId"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "clusterNameOverride"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "delegatedManagementSubnetId"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "initialCassandraAdminPassword"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "restoreFromBackupId"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraDataCenter",
-    "ReferenceName": "DataCenterResource",
-    "Property": "dataCenterLocation"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraDataCenter",
-    "ReferenceName": "DataCenterResource",
-    "Property": "delegatedSubnetId"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "GremlinResourceGremlinDatabase",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "GremlinResourceGremlinGraph",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "MongoDBResourceMongoDBCollection",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "MongoDBResourceMongoDBDatabase",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "SqlResourceSqlContainer",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "SqlResourceSqlDatabase",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241115",
-    "Module": "DocumentDB",
-    "ResourceName": "TableResourceTable",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "clusterNameOverride"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "delegatedManagementSubnetId"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "initialCassandraAdminPassword"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraCluster",
-    "ReferenceName": "ClusterResource",
-    "Property": "restoreFromBackupId"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraDataCenter",
-    "ReferenceName": "DataCenterResource",
-    "Property": "dataCenterLocation"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "CassandraDataCenter",
-    "ReferenceName": "DataCenterResource",
-    "Property": "delegatedSubnetId"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "GremlinResourceGremlinDatabase",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "GremlinResourceGremlinGraph",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "MongoDBResourceMongoDBCollection",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "MongoDBResourceMongoDBDatabase",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "SqlResourceSqlContainer",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "SqlResourceSqlDatabase",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
-  },
-  {
-    "VersionedModule": "documentdb/v20241201preview",
-    "Module": "DocumentDB",
-    "ResourceName": "TableResourceTable",
-    "ReferenceName": "ResourceRestoreParameters",
-    "Property": "restoreParameters"
   },
   {
     "VersionedModule": "elastic",

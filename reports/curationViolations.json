@@ -104,6 +104,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "CosmosDB",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "DataMigration",
     "Detail": "expected tracking stable but found preview"
   },

@@ -52,6 +52,7 @@ import * as containerinstance from "./containerinstance";
 import * as containerregistry from "./containerregistry";
 import * as containerservice from "./containerservice";
 import * as containerstorage from "./containerstorage";
+import * as cosmosdb from "./cosmosdb";
 import * as costmanagement from "./costmanagement";
 import * as customerinsights from "./customerinsights";
 import * as customproviders from "./customproviders";
@@ -85,7 +86,6 @@ import * as devtestlab from "./devtestlab";
 import * as digitaltwins from "./digitaltwins";
 import * as dns from "./dns";
 import * as dnsresolver from "./dnsresolver";
-import * as documentdb from "./documentdb";
 import * as domainregistration from "./domainregistration";
 import * as edgeorder from "./edgeorder";
 import * as education from "./education";
@@ -270,6 +270,7 @@ export {
     containerregistry,
     containerservice,
     containerstorage,
+    cosmosdb,
     costmanagement,
     customerinsights,
     customproviders,
@@ -303,7 +304,6 @@ export {
     digitaltwins,
     dns,
     dnsresolver,
-    documentdb,
     domainregistration,
     edgeorder,
     education,

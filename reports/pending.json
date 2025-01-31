@@ -265,6 +265,14 @@
   ],
   "ContainerStorage": [],
   "Contoso": [],
+  "CosmosDB": [
+    "2024-05-15",
+    "2024-05-15-preview",
+    "2024-08-15",
+    "2024-09-01-preview",
+    "2024-11-15",
+    "2024-12-01-preview"
+  ],
   "CostManagement": [
     "2019-01-01",
     "2019-03-01-preview",
@@ -406,14 +414,6 @@
   "DigitalTwins": [],
   "Dns": [],
   "DnsResolver": [],
-  "DocumentDB": [
-    "2024-05-15",
-    "2024-05-15-preview",
-    "2024-08-15",
-    "2024-09-01-preview",
-    "2024-11-15",
-    "2024-12-01-preview"
-  ],
   "DomainRegistration": [],
   "DurableTask": [],
   "Dynamics365Fraudprotection": [],

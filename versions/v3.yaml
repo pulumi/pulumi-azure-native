@@ -3705,6 +3705,177 @@ Contoso:
         SpecFilePath: specification/contosowidgetmanager/resource-manager/Microsoft.Contoso/preview/2021-10-01-preview/contoso.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Contoso/employees/{employeeName}
         RpNamespace: Microsoft.Contoso
+CosmosDB:
+    CassandraCluster:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/managedCassandra.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/cassandraClusters/{clusterName}
+        RpNamespace: Microsoft.DocumentDB
+    CassandraDataCenter:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/managedCassandra.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/cassandraClusters/{clusterName}/dataCenters/{dataCenterName}
+        RpNamespace: Microsoft.DocumentDB
+    CassandraResourceCassandraKeyspace:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraKeyspaces/{keyspaceName}
+        RpNamespace: Microsoft.DocumentDB
+    CassandraResourceCassandraTable:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraKeyspaces/{keyspaceName}/tables/{tableName}
+        RpNamespace: Microsoft.DocumentDB
+    CassandraResourceCassandraView:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-12-01-preview/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraKeyspaces/{keyspaceName}/views/{viewName}
+        RpNamespace: Microsoft.DocumentDB
+    DatabaseAccount:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}
+        RpNamespace: Microsoft.DocumentDB
+    GraphResourceGraph:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-12-01-preview/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/graphs/{graphName}
+        RpNamespace: Microsoft.DocumentDB
+    GremlinResourceGremlinDatabase:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/gremlinDatabases/{databaseName}
+        RpNamespace: Microsoft.DocumentDB
+    GremlinResourceGremlinGraph:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/gremlinDatabases/{databaseName}/graphs/{graphName}
+        RpNamespace: Microsoft.DocumentDB
+    MongoCluster:
+        ApiVersion: 2024-02-15-preview
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-02-15-preview/mongoCluster.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}
+        RpNamespace: Microsoft.DocumentDB
+    MongoClusterFirewallRule:
+        ApiVersion: 2024-02-15-preview
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-02-15-preview/mongoCluster.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName}
+        RpNamespace: Microsoft.DocumentDB
+    MongoDBResourceMongoDBCollection:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}/collections/{collectionName}
+        RpNamespace: Microsoft.DocumentDB
+    MongoDBResourceMongoDBDatabase:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}
+        RpNamespace: Microsoft.DocumentDB
+    MongoDBResourceMongoRoleDefinition:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/mongorbac.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbRoleDefinitions/{mongoRoleDefinitionId}
+        RpNamespace: Microsoft.DocumentDB
+    MongoDBResourceMongoUserDefinition:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/mongorbac.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbUserDefinitions/{mongoUserDefinitionId}
+        RpNamespace: Microsoft.DocumentDB
+    NotebookWorkspace:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/notebook.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/notebookWorkspaces/{notebookWorkspaceName}
+        RpNamespace: Microsoft.DocumentDB
+    PrivateEndpointConnection:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/privateEndpointConnection.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName}
+        RpNamespace: Microsoft.DocumentDB
+    Service:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/services.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/services/{serviceName}
+        RpNamespace: Microsoft.DocumentDB
+    SqlResourceSqlContainer:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/containers/{containerName}
+        RpNamespace: Microsoft.DocumentDB
+    SqlResourceSqlDatabase:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}
+        RpNamespace: Microsoft.DocumentDB
+    SqlResourceSqlRoleAssignment:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/rbac.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlRoleAssignments/{roleAssignmentId}
+        RpNamespace: Microsoft.DocumentDB
+    SqlResourceSqlRoleDefinition:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/rbac.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlRoleDefinitions/{roleDefinitionId}
+        RpNamespace: Microsoft.DocumentDB
+    SqlResourceSqlStoredProcedure:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/containers/{containerName}/storedProcedures/{storedProcedureName}
+        RpNamespace: Microsoft.DocumentDB
+    SqlResourceSqlTrigger:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/containers/{containerName}/triggers/{triggerName}
+        RpNamespace: Microsoft.DocumentDB
+    SqlResourceSqlUserDefinedFunction:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/containers/{containerName}/userDefinedFunctions/{userDefinedFunctionName}
+        RpNamespace: Microsoft.DocumentDB
+    TableResourceTable:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/tables/{tableName}
+        RpNamespace: Microsoft.DocumentDB
+    TableResourceTableRoleAssignment:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-12-01-preview/tablerbac.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/tableRoleAssignments/{roleAssignmentId}
+        RpNamespace: Microsoft.DocumentDB
+    TableResourceTableRoleDefinition:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-12-01-preview/tablerbac.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/tableRoleDefinitions/{roleDefinitionId}
+        RpNamespace: Microsoft.DocumentDB
+    ThroughputPool:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-12-01-preview/throughputpool.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/throughputPools/{throughputPoolName}
+        RpNamespace: Microsoft.DocumentDB
+    ThroughputPoolAccount:
+        ApiVersion: 2024-12-01-preview
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-12-01-preview/throughputpool.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/throughputPools/{throughputPoolName}/throughputPoolAccounts/{throughputPoolAccountName}
+        RpNamespace: Microsoft.DocumentDB
+    listDatabaseAccountConnectionStrings:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listConnectionStrings
+        RpNamespace: Microsoft.DocumentDB
+    listDatabaseAccountKeys:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listKeys
+        RpNamespace: Microsoft.DocumentDB
+    listMongoClusterConnectionStrings:
+        ApiVersion: 2024-02-15-preview
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-02-15-preview/mongoCluster.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/listConnectionStrings
+        RpNamespace: Microsoft.DocumentDB
+    listNotebookWorkspaceConnectionInfo:
+        ApiVersion: "2024-11-15"
+        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/notebook.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/notebookWorkspaces/{notebookWorkspaceName}/listConnectionInfo
+        RpNamespace: Microsoft.DocumentDB
 CostManagement:
     Budget:
         ApiVersion: "2024-08-01"
@@ -5180,177 +5351,6 @@ DnsResolver:
         SpecFilePath: specification/dnsresolver/resource-manager/Microsoft.Network/preview/2023-07-01-preview/dnsresolverpolicy.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/listDnsResolverPolicies
         RpNamespace: Microsoft.Network
-DocumentDB:
-    CassandraCluster:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/managedCassandra.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/cassandraClusters/{clusterName}
-        RpNamespace: Microsoft.DocumentDB
-    CassandraDataCenter:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/managedCassandra.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/cassandraClusters/{clusterName}/dataCenters/{dataCenterName}
-        RpNamespace: Microsoft.DocumentDB
-    CassandraResourceCassandraKeyspace:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraKeyspaces/{keyspaceName}
-        RpNamespace: Microsoft.DocumentDB
-    CassandraResourceCassandraTable:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraKeyspaces/{keyspaceName}/tables/{tableName}
-        RpNamespace: Microsoft.DocumentDB
-    CassandraResourceCassandraView:
-        ApiVersion: 2024-12-01-preview
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-12-01-preview/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraKeyspaces/{keyspaceName}/views/{viewName}
-        RpNamespace: Microsoft.DocumentDB
-    DatabaseAccount:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}
-        RpNamespace: Microsoft.DocumentDB
-    GraphResourceGraph:
-        ApiVersion: 2024-12-01-preview
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-12-01-preview/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/graphs/{graphName}
-        RpNamespace: Microsoft.DocumentDB
-    GremlinResourceGremlinDatabase:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/gremlinDatabases/{databaseName}
-        RpNamespace: Microsoft.DocumentDB
-    GremlinResourceGremlinGraph:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/gremlinDatabases/{databaseName}/graphs/{graphName}
-        RpNamespace: Microsoft.DocumentDB
-    MongoCluster:
-        ApiVersion: 2024-02-15-preview
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-02-15-preview/mongoCluster.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}
-        RpNamespace: Microsoft.DocumentDB
-    MongoClusterFirewallRule:
-        ApiVersion: 2024-02-15-preview
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-02-15-preview/mongoCluster.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName}
-        RpNamespace: Microsoft.DocumentDB
-    MongoDBResourceMongoDBCollection:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}/collections/{collectionName}
-        RpNamespace: Microsoft.DocumentDB
-    MongoDBResourceMongoDBDatabase:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}
-        RpNamespace: Microsoft.DocumentDB
-    MongoDBResourceMongoRoleDefinition:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/mongorbac.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbRoleDefinitions/{mongoRoleDefinitionId}
-        RpNamespace: Microsoft.DocumentDB
-    MongoDBResourceMongoUserDefinition:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/mongorbac.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbUserDefinitions/{mongoUserDefinitionId}
-        RpNamespace: Microsoft.DocumentDB
-    NotebookWorkspace:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/notebook.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/notebookWorkspaces/{notebookWorkspaceName}
-        RpNamespace: Microsoft.DocumentDB
-    PrivateEndpointConnection:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/privateEndpointConnection.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName}
-        RpNamespace: Microsoft.DocumentDB
-    Service:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/services.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/services/{serviceName}
-        RpNamespace: Microsoft.DocumentDB
-    SqlResourceSqlContainer:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/containers/{containerName}
-        RpNamespace: Microsoft.DocumentDB
-    SqlResourceSqlDatabase:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}
-        RpNamespace: Microsoft.DocumentDB
-    SqlResourceSqlRoleAssignment:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/rbac.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlRoleAssignments/{roleAssignmentId}
-        RpNamespace: Microsoft.DocumentDB
-    SqlResourceSqlRoleDefinition:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/rbac.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlRoleDefinitions/{roleDefinitionId}
-        RpNamespace: Microsoft.DocumentDB
-    SqlResourceSqlStoredProcedure:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/containers/{containerName}/storedProcedures/{storedProcedureName}
-        RpNamespace: Microsoft.DocumentDB
-    SqlResourceSqlTrigger:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/containers/{containerName}/triggers/{triggerName}
-        RpNamespace: Microsoft.DocumentDB
-    SqlResourceSqlUserDefinedFunction:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/containers/{containerName}/userDefinedFunctions/{userDefinedFunctionName}
-        RpNamespace: Microsoft.DocumentDB
-    TableResourceTable:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/tables/{tableName}
-        RpNamespace: Microsoft.DocumentDB
-    TableResourceTableRoleAssignment:
-        ApiVersion: 2024-12-01-preview
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-12-01-preview/tablerbac.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/tableRoleAssignments/{roleAssignmentId}
-        RpNamespace: Microsoft.DocumentDB
-    TableResourceTableRoleDefinition:
-        ApiVersion: 2024-12-01-preview
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-12-01-preview/tablerbac.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/tableRoleDefinitions/{roleDefinitionId}
-        RpNamespace: Microsoft.DocumentDB
-    ThroughputPool:
-        ApiVersion: 2024-12-01-preview
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-12-01-preview/throughputpool.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/throughputPools/{throughputPoolName}
-        RpNamespace: Microsoft.DocumentDB
-    ThroughputPoolAccount:
-        ApiVersion: 2024-12-01-preview
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-12-01-preview/throughputpool.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/throughputPools/{throughputPoolName}/throughputPoolAccounts/{throughputPoolAccountName}
-        RpNamespace: Microsoft.DocumentDB
-    listDatabaseAccountConnectionStrings:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listConnectionStrings
-        RpNamespace: Microsoft.DocumentDB
-    listDatabaseAccountKeys:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/cosmos-db.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listKeys
-        RpNamespace: Microsoft.DocumentDB
-    listMongoClusterConnectionStrings:
-        ApiVersion: 2024-02-15-preview
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/preview/2024-02-15-preview/mongoCluster.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/listConnectionStrings
-        RpNamespace: Microsoft.DocumentDB
-    listNotebookWorkspaceConnectionInfo:
-        ApiVersion: "2024-11-15"
-        SpecFilePath: specification/cosmos-db/resource-manager/Microsoft.DocumentDB/stable/2024-11-15/notebook.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/notebookWorkspaces/{notebookWorkspaceName}/listConnectionInfo
-        RpNamespace: Microsoft.DocumentDB
 DomainRegistration:
     Domain:
         ApiVersion: "2024-04-01"

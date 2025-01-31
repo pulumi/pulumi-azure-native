@@ -67,6 +67,7 @@ import * as containerregistry from "./containerregistry";
 import * as containerservice from "./containerservice";
 import * as containerstorage from "./containerstorage";
 import * as contoso from "./contoso";
+import * as cosmosdb from "./cosmosdb";
 import * as costmanagement from "./costmanagement";
 import * as customerinsights from "./customerinsights";
 import * as customproviders from "./customproviders";
@@ -100,7 +101,6 @@ import * as devtestlab from "./devtestlab";
 import * as digitaltwins from "./digitaltwins";
 import * as dns from "./dns";
 import * as dnsresolver from "./dnsresolver";
-import * as documentdb from "./documentdb";
 import * as domainregistration from "./domainregistration";
 import * as durabletask from "./durabletask";
 import * as dynamics365fraudprotection from "./dynamics365fraudprotection";
@@ -313,6 +313,7 @@ export {
     containerservice,
     containerstorage,
     contoso,
+    cosmosdb,
     costmanagement,
     customerinsights,
     customproviders,
@@ -346,7 +347,6 @@ export {
     digitaltwins,
     dns,
     dnsresolver,
-    documentdb,
     domainregistration,
     durabletask,
     dynamics365fraudprotection,

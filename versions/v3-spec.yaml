@@ -280,6 +280,18 @@ ContainerStorage:
     tracking: 2023-07-01-preview
 Contoso:
     tracking: 2021-10-01-preview
+CosmosDB:
+    tracking: "2024-11-15"
+    additions:
+        CassandraResourceCassandraView: 2024-12-01-preview
+        GraphResourceGraph: 2024-12-01-preview
+        MongoCluster: 2024-02-15-preview
+        MongoClusterFirewallRule: 2024-02-15-preview
+        TableResourceTableRoleAssignment: 2024-12-01-preview
+        TableResourceTableRoleDefinition: 2024-12-01-preview
+        ThroughputPool: 2024-12-01-preview
+        ThroughputPoolAccount: 2024-12-01-preview
+        listMongoClusterConnectionStrings: 2024-02-15-preview
 CostManagement:
     tracking: "2024-08-01"
     additions:
@@ -685,18 +697,6 @@ Dns:
     tracking: 2023-07-01-preview
 DnsResolver:
     tracking: 2023-07-01-preview
-DocumentDB:
-    tracking: "2024-11-15"
-    additions:
-        CassandraResourceCassandraView: 2024-12-01-preview
-        GraphResourceGraph: 2024-12-01-preview
-        MongoCluster: 2024-02-15-preview
-        MongoClusterFirewallRule: 2024-02-15-preview
-        TableResourceTableRoleAssignment: 2024-12-01-preview
-        TableResourceTableRoleDefinition: 2024-12-01-preview
-        ThroughputPool: 2024-12-01-preview
-        ThroughputPoolAccount: 2024-12-01-preview
-        listMongoClusterConnectionStrings: 2024-02-15-preview
 DomainRegistration:
     tracking: "2024-04-01"
 DurableTask:
