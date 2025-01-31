@@ -77,8 +77,6 @@ if typing.TYPE_CHECKING:
     blueprint = __blueprint
     import pulumi_azure_native.botservice as __botservice
     botservice = __botservice
-    import pulumi_azure_native.cache as __cache
-    cache = __cache
     import pulumi_azure_native.cdn as __cdn
     cdn = __cdn
     import pulumi_azure_native.certificateregistration as __certificateregistration
@@ -387,6 +385,10 @@ if typing.TYPE_CHECKING:
     recoveryservices = __recoveryservices
     import pulumi_azure_native.redhatopenshift as __redhatopenshift
     redhatopenshift = __redhatopenshift
+    import pulumi_azure_native.redis as __redis
+    redis = __redis
+    import pulumi_azure_native.redisenterprise as __redisenterprise
+    redisenterprise = __redisenterprise
     import pulumi_azure_native.relay as __relay
     relay = __relay
     import pulumi_azure_native.resourceconnector as __resourceconnector
@@ -526,7 +528,6 @@ else:
     billing = _utilities.lazy_import('pulumi_azure_native.billing')
     blueprint = _utilities.lazy_import('pulumi_azure_native.blueprint')
     botservice = _utilities.lazy_import('pulumi_azure_native.botservice')
-    cache = _utilities.lazy_import('pulumi_azure_native.cache')
     cdn = _utilities.lazy_import('pulumi_azure_native.cdn')
     certificateregistration = _utilities.lazy_import('pulumi_azure_native.certificateregistration')
     changeanalysis = _utilities.lazy_import('pulumi_azure_native.changeanalysis')
@@ -681,6 +682,8 @@ else:
     recommendationsservice = _utilities.lazy_import('pulumi_azure_native.recommendationsservice')
     recoveryservices = _utilities.lazy_import('pulumi_azure_native.recoveryservices')
     redhatopenshift = _utilities.lazy_import('pulumi_azure_native.redhatopenshift')
+    redis = _utilities.lazy_import('pulumi_azure_native.redis')
+    redisenterprise = _utilities.lazy_import('pulumi_azure_native.redisenterprise')
     relay = _utilities.lazy_import('pulumi_azure_native.relay')
     resourceconnector = _utilities.lazy_import('pulumi_azure_native.resourceconnector')
     resourcegraph = _utilities.lazy_import('pulumi_azure_native.resourcegraph')
@@ -3299,114 +3302,6 @@ _utilities.register(
    "azure-native:botservice/v20230915preview:BotConnection": "BotConnection",
    "azure-native:botservice/v20230915preview:Channel": "Channel",
    "azure-native:botservice/v20230915preview:PrivateEndpointConnection": "PrivateEndpointConnection"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache",
-  "fqn": "pulumi_azure_native.cache",
-  "classes": {
-   "azure-native:cache:AccessPolicy": "AccessPolicy",
-   "azure-native:cache:AccessPolicyAssignment": "AccessPolicyAssignment",
-   "azure-native:cache:EnterpriseAccessPolicyAssignment": "EnterpriseAccessPolicyAssignment",
-   "azure-native:cache:EnterpriseDatabase": "EnterpriseDatabase",
-   "azure-native:cache:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
-   "azure-native:cache:FirewallRule": "FirewallRule",
-   "azure-native:cache:LinkedServer": "LinkedServer",
-   "azure-native:cache:PatchSchedule": "PatchSchedule",
-   "azure-native:cache:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:cache:Redis": "Redis",
-   "azure-native:cache:RedisEnterprise": "RedisEnterprise"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20200601",
-  "fqn": "pulumi_azure_native.cache.v20200601",
-  "classes": {
-   "azure-native:cache/v20200601:Redis": "Redis"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20201001preview",
-  "fqn": "pulumi_azure_native.cache.v20201001preview",
-  "classes": {
-   "azure-native:cache/v20201001preview:RedisEnterprise": "RedisEnterprise"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20230301preview",
-  "fqn": "pulumi_azure_native.cache.v20230301preview",
-  "classes": {
-   "azure-native:cache/v20230301preview:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
-   "azure-native:cache/v20230301preview:RedisEnterprise": "RedisEnterprise"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20230401",
-  "fqn": "pulumi_azure_native.cache.v20230401",
-  "classes": {
-   "azure-native:cache/v20230401:FirewallRule": "FirewallRule",
-   "azure-native:cache/v20230401:LinkedServer": "LinkedServer",
-   "azure-native:cache/v20230401:PatchSchedule": "PatchSchedule",
-   "azure-native:cache/v20230401:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:cache/v20230401:Redis": "Redis"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20230501preview",
-  "fqn": "pulumi_azure_native.cache.v20230501preview",
-  "classes": {
-   "azure-native:cache/v20230501preview:AccessPolicy": "AccessPolicy",
-   "azure-native:cache/v20230501preview:AccessPolicyAssignment": "AccessPolicyAssignment"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20231001preview",
-  "fqn": "pulumi_azure_native.cache.v20231001preview",
-  "classes": {
-   "azure-native:cache/v20231001preview:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
-   "azure-native:cache/v20231001preview:RedisEnterprise": "RedisEnterprise"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20240901preview",
-  "fqn": "pulumi_azure_native.cache.v20240901preview",
-  "classes": {
-   "azure-native:cache/v20240901preview:EnterpriseAccessPolicyAssignment": "EnterpriseAccessPolicyAssignment",
-   "azure-native:cache/v20240901preview:EnterpriseDatabase": "EnterpriseDatabase",
-   "azure-native:cache/v20240901preview:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
-   "azure-native:cache/v20240901preview:RedisEnterprise": "RedisEnterprise"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20241001",
-  "fqn": "pulumi_azure_native.cache.v20241001",
-  "classes": {
-   "azure-native:cache/v20241001:EnterpriseDatabase": "EnterpriseDatabase",
-   "azure-native:cache/v20241001:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
-   "azure-native:cache/v20241001:RedisEnterprise": "RedisEnterprise"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "cache/v20241101",
-  "fqn": "pulumi_azure_native.cache.v20241101",
-  "classes": {
-   "azure-native:cache/v20241101:AccessPolicy": "AccessPolicy",
-   "azure-native:cache/v20241101:AccessPolicyAssignment": "AccessPolicyAssignment",
-   "azure-native:cache/v20241101:FirewallRule": "FirewallRule",
-   "azure-native:cache/v20241101:LinkedServer": "LinkedServer",
-   "azure-native:cache/v20241101:PatchSchedule": "PatchSchedule",
-   "azure-native:cache/v20241101:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:cache/v20241101:Redis": "Redis"
   }
  },
  {
@@ -12235,6 +12130,100 @@ _utilities.register(
   "fqn": "pulumi_azure_native.redhatopenshift.v20240812preview",
   "classes": {
    "azure-native:redhatopenshift/v20240812preview:OpenShiftCluster": "OpenShiftCluster"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "redis",
+  "fqn": "pulumi_azure_native.redis",
+  "classes": {
+   "azure-native:redis:AccessPolicy": "AccessPolicy",
+   "azure-native:redis:AccessPolicyAssignment": "AccessPolicyAssignment",
+   "azure-native:redis:FirewallRule": "FirewallRule",
+   "azure-native:redis:LinkedServer": "LinkedServer",
+   "azure-native:redis:PatchSchedule": "PatchSchedule",
+   "azure-native:redis:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:redis:Redis": "Redis"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "redis/v20200601",
+  "fqn": "pulumi_azure_native.redis.v20200601",
+  "classes": {
+   "azure-native:redis/v20200601:Redis": "Redis"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "redis/v20241101",
+  "fqn": "pulumi_azure_native.redis.v20241101",
+  "classes": {
+   "azure-native:redis/v20241101:AccessPolicy": "AccessPolicy",
+   "azure-native:redis/v20241101:AccessPolicyAssignment": "AccessPolicyAssignment",
+   "azure-native:redis/v20241101:FirewallRule": "FirewallRule",
+   "azure-native:redis/v20241101:LinkedServer": "LinkedServer",
+   "azure-native:redis/v20241101:PatchSchedule": "PatchSchedule",
+   "azure-native:redis/v20241101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:redis/v20241101:Redis": "Redis"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "redisenterprise",
+  "fqn": "pulumi_azure_native.redisenterprise",
+  "classes": {
+   "azure-native:redisenterprise:EnterpriseAccessPolicyAssignment": "EnterpriseAccessPolicyAssignment",
+   "azure-native:redisenterprise:EnterpriseDatabase": "EnterpriseDatabase",
+   "azure-native:redisenterprise:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
+   "azure-native:redisenterprise:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "redisenterprise/v20201001preview",
+  "fqn": "pulumi_azure_native.redisenterprise.v20201001preview",
+  "classes": {
+   "azure-native:redisenterprise/v20201001preview:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "redisenterprise/v20231001preview",
+  "fqn": "pulumi_azure_native.redisenterprise.v20231001preview",
+  "classes": {
+   "azure-native:redisenterprise/v20231001preview:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
+   "azure-native:redisenterprise/v20231001preview:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "redisenterprise/v20240201",
+  "fqn": "pulumi_azure_native.redisenterprise.v20240201",
+  "classes": {
+   "azure-native:redisenterprise/v20240201:EnterpriseDatabase": "EnterpriseDatabase",
+   "azure-native:redisenterprise/v20240201:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
+   "azure-native:redisenterprise/v20240201:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "redisenterprise/v20240901preview",
+  "fqn": "pulumi_azure_native.redisenterprise.v20240901preview",
+  "classes": {
+   "azure-native:redisenterprise/v20240901preview:EnterpriseAccessPolicyAssignment": "EnterpriseAccessPolicyAssignment",
+   "azure-native:redisenterprise/v20240901preview:EnterpriseDatabase": "EnterpriseDatabase",
+   "azure-native:redisenterprise/v20240901preview:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "redisenterprise/v20241001",
+  "fqn": "pulumi_azure_native.redisenterprise.v20241001",
+  "classes": {
+   "azure-native:redisenterprise/v20241001:EnterpriseDatabase": "EnterpriseDatabase",
+   "azure-native:redisenterprise/v20241001:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
+   "azure-native:redisenterprise/v20241001:RedisEnterprise": "RedisEnterprise"
   }
  },
  {

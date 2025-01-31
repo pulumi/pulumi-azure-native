@@ -158,14 +158,6 @@ Blueprint:
     tracking: 2018-11-01-preview
 BotService:
     tracking: 2023-09-15-preview
-Cache:
-    tracking: "2024-11-01"
-    additions:
-        EnterpriseAccessPolicyAssignment: 2024-09-01-preview
-        EnterpriseDatabase: 2024-09-01-preview
-        EnterprisePrivateEndpointConnection: 2024-09-01-preview
-        RedisEnterprise: 2024-09-01-preview
-        listEnterpriseDatabaseKeys: 2024-09-01-preview
 Capacity: {}
 Cdn:
     tracking: "2024-09-01"
@@ -1347,6 +1339,12 @@ RecoveryServices:
         getRecoveryPointAccessToken: "2023-01-15"
 RedHatOpenShift:
     tracking: "2023-11-22"
+Redis:
+    tracking: "2024-11-01"
+RedisEnterprise:
+    tracking: "2024-02-01"
+    additions:
+        EnterpriseAccessPolicyAssignment: 2024-09-01-preview
 Relay:
     tracking: "2024-01-01"
 ResourceConnector:

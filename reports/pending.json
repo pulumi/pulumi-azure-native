@@ -120,10 +120,6 @@
   "BillingBenefits": [],
   "Blueprint": [],
   "BotService": [],
-  "Cache": [
-    "2024-10-01",
-    "2024-11-01"
-  ],
   "Capacity": [],
   "Cdn": [
     "2024-09-01"
@@ -869,6 +865,13 @@
   ],
   "RedHatOpenShift": [
     "2024-08-12-preview"
+  ],
+  "Redis": [],
+  "RedisEnterprise": [
+    "2024-03-01-preview",
+    "2024-06-01-preview",
+    "2024-09-01-preview",
+    "2024-10-01"
   ],
   "Relay": [],
   "ResourceConnector": [

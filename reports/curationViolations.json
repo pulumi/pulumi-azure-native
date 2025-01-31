@@ -368,6 +368,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "RedisEnterprise",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "ResourceGraph",
     "Detail": "expected tracking preview but found stable"
   },

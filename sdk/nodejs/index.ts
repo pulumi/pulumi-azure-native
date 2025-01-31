@@ -46,7 +46,6 @@ import * as batch from "./batch";
 import * as billing from "./billing";
 import * as blueprint from "./blueprint";
 import * as botservice from "./botservice";
-import * as cache from "./cache";
 import * as cdn from "./cdn";
 import * as certificateregistration from "./certificateregistration";
 import * as changeanalysis from "./changeanalysis";
@@ -201,6 +200,8 @@ import * as quota from "./quota";
 import * as recommendationsservice from "./recommendationsservice";
 import * as recoveryservices from "./recoveryservices";
 import * as redhatopenshift from "./redhatopenshift";
+import * as redis from "./redis";
+import * as redisenterprise from "./redisenterprise";
 import * as relay from "./relay";
 import * as resourceconnector from "./resourceconnector";
 import * as resourcegraph from "./resourcegraph";
@@ -290,7 +291,6 @@ export {
     billing,
     blueprint,
     botservice,
-    cache,
     cdn,
     certificateregistration,
     changeanalysis,
@@ -445,6 +445,8 @@ export {
     recommendationsservice,
     recoveryservices,
     redhatopenshift,
+    redis,
+    redisenterprise,
     relay,
     resourceconnector,
     resourcegraph,
