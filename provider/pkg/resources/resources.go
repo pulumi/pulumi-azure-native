@@ -333,6 +333,9 @@ var v3ModulesNamedByFolder = map[string]ModuleName{
 	// Cache:
 	"redis":           "Redis",
 	"redisenterprise": "RedisEnterprise",
+	// Devices:
+	"iothub": "IoTHub",
+	"deviceprovisioningservices": "DeviceProvisioningServices",
 	// "DocumentDB":
 	"mongocluster": "MongoCluster",
 }
