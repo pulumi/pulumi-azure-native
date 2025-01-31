@@ -396,15 +396,13 @@
   ],
   "DevSpaces": [],
   "DevTestLab": [],
+  "DeviceProvisioningServices": [
+    "2025-02-01-preview"
+  ],
   "DeviceRegistry": [
     "2024-11-01"
   ],
   "DeviceUpdate": [],
-  "Devices": [
-    "2023-06-30",
-    "2023-06-30-preview",
-    "2025-02-01-preview"
-  ],
   "DigitalTwins": [],
   "Dns": [],
   "DnsResolver": [],
@@ -581,6 +579,9 @@
   ],
   "IoTCentral": [],
   "IoTFirmwareDefense": [],
+  "IoTHub": [
+    "2023-06-30-preview"
+  ],
   "IoTOperations": [],
   "IoTOperationsDataProcessor": [],
   "IoTOperationsMQ": [],

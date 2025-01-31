@@ -167,10 +167,10 @@ if typing.TYPE_CHECKING:
     devcenter = __devcenter
     import pulumi_azure_native.devhub as __devhub
     devhub = __devhub
+    import pulumi_azure_native.deviceprovisioningservices as __deviceprovisioningservices
+    deviceprovisioningservices = __deviceprovisioningservices
     import pulumi_azure_native.deviceregistry as __deviceregistry
     deviceregistry = __deviceregistry
-    import pulumi_azure_native.devices as __devices
-    devices = __devices
     import pulumi_azure_native.deviceupdate as __deviceupdate
     deviceupdate = __deviceupdate
     import pulumi_azure_native.devopsinfrastructure as __devopsinfrastructure
@@ -265,6 +265,8 @@ if typing.TYPE_CHECKING:
     iotcentral = __iotcentral
     import pulumi_azure_native.iotfirmwaredefense as __iotfirmwaredefense
     iotfirmwaredefense = __iotfirmwaredefense
+    import pulumi_azure_native.iothub as __iothub
+    iothub = __iothub
     import pulumi_azure_native.iotoperations as __iotoperations
     iotoperations = __iotoperations
     import pulumi_azure_native.iotoperationsdataprocessor as __iotoperationsdataprocessor
@@ -573,8 +575,8 @@ else:
     desktopvirtualization = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization')
     devcenter = _utilities.lazy_import('pulumi_azure_native.devcenter')
     devhub = _utilities.lazy_import('pulumi_azure_native.devhub')
+    deviceprovisioningservices = _utilities.lazy_import('pulumi_azure_native.deviceprovisioningservices')
     deviceregistry = _utilities.lazy_import('pulumi_azure_native.deviceregistry')
-    devices = _utilities.lazy_import('pulumi_azure_native.devices')
     deviceupdate = _utilities.lazy_import('pulumi_azure_native.deviceupdate')
     devopsinfrastructure = _utilities.lazy_import('pulumi_azure_native.devopsinfrastructure')
     devspaces = _utilities.lazy_import('pulumi_azure_native.devspaces')
@@ -622,6 +624,7 @@ else:
     intune = _utilities.lazy_import('pulumi_azure_native.intune')
     iotcentral = _utilities.lazy_import('pulumi_azure_native.iotcentral')
     iotfirmwaredefense = _utilities.lazy_import('pulumi_azure_native.iotfirmwaredefense')
+    iothub = _utilities.lazy_import('pulumi_azure_native.iothub')
     iotoperations = _utilities.lazy_import('pulumi_azure_native.iotoperations')
     iotoperationsdataprocessor = _utilities.lazy_import('pulumi_azure_native.iotoperationsdataprocessor')
     iotoperationsmq = _utilities.lazy_import('pulumi_azure_native.iotoperationsmq')
@@ -6178,6 +6181,52 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "deviceprovisioningservices",
+  "fqn": "pulumi_azure_native.deviceprovisioningservices",
+  "classes": {
+   "azure-native:deviceprovisioningservices:DpsCertificate": "DpsCertificate",
+   "azure-native:deviceprovisioningservices:IotDpsResource": "IotDpsResource",
+   "azure-native:deviceprovisioningservices:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "deviceprovisioningservices/v20200901preview",
+  "fqn": "pulumi_azure_native.deviceprovisioningservices.v20200901preview",
+  "classes": {
+   "azure-native:deviceprovisioningservices/v20200901preview:IotDpsResource": "IotDpsResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "deviceprovisioningservices/v20211015",
+  "fqn": "pulumi_azure_native.deviceprovisioningservices.v20211015",
+  "classes": {
+   "azure-native:deviceprovisioningservices/v20211015:DpsCertificate": "DpsCertificate"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "deviceprovisioningservices/v20230301preview",
+  "fqn": "pulumi_azure_native.deviceprovisioningservices.v20230301preview",
+  "classes": {
+   "azure-native:deviceprovisioningservices/v20230301preview:DpsCertificate": "DpsCertificate",
+   "azure-native:deviceprovisioningservices/v20230301preview:IotDpsResource": "IotDpsResource",
+   "azure-native:deviceprovisioningservices/v20230301preview:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "deviceprovisioningservices/v20250201preview",
+  "fqn": "pulumi_azure_native.deviceprovisioningservices.v20250201preview",
+  "classes": {
+   "azure-native:deviceprovisioningservices/v20250201preview:DpsCertificate": "DpsCertificate",
+   "azure-native:deviceprovisioningservices/v20250201preview:IotDpsResource": "IotDpsResource",
+   "azure-native:deviceprovisioningservices/v20250201preview:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "deviceregistry",
   "fqn": "pulumi_azure_native.deviceregistry",
   "classes": {
@@ -6218,115 +6267,6 @@ _utilities.register(
   "classes": {
    "azure-native:deviceregistry/v20241101:Asset": "Asset",
    "azure-native:deviceregistry/v20241101:AssetEndpointProfile": "AssetEndpointProfile"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devices",
-  "fqn": "pulumi_azure_native.devices",
-  "classes": {
-   "azure-native:devices:Certificate": "Certificate",
-   "azure-native:devices:DpsCertificate": "DpsCertificate",
-   "azure-native:devices:IotDpsResource": "IotDpsResource",
-   "azure-native:devices:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection",
-   "azure-native:devices:IotHubResource": "IotHubResource",
-   "azure-native:devices:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
-   "azure-native:devices:PrivateEndpointConnection": "PrivateEndpointConnection"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devices/v20200401",
-  "fqn": "pulumi_azure_native.devices.v20200401",
-  "classes": {
-   "azure-native:devices/v20200401:Certificate": "Certificate"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devices/v20200901preview",
-  "fqn": "pulumi_azure_native.devices.v20200901preview",
-  "classes": {
-   "azure-native:devices/v20200901preview:IotDpsResource": "IotDpsResource"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devices/v20210303preview",
-  "fqn": "pulumi_azure_native.devices.v20210303preview",
-  "classes": {
-   "azure-native:devices/v20210303preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devices/v20211015",
-  "fqn": "pulumi_azure_native.devices.v20211015",
-  "classes": {
-   "azure-native:devices/v20211015:DpsCertificate": "DpsCertificate"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devices/v20220430preview",
-  "fqn": "pulumi_azure_native.devices.v20220430preview",
-  "classes": {
-   "azure-native:devices/v20220430preview:Certificate": "Certificate",
-   "azure-native:devices/v20220430preview:IotHubResource": "IotHubResource",
-   "azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
-   "azure-native:devices/v20220430preview:PrivateEndpointConnection": "PrivateEndpointConnection"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devices/v20221212",
-  "fqn": "pulumi_azure_native.devices.v20221212",
-  "classes": {
-   "azure-native:devices/v20221212:DpsCertificate": "DpsCertificate",
-   "azure-native:devices/v20221212:IotDpsResource": "IotDpsResource",
-   "azure-native:devices/v20221212:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devices/v20230301preview",
-  "fqn": "pulumi_azure_native.devices.v20230301preview",
-  "classes": {
-   "azure-native:devices/v20230301preview:DpsCertificate": "DpsCertificate",
-   "azure-native:devices/v20230301preview:IotDpsResource": "IotDpsResource",
-   "azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devices/v20230630",
-  "fqn": "pulumi_azure_native.devices.v20230630",
-  "classes": {
-   "azure-native:devices/v20230630:Certificate": "Certificate",
-   "azure-native:devices/v20230630:IotHubResource": "IotHubResource",
-   "azure-native:devices/v20230630:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
-   "azure-native:devices/v20230630:PrivateEndpointConnection": "PrivateEndpointConnection"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devices/v20230630preview",
-  "fqn": "pulumi_azure_native.devices.v20230630preview",
-  "classes": {
-   "azure-native:devices/v20230630preview:Certificate": "Certificate",
-   "azure-native:devices/v20230630preview:IotHubResource": "IotHubResource",
-   "azure-native:devices/v20230630preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
-   "azure-native:devices/v20230630preview:PrivateEndpointConnection": "PrivateEndpointConnection"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "devices/v20250201preview",
-  "fqn": "pulumi_azure_native.devices.v20250201preview",
-  "classes": {
-   "azure-native:devices/v20250201preview:DpsCertificate": "DpsCertificate",
-   "azure-native:devices/v20250201preview:IotDpsResource": "IotDpsResource",
-   "azure-native:devices/v20250201preview:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection"
   }
  },
  {
@@ -8444,6 +8384,55 @@ _utilities.register(
   "classes": {
    "azure-native:iotfirmwaredefense/v20240110:Firmware": "Firmware",
    "azure-native:iotfirmwaredefense/v20240110:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "iothub",
+  "fqn": "pulumi_azure_native.iothub",
+  "classes": {
+   "azure-native:iothub:Certificate": "Certificate",
+   "azure-native:iothub:IotHubResource": "IotHubResource",
+   "azure-native:iothub:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
+   "azure-native:iothub:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "iothub/v20200401",
+  "fqn": "pulumi_azure_native.iothub.v20200401",
+  "classes": {
+   "azure-native:iothub/v20200401:Certificate": "Certificate"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "iothub/v20210303preview",
+  "fqn": "pulumi_azure_native.iothub.v20210303preview",
+  "classes": {
+   "azure-native:iothub/v20210303preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "iothub/v20230630",
+  "fqn": "pulumi_azure_native.iothub.v20230630",
+  "classes": {
+   "azure-native:iothub/v20230630:Certificate": "Certificate",
+   "azure-native:iothub/v20230630:IotHubResource": "IotHubResource",
+   "azure-native:iothub/v20230630:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
+   "azure-native:iothub/v20230630:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "iothub/v20230630preview",
+  "fqn": "pulumi_azure_native.iothub.v20230630preview",
+  "classes": {
+   "azure-native:iothub/v20230630preview:Certificate": "Certificate",
+   "azure-native:iothub/v20230630preview:IotHubResource": "IotHubResource",
+   "azure-native:iothub/v20230630preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
+   "azure-native:iothub/v20230630preview:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {

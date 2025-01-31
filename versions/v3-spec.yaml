@@ -667,6 +667,8 @@ DevSpaces:
     tracking: "2019-04-01"
 DevTestLab:
     tracking: "2018-09-15"
+DeviceProvisioningServices:
+    tracking: 2023-03-01-preview
 DeviceRegistry:
     tracking: "2024-11-01"
     additions:
@@ -677,14 +679,6 @@ DeviceRegistry:
         SchemaVersion: 2024-09-01-preview
 DeviceUpdate:
     tracking: "2023-07-01"
-Devices:
-    tracking: "2023-06-30"
-    additions:
-        DpsCertificate: 2023-03-01-preview
-        IotDpsResource: 2023-03-01-preview
-        IotDpsResourcePrivateEndpointConnection: 2023-03-01-preview
-        listIotDpsResourceKeys: 2023-03-01-preview
-        listIotDpsResourceKeysForKeyName: 2023-03-01-preview
 DigitalTwins:
     tracking: "2023-01-31"
 Dns:
@@ -849,6 +843,8 @@ IoTCentral:
     tracking: 2021-11-01-preview
 IoTFirmwareDefense:
     tracking: "2024-01-10"
+IoTHub:
+    tracking: "2023-06-30"
 IoTOperations:
     tracking: "2024-11-01"
 IoTOperationsDataProcessor:

@@ -4989,6 +4989,32 @@ DevTestLab:
         SpecFilePath: specification/devtestlabs/resource-manager/Microsoft.DevTestLab/stable/2018-09-15/DTL.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/listApplicableSchedules
         RpNamespace: Microsoft.DevTestLab
+DeviceProvisioningServices:
+    DpsCertificate:
+        ApiVersion: 2023-03-01-preview
+        SpecFilePath: specification/deviceprovisioningservices/resource-manager/Microsoft.Devices/preview/2023-03-01-preview/iotdps.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}/certificates/{certificateName}
+        RpNamespace: Microsoft.Devices
+    IotDpsResource:
+        ApiVersion: 2023-03-01-preview
+        SpecFilePath: specification/deviceprovisioningservices/resource-manager/Microsoft.Devices/preview/2023-03-01-preview/iotdps.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}
+        RpNamespace: Microsoft.Devices
+    IotDpsResourcePrivateEndpointConnection:
+        ApiVersion: 2023-03-01-preview
+        SpecFilePath: specification/deviceprovisioningservices/resource-manager/Microsoft.Devices/preview/2023-03-01-preview/iotdps.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}
+        RpNamespace: Microsoft.Devices
+    listIotDpsResourceKeys:
+        ApiVersion: 2023-03-01-preview
+        SpecFilePath: specification/deviceprovisioningservices/resource-manager/Microsoft.Devices/preview/2023-03-01-preview/iotdps.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}/listkeys
+        RpNamespace: Microsoft.Devices
+    listIotDpsResourceKeysForKeyName:
+        ApiVersion: 2023-03-01-preview
+        SpecFilePath: specification/deviceprovisioningservices/resource-manager/Microsoft.Devices/preview/2023-03-01-preview/iotdps.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}/keys/{keyName}/listkeys
+        RpNamespace: Microsoft.Devices
 DeviceRegistry:
     Asset:
         ApiVersion: "2024-11-01"
@@ -5046,62 +5072,6 @@ DeviceUpdate:
         SpecFilePath: specification/deviceupdate/resource-manager/Microsoft.DeviceUpdate/stable/2023-07-01/deviceupdate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceUpdate/accounts/{accountName}/privateEndpointConnectionProxies/{privateEndpointConnectionProxyId}
         RpNamespace: Microsoft.DeviceUpdate
-Devices:
-    Certificate:
-        ApiVersion: "2023-06-30"
-        SpecFilePath: specification/iothub/resource-manager/Microsoft.Devices/stable/2023-06-30/iothub.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/certificates/{certificateName}
-        RpNamespace: Microsoft.Devices
-    DpsCertificate:
-        ApiVersion: 2023-03-01-preview
-        SpecFilePath: specification/deviceprovisioningservices/resource-manager/Microsoft.Devices/preview/2023-03-01-preview/iotdps.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}/certificates/{certificateName}
-        RpNamespace: Microsoft.Devices
-    IotDpsResource:
-        ApiVersion: 2023-03-01-preview
-        SpecFilePath: specification/deviceprovisioningservices/resource-manager/Microsoft.Devices/preview/2023-03-01-preview/iotdps.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}
-        RpNamespace: Microsoft.Devices
-    IotDpsResourcePrivateEndpointConnection:
-        ApiVersion: 2023-03-01-preview
-        SpecFilePath: specification/deviceprovisioningservices/resource-manager/Microsoft.Devices/preview/2023-03-01-preview/iotdps.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}
-        RpNamespace: Microsoft.Devices
-    IotHubResource:
-        ApiVersion: "2023-06-30"
-        SpecFilePath: specification/iothub/resource-manager/Microsoft.Devices/stable/2023-06-30/iothub.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}
-        RpNamespace: Microsoft.Devices
-    IotHubResourceEventHubConsumerGroup:
-        ApiVersion: "2023-06-30"
-        SpecFilePath: specification/iothub/resource-manager/Microsoft.Devices/stable/2023-06-30/iothub.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/eventHubEndpoints/{eventHubEndpointName}/ConsumerGroups/{name}
-        RpNamespace: Microsoft.Devices
-    PrivateEndpointConnection:
-        ApiVersion: "2023-06-30"
-        SpecFilePath: specification/iothub/resource-manager/Microsoft.Devices/stable/2023-06-30/iothub.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/iotHubs/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}
-        RpNamespace: Microsoft.Devices
-    listIotDpsResourceKeys:
-        ApiVersion: 2023-03-01-preview
-        SpecFilePath: specification/deviceprovisioningservices/resource-manager/Microsoft.Devices/preview/2023-03-01-preview/iotdps.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}/listkeys
-        RpNamespace: Microsoft.Devices
-    listIotDpsResourceKeysForKeyName:
-        ApiVersion: 2023-03-01-preview
-        SpecFilePath: specification/deviceprovisioningservices/resource-manager/Microsoft.Devices/preview/2023-03-01-preview/iotdps.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}/keys/{keyName}/listkeys
-        RpNamespace: Microsoft.Devices
-    listIotHubResourceKeys:
-        ApiVersion: "2023-06-30"
-        SpecFilePath: specification/iothub/resource-manager/Microsoft.Devices/stable/2023-06-30/iothub.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/listkeys
-        RpNamespace: Microsoft.Devices
-    listIotHubResourceKeysForKeyName:
-        ApiVersion: "2023-06-30"
-        SpecFilePath: specification/iothub/resource-manager/Microsoft.Devices/stable/2023-06-30/iothub.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/IotHubKeys/{keyName}/listkeys
-        RpNamespace: Microsoft.Devices
 DigitalTwins:
     DigitalTwin:
         ApiVersion: "2023-01-31"
@@ -6665,6 +6635,37 @@ IoTFirmwareDefense:
         SpecFilePath: specification/fist/resource-manager/Microsoft.IoTFirmwareDefense/stable/2024-01-10/workspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTFirmwareDefense/workspaces/{workspaceName}
         RpNamespace: Microsoft.IoTFirmwareDefense
+IoTHub:
+    Certificate:
+        ApiVersion: "2023-06-30"
+        SpecFilePath: specification/iothub/resource-manager/Microsoft.Devices/stable/2023-06-30/iothub.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/certificates/{certificateName}
+        RpNamespace: Microsoft.Devices
+    IotHubResource:
+        ApiVersion: "2023-06-30"
+        SpecFilePath: specification/iothub/resource-manager/Microsoft.Devices/stable/2023-06-30/iothub.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}
+        RpNamespace: Microsoft.Devices
+    IotHubResourceEventHubConsumerGroup:
+        ApiVersion: "2023-06-30"
+        SpecFilePath: specification/iothub/resource-manager/Microsoft.Devices/stable/2023-06-30/iothub.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/eventHubEndpoints/{eventHubEndpointName}/ConsumerGroups/{name}
+        RpNamespace: Microsoft.Devices
+    PrivateEndpointConnection:
+        ApiVersion: "2023-06-30"
+        SpecFilePath: specification/iothub/resource-manager/Microsoft.Devices/stable/2023-06-30/iothub.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/iotHubs/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}
+        RpNamespace: Microsoft.Devices
+    listIotHubResourceKeys:
+        ApiVersion: "2023-06-30"
+        SpecFilePath: specification/iothub/resource-manager/Microsoft.Devices/stable/2023-06-30/iothub.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/listkeys
+        RpNamespace: Microsoft.Devices
+    listIotHubResourceKeysForKeyName:
+        ApiVersion: "2023-06-30"
+        SpecFilePath: specification/iothub/resource-manager/Microsoft.Devices/stable/2023-06-30/iothub.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/IotHubKeys/{keyName}/listkeys
+        RpNamespace: Microsoft.Devices
 IoTOperations:
     Broker:
         ApiVersion: "2024-11-01"

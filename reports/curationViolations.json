@@ -148,6 +148,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "DeviceProvisioningServices",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "DeviceRegistry",
     "Detail": "expected no additions but found some"
   },

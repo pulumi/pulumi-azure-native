@@ -76,8 +76,8 @@ import * as delegatednetwork from "./delegatednetwork";
 import * as desktopvirtualization from "./desktopvirtualization";
 import * as devcenter from "./devcenter";
 import * as devhub from "./devhub";
+import * as deviceprovisioningservices from "./deviceprovisioningservices";
 import * as deviceregistry from "./deviceregistry";
-import * as devices from "./devices";
 import * as deviceupdate from "./deviceupdate";
 import * as devopsinfrastructure from "./devopsinfrastructure";
 import * as devspaces from "./devspaces";
@@ -116,6 +116,7 @@ import * as importexport from "./importexport";
 import * as insights from "./insights";
 import * as iotcentral from "./iotcentral";
 import * as iotfirmwaredefense from "./iotfirmwaredefense";
+import * as iothub from "./iothub";
 import * as iotoperations from "./iotoperations";
 import * as iotoperationsmq from "./iotoperationsmq";
 import * as iotoperationsorchestrator from "./iotoperationsorchestrator";
@@ -293,8 +294,8 @@ export {
     desktopvirtualization,
     devcenter,
     devhub,
+    deviceprovisioningservices,
     deviceregistry,
-    devices,
     deviceupdate,
     devopsinfrastructure,
     devspaces,
@@ -333,6 +334,7 @@ export {
     insights,
     iotcentral,
     iotfirmwaredefense,
+    iothub,
     iotoperations,
     iotoperationsmq,
     iotoperationsorchestrator,
