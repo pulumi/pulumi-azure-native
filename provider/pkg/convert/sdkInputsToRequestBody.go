@@ -43,7 +43,7 @@ func (k *SdkShapeConverter) SdkInputsToRequestBody(props map[string]resources.Az
 		}
 	}
 
-	if len(unusedValues) > 0 {
+	if len(unusedValues) > 0 && logging.V(9) {
 		unusedKeys := make([]string, 0, len(unusedValues))
 		for k := range unusedValues {
 			unusedKeys = append(unusedKeys, k)
