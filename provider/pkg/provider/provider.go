@@ -408,11 +408,22 @@ func tokenRequestOpts(endpoint string) policy.TokenRequestOptions {
 }
 
 func (k *azureNativeProvider) invokeResponseToOutputs(response any, res resources.AzureAPIInvoke) map[string]any {
+	var outputs map[string]any
 	if responseMap, ok := response.(map[string]any); ok {
 		// Map the raw response to the shape of outputs that the SDKs expect.
-		return k.converter.ResponseBodyToSdkOutputs(res.Response, responseMap)
+		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, responseMap)
+	} else {
+		outputs = map[string]any{resources.SingleValueProperty: response}
 	}
-	return map[string]any{resources.SingleValueProperty: response}
+
+	if res.GetResource {
+		if version.GetVersion().Major >= 3 {
+			// resources have an apiVersion output property.
+			outputs["apiVersion"] = res.APIVersion
+		}
+	}
+
+	return outputs
 }
 
 // StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
@@ -636,6 +647,14 @@ func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, ran
 			}
 		}
 	}
+
+	// Apply the apiVersion of this resource.
+	// Note that some resource types do not have an apiVersion property (e.g. storage:Blob).
+	if version.GetVersion().Major >= 3 {
+		if res.APIVersion != "" {
+			news["apiVersion"] = resource.NewStringProperty(res.APIVersion)
+		}
+	}
 }
 
 // validateType checks the all properties and required properties of the given type and value map.
@@ -841,6 +860,17 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 		logging.V(9).Infof("no __inputs found for '%s'", urn)
 	}
 
+	// v2-to-v3 migration: apiVersion might be available in the old state and we use it to suppress spurious diffs.
+	migratedApiVersion := false
+	if version.GetVersion().Major >= 3 {
+		if _, ok := oldInputs["apiVersion"]; !ok {
+			if v, ok := oldState["apiVersion"]; ok {
+				oldInputs["apiVersion"] = v
+				migratedApiVersion = true
+			}
+		}
+	}
+
 	// Get new resource inputs. The user is submitting these as an update.
 	newResInputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.news", label),
@@ -871,6 +901,13 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 
 	// Based on the detailed diff above, calculate the list of changes and replacements.
 	changes, replaces := calculateChangesAndReplacements(detailedDiff, oldInputs, newResInputs, oldState, *res)
+
+	if migratedApiVersion {
+		if v, ok := detailedDiff["apiVersion"]; ok {
+			// in this case, the diff is between the old state and the new inputs.
+			v.InputDiff = false
+		}
+	}
 
 	// TODO: implement create-before-delete for children of randomly auto-named resources.
 	deleteBeforeReplace := len(replaces) > 0
@@ -975,7 +1012,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	}
 
 	// Store both outputs and inputs into the state.
-	obj := checkpointObject(inputs, outputs)
+	obj := checkpointObject(res, inputs, outputs)
 
 	// Serialize and return RPC outputs
 	checkpoint, err := plugin.MarshalProperties(
@@ -1265,7 +1302,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	// Store both outputs and inputs into the state.
-	obj := checkpointObject(inputs, outputsWithoutIgnores)
+	obj := checkpointObject(res, inputs, outputsWithoutIgnores)
 
 	// Serialize and return RPC outputs.
 	checkpoint, err := plugin.MarshalProperties(
@@ -1405,7 +1442,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	}
 
 	// Store both outputs and inputs into the state.
-	obj := checkpointObject(inputs, outputs)
+	obj := checkpointObject(res, inputs, outputs)
 
 	// Serialize and return RPC outputs.
 	checkpoint, err := plugin.MarshalProperties(
@@ -1619,10 +1656,15 @@ func azureContext(ctx context.Context, timeoutSeconds float64) (context.Context,
 
 // checkpointObject produces the checkpointed state for the given inputs and outputs.
 // In v2, we stored the inputs in an `__inputs` field of the state; removed in v3.
-func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
+func checkpointObject(res *resources.AzureAPIResource, inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
 	object := resource.NewPropertyMapFromMap(outputs)
 	if version.GetVersion().Major < 3 {
 		object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
+	}
+
+	// emit the actual apiversion as an output property, for resources that have an apiVersion property.
+	if res.APIVersion != "" {
+		object["apiVersion"] = resource.NewStringProperty(res.APIVersion)
 	}
 	return object
 }
