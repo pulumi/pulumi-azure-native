@@ -1,4 +1,13 @@
 {
+  "azure-native:applicationinsights/v20150501:Workbook": {
+    "properties.kind": {}
+  },
+  "azure-native:applicationinsights/v20180501preview:ProactiveDetectionConfiguration": {
+    "properties.name": {}
+  },
+  "azure-native:applicationinsights:ProactiveDetectionConfiguration": {
+    "properties.name": {}
+  },
   "azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById": {
     "range.type": {}
   },
@@ -47,16 +56,7 @@
     "totalBudget.currency": {},
     "totalBudget.value": {}
   },
-  "azure-native:insights/v20150501:Workbook": {
-    "properties.kind": {}
-  },
-  "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration": {
-    "properties.name": {}
-  },
-  "azure-native:insights/v20210501preview:AutoscaleSetting": {
-    "properties.name": {}
-  },
-  "azure-native:insights:ProactiveDetectionConfiguration": {
+  "azure-native:monitor/v20210501preview:AutoscaleSetting": {
     "properties.name": {}
   },
   "azure-native:netapp/v20210401:BackupPolicy": {

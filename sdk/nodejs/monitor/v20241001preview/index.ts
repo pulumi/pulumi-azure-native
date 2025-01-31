@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { ActionGroupArgs } from "./actionGroup";
+export type ActionGroup = import("./actionGroup").ActionGroup;
+export const ActionGroup: typeof import("./actionGroup").ActionGroup = null as any;
+utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
+
+export { GetActionGroupArgs, GetActionGroupResult, GetActionGroupOutputArgs } from "./getActionGroup";
+export const getActionGroup: typeof import("./getActionGroup").getActionGroup = null as any;
+export const getActionGroupOutput: typeof import("./getActionGroup").getActionGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getActionGroup","getActionGroupOutput"], () => require("./getActionGroup"));
+
 export { GetPipelineGroupArgs, GetPipelineGroupResult, GetPipelineGroupOutputArgs } from "./getPipelineGroup";
 export const getPipelineGroup: typeof import("./getPipelineGroup").getPipelineGroup = null as any;
 export const getPipelineGroupOutput: typeof import("./getPipelineGroup").getPipelineGroupOutput = null as any;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:monitor/v20241001preview:ActionGroup":
+                return new ActionGroup(name, <any>undefined, { urn })
             case "azure-native:monitor/v20241001preview:PipelineGroup":
                 return new PipelineGroup(name, <any>undefined, { urn })
             default:

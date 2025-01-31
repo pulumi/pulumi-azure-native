@@ -152,6 +152,14 @@
     "Services_Start": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/start",
     "Services_Stop": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/stop"
   },
+  "ApplicationInsights": {
+    "APIKeys_Create": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ApiKeys",
+    "Components_Purge": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/purge",
+    "EASubscriptionMigrateToNewPricingModel_Post": "/subscriptions/{subscriptionId}/providers/microsoft.insights/migrateToNewPricingModel",
+    "EASubscriptionRollbackToLegacyPricingModel_Post": "/subscriptions/{subscriptionId}/providers/microsoft.insights/rollbackToLegacyPricingModel",
+    "ExportConfigurations_Create": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration",
+    "WorkItemConfigurations_Create": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/WorkItemConfigs"
+  },
   "Authorization": {
     "AccessReviewHistoryDefinitionInstance_GenerateDownloadUri": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/{historyDefinitionId}/instances/{instanceId}/generateDownloadUri",
     "AccessReviewInstance_AcceptRecommendations": "/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId}/instances/{id}/acceptRecommendations",
@@ -1252,23 +1260,6 @@
     "RoleInstances_Start": "/subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/locations/{locationName}/vendors/{vendorName}/networkFunctions/{serviceKey}/roleInstances/{roleInstanceName}/start",
     "RoleInstances_Stop": "/subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/locations/{locationName}/vendors/{vendorName}/networkFunctions/{serviceKey}/roleInstances/{roleInstanceName}/stop"
   },
-  "Insights": {
-    "APIKeys_Create": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ApiKeys",
-    "ActionGroups_CreateNotificationsAtActionGroupResourceLevel": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}/createNotifications",
-    "ActionGroups_CreateNotificationsAtResourceGroupLevel": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/createNotifications",
-    "ActionGroups_EnableReceiver": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}/subscribe",
-    "ActionGroups_PostTestNotifications": "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/createNotifications",
-    "ActionGroups_ReconcileNSP": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}/reconcile",
-    "Components_Purge": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/purge",
-    "CreateNotificationsAtTenantActionGroupResourceLevel": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups/{tenantActionGroupName}/createNotifications",
-    "DataCollectionEndpoints_ReconcileNSP": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionEndpoints/{dataCollectionEndpointName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}/reconcile",
-    "EASubscriptionMigrateToNewPricingModel_Post": "/subscriptions/{subscriptionId}/providers/microsoft.insights/migrateToNewPricingModel",
-    "EASubscriptionRollbackToLegacyPricingModel_Post": "/subscriptions/{subscriptionId}/providers/microsoft.insights/rollbackToLegacyPricingModel",
-    "ExportConfigurations_Create": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration",
-    "Metrics_ListAtSubscriptionScopePost": "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/metrics",
-    "ScheduledQueryRule_ReconcileNSP": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}/reconcile",
-    "WorkItemConfigurations_Create": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/WorkItemConfigs"
-  },
   "IntegrationSpaces": {
     "Applications_DeleteBusinessProcessDevelopmentArtifact": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/deleteBusinessProcessDevelopmentArtifact",
     "Applications_SaveBusinessProcessDevelopmentArtifact": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/saveBusinessProcessDevelopmentArtifact",
@@ -1628,6 +1619,17 @@
   "MongoCluster": {
     "MongoClusters_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/checkMongoClusterNameAvailability",
     "MongoClusters_Promote": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/promote"
+  },
+  "Monitor": {
+    "ActionGroups_CreateNotificationsAtActionGroupResourceLevel": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}/createNotifications",
+    "ActionGroups_CreateNotificationsAtResourceGroupLevel": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/createNotifications",
+    "ActionGroups_EnableReceiver": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}/subscribe",
+    "ActionGroups_PostTestNotifications": "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/createNotifications",
+    "ActionGroups_ReconcileNSP": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}/reconcile",
+    "CreateNotificationsAtTenantActionGroupResourceLevel": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups/{tenantActionGroupName}/createNotifications",
+    "DataCollectionEndpoints_ReconcileNSP": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionEndpoints/{dataCollectionEndpointName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}/reconcile",
+    "Metrics_ListAtSubscriptionScopePost": "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/metrics",
+    "ScheduledQueryRule_ReconcileNSP": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}/networkSecurityPerimeterConfigurations/{networkSecurityPerimeterConfigurationName}/reconcile"
   },
   "NetApp": {
     "Accounts_ChangeKeyVault": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/changeKeyVault",

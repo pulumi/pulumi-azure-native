@@ -1245,6 +1245,77 @@ AppPlatform:
         SpecFilePath: specification/appplatform/resource-manager/Microsoft.AppPlatform/preview/2024-01-01-preview/appplatform.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/listTestKeys
         RpNamespace: Microsoft.AppPlatform
+ApplicationInsights:
+    AnalyticsItem:
+        ApiVersion: "2015-05-01"
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/analyticsItems_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/{scopePath}/item
+        RpNamespace: Microsoft.Insights
+    Component:
+        ApiVersion: "2020-02-02"
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2020-02-02/components_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}
+        RpNamespace: Microsoft.Insights
+    ComponentCurrentBillingFeature:
+        ApiVersion: "2015-05-01"
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/componentFeaturesAndPricing_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures
+        RpNamespace: Microsoft.Insights
+    ComponentLinkedStorageAccount:
+        ApiVersion: 2020-03-01-preview
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2020-03-01-preview/componentLinkedStorageAccounts_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/linkedStorageAccounts/{storageType}
+        RpNamespace: Microsoft.Insights
+    ExportConfiguration:
+        ApiVersion: "2015-05-01"
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/componentContinuousExport_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration/{exportId}
+        RpNamespace: Microsoft.Insights
+    Favorite:
+        ApiVersion: "2015-05-01"
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/favorites_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/favorites/{favoriteId}
+        RpNamespace: Microsoft.Insights
+    MyWorkbook:
+        ApiVersion: "2021-03-08"
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2021-03-08/myworkbooks_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/myWorkbooks/{resourceName}
+        RpNamespace: Microsoft.Insights
+    ProactiveDetectionConfiguration:
+        ApiVersion: 2018-05-01-preview
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2018-05-01-preview/componentProactiveDetection_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ProactiveDetectionConfigs/{ConfigurationId}
+        RpNamespace: Microsoft.Insights
+    WebTest:
+        ApiVersion: "2022-06-15"
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2022-06-15/webTests_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/webtests/{webTestName}
+        RpNamespace: Microsoft.Insights
+    Workbook:
+        ApiVersion: "2023-06-01"
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2023-06-01/workbooks_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooks/{resourceName}
+        RpNamespace: Microsoft.Insights
+    WorkbookTemplate:
+        ApiVersion: "2020-11-20"
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2020-11-20/workbookTemplates_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooktemplates/{resourceName}
+        RpNamespace: Microsoft.Insights
+    getLiveToken:
+        ApiVersion: "2021-10-14"
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2021-10-14/livetoken_API.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.Insights/generatelivetoken
+        RpNamespace: Microsoft.Insights
+    getTestResultFile:
+        ApiVersion: 2020-02-10-preview
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2020-02-10-preview/WebTestResults_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/webtests/{webTestName}/getTestResultFile
+        RpNamespace: Microsoft.Insights
+    listEASubscriptionListMigrationDatePost:
+        ApiVersion: "2017-10-01"
+        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2017-10-01/eaSubscriptionMigration_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/providers/microsoft.insights/listMigrationdate
+        RpNamespace: Microsoft.Insights
 Attestation:
     AttestationProvider:
         ApiVersion: "2021-06-01"
@@ -6400,172 +6471,6 @@ ImportExport:
         SpecFilePath: specification/storageimportexport/resource-manager/Microsoft.ImportExport/preview/2021-01-01/storageimportexport.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ImportExport/jobs/{jobName}/listBitLockerKeys
         RpNamespace: Microsoft.ImportExport
-Insights:
-    ActionGroup:
-        ApiVersion: 2024-10-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2024-10-01-preview/actionGroups_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}
-        RpNamespace: Microsoft.Insights
-    ActivityLogAlert:
-        ApiVersion: 2023-01-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2023-01-01-preview/activityLogAlerts_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/activityLogAlerts/{activityLogAlertName}
-        RpNamespace: Microsoft.Insights
-    AnalyticsItem:
-        ApiVersion: "2015-05-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/analyticsItems_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/{scopePath}/item
-        RpNamespace: Microsoft.Insights
-    AutoscaleSetting:
-        ApiVersion: "2022-10-01"
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2022-10-01/autoscale_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/autoscalesettings/{autoscaleSettingName}
-        RpNamespace: Microsoft.Insights
-    Component:
-        ApiVersion: "2020-02-02"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2020-02-02/components_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}
-        RpNamespace: Microsoft.Insights
-    ComponentCurrentBillingFeature:
-        ApiVersion: "2015-05-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/componentFeaturesAndPricing_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures
-        RpNamespace: Microsoft.Insights
-    ComponentLinkedStorageAccount:
-        ApiVersion: 2020-03-01-preview
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2020-03-01-preview/componentLinkedStorageAccounts_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/linkedStorageAccounts/{storageType}
-        RpNamespace: Microsoft.Insights
-    DataCollectionEndpoint:
-        ApiVersion: "2023-03-11"
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2023-03-11/dataCollectionEndpoints_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionEndpoints/{dataCollectionEndpointName}
-        RpNamespace: Microsoft.Insights
-    DataCollectionRule:
-        ApiVersion: "2023-03-11"
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2023-03-11/dataCollectionRules_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}
-        RpNamespace: Microsoft.Insights
-    DataCollectionRuleAssociation:
-        ApiVersion: "2023-03-11"
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2023-03-11/dataCollectionRuleAssociations_API.json
-        ResourceUri: /{resourceUri}/providers/Microsoft.Insights/dataCollectionRuleAssociations/{associationName}
-        RpNamespace: Microsoft.Insights
-    DiagnosticSetting:
-        ApiVersion: 2021-05-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/diagnosticsSettings_API.json
-        ResourceUri: /{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{name}
-        RpNamespace: Microsoft.Insights
-    ExportConfiguration:
-        ApiVersion: "2015-05-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/componentContinuousExport_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration/{exportId}
-        RpNamespace: Microsoft.Insights
-    Favorite:
-        ApiVersion: "2015-05-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2015-05-01/favorites_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/favorites/{favoriteId}
-        RpNamespace: Microsoft.Insights
-    GuestDiagnosticsSetting:
-        ApiVersion: 2018-06-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2018-06-01-preview/guestDiagnosticSettings_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/guestDiagnosticSettings/{diagnosticSettingsName}
-        RpNamespace: Microsoft.Insights
-    GuestDiagnosticsSettingsAssociation:
-        ApiVersion: 2018-06-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2018-06-01-preview/guestDiagnosticSettingsAssociation_API.json
-        ResourceUri: /{resourceUri}/providers/microsoft.insights/guestDiagnosticSettingsAssociation/{associationName}
-        RpNamespace: Microsoft.Insights
-    LogProfile:
-        ApiVersion: "2016-03-01"
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2016-03-01/logProfiles_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Insights/logprofiles/{logProfileName}
-        RpNamespace: Microsoft.Insights
-    ManagementGroupDiagnosticSetting:
-        ApiVersion: 2021-05-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/managementGroupDiagnosticSettings_API.json
-        ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/diagnosticSettings/{name}
-        RpNamespace: Microsoft.Insights
-    MetricAlert:
-        ApiVersion: "2018-03-01"
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2018-03-01/metricAlert_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/metricAlerts/{ruleName}
-        RpNamespace: Microsoft.Insights
-    MyWorkbook:
-        ApiVersion: "2021-03-08"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2021-03-08/myworkbooks_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/myWorkbooks/{resourceName}
-        RpNamespace: Microsoft.Insights
-    PrivateEndpointConnection:
-        ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/PrivateLinkScopes/preview/2023-06-01-preview/privateLinkScopes_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/privateEndpointConnections/{privateEndpointConnectionName}
-        RpNamespace: Microsoft.Insights
-    PrivateLinkScope:
-        ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/PrivateLinkScopes/preview/2023-06-01-preview/privateLinkScopes_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}
-        RpNamespace: Microsoft.Insights
-    PrivateLinkScopedResource:
-        ApiVersion: 2023-06-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/PrivateLinkScopes/preview/2023-06-01-preview/privateLinkScopes_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/scopedResources/{name}
-        RpNamespace: Microsoft.Insights
-    ProactiveDetectionConfiguration:
-        ApiVersion: 2018-05-01-preview
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2018-05-01-preview/componentProactiveDetection_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ProactiveDetectionConfigs/{ConfigurationId}
-        RpNamespace: Microsoft.Insights
-    ScheduledQueryRule:
-        ApiVersion: 2024-01-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2024-01-01-preview/scheduledQueryRule_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}
-        RpNamespace: Microsoft.Insights
-    SubscriptionDiagnosticSetting:
-        ApiVersion: 2021-05-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/subscriptionDiagnosticsSettings_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Insights/diagnosticSettings/{name}
-        RpNamespace: Microsoft.Insights
-    TenantActionGroup:
-        ApiVersion: 2023-05-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2023-05-01-preview/tenantActionGroups_API.json
-        ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups/{tenantActionGroupName}
-        RpNamespace: Microsoft.Insights
-    WebTest:
-        ApiVersion: "2022-06-15"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2022-06-15/webTests_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/webtests/{webTestName}
-        RpNamespace: Microsoft.Insights
-    Workbook:
-        ApiVersion: "2023-06-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2023-06-01/workbooks_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooks/{resourceName}
-        RpNamespace: Microsoft.Insights
-    WorkbookTemplate:
-        ApiVersion: "2020-11-20"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2020-11-20/workbookTemplates_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooktemplates/{resourceName}
-        RpNamespace: Microsoft.Insights
-    getLiveToken:
-        ApiVersion: "2021-10-14"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/stable/2021-10-14/livetoken_API.json
-        ResourceUri: /{resourceUri}/providers/Microsoft.Insights/generatelivetoken
-        RpNamespace: Microsoft.Insights
-    getTestResultFile:
-        ApiVersion: 2020-02-10-preview
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2020-02-10-preview/WebTestResults_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/webtests/{webTestName}/getTestResultFile
-        RpNamespace: Microsoft.Insights
-    listDiagnosticSettingsCategory:
-        ApiVersion: 2021-05-01-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/diagnosticsSettingsCategories_API.json
-        ResourceUri: /{resourceUri}/providers/Microsoft.Insights/diagnosticSettingsCategories
-        RpNamespace: Microsoft.Insights
-    listEASubscriptionListMigrationDatePost:
-        ApiVersion: "2017-10-01"
-        SpecFilePath: specification/applicationinsights/resource-manager/Microsoft.Insights/preview/2017-10-01/eaSubscriptionMigration_API.json
-        ResourceUri: /subscriptions/{subscriptionId}/providers/microsoft.insights/listMigrationdate
-        RpNamespace: Microsoft.Insights
 IntegrationSpaces:
     Application:
         ApiVersion: 2023-11-14-preview
@@ -8419,16 +8324,111 @@ MongoCluster:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/listConnectionStrings
         RpNamespace: Microsoft.DocumentDB
 Monitor:
+    ActionGroup:
+        ApiVersion: 2024-10-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2024-10-01-preview/actionGroups_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/actionGroups/{actionGroupName}
+        RpNamespace: Microsoft.Insights
+    ActivityLogAlert:
+        ApiVersion: 2023-01-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2023-01-01-preview/activityLogAlerts_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/activityLogAlerts/{activityLogAlertName}
+        RpNamespace: Microsoft.Insights
+    AutoscaleSetting:
+        ApiVersion: "2022-10-01"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2022-10-01/autoscale_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/autoscalesettings/{autoscaleSettingName}
+        RpNamespace: Microsoft.Insights
     AzureMonitorWorkspace:
         ApiVersion: 2023-10-01-preview
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/preview/2023-10-01-preview/azuremonitor.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}
         RpNamespace: Microsoft.Monitor
+    DataCollectionEndpoint:
+        ApiVersion: "2023-03-11"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2023-03-11/dataCollectionEndpoints_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionEndpoints/{dataCollectionEndpointName}
+        RpNamespace: Microsoft.Insights
+    DataCollectionRule:
+        ApiVersion: "2023-03-11"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2023-03-11/dataCollectionRules_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}
+        RpNamespace: Microsoft.Insights
+    DataCollectionRuleAssociation:
+        ApiVersion: "2023-03-11"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2023-03-11/dataCollectionRuleAssociations_API.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.Insights/dataCollectionRuleAssociations/{associationName}
+        RpNamespace: Microsoft.Insights
+    DiagnosticSetting:
+        ApiVersion: 2021-05-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/diagnosticsSettings_API.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{name}
+        RpNamespace: Microsoft.Insights
+    GuestDiagnosticsSetting:
+        ApiVersion: 2018-06-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2018-06-01-preview/guestDiagnosticSettings_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/guestDiagnosticSettings/{diagnosticSettingsName}
+        RpNamespace: Microsoft.Insights
+    GuestDiagnosticsSettingsAssociation:
+        ApiVersion: 2018-06-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2018-06-01-preview/guestDiagnosticSettingsAssociation_API.json
+        ResourceUri: /{resourceUri}/providers/microsoft.insights/guestDiagnosticSettingsAssociation/{associationName}
+        RpNamespace: Microsoft.Insights
+    LogProfile:
+        ApiVersion: "2016-03-01"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2016-03-01/logProfiles_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Insights/logprofiles/{logProfileName}
+        RpNamespace: Microsoft.Insights
+    ManagementGroupDiagnosticSetting:
+        ApiVersion: 2021-05-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/managementGroupDiagnosticSettings_API.json
+        ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/diagnosticSettings/{name}
+        RpNamespace: Microsoft.Insights
+    MetricAlert:
+        ApiVersion: "2018-03-01"
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2018-03-01/metricAlert_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/metricAlerts/{ruleName}
+        RpNamespace: Microsoft.Insights
     PipelineGroup:
         ApiVersion: 2024-10-01-preview
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/PipelineGroups/preview/2024-10-01-preview/pipelineGroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/pipelineGroups/{pipelineGroupName}
         RpNamespace: Microsoft.Monitor
+    PrivateEndpointConnection:
+        ApiVersion: 2023-06-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/PrivateLinkScopes/preview/2023-06-01-preview/privateLinkScopes_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/privateEndpointConnections/{privateEndpointConnectionName}
+        RpNamespace: Microsoft.Insights
+    PrivateLinkScope:
+        ApiVersion: 2023-06-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/PrivateLinkScopes/preview/2023-06-01-preview/privateLinkScopes_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}
+        RpNamespace: Microsoft.Insights
+    PrivateLinkScopedResource:
+        ApiVersion: 2023-06-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/PrivateLinkScopes/preview/2023-06-01-preview/privateLinkScopes_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/scopedResources/{name}
+        RpNamespace: Microsoft.Insights
+    ScheduledQueryRule:
+        ApiVersion: 2024-01-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2024-01-01-preview/scheduledQueryRule_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}
+        RpNamespace: Microsoft.Insights
+    SubscriptionDiagnosticSetting:
+        ApiVersion: 2021-05-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/subscriptionDiagnosticsSettings_API.json
+        ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Insights/diagnosticSettings/{name}
+        RpNamespace: Microsoft.Insights
+    TenantActionGroup:
+        ApiVersion: 2023-05-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2023-05-01-preview/tenantActionGroups_API.json
+        ResourceUri: /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups/{tenantActionGroupName}
+        RpNamespace: Microsoft.Insights
+    listDiagnosticSettingsCategory:
+        ApiVersion: 2021-05-01-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/diagnosticsSettingsCategories_API.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.Insights/diagnosticSettingsCategories
+        RpNamespace: Microsoft.Insights
 NetApp:
     Account:
         ApiVersion: "2024-09-01"

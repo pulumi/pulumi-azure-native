@@ -6,23 +6,114 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .action_group import *
+from .activity_log_alert import *
+from .autoscale_setting import *
 from .azure_monitor_workspace import *
+from .data_collection_endpoint import *
+from .data_collection_rule import *
+from .data_collection_rule_association import *
+from .diagnostic_setting import *
+from .get_action_group import *
+from .get_activity_log_alert import *
+from .get_autoscale_setting import *
 from .get_azure_monitor_workspace import *
+from .get_data_collection_endpoint import *
+from .get_data_collection_rule import *
+from .get_data_collection_rule_association import *
+from .get_diagnostic_setting import *
+from .get_guest_diagnostics_setting import *
+from .get_guest_diagnostics_settings_association import *
+from .get_log_profile import *
+from .get_management_group_diagnostic_setting import *
+from .get_metric_alert import *
 from .get_pipeline_group import *
+from .get_private_endpoint_connection import *
+from .get_private_link_scope import *
+from .get_private_link_scoped_resource import *
+from .get_scheduled_query_rule import *
+from .get_subscription_diagnostic_setting import *
+from .get_tenant_action_group import *
+from .guest_diagnostics_setting import *
+from .guest_diagnostics_settings_association import *
+from .list_diagnostic_settings_category import *
+from .log_profile import *
+from .management_group_diagnostic_setting import *
+from .metric_alert import *
 from .pipeline_group import *
+from .private_endpoint_connection import *
+from .private_link_scope import *
+from .private_link_scoped_resource import *
+from .scheduled_query_rule import *
+from .subscription_diagnostic_setting import *
+from .tenant_action_group import *
 from ._inputs import *
 from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.monitor.v20160301 as __v20160301
+    v20160301 = __v20160301
+    import pulumi_azure_native.monitor.v20170401 as __v20170401
+    v20170401 = __v20170401
+    import pulumi_azure_native.monitor.v20170501preview as __v20170501preview
+    v20170501preview = __v20170501preview
+    import pulumi_azure_native.monitor.v20180301 as __v20180301
+    v20180301 = __v20180301
+    import pulumi_azure_native.monitor.v20180416 as __v20180416
+    v20180416 = __v20180416
+    import pulumi_azure_native.monitor.v20180601preview as __v20180601preview
+    v20180601preview = __v20180601preview
+    import pulumi_azure_native.monitor.v20191017preview as __v20191017preview
+    v20191017preview = __v20191017preview
+    import pulumi_azure_native.monitor.v20200101preview as __v20200101preview
+    v20200101preview = __v20200101preview
+    import pulumi_azure_native.monitor.v20200501preview as __v20200501preview
+    v20200501preview = __v20200501preview
+    import pulumi_azure_native.monitor.v20201001 as __v20201001
+    v20201001 = __v20201001
+    import pulumi_azure_native.monitor.v20210501preview as __v20210501preview
+    v20210501preview = __v20210501preview
+    import pulumi_azure_native.monitor.v20220801preview as __v20220801preview
+    v20220801preview = __v20220801preview
+    import pulumi_azure_native.monitor.v20221001 as __v20221001
+    v20221001 = __v20221001
+    import pulumi_azure_native.monitor.v20230101preview as __v20230101preview
+    v20230101preview = __v20230101preview
+    import pulumi_azure_native.monitor.v20230311 as __v20230311
+    v20230311 = __v20230311
     import pulumi_azure_native.monitor.v20230403 as __v20230403
     v20230403 = __v20230403
+    import pulumi_azure_native.monitor.v20230501preview as __v20230501preview
+    v20230501preview = __v20230501preview
+    import pulumi_azure_native.monitor.v20230601preview as __v20230601preview
+    v20230601preview = __v20230601preview
     import pulumi_azure_native.monitor.v20231001preview as __v20231001preview
     v20231001preview = __v20231001preview
+    import pulumi_azure_native.monitor.v20240101preview as __v20240101preview
+    v20240101preview = __v20240101preview
     import pulumi_azure_native.monitor.v20241001preview as __v20241001preview
     v20241001preview = __v20241001preview
 else:
+    v20160301 = _utilities.lazy_import('pulumi_azure_native.monitor.v20160301')
+    v20170401 = _utilities.lazy_import('pulumi_azure_native.monitor.v20170401')
+    v20170501preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20170501preview')
+    v20180301 = _utilities.lazy_import('pulumi_azure_native.monitor.v20180301')
+    v20180416 = _utilities.lazy_import('pulumi_azure_native.monitor.v20180416')
+    v20180601preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20180601preview')
+    v20191017preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20191017preview')
+    v20200101preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20200101preview')
+    v20200501preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20200501preview')
+    v20201001 = _utilities.lazy_import('pulumi_azure_native.monitor.v20201001')
+    v20210501preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20210501preview')
+    v20220801preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20220801preview')
+    v20221001 = _utilities.lazy_import('pulumi_azure_native.monitor.v20221001')
+    v20230101preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20230101preview')
+    v20230311 = _utilities.lazy_import('pulumi_azure_native.monitor.v20230311')
     v20230403 = _utilities.lazy_import('pulumi_azure_native.monitor.v20230403')
+    v20230501preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20230501preview')
+    v20230601preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20230601preview')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20231001preview')
+    v20240101preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20240101preview')
     v20241001preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20241001preview')
 

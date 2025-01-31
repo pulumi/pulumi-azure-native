@@ -12,6 +12,7 @@ import * as apimanagement from "./apimanagement";
 import * as app from "./app";
 import * as appcomplianceautomation from "./appcomplianceautomation";
 import * as appconfiguration from "./appconfiguration";
+import * as applicationinsights from "./applicationinsights";
 import * as appplatform from "./appplatform";
 import * as attestation from "./attestation";
 import * as authorization from "./authorization";
@@ -113,7 +114,6 @@ import * as hybriddata from "./hybriddata";
 import * as hybridnetwork from "./hybridnetwork";
 import * as impact from "./impact";
 import * as importexport from "./importexport";
-import * as insights from "./insights";
 import * as iotcentral from "./iotcentral";
 import * as iotfirmwaredefense from "./iotfirmwaredefense";
 import * as iothub from "./iothub";
@@ -230,6 +230,7 @@ export {
     app,
     appcomplianceautomation,
     appconfiguration,
+    applicationinsights,
     appplatform,
     attestation,
     authorization,
@@ -331,7 +332,6 @@ export {
     hybridnetwork,
     impact,
     importexport,
-    insights,
     iotcentral,
     iotfirmwaredefense,
     iothub,

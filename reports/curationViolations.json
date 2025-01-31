@@ -316,14 +316,6 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "ModuleName": "Monitor",
-    "Detail": "expected tracking stable but found preview"
-  },
-  {
-    "ModuleName": "Monitor",
-    "Detail": "expected no additions but found some"
-  },
-  {
     "ModuleName": "NetApp",
     "Detail": "expected no additions but found some"
   },

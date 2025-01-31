@@ -33,6 +33,8 @@ if typing.TYPE_CHECKING:
     appcomplianceautomation = __appcomplianceautomation
     import pulumi_azure_native.appconfiguration as __appconfiguration
     appconfiguration = __appconfiguration
+    import pulumi_azure_native.applicationinsights as __applicationinsights
+    applicationinsights = __applicationinsights
     import pulumi_azure_native.appplatform as __appplatform
     appplatform = __appplatform
     import pulumi_azure_native.attestation as __attestation
@@ -255,8 +257,6 @@ if typing.TYPE_CHECKING:
     impact = __impact
     import pulumi_azure_native.importexport as __importexport
     importexport = __importexport
-    import pulumi_azure_native.insights as __insights
-    insights = __insights
     import pulumi_azure_native.integrationspaces as __integrationspaces
     integrationspaces = __integrationspaces
     import pulumi_azure_native.intune as __intune
@@ -508,6 +508,7 @@ else:
     app = _utilities.lazy_import('pulumi_azure_native.app')
     appcomplianceautomation = _utilities.lazy_import('pulumi_azure_native.appcomplianceautomation')
     appconfiguration = _utilities.lazy_import('pulumi_azure_native.appconfiguration')
+    applicationinsights = _utilities.lazy_import('pulumi_azure_native.applicationinsights')
     appplatform = _utilities.lazy_import('pulumi_azure_native.appplatform')
     attestation = _utilities.lazy_import('pulumi_azure_native.attestation')
     authorization = _utilities.lazy_import('pulumi_azure_native.authorization')
@@ -619,7 +620,6 @@ else:
     hybridnetwork = _utilities.lazy_import('pulumi_azure_native.hybridnetwork')
     impact = _utilities.lazy_import('pulumi_azure_native.impact')
     importexport = _utilities.lazy_import('pulumi_azure_native.importexport')
-    insights = _utilities.lazy_import('pulumi_azure_native.insights')
     integrationspaces = _utilities.lazy_import('pulumi_azure_native.integrationspaces')
     intune = _utilities.lazy_import('pulumi_azure_native.intune')
     iotcentral = _utilities.lazy_import('pulumi_azure_native.iotcentral')
@@ -1709,6 +1709,118 @@ _utilities.register(
    "azure-native:appconfiguration/v20240501:KeyValue": "KeyValue",
    "azure-native:appconfiguration/v20240501:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:appconfiguration/v20240501:Replica": "Replica"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "applicationinsights",
+  "fqn": "pulumi_azure_native.applicationinsights",
+  "classes": {
+   "azure-native:applicationinsights:AnalyticsItem": "AnalyticsItem",
+   "azure-native:applicationinsights:Component": "Component",
+   "azure-native:applicationinsights:ComponentCurrentBillingFeature": "ComponentCurrentBillingFeature",
+   "azure-native:applicationinsights:ComponentLinkedStorageAccount": "ComponentLinkedStorageAccount",
+   "azure-native:applicationinsights:ExportConfiguration": "ExportConfiguration",
+   "azure-native:applicationinsights:Favorite": "Favorite",
+   "azure-native:applicationinsights:MyWorkbook": "MyWorkbook",
+   "azure-native:applicationinsights:ProactiveDetectionConfiguration": "ProactiveDetectionConfiguration",
+   "azure-native:applicationinsights:WebTest": "WebTest",
+   "azure-native:applicationinsights:Workbook": "Workbook",
+   "azure-native:applicationinsights:WorkbookTemplate": "WorkbookTemplate"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "applicationinsights/v20150501",
+  "fqn": "pulumi_azure_native.applicationinsights.v20150501",
+  "classes": {
+   "azure-native:applicationinsights/v20150501:AnalyticsItem": "AnalyticsItem",
+   "azure-native:applicationinsights/v20150501:ComponentCurrentBillingFeature": "ComponentCurrentBillingFeature",
+   "azure-native:applicationinsights/v20150501:ExportConfiguration": "ExportConfiguration",
+   "azure-native:applicationinsights/v20150501:Favorite": "Favorite",
+   "azure-native:applicationinsights/v20150501:ProactiveDetectionConfiguration": "ProactiveDetectionConfiguration",
+   "azure-native:applicationinsights/v20150501:Workbook": "Workbook"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "applicationinsights/v20180501preview",
+  "fqn": "pulumi_azure_native.applicationinsights.v20180501preview",
+  "classes": {
+   "azure-native:applicationinsights/v20180501preview:ProactiveDetectionConfiguration": "ProactiveDetectionConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "applicationinsights/v20200202",
+  "fqn": "pulumi_azure_native.applicationinsights.v20200202",
+  "classes": {
+   "azure-native:applicationinsights/v20200202:Component": "Component"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "applicationinsights/v20200202preview",
+  "fqn": "pulumi_azure_native.applicationinsights.v20200202preview",
+  "classes": {
+   "azure-native:applicationinsights/v20200202preview:Component": "Component"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "applicationinsights/v20200301preview",
+  "fqn": "pulumi_azure_native.applicationinsights.v20200301preview",
+  "classes": {
+   "azure-native:applicationinsights/v20200301preview:ComponentLinkedStorageAccount": "ComponentLinkedStorageAccount"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "applicationinsights/v20201005preview",
+  "fqn": "pulumi_azure_native.applicationinsights.v20201005preview",
+  "classes": {
+   "azure-native:applicationinsights/v20201005preview:WebTest": "WebTest"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "applicationinsights/v20201120",
+  "fqn": "pulumi_azure_native.applicationinsights.v20201120",
+  "classes": {
+   "azure-native:applicationinsights/v20201120:WorkbookTemplate": "WorkbookTemplate"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "applicationinsights/v20210308",
+  "fqn": "pulumi_azure_native.applicationinsights.v20210308",
+  "classes": {
+   "azure-native:applicationinsights/v20210308:MyWorkbook": "MyWorkbook",
+   "azure-native:applicationinsights/v20210308:Workbook": "Workbook"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "applicationinsights/v20210801",
+  "fqn": "pulumi_azure_native.applicationinsights.v20210801",
+  "classes": {
+   "azure-native:applicationinsights/v20210801:Workbook": "Workbook"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "applicationinsights/v20220615",
+  "fqn": "pulumi_azure_native.applicationinsights.v20220615",
+  "classes": {
+   "azure-native:applicationinsights/v20220615:WebTest": "WebTest"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "applicationinsights/v20230601",
+  "fqn": "pulumi_azure_native.applicationinsights.v20230601",
+  "classes": {
+   "azure-native:applicationinsights/v20230601:Workbook": "Workbook"
   }
  },
  {
@@ -7900,341 +8012,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "insights",
-  "fqn": "pulumi_azure_native.insights",
-  "classes": {
-   "azure-native:insights:ActionGroup": "ActionGroup",
-   "azure-native:insights:ActivityLogAlert": "ActivityLogAlert",
-   "azure-native:insights:AnalyticsItem": "AnalyticsItem",
-   "azure-native:insights:AutoscaleSetting": "AutoscaleSetting",
-   "azure-native:insights:Component": "Component",
-   "azure-native:insights:ComponentCurrentBillingFeature": "ComponentCurrentBillingFeature",
-   "azure-native:insights:ComponentLinkedStorageAccount": "ComponentLinkedStorageAccount",
-   "azure-native:insights:DataCollectionEndpoint": "DataCollectionEndpoint",
-   "azure-native:insights:DataCollectionRule": "DataCollectionRule",
-   "azure-native:insights:DataCollectionRuleAssociation": "DataCollectionRuleAssociation",
-   "azure-native:insights:DiagnosticSetting": "DiagnosticSetting",
-   "azure-native:insights:ExportConfiguration": "ExportConfiguration",
-   "azure-native:insights:Favorite": "Favorite",
-   "azure-native:insights:GuestDiagnosticsSetting": "GuestDiagnosticsSetting",
-   "azure-native:insights:GuestDiagnosticsSettingsAssociation": "GuestDiagnosticsSettingsAssociation",
-   "azure-native:insights:LogProfile": "LogProfile",
-   "azure-native:insights:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting",
-   "azure-native:insights:MetricAlert": "MetricAlert",
-   "azure-native:insights:MyWorkbook": "MyWorkbook",
-   "azure-native:insights:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:insights:PrivateLinkScope": "PrivateLinkScope",
-   "azure-native:insights:PrivateLinkScopedResource": "PrivateLinkScopedResource",
-   "azure-native:insights:ProactiveDetectionConfiguration": "ProactiveDetectionConfiguration",
-   "azure-native:insights:ScheduledQueryRule": "ScheduledQueryRule",
-   "azure-native:insights:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting",
-   "azure-native:insights:TenantActionGroup": "TenantActionGroup",
-   "azure-native:insights:WebTest": "WebTest",
-   "azure-native:insights:Workbook": "Workbook",
-   "azure-native:insights:WorkbookTemplate": "WorkbookTemplate"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20150501",
-  "fqn": "pulumi_azure_native.insights.v20150501",
-  "classes": {
-   "azure-native:insights/v20150501:AnalyticsItem": "AnalyticsItem",
-   "azure-native:insights/v20150501:ComponentCurrentBillingFeature": "ComponentCurrentBillingFeature",
-   "azure-native:insights/v20150501:ExportConfiguration": "ExportConfiguration",
-   "azure-native:insights/v20150501:Favorite": "Favorite",
-   "azure-native:insights/v20150501:ProactiveDetectionConfiguration": "ProactiveDetectionConfiguration",
-   "azure-native:insights/v20150501:Workbook": "Workbook"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20160301",
-  "fqn": "pulumi_azure_native.insights.v20160301",
-  "classes": {
-   "azure-native:insights/v20160301:LogProfile": "LogProfile"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20170401",
-  "fqn": "pulumi_azure_native.insights.v20170401",
-  "classes": {
-   "azure-native:insights/v20170401:ActivityLogAlert": "ActivityLogAlert"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20170501preview",
-  "fqn": "pulumi_azure_native.insights.v20170501preview",
-  "classes": {
-   "azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20180301",
-  "fqn": "pulumi_azure_native.insights.v20180301",
-  "classes": {
-   "azure-native:insights/v20180301:MetricAlert": "MetricAlert"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20180416",
-  "fqn": "pulumi_azure_native.insights.v20180416",
-  "classes": {
-   "azure-native:insights/v20180416:ScheduledQueryRule": "ScheduledQueryRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20180501preview",
-  "fqn": "pulumi_azure_native.insights.v20180501preview",
-  "classes": {
-   "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration": "ProactiveDetectionConfiguration"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20180601preview",
-  "fqn": "pulumi_azure_native.insights.v20180601preview",
-  "classes": {
-   "azure-native:insights/v20180601preview:GuestDiagnosticsSetting": "GuestDiagnosticsSetting",
-   "azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation": "GuestDiagnosticsSettingsAssociation"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20191017preview",
-  "fqn": "pulumi_azure_native.insights.v20191017preview",
-  "classes": {
-   "azure-native:insights/v20191017preview:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:insights/v20191017preview:PrivateLinkScope": "PrivateLinkScope"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20200101preview",
-  "fqn": "pulumi_azure_native.insights.v20200101preview",
-  "classes": {
-   "azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20200202",
-  "fqn": "pulumi_azure_native.insights.v20200202",
-  "classes": {
-   "azure-native:insights/v20200202:Component": "Component"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20200202preview",
-  "fqn": "pulumi_azure_native.insights.v20200202preview",
-  "classes": {
-   "azure-native:insights/v20200202preview:Component": "Component"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20200301preview",
-  "fqn": "pulumi_azure_native.insights.v20200301preview",
-  "classes": {
-   "azure-native:insights/v20200301preview:ComponentLinkedStorageAccount": "ComponentLinkedStorageAccount"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20200501preview",
-  "fqn": "pulumi_azure_native.insights.v20200501preview",
-  "classes": {
-   "azure-native:insights/v20200501preview:ScheduledQueryRule": "ScheduledQueryRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20201001",
-  "fqn": "pulumi_azure_native.insights.v20201001",
-  "classes": {
-   "azure-native:insights/v20201001:ActivityLogAlert": "ActivityLogAlert"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20201005preview",
-  "fqn": "pulumi_azure_native.insights.v20201005preview",
-  "classes": {
-   "azure-native:insights/v20201005preview:WebTest": "WebTest"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20201120",
-  "fqn": "pulumi_azure_native.insights.v20201120",
-  "classes": {
-   "azure-native:insights/v20201120:WorkbookTemplate": "WorkbookTemplate"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20210308",
-  "fqn": "pulumi_azure_native.insights.v20210308",
-  "classes": {
-   "azure-native:insights/v20210308:MyWorkbook": "MyWorkbook",
-   "azure-native:insights/v20210308:Workbook": "Workbook"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20210501preview",
-  "fqn": "pulumi_azure_native.insights.v20210501preview",
-  "classes": {
-   "azure-native:insights/v20210501preview:AutoscaleSetting": "AutoscaleSetting",
-   "azure-native:insights/v20210501preview:DiagnosticSetting": "DiagnosticSetting",
-   "azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting",
-   "azure-native:insights/v20210501preview:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20210701preview",
-  "fqn": "pulumi_azure_native.insights.v20210701preview",
-  "classes": {
-   "azure-native:insights/v20210701preview:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:insights/v20210701preview:PrivateLinkScope": "PrivateLinkScope",
-   "azure-native:insights/v20210701preview:PrivateLinkScopedResource": "PrivateLinkScopedResource"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20210801",
-  "fqn": "pulumi_azure_native.insights.v20210801",
-  "classes": {
-   "azure-native:insights/v20210801:Workbook": "Workbook"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20220401",
-  "fqn": "pulumi_azure_native.insights.v20220401",
-  "classes": {
-   "azure-native:insights/v20220401:Workbook": "Workbook"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20220601",
-  "fqn": "pulumi_azure_native.insights.v20220601",
-  "classes": {
-   "azure-native:insights/v20220601:DataCollectionEndpoint": "DataCollectionEndpoint",
-   "azure-native:insights/v20220601:DataCollectionRule": "DataCollectionRule",
-   "azure-native:insights/v20220601:DataCollectionRuleAssociation": "DataCollectionRuleAssociation"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20220615",
-  "fqn": "pulumi_azure_native.insights.v20220615",
-  "classes": {
-   "azure-native:insights/v20220615:WebTest": "WebTest"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20220801preview",
-  "fqn": "pulumi_azure_native.insights.v20220801preview",
-  "classes": {
-   "azure-native:insights/v20220801preview:ScheduledQueryRule": "ScheduledQueryRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20221001",
-  "fqn": "pulumi_azure_native.insights.v20221001",
-  "classes": {
-   "azure-native:insights/v20221001:AutoscaleSetting": "AutoscaleSetting"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20230101",
-  "fqn": "pulumi_azure_native.insights.v20230101",
-  "classes": {
-   "azure-native:insights/v20230101:ActionGroup": "ActionGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20230101preview",
-  "fqn": "pulumi_azure_native.insights.v20230101preview",
-  "classes": {
-   "azure-native:insights/v20230101preview:ActivityLogAlert": "ActivityLogAlert"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20230311",
-  "fqn": "pulumi_azure_native.insights.v20230311",
-  "classes": {
-   "azure-native:insights/v20230311:DataCollectionEndpoint": "DataCollectionEndpoint",
-   "azure-native:insights/v20230311:DataCollectionRule": "DataCollectionRule",
-   "azure-native:insights/v20230311:DataCollectionRuleAssociation": "DataCollectionRuleAssociation"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20230315preview",
-  "fqn": "pulumi_azure_native.insights.v20230315preview",
-  "classes": {
-   "azure-native:insights/v20230315preview:ScheduledQueryRule": "ScheduledQueryRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20230501preview",
-  "fqn": "pulumi_azure_native.insights.v20230501preview",
-  "classes": {
-   "azure-native:insights/v20230501preview:TenantActionGroup": "TenantActionGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20230601",
-  "fqn": "pulumi_azure_native.insights.v20230601",
-  "classes": {
-   "azure-native:insights/v20230601:Workbook": "Workbook"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20230601preview",
-  "fqn": "pulumi_azure_native.insights.v20230601preview",
-  "classes": {
-   "azure-native:insights/v20230601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:insights/v20230601preview:PrivateLinkScope": "PrivateLinkScope",
-   "azure-native:insights/v20230601preview:PrivateLinkScopedResource": "PrivateLinkScopedResource"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20240101preview",
-  "fqn": "pulumi_azure_native.insights.v20240101preview",
-  "classes": {
-   "azure-native:insights/v20240101preview:ScheduledQueryRule": "ScheduledQueryRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "insights/v20241001preview",
-  "fqn": "pulumi_azure_native.insights.v20241001preview",
-  "classes": {
-   "azure-native:insights/v20241001preview:ActionGroup": "ActionGroup"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "integrationspaces",
   "fqn": "pulumi_azure_native.integrationspaces",
   "classes": {
@@ -10191,8 +9968,153 @@ _utilities.register(
   "mod": "monitor",
   "fqn": "pulumi_azure_native.monitor",
   "classes": {
+   "azure-native:monitor:ActionGroup": "ActionGroup",
+   "azure-native:monitor:ActivityLogAlert": "ActivityLogAlert",
+   "azure-native:monitor:AutoscaleSetting": "AutoscaleSetting",
    "azure-native:monitor:AzureMonitorWorkspace": "AzureMonitorWorkspace",
-   "azure-native:monitor:PipelineGroup": "PipelineGroup"
+   "azure-native:monitor:DataCollectionEndpoint": "DataCollectionEndpoint",
+   "azure-native:monitor:DataCollectionRule": "DataCollectionRule",
+   "azure-native:monitor:DataCollectionRuleAssociation": "DataCollectionRuleAssociation",
+   "azure-native:monitor:DiagnosticSetting": "DiagnosticSetting",
+   "azure-native:monitor:GuestDiagnosticsSetting": "GuestDiagnosticsSetting",
+   "azure-native:monitor:GuestDiagnosticsSettingsAssociation": "GuestDiagnosticsSettingsAssociation",
+   "azure-native:monitor:LogProfile": "LogProfile",
+   "azure-native:monitor:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting",
+   "azure-native:monitor:MetricAlert": "MetricAlert",
+   "azure-native:monitor:PipelineGroup": "PipelineGroup",
+   "azure-native:monitor:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:monitor:PrivateLinkScope": "PrivateLinkScope",
+   "azure-native:monitor:PrivateLinkScopedResource": "PrivateLinkScopedResource",
+   "azure-native:monitor:ScheduledQueryRule": "ScheduledQueryRule",
+   "azure-native:monitor:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting",
+   "azure-native:monitor:TenantActionGroup": "TenantActionGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20160301",
+  "fqn": "pulumi_azure_native.monitor.v20160301",
+  "classes": {
+   "azure-native:monitor/v20160301:LogProfile": "LogProfile"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20170401",
+  "fqn": "pulumi_azure_native.monitor.v20170401",
+  "classes": {
+   "azure-native:monitor/v20170401:ActivityLogAlert": "ActivityLogAlert"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20170501preview",
+  "fqn": "pulumi_azure_native.monitor.v20170501preview",
+  "classes": {
+   "azure-native:monitor/v20170501preview:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20180301",
+  "fqn": "pulumi_azure_native.monitor.v20180301",
+  "classes": {
+   "azure-native:monitor/v20180301:MetricAlert": "MetricAlert"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20180416",
+  "fqn": "pulumi_azure_native.monitor.v20180416",
+  "classes": {
+   "azure-native:monitor/v20180416:ScheduledQueryRule": "ScheduledQueryRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20180601preview",
+  "fqn": "pulumi_azure_native.monitor.v20180601preview",
+  "classes": {
+   "azure-native:monitor/v20180601preview:GuestDiagnosticsSetting": "GuestDiagnosticsSetting",
+   "azure-native:monitor/v20180601preview:GuestDiagnosticsSettingsAssociation": "GuestDiagnosticsSettingsAssociation"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20191017preview",
+  "fqn": "pulumi_azure_native.monitor.v20191017preview",
+  "classes": {
+   "azure-native:monitor/v20191017preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:monitor/v20191017preview:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20200101preview",
+  "fqn": "pulumi_azure_native.monitor.v20200101preview",
+  "classes": {
+   "azure-native:monitor/v20200101preview:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20200501preview",
+  "fqn": "pulumi_azure_native.monitor.v20200501preview",
+  "classes": {
+   "azure-native:monitor/v20200501preview:ScheduledQueryRule": "ScheduledQueryRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20201001",
+  "fqn": "pulumi_azure_native.monitor.v20201001",
+  "classes": {
+   "azure-native:monitor/v20201001:ActivityLogAlert": "ActivityLogAlert"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20210501preview",
+  "fqn": "pulumi_azure_native.monitor.v20210501preview",
+  "classes": {
+   "azure-native:monitor/v20210501preview:AutoscaleSetting": "AutoscaleSetting",
+   "azure-native:monitor/v20210501preview:DiagnosticSetting": "DiagnosticSetting",
+   "azure-native:monitor/v20210501preview:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting",
+   "azure-native:monitor/v20210501preview:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20220801preview",
+  "fqn": "pulumi_azure_native.monitor.v20220801preview",
+  "classes": {
+   "azure-native:monitor/v20220801preview:ScheduledQueryRule": "ScheduledQueryRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20221001",
+  "fqn": "pulumi_azure_native.monitor.v20221001",
+  "classes": {
+   "azure-native:monitor/v20221001:AutoscaleSetting": "AutoscaleSetting"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20230101preview",
+  "fqn": "pulumi_azure_native.monitor.v20230101preview",
+  "classes": {
+   "azure-native:monitor/v20230101preview:ActivityLogAlert": "ActivityLogAlert"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20230311",
+  "fqn": "pulumi_azure_native.monitor.v20230311",
+  "classes": {
+   "azure-native:monitor/v20230311:DataCollectionEndpoint": "DataCollectionEndpoint",
+   "azure-native:monitor/v20230311:DataCollectionRule": "DataCollectionRule",
+   "azure-native:monitor/v20230311:DataCollectionRuleAssociation": "DataCollectionRuleAssociation"
   }
  },
  {
@@ -10201,6 +10123,24 @@ _utilities.register(
   "fqn": "pulumi_azure_native.monitor.v20230403",
   "classes": {
    "azure-native:monitor/v20230403:AzureMonitorWorkspace": "AzureMonitorWorkspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20230501preview",
+  "fqn": "pulumi_azure_native.monitor.v20230501preview",
+  "classes": {
+   "azure-native:monitor/v20230501preview:TenantActionGroup": "TenantActionGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20230601preview",
+  "fqn": "pulumi_azure_native.monitor.v20230601preview",
+  "classes": {
+   "azure-native:monitor/v20230601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:monitor/v20230601preview:PrivateLinkScope": "PrivateLinkScope",
+   "azure-native:monitor/v20230601preview:PrivateLinkScopedResource": "PrivateLinkScopedResource"
   }
  },
  {
@@ -10214,9 +10154,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "monitor/v20240101preview",
+  "fqn": "pulumi_azure_native.monitor.v20240101preview",
+  "classes": {
+   "azure-native:monitor/v20240101preview:ScheduledQueryRule": "ScheduledQueryRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "monitor/v20241001preview",
   "fqn": "pulumi_azure_native.monitor.v20241001preview",
   "classes": {
+   "azure-native:monitor/v20241001preview:ActionGroup": "ActionGroup",
    "azure-native:monitor/v20241001preview:PipelineGroup": "PipelineGroup"
   }
  },

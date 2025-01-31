@@ -3074,6 +3074,73 @@
       "2024-05-01-preview"
     ]
   },
+  "ApplicationInsights": {
+    "AnalyticsItem": [
+      "2015-05-01"
+    ],
+    "Component": [
+      "2015-05-01",
+      "2018-05-01-preview",
+      "2020-02-02",
+      "2020-02-02-preview"
+    ],
+    "ComponentCurrentBillingFeature": [
+      "2015-05-01"
+    ],
+    "ComponentLinkedStorageAccount": [
+      "2020-03-01-preview"
+    ],
+    "ExportConfiguration": [
+      "2015-05-01"
+    ],
+    "Favorite": [
+      "2015-05-01"
+    ],
+    "MyWorkbook": [
+      "2015-05-01",
+      "2020-10-20",
+      "2021-03-08"
+    ],
+    "ProactiveDetectionConfiguration": [
+      "2015-05-01",
+      "2018-05-01-preview"
+    ],
+    "WebTest": [
+      "2015-05-01",
+      "2018-05-01-preview",
+      "2020-10-05-preview",
+      "2022-06-15"
+    ],
+    "Workbook": [
+      "2015-05-01",
+      "2018-06-17-preview",
+      "2020-10-20",
+      "2021-03-08",
+      "2021-08-01",
+      "2022-04-01",
+      "2023-06-01"
+    ],
+    "WorkbookTemplate": [
+      "2019-10-17-preview",
+      "2020-11-20"
+    ],
+    "getDiagnosticServiceTokenReadOnly": [
+      "2021-03-03-preview"
+    ],
+    "getDiagnosticServiceTokenReadWrite": [
+      "2021-03-03-preview"
+    ],
+    "getLiveToken": [
+      "2020-06-02-preview",
+      "2021-10-14"
+    ],
+    "getTestResultFile": [
+      "2020-02-10-preview"
+    ],
+    "listEASubscriptionListMigrationDatePost": [
+      "2017-10-01"
+    ]
+  },
   "Attestation": {
     "AttestationProvider": [
       "2018-09-01-preview",
@@ -12730,178 +12797,6 @@
       "2021-01-01"
     ]
   },
-  "Insights": {
-    "ActionGroup": [
-      "2017-04-01",
-      "2018-03-01",
-      "2018-09-01",
-      "2019-03-01",
-      "2019-06-01",
-      "2021-09-01",
-      "2022-04-01",
-      "2022-06-01",
-      "2023-01-01",
-      "2023-09-01-preview",
-      "2024-10-01-preview"
-    ],
-    "ActivityLogAlert": [
-      "2017-04-01",
-      "2020-10-01",
-      "2023-01-01-preview"
-    ],
-    "AnalyticsItem": [
-      "2015-05-01"
-    ],
-    "AutoscaleSetting": [
-      "2014-04-01",
-      "2015-04-01",
-      "2021-05-01-preview",
-      "2022-10-01"
-    ],
-    "Component": [
-      "2015-05-01",
-      "2018-05-01-preview",
-      "2020-02-02",
-      "2020-02-02-preview"
-    ],
-    "ComponentCurrentBillingFeature": [
-      "2015-05-01"
-    ],
-    "ComponentLinkedStorageAccount": [
-      "2020-03-01-preview"
-    ],
-    "DataCollectionEndpoint": [
-      "2021-04-01",
-      "2021-09-01-preview",
-      "2022-06-01",
-      "2023-03-11"
-    ],
-    "DataCollectionRule": [
-      "2019-11-01-preview",
-      "2021-04-01",
-      "2021-09-01-preview",
-      "2022-06-01",
-      "2023-03-11"
-    ],
-    "DataCollectionRuleAssociation": [
-      "2019-11-01-preview",
-      "2021-04-01",
-      "2021-09-01-preview",
-      "2022-06-01",
-      "2023-03-11"
-    ],
-    "DiagnosticSetting": [
-      "2017-05-01-preview",
-      "2021-05-01-preview"
-    ],
-    "ExportConfiguration": [
-      "2015-05-01"
-    ],
-    "Favorite": [
-      "2015-05-01"
-    ],
-    "GuestDiagnosticsSetting": [
-      "2018-06-01-preview"
-    ],
-    "GuestDiagnosticsSettingsAssociation": [
-      "2018-06-01-preview"
-    ],
-    "LogProfile": [
-      "2016-03-01"
-    ],
-    "ManagementGroupDiagnosticSetting": [
-      "2020-01-01-preview",
-      "2021-05-01-preview"
-    ],
-    "MetricAlert": [
-      "2018-03-01"
-    ],
-    "MyWorkbook": [
-      "2015-05-01",
-      "2020-10-20",
-      "2021-03-08"
-    ],
-    "PrivateEndpointConnection": [
-      "2019-10-17-preview",
-      "2021-07-01-preview",
-      "2021-09-01",
-      "2023-06-01-preview"
-    ],
-    "PrivateLinkScope": [
-      "2019-10-17-preview",
-      "2021-07-01-preview",
-      "2021-09-01",
-      "2023-06-01-preview"
-    ],
-    "PrivateLinkScopedResource": [
-      "2019-10-17-preview",
-      "2021-07-01-preview",
-      "2021-09-01",
-      "2023-06-01-preview"
-    ],
-    "ProactiveDetectionConfiguration": [
-      "2015-05-01",
-      "2018-05-01-preview"
-    ],
-    "ScheduledQueryRule": [
-      "2018-04-16",
-      "2020-05-01-preview",
-      "2021-02-01-preview",
-      "2021-08-01",
-      "2022-06-15",
-      "2022-08-01-preview",
-      "2023-03-15-preview",
-      "2023-12-01",
-      "2024-01-01-preview"
-    ],
-    "SubscriptionDiagnosticSetting": [
-      "2017-05-01-preview",
-      "2021-05-01-preview"
-    ],
-    "TenantActionGroup": [
-      "2023-03-01-preview",
-      "2023-05-01-preview"
-    ],
-    "WebTest": [
-      "2015-05-01",
-      "2018-05-01-preview",
-      "2020-10-05-preview",
-      "2022-06-15"
-    ],
-    "Workbook": [
-      "2015-05-01",
-      "2018-06-17-preview",
-      "2020-10-20",
-      "2021-03-08",
-      "2021-08-01",
-      "2022-04-01",
-      "2023-06-01"
-    ],
-    "WorkbookTemplate": [
-      "2019-10-17-preview",
-      "2020-11-20"
-    ],
-    "getDiagnosticServiceTokenReadOnly": [
-      "2021-03-03-preview"
-    ],
-    "getDiagnosticServiceTokenReadWrite": [
-      "2021-03-03-preview"
-    ],
-    "getLiveToken": [
-      "2020-06-02-preview",
-      "2021-10-14"
-    ],
-    "getTestResultFile": [
-      "2020-02-10-preview"
-    ],
-    "listDiagnosticSettingsCategory": [
-      "2017-05-01-preview",
-      "2021-05-01-preview"
-    ],
-    "listEASubscriptionListMigrationDatePost": [
-      "2017-10-01"
-    ]
-  },
   "IntegrationSpaces": {
     "Application": [
       "2023-11-14-preview"
@@ -16142,14 +16037,119 @@
     ]
   },
   "Monitor": {
+    "ActionGroup": [
+      "2017-04-01",
+      "2018-03-01",
+      "2018-09-01",
+      "2019-03-01",
+      "2019-06-01",
+      "2021-09-01",
+      "2022-04-01",
+      "2022-06-01",
+      "2023-01-01",
+      "2023-09-01-preview",
+      "2024-10-01-preview"
+    ],
+    "ActivityLogAlert": [
+      "2017-04-01",
+      "2020-10-01",
+      "2023-01-01-preview"
+    ],
+    "AutoscaleSetting": [
+      "2014-04-01",
+      "2015-04-01",
+      "2021-05-01-preview",
+      "2022-10-01"
+    ],
     "AzureMonitorWorkspace": [
       "2021-06-03-preview",
       "2023-04-03",
       "2023-10-01-preview"
     ],
+    "DataCollectionEndpoint": [
+      "2021-04-01",
+      "2021-09-01-preview",
+      "2022-06-01",
+      "2023-03-11"
+    ],
+    "DataCollectionRule": [
+      "2019-11-01-preview",
+      "2021-04-01",
+      "2021-09-01-preview",
+      "2022-06-01",
+      "2023-03-11"
+    ],
+    "DataCollectionRuleAssociation": [
+      "2019-11-01-preview",
+      "2021-04-01",
+      "2021-09-01-preview",
+      "2022-06-01",
+      "2023-03-11"
+    ],
+    "DiagnosticSetting": [
+      "2017-05-01-preview",
+      "2021-05-01-preview"
+    ],
+    "GuestDiagnosticsSetting": [
+      "2018-06-01-preview"
+    ],
+    "GuestDiagnosticsSettingsAssociation": [
+      "2018-06-01-preview"
+    ],
+    "LogProfile": [
+      "2016-03-01"
+    ],
+    "ManagementGroupDiagnosticSetting": [
+      "2020-01-01-preview",
+      "2021-05-01-preview"
+    ],
+    "MetricAlert": [
+      "2018-03-01"
+    ],
     "PipelineGroup": [
       "2023-10-01-preview",
       "2024-10-01-preview"
+    ],
+    "PrivateEndpointConnection": [
+      "2019-10-17-preview",
+      "2021-07-01-preview",
+      "2021-09-01",
+      "2023-06-01-preview"
+    ],
+    "PrivateLinkScope": [
+      "2019-10-17-preview",
+      "2021-07-01-preview",
+      "2021-09-01",
+      "2023-06-01-preview"
+    ],
+    "PrivateLinkScopedResource": [
+      "2019-10-17-preview",
+      "2021-07-01-preview",
+      "2021-09-01",
+      "2023-06-01-preview"
+    ],
+    "ScheduledQueryRule": [
+      "2018-04-16",
+      "2020-05-01-preview",
+      "2021-02-01-preview",
+      "2021-08-01",
+      "2022-06-15",
+      "2022-08-01-preview",
+      "2023-03-15-preview",
+      "2023-12-01",
+      "2024-01-01-preview"
+    ],
+    "SubscriptionDiagnosticSetting": [
+      "2017-05-01-preview",
+      "2021-05-01-preview"
+    ],
+    "TenantActionGroup": [
+      "2023-03-01-preview",
+      "2023-05-01-preview"
+    ],
+    "listDiagnosticSettingsCategory": [
+      "2017-05-01-preview",
+      "2021-05-01-preview"
     ]
   },
   "NetApp": {
