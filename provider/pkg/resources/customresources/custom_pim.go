@@ -13,7 +13,7 @@ import (
 )
 
 // OriginalStateKey is an internal key in the state of a PIM Role Management Policy that contains the original state of the policy.
-const OriginalStateKey = "__orig_state"
+const OriginalStateKey = "__original_state"
 
 // pimRoleManagementPolicy returns a custom resource for
 // [PIM Role Management Policies](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-add-role-to-user#next-steps).
