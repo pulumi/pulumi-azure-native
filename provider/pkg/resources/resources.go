@@ -334,7 +334,7 @@ var v3ModulesNamedByFolder = map[string]ModuleName{
 	"redis":           "Redis",
 	"redisenterprise": "RedisEnterprise",
 	// Devices:
-	"iothub": "IoTHub",
+	"iothub":                     "IoTHub",
 	"deviceprovisioningservices": "DeviceProvisioningServices",
 	// "DocumentDB":
 	"mongocluster": "MongoCluster",
