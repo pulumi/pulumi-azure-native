@@ -330,6 +330,9 @@ var v3ModulesNamedByFolder = map[string]ModuleName{
 	"frontdoor":      "FrontDoor",
 	"privatedns":     "PrivateDns",
 	"trafficmanager": "TrafficManager",
+	// Cache:
+	"redis":           "Redis",
+	"redisenterprise": "RedisEnterprise",
 	// "DocumentDB":
 	"mongocluster": "MongoCluster",
 }
