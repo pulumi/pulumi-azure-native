@@ -415,7 +415,7 @@ func findNamespaceWithoutPrefixFromPath(path, defaultValue string) string {
 	return defaultValue
 }
 
-var folderModulePattern = regexp.MustCompile(`.*/specification/([a-zA-Z]+)/resource-manager/.*`)
+var folderModulePattern = regexp.MustCompile(`.*/specification/([a-zA-Z-]+)/resource-manager/.*`)
 
 func getSpecFolderName(path string) string {
 	subMatches := folderModulePattern.FindStringSubmatch(path)
