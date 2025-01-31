@@ -7,35 +7,43 @@ from enum import Enum
 __all__ = [
     'ActiveDirectoryAuth',
     'ActiveDirectoryAuthEnum',
+    'AdministratorType',
     'ArmServerKeyType',
     'AzureManagedDiskPerformanceTiers',
     'CancelEnum',
     'CreateMode',
     'DataEncryptionType',
+    'GeoRedundantBackup',
     'GeoRedundantBackupEnum',
     'HighAvailabilityMode',
     'IdentityType',
+    'InfrastructureEncryption',
     'KeyStatusEnum',
     'LogicalReplicationOnSourceDbEnum',
     'MigrateRolesEnum',
     'MigrationMode',
     'MigrationOption',
+    'MinimalTlsVersionEnum',
     'OverwriteDbsInTargetEnum',
     'PasswordAuth',
     'PasswordAuthEnum',
     'PrincipalType',
     'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccessEnum',
     'ReadReplicaPromoteMode',
     'ReplicationPromoteOption',
     'ReplicationRole',
     'RoleType',
     'ServerPublicNetworkAccessState',
+    'ServerSecurityAlertPolicyState',
     'ServerVersion',
     'SkuTier',
     'SourceType',
+    'SslEnforcementEnum',
     'SslMode',
     'StartDataMigrationEnum',
     'StorageAutoGrow',
+    'StorageAutogrow',
     'StorageType',
     'TriggerCutoverEnum',
     'VirtualEndpointType',
@@ -53,6 +61,13 @@ class ActiveDirectoryAuthEnum(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class AdministratorType(str, Enum):
+    """
+    The type of administrator.
+    """
+    ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
 class ArmServerKeyType(str, Enum):
@@ -93,20 +108,25 @@ class CancelEnum(str, Enum):
 
 class CreateMode(str, Enum):
     """
-    The mode to create a new PostgreSQL server.
+    The mode to create a new server.
     """
     DEFAULT = "Default"
-    CREATE = "Create"
-    UPDATE = "Update"
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
     GEO_RESTORE = "GeoRestore"
     REPLICA = "Replica"
-    REVIVE_DROPPED = "ReviveDropped"
 
 
 class DataEncryptionType(str, Enum):
     AZURE_KEY_VAULT = "AzureKeyVault"
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class GeoRedundantBackup(str, Enum):
+    """
+    Enable Geo-redundant or not for server backup.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class GeoRedundantBackupEnum(str, Enum):
@@ -127,8 +147,24 @@ class HighAvailabilityMode(str, Enum):
 
 
 class IdentityType(str, Enum):
-    USER_ASSIGNED = "UserAssigned"
+    """
+    The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+    """
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class InfrastructureEncryption(str, Enum):
+    """
+    Status showing whether the server enabled infrastructure encryption.
+    """
+    ENABLED = "Enabled"
+    """
+    Default value for single layer of encryption for data at rest.
+    """
+    DISABLED = "Disabled"
+    """
+    Additional (2nd) layer of encryption for data at rest
+    """
 
 
 class KeyStatusEnum(str, Enum):
@@ -172,6 +208,16 @@ class MigrationOption(str, Enum):
     VALIDATE_AND_MIGRATE = "ValidateAndMigrate"
 
 
+class MinimalTlsVersionEnum(str, Enum):
+    """
+    Enforce a minimal Tls version for the server.
+    """
+    TLS1_0 = "TLS1_0"
+    TLS1_1 = "TLS1_1"
+    TLS1_2 = "TLS1_2"
+    TLS_ENFORCEMENT_DISABLED = "TLSEnforcementDisabled"
+
+
 class OverwriteDbsInTargetEnum(str, Enum):
     """
     Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
@@ -206,6 +252,14 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
+
+
+class PublicNetworkAccessEnum(str, Enum):
+    """
+    Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ReadReplicaPromoteMode(str, Enum):
@@ -247,23 +301,31 @@ class ServerPublicNetworkAccessState(str, Enum):
     DISABLED = "Disabled"
 
 
+class ServerSecurityAlertPolicyState(str, Enum):
+    """
+    Specifies the state of the policy, whether it is enabled or disabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class ServerVersion(str, Enum):
     """
-    PostgreSQL Server version.
+    Server version.
     """
-    SERVER_VERSION_16 = "16"
-    SERVER_VERSION_15 = "15"
-    SERVER_VERSION_14 = "14"
-    SERVER_VERSION_13 = "13"
-    SERVER_VERSION_12 = "12"
+    SERVER_VERSION_9_5 = "9.5"
+    SERVER_VERSION_9_6 = "9.6"
+    SERVER_VERSION_10 = "10"
+    SERVER_VERSION_10_0 = "10.0"
+    SERVER_VERSION_10_2 = "10.2"
     SERVER_VERSION_11 = "11"
 
 
 class SkuTier(str, Enum):
     """
-    The tier of the particular SKU, e.g. Burstable.
+    The tier of the particular SKU, e.g. Basic.
     """
-    BURSTABLE = "Burstable"
+    BASIC = "Basic"
     GENERAL_PURPOSE = "GeneralPurpose"
     MEMORY_OPTIMIZED = "MemoryOptimized"
 
@@ -284,6 +346,14 @@ class SourceType(str, Enum):
     GC_P_ALLOY_DB = "GCP_AlloyDB"
     GC_P_COMPUTE = "GCP_Compute"
     EDB = "EDB"
+
+
+class SslEnforcementEnum(str, Enum):
+    """
+    Enable ssl enforcement or not when connect to server.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SslMode(str, Enum):
@@ -307,6 +377,14 @@ class StartDataMigrationEnum(str, Enum):
 class StorageAutoGrow(str, Enum):
     """
     Flag to enable / disable Storage Auto grow for flexible server.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class StorageAutogrow(str, Enum):
+    """
+    Enable Storage Auto Grow.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

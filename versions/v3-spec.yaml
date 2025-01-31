@@ -327,6 +327,11 @@ DBforMySQL:
     tracking: "2023-12-30"
     additions:
         PrivateEndpointConnection: "2023-06-30"
+        SingleServer: "2017-12-01"
+        SingleServerDatabase: "2017-12-01"
+        SingleServerFirewallRule: "2017-12-01"
+        SingleServerServerAdministrator: "2017-12-01"
+        SingleServerVirtualNetworkRule: "2017-12-01"
     exclusionErrors:
         - modulename: DBforMySQL
           resourcename: Configuration
@@ -395,6 +400,12 @@ DBforPostgreSQL:
         ServerGroupFirewallRule: 2023-03-02-preview
         ServerGroupPrivateEndpointConnection: 2023-03-02-preview
         ServerGroupRole: 2023-03-02-preview
+        SingleServer: "2017-12-01"
+        SingleServerDatabase: "2017-12-01"
+        SingleServerFirewallRule: "2017-12-01"
+        SingleServerServerAdministrator: "2017-12-01"
+        SingleServerServerSecurityAlertPolicy: "2017-12-01"
+        SingleServerVirtualNetworkRule: "2017-12-01"
     exclusionErrors:
         - modulename: DBforPostgreSQL
           resourcename: Configuration

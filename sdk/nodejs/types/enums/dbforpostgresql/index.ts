@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20171201 from "./v20171201";
 import * as v20221201 from "./v20221201";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230302preview from "./v20230302preview";
@@ -10,6 +11,7 @@ import * as v20240801 from "./v20240801";
 import * as v20241101preview from "./v20241101preview";
 
 export {
+    v20171201,
     v20221201,
     v20230301preview,
     v20230302preview,
@@ -34,6 +36,15 @@ export const ActiveDirectoryAuthEnum = {
  * If Enabled, Azure Active Directory authentication is enabled.
  */
 export type ActiveDirectoryAuthEnum = (typeof ActiveDirectoryAuthEnum)[keyof typeof ActiveDirectoryAuthEnum];
+
+export const AdministratorType = {
+    ActiveDirectory: "ActiveDirectory",
+} as const;
+
+/**
+ * The type of administrator.
+ */
+export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
 
 export const ArmServerKeyType = {
     SystemManaged: "SystemManaged",
@@ -79,16 +90,13 @@ export type CancelEnum = (typeof CancelEnum)[keyof typeof CancelEnum];
 
 export const CreateMode = {
     Default: "Default",
-    Create: "Create",
-    Update: "Update",
     PointInTimeRestore: "PointInTimeRestore",
     GeoRestore: "GeoRestore",
     Replica: "Replica",
-    ReviveDropped: "ReviveDropped",
 } as const;
 
 /**
- * The mode to create a new PostgreSQL server.
+ * The mode to create a new server.
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
@@ -98,6 +106,16 @@ export const DataEncryptionType = {
 } as const;
 
 export type DataEncryptionType = (typeof DataEncryptionType)[keyof typeof DataEncryptionType];
+
+export const GeoRedundantBackup = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable Geo-redundant or not for server backup.
+ */
+export type GeoRedundantBackup = (typeof GeoRedundantBackup)[keyof typeof GeoRedundantBackup];
 
 export const GeoRedundantBackupEnum = {
     Enabled: "Enabled",
@@ -121,11 +139,29 @@ export const HighAvailabilityMode = {
 export type HighAvailabilityMode = (typeof HighAvailabilityMode)[keyof typeof HighAvailabilityMode];
 
 export const IdentityType = {
-    UserAssigned: "UserAssigned",
     SystemAssigned: "SystemAssigned",
 } as const;
 
+/**
+ * The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+ */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+export const InfrastructureEncryption = {
+    /**
+     * Default value for single layer of encryption for data at rest.
+     */
+    Enabled: "Enabled",
+    /**
+     * Additional (2nd) layer of encryption for data at rest
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Status showing whether the server enabled infrastructure encryption.
+ */
+export type InfrastructureEncryption = (typeof InfrastructureEncryption)[keyof typeof InfrastructureEncryption];
 
 export const KeyStatusEnum = {
     Valid: "Valid",
@@ -178,6 +214,18 @@ export const MigrationOption = {
  */
 export type MigrationOption = (typeof MigrationOption)[keyof typeof MigrationOption];
 
+export const MinimalTlsVersionEnum = {
+    TLS1_0: "TLS1_0",
+    TLS1_1: "TLS1_1",
+    TLS1_2: "TLS1_2",
+    TLSEnforcementDisabled: "TLSEnforcementDisabled",
+} as const;
+
+/**
+ * Enforce a minimal Tls version for the server.
+ */
+export type MinimalTlsVersionEnum = (typeof MinimalTlsVersionEnum)[keyof typeof MinimalTlsVersionEnum];
+
 export const OverwriteDbsInTargetEnum = {
     True: "True",
     False: "False",
@@ -223,6 +271,16 @@ export const PrivateEndpointServiceConnectionStatus = {
  * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccessEnum = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+ */
+export type PublicNetworkAccessEnum = (typeof PublicNetworkAccessEnum)[keyof typeof PublicNetworkAccessEnum];
 
 export const ReadReplicaPromoteMode = {
     Standalone: "standalone",
@@ -273,28 +331,38 @@ export const ServerPublicNetworkAccessState = {
  */
 export type ServerPublicNetworkAccessState = (typeof ServerPublicNetworkAccessState)[keyof typeof ServerPublicNetworkAccessState];
 
+export const ServerSecurityAlertPolicyState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies the state of the policy, whether it is enabled or disabled.
+ */
+export type ServerSecurityAlertPolicyState = (typeof ServerSecurityAlertPolicyState)[keyof typeof ServerSecurityAlertPolicyState];
+
 export const ServerVersion = {
-    ServerVersion_16: "16",
-    ServerVersion_15: "15",
-    ServerVersion_14: "14",
-    ServerVersion_13: "13",
-    ServerVersion_12: "12",
+    ServerVersion_9_5: "9.5",
+    ServerVersion_9_6: "9.6",
+    ServerVersion_10: "10",
+    ServerVersion_10_0: "10.0",
+    ServerVersion_10_2: "10.2",
     ServerVersion_11: "11",
 } as const;
 
 /**
- * PostgreSQL Server version.
+ * Server version.
  */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
 
 export const SkuTier = {
-    Burstable: "Burstable",
+    Basic: "Basic",
     GeneralPurpose: "GeneralPurpose",
     MemoryOptimized: "MemoryOptimized",
 } as const;
 
 /**
- * The tier of the particular SKU, e.g. Burstable.
+ * The tier of the particular SKU, e.g. Basic.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
@@ -317,6 +385,16 @@ export const SourceType = {
  * migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
  */
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
+export const SslEnforcementEnum = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable ssl enforcement or not when connect to server.
+ */
+export type SslEnforcementEnum = (typeof SslEnforcementEnum)[keyof typeof SslEnforcementEnum];
 
 export const SslMode = {
     Prefer: "Prefer",
@@ -349,6 +427,16 @@ export const StorageAutoGrow = {
  * Flag to enable / disable Storage Auto grow for flexible server.
  */
 export type StorageAutoGrow = (typeof StorageAutoGrow)[keyof typeof StorageAutoGrow];
+
+export const StorageAutogrow = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable Storage Auto Grow.
+ */
+export type StorageAutogrow = (typeof StorageAutogrow)[keyof typeof StorageAutogrow];
 
 export const StorageType = {
     Premium_LRS: "Premium_LRS",

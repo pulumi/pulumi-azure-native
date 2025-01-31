@@ -17,13 +17,25 @@ from .get_firewall_rule import *
 from .get_get_private_dns_zone_suffix_execute import *
 from .get_private_endpoint_connection import *
 from .get_server import *
+from .get_single_server import *
+from .get_single_server_database import *
+from .get_single_server_firewall_rule import *
+from .get_single_server_server_administrator import *
+from .get_single_server_virtual_network_rule import *
 from .private_endpoint_connection import *
 from .server import *
+from .single_server import *
+from .single_server_database import *
+from .single_server_firewall_rule import *
+from .single_server_server_administrator import *
+from .single_server_virtual_network_rule import *
 from ._inputs import *
 from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.dbformysql.v20171201 as __v20171201
+    v20171201 = __v20171201
     import pulumi_azure_native.dbformysql.v20220101 as __v20220101
     v20220101 = __v20220101
     import pulumi_azure_native.dbformysql.v20220930preview as __v20220930preview
@@ -39,6 +51,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.dbformysql.v20241001preview as __v20241001preview
     v20241001preview = __v20241001preview
 else:
+    v20171201 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20171201')
     v20220101 = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20220101')
     v20220930preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20220930preview')
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.dbformysql.v20230601preview')

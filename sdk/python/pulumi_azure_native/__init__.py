@@ -5119,7 +5119,24 @@ _utilities.register(
    "azure-native:dbformysql:Database": "Database",
    "azure-native:dbformysql:FirewallRule": "FirewallRule",
    "azure-native:dbformysql:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:dbformysql:Server": "Server"
+   "azure-native:dbformysql:Server": "Server",
+   "azure-native:dbformysql:SingleServer": "SingleServer",
+   "azure-native:dbformysql:SingleServerDatabase": "SingleServerDatabase",
+   "azure-native:dbformysql:SingleServerFirewallRule": "SingleServerFirewallRule",
+   "azure-native:dbformysql:SingleServerServerAdministrator": "SingleServerServerAdministrator",
+   "azure-native:dbformysql:SingleServerVirtualNetworkRule": "SingleServerVirtualNetworkRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dbformysql/v20171201",
+  "fqn": "pulumi_azure_native.dbformysql.v20171201",
+  "classes": {
+   "azure-native:dbformysql/v20171201:SingleServer": "SingleServer",
+   "azure-native:dbformysql/v20171201:SingleServerDatabase": "SingleServerDatabase",
+   "azure-native:dbformysql/v20171201:SingleServerFirewallRule": "SingleServerFirewallRule",
+   "azure-native:dbformysql/v20171201:SingleServerServerAdministrator": "SingleServerServerAdministrator",
+   "azure-native:dbformysql/v20171201:SingleServerVirtualNetworkRule": "SingleServerVirtualNetworkRule"
   }
  },
  {
@@ -5188,7 +5205,26 @@ _utilities.register(
    "azure-native:dbforpostgresql:ServerGroupFirewallRule": "ServerGroupFirewallRule",
    "azure-native:dbforpostgresql:ServerGroupPrivateEndpointConnection": "ServerGroupPrivateEndpointConnection",
    "azure-native:dbforpostgresql:ServerGroupRole": "ServerGroupRole",
+   "azure-native:dbforpostgresql:SingleServer": "SingleServer",
+   "azure-native:dbforpostgresql:SingleServerDatabase": "SingleServerDatabase",
+   "azure-native:dbforpostgresql:SingleServerFirewallRule": "SingleServerFirewallRule",
+   "azure-native:dbforpostgresql:SingleServerServerAdministrator": "SingleServerServerAdministrator",
+   "azure-native:dbforpostgresql:SingleServerServerSecurityAlertPolicy": "SingleServerServerSecurityAlertPolicy",
+   "azure-native:dbforpostgresql:SingleServerVirtualNetworkRule": "SingleServerVirtualNetworkRule",
    "azure-native:dbforpostgresql:VirtualEndpoint": "VirtualEndpoint"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dbforpostgresql/v20171201",
+  "fqn": "pulumi_azure_native.dbforpostgresql.v20171201",
+  "classes": {
+   "azure-native:dbforpostgresql/v20171201:SingleServer": "SingleServer",
+   "azure-native:dbforpostgresql/v20171201:SingleServerDatabase": "SingleServerDatabase",
+   "azure-native:dbforpostgresql/v20171201:SingleServerFirewallRule": "SingleServerFirewallRule",
+   "azure-native:dbforpostgresql/v20171201:SingleServerServerAdministrator": "SingleServerServerAdministrator",
+   "azure-native:dbforpostgresql/v20171201:SingleServerServerSecurityAlertPolicy": "SingleServerServerSecurityAlertPolicy",
+   "azure-native:dbforpostgresql/v20171201:SingleServerVirtualNetworkRule": "SingleServerVirtualNetworkRule"
   }
  },
  {

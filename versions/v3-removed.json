@@ -386,7 +386,6 @@
     "2018-06-01-privatepreview"
   ],
   "DBforMySQL": [
-    "2017-12-01",
     "2017-12-01-preview",
     "2018-06-01",
     "2018-06-01-privatepreview",
@@ -399,7 +398,6 @@
     "2021-12-01-preview"
   ],
   "DBforPostgreSQL": [
-    "2017-12-01",
     "2017-12-01-preview",
     "2018-06-01",
     "2018-06-01-privatepreview",

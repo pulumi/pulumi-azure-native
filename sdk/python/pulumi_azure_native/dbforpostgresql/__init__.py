@@ -24,6 +24,12 @@ from .get_server_group_cluster import *
 from .get_server_group_firewall_rule import *
 from .get_server_group_private_endpoint_connection import *
 from .get_server_group_role import *
+from .get_single_server import *
+from .get_single_server_database import *
+from .get_single_server_firewall_rule import *
+from .get_single_server_server_administrator import *
+from .get_single_server_server_security_alert_policy import *
+from .get_single_server_virtual_network_rule import *
 from .get_virtual_endpoint import *
 from .migration import *
 from .private_endpoint_connection import *
@@ -32,12 +38,20 @@ from .server_group_cluster import *
 from .server_group_firewall_rule import *
 from .server_group_private_endpoint_connection import *
 from .server_group_role import *
+from .single_server import *
+from .single_server_database import *
+from .single_server_firewall_rule import *
+from .single_server_server_administrator import *
+from .single_server_server_security_alert_policy import *
+from .single_server_virtual_network_rule import *
 from .virtual_endpoint import *
 from ._inputs import *
 from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.dbforpostgresql.v20171201 as __v20171201
+    v20171201 = __v20171201
     import pulumi_azure_native.dbforpostgresql.v20221108 as __v20221108
     v20221108 = __v20221108
     import pulumi_azure_native.dbforpostgresql.v20221201 as __v20221201
@@ -57,6 +71,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.dbforpostgresql.v20241101preview as __v20241101preview
     v20241101preview = __v20241101preview
 else:
+    v20171201 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20171201')
     v20221108 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20221108')
     v20221201 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20221201')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20230301preview')

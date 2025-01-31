@@ -4012,6 +4012,31 @@ DBforMySQL:
         SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/FlexibleServers/stable/2023-12-30/FlexibleServers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}
         RpNamespace: Microsoft.DBforMySQL
+    SingleServer:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}
+        RpNamespace: Microsoft.DBforMySQL
+    SingleServerDatabase:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName}
+        RpNamespace: Microsoft.DBforMySQL
+    SingleServerFirewallRule:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/firewallRules/{firewallRuleName}
+        RpNamespace: Microsoft.DBforMySQL
+    SingleServerServerAdministrator:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/administrators/activeDirectory
+        RpNamespace: Microsoft.DBforMySQL
+    SingleServerVirtualNetworkRule:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/legacy/stable/2017-12-01/mysql.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName}
+        RpNamespace: Microsoft.DBforMySQL
     getGetPrivateDnsZoneSuffixExecute:
         ApiVersion: "2023-12-30"
         SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/ServiceOperations/stable/2023-12-30/ServiceOperations.json
@@ -4077,6 +4102,36 @@ DBforPostgreSQL:
         ApiVersion: 2023-03-02-preview
         SpecFilePath: specification/postgresqlhsc/resource-manager/Microsoft.DBforPostgreSQL/preview/2023-03-02-preview/postgresqlhsc.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{clusterName}/roles/{roleName}
+        RpNamespace: Microsoft.DBforPostgreSQL
+    SingleServer:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/postgresql.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}
+        RpNamespace: Microsoft.DBforPostgreSQL
+    SingleServerDatabase:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/postgresql.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/databases/{databaseName}
+        RpNamespace: Microsoft.DBforPostgreSQL
+    SingleServerFirewallRule:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/postgresql.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/firewallRules/{firewallRuleName}
+        RpNamespace: Microsoft.DBforPostgreSQL
+    SingleServerServerAdministrator:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/postgresql.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/administrators/activeDirectory
+        RpNamespace: Microsoft.DBforPostgreSQL
+    SingleServerServerSecurityAlertPolicy:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/ServerSecurityAlertPolicies.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/securityAlertPolicies/{securityAlertPolicyName}
+        RpNamespace: Microsoft.DBforPostgreSQL
+    SingleServerVirtualNetworkRule:
+        ApiVersion: "2017-12-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2017-12-01/postgresql.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName}
         RpNamespace: Microsoft.DBforPostgreSQL
     VirtualEndpoint:
         ApiVersion: "2024-08-01"

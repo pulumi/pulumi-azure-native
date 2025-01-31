@@ -95,6 +95,36 @@ export const getServerGroupRole: typeof import("./getServerGroupRole").getServer
 export const getServerGroupRoleOutput: typeof import("./getServerGroupRole").getServerGroupRoleOutput = null as any;
 utilities.lazyLoad(exports, ["getServerGroupRole","getServerGroupRoleOutput"], () => require("./getServerGroupRole"));
 
+export { GetSingleServerArgs, GetSingleServerResult, GetSingleServerOutputArgs } from "./getSingleServer";
+export const getSingleServer: typeof import("./getSingleServer").getSingleServer = null as any;
+export const getSingleServerOutput: typeof import("./getSingleServer").getSingleServerOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServer","getSingleServerOutput"], () => require("./getSingleServer"));
+
+export { GetSingleServerDatabaseArgs, GetSingleServerDatabaseResult, GetSingleServerDatabaseOutputArgs } from "./getSingleServerDatabase";
+export const getSingleServerDatabase: typeof import("./getSingleServerDatabase").getSingleServerDatabase = null as any;
+export const getSingleServerDatabaseOutput: typeof import("./getSingleServerDatabase").getSingleServerDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServerDatabase","getSingleServerDatabaseOutput"], () => require("./getSingleServerDatabase"));
+
+export { GetSingleServerFirewallRuleArgs, GetSingleServerFirewallRuleResult, GetSingleServerFirewallRuleOutputArgs } from "./getSingleServerFirewallRule";
+export const getSingleServerFirewallRule: typeof import("./getSingleServerFirewallRule").getSingleServerFirewallRule = null as any;
+export const getSingleServerFirewallRuleOutput: typeof import("./getSingleServerFirewallRule").getSingleServerFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServerFirewallRule","getSingleServerFirewallRuleOutput"], () => require("./getSingleServerFirewallRule"));
+
+export { GetSingleServerServerAdministratorArgs, GetSingleServerServerAdministratorResult, GetSingleServerServerAdministratorOutputArgs } from "./getSingleServerServerAdministrator";
+export const getSingleServerServerAdministrator: typeof import("./getSingleServerServerAdministrator").getSingleServerServerAdministrator = null as any;
+export const getSingleServerServerAdministratorOutput: typeof import("./getSingleServerServerAdministrator").getSingleServerServerAdministratorOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServerServerAdministrator","getSingleServerServerAdministratorOutput"], () => require("./getSingleServerServerAdministrator"));
+
+export { GetSingleServerServerSecurityAlertPolicyArgs, GetSingleServerServerSecurityAlertPolicyResult, GetSingleServerServerSecurityAlertPolicyOutputArgs } from "./getSingleServerServerSecurityAlertPolicy";
+export const getSingleServerServerSecurityAlertPolicy: typeof import("./getSingleServerServerSecurityAlertPolicy").getSingleServerServerSecurityAlertPolicy = null as any;
+export const getSingleServerServerSecurityAlertPolicyOutput: typeof import("./getSingleServerServerSecurityAlertPolicy").getSingleServerServerSecurityAlertPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServerServerSecurityAlertPolicy","getSingleServerServerSecurityAlertPolicyOutput"], () => require("./getSingleServerServerSecurityAlertPolicy"));
+
+export { GetSingleServerVirtualNetworkRuleArgs, GetSingleServerVirtualNetworkRuleResult, GetSingleServerVirtualNetworkRuleOutputArgs } from "./getSingleServerVirtualNetworkRule";
+export const getSingleServerVirtualNetworkRule: typeof import("./getSingleServerVirtualNetworkRule").getSingleServerVirtualNetworkRule = null as any;
+export const getSingleServerVirtualNetworkRuleOutput: typeof import("./getSingleServerVirtualNetworkRule").getSingleServerVirtualNetworkRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSingleServerVirtualNetworkRule","getSingleServerVirtualNetworkRuleOutput"], () => require("./getSingleServerVirtualNetworkRule"));
+
 export { GetVirtualEndpointArgs, GetVirtualEndpointResult, GetVirtualEndpointOutputArgs } from "./getVirtualEndpoint";
 export const getVirtualEndpoint: typeof import("./getVirtualEndpoint").getVirtualEndpoint = null as any;
 export const getVirtualEndpointOutput: typeof import("./getVirtualEndpoint").getVirtualEndpointOutput = null as any;
@@ -135,6 +165,36 @@ export type ServerGroupRole = import("./serverGroupRole").ServerGroupRole;
 export const ServerGroupRole: typeof import("./serverGroupRole").ServerGroupRole = null as any;
 utilities.lazyLoad(exports, ["ServerGroupRole"], () => require("./serverGroupRole"));
 
+export { SingleServerArgs } from "./singleServer";
+export type SingleServer = import("./singleServer").SingleServer;
+export const SingleServer: typeof import("./singleServer").SingleServer = null as any;
+utilities.lazyLoad(exports, ["SingleServer"], () => require("./singleServer"));
+
+export { SingleServerDatabaseArgs } from "./singleServerDatabase";
+export type SingleServerDatabase = import("./singleServerDatabase").SingleServerDatabase;
+export const SingleServerDatabase: typeof import("./singleServerDatabase").SingleServerDatabase = null as any;
+utilities.lazyLoad(exports, ["SingleServerDatabase"], () => require("./singleServerDatabase"));
+
+export { SingleServerFirewallRuleArgs } from "./singleServerFirewallRule";
+export type SingleServerFirewallRule = import("./singleServerFirewallRule").SingleServerFirewallRule;
+export const SingleServerFirewallRule: typeof import("./singleServerFirewallRule").SingleServerFirewallRule = null as any;
+utilities.lazyLoad(exports, ["SingleServerFirewallRule"], () => require("./singleServerFirewallRule"));
+
+export { SingleServerServerAdministratorArgs } from "./singleServerServerAdministrator";
+export type SingleServerServerAdministrator = import("./singleServerServerAdministrator").SingleServerServerAdministrator;
+export const SingleServerServerAdministrator: typeof import("./singleServerServerAdministrator").SingleServerServerAdministrator = null as any;
+utilities.lazyLoad(exports, ["SingleServerServerAdministrator"], () => require("./singleServerServerAdministrator"));
+
+export { SingleServerServerSecurityAlertPolicyArgs } from "./singleServerServerSecurityAlertPolicy";
+export type SingleServerServerSecurityAlertPolicy = import("./singleServerServerSecurityAlertPolicy").SingleServerServerSecurityAlertPolicy;
+export const SingleServerServerSecurityAlertPolicy: typeof import("./singleServerServerSecurityAlertPolicy").SingleServerServerSecurityAlertPolicy = null as any;
+utilities.lazyLoad(exports, ["SingleServerServerSecurityAlertPolicy"], () => require("./singleServerServerSecurityAlertPolicy"));
+
+export { SingleServerVirtualNetworkRuleArgs } from "./singleServerVirtualNetworkRule";
+export type SingleServerVirtualNetworkRule = import("./singleServerVirtualNetworkRule").SingleServerVirtualNetworkRule;
+export const SingleServerVirtualNetworkRule: typeof import("./singleServerVirtualNetworkRule").SingleServerVirtualNetworkRule = null as any;
+utilities.lazyLoad(exports, ["SingleServerVirtualNetworkRule"], () => require("./singleServerVirtualNetworkRule"));
+
 export { VirtualEndpointArgs } from "./virtualEndpoint";
 export type VirtualEndpoint = import("./virtualEndpoint").VirtualEndpoint;
 export const VirtualEndpoint: typeof import("./virtualEndpoint").VirtualEndpoint = null as any;
@@ -145,6 +205,7 @@ utilities.lazyLoad(exports, ["VirtualEndpoint"], () => require("./virtualEndpoin
 export * from "../types/enums/dbforpostgresql";
 
 // Export sub-modules:
+import * as v20171201 from "./v20171201";
 import * as v20221108 from "./v20221108";
 import * as v20221201 from "./v20221201";
 import * as v20230301preview from "./v20230301preview";
@@ -156,6 +217,7 @@ import * as v20240801 from "./v20240801";
 import * as v20241101preview from "./v20241101preview";
 
 export {
+    v20171201,
     v20221108,
     v20221201,
     v20230301preview,
@@ -195,6 +257,18 @@ const _module = {
                 return new ServerGroupPrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql:ServerGroupRole":
                 return new ServerGroupRole(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:SingleServer":
+                return new SingleServer(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:SingleServerDatabase":
+                return new SingleServerDatabase(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:SingleServerFirewallRule":
+                return new SingleServerFirewallRule(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:SingleServerServerAdministrator":
+                return new SingleServerServerAdministrator(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:SingleServerServerSecurityAlertPolicy":
+                return new SingleServerServerSecurityAlertPolicy(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:SingleServerVirtualNetworkRule":
+                return new SingleServerVirtualNetworkRule(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql:VirtualEndpoint":
                 return new VirtualEndpoint(name, <any>undefined, { urn })
             default:
