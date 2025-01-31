@@ -339,6 +339,9 @@ var v3ModulesNamedByFolder = map[string]ModuleName{
 	// "DocumentDB":
 	"cosmos-db":    "CosmosDB",
 	"mongocluster": "MongoCluster",
+	// Insights:
+	"monitor":             "Monitor",
+	"applicationinsights": "ApplicationInsights",
 }
 
 // getNameOverride returns a name override for a given folder name, and non-prefixed namespace.
