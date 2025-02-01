@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Preferences related to the shipment logistics of the sku
+    /// Preferences related to the shipment logistics of the sku.
     /// </summary>
     [OutputType]
     public sealed class TransportPreferencesResponse

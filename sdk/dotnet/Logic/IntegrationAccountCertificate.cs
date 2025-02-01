@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Logic
 {
     /// <summary>
     /// The integration account certificate.
-    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
     /// 
     /// Other available API versions: 2015-08-01-preview.
     /// </summary>
@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.Logic
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountCertificate" },

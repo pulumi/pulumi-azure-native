@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        /// <summary>
+        /// Optional, required by connections like SalesForce for extra security in addition to UsernamePassword
+        /// </summary>
+        [Input("securityToken")]
+        public Input<string>? SecurityToken { get; set; }
+
         [Input("username")]
         public Input<string>? Username { get; set; }
 

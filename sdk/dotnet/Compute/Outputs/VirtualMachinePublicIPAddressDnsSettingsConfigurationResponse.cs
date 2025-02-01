@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// The Domain name label prefix of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the domain name label and vm network profile unique ID.
         /// </summary>
         public readonly string DomainNameLabel;
+        /// <summary>
+        /// The Domain name label scope of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the hashed domain name label with policy according to the domain name label scope and vm network profile unique ID.
+        /// </summary>
+        public readonly string? DomainNameLabelScope;
 
         [OutputConstructor]
-        private VirtualMachinePublicIPAddressDnsSettingsConfigurationResponse(string domainNameLabel)
+        private VirtualMachinePublicIPAddressDnsSettingsConfigurationResponse(
+            string domainNameLabel,
+
+            string? domainNameLabelScope)
         {
             DomainNameLabel = domainNameLabel;
+            DomainNameLabelScope = domainNameLabelScope;
         }
     }
 }

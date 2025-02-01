@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("headerValue")]
         public Input<string>? HeaderValue { get; set; }
 
+        /// <summary>
+        /// An optional field under "Rewrite Action". It lets you capture and modify the value(s) of a specific header when multiple headers with the same name exist. Currently supported for Set-Cookie Response header only. For more details, visit https://aka.ms/appgwheadercrud
+        /// </summary>
+        [Input("headerValueMatcher")]
+        public Input<Inputs.HeaderValueMatcherArgs>? HeaderValueMatcher { get; set; }
+
         public ApplicationGatewayHeaderConfigurationArgs()
         {
         }

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Maps
     {
         /// <summary>
         /// Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
-        /// Azure REST API version: 2021-02-01.
+        /// Azure REST API version: 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2021-02-01.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:maps:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
-        /// Azure REST API version: 2021-02-01.
+        /// Azure REST API version: 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2021-02-01.
         /// </summary>
         public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:maps:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
-        /// Azure REST API version: 2021-02-01.
+        /// Azure REST API version: 2024-07-01-preview.
         /// 
-        /// Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+        /// Other available API versions: 2021-02-01.
         /// </summary>
         public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:maps:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());

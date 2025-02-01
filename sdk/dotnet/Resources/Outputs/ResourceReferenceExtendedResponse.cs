@@ -11,15 +11,15 @@ namespace Pulumi.AzureNative.Resources.Outputs
 {
 
     /// <summary>
-    /// The resource Id extended model.
+    /// The resourceId extended model. This is used to document failed resources with a resourceId and a corresponding error.
     /// </summary>
     [OutputType]
     public sealed class ResourceReferenceExtendedResponse
     {
         /// <summary>
-        /// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+        /// The error detail.
         /// </summary>
-        public readonly Outputs.ErrorResponseResponse? Error;
+        public readonly Outputs.ErrorDetailResponse? Error;
         /// <summary>
         /// The resourceId of a resource managed by the deployment stack.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
 
         [OutputConstructor]
         private ResourceReferenceExtendedResponse(
-            Outputs.ErrorResponseResponse? error,
+            Outputs.ErrorDetailResponse? error,
 
             string id)
         {

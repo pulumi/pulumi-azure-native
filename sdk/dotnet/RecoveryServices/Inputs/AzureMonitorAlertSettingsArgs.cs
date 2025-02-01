@@ -15,8 +15,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     /// </summary>
     public sealed class AzureMonitorAlertSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("alertsForAllFailoverIssues")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.AlertsState>? AlertsForAllFailoverIssues { get; set; }
+
         [Input("alertsForAllJobFailures")]
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.AlertsState>? AlertsForAllJobFailures { get; set; }
+
+        [Input("alertsForAllReplicationIssues")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.AlertsState>? AlertsForAllReplicationIssues { get; set; }
 
         public AzureMonitorAlertSettingsArgs()
         {

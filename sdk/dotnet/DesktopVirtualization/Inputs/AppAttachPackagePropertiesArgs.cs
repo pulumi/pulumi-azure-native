@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Inputs
         public Input<Inputs.AppAttachPackageInfoPropertiesArgs>? Image { get; set; }
 
         /// <summary>
-        /// URL of keyvault location to store certificate
+        /// URL path to certificate name located in keyVault
         /// </summary>
         [Input("keyVaultURL")]
         public Input<string>? KeyVaultURL { get; set; }

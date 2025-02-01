@@ -34,9 +34,29 @@ namespace Pulumi.AzureNative.Elastic.Outputs
         /// </summary>
         public readonly string? MonitoringStatus;
         /// <summary>
+        /// Plan details of the monitor resource.
+        /// </summary>
+        public readonly Outputs.PlanDetailsResponse? PlanDetails;
+        /// <summary>
         /// Provisioning state of the monitor resource.
         /// </summary>
         public readonly string? ProvisioningState;
+        /// <summary>
+        /// Status of Azure Subscription where Marketplace SaaS is located.
+        /// </summary>
+        public readonly string? SaaSAzureSubscriptionStatus;
+        /// <summary>
+        /// A unique identifier associated with the campaign.
+        /// </summary>
+        public readonly string? SourceCampaignId;
+        /// <summary>
+        /// Name of the marketing campaign.
+        /// </summary>
+        public readonly string? SourceCampaignName;
+        /// <summary>
+        /// State of the Azure Subscription containing the monitor resource
+        /// </summary>
+        public readonly string? SubscriptionState;
         /// <summary>
         /// Version of elastic of the monitor resource
         /// </summary>
@@ -54,7 +74,17 @@ namespace Pulumi.AzureNative.Elastic.Outputs
 
             string? monitoringStatus,
 
+            Outputs.PlanDetailsResponse? planDetails,
+
             string? provisioningState,
+
+            string? saaSAzureSubscriptionStatus,
+
+            string? sourceCampaignId,
+
+            string? sourceCampaignName,
+
+            string? subscriptionState,
 
             string? version)
         {
@@ -63,7 +93,12 @@ namespace Pulumi.AzureNative.Elastic.Outputs
             LiftrResourceCategory = liftrResourceCategory;
             LiftrResourcePreference = liftrResourcePreference;
             MonitoringStatus = monitoringStatus;
+            PlanDetails = planDetails;
             ProvisioningState = provisioningState;
+            SaaSAzureSubscriptionStatus = saaSAzureSubscriptionStatus;
+            SourceCampaignId = sourceCampaignId;
+            SourceCampaignName = sourceCampaignName;
+            SubscriptionState = subscriptionState;
             Version = version;
         }
     }

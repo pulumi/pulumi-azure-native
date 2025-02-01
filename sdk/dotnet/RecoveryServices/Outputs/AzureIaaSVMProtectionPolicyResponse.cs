@@ -43,6 +43,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Backup schedule specified as part of backup policy.
         /// </summary>
         public readonly object? SchedulePolicy;
+        public readonly string? SnapshotConsistencyType;
         /// <summary>
         /// Tiering policy to automatically move RPs to another tier
         /// Key is Target Tier, defined in RecoveryPointTierType enum.
@@ -72,6 +73,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             object? schedulePolicy,
 
+            string? snapshotConsistencyType,
+
             ImmutableDictionary<string, Outputs.TieringPolicyResponse>? tieringPolicy,
 
             string? timeZone)
@@ -84,6 +87,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ResourceGuardOperationRequests = resourceGuardOperationRequests;
             RetentionPolicy = retentionPolicy;
             SchedulePolicy = schedulePolicy;
+            SnapshotConsistencyType = snapshotConsistencyType;
             TieringPolicy = tieringPolicy;
             TimeZone = timeZone;
         }

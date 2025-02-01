@@ -10,19 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.Inputs
 {
 
+    /// <summary>
+    /// Describes IPPool
+    /// </summary>
     public sealed class IPPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// end of the ip address pool
+        /// End of the IP address pool
         /// </summary>
         [Input("end")]
         public Input<string>? End { get; set; }
 
         /// <summary>
-        /// ip pool type
+        /// Type of the IP Pool [vm, vippool]
         /// </summary>
         [Input("ipPoolType")]
-        public Input<Pulumi.AzureNative.AzureStackHCI.IPPoolTypeEnum>? IpPoolType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.IPPoolTypeEnum>? IpPoolType { get; set; }
 
         /// <summary>
         /// Name of the IP-Pool
@@ -31,7 +34,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// start of the ip address pool
+        /// Start of the IP address pool
         /// </summary>
         [Input("start")]
         public Input<string>? Start { get; set; }

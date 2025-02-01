@@ -99,6 +99,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:ACIService" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:ACIService" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:ACIService" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:AKSService" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:EndpointVariant" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

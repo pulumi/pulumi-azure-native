@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class VirtualMachineScaleSetNetworkConfigurationResponse
     {
         /// <summary>
+        /// Specifies whether the Auxiliary mode is enabled for the Network Interface resource.
+        /// </summary>
+        public readonly string? AuxiliaryMode;
+        /// <summary>
+        /// Specifies whether the Auxiliary sku is enabled for the Network Interface resource.
+        /// </summary>
+        public readonly string? AuxiliarySku;
+        /// <summary>
         /// Specify what happens to the network interface when the VM is deleted
         /// </summary>
         public readonly string? DeleteOption;
@@ -59,6 +67,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
         [OutputConstructor]
         private VirtualMachineScaleSetNetworkConfigurationResponse(
+            string? auxiliaryMode,
+
+            string? auxiliarySku,
+
             string? deleteOption,
 
             bool? disableTcpStateTracking,
@@ -79,6 +91,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             bool? primary)
         {
+            AuxiliaryMode = auxiliaryMode;
+            AuxiliarySku = auxiliarySku;
             DeleteOption = deleteOption;
             DisableTcpStateTracking = disableTcpStateTracking;
             DnsSettings = dnsSettings;

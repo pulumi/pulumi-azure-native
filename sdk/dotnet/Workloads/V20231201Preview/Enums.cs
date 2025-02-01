@@ -113,45 +113,4 @@ namespace Pulumi.AzureNative.Workloads.V20231201Preview
 
         public override string ToString() => _value;
     }
-
-    /// <summary>
-    /// Gets or sets certificate preference if secure communication is enabled.
-    /// </summary>
-    [EnumType]
-    public readonly struct SslPreference : IEquatable<SslPreference>
-    {
-        private readonly string _value;
-
-        private SslPreference(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Secure communication is disabled.
-        /// </summary>
-        public static SslPreference Disabled { get; } = new SslPreference("Disabled");
-        /// <summary>
-        /// Secure communication is enabled with root certificate.
-        /// </summary>
-        public static SslPreference RootCertificate { get; } = new SslPreference("RootCertificate");
-        /// <summary>
-        /// Secure communication is enabled with server certificate.
-        /// </summary>
-        public static SslPreference ServerCertificate { get; } = new SslPreference("ServerCertificate");
-
-        public static bool operator ==(SslPreference left, SslPreference right) => left.Equals(right);
-        public static bool operator !=(SslPreference left, SslPreference right) => !left.Equals(right);
-
-        public static explicit operator string(SslPreference value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SslPreference other && Equals(other);
-        public bool Equals(SslPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
 }

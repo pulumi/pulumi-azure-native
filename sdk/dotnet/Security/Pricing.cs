@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
-    /// Azure REST API version: 2024-01-01.
+    /// Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Pricing")]
     public partial class Pricing : global::Pulumi.CustomResource

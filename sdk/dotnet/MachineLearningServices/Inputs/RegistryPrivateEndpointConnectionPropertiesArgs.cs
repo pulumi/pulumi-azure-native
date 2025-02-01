@@ -34,16 +34,16 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<Inputs.PrivateEndpointResourceArgs>? PrivateEndpoint { get; set; }
 
         /// <summary>
-        /// The connection state.
-        /// </summary>
-        [Input("privateLinkServiceConnectionState")]
-        public Input<Inputs.RegistryPrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
-
-        /// <summary>
         /// One of null, "Succeeded", "Provisioning", "Failed". While not approved, it's null.
         /// </summary>
         [Input("provisioningState")]
         public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The connection state.
+        /// </summary>
+        [Input("registryPrivateLinkServiceConnectionState")]
+        public Input<Inputs.RegistryPrivateLinkServiceConnectionStateArgs>? RegistryPrivateLinkServiceConnectionState { get; set; }
 
         public RegistryPrivateEndpointConnectionPropertiesArgs()
         {

@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// Collection of secrets used by a Container app
         /// </summary>
         public readonly ImmutableArray<Outputs.SecretResponse> Secrets;
+        /// <summary>
+        /// Container App to be a dev Container App Service
+        /// </summary>
+        public readonly Outputs.ServiceResponse? Service;
 
         [OutputConstructor]
         private ConfigurationResponse(
@@ -54,7 +58,9 @@ namespace Pulumi.AzureNative.App.Outputs
 
             ImmutableArray<Outputs.RegistryCredentialsResponse> registries,
 
-            ImmutableArray<Outputs.SecretResponse> secrets)
+            ImmutableArray<Outputs.SecretResponse> secrets,
+
+            Outputs.ServiceResponse? service)
         {
             ActiveRevisionsMode = activeRevisionsMode;
             Dapr = dapr;
@@ -62,6 +68,7 @@ namespace Pulumi.AzureNative.App.Outputs
             MaxInactiveRevisions = maxInactiveRevisions;
             Registries = registries;
             Secrets = secrets;
+            Service = service;
         }
     }
 }

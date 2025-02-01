@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20241001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:GuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:GuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:GuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:GuestAgent" },
@@ -89,6 +90,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20241001Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240501preview:GuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:GuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:GuestAgent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

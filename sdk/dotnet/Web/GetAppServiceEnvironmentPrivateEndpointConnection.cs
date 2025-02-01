@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets a private endpoint connection
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Task<GetAppServiceEnvironmentPrivateEndpointConnectionResult> InvokeAsync(GetAppServiceEnvironmentPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentPrivateEndpointConnectionResult>("azure-native:web:getAppServiceEnvironmentPrivateEndpointConnection", args ?? new GetAppServiceEnvironmentPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets a private endpoint connection
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Output<GetAppServiceEnvironmentPrivateEndpointConnectionResult> Invoke(GetAppServiceEnvironmentPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentPrivateEndpointConnectionResult>("azure-native:web:getAppServiceEnvironmentPrivateEndpointConnection", args ?? new GetAppServiceEnvironmentPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets a private endpoint connection
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Output<GetAppServiceEnvironmentPrivateEndpointConnectionResult> Invoke(GetAppServiceEnvironmentPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentPrivateEndpointConnectionResult>("azure-native:web:getAppServiceEnvironmentPrivateEndpointConnection", args ?? new GetAppServiceEnvironmentPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

@@ -11,23 +11,19 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230801Preview.Outputs
 {
 
     /// <summary>
-    /// Progress representation of the update run steps.
+    /// The Step of AzureStackHCI Cluster.
     /// </summary>
     [OutputType]
     public sealed class StepResponse
     {
         /// <summary>
-        /// More detailed description of the step.
+        /// Description of step.
         /// </summary>
-        public readonly string? Description;
+        public readonly string Description;
         /// <summary>
-        /// When the step reached a terminal state.
+        /// End time of step.
         /// </summary>
-        public readonly string? EndTimeUtc;
-        /// <summary>
-        /// Error message, specified if the step is in a failed state.
-        /// </summary>
-        public readonly string? ErrorMessage;
+        public readonly string EndTimeUtc;
         /// <summary>
         /// List of exceptions in AzureStackHCI Cluster Deployment.
         /// </summary>
@@ -35,56 +31,46 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230801Preview.Outputs
         /// <summary>
         /// FullStepIndex of step.
         /// </summary>
-        public readonly string? FullStepIndex;
+        public readonly string FullStepIndex;
         /// <summary>
-        /// Completion time of this step or the last completed sub-step.
+        /// Name of step.
         /// </summary>
-        public readonly string? LastUpdatedTimeUtc;
+        public readonly string Name;
         /// <summary>
-        /// Name of the step.
+        /// Start time of step.
         /// </summary>
-        public readonly string? Name;
+        public readonly string StartTimeUtc;
         /// <summary>
-        /// When the step started, or empty if it has not started executing.
+        /// Status of step. Allowed values are 'Error', 'Success', 'InProgress'
         /// </summary>
-        public readonly string? StartTimeUtc;
+        public readonly string Status;
         /// <summary>
-        /// Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
-        /// </summary>
-        public readonly string? Status;
-        /// <summary>
-        /// Recursive model for child steps of this step.
+        /// List of nested steps of AzureStackHCI Cluster Deployment.
         /// </summary>
         public readonly ImmutableArray<Outputs.StepResponse> Steps;
 
         [OutputConstructor]
         private StepResponse(
-            string? description,
+            string description,
 
-            string? endTimeUtc,
-
-            string? errorMessage,
+            string endTimeUtc,
 
             ImmutableArray<string> exception,
 
-            string? fullStepIndex,
+            string fullStepIndex,
 
-            string? lastUpdatedTimeUtc,
+            string name,
 
-            string? name,
+            string startTimeUtc,
 
-            string? startTimeUtc,
-
-            string? status,
+            string status,
 
             ImmutableArray<Outputs.StepResponse> steps)
         {
             Description = description;
             EndTimeUtc = endTimeUtc;
-            ErrorMessage = errorMessage;
             Exception = exception;
             FullStepIndex = fullStepIndex;
-            LastUpdatedTimeUtc = lastUpdatedTimeUtc;
             Name = name;
             StartTimeUtc = startTimeUtc;
             Status = status;

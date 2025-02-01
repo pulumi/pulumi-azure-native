@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.AVS.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of execution parameter
+        /// script execution parameter type
         /// Expected value is 'Value'.
         /// </summary>
         public readonly string Type;

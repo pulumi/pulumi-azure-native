@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class ConnectToTargetSqlDbTaskInputResponse
     {
         /// <summary>
+        /// Boolean flag indicating whether to query object counts for each database on the target server
+        /// </summary>
+        public readonly bool? QueryObjectCounts;
+        /// <summary>
         /// Connection information for target SQL DB
         /// </summary>
         public readonly Outputs.SqlConnectionInfoResponse TargetConnectionInfo;
 
         [OutputConstructor]
-        private ConnectToTargetSqlDbTaskInputResponse(Outputs.SqlConnectionInfoResponse targetConnectionInfo)
+        private ConnectToTargetSqlDbTaskInputResponse(
+            bool? queryObjectCounts,
+
+            Outputs.SqlConnectionInfoResponse targetConnectionInfo)
         {
+            QueryObjectCounts = queryObjectCounts;
             TargetConnectionInfo = targetConnectionInfo;
         }
     }

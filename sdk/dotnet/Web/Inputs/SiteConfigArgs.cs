@@ -296,6 +296,12 @@ namespace Pulumi.AzureNative.Web.Inputs
         }
 
         /// <summary>
+        /// The minimum strength TLS cipher suite allowed for an application
+        /// </summary>
+        [Input("minTlsCipherSuite")]
+        public InputUnion<string, Pulumi.AzureNative.Web.TlsCipherSuites>? MinTlsCipherSuite { get; set; }
+
+        /// <summary>
         /// MinTlsVersion: configures the minimum version of TLS required for SSL requests
         /// </summary>
         [Input("minTlsVersion")]

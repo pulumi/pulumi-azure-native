@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// Get counters
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2023-09-01, 2024-02-07-preview.
         /// </summary>
         public static Task<GetPreRuleCountersResult> InvokeAsync(GetPreRuleCountersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPreRuleCountersResult>("azure-native:cloudngfw:getPreRuleCounters", args ?? new GetPreRuleCountersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get counters
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2023-09-01, 2024-02-07-preview.
         /// </summary>
         public static Output<GetPreRuleCountersResult> Invoke(GetPreRuleCountersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPreRuleCountersResult>("azure-native:cloudngfw:getPreRuleCounters", args ?? new GetPreRuleCountersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get counters
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2023-09-01, 2024-02-07-preview.
         /// </summary>
         public static Output<GetPreRuleCountersResult> Invoke(GetPreRuleCountersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPreRuleCountersResult>("azure-native:cloudngfw:getPreRuleCounters", args ?? new GetPreRuleCountersInvokeArgs(), options.WithDefaults());

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory
 {
     /// <summary>
     /// Trigger resource type.
-    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
+    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:Trigger")]
     public partial class Trigger : global::Pulumi.CustomResource

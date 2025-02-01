@@ -8,30 +8,29 @@ using Pulumi;
 namespace Pulumi.AzureNative.Purview
 {
     /// <summary>
-    /// Identity Type.
+    /// Gets or sets the sku name.
     /// </summary>
     [EnumType]
-    public readonly struct CredentialsType : IEquatable<CredentialsType>
+    public readonly struct AccountSkuName : IEquatable<AccountSkuName>
     {
         private readonly string _value;
 
-        private CredentialsType(string value)
+        private AccountSkuName(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static CredentialsType None { get; } = new CredentialsType("None");
-        public static CredentialsType SystemAssigned { get; } = new CredentialsType("SystemAssigned");
-        public static CredentialsType UserAssigned { get; } = new CredentialsType("UserAssigned");
+        public static AccountSkuName Standard { get; } = new AccountSkuName("Standard");
+        public static AccountSkuName Free { get; } = new AccountSkuName("Free");
 
-        public static bool operator ==(CredentialsType left, CredentialsType right) => left.Equals(right);
-        public static bool operator !=(CredentialsType left, CredentialsType right) => !left.Equals(right);
+        public static bool operator ==(AccountSkuName left, AccountSkuName right) => left.Equals(right);
+        public static bool operator !=(AccountSkuName left, AccountSkuName right) => !left.Equals(right);
 
-        public static explicit operator string(CredentialsType value) => value._value;
+        public static explicit operator string(AccountSkuName value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CredentialsType other && Equals(other);
-        public bool Equals(CredentialsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is AccountSkuName other && Equals(other);
+        public bool Equals(AccountSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -134,7 +133,39 @@ namespace Pulumi.AzureNative.Purview
     }
 
     /// <summary>
-    ///  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+    /// Identity Type.
+    /// </summary>
+    [EnumType]
+    public readonly struct KafkaConfigurationIdentityType : IEquatable<KafkaConfigurationIdentityType>
+    {
+        private readonly string _value;
+
+        private KafkaConfigurationIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KafkaConfigurationIdentityType None { get; } = new KafkaConfigurationIdentityType("None");
+        public static KafkaConfigurationIdentityType SystemAssigned { get; } = new KafkaConfigurationIdentityType("SystemAssigned");
+        public static KafkaConfigurationIdentityType UserAssigned { get; } = new KafkaConfigurationIdentityType("UserAssigned");
+
+        public static bool operator ==(KafkaConfigurationIdentityType left, KafkaConfigurationIdentityType right) => left.Equals(right);
+        public static bool operator !=(KafkaConfigurationIdentityType left, KafkaConfigurationIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(KafkaConfigurationIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KafkaConfigurationIdentityType other && Equals(other);
+        public bool Equals(KafkaConfigurationIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
     /// </summary>
     [EnumType]
     public readonly struct ManagedEventHubState : IEquatable<ManagedEventHubState>
@@ -166,30 +197,64 @@ namespace Pulumi.AzureNative.Purview
     }
 
     /// <summary>
-    /// Gets or sets the public network access for managed resources.
+    /// Identity Type
     /// </summary>
     [EnumType]
-    public readonly struct ManagedResourcesPublicNetworkAccess : IEquatable<ManagedResourcesPublicNetworkAccess>
+    public readonly struct ManagedIdentityType : IEquatable<ManagedIdentityType>
     {
         private readonly string _value;
 
-        private ManagedResourcesPublicNetworkAccess(string value)
+        private ManagedIdentityType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ManagedResourcesPublicNetworkAccess NotSpecified { get; } = new ManagedResourcesPublicNetworkAccess("NotSpecified");
-        public static ManagedResourcesPublicNetworkAccess Enabled { get; } = new ManagedResourcesPublicNetworkAccess("Enabled");
-        public static ManagedResourcesPublicNetworkAccess Disabled { get; } = new ManagedResourcesPublicNetworkAccess("Disabled");
+        public static ManagedIdentityType None { get; } = new ManagedIdentityType("None");
+        public static ManagedIdentityType SystemAssigned { get; } = new ManagedIdentityType("SystemAssigned");
+        public static ManagedIdentityType UserAssigned { get; } = new ManagedIdentityType("UserAssigned");
 
-        public static bool operator ==(ManagedResourcesPublicNetworkAccess left, ManagedResourcesPublicNetworkAccess right) => left.Equals(right);
-        public static bool operator !=(ManagedResourcesPublicNetworkAccess left, ManagedResourcesPublicNetworkAccess right) => !left.Equals(right);
+        public static bool operator ==(ManagedIdentityType left, ManagedIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedIdentityType left, ManagedIdentityType right) => !left.Equals(right);
 
-        public static explicit operator string(ManagedResourcesPublicNetworkAccess value) => value._value;
+        public static explicit operator string(ManagedIdentityType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ManagedResourcesPublicNetworkAccess other && Equals(other);
-        public bool Equals(ManagedResourcesPublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ManagedIdentityType other && Equals(other);
+        public bool Equals(ManagedIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointConnectionStatus : IEquatable<PrivateEndpointConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateEndpointConnectionStatus Unknown { get; } = new PrivateEndpointConnectionStatus("Unknown");
+        public static PrivateEndpointConnectionStatus Pending { get; } = new PrivateEndpointConnectionStatus("Pending");
+        public static PrivateEndpointConnectionStatus Approved { get; } = new PrivateEndpointConnectionStatus("Approved");
+        public static PrivateEndpointConnectionStatus Rejected { get; } = new PrivateEndpointConnectionStatus("Rejected");
+        public static PrivateEndpointConnectionStatus Disconnected { get; } = new PrivateEndpointConnectionStatus("Disconnected");
+
+        public static bool operator ==(PrivateEndpointConnectionStatus left, PrivateEndpointConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointConnectionStatus left, PrivateEndpointConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointConnectionStatus other && Equals(other);
+        public bool Equals(PrivateEndpointConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -230,64 +295,30 @@ namespace Pulumi.AzureNative.Purview
     }
 
     /// <summary>
-    /// The status.
+    /// Gets or sets the state of tenant endpoint.
     /// </summary>
     [EnumType]
-    public readonly struct Status : IEquatable<Status>
+    public readonly struct TenantEndpointState : IEquatable<TenantEndpointState>
     {
         private readonly string _value;
 
-        private Status(string value)
+        private TenantEndpointState(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Status Unknown { get; } = new Status("Unknown");
-        public static Status Pending { get; } = new Status("Pending");
-        public static Status Approved { get; } = new Status("Approved");
-        public static Status Rejected { get; } = new Status("Rejected");
-        public static Status Disconnected { get; } = new Status("Disconnected");
+        public static TenantEndpointState NotSpecified { get; } = new TenantEndpointState("NotSpecified");
+        public static TenantEndpointState Disabled { get; } = new TenantEndpointState("Disabled");
+        public static TenantEndpointState Enabled { get; } = new TenantEndpointState("Enabled");
 
-        public static bool operator ==(Status left, Status right) => left.Equals(right);
-        public static bool operator !=(Status left, Status right) => !left.Equals(right);
+        public static bool operator ==(TenantEndpointState left, TenantEndpointState right) => left.Equals(right);
+        public static bool operator !=(TenantEndpointState left, TenantEndpointState right) => !left.Equals(right);
 
-        public static explicit operator string(Status value) => value._value;
+        public static explicit operator string(TenantEndpointState value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Status other && Equals(other);
-        public bool Equals(Status other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Identity Type
-    /// </summary>
-    [EnumType]
-    public readonly struct Type : IEquatable<Type>
-    {
-        private readonly string _value;
-
-        private Type(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Type None { get; } = new Type("None");
-        public static Type SystemAssigned { get; } = new Type("SystemAssigned");
-        public static Type UserAssigned { get; } = new Type("UserAssigned");
-
-        public static bool operator ==(Type left, Type right) => left.Equals(right);
-        public static bool operator !=(Type left, Type right) => !left.Equals(right);
-
-        public static explicit operator string(Type value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Type other && Equals(other);
-        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is TenantEndpointState other && Equals(other);
+        public bool Equals(TenantEndpointState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

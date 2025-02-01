@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     /// </summary>
     public sealed class RoutingIdentityInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Routing identity type for topic spaces configuration.
+        /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.EventGrid.RoutingIdentityType>? Type { get; set; }
 

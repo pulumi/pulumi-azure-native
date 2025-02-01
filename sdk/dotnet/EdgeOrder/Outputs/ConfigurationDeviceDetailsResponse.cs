@@ -36,6 +36,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// Quantity of the product.
         /// </summary>
         public readonly int Quantity;
+        /// <summary>
+        /// Term Commitment Information of the Device.
+        /// </summary>
+        public readonly Outputs.TermCommitmentInformationResponse TermCommitmentInformation;
 
         [OutputConstructor]
         private ConfigurationDeviceDetailsResponse(
@@ -47,13 +51,16 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             string identificationType,
 
-            int quantity)
+            int quantity,
+
+            Outputs.TermCommitmentInformationResponse termCommitmentInformation)
         {
             DeviceDetails = deviceDetails;
             DisplayInfo = displayInfo;
             HierarchyInformation = hierarchyInformation;
             IdentificationType = identificationType;
             Quantity = quantity;
+            TermCommitmentInformation = termCommitmentInformation;
         }
     }
 }

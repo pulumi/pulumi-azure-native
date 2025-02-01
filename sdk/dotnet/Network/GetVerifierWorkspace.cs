@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Instance of Verifier Workspace.
-        /// Azure REST API version: 2024-01-01-preview.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-01-01-preview.
         /// </summary>
         public static Task<GetVerifierWorkspaceResult> InvokeAsync(GetVerifierWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVerifierWorkspaceResult>("azure-native:network:getVerifierWorkspace", args ?? new GetVerifierWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Instance of Verifier Workspace.
-        /// Azure REST API version: 2024-01-01-preview.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-01-01-preview.
         /// </summary>
         public static Output<GetVerifierWorkspaceResult> Invoke(GetVerifierWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVerifierWorkspaceResult>("azure-native:network:getVerifierWorkspace", args ?? new GetVerifierWorkspaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Instance of Verifier Workspace.
-        /// Azure REST API version: 2024-01-01-preview.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-01-01-preview.
         /// </summary>
         public static Output<GetVerifierWorkspaceResult> Invoke(GetVerifierWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVerifierWorkspaceResult>("azure-native:network:getVerifierWorkspace", args ?? new GetVerifierWorkspaceInvokeArgs(), options.WithDefaults());

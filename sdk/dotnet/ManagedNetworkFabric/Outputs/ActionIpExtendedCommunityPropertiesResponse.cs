@@ -17,15 +17,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
     public sealed class ActionIpExtendedCommunityPropertiesResponse
     {
         /// <summary>
-        /// IP Extended Community Id list properties.
+        /// List of IP Extended Community IDs.
         /// </summary>
         public readonly Outputs.IpExtendedCommunityIdListResponse? Add;
         /// <summary>
-        /// IP Extended Community Id list properties.
+        /// List of IP Extended Community IDs.
         /// </summary>
         public readonly Outputs.IpExtendedCommunityIdListResponse? Delete;
         /// <summary>
-        /// IP Extended Community Id list properties.
+        /// List of IP Extended Community IDs.
         /// </summary>
         public readonly Outputs.IpExtendedCommunityIdListResponse? Set;
 

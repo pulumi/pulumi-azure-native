@@ -17,6 +17,18 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
     public sealed class SourceConfigurationResponse
     {
         /// <summary>
+        /// The type of setting
+        /// </summary>
+        public readonly string ConfigType;
+        /// <summary>
+        /// Descriptive information for the configuration
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The identity for key vault reference, system or user-assigned managed identity ID
+        /// </summary>
+        public readonly string? KeyVaultReferenceIdentity;
+        /// <summary>
         /// The name of setting.
         /// </summary>
         public readonly string? Name;
@@ -27,10 +39,19 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
 
         [OutputConstructor]
         private SourceConfigurationResponse(
+            string configType,
+
+            string? description,
+
+            string? keyVaultReferenceIdentity,
+
             string? name,
 
             string? value)
         {
+            ConfigType = configType;
+            Description = description;
+            KeyVaultReferenceIdentity = keyVaultReferenceIdentity;
             Name = name;
             Value = value;
         }

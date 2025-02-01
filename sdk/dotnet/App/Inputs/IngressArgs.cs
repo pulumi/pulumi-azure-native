@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.App.Inputs
     /// </summary>
     public sealed class IngressArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalPortMappings")]
+        private InputList<Inputs.IngressPortMappingArgs>? _additionalPortMappings;
+
+        /// <summary>
+        /// Settings to expose additional ports on container app
+        /// </summary>
+        public InputList<Inputs.IngressPortMappingArgs> AdditionalPortMappings
+        {
+            get => _additionalPortMappings ?? (_additionalPortMappings = new InputList<Inputs.IngressPortMappingArgs>());
+            set => _additionalPortMappings = value;
+        }
+
         /// <summary>
         /// Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
         /// </summary>
@@ -68,6 +80,12 @@ namespace Pulumi.AzureNative.App.Inputs
             get => _ipSecurityRestrictions ?? (_ipSecurityRestrictions = new InputList<Inputs.IpSecurityRestrictionRuleArgs>());
             set => _ipSecurityRestrictions = value;
         }
+
+        /// <summary>
+        /// Sticky Sessions for Single Revision Mode
+        /// </summary>
+        [Input("stickySessions")]
+        public Input<Inputs.IngressStickySessionsArgs>? StickySessions { get; set; }
 
         /// <summary>
         /// Target Port in containers for traffic from ingress

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Search.Outputs
 {
 
     /// <summary>
-    /// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
+    /// Describes an API key for a given search service that has permissions for query operations only.
     /// </summary>
     [OutputType]
     public sealed class QueryKeyResponse

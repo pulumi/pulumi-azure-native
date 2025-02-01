@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Get Private Endpoint Connection. This call is made by Backup Admin.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        /// Other available API versions: 2023-04-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:recoveryservices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Private Endpoint Connection. This call is made by Backup Admin.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        /// Other available API versions: 2023-04-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:recoveryservices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Private Endpoint Connection. This call is made by Backup Admin.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        /// Other available API versions: 2023-04-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:recoveryservices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

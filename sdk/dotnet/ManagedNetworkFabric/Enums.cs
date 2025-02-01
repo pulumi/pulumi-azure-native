@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
+    /// Type of actions that can be performed.
+    /// </summary>
+    [EnumType]
+    public readonly struct AclActionType : IEquatable<AclActionType>
+    {
+        private readonly string _value;
+
+        private AclActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AclActionType Drop { get; } = new AclActionType("Drop");
+        public static AclActionType Count { get; } = new AclActionType("Count");
+        public static AclActionType Log { get; } = new AclActionType("Log");
+
+        public static bool operator ==(AclActionType left, AclActionType right) => left.Equals(right);
+        public static bool operator !=(AclActionType left, AclActionType right) => !left.Equals(right);
+
+        public static explicit operator string(AclActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AclActionType other && Equals(other);
+        public bool Equals(AclActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specify action.
     /// </summary>
     [EnumType]
@@ -39,29 +71,29 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     }
 
     /// <summary>
-    /// IP address family. Example: ipv4 | ipv6.
+    /// AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
     /// </summary>
     [EnumType]
-    public readonly struct AddressFamily : IEquatable<AddressFamily>
+    public readonly struct AddressFamilyType : IEquatable<AddressFamilyType>
     {
         private readonly string _value;
 
-        private AddressFamily(string value)
+        private AddressFamilyType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static AddressFamily Ipv4 { get; } = new AddressFamily("ipv4");
-        public static AddressFamily Ipv6 { get; } = new AddressFamily("ipv6");
+        public static AddressFamilyType IPv4 { get; } = new AddressFamilyType("IPv4");
+        public static AddressFamilyType IPv6 { get; } = new AddressFamilyType("IPv6");
 
-        public static bool operator ==(AddressFamily left, AddressFamily right) => left.Equals(right);
-        public static bool operator !=(AddressFamily left, AddressFamily right) => !left.Equals(right);
+        public static bool operator ==(AddressFamilyType left, AddressFamilyType right) => left.Equals(right);
+        public static bool operator !=(AddressFamilyType left, AddressFamilyType right) => !left.Equals(right);
 
-        public static explicit operator string(AddressFamily value) => value._value;
+        public static explicit operator string(AddressFamilyType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AddressFamily other && Equals(other);
-        public bool Equals(AddressFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is AddressFamilyType other && Equals(other);
+        public bool Equals(AddressFamilyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -101,7 +133,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     }
 
     /// <summary>
-    /// Based on this parameter the layer2/layer3 is made as mandatory. Example: True/False
+    /// Based on this option layer3 parameters are mandatory. Example: True/False
     /// </summary>
     [EnumType]
     public readonly struct BooleanEnumProperty : IEquatable<BooleanEnumProperty>
@@ -132,7 +164,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     }
 
     /// <summary>
-    /// action. Example: Permit | Deny.
+    /// Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
     /// </summary>
     [EnumType]
     public readonly struct CommunityActionTypes : IEquatable<CommunityActionTypes>
@@ -178,6 +210,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public static Condition EqualTo { get; } = new Condition("EqualTo");
         public static Condition GreaterThanOrEqualTo { get; } = new Condition("GreaterThanOrEqualTo");
         public static Condition LesserThanOrEqualTo { get; } = new Condition("LesserThanOrEqualTo");
+        public static Condition Range { get; } = new Condition("Range");
 
         public static bool operator ==(Condition left, Condition right) => left.Equals(right);
         public static bool operator !=(Condition left, Condition right) => !left.Equals(right);
@@ -187,37 +220,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Condition other && Equals(other);
         public bool Equals(Condition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// action. Example: allow | deny.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConditionActionType : IEquatable<ConditionActionType>
-    {
-        private readonly string _value;
-
-        private ConditionActionType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConditionActionType Allow { get; } = new ConditionActionType("allow");
-        public static ConditionActionType Deny { get; } = new ConditionActionType("deny");
-
-        public static bool operator ==(ConditionActionType left, ConditionActionType right) => left.Equals(right);
-        public static bool operator !=(ConditionActionType left, ConditionActionType right) => !left.Equals(right);
-
-        public static explicit operator string(ConditionActionType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConditionActionType other && Equals(other);
-        public bool Equals(ConditionActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -350,6 +352,37 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     }
 
     /// <summary>
+    /// Extension. Example: NoExtension | NPB.
+    /// </summary>
+    [EnumType]
+    public readonly struct Extension : IEquatable<Extension>
+    {
+        private readonly string _value;
+
+        private Extension(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Extension NoExtension { get; } = new Extension("NoExtension");
+        public static Extension NPB { get; } = new Extension("NPB");
+
+        public static bool operator ==(Extension left, Extension right) => left.Equals(right);
+        public static bool operator !=(Extension left, Extension right) => !left.Equals(right);
+
+        public static explicit operator string(Extension value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Extension other && Equals(other);
+        public bool Equals(Extension other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Gateway Type of the resource.
     /// </summary>
     [EnumType]
@@ -412,6 +445,99 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     }
 
     /// <summary>
+    /// Configuration to use NNI for Infrastructure Management. Example: True/False.
+    /// </summary>
+    [EnumType]
+    public readonly struct IsManagementType : IEquatable<IsManagementType>
+    {
+        private readonly string _value;
+
+        private IsManagementType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IsManagementType True { get; } = new IsManagementType("True");
+        public static IsManagementType False { get; } = new IsManagementType("False");
+
+        public static bool operator ==(IsManagementType left, IsManagementType right) => left.Equals(right);
+        public static bool operator !=(IsManagementType left, IsManagementType right) => !left.Equals(right);
+
+        public static explicit operator string(IsManagementType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IsManagementType other && Equals(other);
+        public bool Equals(IsManagementType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// To check whether monitoring of internal network is enabled or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct IsMonitoringEnabled : IEquatable<IsMonitoringEnabled>
+    {
+        private readonly string _value;
+
+        private IsMonitoringEnabled(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IsMonitoringEnabled True { get; } = new IsMonitoringEnabled("True");
+        public static IsMonitoringEnabled False { get; } = new IsMonitoringEnabled("False");
+
+        public static bool operator ==(IsMonitoringEnabled left, IsMonitoringEnabled right) => left.Equals(right);
+        public static bool operator !=(IsMonitoringEnabled left, IsMonitoringEnabled right) => !left.Equals(right);
+
+        public static explicit operator string(IsMonitoringEnabled value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IsMonitoringEnabled other && Equals(other);
+        public bool Equals(IsMonitoringEnabled other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+    /// </summary>
+    [EnumType]
+    public readonly struct IsWorkloadManagementNetworkEnabled : IEquatable<IsWorkloadManagementNetworkEnabled>
+    {
+        private readonly string _value;
+
+        private IsWorkloadManagementNetworkEnabled(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IsWorkloadManagementNetworkEnabled True { get; } = new IsWorkloadManagementNetworkEnabled("True");
+        public static IsWorkloadManagementNetworkEnabled False { get; } = new IsWorkloadManagementNetworkEnabled("False");
+
+        public static bool operator ==(IsWorkloadManagementNetworkEnabled left, IsWorkloadManagementNetworkEnabled right) => left.Equals(right);
+        public static bool operator !=(IsWorkloadManagementNetworkEnabled left, IsWorkloadManagementNetworkEnabled right) => !left.Equals(right);
+
+        public static explicit operator string(IsWorkloadManagementNetworkEnabled value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IsWorkloadManagementNetworkEnabled other && Equals(other);
+        public bool Equals(IsWorkloadManagementNetworkEnabled other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Layer4 protocol type that needs to be matched.
     /// </summary>
     [EnumType]
@@ -443,32 +569,62 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     }
 
     /// <summary>
-    /// networkDeviceRole is the device role: Example: CE | ToR.
+    /// Network Rack SKU name.
     /// </summary>
     [EnumType]
-    public readonly struct NetworkDeviceRoleTypes : IEquatable<NetworkDeviceRoleTypes>
+    public readonly struct NetworkRackType : IEquatable<NetworkRackType>
     {
         private readonly string _value;
 
-        private NetworkDeviceRoleTypes(string value)
+        private NetworkRackType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static NetworkDeviceRoleTypes CE { get; } = new NetworkDeviceRoleTypes("CE");
-        public static NetworkDeviceRoleTypes ToR { get; } = new NetworkDeviceRoleTypes("ToR");
-        public static NetworkDeviceRoleTypes NPB { get; } = new NetworkDeviceRoleTypes("NPB");
-        public static NetworkDeviceRoleTypes TS { get; } = new NetworkDeviceRoleTypes("TS");
-        public static NetworkDeviceRoleTypes Management { get; } = new NetworkDeviceRoleTypes("Management");
+        public static NetworkRackType Aggregate { get; } = new NetworkRackType("Aggregate");
+        public static NetworkRackType Compute { get; } = new NetworkRackType("Compute");
+        public static NetworkRackType Combined { get; } = new NetworkRackType("Combined");
 
-        public static bool operator ==(NetworkDeviceRoleTypes left, NetworkDeviceRoleTypes right) => left.Equals(right);
-        public static bool operator !=(NetworkDeviceRoleTypes left, NetworkDeviceRoleTypes right) => !left.Equals(right);
+        public static bool operator ==(NetworkRackType left, NetworkRackType right) => left.Equals(right);
+        public static bool operator !=(NetworkRackType left, NetworkRackType right) => !left.Equals(right);
 
-        public static explicit operator string(NetworkDeviceRoleTypes value) => value._value;
+        public static explicit operator string(NetworkRackType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is NetworkDeviceRoleTypes other && Equals(other);
-        public bool Equals(NetworkDeviceRoleTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is NetworkRackType other && Equals(other);
+        public bool Equals(NetworkRackType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Network Fabric Controller SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct NfcSku : IEquatable<NfcSku>
+    {
+        private readonly string _value;
+
+        private NfcSku(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NfcSku Basic { get; } = new NfcSku("Basic");
+        public static NfcSku Standard { get; } = new NfcSku("Standard");
+        public static NfcSku HighPerformance { get; } = new NfcSku("HighPerformance");
+
+        public static bool operator ==(NfcSku left, NfcSku right) => left.Equals(right);
+        public static bool operator !=(NfcSku left, NfcSku right) => !left.Equals(right);
+
+        public static explicit operator string(NfcSku value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NfcSku other && Equals(other);
+        public bool Equals(NfcSku other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -686,6 +842,69 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RedistributeStaticRoutes other && Equals(other);
         public bool Equals(RedistributeStaticRoutes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Action type. Example: Permit | Deny | Continue.
+    /// </summary>
+    [EnumType]
+    public readonly struct RoutePolicyActionType : IEquatable<RoutePolicyActionType>
+    {
+        private readonly string _value;
+
+        private RoutePolicyActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoutePolicyActionType Permit { get; } = new RoutePolicyActionType("Permit");
+        public static RoutePolicyActionType Deny { get; } = new RoutePolicyActionType("Deny");
+        public static RoutePolicyActionType Continue { get; } = new RoutePolicyActionType("Continue");
+
+        public static bool operator ==(RoutePolicyActionType left, RoutePolicyActionType right) => left.Equals(right);
+        public static bool operator !=(RoutePolicyActionType left, RoutePolicyActionType right) => !left.Equals(right);
+
+        public static explicit operator string(RoutePolicyActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoutePolicyActionType other && Equals(other);
+        public bool Equals(RoutePolicyActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the condition used.
+    /// </summary>
+    [EnumType]
+    public readonly struct RoutePolicyConditionType : IEquatable<RoutePolicyConditionType>
+    {
+        private readonly string _value;
+
+        private RoutePolicyConditionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoutePolicyConditionType Or { get; } = new RoutePolicyConditionType("Or");
+        public static RoutePolicyConditionType And { get; } = new RoutePolicyConditionType("And");
+
+        public static bool operator ==(RoutePolicyConditionType left, RoutePolicyConditionType right) => left.Equals(right);
+        public static bool operator !=(RoutePolicyConditionType left, RoutePolicyConditionType right) => !left.Equals(right);
+
+        public static explicit operator string(RoutePolicyConditionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoutePolicyConditionType other && Equals(other);
+        public bool Equals(RoutePolicyConditionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

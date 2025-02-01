@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
     /// <summary>
     /// Define the cluster.
-    /// Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
+    /// Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
     /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    /// Other available API versions: 2022-07-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string> CustomResourceName { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the datastore ARM ids.
+        /// Gets the datastore ARM ids.
         /// </summary>
         [Output("datastoreIds")]
         public Output<ImmutableArray<string>> DatastoreIds { get; private set; } = null!;
@@ -73,13 +73,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the network ARM ids.
+        /// Gets the network ARM ids.
         /// </summary>
         [Output("networkIds")]
         public Output<ImmutableArray<string>> NetworkIds { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -103,10 +103,34 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Gets the max CPU usage across all cores on the cluster in MHz.
+        /// </summary>
+        [Output("totalCpuMHz")]
+        public Output<double> TotalCpuMHz { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the total amount of physical memory on the cluster in GB.
+        /// </summary>
+        [Output("totalMemoryGB")]
+        public Output<double> TotalMemoryGB { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the used CPU usage across all cores on the cluster in MHz.
+        /// </summary>
+        [Output("usedCpuMHz")]
+        public Output<double> UsedCpuMHz { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the used physical memory on the cluster in GB.
+        /// </summary>
+        [Output("usedMemoryGB")]
+        public Output<double> UsedMemoryGB { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets a unique identifier for this resource.

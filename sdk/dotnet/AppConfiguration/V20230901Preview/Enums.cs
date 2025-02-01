@@ -45,39 +45,6 @@ namespace Pulumi.AzureNative.AppConfiguration.V20230901Preview
     }
 
     /// <summary>
-    /// The private link service connection status.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConnectionStatus : IEquatable<ConnectionStatus>
-    {
-        private readonly string _value;
-
-        private ConnectionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConnectionStatus Pending { get; } = new ConnectionStatus("Pending");
-        public static ConnectionStatus Approved { get; } = new ConnectionStatus("Approved");
-        public static ConnectionStatus Rejected { get; } = new ConnectionStatus("Rejected");
-        public static ConnectionStatus Disconnected { get; } = new ConnectionStatus("Disconnected");
-
-        public static bool operator ==(ConnectionStatus left, ConnectionStatus right) => left.Equals(right);
-        public static bool operator !=(ConnectionStatus left, ConnectionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(ConnectionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConnectionStatus other && Equals(other);
-        public bool Equals(ConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Indicates whether the configuration store need to be recovered.
     /// </summary>
     [EnumType]

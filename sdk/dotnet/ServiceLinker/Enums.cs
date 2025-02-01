@@ -101,6 +101,43 @@ namespace Pulumi.AzureNative.ServiceLinker
     }
 
     /// <summary>
+    /// Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthMode : IEquatable<AuthMode>
+    {
+        private readonly string _value;
+
+        private AuthMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Default authentication configuration according to the authentication type.
+        /// </summary>
+        public static AuthMode OptInAllAuth { get; } = new AuthMode("optInAllAuth");
+        /// <summary>
+        /// Skip all authentication configuration such as enabling managed identity and granting RBAC roles
+        /// </summary>
+        public static AuthMode OptOutAllAuth { get; } = new AuthMode("optOutAllAuth");
+
+        public static bool operator ==(AuthMode left, AuthMode right) => left.Equals(right);
+        public static bool operator !=(AuthMode left, AuthMode right) => !left.Equals(right);
+
+        public static explicit operator string(AuthMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthMode other && Equals(other);
+        public bool Equals(AuthMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The authentication type.
     /// </summary>
     [EnumType]
@@ -120,6 +157,7 @@ namespace Pulumi.AzureNative.ServiceLinker
         public static AuthType Secret { get; } = new AuthType("secret");
         public static AuthType AccessKey { get; } = new AuthType("accessKey");
         public static AuthType UserAccount { get; } = new AuthType("userAccount");
+        public static AuthType EasyAuthMicrosoftEntraID { get; } = new AuthType("easyAuthMicrosoftEntraID");
 
         public static bool operator ==(AuthType left, AuthType right) => left.Equals(right);
         public static bool operator !=(AuthType left, AuthType right) => !left.Equals(right);
@@ -190,6 +228,7 @@ namespace Pulumi.AzureNative.ServiceLinker
         public static ClientType Nodejs { get; } = new ClientType("nodejs");
         public static ClientType SpringBoot { get; } = new ClientType("springBoot");
         public static ClientType Kafka_springBoot { get; } = new ClientType("kafka-springBoot");
+        public static ClientType Jms_springBoot { get; } = new ClientType("jms-springBoot");
         public static ClientType Dapr { get; } = new ClientType("dapr");
 
         public static bool operator ==(ClientType left, ClientType right) => left.Equals(right);
@@ -200,6 +239,37 @@ namespace Pulumi.AzureNative.ServiceLinker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ClientType other && Equals(other);
         public bool Equals(ClientType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The value indicating whether the metadata is required or not
+    /// </summary>
+    [EnumType]
+    public readonly struct DaprMetadataRequired : IEquatable<DaprMetadataRequired>
+    {
+        private readonly string _value;
+
+        private DaprMetadataRequired(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DaprMetadataRequired @True { get; } = new DaprMetadataRequired("true");
+        public static DaprMetadataRequired @False { get; } = new DaprMetadataRequired("false");
+
+        public static bool operator ==(DaprMetadataRequired left, DaprMetadataRequired right) => left.Equals(right);
+        public static bool operator !=(DaprMetadataRequired left, DaprMetadataRequired right) => !left.Equals(right);
+
+        public static explicit operator string(DaprMetadataRequired value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DaprMetadataRequired other && Equals(other);
+        public bool Equals(DaprMetadataRequired other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

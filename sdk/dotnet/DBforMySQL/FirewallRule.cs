@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
     /// Represents a server firewall rule.
-    /// Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
+    /// Azure REST API version: 2023-12-30. Prior API version in Azure Native 2.x: 2022-01-01.
     /// 
-    /// Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+    /// Other available API versions: 2022-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Output<string> StartIpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:FirewallRule" },

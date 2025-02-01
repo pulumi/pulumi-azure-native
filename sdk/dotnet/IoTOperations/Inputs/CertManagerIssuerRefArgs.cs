@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         /// <summary>
         /// group of issuer.
         /// </summary>
-        [Input("apiGroup", required: true)]
-        public Input<string> ApiGroup { get; set; } = null!;
+        [Input("group", required: true)]
+        public Input<string> Group { get; set; } = null!;
 
         /// <summary>
         /// kind of issuer (Issuer or ClusterIssuer).
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 
         public CertManagerIssuerRefArgs()
         {
-            ApiGroup = "cert-manager.io";
+            Group = "cert-manager.io";
         }
         public static new CertManagerIssuerRefArgs Empty => new CertManagerIssuerRefArgs();
     }

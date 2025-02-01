@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         public readonly Outputs.AbusePenaltyResponse AbusePenalty;
         public readonly ImmutableArray<string> AllowedFqdnList;
         /// <summary>
+        /// The user owned AML workspace properties.
+        /// </summary>
+        public readonly Outputs.UserOwnedAmlWorkspaceResponse? AmlWorkspace;
+        /// <summary>
         /// The api properties for special APIs.
         /// </summary>
         public readonly Outputs.ApiPropertiesResponse? ApiProperties;
@@ -96,6 +100,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly string? PublicNetworkAccess;
         public readonly Outputs.QuotaLimitResponse QuotaLimit;
+        /// <summary>
+        /// Cognitive Services Rai Monitor Config.
+        /// </summary>
+        public readonly Outputs.RaiMonitorConfigResponse? RaiMonitorConfig;
         public readonly bool? RestrictOutboundNetworkAccess;
         /// <summary>
         /// The scheduled purge date, only available for deleted account.
@@ -115,6 +123,8 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
             Outputs.AbusePenaltyResponse abusePenalty,
 
             ImmutableArray<string> allowedFqdnList,
+
+            Outputs.UserOwnedAmlWorkspaceResponse? amlWorkspace,
 
             Outputs.ApiPropertiesResponse? apiProperties,
 
@@ -158,6 +168,8 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             Outputs.QuotaLimitResponse quotaLimit,
 
+            Outputs.RaiMonitorConfigResponse? raiMonitorConfig,
+
             bool? restrictOutboundNetworkAccess,
 
             string scheduledPurgeDate,
@@ -168,6 +180,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         {
             AbusePenalty = abusePenalty;
             AllowedFqdnList = allowedFqdnList;
+            AmlWorkspace = amlWorkspace;
             ApiProperties = apiProperties;
             CallRateLimit = callRateLimit;
             Capabilities = capabilities;
@@ -189,6 +202,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             QuotaLimit = quotaLimit;
+            RaiMonitorConfig = raiMonitorConfig;
             RestrictOutboundNetworkAccess = restrictOutboundNetworkAccess;
             ScheduledPurgeDate = scheduledPurgeDate;
             SkuChangeInfo = skuChangeInfo;

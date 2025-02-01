@@ -163,6 +163,46 @@ namespace Pulumi.AzureNative.Kusto
     }
 
     /// <summary>
+    /// Type of the callout service, specifying the kind of external resource or service being accessed.
+    /// </summary>
+    [EnumType]
+    public readonly struct CalloutType : IEquatable<CalloutType>
+    {
+        private readonly string _value;
+
+        private CalloutType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CalloutType Kusto { get; } = new CalloutType("kusto");
+        public static CalloutType Sql { get; } = new CalloutType("sql");
+        public static CalloutType Cosmosdb { get; } = new CalloutType("cosmosdb");
+        public static CalloutType External_data { get; } = new CalloutType("external_data");
+        public static CalloutType Azure_digital_twins { get; } = new CalloutType("azure_digital_twins");
+        public static CalloutType Sandbox_artifacts { get; } = new CalloutType("sandbox_artifacts");
+        public static CalloutType Webapi { get; } = new CalloutType("webapi");
+        public static CalloutType Mysql { get; } = new CalloutType("mysql");
+        public static CalloutType Postgresql { get; } = new CalloutType("postgresql");
+        public static CalloutType Genevametrics { get; } = new CalloutType("genevametrics");
+        public static CalloutType Azure_openai { get; } = new CalloutType("azure_openai");
+
+        public static bool operator ==(CalloutType left, CalloutType right) => left.Equals(right);
+        public static bool operator !=(CalloutType left, CalloutType right) => !left.Equals(right);
+
+        public static explicit operator string(CalloutType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CalloutType other && Equals(other);
+        public bool Equals(CalloutType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
     /// </summary>
     [EnumType]
@@ -208,6 +248,7 @@ namespace Pulumi.AzureNative.Kusto
 
         public static ClusterPrincipalRole AllDatabasesAdmin { get; } = new ClusterPrincipalRole("AllDatabasesAdmin");
         public static ClusterPrincipalRole AllDatabasesViewer { get; } = new ClusterPrincipalRole("AllDatabasesViewer");
+        public static ClusterPrincipalRole AllDatabasesMonitor { get; } = new ClusterPrincipalRole("AllDatabasesMonitor");
 
         public static bool operator ==(ClusterPrincipalRole left, ClusterPrincipalRole right) => left.Equals(right);
         public static bool operator !=(ClusterPrincipalRole left, ClusterPrincipalRole right) => !left.Equals(right);
@@ -694,6 +735,10 @@ namespace Pulumi.AzureNative.Kusto
         public static LanguageExtensionImageName R { get; } = new LanguageExtensionImageName("R");
         public static LanguageExtensionImageName Python3_6_5 { get; } = new LanguageExtensionImageName("Python3_6_5");
         public static LanguageExtensionImageName Python3_10_8 { get; } = new LanguageExtensionImageName("Python3_10_8");
+        public static LanguageExtensionImageName Python3_10_8_DL { get; } = new LanguageExtensionImageName("Python3_10_8_DL");
+        public static LanguageExtensionImageName PythonCustomImage { get; } = new LanguageExtensionImageName("PythonCustomImage");
+        public static LanguageExtensionImageName Python3_11_7 { get; } = new LanguageExtensionImageName("Python3_11_7");
+        public static LanguageExtensionImageName Python3_11_7_DL { get; } = new LanguageExtensionImageName("Python3_11_7_DL");
 
         public static bool operator ==(LanguageExtensionImageName left, LanguageExtensionImageName right) => left.Equals(right);
         public static bool operator !=(LanguageExtensionImageName left, LanguageExtensionImageName right) => !left.Equals(right);
@@ -734,6 +779,68 @@ namespace Pulumi.AzureNative.Kusto
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LanguageExtensionName other && Equals(other);
         public bool Equals(LanguageExtensionName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether outbound access is permitted for the specified URI pattern.
+    /// </summary>
+    [EnumType]
+    public readonly struct OutboundAccess : IEquatable<OutboundAccess>
+    {
+        private readonly string _value;
+
+        private OutboundAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OutboundAccess Allow { get; } = new OutboundAccess("Allow");
+        public static OutboundAccess Deny { get; } = new OutboundAccess("Deny");
+
+        public static bool operator ==(OutboundAccess left, OutboundAccess right) => left.Equals(right);
+        public static bool operator !=(OutboundAccess left, OutboundAccess right) => !left.Equals(right);
+
+        public static explicit operator string(OutboundAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OutboundAccess other && Equals(other);
+        public bool Equals(OutboundAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates if the permissions for the script caller are kept following completion of the script.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrincipalPermissionsAction : IEquatable<PrincipalPermissionsAction>
+    {
+        private readonly string _value;
+
+        private PrincipalPermissionsAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrincipalPermissionsAction RetainPermissionOnScriptCompletion { get; } = new PrincipalPermissionsAction("RetainPermissionOnScriptCompletion");
+        public static PrincipalPermissionsAction RemovePermissionOnScriptCompletion { get; } = new PrincipalPermissionsAction("RemovePermissionOnScriptCompletion");
+
+        public static bool operator ==(PrincipalPermissionsAction left, PrincipalPermissionsAction right) => left.Equals(right);
+        public static bool operator !=(PrincipalPermissionsAction left, PrincipalPermissionsAction right) => !left.Equals(right);
+
+        public static explicit operator string(PrincipalPermissionsAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrincipalPermissionsAction other && Equals(other);
+        public bool Equals(PrincipalPermissionsAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -828,6 +935,68 @@ namespace Pulumi.AzureNative.Kusto
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Differentiates between the type of script commands included - Database or Cluster. The default is Database.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScriptLevel : IEquatable<ScriptLevel>
+    {
+        private readonly string _value;
+
+        private ScriptLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScriptLevel Database { get; } = new ScriptLevel("Database");
+        public static ScriptLevel Cluster { get; } = new ScriptLevel("Cluster");
+
+        public static bool operator ==(ScriptLevel left, ScriptLevel right) => left.Equals(right);
+        public static bool operator !=(ScriptLevel left, ScriptLevel right) => !left.Equals(right);
+
+        public static explicit operator string(ScriptLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScriptLevel other && Equals(other);
+        public bool Equals(ScriptLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
+    /// </summary>
+    [EnumType]
+    public readonly struct VnetState : IEquatable<VnetState>
+    {
+        private readonly string _value;
+
+        private VnetState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VnetState Enabled { get; } = new VnetState("Enabled");
+        public static VnetState Disabled { get; } = new VnetState("Disabled");
+
+        public static bool operator ==(VnetState left, VnetState right) => left.Equals(right);
+        public static bool operator !=(VnetState left, VnetState right) => !left.Equals(right);
+
+        public static explicit operator string(VnetState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VnetState other && Equals(other);
+        public bool Equals(VnetState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.LabServices
 {
     /// <summary>
     /// The lab resource.
-    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
+    /// Azure REST API version: 2023-06-07. Prior API version in Azure Native 2.x: 2022-08-01.
     /// 
-    /// Other available API versions: 2018-10-15, 2023-06-07.
+    /// Other available API versions: 2022-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:Lab")]
     public partial class Lab : global::Pulumi.CustomResource
@@ -65,6 +65,12 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Error details of last operation done on lab.
+        /// </summary>
+        [Output("resourceOperationError")]
+        public Output<Outputs.ResourceOperationErrorResponse> ResourceOperationError { get; private set; } = null!;
 
         /// <summary>
         /// The lab user list management profile.
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20181015:Lab" },
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:Lab" },
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:Lab" },
                     new global::Pulumi.Alias { Type = "azure-native:labservices/v20220801:Lab" },

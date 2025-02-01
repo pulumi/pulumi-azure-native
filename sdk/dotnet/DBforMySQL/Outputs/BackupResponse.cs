@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DBforMySQL.Outputs
     public sealed class BackupResponse
     {
         /// <summary>
+        /// Backup interval hours for the server.
+        /// </summary>
+        public readonly int? BackupIntervalHours;
+        /// <summary>
         /// Backup retention days for the server.
         /// </summary>
         public readonly int? BackupRetentionDays;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.DBforMySQL.Outputs
 
         [OutputConstructor]
         private BackupResponse(
+            int? backupIntervalHours,
+
             int? backupRetentionDays,
 
             string earliestRestoreDate,
 
             string? geoRedundantBackup)
         {
+            BackupIntervalHours = backupIntervalHours;
             BackupRetentionDays = backupRetentionDays;
             EarliestRestoreDate = earliestRestoreDate;
             GeoRedundantBackup = geoRedundantBackup;

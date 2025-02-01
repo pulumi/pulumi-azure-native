@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IntegrationSpaces
 {
     /// <summary>
     /// An integration application under space.
-    /// Azure REST API version: 2023-11-14-preview.
+    /// Azure REST API version: 2023-11-14-preview. Prior API version in Azure Native 2.x: 2023-11-14-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:integrationspaces:Application")]
     public partial class Application : global::Pulumi.CustomResource

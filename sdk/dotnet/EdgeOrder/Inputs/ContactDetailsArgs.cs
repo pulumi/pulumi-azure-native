@@ -18,10 +18,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         /// <summary>
         /// Contact name of the person.
         /// </summary>
-        [Input("contactName", required: true)]
-        public Input<string> ContactName { get; set; } = null!;
+        [Input("contactName")]
+        public Input<string>? ContactName { get; set; }
 
-        [Input("emailList", required: true)]
+        [Input("emailList")]
         private InputList<string>? _emailList;
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         /// <summary>
         /// Phone number of the contact person.
         /// </summary>
-        [Input("phone", required: true)]
-        public Input<string> Phone { get; set; } = null!;
+        [Input("phone")]
+        public Input<string>? Phone { get; set; }
 
         /// <summary>
         /// Phone extension number of the contact person.

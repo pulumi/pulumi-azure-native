@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
         /// <summary>
         /// The IP of the ingress.
         /// </summary>
-        public readonly string? Ip;
+        public readonly string Ip;
         /// <summary>
         /// The ingress profile name.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
 
         [OutputConstructor]
         private IngressProfileResponse(
-            string? ip,
+            string ip,
 
             string? name,
 

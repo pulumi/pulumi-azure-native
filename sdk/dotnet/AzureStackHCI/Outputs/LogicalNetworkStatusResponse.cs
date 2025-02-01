@@ -24,7 +24,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// Descriptive error message
         /// </summary>
         public readonly string? ErrorMessage;
-        public readonly Outputs.LogicalNetworkStatusResponseProvisioningStatus? ProvisioningStatus;
+        /// <summary>
+        /// Logical network provisioning status
+        /// </summary>
+        public readonly Outputs.LogicalNetworkStatusProvisioningStatusResponse? ProvisioningStatus;
 
         [OutputConstructor]
         private LogicalNetworkStatusResponse(
@@ -32,7 +35,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string? errorMessage,
 
-            Outputs.LogicalNetworkStatusResponseProvisioningStatus? provisioningStatus)
+            Outputs.LogicalNetworkStatusProvisioningStatusResponse? provisioningStatus)
         {
             ErrorCode = errorCode;
             ErrorMessage = errorMessage;

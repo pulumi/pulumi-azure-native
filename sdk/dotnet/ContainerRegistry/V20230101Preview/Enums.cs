@@ -38,37 +38,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
     }
 
     /// <summary>
-    /// A message indicating if changes on the service provider require any updates on the consumer.
-    /// </summary>
-    [EnumType]
-    public readonly struct ActionsRequired : IEquatable<ActionsRequired>
-    {
-        private readonly string _value;
-
-        private ActionsRequired(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ActionsRequired None { get; } = new ActionsRequired("None");
-        public static ActionsRequired Recreate { get; } = new ActionsRequired("Recreate");
-
-        public static bool operator ==(ActionsRequired left, ActionsRequired right) => left.Equals(right);
-        public static bool operator !=(ActionsRequired left, ActionsRequired right) => !left.Equals(right);
-
-        public static explicit operator string(ActionsRequired value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ActionsRequired other && Equals(other);
-        public bool Equals(ActionsRequired other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Indicates whether audit logs are enabled on the connected registry.
     /// </summary>
     [EnumType]
@@ -156,39 +125,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConnectedRegistryMode other && Equals(other);
         public bool Equals(ConnectedRegistryMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The private link service connection status.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConnectionStatus : IEquatable<ConnectionStatus>
-    {
-        private readonly string _value;
-
-        private ConnectionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConnectionStatus Approved { get; } = new ConnectionStatus("Approved");
-        public static ConnectionStatus Pending { get; } = new ConnectionStatus("Pending");
-        public static ConnectionStatus Rejected { get; } = new ConnectionStatus("Rejected");
-        public static ConnectionStatus Disconnected { get; } = new ConnectionStatus("Disconnected");
-
-        public static bool operator ==(ConnectionStatus left, ConnectionStatus right) => left.Equals(right);
-        public static bool operator !=(ConnectionStatus left, ConnectionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(ConnectionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConnectionStatus other && Equals(other);
-        public bool Equals(ConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -632,96 +568,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
         public override string ToString() => _value;
     }
 
-    [EnumType]
-    public readonly struct TokenCertificateName : IEquatable<TokenCertificateName>
-    {
-        private readonly string _value;
-
-        private TokenCertificateName(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static TokenCertificateName Certificate1 { get; } = new TokenCertificateName("certificate1");
-        public static TokenCertificateName Certificate2 { get; } = new TokenCertificateName("certificate2");
-
-        public static bool operator ==(TokenCertificateName left, TokenCertificateName right) => left.Equals(right);
-        public static bool operator !=(TokenCertificateName left, TokenCertificateName right) => !left.Equals(right);
-
-        public static explicit operator string(TokenCertificateName value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TokenCertificateName other && Equals(other);
-        public bool Equals(TokenCertificateName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The password name "password1" or "password2"
-    /// </summary>
-    [EnumType]
-    public readonly struct TokenPasswordName : IEquatable<TokenPasswordName>
-    {
-        private readonly string _value;
-
-        private TokenPasswordName(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static TokenPasswordName Password1 { get; } = new TokenPasswordName("password1");
-        public static TokenPasswordName Password2 { get; } = new TokenPasswordName("password2");
-
-        public static bool operator ==(TokenPasswordName left, TokenPasswordName right) => left.Equals(right);
-        public static bool operator !=(TokenPasswordName left, TokenPasswordName right) => !left.Equals(right);
-
-        public static explicit operator string(TokenPasswordName value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TokenPasswordName other && Equals(other);
-        public bool Equals(TokenPasswordName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The status of the token example enabled or disabled.
-    /// </summary>
-    [EnumType]
-    public readonly struct TokenStatus : IEquatable<TokenStatus>
-    {
-        private readonly string _value;
-
-        private TokenStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static TokenStatus Enabled { get; } = new TokenStatus("enabled");
-        public static TokenStatus Disabled { get; } = new TokenStatus("disabled");
-
-        public static bool operator ==(TokenStatus left, TokenStatus right) => left.Equals(right);
-        public static bool operator !=(TokenStatus left, TokenStatus right) => !left.Equals(right);
-
-        public static explicit operator string(TokenStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TokenStatus other && Equals(other);
-        public bool Equals(TokenStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     /// <summary>
     /// The current status of the source trigger.
     /// </summary>
@@ -783,70 +629,8 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
         public override string ToString() => _value;
     }
 
-    [EnumType]
-    public readonly struct WebhookAction : IEquatable<WebhookAction>
-    {
-        private readonly string _value;
-
-        private WebhookAction(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WebhookAction Push { get; } = new WebhookAction("push");
-        public static WebhookAction Delete { get; } = new WebhookAction("delete");
-        public static WebhookAction Quarantine { get; } = new WebhookAction("quarantine");
-        public static WebhookAction Chart_push { get; } = new WebhookAction("chart_push");
-        public static WebhookAction Chart_delete { get; } = new WebhookAction("chart_delete");
-
-        public static bool operator ==(WebhookAction left, WebhookAction right) => left.Equals(right);
-        public static bool operator !=(WebhookAction left, WebhookAction right) => !left.Equals(right);
-
-        public static explicit operator string(WebhookAction value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WebhookAction other && Equals(other);
-        public bool Equals(WebhookAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     /// <summary>
-    /// The status of the webhook at the time the operation was called.
-    /// </summary>
-    [EnumType]
-    public readonly struct WebhookStatus : IEquatable<WebhookStatus>
-    {
-        private readonly string _value;
-
-        private WebhookStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WebhookStatus Enabled { get; } = new WebhookStatus("enabled");
-        public static WebhookStatus Disabled { get; } = new WebhookStatus("disabled");
-
-        public static bool operator ==(WebhookStatus left, WebhookStatus right) => left.Equals(right);
-        public static bool operator !=(WebhookStatus left, WebhookStatus right) => !left.Equals(right);
-
-        public static explicit operator string(WebhookStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WebhookStatus other && Equals(other);
-        public bool Equals(WebhookStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Whether or not zone redundancy is enabled for this container registry replication
+    /// Whether or not zone redundancy is enabled for this container registry
     /// </summary>
     [EnumType]
     public readonly struct ZoneRedundancy : IEquatable<ZoneRedundancy>

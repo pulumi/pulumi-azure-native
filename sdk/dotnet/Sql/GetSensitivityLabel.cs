@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets the sensitivity label of a given column
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Task<GetSensitivityLabelResult> InvokeAsync(GetSensitivityLabelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSensitivityLabelResult>("azure-native:sql:getSensitivityLabel", args ?? new GetSensitivityLabelArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets the sensitivity label of a given column
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Output<GetSensitivityLabelResult> Invoke(GetSensitivityLabelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSensitivityLabelResult>("azure-native:sql:getSensitivityLabel", args ?? new GetSensitivityLabelInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets the sensitivity label of a given column
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Output<GetSensitivityLabelResult> Invoke(GetSensitivityLabelInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSensitivityLabelResult>("azure-native:sql:getSensitivityLabel", args ?? new GetSensitivityLabelInvokeArgs(), options.WithDefaults());

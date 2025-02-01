@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 {
     /// <summary>
     /// Data Manager For Agriculture ARM Resource.
-    /// Azure REST API version: 2023-06-01-preview.
+    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:DataManagerForAgricultureResource")]
     public partial class DataManagerForAgricultureResource : global::Pulumi.CustomResource
@@ -108,7 +108,9 @@ namespace Pulumi.AzureNative.AgFoodPlatform
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20200512preview:DataManagerForAgricultureResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20200512preview:FarmBeatsModel" },
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20210901preview:DataManagerForAgricultureResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20210901preview:FarmBeatsModel" },
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20230601preview:DataManagerForAgricultureResource" },
                 },
             };

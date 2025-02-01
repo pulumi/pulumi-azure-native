@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// List the two keys used to publish to a topic.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Task<ListTopicSharedAccessKeysResult> InvokeAsync(ListTopicSharedAccessKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTopicSharedAccessKeysResult>("azure-native:eventgrid:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// List the two keys used to publish to a topic.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<ListTopicSharedAccessKeysResult> Invoke(ListTopicSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTopicSharedAccessKeysResult>("azure-native:eventgrid:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List the two keys used to publish to a topic.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<ListTopicSharedAccessKeysResult> Invoke(ListTopicSharedAccessKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListTopicSharedAccessKeysResult>("azure-native:eventgrid:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysInvokeArgs(), options.WithDefaults());

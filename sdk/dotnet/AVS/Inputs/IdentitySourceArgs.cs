@@ -46,7 +46,8 @@ namespace Pulumi.AzureNative.AVS.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+        /// The password of the Active Directory user with a minimum of read-only access to
+        /// Base DN for users and groups.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
@@ -70,7 +71,8 @@ namespace Pulumi.AzureNative.AVS.Inputs
         public InputUnion<string, Pulumi.AzureNative.AVS.SslEnum>? Ssl { get; set; }
 
         /// <summary>
-        /// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+        /// The ID of an Active Directory user with a minimum of read-only access to Base
+        /// DN for users and group
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

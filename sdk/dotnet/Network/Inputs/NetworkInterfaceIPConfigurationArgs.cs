@@ -88,10 +88,16 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<bool>? Primary { get; set; }
 
         /// <summary>
-        /// Private IP address of the IP configuration.
+        /// Private IP address of the IP configuration. It can be a single IP address or a CIDR block in the format &lt;address&gt;/&lt;prefix-length&gt;.
         /// </summary>
         [Input("privateIPAddress")]
         public Input<string>? PrivateIPAddress { get; set; }
+
+        /// <summary>
+        /// The private IP address prefix length. If specified and the allocation method is dynamic, the service will allocate a CIDR block instead of a single IP address.
+        /// </summary>
+        [Input("privateIPAddressPrefixLength")]
+        public Input<int>? PrivateIPAddressPrefixLength { get; set; }
 
         /// <summary>
         /// Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// An instance of a script executed by a user - custom or AVS
-    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
     /// 
-    /// Other available API versions: 2023-03-01, 2023-09-01.
+    /// Other available API versions: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:ScriptExecution")]
     public partial class ScriptExecution : global::Pulumi.CustomResource
@@ -25,7 +25,8 @@ namespace Pulumi.AzureNative.AVS
         public Output<ImmutableArray<string>> Errors { get; private set; } = null!;
 
         /// <summary>
-        /// Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
+        /// Error message if the script was able to run, but if the script itself had
+        /// errors or powershell threw an exception
         /// </summary>
         [Output("failureReason")]
         public Output<string?> FailureReason { get; private set; } = null!;
@@ -37,7 +38,8 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> FinishedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters that will be hidden/not visible to ARM, such as passwords and credentials
+        /// Parameters that will be hidden/not visible to ARM, such as passwords and
+        /// credentials
         /// </summary>
         [Output("hiddenParameters")]
         public Output<ImmutableArray<object>> HiddenParameters { get; private set; } = null!;
@@ -49,7 +51,7 @@ namespace Pulumi.AzureNative.AVS
         public Output<ImmutableArray<string>> Information { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -103,13 +105,19 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> SubmittedAt { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Time limit for execution
         /// </summary>
         [Output("timeout")]
         public Output<string> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -174,7 +182,8 @@ namespace Pulumi.AzureNative.AVS
     public sealed class ScriptExecutionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
+        /// Error message if the script was able to run, but if the script itself had
+        /// errors or powershell threw an exception
         /// </summary>
         [Input("failureReason")]
         public Input<string>? FailureReason { get; set; }
@@ -183,7 +192,8 @@ namespace Pulumi.AzureNative.AVS
         private InputList<object>? _hiddenParameters;
 
         /// <summary>
-        /// Parameters that will be hidden/not visible to ARM, such as passwords and credentials
+        /// Parameters that will be hidden/not visible to ARM, such as passwords and
+        /// credentials
         /// </summary>
         public InputList<object> HiddenParameters
         {
@@ -228,7 +238,7 @@ namespace Pulumi.AzureNative.AVS
         }
 
         /// <summary>
-        /// The name of the private cloud.
+        /// Name of the private cloud
         /// </summary>
         [Input("privateCloudName", required: true)]
         public Input<string> PrivateCloudName { get; set; } = null!;
@@ -252,7 +262,7 @@ namespace Pulumi.AzureNative.AVS
         public Input<string>? ScriptCmdletId { get; set; }
 
         /// <summary>
-        /// Name of the user-invoked script execution resource
+        /// Name of the script cmdlet.
         /// </summary>
         [Input("scriptExecutionName")]
         public Input<string>? ScriptExecutionName { get; set; }

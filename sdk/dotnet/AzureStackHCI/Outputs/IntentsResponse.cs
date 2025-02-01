@@ -23,7 +23,47 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// Set Adapter PropertyOverrides for cluster.
         /// </summary>
-        public readonly Outputs.AdapterPropertyOverridesResponse? AdapterPropertyOverrides;
+        public readonly Outputs.AdapterPropertyOverridesResponse AdapterPropertyOverrides;
+        /// <summary>
+        /// Array of adapters used for the network intent.
+        /// </summary>
+        public readonly ImmutableArray<string> IntentAdapters;
+        /// <summary>
+        /// Name of the network intent you wish to create.
+        /// </summary>
+        public readonly string IntentName;
+        /// <summary>
+        /// IntentType for host network intent.
+        /// </summary>
+        public readonly double IntentType;
+        /// <summary>
+        /// IsComputeIntentSet for host network intent.
+        /// </summary>
+        public readonly bool IsComputeIntentSet;
+        /// <summary>
+        /// IsManagementIntentSet for host network intent.
+        /// </summary>
+        public readonly bool IsManagementIntentSet;
+        /// <summary>
+        /// IsNetworkIntentType for host network intent.
+        /// </summary>
+        public readonly bool IsNetworkIntentType;
+        /// <summary>
+        /// IntentType for host network intent.
+        /// </summary>
+        public readonly bool IsOnlyStorage;
+        /// <summary>
+        /// IsOnlyStretch for host network intent.
+        /// </summary>
+        public readonly bool IsOnlyStretch;
+        /// <summary>
+        /// IsStorageIntentSet for host network intent.
+        /// </summary>
+        public readonly bool IsStorageIntentSet;
+        /// <summary>
+        /// IsStretchIntentSet for host network intent.
+        /// </summary>
+        public readonly bool IsStretchIntentSet;
         /// <summary>
         /// Name of the network intent you wish to create.
         /// </summary>
@@ -31,19 +71,23 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         /// </summary>
-        public readonly bool? OverrideAdapterProperty;
+        public readonly bool OverrideAdapterProperty;
         /// <summary>
         /// This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         /// </summary>
-        public readonly bool? OverrideQosPolicy;
+        public readonly bool OverrideQosPolicy;
         /// <summary>
         /// This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         /// </summary>
-        public readonly bool? OverrideVirtualSwitchConfiguration;
+        public readonly bool OverrideVirtualSwitchConfiguration;
         /// <summary>
         /// Set QoS PolicyOverrides for cluster.
         /// </summary>
-        public readonly Outputs.QosPolicyOverridesResponse? QosPolicyOverrides;
+        public readonly Outputs.QosPolicyOverridesResponse QosPolicyOverrides;
+        /// <summary>
+        /// Scope for host network intent.
+        /// </summary>
+        public readonly double Scope;
         /// <summary>
         /// List of network traffic types. Only allowed values are 'Compute', 'Storage', 'Management'.
         /// </summary>
@@ -51,35 +95,68 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// Set virtualSwitch ConfigurationOverrides for cluster.
         /// </summary>
-        public readonly Outputs.VirtualSwitchConfigurationOverridesResponse? VirtualSwitchConfigurationOverrides;
+        public readonly Outputs.VirtualSwitchConfigurationOverridesResponse VirtualSwitchConfigurationOverrides;
 
         [OutputConstructor]
         private IntentsResponse(
             ImmutableArray<string> adapter,
 
-            Outputs.AdapterPropertyOverridesResponse? adapterPropertyOverrides,
+            Outputs.AdapterPropertyOverridesResponse adapterPropertyOverrides,
+
+            ImmutableArray<string> intentAdapters,
+
+            string intentName,
+
+            double intentType,
+
+            bool isComputeIntentSet,
+
+            bool isManagementIntentSet,
+
+            bool isNetworkIntentType,
+
+            bool isOnlyStorage,
+
+            bool isOnlyStretch,
+
+            bool isStorageIntentSet,
+
+            bool isStretchIntentSet,
 
             string? name,
 
-            bool? overrideAdapterProperty,
+            bool overrideAdapterProperty,
 
-            bool? overrideQosPolicy,
+            bool overrideQosPolicy,
 
-            bool? overrideVirtualSwitchConfiguration,
+            bool overrideVirtualSwitchConfiguration,
 
-            Outputs.QosPolicyOverridesResponse? qosPolicyOverrides,
+            Outputs.QosPolicyOverridesResponse qosPolicyOverrides,
+
+            double scope,
 
             ImmutableArray<string> trafficType,
 
-            Outputs.VirtualSwitchConfigurationOverridesResponse? virtualSwitchConfigurationOverrides)
+            Outputs.VirtualSwitchConfigurationOverridesResponse virtualSwitchConfigurationOverrides)
         {
             Adapter = adapter;
             AdapterPropertyOverrides = adapterPropertyOverrides;
+            IntentAdapters = intentAdapters;
+            IntentName = intentName;
+            IntentType = intentType;
+            IsComputeIntentSet = isComputeIntentSet;
+            IsManagementIntentSet = isManagementIntentSet;
+            IsNetworkIntentType = isNetworkIntentType;
+            IsOnlyStorage = isOnlyStorage;
+            IsOnlyStretch = isOnlyStretch;
+            IsStorageIntentSet = isStorageIntentSet;
+            IsStretchIntentSet = isStretchIntentSet;
             Name = name;
             OverrideAdapterProperty = overrideAdapterProperty;
             OverrideQosPolicy = overrideQosPolicy;
             OverrideVirtualSwitchConfiguration = overrideVirtualSwitchConfiguration;
             QosPolicyOverrides = qosPolicyOverrides;
+            Scope = scope;
             TrafficType = trafficType;
             VirtualSwitchConfigurationOverrides = virtualSwitchConfigurationOverrides;
         }

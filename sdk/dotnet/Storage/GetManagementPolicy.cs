@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Gets the managementpolicy associated with the specified storage account.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Task<GetManagementPolicyResult> InvokeAsync(GetManagementPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementPolicyResult>("azure-native:storage:getManagementPolicy", args ?? new GetManagementPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the managementpolicy associated with the specified storage account.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Output<GetManagementPolicyResult> Invoke(GetManagementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementPolicyResult>("azure-native:storage:getManagementPolicy", args ?? new GetManagementPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the managementpolicy associated with the specified storage account.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Output<GetManagementPolicyResult> Invoke(GetManagementPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementPolicyResult>("azure-native:storage:getManagementPolicy", args ?? new GetManagementPolicyInvokeArgs(), options.WithDefaults());

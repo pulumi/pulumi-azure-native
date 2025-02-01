@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:DatabaseSecurityAlertPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20201101preview:DatabaseSecurityAlertPolicy" },
@@ -118,6 +119,7 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql:DatabaseSecurityAlertPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:DatabaseThreatDetectionPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,25 +11,25 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
     /// <summary>
-    /// A private endpoint connection for a project.
+    /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// For optimistic concurrency control.
+        /// Gets the tag for optimistic concurrency control.
         /// </summary>
-        public readonly string? ETag;
+        public readonly string ETag;
         /// <summary>
         /// The group ids for the private endpoint resource.
         /// </summary>
         public readonly ImmutableArray<string> GroupIds;
         /// <summary>
-        /// Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
+        /// Relative URL to get this Sites.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the private endpoint endpoint connection.
+        /// Gets the name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
         /// <summary>
-        /// Properties of the private endpoint endpoint connection.
+        /// Gets the properties of the object.
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
         /// <summary>
@@ -51,15 +51,15 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponse? SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
+        /// Gets the resource type.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponse(
-            string? eTag,
+            string eTag,
 
             ImmutableArray<string> groupIds,
 
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string? provisioningState,
 
-            Outputs.SystemDataResponse? systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

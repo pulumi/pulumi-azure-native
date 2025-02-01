@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         [Input("clientAuthentication")]
         public Input<Inputs.ClientAuthenticationSettingsArgs>? ClientAuthentication { get; set; }
 
+        [Input("customDomains")]
+        private InputList<Inputs.CustomDomainConfigurationArgs>? _customDomains;
+
+        /// <summary>
+        /// List of custom domain configurations for the namespace.
+        /// </summary>
+        public InputList<Inputs.CustomDomainConfigurationArgs> CustomDomains
+        {
+            get => _customDomains ?? (_customDomains = new InputList<Inputs.CustomDomainConfigurationArgs>());
+            set => _customDomains = value;
+        }
+
         /// <summary>
         /// The maximum number of sessions per authentication name. The property default value is 1.
         /// Min allowed value is 1 and max allowed value is 100.

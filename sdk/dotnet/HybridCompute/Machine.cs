@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// Describes a hybrid machine.
-    /// Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2020-08-02.
+    /// Azure REST API version: 2024-07-10. Prior API version in Azure Native 2.x: 2022-12-27.
     /// 
-    /// Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+    /// Other available API versions: 2020-08-15-preview, 2022-05-10-preview, 2022-12-27, 2024-11-10-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:Machine")]
     public partial class Machine : global::Pulumi.CustomResource
@@ -97,10 +97,22 @@ namespace Pulumi.AzureNative.HybridCompute
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// The time of the last status change.
         /// </summary>
         [Output("lastStatusChange")]
         public Output<string> LastStatusChange { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the License related properties for a machine.
+        /// </summary>
+        [Output("licenseProfile")]
+        public Output<Outputs.LicenseProfileMachineInstanceViewResponse?> LicenseProfile { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -131,6 +143,18 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Information about the network the machine is on.
+        /// </summary>
+        [Output("networkProfile")]
+        public Output<Outputs.NetworkProfileResponse> NetworkProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The edition of the Operating System.
+        /// </summary>
+        [Output("osEdition")]
+        public Output<string> OsEdition { get; private set; } = null!;
 
         /// <summary>
         /// The Operating System running on the hybrid machine.
@@ -316,6 +340,12 @@ namespace Pulumi.AzureNative.HybridCompute
         [Input("clientPublicKey")]
         public Input<string>? ClientPublicKey { get; set; }
 
+        /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public Input<string>? Expand { get; set; }
+
         [Input("extensions")]
         private InputList<Inputs.MachineExtensionInstanceViewArgs>? _extensions;
 
@@ -333,6 +363,18 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+        /// </summary>
+        [Input("kind")]
+        public InputUnion<string, Pulumi.AzureNative.HybridCompute.ArcKindEnum>? Kind { get; set; }
+
+        /// <summary>
+        /// Specifies the License related properties for a machine.
+        /// </summary>
+        [Input("licenseProfile")]
+        public Input<Inputs.LicenseProfileMachineInstanceViewArgs>? LicenseProfile { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

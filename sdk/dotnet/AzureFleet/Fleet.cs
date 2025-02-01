@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.AzureFleet
 {
     /// <summary>
     /// An Compute Fleet resource
-    /// Azure REST API version: 2024-05-01-preview.
+    /// Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2024-05-01-preview.
     /// 
-    /// Other available API versions: 2023-11-01-preview, 2024-11-01.
+    /// Other available API versions: 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurefleet:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Represents the configuration for additional locations where Fleet resources may be deployed.
+        /// </summary>
+        [Output("additionalLocationsProfile")]
+        public Output<Outputs.AdditionalLocationsProfileResponse?> AdditionalLocationsProfile { get; private set; } = null!;
+
         /// <summary>
         /// Compute Profile to use for running user's workloads.
         /// </summary>
@@ -97,6 +103,12 @@ namespace Pulumi.AzureNative.AzureFleet
         public Output<string> UniqueId { get; private set; } = null!;
 
         /// <summary>
+        /// Attribute based Fleet.
+        /// </summary>
+        [Output("vmAttributes")]
+        public Output<Outputs.VMAttributesResponse?> VmAttributes { get; private set; } = null!;
+
+        /// <summary>
         /// List of VM sizes supported for Compute Fleet
         /// </summary>
         [Output("vmSizesProfile")]
@@ -160,6 +172,12 @@ namespace Pulumi.AzureNative.AzureFleet
     public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Represents the configuration for additional locations where Fleet resources may be deployed.
+        /// </summary>
+        [Input("additionalLocationsProfile")]
+        public Input<Inputs.AdditionalLocationsProfileArgs>? AdditionalLocationsProfile { get; set; }
+
+        /// <summary>
         /// Compute Profile to use for running user's workloads.
         /// </summary>
         [Input("computeProfile", required: true)]
@@ -218,6 +236,12 @@ namespace Pulumi.AzureNative.AzureFleet
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Attribute based Fleet.
+        /// </summary>
+        [Input("vmAttributes")]
+        public Input<Inputs.VMAttributesArgs>? VmAttributes { get; set; }
 
         [Input("vmSizesProfile", required: true)]
         private InputList<Inputs.VmSizeProfileArgs>? _vmSizesProfile;

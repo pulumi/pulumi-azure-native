@@ -17,14 +17,36 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
     public sealed class HttpProxyConfigurationResponse
     {
         /// <summary>
-        /// The httpsProxy url.
+        /// The HTTP proxy server endpoint to use.
+        /// </summary>
+        public readonly string? HttpProxy;
+        /// <summary>
+        /// The HTTPS proxy server endpoint to use.
         /// </summary>
         public readonly string? HttpsProxy;
+        /// <summary>
+        /// The endpoints that should not go through proxy.
+        /// </summary>
+        public readonly ImmutableArray<string> NoProxy;
+        /// <summary>
+        /// Alternative CA cert to use for connecting to proxy servers.
+        /// </summary>
+        public readonly string? TrustedCa;
 
         [OutputConstructor]
-        private HttpProxyConfigurationResponse(string? httpsProxy)
+        private HttpProxyConfigurationResponse(
+            string? httpProxy,
+
+            string? httpsProxy,
+
+            ImmutableArray<string> noProxy,
+
+            string? trustedCa)
         {
+            HttpProxy = httpProxy;
             HttpsProxy = httpsProxy;
+            NoProxy = noProxy;
+            TrustedCa = trustedCa;
         }
     }
 }

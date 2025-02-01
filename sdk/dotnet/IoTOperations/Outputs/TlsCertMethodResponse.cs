@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// <summary>
         /// Option 1 - Automatic TLS server certificate management with cert-manager.
         /// </summary>
-        public readonly Outputs.AutomaticCertMethodResponse? Automatic;
+        public readonly Outputs.CertManagerCertificateSpecResponse? CertManagerCertificateSpec;
         /// <summary>
         /// Option 2 - Manual TLS server certificate management through a defined secret.
         /// </summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 
         [OutputConstructor]
         private TlsCertMethodResponse(
-            Outputs.AutomaticCertMethodResponse? automatic,
+            Outputs.CertManagerCertificateSpecResponse? certManagerCertificateSpec,
 
             Outputs.X509ManualCertificateResponse? manual,
 
             string mode)
         {
-            Automatic = automatic;
+            CertManagerCertificateSpec = certManagerCertificateSpec;
             Manual = manual;
             Mode = mode;
         }

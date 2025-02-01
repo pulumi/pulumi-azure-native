@@ -11,42 +11,18 @@ namespace Pulumi.AzureNative.CodeSigning
 {
     /// <summary>
     /// Certificate profile resource.
-    /// Azure REST API version: 2024-02-05-preview.
+    /// Azure REST API version: 2024-09-30-preview. Prior API version in Azure Native 2.x: 2024-02-05-preview.
     /// 
-    /// Other available API versions: 2024-09-30-preview.
+    /// Other available API versions: 2024-02-05-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:codesigning:CertificateProfile")]
     public partial class CertificateProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Used as L in the certificate subject name.
-        /// </summary>
-        [Output("city")]
-        public Output<string> City { get; private set; } = null!;
-
-        /// <summary>
-        /// Used as CN in the certificate subject name.
-        /// </summary>
-        [Output("commonName")]
-        public Output<string> CommonName { get; private set; } = null!;
-
-        /// <summary>
-        /// Used as C in the certificate subject name.
-        /// </summary>
-        [Output("country")]
-        public Output<string> Country { get; private set; } = null!;
-
-        /// <summary>
-        /// Enhanced key usage of the certificate.
-        /// </summary>
-        [Output("enhancedKeyUsage")]
-        public Output<string> EnhancedKeyUsage { get; private set; } = null!;
-
-        /// <summary>
         /// Identity validation id used for the certificate subject name.
         /// </summary>
         [Output("identityValidationId")]
-        public Output<string?> IdentityValidationId { get; private set; } = null!;
+        public Output<string> IdentityValidationId { get; private set; } = null!;
 
         /// <summary>
         /// Whether to include L in the certificate subject name. Applicable only for private trust, private trust ci profile types
@@ -85,24 +61,6 @@ namespace Pulumi.AzureNative.CodeSigning
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Used as O in the certificate subject name.
-        /// </summary>
-        [Output("organization")]
-        public Output<string> Organization { get; private set; } = null!;
-
-        /// <summary>
-        /// Used as OU in the private trust certificate subject name.
-        /// </summary>
-        [Output("organizationUnit")]
-        public Output<string> OrganizationUnit { get; private set; } = null!;
-
-        /// <summary>
-        /// Used as PC in the certificate subject name.
-        /// </summary>
-        [Output("postalCode")]
-        public Output<string> PostalCode { get; private set; } = null!;
-
-        /// <summary>
         /// Profile type of the certificate.
         /// </summary>
         [Output("profileType")]
@@ -115,22 +73,10 @@ namespace Pulumi.AzureNative.CodeSigning
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Used as S in the certificate subject name.
-        /// </summary>
-        [Output("state")]
-        public Output<string> State { get; private set; } = null!;
-
-        /// <summary>
         /// Status of the certificate profile.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// Used as STREET in the certificate subject name.
-        /// </summary>
-        [Output("streetAddress")]
-        public Output<string> StreetAddress { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -203,8 +149,8 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Identity validation id used for the certificate subject name.
         /// </summary>
-        [Input("identityValidationId")]
-        public Input<string>? IdentityValidationId { get; set; }
+        [Input("identityValidationId", required: true)]
+        public Input<string> IdentityValidationId { get; set; } = null!;
 
         /// <summary>
         /// Whether to include L in the certificate subject name. Applicable only for private trust, private trust ci profile types

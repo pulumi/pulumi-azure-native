@@ -82,10 +82,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20241101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230601preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20231201preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240301preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20240801:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

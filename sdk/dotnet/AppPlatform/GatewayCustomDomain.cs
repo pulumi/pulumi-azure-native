@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Custom domain of the Spring Cloud Gateway
-    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview.
+    /// Azure REST API version: 2024-01-01-preview. Prior API version in Azure Native 2.x: 2023-05-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+    /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:GatewayCustomDomain")]
     public partial class GatewayCustomDomain : global::Pulumi.CustomResource

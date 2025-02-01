@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// A list of address blocks reserved for this virtual network in CIDR notation.
         /// </summary>
         public readonly ImmutableArray<string> AddressPrefixes;
+        /// <summary>
+        /// A list of IPAM Pools allocating IP address prefixes.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpamPoolPrefixAllocationResponse> IpamPoolPrefixAllocations;
 
         [OutputConstructor]
-        private AddressSpaceResponse(ImmutableArray<string> addressPrefixes)
+        private AddressSpaceResponse(
+            ImmutableArray<string> addressPrefixes,
+
+            ImmutableArray<Outputs.IpamPoolPrefixAllocationResponse> ipamPoolPrefixAllocations)
         {
             AddressPrefixes = addressPrefixes;
+            IpamPoolPrefixAllocations = ipamPoolPrefixAllocations;
         }
     }
 }

@@ -27,6 +27,10 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         [Input("originGroupOverride")]
         public Input<Inputs.OriginGroupOverrideArgs>? OriginGroupOverride { get; set; }
 
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleRouteConfigurationOverrideActionParameters'.
+        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

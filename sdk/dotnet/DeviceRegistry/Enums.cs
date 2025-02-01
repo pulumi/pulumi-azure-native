@@ -52,11 +52,11 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// An indication of how the data point should be mapped to OpenTelemetry.
     /// </summary>
     [EnumType]
-    public readonly struct DataPointsObservabilityMode : IEquatable<DataPointsObservabilityMode>
+    public readonly struct DataPointObservabilityMode : IEquatable<DataPointObservabilityMode>
     {
         private readonly string _value;
 
-        private DataPointsObservabilityMode(string value)
+        private DataPointObservabilityMode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
@@ -64,32 +64,32 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// No mapping to OpenTelemetry.
         /// </summary>
-        public static DataPointsObservabilityMode None { get; } = new DataPointsObservabilityMode("none");
+        public static DataPointObservabilityMode None { get; } = new DataPointObservabilityMode("None");
         /// <summary>
         /// Map as counter to OpenTelemetry.
         /// </summary>
-        public static DataPointsObservabilityMode Counter { get; } = new DataPointsObservabilityMode("counter");
+        public static DataPointObservabilityMode Counter { get; } = new DataPointObservabilityMode("Counter");
         /// <summary>
         /// Map as gauge to OpenTelemetry.
         /// </summary>
-        public static DataPointsObservabilityMode Gauge { get; } = new DataPointsObservabilityMode("gauge");
+        public static DataPointObservabilityMode Gauge { get; } = new DataPointObservabilityMode("Gauge");
         /// <summary>
         /// Map as histogram to OpenTelemetry.
         /// </summary>
-        public static DataPointsObservabilityMode Histogram { get; } = new DataPointsObservabilityMode("histogram");
+        public static DataPointObservabilityMode Histogram { get; } = new DataPointObservabilityMode("Histogram");
         /// <summary>
         /// Map as log to OpenTelemetry.
         /// </summary>
-        public static DataPointsObservabilityMode Log { get; } = new DataPointsObservabilityMode("log");
+        public static DataPointObservabilityMode Log { get; } = new DataPointObservabilityMode("Log");
 
-        public static bool operator ==(DataPointsObservabilityMode left, DataPointsObservabilityMode right) => left.Equals(right);
-        public static bool operator !=(DataPointsObservabilityMode left, DataPointsObservabilityMode right) => !left.Equals(right);
+        public static bool operator ==(DataPointObservabilityMode left, DataPointObservabilityMode right) => left.Equals(right);
+        public static bool operator !=(DataPointObservabilityMode left, DataPointObservabilityMode right) => !left.Equals(right);
 
-        public static explicit operator string(DataPointsObservabilityMode value) => value._value;
+        public static explicit operator string(DataPointObservabilityMode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataPointsObservabilityMode other && Equals(other);
-        public bool Equals(DataPointsObservabilityMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DataPointObservabilityMode other && Equals(other);
+        public bool Equals(DataPointObservabilityMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -101,11 +101,11 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// An indication of how the event should be mapped to OpenTelemetry.
     /// </summary>
     [EnumType]
-    public readonly struct EventsObservabilityMode : IEquatable<EventsObservabilityMode>
+    public readonly struct EventObservabilityMode : IEquatable<EventObservabilityMode>
     {
         private readonly string _value;
 
-        private EventsObservabilityMode(string value)
+        private EventObservabilityMode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
@@ -113,20 +113,20 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// No mapping to OpenTelemetry.
         /// </summary>
-        public static EventsObservabilityMode None { get; } = new EventsObservabilityMode("none");
+        public static EventObservabilityMode None { get; } = new EventObservabilityMode("None");
         /// <summary>
         /// Map as log to OpenTelemetry.
         /// </summary>
-        public static EventsObservabilityMode Log { get; } = new EventsObservabilityMode("log");
+        public static EventObservabilityMode Log { get; } = new EventObservabilityMode("Log");
 
-        public static bool operator ==(EventsObservabilityMode left, EventsObservabilityMode right) => left.Equals(right);
-        public static bool operator !=(EventsObservabilityMode left, EventsObservabilityMode right) => !left.Equals(right);
+        public static bool operator ==(EventObservabilityMode left, EventObservabilityMode right) => left.Equals(right);
+        public static bool operator !=(EventObservabilityMode left, EventObservabilityMode right) => !left.Equals(right);
 
-        public static explicit operator string(EventsObservabilityMode value) => value._value;
+        public static explicit operator string(EventObservabilityMode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EventsObservabilityMode other && Equals(other);
-        public bool Equals(EventsObservabilityMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is EventObservabilityMode other && Equals(other);
+        public bool Equals(EventObservabilityMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -265,47 +265,6 @@ namespace Pulumi.AzureNative.DeviceRegistry
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TopicRetainType other && Equals(other);
         public bool Equals(TopicRetainType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Defines the method to authenticate the user of the client at the server.
-    /// </summary>
-    [EnumType]
-    public readonly struct UserAuthenticationMode : IEquatable<UserAuthenticationMode>
-    {
-        private readonly string _value;
-
-        private UserAuthenticationMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// The user authentication method is anonymous.
-        /// </summary>
-        public static UserAuthenticationMode Anonymous { get; } = new UserAuthenticationMode("Anonymous");
-        /// <summary>
-        /// The user authentication method is an x509 certificate.
-        /// </summary>
-        public static UserAuthenticationMode Certificate { get; } = new UserAuthenticationMode("Certificate");
-        /// <summary>
-        /// The user authentication method is a username and password.
-        /// </summary>
-        public static UserAuthenticationMode UsernamePassword { get; } = new UserAuthenticationMode("UsernamePassword");
-
-        public static bool operator ==(UserAuthenticationMode left, UserAuthenticationMode right) => left.Equals(right);
-        public static bool operator !=(UserAuthenticationMode left, UserAuthenticationMode right) => !left.Equals(right);
-
-        public static explicit operator string(UserAuthenticationMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is UserAuthenticationMode other && Equals(other);
-        public bool Equals(UserAuthenticationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

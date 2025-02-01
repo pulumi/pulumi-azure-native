@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Container App.
-    /// Azure REST API version: 2023-01-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-01-01.
     /// 
-    /// Other available API versions: 2023-12-01, 2024-04-01.
+    /// Other available API versions: 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:ContainerApp")]
     public partial class ContainerApp : global::Pulumi.CustomResource
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Web
         public Output<Outputs.ConfigurationResponse?> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.Web
         public Input<Inputs.ConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }

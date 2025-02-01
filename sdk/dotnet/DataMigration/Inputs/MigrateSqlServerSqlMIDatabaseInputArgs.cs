@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public Input<Inputs.FileShareArgs>? BackupFileShare { get; set; }
 
         /// <summary>
+        /// id of the database
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
         /// Name of the database
         /// </summary>
         [Input("name", required: true)]

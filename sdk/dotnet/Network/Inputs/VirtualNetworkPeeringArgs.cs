@@ -40,16 +40,52 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<bool>? DoNotVerifyRemoteGateways { get; set; }
 
         /// <summary>
+        /// Whether only Ipv6 address space is peered for subnet peering.
+        /// </summary>
+        [Input("enableOnlyIPv6Peering")]
+        public Input<bool>? EnableOnlyIPv6Peering { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// The local address space of the local virtual network that is peered.
+        /// </summary>
+        [Input("localAddressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? LocalAddressSpace { get; set; }
+
+        [Input("localSubnetNames")]
+        private InputList<string>? _localSubnetNames;
+
+        /// <summary>
+        /// List of local subnet names that are subnet peered with remote virtual network.
+        /// </summary>
+        public InputList<string> LocalSubnetNames
+        {
+            get => _localSubnetNames ?? (_localSubnetNames = new InputList<string>());
+            set => _localSubnetNames = value;
+        }
+
+        /// <summary>
+        /// The current local address space of the local virtual network that is peered.
+        /// </summary>
+        [Input("localVirtualNetworkAddressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? LocalVirtualNetworkAddressSpace { get; set; }
+
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether complete virtual network address space is peered.
+        /// </summary>
+        [Input("peerCompleteVnets")]
+        public Input<bool>? PeerCompleteVnets { get; set; }
 
         /// <summary>
         /// The status of the virtual network peering.
@@ -74,6 +110,18 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// </summary>
         [Input("remoteBgpCommunities")]
         public Input<Inputs.VirtualNetworkBgpCommunitiesArgs>? RemoteBgpCommunities { get; set; }
+
+        [Input("remoteSubnetNames")]
+        private InputList<string>? _remoteSubnetNames;
+
+        /// <summary>
+        /// List of remote subnet names from remote virtual network that are subnet peered.
+        /// </summary>
+        public InputList<string> RemoteSubnetNames
+        {
+            get => _remoteSubnetNames ?? (_remoteSubnetNames = new InputList<string>());
+            set => _remoteSubnetNames = value;
+        }
 
         /// <summary>
         /// The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).

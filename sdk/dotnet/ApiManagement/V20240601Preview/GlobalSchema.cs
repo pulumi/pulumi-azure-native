@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GlobalSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Schema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:GlobalSchema" },
@@ -87,6 +88,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:GlobalSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Schema" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

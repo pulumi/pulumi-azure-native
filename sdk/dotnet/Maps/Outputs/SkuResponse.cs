@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Maps.Outputs
     public sealed class SkuResponse
     {
         /// <summary>
-        /// The name of the SKU, in standard format (such as S0).
+        /// The name of the SKU, in standard format (such as G2).
         /// </summary>
         public readonly string Name;
         /// <summary>

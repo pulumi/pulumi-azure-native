@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.Resources.Inputs
         [Input("containerGroupName")]
         public Input<string>? ContainerGroupName { get; set; }
 
+        [Input("subnetIds")]
+        private InputList<Inputs.ContainerGroupSubnetIdArgs>? _subnetIds;
+
+        /// <summary>
+        /// The subnet resource IDs for a container group.
+        /// </summary>
+        public InputList<Inputs.ContainerGroupSubnetIdArgs> SubnetIds
+        {
+            get => _subnetIds ?? (_subnetIds = new InputList<Inputs.ContainerGroupSubnetIdArgs>());
+            set => _subnetIds = value;
+        }
+
         public ContainerConfigurationArgs()
         {
         }

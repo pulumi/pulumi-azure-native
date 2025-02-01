@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Network default admin rule.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DefaultAdminRule")]
     public partial class DefaultAdminRule : global::Pulumi.CustomResource
@@ -151,7 +151,9 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:DefaultAdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:DefaultAdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:DefaultAdminRule" },
@@ -160,16 +162,27 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:DefaultAdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:DefaultAdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230201:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230401:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230401:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230501:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230601:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230901:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20231101:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240101:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240101preview:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101preview:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240301:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:AdminRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:DefaultAdminRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:AdminRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

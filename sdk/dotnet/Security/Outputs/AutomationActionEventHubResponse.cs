@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// </summary>
         public readonly string? EventHubResourceId;
         /// <summary>
+        /// Indicates whether the trusted service is enabled or not.
+        /// </summary>
+        public readonly bool? IsTrustedServiceEnabled;
+        /// <summary>
         /// The target Event Hub SAS policy name.
         /// </summary>
         public readonly string SasPolicyName;
@@ -42,11 +46,14 @@ namespace Pulumi.AzureNative.Security.Outputs
 
             string? eventHubResourceId,
 
+            bool? isTrustedServiceEnabled,
+
             string sasPolicyName)
         {
             ActionType = actionType;
             ConnectionString = connectionString;
             EventHubResourceId = eventHubResourceId;
+            IsTrustedServiceEnabled = isTrustedServiceEnabled;
             SasPolicyName = sasPolicyName;
         }
     }

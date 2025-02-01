@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.IoTCentral
     {
         /// <summary>
         /// Get the metadata of an IoT Central application.
-        /// Azure REST API version: 2021-06-01.
+        /// Azure REST API version: 2021-11-01-preview.
         /// 
-        /// Other available API versions: 2021-11-01-preview.
+        /// Other available API versions: 2021-06-01.
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of an IoT Central application.
-        /// Azure REST API version: 2021-06-01.
+        /// Azure REST API version: 2021-11-01-preview.
         /// 
-        /// Other available API versions: 2021-11-01-preview.
+        /// Other available API versions: 2021-06-01.
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of an IoT Central application.
-        /// Azure REST API version: 2021-06-01.
+        /// Azure REST API version: 2021-11-01-preview.
         /// 
-        /// Other available API versions: 2021-11-01-preview.
+        /// Other available API versions: 2021-06-01.
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.IoTCentral
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// The ARM resource identifier.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -101,13 +101,29 @@ namespace Pulumi.AzureNative.IoTCentral
         /// </summary>
         public readonly Outputs.SystemAssignedServiceIdentityResponse? Identity;
         /// <summary>
-        /// The resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The ARM resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Network Rule Set Properties of this IoT Central application.
+        /// </summary>
+        public readonly Outputs.NetworkRuleSetsResponse? NetworkRuleSets;
+        /// <summary>
+        /// Private endpoint connections created on this IoT Central application.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// The provisioning state of the application.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Whether requests from the public network are allowed.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// A valid instance SKU.
         /// </summary>
@@ -121,7 +137,11 @@ namespace Pulumi.AzureNative.IoTCentral
         /// </summary>
         public readonly string? Subdomain;
         /// <summary>
-        /// The resource tags.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -129,7 +149,7 @@ namespace Pulumi.AzureNative.IoTCentral
         /// </summary>
         public readonly string? Template;
         /// <summary>
-        /// The resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -147,11 +167,21 @@ namespace Pulumi.AzureNative.IoTCentral
 
             string name,
 
+            Outputs.NetworkRuleSetsResponse? networkRuleSets,
+
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
+            string provisioningState,
+
+            string? publicNetworkAccess,
+
             Outputs.AppSkuInfoResponse sku,
 
             string state,
 
             string? subdomain,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -165,9 +195,14 @@ namespace Pulumi.AzureNative.IoTCentral
             Identity = identity;
             Location = location;
             Name = name;
+            NetworkRuleSets = networkRuleSets;
+            PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             State = state;
             Subdomain = subdomain;
+            SystemData = systemData;
             Tags = tags;
             Template = template;
             Type = type;

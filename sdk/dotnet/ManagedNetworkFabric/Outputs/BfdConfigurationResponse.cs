@@ -21,24 +21,24 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
         /// </summary>
         public readonly string AdministrativeState;
         /// <summary>
-        /// interval in milliseconds. Example: 300.
+        /// Interval in milliseconds. Example: 300.
         /// </summary>
-        public readonly int Interval;
+        public readonly int? IntervalInMilliSeconds;
         /// <summary>
-        /// Multiplier for the Bfd Configuration. Example: 3.
+        /// Multiplier for the Bfd Configuration. Example: 5.
         /// </summary>
-        public readonly int Multiplier;
+        public readonly int? Multiplier;
 
         [OutputConstructor]
         private BfdConfigurationResponse(
             string administrativeState,
 
-            int interval,
+            int? intervalInMilliSeconds,
 
-            int multiplier)
+            int? multiplier)
         {
             AdministrativeState = administrativeState;
-            Interval = interval;
+            IntervalInMilliSeconds = intervalInMilliSeconds;
             Multiplier = multiplier;
         }
     }

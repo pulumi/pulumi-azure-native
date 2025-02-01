@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.VoiceServices.Inputs
         private InputList<string>? _allowedMediaSourceAddressPrefixes;
 
         /// <summary>
-        /// The allowed source IP address or CIDR ranges for media
+        /// The allowed source IP addresses or CIDR ranges for media
         /// </summary>
         public InputList<string> AllowedMediaSourceAddressPrefixes
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.VoiceServices.Inputs
         private InputList<string>? _allowedSignalingSourceAddressPrefixes;
 
         /// <summary>
-        /// The allowed source IP address or CIDR ranges for signaling
+        /// The allowed source IP addresses or CIDR ranges for signaling
         /// </summary>
         public InputList<string> AllowedSignalingSourceAddressPrefixes
         {

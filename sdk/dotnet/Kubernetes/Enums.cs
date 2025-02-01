@@ -39,6 +39,99 @@ namespace Pulumi.AzureNative.Kubernetes
     }
 
     /// <summary>
+    /// Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoUpgradeOptions : IEquatable<AutoUpgradeOptions>
+    {
+        private readonly string _value;
+
+        private AutoUpgradeOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutoUpgradeOptions Enabled { get; } = new AutoUpgradeOptions("Enabled");
+        public static AutoUpgradeOptions Disabled { get; } = new AutoUpgradeOptions("Disabled");
+
+        public static bool operator ==(AutoUpgradeOptions left, AutoUpgradeOptions right) => left.Equals(right);
+        public static bool operator !=(AutoUpgradeOptions left, AutoUpgradeOptions right) => !left.Equals(right);
+
+        public static explicit operator string(AutoUpgradeOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoUpgradeOptions other && Equals(other);
+        public bool Equals(AutoUpgradeOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether Azure Hybrid Benefit is opted in
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureHybridBenefit : IEquatable<AzureHybridBenefit>
+    {
+        private readonly string _value;
+
+        private AzureHybridBenefit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureHybridBenefit True { get; } = new AzureHybridBenefit("True");
+        public static AzureHybridBenefit False { get; } = new AzureHybridBenefit("False");
+        public static AzureHybridBenefit NotApplicable { get; } = new AzureHybridBenefit("NotApplicable");
+
+        public static bool operator ==(AzureHybridBenefit left, AzureHybridBenefit right) => left.Equals(right);
+        public static bool operator !=(AzureHybridBenefit left, AzureHybridBenefit right) => !left.Equals(right);
+
+        public static explicit operator string(AzureHybridBenefit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureHybridBenefit other && Equals(other);
+        public bool Equals(AzureHybridBenefit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of connected cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectedClusterKind : IEquatable<ConnectedClusterKind>
+    {
+        private readonly string _value;
+
+        private ConnectedClusterKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectedClusterKind ProvisionedCluster { get; } = new ConnectedClusterKind("ProvisionedCluster");
+
+        public static bool operator ==(ConnectedClusterKind left, ConnectedClusterKind right) => left.Equals(right);
+        public static bool operator !=(ConnectedClusterKind left, ConnectedClusterKind right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectedClusterKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectedClusterKind other && Equals(other);
+        public bool Equals(ConnectedClusterKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Property which describes the state of private link on a connected cluster resource.
     /// </summary>
     [EnumType]

@@ -17,13 +17,13 @@ namespace Pulumi.AzureNative.NetApp.Outputs
     public sealed class VolumeBackupPropertiesResponse
     {
         /// <summary>
-        /// Backup Enabled
-        /// </summary>
-        public readonly bool? BackupEnabled;
-        /// <summary>
         /// Backup Policy Resource ID
         /// </summary>
         public readonly string? BackupPolicyId;
+        /// <summary>
+        /// Backup Vault Resource ID
+        /// </summary>
+        public readonly string? BackupVaultId;
         /// <summary>
         /// Policy Enforced
         /// </summary>
@@ -31,14 +31,14 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
         [OutputConstructor]
         private VolumeBackupPropertiesResponse(
-            bool? backupEnabled,
-
             string? backupPolicyId,
+
+            string? backupVaultId,
 
             bool? policyEnforced)
         {
-            BackupEnabled = backupEnabled;
             BackupPolicyId = backupPolicyId;
+            BackupVaultId = backupVaultId;
             PolicyEnforced = policyEnforced;
         }
     }

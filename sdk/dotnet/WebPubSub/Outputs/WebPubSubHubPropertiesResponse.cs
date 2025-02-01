@@ -31,6 +31,10 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
         /// Maximum count of event listeners among all hubs is 10.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventListenerResponse> EventListeners;
+        /// <summary>
+        /// The settings for configuring the WebSocket ping-pong interval in seconds for all clients in the hub. Valid range: 1 to 120. Default to 20 seconds.
+        /// </summary>
+        public readonly int? WebSocketKeepAliveIntervalInSeconds;
 
         [OutputConstructor]
         private WebPubSubHubPropertiesResponse(
@@ -38,11 +42,14 @@ namespace Pulumi.AzureNative.WebPubSub.Outputs
 
             ImmutableArray<Outputs.EventHandlerResponse> eventHandlers,
 
-            ImmutableArray<Outputs.EventListenerResponse> eventListeners)
+            ImmutableArray<Outputs.EventListenerResponse> eventListeners,
+
+            int? webSocketKeepAliveIntervalInSeconds)
         {
             AnonymousConnectPolicy = anonymousConnectPolicy;
             EventHandlers = eventHandlers;
             EventListeners = eventListeners;
+            WebSocketKeepAliveIntervalInSeconds = webSocketKeepAliveIntervalInSeconds;
         }
     }
 }

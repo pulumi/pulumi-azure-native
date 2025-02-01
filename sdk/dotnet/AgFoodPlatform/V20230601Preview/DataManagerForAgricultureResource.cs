@@ -107,7 +107,9 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20230601Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20200512preview:DataManagerForAgricultureResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20200512preview:FarmBeatsModel" },
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20210901preview:DataManagerForAgricultureResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20210901preview:FarmBeatsModel" },
                     new global::Pulumi.Alias { Type = "azure-native:agfoodplatform:DataManagerForAgricultureResource" },
                 },
             };

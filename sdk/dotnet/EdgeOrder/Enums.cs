@@ -8,6 +8,43 @@ using Pulumi;
 namespace Pulumi.AzureNative.EdgeOrder
 {
     /// <summary>
+    /// Type of address based on its usage context.
+    /// </summary>
+    [EnumType]
+    public readonly struct AddressClassification : IEquatable<AddressClassification>
+    {
+        private readonly string _value;
+
+        private AddressClassification(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Shipping address for the order.
+        /// </summary>
+        public static AddressClassification Shipping { get; } = new AddressClassification("Shipping");
+        /// <summary>
+        /// Site Address.
+        /// </summary>
+        public static AddressClassification Site { get; } = new AddressClassification("Site");
+
+        public static bool operator ==(AddressClassification left, AddressClassification right) => left.Equals(right);
+        public static bool operator !=(AddressClassification left, AddressClassification right) => !left.Equals(right);
+
+        public static explicit operator string(AddressClassification value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AddressClassification other && Equals(other);
+        public bool Equals(AddressClassification other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of address.
     /// </summary>
     [EnumType]
@@ -41,6 +78,43 @@ namespace Pulumi.AzureNative.EdgeOrder
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AddressType other && Equals(other);
         public bool Equals(AddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Auto Provisioning Details.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoProvisioningStatus : IEquatable<AutoProvisioningStatus>
+    {
+        private readonly string _value;
+
+        private AutoProvisioningStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Provisioning Enabled. Will act as pre-approved, and arc extension will be enabled as soon as the device is verified to be at the right edge location.
+        /// </summary>
+        public static AutoProvisioningStatus Enabled { get; } = new AutoProvisioningStatus("Enabled");
+        /// <summary>
+        /// Provisioning Disabled.
+        /// </summary>
+        public static AutoProvisioningStatus Disabled { get; } = new AutoProvisioningStatus("Disabled");
+
+        public static bool operator ==(AutoProvisioningStatus left, AutoProvisioningStatus right) => left.Equals(right);
+        public static bool operator !=(AutoProvisioningStatus left, AutoProvisioningStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AutoProvisioningStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoProvisioningStatus other && Equals(other);
+        public bool Equals(AutoProvisioningStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -96,11 +170,11 @@ namespace Pulumi.AzureNative.EdgeOrder
         }
 
         /// <summary>
-        /// Double encryption is disabled
+        /// Double encryption is disabled.
         /// </summary>
         public static DoubleEncryptionStatus Disabled { get; } = new DoubleEncryptionStatus("Disabled");
         /// <summary>
-        /// Double encryption is enabled
+        /// Double encryption is enabled.
         /// </summary>
         public static DoubleEncryptionStatus Enabled { get; } = new DoubleEncryptionStatus("Enabled");
 
@@ -177,6 +251,10 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// Rental OrderItem.
         /// </summary>
         public static OrderItemType Rental { get; } = new OrderItemType("Rental");
+        /// <summary>
+        /// Orders placed outside of azure.
+        /// </summary>
+        public static OrderItemType External { get; } = new OrderItemType("External");
 
         public static bool operator ==(OrderItemType left, OrderItemType right) => left.Equals(right);
         public static bool operator !=(OrderItemType left, OrderItemType right) => !left.Equals(right);
@@ -260,6 +338,47 @@ namespace Pulumi.AzureNative.EdgeOrder
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SupportedFilterTypes other && Equals(other);
         public bool Equals(SupportedFilterTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Term Commitment Type
+    /// </summary>
+    [EnumType]
+    public readonly struct TermCommitmentType : IEquatable<TermCommitmentType>
+    {
+        private readonly string _value;
+
+        private TermCommitmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Pay as you go Term Commitment Model.
+        /// </summary>
+        public static TermCommitmentType None { get; } = new TermCommitmentType("None");
+        /// <summary>
+        /// Trial Term Commitment Model.
+        /// </summary>
+        public static TermCommitmentType Trial { get; } = new TermCommitmentType("Trial");
+        /// <summary>
+        /// Time based Term Commitment Model.
+        /// </summary>
+        public static TermCommitmentType Timed { get; } = new TermCommitmentType("Timed");
+
+        public static bool operator ==(TermCommitmentType left, TermCommitmentType right) => left.Equals(right);
+        public static bool operator !=(TermCommitmentType left, TermCommitmentType right) => !left.Equals(right);
+
+        public static explicit operator string(TermCommitmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TermCommitmentType other && Equals(other);
+        public bool Equals(TermCommitmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

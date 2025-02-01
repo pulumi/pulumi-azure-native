@@ -19,23 +19,23 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240401.Outputs
         /// <summary>
         /// The IPv4 address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
         /// </summary>
-        public readonly string Ipv4Address;
+        public readonly string? Ipv4Address;
         /// <summary>
         /// storage adapter physical node name.
         /// </summary>
-        public readonly string PhysicalNode;
+        public readonly string? PhysicalNode;
         /// <summary>
         /// The SubnetMask address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
         /// </summary>
-        public readonly string SubnetMask;
+        public readonly string? SubnetMask;
 
         [OutputConstructor]
         private StorageAdapterIPInfoResponse(
-            string ipv4Address,
+            string? ipv4Address,
 
-            string physicalNode,
+            string? physicalNode,
 
-            string subnetMask)
+            string? subnetMask)
         {
             Ipv4Address = ipv4Address;
             PhysicalNode = physicalNode;

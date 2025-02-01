@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         [Input("allocatedOutboundPorts")]
         public Input<int>? AllocatedOutboundPorts { get; set; }
 
+        /// <summary>
+        /// The type of the managed inbound Load Balancer BackendPool.
+        /// </summary>
+        [Input("backendPoolType")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.BackendPoolType>? BackendPoolType { get; set; }
+
         [Input("effectiveOutboundIPs")]
         private InputList<Inputs.ResourceReferenceArgs>? _effectiveOutboundIPs;
 
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public ManagedClusterLoadBalancerProfileArgs()
         {
             AllocatedOutboundPorts = 0;
+            BackendPoolType = "NodeIPConfiguration";
             IdleTimeoutInMinutes = 30;
         }
         public static new ManagedClusterLoadBalancerProfileArgs Empty => new ManagedClusterLoadBalancerProfileArgs();

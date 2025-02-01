@@ -114,39 +114,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240401
     }
 
     /// <summary>
-    /// Device kind to support polymorphic resource.
-    /// </summary>
-    [EnumType]
-    public readonly struct DeviceKind : IEquatable<DeviceKind>
-    {
-        private readonly string _value;
-
-        private DeviceKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Arc-enabled edge device with HCI OS.
-        /// </summary>
-        public static DeviceKind HCI { get; } = new DeviceKind("HCI");
-
-        public static bool operator ==(DeviceKind left, DeviceKind right) => left.Equals(right);
-        public static bool operator !=(DeviceKind left, DeviceKind right) => !left.Equals(right);
-
-        public static explicit operator string(DeviceKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeviceKind other && Equals(other);
-        public bool Equals(DeviceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Desired level of diagnostic data emitted by the cluster.
     /// </summary>
     [EnumType]

@@ -13,27 +13,36 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a template byt its identifier.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Expandable properties:
+        /// - properties/mainTemplate
+        /// - properties/dependantTemplates
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetContentTemplateResult> InvokeAsync(GetContentTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContentTemplateResult>("azure-native:securityinsights:getContentTemplate", args ?? new GetContentTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a template byt its identifier.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Expandable properties:
+        /// - properties/mainTemplate
+        /// - properties/dependantTemplates
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetContentTemplateResult> Invoke(GetContentTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentTemplateResult>("azure-native:securityinsights:getContentTemplate", args ?? new GetContentTemplateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a template byt its identifier.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Expandable properties:
+        /// - properties/mainTemplate
+        /// - properties/dependantTemplates
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetContentTemplateResult> Invoke(GetContentTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentTemplateResult>("azure-native:securityinsights:getContentTemplate", args ?? new GetContentTemplateInvokeArgs(), options.WithDefaults());
@@ -113,6 +122,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string ContentKind;
         /// <summary>
+        /// Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
+        /// </summary>
+        public readonly string ContentProductId;
+        /// <summary>
         /// Schema version of the content. Can be used to distinguish between different flow based on the schema version
         /// </summary>
         public readonly string? ContentSchemaVersion;
@@ -120,6 +133,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The custom version of the content. A optional free text
         /// </summary>
         public readonly string? CustomVersion;
+        /// <summary>
+        /// Dependant templates. Expandable.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TemplatePropertiesResponse> DependantTemplates;
         /// <summary>
         /// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
         /// </summary>
@@ -145,11 +162,15 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Flag indicates if this template is deprecated
+        /// </summary>
+        public readonly string IsDeprecated;
+        /// <summary>
         /// last publish date for the content item
         /// </summary>
         public readonly string? LastPublishDate;
         /// <summary>
-        /// The JSON of the ARM template to deploy active content
+        /// The JSON of the ARM template to deploy active content. Expandable.
         /// </summary>
         public readonly object? MainTemplate;
         /// <summary>
@@ -168,6 +189,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// the name of the package contains this template
         /// </summary>
         public readonly string? PackageName;
+        /// <summary>
+        /// Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
+        /// </summary>
+        public readonly string PackageVersion;
         /// <summary>
         /// preview image file names. These will be taken from the solution artifacts
         /// </summary>
@@ -219,9 +244,13 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string contentKind,
 
+            string contentProductId,
+
             string? contentSchemaVersion,
 
             string? customVersion,
+
+            ImmutableArray<Outputs.TemplatePropertiesResponse> dependantTemplates,
 
             Outputs.MetadataDependenciesResponse? dependencies,
 
@@ -235,6 +264,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string id,
 
+            string isDeprecated,
+
             string? lastPublishDate,
 
             object? mainTemplate,
@@ -246,6 +277,8 @@ namespace Pulumi.AzureNative.SecurityInsights
             string? packageKind,
 
             string? packageName,
+
+            string packageVersion,
 
             ImmutableArray<string> previewImages,
 
@@ -271,20 +304,24 @@ namespace Pulumi.AzureNative.SecurityInsights
             Categories = categories;
             ContentId = contentId;
             ContentKind = contentKind;
+            ContentProductId = contentProductId;
             ContentSchemaVersion = contentSchemaVersion;
             CustomVersion = customVersion;
+            DependantTemplates = dependantTemplates;
             Dependencies = dependencies;
             DisplayName = displayName;
             Etag = etag;
             FirstPublishDate = firstPublishDate;
             Icon = icon;
             Id = id;
+            IsDeprecated = isDeprecated;
             LastPublishDate = lastPublishDate;
             MainTemplate = mainTemplate;
             Name = name;
             PackageId = packageId;
             PackageKind = packageKind;
             PackageName = packageName;
+            PackageVersion = packageVersion;
             PreviewImages = previewImages;
             PreviewImagesDark = previewImagesDark;
             Providers = providers;
