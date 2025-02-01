@@ -40,6 +40,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // Note - this needs to be kept in sync with the layout in the SDK package
@@ -291,7 +292,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 	}
 
 	if !previousCompatibleTokensLookup.IsPopulated() && providerVersion.Major >= 3 {
-		return nil, fmt.Errorf("GetPreviousCompatibleTokensLookup is not populated. This is likely due to v%d-token-paths.json being missing or empty", providerVersion.Major-1)
+		logging.V(3).Infof("GetPreviousCompatibleTokensLookup is not populated. This is likely due to v%d-token-paths.json being missing or empty", providerVersion.Major-1)
 	}
 
 	for moduleName, moduleVersions := range util.MapOrdered(modules) {
