@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the budget for the scope by budget name.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-08-01.
  *
- * Other available API versions: 2023-11-01, 2024-08-01.
+ * Other available API versions: 2023-05-01.
  */
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,9 +87,9 @@ export interface GetBudgetResult {
 }
 /**
  * Gets the budget for the scope by budget name.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-08-01.
  *
- * Other available API versions: 2023-11-01, 2024-08-01.
+ * Other available API versions: 2023-05-01.
  */
 export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBudgetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

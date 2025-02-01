@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a database principal assignment.
- * Azure REST API version: 2021-04-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+ * Azure REST API version: 2021-04-01-preview. Prior API version in Azure Native 2.x: 2021-04-01-preview.
  */
 export class DatabasePrincipalAssignment extends pulumi.CustomResource {
     /**
@@ -139,7 +139,7 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:DatabasePrincipalAssignment" }, { type: "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:DatabasePrincipalAssignment" }, { type: "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment" }, { type: "azure-native:synapse/v20210601preview:KustoPoolDatabasePrincipalAssignment" }, { type: "azure-native:synapse:KustoPoolDatabasePrincipalAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabasePrincipalAssignment.__pulumiType, name, resourceInputs, opts);
     }

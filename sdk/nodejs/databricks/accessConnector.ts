@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Information about azure databricks accessConnector.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+ * Information about Azure Databricks Access Connector.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
  *
- * Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+ * Other available API versions: 2023-05-01, 2024-09-01-preview.
  */
 export class AccessConnector extends pulumi.CustomResource {
     /**
@@ -53,7 +53,7 @@ export class AccessConnector extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Azure Databricks accessConnector properties
+     * Azure Databricks Access Connector properties
      */
     public /*out*/ readonly properties!: pulumi.Output<outputs.databricks.AccessConnectorPropertiesResponse>;
     /**
@@ -113,7 +113,7 @@ export class AccessConnector extends pulumi.CustomResource {
  */
 export interface AccessConnectorArgs {
     /**
-     * The name of the azure databricks accessConnector.
+     * The name of the Azure Databricks Access Connector.
      */
     connectorName?: pulumi.Input<string>;
     /**

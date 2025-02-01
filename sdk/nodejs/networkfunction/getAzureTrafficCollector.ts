@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified Azure Traffic Collector in a specified resource group
  * Azure REST API version: 2022-11-01.
- *
- * Other available API versions: 2022-08-01.
  */
 export function getAzureTrafficCollector(args: GetAzureTrafficCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureTrafficCollectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,8 +78,6 @@ export interface GetAzureTrafficCollectorResult {
 /**
  * Gets the specified Azure Traffic Collector in a specified resource group
  * Azure REST API version: 2022-11-01.
- *
- * Other available API versions: 2022-08-01.
  */
 export function getAzureTrafficCollectorOutput(args: GetAzureTrafficCollectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureTrafficCollectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

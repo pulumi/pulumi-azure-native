@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a namespace topic.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getNamespaceTopic(args: GetNamespaceTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,7 +67,7 @@ export interface GetNamespaceTopicResult {
      */
     readonly publisherType?: string;
     /**
-     * The system metadata relating to namespace topic resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -77,9 +77,9 @@ export interface GetNamespaceTopicResult {
 }
 /**
  * Get properties of a namespace topic.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getNamespaceTopicOutput(args: GetNamespaceTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

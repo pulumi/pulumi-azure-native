@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Define the host.
- * Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
+ * Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Other available API versions: 2022-07-15-preview.
  */
 export class Host extends pulumi.CustomResource {
     /**
@@ -41,11 +41,15 @@ export class Host extends pulumi.CustomResource {
     }
 
     /**
+     * Gets the max CPU usage across all cores in MHz.
+     */
+    public /*out*/ readonly cpuMhz!: pulumi.Output<number>;
+    /**
      * Gets the name of the corresponding resource in Kubernetes.
      */
     public /*out*/ readonly customResourceName!: pulumi.Output<string>;
     /**
-     * Gets or sets the datastore ARM ids.
+     * Gets the datastore ARM ids.
      */
     public /*out*/ readonly datastoreIds!: pulumi.Output<string[]>;
     /**
@@ -65,6 +69,10 @@ export class Host extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Gets the total amount of physical memory on the host in GB.
+     */
+    public /*out*/ readonly memorySizeGB!: pulumi.Output<number>;
+    /**
      * Gets or sets the vCenter Managed Object name for the host.
      */
     public /*out*/ readonly moName!: pulumi.Output<string>;
@@ -77,11 +85,19 @@ export class Host extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the network ARM ids.
+     * Gets the network ARM ids.
      */
     public /*out*/ readonly networkIds!: pulumi.Output<string[]>;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the used CPU usage across all cores in MHz.
+     */
+    public /*out*/ readonly overallCpuUsageMHz!: pulumi.Output<number>;
+    /**
+     * Gets the used physical memory on the host in GB.
+     */
+    public /*out*/ readonly overallMemoryUsageGB!: pulumi.Output<number>;
+    /**
+     * Gets the provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -132,27 +148,35 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
+            resourceInputs["cpuMhz"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["datastoreIds"] = undefined /*out*/;
+            resourceInputs["memorySizeGB"] = undefined /*out*/;
             resourceInputs["moName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkIds"] = undefined /*out*/;
+            resourceInputs["overallCpuUsageMHz"] = undefined /*out*/;
+            resourceInputs["overallMemoryUsageGB"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         } else {
+            resourceInputs["cpuMhz"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["datastoreIds"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["inventoryItemId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["memorySizeGB"] = undefined /*out*/;
             resourceInputs["moName"] = undefined /*out*/;
             resourceInputs["moRefId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkIds"] = undefined /*out*/;
+            resourceInputs["overallCpuUsageMHz"] = undefined /*out*/;
+            resourceInputs["overallMemoryUsageGB"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

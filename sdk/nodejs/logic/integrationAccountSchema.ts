@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The integration account schema.
- * Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+ * Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
  *
  * Other available API versions: 2015-08-01-preview.
  */
@@ -151,7 +151,7 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:IntegrationAccountSchema" }, { type: "azure-native:logic/v20160601:IntegrationAccountSchema" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountSchema" }, { type: "azure-native:logic/v20190501:IntegrationAccountSchema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:IntegrationAccountSchema" }, { type: "azure-native:logic/v20160601:IntegrationAccountSchema" }, { type: "azure-native:logic/v20160601:Schema" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountSchema" }, { type: "azure-native:logic/v20190501:IntegrationAccountSchema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountSchema.__pulumiType, name, resourceInputs, opts);
     }

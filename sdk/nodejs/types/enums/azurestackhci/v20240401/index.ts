@@ -45,18 +45,6 @@ export const DeploymentMode = {
  */
 export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
 
-export const DeviceKind = {
-    /**
-     * Arc-enabled edge device with HCI OS.
-     */
-    HCI: "HCI",
-} as const;
-
-/**
- * Device kind to support polymorphic resource.
- */
-export type DeviceKind = (typeof DeviceKind)[keyof typeof DeviceKind];
-
 export const DiagnosticLevel = {
     Off: "Off",
     Basic: "Basic",

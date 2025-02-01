@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SaaS REST API resource definition.
- * Azure REST API version: 2018-03-01-beta. Prior API version in Azure Native 1.x: 2018-03-01-beta.
+ * Azure REST API version: 2018-03-01-beta. Prior API version in Azure Native 2.x: 2018-03-01-beta.
  */
 export class SaasSubscriptionLevel extends pulumi.CustomResource {
     /**

@@ -93,6 +93,10 @@ export interface GetLabResult {
      */
     readonly systemData: outputs.education.SystemDataResponse;
     /**
+     * Total budget
+     */
+    readonly totalBudget: outputs.education.AmountResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;

@@ -3,14 +3,38 @@
 
 // Export sub-modules:
 import * as v20220701 from "./v20220701";
-import * as v20230701 from "./v20230701";
 import * as v20240201 from "./v20240201";
 
 export {
     v20220701,
-    v20230701,
     v20240201,
 };
+
+export const AutoRunState = {
+    /**
+     * Autorun is enabled
+     */
+    AutoRunEnabled: "Enabled",
+    /**
+     * Autorun is disabled
+     */
+    AutoRunDisabled: "Disabled",
+} as const;
+
+/**
+ * Enabling this field will trigger an automatic build on image template creation or update.
+ */
+export type AutoRunState = (typeof AutoRunState)[keyof typeof AutoRunState];
+
+export const OnBuildError = {
+    Cleanup: "cleanup",
+    Abort: "abort",
+} as const;
+
+/**
+ * If there is a validation error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a validation error and this field is set to 'abort', the build VM will be preserved.
+ */
+export type OnBuildError = (typeof OnBuildError)[keyof typeof OnBuildError];
 
 export const ResourceIdentityType = {
     UserAssigned: "UserAssigned",

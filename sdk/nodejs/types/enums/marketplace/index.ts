@@ -2,11 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20200101 from "./v20200101";
 import * as v20230101 from "./v20230101";
 
 export {
-    v20200101,
     v20230101,
 };
 

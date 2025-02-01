@@ -12,16 +12,6 @@ export const AccountType = {
  */
 export type AccountType = (typeof AccountType)[keyof typeof AccountType];
 
-export const AddonType = {
-    IotEdge: "IotEdge",
-    ArcForKubernetes: "ArcForKubernetes",
-} as const;
-
-/**
- * Addon type.
- */
-export type AddonType = (typeof AddonType)[keyof typeof AddonType];
-
 export const AzureContainerDataFormat = {
     BlockBlob: "BlockBlob",
     PageBlob: "PageBlob",

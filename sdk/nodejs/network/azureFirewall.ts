@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Firewall resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  *
- * Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2020-04-01, 2023-02-01.
  */
 export class AzureFirewall extends pulumi.CustomResource {
     /**
@@ -48,6 +48,10 @@ export class AzureFirewall extends pulumi.CustomResource {
      * Collection of application rule collections used by Azure Firewall.
      */
     public readonly applicationRuleCollections!: pulumi.Output<outputs.network.AzureFirewallApplicationRuleCollectionResponse[] | undefined>;
+    /**
+     * Properties to provide a custom autoscale configuration to this azure firewall.
+     */
+    public readonly autoscaleConfiguration!: pulumi.Output<outputs.network.AzureFirewallAutoscaleConfigurationResponse | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -133,6 +137,7 @@ export class AzureFirewall extends pulumi.CustomResource {
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;
+            resourceInputs["autoscaleConfiguration"] = args ? args.autoscaleConfiguration : undefined;
             resourceInputs["azureFirewallName"] = args ? args.azureFirewallName : undefined;
             resourceInputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
             resourceInputs["hubIPAddresses"] = args ? args.hubIPAddresses : undefined;
@@ -156,6 +161,7 @@ export class AzureFirewall extends pulumi.CustomResource {
         } else {
             resourceInputs["additionalProperties"] = undefined /*out*/;
             resourceInputs["applicationRuleCollections"] = undefined /*out*/;
+            resourceInputs["autoscaleConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["firewallPolicy"] = undefined /*out*/;
             resourceInputs["hubIPAddresses"] = undefined /*out*/;
@@ -193,6 +199,10 @@ export interface AzureFirewallArgs {
      * Collection of application rule collections used by Azure Firewall.
      */
     applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.AzureFirewallApplicationRuleCollectionArgs>[]>;
+    /**
+     * Properties to provide a custom autoscale configuration to this azure firewall.
+     */
+    autoscaleConfiguration?: pulumi.Input<inputs.network.AzureFirewallAutoscaleConfigurationArgs>;
     /**
      * The name of the Azure Firewall.
      */

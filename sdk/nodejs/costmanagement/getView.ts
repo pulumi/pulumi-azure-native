@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the view by view name.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-08-01.
  *
- * Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-03-01.
  */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -110,9 +110,9 @@ export interface GetViewResult {
 }
 /**
  * Gets the view by view name.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-08-01.
  *
- * Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-03-01.
  */
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetViewResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

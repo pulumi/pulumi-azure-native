@@ -80,13 +80,11 @@ utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./priv
 export * from "../types/enums/notificationhubs";
 
 // Export sub-modules:
-import * as v20170401 from "./v20170401";
 import * as v20230101preview from "./v20230101preview";
 import * as v20230901 from "./v20230901";
 import * as v20231001preview from "./v20231001preview";
 
 export {
-    v20170401,
     v20230101preview,
     v20230901,
     v20231001preview,

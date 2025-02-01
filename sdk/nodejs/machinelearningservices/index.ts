@@ -540,11 +540,6 @@ export const listServerlessEndpointKeys: typeof import("./listServerlessEndpoint
 export const listServerlessEndpointKeysOutput: typeof import("./listServerlessEndpointKeys").listServerlessEndpointKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listServerlessEndpointKeys","listServerlessEndpointKeysOutput"], () => require("./listServerlessEndpointKeys"));
 
-export { ListWorkspaceConnectionModelsArgs, ListWorkspaceConnectionModelsResult, ListWorkspaceConnectionModelsOutputArgs } from "./listWorkspaceConnectionModels";
-export const listWorkspaceConnectionModels: typeof import("./listWorkspaceConnectionModels").listWorkspaceConnectionModels = null as any;
-export const listWorkspaceConnectionModelsOutput: typeof import("./listWorkspaceConnectionModels").listWorkspaceConnectionModelsOutput = null as any;
-utilities.lazyLoad(exports, ["listWorkspaceConnectionModels","listWorkspaceConnectionModelsOutput"], () => require("./listWorkspaceConnectionModels"));
-
 export { ListWorkspaceConnectionSecretsArgs, ListWorkspaceConnectionSecretsResult, ListWorkspaceConnectionSecretsOutputArgs } from "./listWorkspaceConnectionSecrets";
 export const listWorkspaceConnectionSecrets: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecrets = null as any;
 export const listWorkspaceConnectionSecretsOutput: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecretsOutput = null as any;
@@ -713,9 +708,7 @@ import * as v20230401 from "./v20230401";
 import * as v20230401preview from "./v20230401preview";
 import * as v20230601preview from "./v20230601preview";
 import * as v20230801preview from "./v20230801preview";
-import * as v20231001 from "./v20231001";
 import * as v20240101preview from "./v20240101preview";
-import * as v20240401 from "./v20240401";
 import * as v20240401preview from "./v20240401preview";
 import * as v20240701preview from "./v20240701preview";
 import * as v20241001 from "./v20241001";
@@ -735,9 +728,7 @@ export {
     v20230401preview,
     v20230601preview,
     v20230801preview,
-    v20231001,
     v20240101preview,
-    v20240401,
     v20240401preview,
     v20240701preview,
     v20241001,

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get counters
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-01-19-preview.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2023-09-01, 2024-02-07-preview.
  */
 export function getPostRuleCounters(args: GetPostRuleCountersArgs, opts?: pulumi.InvokeOptions): Promise<GetPostRuleCountersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,9 +81,9 @@ export interface GetPostRuleCountersResult {
 }
 /**
  * Get counters
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-01-19-preview.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2023-09-01, 2024-02-07-preview.
  */
 export function getPostRuleCountersOutput(args: GetPostRuleCountersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPostRuleCountersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

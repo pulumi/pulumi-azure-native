@@ -9,9 +9,12 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a template byt its identifier.
- * Azure REST API version: 2023-06-01-preview.
+ * Expandable properties:
+ * - properties/mainTemplate
+ * - properties/dependantTemplates
+ *   Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
  */
 export function getContentTemplate(args: GetContentTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetContentTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,6 +61,10 @@ export interface GetContentTemplateResult {
      */
     readonly contentKind: string;
     /**
+     * Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
+     */
+    readonly contentProductId: string;
+    /**
      * Schema version of the content. Can be used to distinguish between different flow based on the schema version
      */
     readonly contentSchemaVersion?: string;
@@ -65,6 +72,10 @@ export interface GetContentTemplateResult {
      * The custom version of the content. A optional free text
      */
     readonly customVersion?: string;
+    /**
+     * Dependant templates. Expandable.
+     */
+    readonly dependantTemplates: outputs.securityinsights.TemplatePropertiesResponse[];
     /**
      * Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
      */
@@ -90,11 +101,15 @@ export interface GetContentTemplateResult {
      */
     readonly id: string;
     /**
+     * Flag indicates if this template is deprecated
+     */
+    readonly isDeprecated: string;
+    /**
      * last publish date for the content item
      */
     readonly lastPublishDate?: string;
     /**
-     * The JSON of the ARM template to deploy active content
+     * The JSON of the ARM template to deploy active content. Expandable.
      */
     readonly mainTemplate?: any;
     /**
@@ -113,6 +128,10 @@ export interface GetContentTemplateResult {
      * the name of the package contains this template
      */
     readonly packageName?: string;
+    /**
+     * Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
+     */
+    readonly packageVersion: string;
     /**
      * preview image file names. These will be taken from the solution artifacts
      */
@@ -156,9 +175,12 @@ export interface GetContentTemplateResult {
 }
 /**
  * Gets a template byt its identifier.
- * Azure REST API version: 2023-06-01-preview.
+ * Expandable properties:
+ * - properties/mainTemplate
+ * - properties/dependantTemplates
+ *   Azure REST API version: 2024-09-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
  */
 export function getContentTemplateOutput(args: GetContentTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContentTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

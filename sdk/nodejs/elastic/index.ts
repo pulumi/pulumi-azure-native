@@ -60,6 +60,11 @@ export const listDeploymentInfo: typeof import("./listDeploymentInfo").listDeplo
 export const listDeploymentInfoOutput: typeof import("./listDeploymentInfo").listDeploymentInfoOutput = null as any;
 utilities.lazyLoad(exports, ["listDeploymentInfo","listDeploymentInfoOutput"], () => require("./listDeploymentInfo"));
 
+export { ListListAssociatedTrafficFilterArgs, ListListAssociatedTrafficFilterResult, ListListAssociatedTrafficFilterOutputArgs } from "./listListAssociatedTrafficFilter";
+export const listListAssociatedTrafficFilter: typeof import("./listListAssociatedTrafficFilter").listListAssociatedTrafficFilter = null as any;
+export const listListAssociatedTrafficFilterOutput: typeof import("./listListAssociatedTrafficFilter").listListAssociatedTrafficFilterOutput = null as any;
+utilities.lazyLoad(exports, ["listListAssociatedTrafficFilter","listListAssociatedTrafficFilterOutput"], () => require("./listListAssociatedTrafficFilter"));
+
 export { ListMonitoredResourceArgs, ListMonitoredResourceResult, ListMonitoredResourceOutputArgs } from "./listMonitoredResource";
 export const listMonitoredResource: typeof import("./listMonitoredResource").listMonitoredResource = null as any;
 export const listMonitoredResourceOutput: typeof import("./listMonitoredResource").listMonitoredResourceOutput = null as any;
@@ -74,11 +79,6 @@ export { ListVMHostArgs, ListVMHostResult, ListVMHostOutputArgs } from "./listVM
 export const listVMHost: typeof import("./listVMHost").listVMHost = null as any;
 export const listVMHostOutput: typeof import("./listVMHost").listVMHostOutput = null as any;
 utilities.lazyLoad(exports, ["listVMHost","listVMHostOutput"], () => require("./listVMHost"));
-
-export { ListlistAssociatedTrafficFilterArgs, ListlistAssociatedTrafficFilterResult, ListlistAssociatedTrafficFilterOutputArgs } from "./listlistAssociatedTrafficFilter";
-export const listlistAssociatedTrafficFilter: typeof import("./listlistAssociatedTrafficFilter").listlistAssociatedTrafficFilter = null as any;
-export const listlistAssociatedTrafficFilterOutput: typeof import("./listlistAssociatedTrafficFilter").listlistAssociatedTrafficFilterOutput = null as any;
-utilities.lazyLoad(exports, ["listlistAssociatedTrafficFilter","listlistAssociatedTrafficFilterOutput"], () => require("./listlistAssociatedTrafficFilter"));
 
 export { MonitorArgs } from "./monitor";
 export type Monitor = import("./monitor").Monitor;
@@ -105,8 +105,6 @@ utilities.lazyLoad(exports, ["TagRule"], () => require("./tagRule"));
 export * from "../types/enums/elastic";
 
 // Export sub-modules:
-import * as v20230201preview from "./v20230201preview";
-import * as v20230501preview from "./v20230501preview";
 import * as v20230601 from "./v20230601";
 import * as v20230615preview from "./v20230615preview";
 import * as v20230701preview from "./v20230701preview";
@@ -119,8 +117,6 @@ import * as v20240615preview from "./v20240615preview";
 import * as v20241001preview from "./v20241001preview";
 
 export {
-    v20230201preview,
-    v20230501preview,
     v20230601,
     v20230615preview,
     v20230701preview,

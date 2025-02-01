@@ -5,45 +5,45 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ClusterArgs } from "./cluster";
-export type Cluster = import("./cluster").Cluster;
-export const Cluster: typeof import("./cluster").Cluster = null as any;
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+export { GetServerGroupClusterArgs, GetServerGroupClusterResult, GetServerGroupClusterOutputArgs } from "./getServerGroupCluster";
+export const getServerGroupCluster: typeof import("./getServerGroupCluster").getServerGroupCluster = null as any;
+export const getServerGroupClusterOutput: typeof import("./getServerGroupCluster").getServerGroupClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getServerGroupCluster","getServerGroupClusterOutput"], () => require("./getServerGroupCluster"));
 
-export { FirewallRuleArgs } from "./firewallRule";
-export type FirewallRule = import("./firewallRule").FirewallRule;
-export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
-utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+export { GetServerGroupFirewallRuleArgs, GetServerGroupFirewallRuleResult, GetServerGroupFirewallRuleOutputArgs } from "./getServerGroupFirewallRule";
+export const getServerGroupFirewallRule: typeof import("./getServerGroupFirewallRule").getServerGroupFirewallRule = null as any;
+export const getServerGroupFirewallRuleOutput: typeof import("./getServerGroupFirewallRule").getServerGroupFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getServerGroupFirewallRule","getServerGroupFirewallRuleOutput"], () => require("./getServerGroupFirewallRule"));
 
-export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
-export const getCluster: typeof import("./getCluster").getCluster = null as any;
-export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+export { GetServerGroupPrivateEndpointConnectionArgs, GetServerGroupPrivateEndpointConnectionResult, GetServerGroupPrivateEndpointConnectionOutputArgs } from "./getServerGroupPrivateEndpointConnection";
+export const getServerGroupPrivateEndpointConnection: typeof import("./getServerGroupPrivateEndpointConnection").getServerGroupPrivateEndpointConnection = null as any;
+export const getServerGroupPrivateEndpointConnectionOutput: typeof import("./getServerGroupPrivateEndpointConnection").getServerGroupPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getServerGroupPrivateEndpointConnection","getServerGroupPrivateEndpointConnectionOutput"], () => require("./getServerGroupPrivateEndpointConnection"));
 
-export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
-export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
-export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
+export { GetServerGroupRoleArgs, GetServerGroupRoleResult, GetServerGroupRoleOutputArgs } from "./getServerGroupRole";
+export const getServerGroupRole: typeof import("./getServerGroupRole").getServerGroupRole = null as any;
+export const getServerGroupRoleOutput: typeof import("./getServerGroupRole").getServerGroupRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getServerGroupRole","getServerGroupRoleOutput"], () => require("./getServerGroupRole"));
 
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+export { ServerGroupClusterArgs } from "./serverGroupCluster";
+export type ServerGroupCluster = import("./serverGroupCluster").ServerGroupCluster;
+export const ServerGroupCluster: typeof import("./serverGroupCluster").ServerGroupCluster = null as any;
+utilities.lazyLoad(exports, ["ServerGroupCluster"], () => require("./serverGroupCluster"));
 
-export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
-export const getRole: typeof import("./getRole").getRole = null as any;
-export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
-utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
+export { ServerGroupFirewallRuleArgs } from "./serverGroupFirewallRule";
+export type ServerGroupFirewallRule = import("./serverGroupFirewallRule").ServerGroupFirewallRule;
+export const ServerGroupFirewallRule: typeof import("./serverGroupFirewallRule").ServerGroupFirewallRule = null as any;
+utilities.lazyLoad(exports, ["ServerGroupFirewallRule"], () => require("./serverGroupFirewallRule"));
 
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+export { ServerGroupPrivateEndpointConnectionArgs } from "./serverGroupPrivateEndpointConnection";
+export type ServerGroupPrivateEndpointConnection = import("./serverGroupPrivateEndpointConnection").ServerGroupPrivateEndpointConnection;
+export const ServerGroupPrivateEndpointConnection: typeof import("./serverGroupPrivateEndpointConnection").ServerGroupPrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["ServerGroupPrivateEndpointConnection"], () => require("./serverGroupPrivateEndpointConnection"));
 
-export { RoleArgs } from "./role";
-export type Role = import("./role").Role;
-export const Role: typeof import("./role").Role = null as any;
-utilities.lazyLoad(exports, ["Role"], () => require("./role"));
+export { ServerGroupRoleArgs } from "./serverGroupRole";
+export type ServerGroupRole = import("./serverGroupRole").ServerGroupRole;
+export const ServerGroupRole: typeof import("./serverGroupRole").ServerGroupRole = null as any;
+utilities.lazyLoad(exports, ["ServerGroupRole"], () => require("./serverGroupRole"));
 
 
 // Export enums:
@@ -53,14 +53,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:dbforpostgresql/v20230302preview:Cluster":
-                return new Cluster(name, <any>undefined, { urn })
-            case "azure-native:dbforpostgresql/v20230302preview:FirewallRule":
-                return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:dbforpostgresql/v20230302preview:Role":
-                return new Role(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql/v20230302preview:ServerGroupCluster":
+                return new ServerGroupCluster(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql/v20230302preview:ServerGroupFirewallRule":
+                return new ServerGroupFirewallRule(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql/v20230302preview:ServerGroupPrivateEndpointConnection":
+                return new ServerGroupPrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql/v20230302preview:ServerGroupRole":
+                return new ServerGroupRole(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

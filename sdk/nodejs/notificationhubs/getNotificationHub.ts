@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Notification Hub Resource.
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01.
  */
 export function getNotificationHub(args: GetNotificationHubArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,35 @@ export interface GetNotificationHubArgs {
  */
 export interface GetNotificationHubResult {
     /**
+     * Description of a NotificationHub AdmCredential.
+     */
+    readonly admCredential?: outputs.notificationhubs.AdmCredentialResponse;
+    /**
+     * Description of a NotificationHub ApnsCredential.
+     */
+    readonly apnsCredential?: outputs.notificationhubs.ApnsCredentialResponse;
+    /**
+     * Gets or sets the AuthorizationRules of the created NotificationHub
+     */
+    readonly authorizationRules: outputs.notificationhubs.SharedAccessAuthorizationRulePropertiesResponse[];
+    /**
+     * Description of a NotificationHub BaiduCredential.
+     */
+    readonly baiduCredential?: outputs.notificationhubs.BaiduCredentialResponse;
+    /**
+     * Description of a NotificationHub BrowserCredential.
+     */
+    readonly browserCredential?: outputs.notificationhubs.BrowserCredentialResponse;
+    readonly dailyMaxActiveDevices: number;
+    /**
+     * Description of a NotificationHub FcmV1Credential.
+     */
+    readonly fcmV1Credential?: outputs.notificationhubs.FcmV1CredentialResponse;
+    /**
+     * Description of a NotificationHub GcmCredential.
+     */
+    readonly gcmCredential?: outputs.notificationhubs.GcmCredentialResponse;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -50,13 +79,17 @@ export interface GetNotificationHubResult {
      */
     readonly location: string;
     /**
+     * Description of a NotificationHub MpnsCredential.
+     */
+    readonly mpnsCredential?: outputs.notificationhubs.MpnsCredentialResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * NotificationHub properties.
+     * Gets or sets the RegistrationTtl of the created NotificationHub
      */
-    readonly properties: outputs.notificationhubs.NotificationHubPropertiesResponse;
+    readonly registrationTtl?: string;
     /**
      * The Sku description for a namespace
      */
@@ -73,12 +106,20 @@ export interface GetNotificationHubResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Description of a NotificationHub WnsCredential.
+     */
+    readonly wnsCredential?: outputs.notificationhubs.WnsCredentialResponse;
+    /**
+     * Description of a NotificationHub XiaomiCredential.
+     */
+    readonly xiaomiCredential?: outputs.notificationhubs.XiaomiCredentialResponse;
 }
 /**
  * Notification Hub Resource.
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2023-09-01.
  */
 export function getNotificationHubOutput(args: GetNotificationHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

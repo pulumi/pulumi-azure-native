@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetADOOAuthInfoArgs, GetADOOAuthInfoResult, GetADOOAuthInfoOutputArgs } from "./getADOOAuthInfo";
-export const getADOOAuthInfo: typeof import("./getADOOAuthInfo").getADOOAuthInfo = null as any;
-export const getADOOAuthInfoOutput: typeof import("./getADOOAuthInfo").getADOOAuthInfoOutput = null as any;
-utilities.lazyLoad(exports, ["getADOOAuthInfo","getADOOAuthInfoOutput"], () => require("./getADOOAuthInfo"));
-
 export { GetGitHubOAuthArgs, GetGitHubOAuthResult, GetGitHubOAuthOutputArgs } from "./getGitHubOAuth";
 export const getGitHubOAuth: typeof import("./getGitHubOAuth").getGitHubOAuth = null as any;
 export const getGitHubOAuthOutput: typeof import("./getGitHubOAuth").getGitHubOAuthOutput = null as any;
@@ -40,14 +35,12 @@ utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
 export * from "../types/enums/devhub";
 
 // Export sub-modules:
-import * as v20220401preview from "./v20220401preview";
 import * as v20221011preview from "./v20221011preview";
 import * as v20230801 from "./v20230801";
 import * as v20240501preview from "./v20240501preview";
 import * as v20240801preview from "./v20240801preview";
 
 export {
-    v20220401preview,
     v20221011preview,
     v20230801,
     v20240501preview,

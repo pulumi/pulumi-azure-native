@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a data connector.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-09-01.
  */
 export function getMDATPDataConnector(args: GetMDATPDataConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetMDATPDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -75,7 +75,7 @@ export interface GetMDATPDataConnectorResult {
 }
 /**
  * Gets a data connector.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-09-01.
  */
 export function getMDATPDataConnectorOutput(args: GetMDATPDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMDATPDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

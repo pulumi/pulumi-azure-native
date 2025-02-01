@@ -15,60 +15,10 @@ export const getAppServiceEnvironment: typeof import("./getAppServiceEnvironment
 export const getAppServiceEnvironmentOutput: typeof import("./getAppServiceEnvironment").getAppServiceEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getAppServiceEnvironment","getAppServiceEnvironmentOutput"], () => require("./getAppServiceEnvironment"));
 
-export { GetWebAppDiagnosticLogsConfigurationSlotArgs, GetWebAppDiagnosticLogsConfigurationSlotResult, GetWebAppDiagnosticLogsConfigurationSlotOutputArgs } from "./getWebAppDiagnosticLogsConfigurationSlot";
-export const getWebAppDiagnosticLogsConfigurationSlot: typeof import("./getWebAppDiagnosticLogsConfigurationSlot").getWebAppDiagnosticLogsConfigurationSlot = null as any;
-export const getWebAppDiagnosticLogsConfigurationSlotOutput: typeof import("./getWebAppDiagnosticLogsConfigurationSlot").getWebAppDiagnosticLogsConfigurationSlotOutput = null as any;
-utilities.lazyLoad(exports, ["getWebAppDiagnosticLogsConfigurationSlot","getWebAppDiagnosticLogsConfigurationSlotOutput"], () => require("./getWebAppDiagnosticLogsConfigurationSlot"));
-
-export { GetWebAppFtpAllowedArgs, GetWebAppFtpAllowedResult, GetWebAppFtpAllowedOutputArgs } from "./getWebAppFtpAllowed";
-export const getWebAppFtpAllowed: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowed = null as any;
-export const getWebAppFtpAllowedOutput: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowedOutput = null as any;
-utilities.lazyLoad(exports, ["getWebAppFtpAllowed","getWebAppFtpAllowedOutput"], () => require("./getWebAppFtpAllowed"));
-
-export { GetWebAppFtpAllowedSlotArgs, GetWebAppFtpAllowedSlotResult, GetWebAppFtpAllowedSlotOutputArgs } from "./getWebAppFtpAllowedSlot";
-export const getWebAppFtpAllowedSlot: typeof import("./getWebAppFtpAllowedSlot").getWebAppFtpAllowedSlot = null as any;
-export const getWebAppFtpAllowedSlotOutput: typeof import("./getWebAppFtpAllowedSlot").getWebAppFtpAllowedSlotOutput = null as any;
-utilities.lazyLoad(exports, ["getWebAppFtpAllowedSlot","getWebAppFtpAllowedSlotOutput"], () => require("./getWebAppFtpAllowedSlot"));
-
-export { GetWebAppScmAllowedArgs, GetWebAppScmAllowedResult, GetWebAppScmAllowedOutputArgs } from "./getWebAppScmAllowed";
-export const getWebAppScmAllowed: typeof import("./getWebAppScmAllowed").getWebAppScmAllowed = null as any;
-export const getWebAppScmAllowedOutput: typeof import("./getWebAppScmAllowed").getWebAppScmAllowedOutput = null as any;
-utilities.lazyLoad(exports, ["getWebAppScmAllowed","getWebAppScmAllowedOutput"], () => require("./getWebAppScmAllowed"));
-
-export { GetWebAppScmAllowedSlotArgs, GetWebAppScmAllowedSlotResult, GetWebAppScmAllowedSlotOutputArgs } from "./getWebAppScmAllowedSlot";
-export const getWebAppScmAllowedSlot: typeof import("./getWebAppScmAllowedSlot").getWebAppScmAllowedSlot = null as any;
-export const getWebAppScmAllowedSlotOutput: typeof import("./getWebAppScmAllowedSlot").getWebAppScmAllowedSlotOutput = null as any;
-utilities.lazyLoad(exports, ["getWebAppScmAllowedSlot","getWebAppScmAllowedSlotOutput"], () => require("./getWebAppScmAllowedSlot"));
-
 export { ListSiteIdentifiersAssignedToHostNameArgs, ListSiteIdentifiersAssignedToHostNameResult, ListSiteIdentifiersAssignedToHostNameOutputArgs } from "./listSiteIdentifiersAssignedToHostName";
 export const listSiteIdentifiersAssignedToHostName: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostName = null as any;
 export const listSiteIdentifiersAssignedToHostNameOutput: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostNameOutput = null as any;
 utilities.lazyLoad(exports, ["listSiteIdentifiersAssignedToHostName","listSiteIdentifiersAssignedToHostNameOutput"], () => require("./listSiteIdentifiersAssignedToHostName"));
-
-export { WebAppDiagnosticLogsConfigurationSlotArgs } from "./webAppDiagnosticLogsConfigurationSlot";
-export type WebAppDiagnosticLogsConfigurationSlot = import("./webAppDiagnosticLogsConfigurationSlot").WebAppDiagnosticLogsConfigurationSlot;
-export const WebAppDiagnosticLogsConfigurationSlot: typeof import("./webAppDiagnosticLogsConfigurationSlot").WebAppDiagnosticLogsConfigurationSlot = null as any;
-utilities.lazyLoad(exports, ["WebAppDiagnosticLogsConfigurationSlot"], () => require("./webAppDiagnosticLogsConfigurationSlot"));
-
-export { WebAppFtpAllowedArgs } from "./webAppFtpAllowed";
-export type WebAppFtpAllowed = import("./webAppFtpAllowed").WebAppFtpAllowed;
-export const WebAppFtpAllowed: typeof import("./webAppFtpAllowed").WebAppFtpAllowed = null as any;
-utilities.lazyLoad(exports, ["WebAppFtpAllowed"], () => require("./webAppFtpAllowed"));
-
-export { WebAppFtpAllowedSlotArgs } from "./webAppFtpAllowedSlot";
-export type WebAppFtpAllowedSlot = import("./webAppFtpAllowedSlot").WebAppFtpAllowedSlot;
-export const WebAppFtpAllowedSlot: typeof import("./webAppFtpAllowedSlot").WebAppFtpAllowedSlot = null as any;
-utilities.lazyLoad(exports, ["WebAppFtpAllowedSlot"], () => require("./webAppFtpAllowedSlot"));
-
-export { WebAppScmAllowedArgs } from "./webAppScmAllowed";
-export type WebAppScmAllowed = import("./webAppScmAllowed").WebAppScmAllowed;
-export const WebAppScmAllowed: typeof import("./webAppScmAllowed").WebAppScmAllowed = null as any;
-utilities.lazyLoad(exports, ["WebAppScmAllowed"], () => require("./webAppScmAllowed"));
-
-export { WebAppScmAllowedSlotArgs } from "./webAppScmAllowedSlot";
-export type WebAppScmAllowedSlot = import("./webAppScmAllowedSlot").WebAppScmAllowedSlot;
-export const WebAppScmAllowedSlot: typeof import("./webAppScmAllowedSlot").WebAppScmAllowedSlot = null as any;
-utilities.lazyLoad(exports, ["WebAppScmAllowedSlot"], () => require("./webAppScmAllowedSlot"));
 
 
 // Export enums:
@@ -80,16 +30,6 @@ const _module = {
         switch (type) {
             case "azure-native:web/v20210115:AppServiceEnvironment":
                 return new AppServiceEnvironment(name, <any>undefined, { urn })
-            case "azure-native:web/v20210115:WebAppDiagnosticLogsConfigurationSlot":
-                return new WebAppDiagnosticLogsConfigurationSlot(name, <any>undefined, { urn })
-            case "azure-native:web/v20210115:WebAppFtpAllowed":
-                return new WebAppFtpAllowed(name, <any>undefined, { urn })
-            case "azure-native:web/v20210115:WebAppFtpAllowedSlot":
-                return new WebAppFtpAllowedSlot(name, <any>undefined, { urn })
-            case "azure-native:web/v20210115:WebAppScmAllowed":
-                return new WebAppScmAllowed(name, <any>undefined, { urn })
-            case "azure-native:web/v20210115:WebAppScmAllowedSlot":
-                return new WebAppScmAllowedSlot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

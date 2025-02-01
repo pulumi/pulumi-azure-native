@@ -45,23 +45,3 @@ export const RoutingPreference = {
  * Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
  */
 export type RoutingPreference = (typeof RoutingPreference)[keyof typeof RoutingPreference];
-
-export const SslPreference = {
-    /**
-     * Secure communication is disabled.
-     */
-    Disabled: "Disabled",
-    /**
-     * Secure communication is enabled with root certificate.
-     */
-    RootCertificate: "RootCertificate",
-    /**
-     * Secure communication is enabled with server certificate.
-     */
-    ServerCertificate: "ServerCertificate",
-} as const;
-
-/**
- * Gets or sets certificate preference if secure communication is enabled.
- */
-export type SslPreference = (typeof SslPreference)[keyof typeof SslPreference];

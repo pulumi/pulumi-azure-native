@@ -9,18 +9,23 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves the policy set definition in the given subscription with the given name.
- * Azure REST API version: 2021-06-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+ * Other available API versions: 2021-06-01, 2025-01-01.
  */
 export function getPolicySetDefinition(args: GetPolicySetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getPolicySetDefinition", {
+        "expand": args.expand,
         "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }
 
 export interface GetPolicySetDefinitionArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: string;
     /**
      * The name of the policy set definition to get.
      */
@@ -64,7 +69,7 @@ export interface GetPolicySetDefinitionResult {
      */
     readonly policyDefinitions: outputs.authorization.PolicyDefinitionReferenceResponse[];
     /**
-     * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+     * The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
     readonly policyType?: string;
     /**
@@ -75,21 +80,34 @@ export interface GetPolicySetDefinitionResult {
      * The type of the resource (Microsoft.Authorization/policySetDefinitions).
      */
     readonly type: string;
+    /**
+     * The policy set definition version in #.#.# format.
+     */
+    readonly version?: string;
+    /**
+     * A list of available versions for this policy set definition.
+     */
+    readonly versions?: string[];
 }
 /**
  * This operation retrieves the policy set definition in the given subscription with the given name.
- * Azure REST API version: 2021-06-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+ * Other available API versions: 2021-06-01, 2025-01-01.
  */
 export function getPolicySetDefinitionOutput(args: GetPolicySetDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicySetDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getPolicySetDefinition", {
+        "expand": args.expand,
         "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }
 
 export interface GetPolicySetDefinitionOutputArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: pulumi.Input<string>;
     /**
      * The name of the policy set definition to get.
      */

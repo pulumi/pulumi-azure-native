@@ -2,23 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20190101preview from "./v20190101preview";
-import * as v20210301preview from "./v20210301preview";
-import * as v20210401 from "./v20210401";
-import * as v20210901preview from "./v20210901preview";
-import * as v20211001preview from "./v20211001preview";
-import * as v20220101preview from "./v20220101preview";
-import * as v20220401preview from "./v20220401preview";
-import * as v20220501preview from "./v20220501preview";
-import * as v20220601preview from "./v20220601preview";
-import * as v20220701preview from "./v20220701preview";
-import * as v20220801preview from "./v20220801preview";
-import * as v20220901preview from "./v20220901preview";
-import * as v20221001preview from "./v20221001preview";
-import * as v20221101preview from "./v20221101preview";
-import * as v20221201preview from "./v20221201preview";
 import * as v20230201 from "./v20230201";
-import * as v20230201preview from "./v20230201preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230401preview from "./v20230401preview";
 import * as v20230501preview from "./v20230501preview";
@@ -36,23 +20,7 @@ import * as v20240901 from "./v20240901";
 import * as v20241001preview from "./v20241001preview";
 
 export {
-    v20190101preview,
-    v20210301preview,
-    v20210401,
-    v20210901preview,
-    v20211001preview,
-    v20220101preview,
-    v20220401preview,
-    v20220501preview,
-    v20220601preview,
-    v20220701preview,
-    v20220801preview,
-    v20220901preview,
-    v20221001preview,
-    v20221101preview,
-    v20221201preview,
     v20230201,
-    v20230201preview,
     v20230301preview,
     v20230401preview,
     v20230501preview,
@@ -79,6 +47,10 @@ export const ActionType = {
      * Run a playbook on an object
      */
     RunPlaybook: "RunPlaybook",
+    /**
+     * Add a task to an incident object
+     */
+    AddIncidentTask: "AddIncidentTask",
 } as const;
 
 /**
@@ -215,6 +187,22 @@ export const AttackTactic = {
  */
 export type AttackTactic = (typeof AttackTactic)[keyof typeof AttackTactic];
 
+export const AutomationRuleBooleanConditionSupportedOperator = {
+    /**
+     * Evaluates as true if all the item conditions are evaluated as true
+     */
+    And: "And",
+    /**
+     * Evaluates as true if at least one of the item conditions are evaluated as true
+     */
+    Or: "Or",
+} as const;
+
+/**
+ * Describes a boolean condition operator.
+ */
+export type AutomationRuleBooleanConditionSupportedOperator = (typeof AutomationRuleBooleanConditionSupportedOperator)[keyof typeof AutomationRuleBooleanConditionSupportedOperator];
+
 export const AutomationRulePropertyArrayChangedConditionSupportedArrayType = {
     /**
      * Evaluate the condition on the alerts
@@ -244,6 +232,34 @@ export const AutomationRulePropertyArrayChangedConditionSupportedChangeType = {
 } as const;
 
 export type AutomationRulePropertyArrayChangedConditionSupportedChangeType = (typeof AutomationRulePropertyArrayChangedConditionSupportedChangeType)[keyof typeof AutomationRulePropertyArrayChangedConditionSupportedChangeType];
+
+export const AutomationRulePropertyArrayConditionSupportedArrayConditionType = {
+    /**
+     * Evaluate the condition as true if any item fulfills it
+     */
+    AnyItem: "AnyItem",
+} as const;
+
+/**
+ * Describes an array condition evaluation type.
+ */
+export type AutomationRulePropertyArrayConditionSupportedArrayConditionType = (typeof AutomationRulePropertyArrayConditionSupportedArrayConditionType)[keyof typeof AutomationRulePropertyArrayConditionSupportedArrayConditionType];
+
+export const AutomationRulePropertyArrayConditionSupportedArrayType = {
+    /**
+     * Evaluate the condition on the custom detail keys
+     */
+    CustomDetails: "CustomDetails",
+    /**
+     * Evaluate the condition on a custom detail's values
+     */
+    CustomDetailValues: "CustomDetailValues",
+} as const;
+
+/**
+ * Describes an array condition evaluated array type.
+ */
+export type AutomationRulePropertyArrayConditionSupportedArrayType = (typeof AutomationRulePropertyArrayConditionSupportedArrayType)[keyof typeof AutomationRulePropertyArrayConditionSupportedArrayType];
 
 export const AutomationRulePropertyChangedConditionSupportedChangedType = {
     /**
@@ -349,6 +365,14 @@ export const AutomationRulePropertyConditionSupportedProperty = {
      * The update source of the incident
      */
     IncidentUpdatedBySource: "IncidentUpdatedBySource",
+    /**
+     * The incident custom detail key
+     */
+    IncidentCustomDetailsKey: "IncidentCustomDetailsKey",
+    /**
+     * The incident custom detail value
+     */
+    IncidentCustomDetailsValue: "IncidentCustomDetailsValue",
     /**
      * The account Azure Active Directory tenant id
      */
@@ -544,11 +568,34 @@ export const AutomationRulePropertyConditionSupportedProperty = {
  */
 export type AutomationRulePropertyConditionSupportedProperty = (typeof AutomationRulePropertyConditionSupportedProperty)[keyof typeof AutomationRulePropertyConditionSupportedProperty];
 
+export const CcpAuthType = {
+    Basic: "Basic",
+    APIKey: "APIKey",
+    OAuth2: "OAuth2",
+    AWS: "AWS",
+    GCP: "GCP",
+    Session: "Session",
+    JwtToken: "JwtToken",
+    GitHub: "GitHub",
+    ServiceBus: "ServiceBus",
+    Oracle: "Oracle",
+    None: "None",
+} as const;
+
+/**
+ * The auth type
+ */
+export type CcpAuthType = (typeof CcpAuthType)[keyof typeof CcpAuthType];
+
 export const ConditionType = {
     /**
      * Evaluate an object property value
      */
     Property: "Property",
+    /**
+     * Evaluate an object array property value
+     */
+    PropertyArray: "PropertyArray",
     /**
      * Evaluate an object property changed value
      */
@@ -557,6 +604,10 @@ export const ConditionType = {
      * Evaluate an object array property changed value
      */
     PropertyArrayChanged: "PropertyArrayChanged",
+    /**
+     * Apply a boolean operator (e.g AND, OR) to conditions
+     */
+    Boolean: "Boolean",
 } as const;
 
 export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
@@ -603,10 +654,13 @@ export const DataConnectorKind = {
     AzureSecurityCenter: "AzureSecurityCenter",
     MicrosoftCloudAppSecurity: "MicrosoftCloudAppSecurity",
     ThreatIntelligence: "ThreatIntelligence",
+    MicrosoftThreatIntelligence: "MicrosoftThreatIntelligence",
+    PremiumMicrosoftDefenderForThreatIntelligence: "PremiumMicrosoftDefenderForThreatIntelligence",
     Office365: "Office365",
     AmazonWebServicesCloudTrail: "AmazonWebServicesCloudTrail",
     AzureAdvancedThreatProtection: "AzureAdvancedThreatProtection",
     MicrosoftDefenderAdvancedThreatProtection: "MicrosoftDefenderAdvancedThreatProtection",
+    RestApiPoller: "RestApiPoller",
 } as const;
 
 /**
@@ -928,6 +982,18 @@ export const Flag = {
  */
 export type Flag = (typeof Flag)[keyof typeof Flag];
 
+export const HttpMethodVerb = {
+    GET: "GET",
+    POST: "POST",
+    PUT: "PUT",
+    DELETE: "DELETE",
+} as const;
+
+/**
+ * The HTTP method, default value GET.
+ */
+export type HttpMethodVerb = (typeof HttpMethodVerb)[keyof typeof HttpMethodVerb];
+
 export const HttpsConfigurationType = {
     HttpOnly: "HttpOnly",
     HttpsWithSslVerification: "HttpsWithSslVerification",
@@ -1053,6 +1119,9 @@ export const IncidentTaskStatus = {
     Completed: "Completed",
 } as const;
 
+/**
+ * The status of the task
+ */
 export type IncidentTaskStatus = (typeof IncidentTaskStatus)[keyof typeof IncidentTaskStatus];
 
 export const IngestionMode = {
@@ -1281,6 +1350,32 @@ export const RepoType = {
  */
 export type RepoType = (typeof RepoType)[keyof typeof RepoType];
 
+export const RepositoryAccessKind = {
+    OAuth: "OAuth",
+    PAT: "PAT",
+    App: "App",
+} as const;
+
+/**
+ * The kind of repository access credentials
+ */
+export type RepositoryAccessKind = (typeof RepositoryAccessKind)[keyof typeof RepositoryAccessKind];
+
+export const RestApiPollerRequestPagingKind = {
+    LinkHeader: "LinkHeader",
+    NextPageToken: "NextPageToken",
+    NextPageUrl: "NextPageUrl",
+    PersistentToken: "PersistentToken",
+    PersistentLinkHeader: "PersistentLinkHeader",
+    Offset: "Offset",
+    CountBasedPaging: "CountBasedPaging",
+} as const;
+
+/**
+ * Type of paging
+ */
+export type RestApiPollerRequestPagingKind = (typeof RestApiPollerRequestPagingKind)[keyof typeof RestApiPollerRequestPagingKind];
+
 export const SapAuthenticationType = {
     UsernamePassword: "UsernamePassword",
     Snc: "Snc",
@@ -1339,16 +1434,6 @@ export const SettingsStatus = {
  */
 export type SettingsStatus = (typeof SettingsStatus)[keyof typeof SettingsStatus];
 
-export const Source = {
-    Local_file: "Local file",
-    Remote_storage: "Remote storage",
-} as const;
-
-/**
- * The source of the watchlist
- */
-export type Source = (typeof Source)[keyof typeof Source];
-
 export const SourceKind = {
     LocalWorkspace: "LocalWorkspace",
     Community: "Community",
@@ -1361,10 +1446,28 @@ export const SourceKind = {
  */
 export type SourceKind = (typeof SourceKind)[keyof typeof SourceKind];
 
+export const SourceType = {
+    /**
+     * The source from local file.
+     */
+    Local_file: "Local file",
+    /**
+     * The source from remote storage.
+     */
+    Remote_storage: "Remote storage",
+} as const;
+
+/**
+ * The sourceType of the watchlist
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+
 export const Status = {
     New: "New",
     Active: "Active",
     Closed: "Closed",
+    Backlog: "Backlog",
+    Approved: "Approved",
 } as const;
 
 /**

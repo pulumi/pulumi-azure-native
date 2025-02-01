@@ -32,14 +32,12 @@ export * from "../types/enums/videoindexer";
 // Export sub-modules:
 import * as v20220801 from "./v20220801";
 import * as v20240101 from "./v20240101";
-import * as v20240401preview from "./v20240401preview";
 import * as v20240601preview from "./v20240601preview";
 import * as v20240923preview from "./v20240923preview";
 
 export {
     v20220801,
     v20240101,
-    v20240401preview,
     v20240601preview,
     v20240923preview,
 };

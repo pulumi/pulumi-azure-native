@@ -2,13 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * A long term retention policy.
- * Azure REST API version: 2022-11-01-preview.
+ * Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2022-11-01-preview.
  *
- * Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2022-11-01-preview.
  */
 export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResource {
     /**
@@ -37,6 +40,10 @@ export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResourc
         return obj['__pulumiType'] === ManagedInstanceLongTermRetentionPolicy.__pulumiType;
     }
 
+    /**
+     * The BackupStorageAccessTier for the LTR backups
+     */
+    public readonly backupStorageAccessTier!: pulumi.Output<string | undefined>;
     /**
      * The monthly retention policy for an LTR backup in an ISO 8601 format.
      */
@@ -82,6 +89,7 @@ export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResourc
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["backupStorageAccessTier"] = args ? args.backupStorageAccessTier : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
             resourceInputs["monthlyRetention"] = args ? args.monthlyRetention : undefined;
@@ -93,6 +101,7 @@ export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResourc
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["backupStorageAccessTier"] = undefined /*out*/;
             resourceInputs["monthlyRetention"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -111,6 +120,10 @@ export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResourc
  * The set of arguments for constructing a ManagedInstanceLongTermRetentionPolicy resource.
  */
 export interface ManagedInstanceLongTermRetentionPolicyArgs {
+    /**
+     * The BackupStorageAccessTier for the LTR backups
+     */
+    backupStorageAccessTier?: pulumi.Input<string | enums.sql.BackupStorageAccessTier>;
     /**
      * The name of the database.
      */

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Job Definition resource.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Other available API versions: 2023-03-01.
  */
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -99,7 +99,7 @@ export interface GetJobDefinitionResult {
      */
     readonly sourceSubpath?: string;
     /**
-     * Resource system metadata.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.storagemover.SystemDataResponse;
     /**
@@ -121,9 +121,9 @@ export interface GetJobDefinitionResult {
 }
 /**
  * Gets a Job Definition resource.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Other available API versions: 2023-03-01.
  */
 export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

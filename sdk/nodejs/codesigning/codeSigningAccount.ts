@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Trusted signing account resource.
- * Azure REST API version: 2024-02-05-preview.
+ * Azure REST API version: 2024-09-30-preview. Prior API version in Azure Native 2.x: 2024-02-05-preview.
  *
- * Other available API versions: 2024-09-30-preview.
+ * Other available API versions: 2024-02-05-preview.
  */
 export class CodeSigningAccount extends pulumi.CustomResource {
     /**

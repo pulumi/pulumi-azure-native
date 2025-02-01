@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -88,6 +88,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterVersion!: pulumi.Output<string>;
     /**
+     * The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
+     */
+    public readonly commandOutputSettings!: pulumi.Output<outputs.networkcloud.CommandOutputSettingsResponse | undefined>;
+    /**
      * The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
      */
     public readonly computeDeploymentThreshold!: pulumi.Output<outputs.networkcloud.ValidationThresholdResponse | undefined>;
@@ -112,6 +116,10 @@ export class Cluster extends pulumi.CustomResource {
      * Field Deprecated. This field will not be populated in an upcoming version. The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
      */
     public /*out*/ readonly hybridAksExtendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
+    /**
+     * The identity for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.networkcloud.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -205,9 +213,11 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterServicePrincipal"] = args ? args.clusterServicePrincipal : undefined;
             resourceInputs["clusterType"] = args ? args.clusterType : undefined;
             resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
+            resourceInputs["commandOutputSettings"] = args ? args.commandOutputSettings : undefined;
             resourceInputs["computeDeploymentThreshold"] = args ? args.computeDeploymentThreshold : undefined;
             resourceInputs["computeRackDefinitions"] = args ? args.computeRackDefinitions : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
             resourceInputs["networkFabricId"] = args ? args.networkFabricId : undefined;
@@ -245,12 +255,14 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterServicePrincipal"] = undefined /*out*/;
             resourceInputs["clusterType"] = undefined /*out*/;
             resourceInputs["clusterVersion"] = undefined /*out*/;
+            resourceInputs["commandOutputSettings"] = undefined /*out*/;
             resourceInputs["computeDeploymentThreshold"] = undefined /*out*/;
             resourceInputs["computeRackDefinitions"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hybridAksExtendedLocation"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedResourceGroupConfiguration"] = undefined /*out*/;
             resourceInputs["manualActionCount"] = undefined /*out*/;
@@ -306,6 +318,10 @@ export interface ClusterArgs {
      */
     clusterVersion: pulumi.Input<string>;
     /**
+     * The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
+     */
+    commandOutputSettings?: pulumi.Input<inputs.networkcloud.CommandOutputSettingsArgs>;
+    /**
      * The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
      */
     computeDeploymentThreshold?: pulumi.Input<inputs.networkcloud.ValidationThresholdArgs>;
@@ -318,6 +334,10 @@ export interface ClusterArgs {
      * The extended location of the cluster manager associated with the cluster.
      */
     extendedLocation: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs>;
+    /**
+     * The identity for the resource.
+     */
+    identity?: pulumi.Input<inputs.networkcloud.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

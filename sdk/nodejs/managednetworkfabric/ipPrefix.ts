@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The IPPrefix resource definition.
- * Azure REST API version: 2023-02-01-preview.
+ * The IP Prefix resource definition.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview.
  */
 export class IpPrefix extends pulumi.CustomResource {
     /**
@@ -41,13 +41,21 @@ export class IpPrefix extends pulumi.CustomResource {
     }
 
     /**
+     * Administrative state of the resource.
+     */
+    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
+    /**
      * Switch configuration description.
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
     /**
-     * IpPrefix contains the list of IP PrefixRules objects.
+     * Configuration state of the resource.
      */
-    public readonly ipPrefixRules!: pulumi.Output<outputs.managednetworkfabric.IpPrefixPropertiesResponseIpPrefixRules[]>;
+    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    /**
+     * The list of IP Prefix Rules.
+     */
+    public readonly ipPrefixRules!: pulumi.Output<outputs.managednetworkfabric.IpPrefixRuleResponse[]>;
     /**
      * The geo-location where the resource lives
      */
@@ -57,7 +65,7 @@ export class IpPrefix extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -96,12 +104,16 @@ export class IpPrefix extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["administrativeState"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["annotation"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["ipPrefixRules"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -126,13 +138,13 @@ export interface IpPrefixArgs {
      */
     annotation?: pulumi.Input<string>;
     /**
-     * Name of the IP Prefix
+     * Name of the IP Prefix.
      */
     ipPrefixName?: pulumi.Input<string>;
     /**
-     * IpPrefix contains the list of IP PrefixRules objects.
+     * The list of IP Prefix Rules.
      */
-    ipPrefixRules: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.IpPrefixPropertiesIpPrefixRulesArgs>[]>;
+    ipPrefixRules: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.IpPrefixRuleArgs>[]>;
     /**
      * The geo-location where the resource lives
      */

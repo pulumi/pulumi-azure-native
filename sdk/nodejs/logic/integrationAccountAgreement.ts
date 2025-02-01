@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The integration account agreement.
- * Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+ * Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
  *
  * Other available API versions: 2015-08-01-preview.
  */
@@ -160,7 +160,7 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20160601:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20190501:IntegrationAccountAgreement" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20160601:Agreement" }, { type: "azure-native:logic/v20160601:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20190501:IntegrationAccountAgreement" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountAgreement.__pulumiType, name, resourceInputs, opts);
     }

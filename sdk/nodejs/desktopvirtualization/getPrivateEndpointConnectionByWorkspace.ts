@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a private endpoint connection.
- * Azure REST API version: 2022-10-14-preview.
+ * Azure REST API version: 2024-04-03.
  *
- * Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+ * Other available API versions: 2022-10-14-preview, 2024-08-08-preview.
  */
 export function getPrivateEndpointConnectionByWorkspace(args: GetPrivateEndpointConnectionByWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionByWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +24,7 @@ export function getPrivateEndpointConnectionByWorkspace(args: GetPrivateEndpoint
 
 export interface GetPrivateEndpointConnectionByWorkspaceArgs {
     /**
-     * The name of the private endpoint connection associated with the Azure resource
+     * The name of the private endpoint connection associated with the Azure resource.
      */
     privateEndpointConnectionName: string;
     /**
@@ -42,7 +42,11 @@ export interface GetPrivateEndpointConnectionByWorkspaceArgs {
  */
 export interface GetPrivateEndpointConnectionByWorkspaceResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The group ids for the private endpoint resource.
+     */
+    readonly groupIds: string[];
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -50,7 +54,7 @@ export interface GetPrivateEndpointConnectionByWorkspaceResult {
      */
     readonly name: string;
     /**
-     * The resource of private end point.
+     * The private endpoint resource.
      */
     readonly privateEndpoint?: outputs.desktopvirtualization.PrivateEndpointResponse;
     /**
@@ -62,7 +66,7 @@ export interface GetPrivateEndpointConnectionByWorkspaceResult {
      */
     readonly provisioningState: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.desktopvirtualization.SystemDataResponse;
     /**
@@ -72,9 +76,9 @@ export interface GetPrivateEndpointConnectionByWorkspaceResult {
 }
 /**
  * Get a private endpoint connection.
- * Azure REST API version: 2022-10-14-preview.
+ * Azure REST API version: 2024-04-03.
  *
- * Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+ * Other available API versions: 2022-10-14-preview, 2024-08-08-preview.
  */
 export function getPrivateEndpointConnectionByWorkspaceOutput(args: GetPrivateEndpointConnectionByWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionByWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,7 +91,7 @@ export function getPrivateEndpointConnectionByWorkspaceOutput(args: GetPrivateEn
 
 export interface GetPrivateEndpointConnectionByWorkspaceOutputArgs {
     /**
-     * The name of the private endpoint connection associated with the Azure resource
+     * The name of the private endpoint connection associated with the Azure resource.
      */
     privateEndpointConnectionName: pulumi.Input<string>;
     /**

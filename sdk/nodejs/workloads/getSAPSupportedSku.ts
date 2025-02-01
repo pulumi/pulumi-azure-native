@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a list of SAP supported SKUs for ASCS, Application and Database tier.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2023-04-01.
  */
 export function getSAPSupportedSku(args: GetSAPSupportedSkuArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPSupportedSkuResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,9 +68,9 @@ export interface GetSAPSupportedSkuResult {
 }
 /**
  * Get a list of SAP supported SKUs for ASCS, Application and Database tier.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2023-04-01.
  */
 export function getSAPSupportedSkuOutput(args: GetSAPSupportedSkuOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSAPSupportedSkuResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

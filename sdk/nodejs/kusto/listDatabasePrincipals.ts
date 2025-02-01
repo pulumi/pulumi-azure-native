@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a list of database principals of the given Kusto cluster and database.
- * Azure REST API version: 2022-12-29.
+ * Azure REST API version: 2024-04-13.
  *
- * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+ * Other available API versions: 2022-07-07, 2022-12-29.
  */
 export function listDatabasePrincipals(args: ListDatabasePrincipalsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabasePrincipalsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +32,7 @@ export interface ListDatabasePrincipalsArgs {
      */
     databaseName: string;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -48,9 +48,9 @@ export interface ListDatabasePrincipalsResult {
 }
 /**
  * Returns a list of database principals of the given Kusto cluster and database.
- * Azure REST API version: 2022-12-29.
+ * Azure REST API version: 2024-04-13.
  *
- * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+ * Other available API versions: 2022-07-07, 2022-12-29.
  */
 export function listDatabasePrincipalsOutput(args: ListDatabasePrincipalsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDatabasePrincipalsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,7 +71,7 @@ export interface ListDatabasePrincipalsOutputArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a topic space.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getTopicSpace(args: GetTopicSpaceArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicSpaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,15 +58,15 @@ export interface GetTopicSpaceResult {
      */
     readonly provisioningState: string;
     /**
-     * The system metadata relating to the TopicSpace resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
      * The topic filters in the topic space.
      * Example: "topicTemplates": [ 
-     *               "devices/foo/bar",
-     *               "devices/topic1/+",
-     *               "devices/${principal.name}/${principal.attributes.keyName}" ].
+     *         "devices/foo/bar",
+     *         "devices/topic1/+",
+     *         "devices/${principal.name}/${principal.attributes.keyName}" ].
      */
     readonly topicTemplates?: string[];
     /**
@@ -76,9 +76,9 @@ export interface GetTopicSpaceResult {
 }
 /**
  * Get properties of a topic space.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview.
  */
 export function getTopicSpaceOutput(args: GetTopicSpaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicSpaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

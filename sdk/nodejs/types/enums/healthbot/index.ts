@@ -2,12 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20201208preview from "./v20201208preview";
 import * as v20230501 from "./v20230501";
 import * as v20240201 from "./v20240201";
 
 export {
-    v20201208preview,
     v20230501,
     v20240201,
 };
@@ -29,6 +27,7 @@ export const SkuName = {
     S1: "S1",
     C0: "C0",
     PES: "PES",
+    C1: "C1",
 } as const;
 
 /**

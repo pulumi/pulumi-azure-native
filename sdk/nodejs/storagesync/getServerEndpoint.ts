@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a ServerEndpoint.
- * Azure REST API version: 2022-06-01.
+ * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2022-09-01.
+ * Other available API versions: 2022-06-01.
  */
 export function getServerEndpoint(args: GetServerEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,7 +59,7 @@ export interface GetServerEndpointResult {
      */
     readonly friendlyName?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -111,6 +111,10 @@ export interface GetServerEndpointResult {
      */
     readonly recallStatus: outputs.storagesync.ServerEndpointRecallStatusResponse;
     /**
+     * Server Endpoint provisioning status
+     */
+    readonly serverEndpointProvisioningStatus?: outputs.storagesync.ServerEndpointProvisioningStatusResponse;
+    /**
      * Server Local path.
      */
     readonly serverLocalPath?: string;
@@ -145,9 +149,9 @@ export interface GetServerEndpointResult {
 }
 /**
  * Get a ServerEndpoint.
- * Azure REST API version: 2022-06-01.
+ * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2022-09-01.
+ * Other available API versions: 2022-06-01.
  */
 export function getServerEndpointOutput(args: GetServerEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

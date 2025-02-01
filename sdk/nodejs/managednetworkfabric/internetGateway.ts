@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Internet Gateway resource definition.
- * Azure REST API version: 2023-06-15.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-06-15.
  */
 export class InternetGateway extends pulumi.CustomResource {
     /**

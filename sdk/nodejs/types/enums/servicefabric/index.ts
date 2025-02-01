@@ -2,30 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20200101preview from "./v20200101preview";
-import * as v20210601 from "./v20210601";
-import * as v20220101 from "./v20220101";
-import * as v20221001preview from "./v20221001preview";
 import * as v20230301preview from "./v20230301preview";
-import * as v20230701preview from "./v20230701preview";
-import * as v20230901preview from "./v20230901preview";
-import * as v20231101preview from "./v20231101preview";
-import * as v20231201preview from "./v20231201preview";
 import * as v20240201preview from "./v20240201preview";
 import * as v20240401 from "./v20240401";
 import * as v20240601preview from "./v20240601preview";
 import * as v20240901preview from "./v20240901preview";
 
 export {
-    v20200101preview,
-    v20210601,
-    v20220101,
-    v20221001preview,
     v20230301preview,
-    v20230701preview,
-    v20230901preview,
-    v20231101preview,
-    v20231201preview,
     v20240201preview,
     v20240401,
     v20240601preview,
@@ -269,6 +253,16 @@ export const PrivateEndpointNetworkPolicies = {
  */
 export type PrivateEndpointNetworkPolicies = (typeof PrivateEndpointNetworkPolicies)[keyof typeof PrivateEndpointNetworkPolicies];
 
+export const PrivateIPAddressVersion = {
+    IPv4: "IPv4",
+    IPv6: "IPv6",
+} as const;
+
+/**
+ * Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
+ */
+export type PrivateIPAddressVersion = (typeof PrivateIPAddressVersion)[keyof typeof PrivateIPAddressVersion];
+
 export const PrivateLinkServiceNetworkPolicies = {
     Enabled: "enabled",
     Disabled: "disabled",
@@ -300,6 +294,16 @@ export const Protocol = {
  */
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
+export const PublicIPAddressVersion = {
+    IPv4: "IPv4",
+    IPv6: "IPv6",
+} as const;
+
+/**
+ * Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+ */
+export type PublicIPAddressVersion = (typeof PublicIPAddressVersion)[keyof typeof PublicIPAddressVersion];
+
 export const RollingUpgradeMode = {
     /**
      * The upgrade will stop after completing each upgrade domain and automatically monitor health before proceeding. The value is 0.
@@ -321,10 +325,14 @@ export const SecurityType = {
      * Trusted Launch is a security type that secures generation 2 virtual machines.
      */
     TrustedLaunch: "TrustedLaunch",
+    /**
+     * Standard is the default security type for all machines.
+     */
+    Standard: "Standard",
 } as const;
 
 /**
- * Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+ * Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
  */
 export type SecurityType = (typeof SecurityType)[keyof typeof SecurityType];
 
@@ -491,6 +499,18 @@ export const VmSetupAction = {
  * action to be performed on the vms before bootstrapping the service fabric runtime.
  */
 export type VmSetupAction = (typeof VmSetupAction)[keyof typeof VmSetupAction];
+
+export const VmssExtensionSetupOrder = {
+    /**
+     * Indicates that the vm extension should run before the service fabric runtime starts.
+     */
+    BeforeSFRuntime: "BeforeSFRuntime",
+} as const;
+
+/**
+ * Vm extension setup order.
+ */
+export type VmssExtensionSetupOrder = (typeof VmssExtensionSetupOrder)[keyof typeof VmssExtensionSetupOrder];
 
 export const ZonalUpdateMode = {
     /**

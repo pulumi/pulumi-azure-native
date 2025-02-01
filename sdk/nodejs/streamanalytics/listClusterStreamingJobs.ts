@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Lists all of the streaming jobs in the given cluster.
  * Azure REST API version: 2020-03-01.
- *
- * Other available API versions: 2020-03-01-preview.
  */
 export function listClusterStreamingJobs(args: ListClusterStreamingJobsArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterStreamingJobsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,8 +46,6 @@ export interface ListClusterStreamingJobsResult {
 /**
  * Lists all of the streaming jobs in the given cluster.
  * Azure REST API version: 2020-03-01.
- *
- * Other available API versions: 2020-03-01-preview.
  */
 export function listClusterStreamingJobsOutput(args: ListClusterStreamingJobsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListClusterStreamingJobsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

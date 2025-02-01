@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents the high level Nodes needed to provision isp customer resources
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 2.x: 2023-05-01-preview.
  */
 export class IspCustomer extends pulumi.CustomResource {
     /**

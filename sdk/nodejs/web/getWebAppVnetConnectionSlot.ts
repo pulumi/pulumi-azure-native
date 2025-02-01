@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets a virtual network the app (or deployment slot) is connected to by name.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2020-10-01, 2022-09-01.
  */
 export function getWebAppVnetConnectionSlot(args: GetWebAppVnetConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,9 +94,9 @@ export interface GetWebAppVnetConnectionSlotResult {
 }
 /**
  * Description for Gets a virtual network the app (or deployment slot) is connected to by name.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2020-10-01, 2022-09-01.
  */
 export function getWebAppVnetConnectionSlotOutput(args: GetWebAppVnetConnectionSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppVnetConnectionSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

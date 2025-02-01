@@ -2,25 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20201201 from "./v20201201";
-import * as v20210301 from "./v20210301";
-import * as v20210401 from "./v20210401";
-import * as v20210701 from "./v20210701";
-import * as v20211101 from "./v20211101";
-import * as v20220301 from "./v20220301";
 import * as v20220303 from "./v20220303";
 import * as v20220702 from "./v20220702";
 import * as v20220801 from "./v20220801";
-import * as v20220803 from "./v20220803";
 import * as v20220904 from "./v20220904";
 import * as v20221101 from "./v20221101";
-import * as v20230102 from "./v20230102";
 import * as v20230301 from "./v20230301";
-import * as v20230402 from "./v20230402";
 import * as v20230701 from "./v20230701";
-import * as v20230703 from "./v20230703";
 import * as v20230901 from "./v20230901";
-import * as v20231002 from "./v20231002";
 import * as v20240301 from "./v20240301";
 import * as v20240302 from "./v20240302";
 import * as v20240303 from "./v20240303";
@@ -28,25 +17,14 @@ import * as v20240701 from "./v20240701";
 import * as v20241104 from "./v20241104";
 
 export {
-    v20201201,
-    v20210301,
-    v20210401,
-    v20210701,
-    v20211101,
-    v20220301,
     v20220303,
     v20220702,
     v20220801,
-    v20220803,
     v20220904,
     v20221101,
-    v20230102,
     v20230301,
-    v20230402,
     v20230701,
-    v20230703,
     v20230901,
-    v20231002,
     v20240301,
     v20240302,
     v20240303,
@@ -64,6 +42,16 @@ export const AccessControlRulesMode = {
  * This property allows you to specify whether the access control rules are in Audit mode, in Enforce mode or Disabled. Possible values are: 'Audit', 'Enforce' or 'Disabled'.
  */
 export type AccessControlRulesMode = (typeof AccessControlRulesMode)[keyof typeof AccessControlRulesMode];
+
+export const AllocationStrategy = {
+    LowestPrice: "LowestPrice",
+    CapacityOptimized: "CapacityOptimized",
+} as const;
+
+/**
+ * Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated.
+ */
+export type AllocationStrategy = (typeof AllocationStrategy)[keyof typeof AllocationStrategy];
 
 export const Architecture = {
     X64: "x64",
@@ -204,10 +192,11 @@ export type DiffDiskOptions = (typeof DiffDiskOptions)[keyof typeof DiffDiskOpti
 export const DiffDiskPlacement = {
     CacheDisk: "CacheDisk",
     ResourceDisk: "ResourceDisk",
+    NvmeDisk: "NvmeDisk",
 } as const;
 
 /**
- * Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+ * Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk,** **NvmeDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** or **NvmeDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk. Minimum api-version for NvmeDisk: 2024-03-01.
  */
 export type DiffDiskPlacement = (typeof DiffDiskPlacement)[keyof typeof DiffDiskPlacement];
 
@@ -262,6 +251,10 @@ export const DiskCreateOption = {
      * Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in both disk and VM guest state
      */
     UploadPreparedSecure: "UploadPreparedSecure",
+    /**
+     * Create a new disk by exporting from elastic san volume snapshot
+     */
+    CopyFromSanSnapshot: "CopyFromSanSnapshot",
 } as const;
 
 /**
@@ -273,10 +266,12 @@ export const DiskCreateOptionTypes = {
     FromImage: "FromImage",
     Empty: "Empty",
     Attach: "Attach",
+    Copy: "Copy",
+    Restore: "Restore",
 } as const;
 
 /**
- * Specifies how the virtual machine should be created. Possible values are: **Attach.** This value is used when you are using a specialized disk to create the virtual machine. **FromImage.** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
+ * Specifies how the virtual machine disk should be created. Possible values are **Attach:** This value is used when you are using a specialized disk to create the virtual machine. **FromImage:** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
  */
 export type DiskCreateOptionTypes = (typeof DiskCreateOptionTypes)[keyof typeof DiskCreateOptionTypes];
 
@@ -295,7 +290,7 @@ export const DiskDetachOptionTypes = {
 } as const;
 
 /**
- * Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview** mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+ * Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
  */
 export type DiskDetachOptionTypes = (typeof DiskDetachOptionTypes)[keyof typeof DiskDetachOptionTypes];
 
@@ -348,6 +343,10 @@ export const DiskSecurityTypes = {
      * Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a customer managed key
      */
     ConfidentialVM_DiskEncryptedWithCustomerKey: "ConfidentialVM_DiskEncryptedWithCustomerKey",
+    /**
+     * Indicates Confidential VM disk with a ephemeral vTPM. vTPM state is not persisted across VM reboots.
+     */
+    ConfidentialVM_NonPersistedTPM: "ConfidentialVM_NonPersistedTPM",
 } as const;
 
 /**
@@ -390,6 +389,18 @@ export const DiskStorageAccountTypes = {
  * The sku name.
  */
 export type DiskStorageAccountTypes = (typeof DiskStorageAccountTypes)[keyof typeof DiskStorageAccountTypes];
+
+export const DomainNameLabelScopeTypes = {
+    TenantReuse: "TenantReuse",
+    SubscriptionReuse: "SubscriptionReuse",
+    ResourceGroupReuse: "ResourceGroupReuse",
+    NoReuse: "NoReuse",
+} as const;
+
+/**
+ * The Domain name label scope.The concatenation of the hashed domain name label that generated according to the policy from domain name label scope and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+ */
+export type DomainNameLabelScopeTypes = (typeof DomainNameLabelScopeTypes)[keyof typeof DomainNameLabelScopeTypes];
 
 export const EdgeZoneStorageAccountType = {
     Standard_LRS: "Standard_LRS",
@@ -463,6 +474,16 @@ export const GalleryApplicationCustomActionParameterType = {
  */
 export type GalleryApplicationCustomActionParameterType = (typeof GalleryApplicationCustomActionParameterType)[keyof typeof GalleryApplicationCustomActionParameterType];
 
+export const GalleryApplicationScriptRebootBehavior = {
+    None: "None",
+    Rerun: "Rerun",
+} as const;
+
+/**
+ * Optional. The action to be taken with regards to install/update/remove of the gallery application in the event of a reboot.
+ */
+export type GalleryApplicationScriptRebootBehavior = (typeof GalleryApplicationScriptRebootBehavior)[keyof typeof GalleryApplicationScriptRebootBehavior];
+
 export const GalleryExtendedLocationType = {
     EdgeZone: "EdgeZone",
     Unknown: "Unknown",
@@ -480,7 +501,7 @@ export const GallerySharingPermissionTypes = {
 } as const;
 
 /**
- * This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups** <br><br> **Community**
+ * This property allows you to specify the permission of sharing gallery. Possible values are: **Private,** **Groups,** **Community.**
  */
 export type GallerySharingPermissionTypes = (typeof GallerySharingPermissionTypes)[keyof typeof GallerySharingPermissionTypes];
 
@@ -579,6 +600,16 @@ export const LinuxVMGuestPatchMode = {
  */
 export type LinuxVMGuestPatchMode = (typeof LinuxVMGuestPatchMode)[keyof typeof LinuxVMGuestPatchMode];
 
+export const Mode = {
+    Audit: "Audit",
+    Enforce: "Enforce",
+} as const;
+
+/**
+ * Specifies the mode that ProxyAgent will execute on if the feature is enabled. ProxyAgent will start to audit or monitor but not enforce access control over requests to host endpoints in Audit mode, while in Enforce mode it will enforce access control. The default value is Enforce mode.
+ */
+export type Mode = (typeof Mode)[keyof typeof Mode];
+
 export const NetworkAccessPolicy = {
     /**
      * The disk can be exported or uploaded to from any network.
@@ -607,6 +638,30 @@ export const NetworkApiVersion = {
  * specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
  */
 export type NetworkApiVersion = (typeof NetworkApiVersion)[keyof typeof NetworkApiVersion];
+
+export const NetworkInterfaceAuxiliaryMode = {
+    None: "None",
+    AcceleratedConnections: "AcceleratedConnections",
+    Floating: "Floating",
+} as const;
+
+/**
+ * Specifies whether the Auxiliary mode is enabled for the Network Interface resource.
+ */
+export type NetworkInterfaceAuxiliaryMode = (typeof NetworkInterfaceAuxiliaryMode)[keyof typeof NetworkInterfaceAuxiliaryMode];
+
+export const NetworkInterfaceAuxiliarySku = {
+    None: "None",
+    A1: "A1",
+    A2: "A2",
+    A4: "A4",
+    A8: "A8",
+} as const;
+
+/**
+ * Specifies whether the Auxiliary sku is enabled for the Network Interface resource.
+ */
+export type NetworkInterfaceAuxiliarySku = (typeof NetworkInterfaceAuxiliarySku)[keyof typeof NetworkInterfaceAuxiliarySku];
 
 export const OperatingSystemStateTypes = {
     /**
@@ -673,6 +728,16 @@ export const ProtocolTypes = {
  * Specifies the protocol of WinRM listener. Possible values are: **http,** **https.**
  */
 export type ProtocolTypes = (typeof ProtocolTypes)[keyof typeof ProtocolTypes];
+
+export const ProvisionedBandwidthCopyOption = {
+    None: "None",
+    Enhanced: "Enhanced",
+} as const;
+
+/**
+ * If this field is set on a snapshot and createOption is CopyStart, the snapshot will be copied at a quicker speed.
+ */
+export type ProvisionedBandwidthCopyOption = (typeof ProvisionedBandwidthCopyOption)[keyof typeof ProvisionedBandwidthCopyOption];
 
 export const ProximityPlacementGroupType = {
     Standard: "Standard",
@@ -786,10 +851,11 @@ export type RestorePointEncryptionType = (typeof RestorePointEncryptionType)[key
 export const SecurityEncryptionTypes = {
     VMGuestStateOnly: "VMGuestStateOnly",
     DiskWithVMGuestState: "DiskWithVMGuestState",
+    NonPersistedTPM: "NonPersistedTPM",
 } as const;
 
 /**
- * Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. **Note:** It can be set for only Confidential VMs.
+ * Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob.. **Note:** It can be set for only Confidential VMs.
  */
 export type SecurityEncryptionTypes = (typeof SecurityEncryptionTypes)[keyof typeof SecurityEncryptionTypes];
 
@@ -870,6 +936,27 @@ export const StorageAccountTypes = {
  * Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
  */
 export type StorageAccountTypes = (typeof StorageAccountTypes)[keyof typeof StorageAccountTypes];
+
+export const UefiKeyType = {
+    Sha256: "sha256",
+    X509: "x509",
+} as const;
+
+/**
+ * The type of key signature.
+ */
+export type UefiKeyType = (typeof UefiKeyType)[keyof typeof UefiKeyType];
+
+export const UefiSignatureTemplateName = {
+    NoSignatureTemplate: "NoSignatureTemplate",
+    MicrosoftUefiCertificateAuthorityTemplate: "MicrosoftUefiCertificateAuthorityTemplate",
+    MicrosoftWindowsTemplate: "MicrosoftWindowsTemplate",
+} as const;
+
+/**
+ * The name of the signature template that contains default UEFI keys.
+ */
+export type UefiSignatureTemplateName = (typeof UefiSignatureTemplateName)[keyof typeof UefiSignatureTemplateName];
 
 export const UpgradeMode = {
     Automatic: "Automatic",
@@ -1117,3 +1204,13 @@ export const WindowsVMGuestPatchMode = {
  * Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
  */
 export type WindowsVMGuestPatchMode = (typeof WindowsVMGuestPatchMode)[keyof typeof WindowsVMGuestPatchMode];
+
+export const ZonalPlatformFaultDomainAlignMode = {
+    Aligned: "Aligned",
+    Unaligned: "Unaligned",
+} as const;
+
+/**
+ * Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
+ */
+export type ZonalPlatformFaultDomainAlignMode = (typeof ZonalPlatformFaultDomainAlignMode)[keyof typeof ZonalPlatformFaultDomainAlignMode];

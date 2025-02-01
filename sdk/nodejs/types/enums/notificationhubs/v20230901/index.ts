@@ -50,34 +50,6 @@ export const OperationProvisioningState = {
  */
 export type OperationProvisioningState = (typeof OperationProvisioningState)[keyof typeof OperationProvisioningState];
 
-export const PrivateEndpointConnectionProvisioningState = {
-    Unknown: "Unknown",
-    Succeeded: "Succeeded",
-    Creating: "Creating",
-    Updating: "Updating",
-    UpdatingByProxy: "UpdatingByProxy",
-    Deleting: "Deleting",
-    DeletingByProxy: "DeletingByProxy",
-    Deleted: "Deleted",
-} as const;
-
-/**
- * State of Private Endpoint Connection.
- */
-export type PrivateEndpointConnectionProvisioningState = (typeof PrivateEndpointConnectionProvisioningState)[keyof typeof PrivateEndpointConnectionProvisioningState];
-
-export const PrivateLinkConnectionStatus = {
-    Disconnected: "Disconnected",
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-} as const;
-
-/**
- * State of Private Link Connection.
- */
-export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
-
 export const PublicNetworkAccess = {
     Enabled: "Enabled",
     Disabled: "Disabled",

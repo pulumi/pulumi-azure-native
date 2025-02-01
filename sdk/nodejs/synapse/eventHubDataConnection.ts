@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an event hub data connection.
- * Azure REST API version: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
  */
 export class EventHubDataConnection extends pulumi.CustomResource {
     /**
@@ -164,7 +164,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:EventHubDataConnection" }, { type: "azure-native:synapse/v20210601preview:EventHubDataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:EventHubDataConnection" }, { type: "azure-native:synapse/v20210601preview:EventGridDataConnection" }, { type: "azure-native:synapse/v20210601preview:EventHubDataConnection" }, { type: "azure-native:synapse/v20210601preview:IotHubDataConnection" }, { type: "azure-native:synapse:EventGridDataConnection" }, { type: "azure-native:synapse:IotHubDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubDataConnection.__pulumiType, name, resourceInputs, opts);
     }

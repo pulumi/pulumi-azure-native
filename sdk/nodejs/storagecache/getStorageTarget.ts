@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a Storage Target from a cache.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01.
+ * Other available API versions: 2023-05-01.
  */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -100,9 +100,9 @@ export interface GetStorageTargetResult {
 }
 /**
  * Returns a Storage Target from a cache.
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01.
+ * Other available API versions: 2023-05-01.
  */
 export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -18,16 +18,6 @@ export const AcceptGrowCapacityPoolForShortTermCloneSplit = {
  */
 export type AcceptGrowCapacityPoolForShortTermCloneSplit = (typeof AcceptGrowCapacityPoolForShortTermCloneSplit)[keyof typeof AcceptGrowCapacityPoolForShortTermCloneSplit];
 
-export const ApplicationType = {
-    SAP_HANA: "SAP-HANA",
-    ORACLE: "ORACLE",
-} as const;
-
-/**
- * Application Type
- */
-export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
-
 export const AvsDataStore = {
     /**
      * avsDataStore is enabled
@@ -274,30 +264,6 @@ export const SmbNonBrowsable = {
  * Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
  */
 export type SmbNonBrowsable = (typeof SmbNonBrowsable)[keyof typeof SmbNonBrowsable];
-
-export const Type = {
-    /**
-     * Default user quota
-     */
-    DefaultUserQuota: "DefaultUserQuota",
-    /**
-     * Default group quota
-     */
-    DefaultGroupQuota: "DefaultGroupQuota",
-    /**
-     * Individual user quota
-     */
-    IndividualUserQuota: "IndividualUserQuota",
-    /**
-     * Individual group quota
-     */
-    IndividualGroupQuota: "IndividualGroupQuota",
-} as const;
-
-/**
- * Type of quota
- */
-export type Type = (typeof Type)[keyof typeof Type];
 
 export const VolumeLanguage = {
     /**

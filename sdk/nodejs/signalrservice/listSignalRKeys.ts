@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get the access keys of the resource.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export function listSignalRKeys(args: ListSignalRKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSignalRKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,7 +20,7 @@ export function listSignalRKeys(args: ListSignalRKeysArgs, opts?: pulumi.InvokeO
 
 export interface ListSignalRKeysArgs {
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -52,9 +52,9 @@ export interface ListSignalRKeysResult {
 }
 /**
  * Get the access keys of the resource.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-02-01, 2024-10-01-preview.
  */
 export function listSignalRKeysOutput(args: ListSignalRKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSignalRKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,7 +66,7 @@ export function listSignalRKeysOutput(args: ListSignalRKeysOutputArgs, opts?: pu
 
 export interface ListSignalRKeysOutputArgs {
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

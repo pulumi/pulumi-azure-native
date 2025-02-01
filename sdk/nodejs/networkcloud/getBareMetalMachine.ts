@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided bare metal machine.
- * Azure REST API version: 2023-10-01-preview.
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
  */
 export function getBareMetalMachine(args: GetBareMetalMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -102,6 +102,10 @@ export interface GetBareMetalMachineResult {
      */
     readonly location: string;
     /**
+     * The cluster version that has been applied to this machine during deployment or a version update.
+     */
+    readonly machineClusterVersion?: string;
+    /**
      * The custom details provided by the customer.
      */
     readonly machineDetails: string;
@@ -158,6 +162,10 @@ export interface GetBareMetalMachineResult {
      */
     readonly runtimeProtectionStatus: outputs.networkcloud.RuntimeProtectionStatusResponse;
     /**
+     * The list of statuses that represent secret rotation activity.
+     */
+    readonly secretRotationStatus: outputs.networkcloud.SecretRotationStatusResponse[];
+    /**
      * The serial number of the bare metal machine.
      */
     readonly serialNumber: string;
@@ -184,9 +192,9 @@ export interface GetBareMetalMachineResult {
 }
 /**
  * Get properties of the provided bare metal machine.
- * Azure REST API version: 2023-10-01-preview.
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
  */
 export function getBareMetalMachineOutput(args: GetBareMetalMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBareMetalMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

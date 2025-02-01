@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the configuration of a Business Application Agent.
- * Azure REST API version: 2024-04-01-preview.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
  *
- * Other available API versions: 2024-10-01-preview.
+ * Other available API versions: 2024-04-01-preview.
  */
 export class BusinessApplicationAgent extends pulumi.CustomResource {
     /**

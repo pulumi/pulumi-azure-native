@@ -2,37 +2,21 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20161010 from "./v20161010";
-import * as v20170301 from "./v20170301";
-import * as v20180101 from "./v20180101";
-import * as v20180601preview from "./v20180601preview";
-import * as v20190101 from "./v20190101";
-import * as v20191201preview from "./v20191201preview";
-import * as v20201201 from "./v20201201";
 import * as v20210401preview from "./v20210401preview";
 import * as v20220801 from "./v20220801";
 import * as v20220901preview from "./v20220901preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501preview from "./v20230501preview";
 import * as v20230901preview from "./v20230901preview";
-import * as v20240501 from "./v20240501";
 import * as v20240601preview from "./v20240601preview";
 
 export {
-    v20161010,
-    v20170301,
-    v20180101,
-    v20180601preview,
-    v20190101,
-    v20191201preview,
-    v20201201,
     v20210401preview,
     v20220801,
     v20220901preview,
     v20230301preview,
     v20230501preview,
     v20230901preview,
-    v20240501,
     v20240601preview,
 };
 
@@ -47,6 +31,26 @@ export const AlwaysLog = {
  * Specifies for what type of messages sampling settings should not apply.
  */
 export type AlwaysLog = (typeof AlwaysLog)[keyof typeof AlwaysLog];
+
+export const ApiGatewaySkuType = {
+    /**
+     * Standard SKU of the API gateway.
+     */
+    Standard: "Standard",
+    /**
+     * Standard SKU of the API gateway to be used in Workspaces.
+     */
+    WorkspaceGatewayStandard: "WorkspaceGatewayStandard",
+    /**
+     * Premium SKU of the API gateway to be used in Workspaces.
+     */
+    WorkspaceGatewayPremium: "WorkspaceGatewayPremium",
+} as const;
+
+/**
+ * Name of the Sku.
+ */
+export type ApiGatewaySkuType = (typeof ApiGatewaySkuType)[keyof typeof ApiGatewaySkuType];
 
 export const ApiType = {
     Http: "http",
@@ -406,6 +410,34 @@ export const KeyType = {
  * The Key to be used to generate token for user.
  */
 export type KeyType = (typeof KeyType)[keyof typeof KeyType];
+
+export const LlmDiagnosticSettings = {
+    /**
+     * Default LLM logs are enabled.
+     */
+    Enabled: "enabled",
+    /**
+     * Default LLM logs are disabled.
+     */
+    Disabled: "disabled",
+} as const;
+
+/**
+ * Specifies whether default diagnostic should be enabled for Large Language Models or not.
+ */
+export type LlmDiagnosticSettings = (typeof LlmDiagnosticSettings)[keyof typeof LlmDiagnosticSettings];
+
+export const LlmMessageLogTypes = {
+    /**
+     * Log all messages.
+     */
+    All: "all",
+} as const;
+
+/**
+ * Specifies which message should be logged. Currently there is only 'all' option.
+ */
+export type LlmMessageLogTypes = (typeof LlmMessageLogTypes)[keyof typeof LlmMessageLogTypes];
 
 export const LoggerType = {
     /**

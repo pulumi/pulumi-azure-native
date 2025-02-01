@@ -2,17 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20220701preview from "./v20220701preview";
 import * as v20230331 from "./v20230331";
-import * as v20230401 from "./v20230401";
-import * as v20230401preview from "./v20230401preview";
 import * as v20230601preview from "./v20230601preview";
 
 export {
-    v20220701preview,
     v20230331,
-    v20230401,
-    v20230401preview,
     v20230601preview,
 };
 
@@ -26,6 +20,18 @@ export const DomainManagement = {
  * Describes how a Domains resource is being managed.
  */
 export type DomainManagement = (typeof DomainManagement)[keyof typeof DomainManagement];
+
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const UserEngagementTracking = {
     Disabled: "Disabled",

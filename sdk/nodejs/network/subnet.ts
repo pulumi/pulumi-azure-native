@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Subnet in a virtual network resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  *
- * Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-02-01.
  */
 export class Subnet extends pulumi.CustomResource {
     /**
@@ -53,6 +53,10 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly applicationGatewayIPConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayIPConfigurationResponse[] | undefined>;
     /**
+     * Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
+     */
+    public readonly defaultOutboundAccess!: pulumi.Output<boolean | undefined>;
+    /**
      * An array of references to the delegations on the subnet.
      */
     public readonly delegations!: pulumi.Output<outputs.network.DelegationResponse[] | undefined>;
@@ -72,6 +76,10 @@ export class Subnet extends pulumi.CustomResource {
      * An array of references to the network interface IP configurations using subnet.
      */
     public /*out*/ readonly ipConfigurations!: pulumi.Output<outputs.network.IPConfigurationResponse[]>;
+    /**
+     * A list of IPAM Pools for allocating IP address prefixes.
+     */
+    public readonly ipamPoolPrefixAllocations!: pulumi.Output<outputs.network.IpamPoolPrefixAllocationResponse[] | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -125,6 +133,10 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly serviceEndpoints!: pulumi.Output<outputs.network.ServiceEndpointPropertiesFormatResponse[] | undefined>;
     /**
+     * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+     */
+    public readonly sharingScope!: pulumi.Output<string | undefined>;
+    /**
      * Resource type.
      */
     public readonly type!: pulumi.Output<string | undefined>;
@@ -149,9 +161,11 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
             resourceInputs["applicationGatewayIPConfigurations"] = args ? args.applicationGatewayIPConfigurations : undefined;
+            resourceInputs["defaultOutboundAccess"] = args ? args.defaultOutboundAccess : undefined;
             resourceInputs["delegations"] = args ? args.delegations : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ipAllocations"] = args ? args.ipAllocations : undefined;
+            resourceInputs["ipamPoolPrefixAllocations"] = args ? args.ipamPoolPrefixAllocations : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["natGateway"] = args ? args.natGateway : undefined;
             resourceInputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
@@ -161,6 +175,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["routeTable"] = args ? args.routeTable : undefined;
             resourceInputs["serviceEndpointPolicies"] = args ? args.serviceEndpointPolicies : undefined;
             resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
+            resourceInputs["sharingScope"] = args ? args.sharingScope : undefined;
             resourceInputs["subnetName"] = args ? args.subnetName : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
@@ -176,11 +191,13 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["addressPrefix"] = undefined /*out*/;
             resourceInputs["addressPrefixes"] = undefined /*out*/;
             resourceInputs["applicationGatewayIPConfigurations"] = undefined /*out*/;
+            resourceInputs["defaultOutboundAccess"] = undefined /*out*/;
             resourceInputs["delegations"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipAllocations"] = undefined /*out*/;
             resourceInputs["ipConfigurationProfiles"] = undefined /*out*/;
             resourceInputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["ipamPoolPrefixAllocations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["natGateway"] = undefined /*out*/;
             resourceInputs["networkSecurityGroup"] = undefined /*out*/;
@@ -194,6 +211,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["serviceAssociationLinks"] = undefined /*out*/;
             resourceInputs["serviceEndpointPolicies"] = undefined /*out*/;
             resourceInputs["serviceEndpoints"] = undefined /*out*/;
+            resourceInputs["sharingScope"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -220,6 +238,10 @@ export interface SubnetArgs {
      */
     applicationGatewayIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayIPConfigurationArgs>[]>;
     /**
+     * Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
+     */
+    defaultOutboundAccess?: pulumi.Input<boolean>;
+    /**
      * An array of references to the delegations on the subnet.
      */
     delegations?: pulumi.Input<pulumi.Input<inputs.network.DelegationArgs>[]>;
@@ -231,6 +253,10 @@ export interface SubnetArgs {
      * Array of IpAllocation which reference this subnet.
      */
     ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
+    /**
+     * A list of IPAM Pools for allocating IP address prefixes.
+     */
+    ipamPoolPrefixAllocations?: pulumi.Input<pulumi.Input<inputs.network.IpamPoolPrefixAllocationArgs>[]>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -267,6 +293,10 @@ export interface SubnetArgs {
      * An array of service endpoints.
      */
     serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.ServiceEndpointPropertiesFormatArgs>[]>;
+    /**
+     * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+     */
+    sharingScope?: pulumi.Input<string | enums.network.SharingScope>;
     /**
      * The name of the subnet.
      */

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a description for the specified queue.
- * Azure REST API version: 2022-01-01-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2022-01-01-preview.
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +32,7 @@ export interface GetQueueArgs {
      */
     queueName: string;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -152,9 +152,9 @@ export interface GetQueueResult {
 }
 /**
  * Returns a description for the specified queue.
- * Azure REST API version: 2022-01-01-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2022-01-01-preview.
  */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -175,7 +175,7 @@ export interface GetQueueOutputArgs {
      */
     queueName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

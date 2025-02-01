@@ -100,11 +100,9 @@ utilities.lazyLoad(exports, ["VideoAnalyzer"], () => require("./videoAnalyzer"))
 export * from "../types/enums/videoanalyzer";
 
 // Export sub-modules:
-import * as v20210501preview from "./v20210501preview";
 import * as v20211101preview from "./v20211101preview";
 
 export {
-    v20210501preview,
     v20211101preview,
 };
 

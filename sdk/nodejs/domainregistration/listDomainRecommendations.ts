@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get domain name recommendations based on keywords.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01.
  */
 export function listDomainRecommendations(args?: ListDomainRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<ListDomainRecommendationsResult> {
     args = args || {};
@@ -48,9 +48,9 @@ export interface ListDomainRecommendationsResult {
 }
 /**
  * Description for Get domain name recommendations based on keywords.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01.
  */
 export function listDomainRecommendationsOutput(args?: ListDomainRecommendationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDomainRecommendationsResult> {
     args = args || {};
