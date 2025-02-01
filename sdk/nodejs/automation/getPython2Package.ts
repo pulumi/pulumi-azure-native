@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the python 2 package identified by package name.
- * Azure REST API version: 2022-08-08.
+ * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Other available API versions: 2022-08-08, 2024-10-23.
  */
 export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPython2PackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,15 +42,11 @@ export interface GetPython2PackageArgs {
  */
 export interface GetPython2PackageResult {
     /**
-     * Gets or sets the activity count of the module.
+     * Gets the activity count of the module.
      */
     readonly activityCount?: number;
     /**
-     * Gets or sets the contentLink of the module.
-     */
-    readonly contentLink?: outputs.automation.ContentLinkResponse;
-    /**
-     * Gets or sets the creation time.
+     * Gets the creation time.
      */
     readonly creationTime?: string;
     /**
@@ -58,11 +54,11 @@ export interface GetPython2PackageResult {
      */
     readonly description?: string;
     /**
-     * Gets or sets the error info of the module.
+     * Gets the error info of the module.
      */
     readonly error?: outputs.automation.ModuleErrorInfoResponse;
     /**
-     * Gets or sets the etag of the resource.
+     * Gets the etag of the resource.
      */
     readonly etag?: string;
     /**
@@ -70,15 +66,15 @@ export interface GetPython2PackageResult {
      */
     readonly id: string;
     /**
-     * Gets or sets type of module, if its composite or not.
+     * Gets type of module, if its composite or not.
      */
     readonly isComposite?: boolean;
     /**
-     * Gets or sets the isGlobal flag of the module.
+     * Gets the isGlobal flag of the module.
      */
     readonly isGlobal?: boolean;
     /**
-     * Gets or sets the last modified time.
+     * Gets the last modified time.
      */
     readonly lastModifiedTime?: string;
     /**
@@ -90,11 +86,11 @@ export interface GetPython2PackageResult {
      */
     readonly name: string;
     /**
-     * Gets or sets the provisioning state of the module.
+     * Gets the provisioning state of the module.
      */
     readonly provisioningState?: string;
     /**
-     * Gets or sets the size in bytes of the module.
+     * Gets the size in bytes of the module.
      */
     readonly sizeInBytes?: number;
     /**
@@ -106,15 +102,15 @@ export interface GetPython2PackageResult {
      */
     readonly type: string;
     /**
-     * Gets or sets the version of the module.
+     * Gets the version of the module.
      */
     readonly version?: string;
 }
 /**
  * Retrieve the python 2 package identified by package name.
- * Azure REST API version: 2022-08-08.
+ * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Other available API versions: 2022-08-08, 2024-10-23.
  */
 export function getPython2PackageOutput(args: GetPython2PackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPython2PackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

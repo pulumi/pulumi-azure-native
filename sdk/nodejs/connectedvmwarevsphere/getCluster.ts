@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Implements cluster GET method.
- * Azure REST API version: 2022-07-15-preview.
+ * Azure REST API version: 2023-12-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Other available API versions: 2022-07-15-preview.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,7 +41,7 @@ export interface GetClusterResult {
      */
     readonly customResourceName: string;
     /**
-     * Gets or sets the datastore ARM ids.
+     * Gets the datastore ARM ids.
      */
     readonly datastoreIds: string[];
     /**
@@ -77,11 +77,11 @@ export interface GetClusterResult {
      */
     readonly name: string;
     /**
-     * Gets or sets the network ARM ids.
+     * Gets the network ARM ids.
      */
     readonly networkIds: string[];
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     readonly provisioningState: string;
     /**
@@ -97,9 +97,25 @@ export interface GetClusterResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Gets the max CPU usage across all cores on the cluster in MHz.
+     */
+    readonly totalCpuMHz: number;
+    /**
+     * Gets the total amount of physical memory on the cluster in GB.
+     */
+    readonly totalMemoryGB: number;
+    /**
      * Gets or sets the type of the resource.
      */
     readonly type: string;
+    /**
+     * Gets the used CPU usage across all cores on the cluster in MHz.
+     */
+    readonly usedCpuMHz: number;
+    /**
+     * Gets the used physical memory on the cluster in GB.
+     */
+    readonly usedMemoryGB: number;
     /**
      * Gets or sets a unique identifier for this resource.
      */
@@ -111,9 +127,9 @@ export interface GetClusterResult {
 }
 /**
  * Implements cluster GET method.
- * Azure REST API version: 2022-07-15-preview.
+ * Azure REST API version: 2023-12-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Other available API versions: 2022-07-15-preview.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

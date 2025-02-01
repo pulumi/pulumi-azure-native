@@ -45,11 +45,6 @@ export const getExtension: typeof import("./getExtension").getExtension = null a
 export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
 utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
 
-export { GetHciEdgeDeviceArgs, GetHciEdgeDeviceResult, GetHciEdgeDeviceOutputArgs } from "./getHciEdgeDevice";
-export const getHciEdgeDevice: typeof import("./getHciEdgeDevice").getHciEdgeDevice = null as any;
-export const getHciEdgeDeviceOutput: typeof import("./getHciEdgeDevice").getHciEdgeDeviceOutput = null as any;
-utilities.lazyLoad(exports, ["getHciEdgeDevice","getHciEdgeDeviceOutput"], () => require("./getHciEdgeDevice"));
-
 export { GetSecuritySettingArgs, GetSecuritySettingResult, GetSecuritySettingOutputArgs } from "./getSecuritySetting";
 export const getSecuritySetting: typeof import("./getSecuritySetting").getSecuritySetting = null as any;
 export const getSecuritySettingOutput: typeof import("./getSecuritySetting").getSecuritySettingOutput = null as any;
@@ -69,11 +64,6 @@ export { GetUpdateSummaryArgs, GetUpdateSummaryResult, GetUpdateSummaryOutputArg
 export const getUpdateSummary: typeof import("./getUpdateSummary").getUpdateSummary = null as any;
 export const getUpdateSummaryOutput: typeof import("./getUpdateSummary").getUpdateSummaryOutput = null as any;
 utilities.lazyLoad(exports, ["getUpdateSummary","getUpdateSummaryOutput"], () => require("./getUpdateSummary"));
-
-export { HciEdgeDeviceArgs } from "./hciEdgeDevice";
-export type HciEdgeDevice = import("./hciEdgeDevice").HciEdgeDevice;
-export const HciEdgeDevice: typeof import("./hciEdgeDevice").HciEdgeDevice = null as any;
-utilities.lazyLoad(exports, ["HciEdgeDevice"], () => require("./hciEdgeDevice"));
 
 export { SecuritySettingArgs } from "./securitySetting";
 export type SecuritySetting = import("./securitySetting").SecuritySetting;
@@ -111,8 +101,6 @@ const _module = {
                 return new DeploymentSetting(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20240401:Extension":
                 return new Extension(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci/v20240401:HciEdgeDevice":
-                return new HciEdgeDevice(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20240401:SecuritySetting":
                 return new SecuritySetting(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20240401:Update":

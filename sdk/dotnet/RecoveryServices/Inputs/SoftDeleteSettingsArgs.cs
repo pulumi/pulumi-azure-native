@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     /// </summary>
     public sealed class SoftDeleteSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("enhancedSecurityState")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.EnhancedSecurityState>? EnhancedSecurityState { get; set; }
+
         /// <summary>
         /// Soft delete retention period in days
         /// </summary>

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The integration account RosettaNet process configuration.
- * Azure REST API version: 2016-06-01. Prior API version in Azure Native 1.x: 2016-06-01.
+ * Azure REST API version: 2016-06-01. Prior API version in Azure Native 2.x: 2016-06-01.
  */
 export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
     /**

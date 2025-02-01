@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// Advanced Ingress routing for path/header based routing for a Container App Environment
-    /// Azure REST API version: 2024-10-02-preview.
+    /// Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2024-10-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:HttpRouteConfig")]
     public partial class HttpRouteConfig : global::Pulumi.CustomResource

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly string CarrierName;
         /// <summary>
-        /// TrackingId of the package
+        /// TrackingId of the package.
         /// </summary>
         public readonly string TrackingId;
         /// <summary>

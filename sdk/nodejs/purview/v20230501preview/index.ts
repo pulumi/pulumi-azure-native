@@ -15,21 +15,6 @@ export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
-export { GetKafkaConfigurationArgs, GetKafkaConfigurationResult, GetKafkaConfigurationOutputArgs } from "./getKafkaConfiguration";
-export const getKafkaConfiguration: typeof import("./getKafkaConfiguration").getKafkaConfiguration = null as any;
-export const getKafkaConfigurationOutput: typeof import("./getKafkaConfiguration").getKafkaConfigurationOutput = null as any;
-utilities.lazyLoad(exports, ["getKafkaConfiguration","getKafkaConfigurationOutput"], () => require("./getKafkaConfiguration"));
-
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
-export { KafkaConfigurationArgs } from "./kafkaConfiguration";
-export type KafkaConfiguration = import("./kafkaConfiguration").KafkaConfiguration;
-export const KafkaConfiguration: typeof import("./kafkaConfiguration").KafkaConfiguration = null as any;
-utilities.lazyLoad(exports, ["KafkaConfiguration"], () => require("./kafkaConfiguration"));
-
 export { ListAccountKeysArgs, ListAccountKeysResult, ListAccountKeysOutputArgs } from "./listAccountKeys";
 export const listAccountKeys: typeof import("./listAccountKeys").listAccountKeys = null as any;
 export const listAccountKeysOutput: typeof import("./listAccountKeys").listAccountKeysOutput = null as any;
@@ -45,11 +30,6 @@ export const listFeatureSubscription: typeof import("./listFeatureSubscription")
 export const listFeatureSubscriptionOutput: typeof import("./listFeatureSubscription").listFeatureSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["listFeatureSubscription","listFeatureSubscriptionOutput"], () => require("./listFeatureSubscription"));
 
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
 
 // Export enums:
 export * from "../../types/enums/purview/v20230501preview";
@@ -60,10 +40,6 @@ const _module = {
         switch (type) {
             case "azure-native:purview/v20230501preview:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-native:purview/v20230501preview:KafkaConfiguration":
-                return new KafkaConfiguration(name, <any>undefined, { urn })
-            case "azure-native:purview/v20230501preview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

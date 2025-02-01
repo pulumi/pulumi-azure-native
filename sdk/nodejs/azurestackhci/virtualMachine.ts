@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The virtual machine resource definition.
- * Azure REST API version: 2022-12-15-preview.
+ * Azure REST API version: 2022-12-15-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -154,7 +154,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["vmId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:VirtualMachine" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualMachine" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:VirtualMachine" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualMachine" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualmachineRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

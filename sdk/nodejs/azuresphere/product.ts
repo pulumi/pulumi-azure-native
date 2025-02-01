@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * An product resource belonging to a catalog resource.
- * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01-preview.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview.
  */
 export class Product extends pulumi.CustomResource {
     /**
@@ -43,7 +43,7 @@ export class Product extends pulumi.CustomResource {
     /**
      * Description of the product
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -74,9 +74,6 @@ export class Product extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.catalogName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'catalogName'");
-            }
-            if ((!args || args.description === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'description'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -114,7 +111,7 @@ export interface ProductArgs {
     /**
      * Description of the product
      */
-    description: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of product.
      */

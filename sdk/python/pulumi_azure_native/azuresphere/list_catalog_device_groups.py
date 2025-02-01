@@ -37,7 +37,7 @@ class ListCatalogDeviceGroupsResult:
 
     @property
     @pulumi.getter(name="nextLink")
-    def next_link(self) -> str:
+    def next_link(self) -> Optional[str]:
         """
         The link to the next page of items
         """
@@ -72,9 +72,9 @@ def list_catalog_device_groups(catalog_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCatalogDeviceGroupsResult:
     """
     List the device groups for the catalog.
-    Azure REST API version: 2022-09-01-preview.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog
@@ -109,9 +109,9 @@ def list_catalog_device_groups_output(catalog_name: Optional[pulumi.Input[str]] 
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListCatalogDeviceGroupsResult]:
     """
     List the device groups for the catalog.
-    Azure REST API version: 2022-09-01-preview.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog

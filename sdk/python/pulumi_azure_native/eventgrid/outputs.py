@@ -17,24 +17,29 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AzureADPartnerClientAuthenticationResponse',
     'AzureFunctionEventSubscriptionDestinationResponse',
     'BoolEqualsAdvancedFilterResponse',
     'BoolEqualsFilterResponse',
-    'ClientAuthenticationResponse',
     'ClientAuthenticationSettingsResponse',
     'ClientCertificateAuthenticationResponse',
-    'ClientCertificateSubjectDistinguishedNameResponse',
-    'ClientCertificateThumbprintResponse',
     'ConnectionStateResponse',
+    'CustomDomainConfigurationResponse',
+    'CustomDomainIdentityResponse',
+    'CustomJwtAuthenticationManagedIdentityResponse',
+    'CustomJwtAuthenticationSettingsResponse',
     'DeadLetterWithResourceIdentityResponse',
     'DeliveryConfigurationResponse',
     'DeliveryWithResourceIdentityResponse',
     'DynamicDeliveryAttributeMappingResponse',
     'DynamicRoutingEnrichmentResponse',
+    'EncodedIssuerCertificateInfoResponse',
     'EventHubEventSubscriptionDestinationResponse',
     'EventSubscriptionFilterResponse',
     'EventSubscriptionIdentityResponse',
     'EventTypeInfoResponse',
+    'ExtendedLocationResponse',
+    'FederatedIdentityCredentialInfoResponse',
     'FiltersConfigurationResponse',
     'HybridConnectionEventSubscriptionDestinationResponse',
     'IdentityInfoResponse',
@@ -44,10 +49,13 @@ __all__ = [
     'IsNotNullFilterResponse',
     'IsNullOrUndefinedAdvancedFilterResponse',
     'IsNullOrUndefinedFilterResponse',
+    'IssuerCertificateInfoResponse',
     'JsonFieldResponse',
     'JsonFieldWithDefaultResponse',
     'JsonInputSchemaMappingResponse',
+    'MonitorAlertEventSubscriptionDestinationResponse',
     'NamespaceSkuResponse',
+    'NamespaceTopicEventSubscriptionDestinationResponse',
     'NumberGreaterThanAdvancedFilterResponse',
     'NumberGreaterThanFilterResponse',
     'NumberGreaterThanOrEqualsAdvancedFilterResponse',
@@ -65,18 +73,22 @@ __all__ = [
     'NumberNotInRangeAdvancedFilterResponse',
     'NumberNotInRangeFilterResponse',
     'PartnerAuthorizationResponse',
+    'PartnerEventSubscriptionDestinationResponse',
     'PartnerResponse',
     'PartnerTopicInfoResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
+    'PushInfoResponse',
     'QueueInfoResponse',
+    'ResourceMoveChangeHistoryResponse',
+    'ResourceSkuResponse',
     'RetryPolicyResponse',
     'RoutingEnrichmentsResponse',
     'RoutingIdentityInfoResponse',
     'ServiceBusQueueEventSubscriptionDestinationResponse',
     'ServiceBusTopicEventSubscriptionDestinationResponse',
     'StaticDeliveryAttributeMappingResponse',
-    'StaticRoutingEnrichmentResponse',
+    'StaticStringRoutingEnrichmentResponse',
     'StorageBlobDeadLetterDestinationResponse',
     'StorageQueueEventSubscriptionDestinationResponse',
     'StringBeginsWithAdvancedFilterResponse',
@@ -100,7 +112,79 @@ __all__ = [
     'TopicsConfigurationResponse',
     'UserIdentityPropertiesResponse',
     'WebHookEventSubscriptionDestinationResponse',
+    'WebhookPartnerDestinationInfoResponse',
 ]
+
+@pulumi.output_type
+class AzureADPartnerClientAuthenticationResponse(dict):
+    """
+    Azure Active Directory Partner Client Authentication
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientAuthenticationType":
+            suggest = "client_authentication_type"
+        elif key == "azureActiveDirectoryApplicationIdOrUri":
+            suggest = "azure_active_directory_application_id_or_uri"
+        elif key == "azureActiveDirectoryTenantId":
+            suggest = "azure_active_directory_tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureADPartnerClientAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureADPartnerClientAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureADPartnerClientAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_authentication_type: Optional[str] = None,
+                 azure_active_directory_application_id_or_uri: Optional[str] = None,
+                 azure_active_directory_tenant_id: Optional[str] = None):
+        """
+        Azure Active Directory Partner Client Authentication
+        :param str client_authentication_type: Type of client authentication
+               Expected value is 'AzureAD'.
+        :param str azure_active_directory_application_id_or_uri: The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+        :param str azure_active_directory_tenant_id: The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+        """
+        if client_authentication_type is None:
+            client_authentication_type = 'AzureAD'
+        pulumi.set(__self__, "client_authentication_type", 'AzureAD')
+        if azure_active_directory_application_id_or_uri is not None:
+            pulumi.set(__self__, "azure_active_directory_application_id_or_uri", azure_active_directory_application_id_or_uri)
+        if azure_active_directory_tenant_id is not None:
+            pulumi.set(__self__, "azure_active_directory_tenant_id", azure_active_directory_tenant_id)
+
+    @property
+    @pulumi.getter(name="clientAuthenticationType")
+    def client_authentication_type(self) -> str:
+        """
+        Type of client authentication
+        Expected value is 'AzureAD'.
+        """
+        return pulumi.get(self, "client_authentication_type")
+
+    @property
+    @pulumi.getter(name="azureActiveDirectoryApplicationIdOrUri")
+    def azure_active_directory_application_id_or_uri(self) -> Optional[str]:
+        """
+        The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+        """
+        return pulumi.get(self, "azure_active_directory_application_id_or_uri")
+
+    @property
+    @pulumi.getter(name="azureActiveDirectoryTenantId")
+    def azure_active_directory_tenant_id(self) -> Optional[str]:
+        """
+        The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+        """
+        return pulumi.get(self, "azure_active_directory_tenant_id")
+
 
 @pulumi.output_type
 class AzureFunctionEventSubscriptionDestinationResponse(dict):
@@ -334,60 +418,6 @@ class BoolEqualsFilterResponse(dict):
 
 
 @pulumi.output_type
-class ClientAuthenticationResponse(dict):
-    """
-    The Authentication properties for the client.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "certificateSubject":
-            suggest = "certificate_subject"
-        elif key == "certificateThumbprint":
-            suggest = "certificate_thumbprint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClientAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClientAuthenticationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClientAuthenticationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 certificate_subject: Optional['outputs.ClientCertificateSubjectDistinguishedNameResponse'] = None,
-                 certificate_thumbprint: Optional['outputs.ClientCertificateThumbprintResponse'] = None):
-        """
-        The Authentication properties for the client.
-        :param 'ClientCertificateSubjectDistinguishedNameResponse' certificate_subject: The CA certificate subject name used for authentication.
-        :param 'ClientCertificateThumbprintResponse' certificate_thumbprint: The self signed certificate's thumbprints data used for authentication.
-        """
-        if certificate_subject is not None:
-            pulumi.set(__self__, "certificate_subject", certificate_subject)
-        if certificate_thumbprint is not None:
-            pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
-
-    @property
-    @pulumi.getter(name="certificateSubject")
-    def certificate_subject(self) -> Optional['outputs.ClientCertificateSubjectDistinguishedNameResponse']:
-        """
-        The CA certificate subject name used for authentication.
-        """
-        return pulumi.get(self, "certificate_subject")
-
-    @property
-    @pulumi.getter(name="certificateThumbprint")
-    def certificate_thumbprint(self) -> Optional['outputs.ClientCertificateThumbprintResponse']:
-        """
-        The self signed certificate's thumbprints data used for authentication.
-        """
-        return pulumi.get(self, "certificate_thumbprint")
-
-
-@pulumi.output_type
 class ClientAuthenticationSettingsResponse(dict):
     """
     Client authentication settings for namespace resource.
@@ -397,6 +427,8 @@ class ClientAuthenticationSettingsResponse(dict):
         suggest = None
         if key == "alternativeAuthenticationNameSources":
             suggest = "alternative_authentication_name_sources"
+        elif key == "customJwtAuthentication":
+            suggest = "custom_jwt_authentication"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClientAuthenticationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -410,13 +442,17 @@ class ClientAuthenticationSettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 alternative_authentication_name_sources: Optional[Sequence[str]] = None):
+                 alternative_authentication_name_sources: Optional[Sequence[str]] = None,
+                 custom_jwt_authentication: Optional['outputs.CustomJwtAuthenticationSettingsResponse'] = None):
         """
         Client authentication settings for namespace resource.
         :param Sequence[str] alternative_authentication_name_sources: Alternative authentication name sources related to client authentication settings for namespace resource.
+        :param 'CustomJwtAuthenticationSettingsResponse' custom_jwt_authentication: Custom JWT authentication settings for namespace resource.
         """
         if alternative_authentication_name_sources is not None:
             pulumi.set(__self__, "alternative_authentication_name_sources", alternative_authentication_name_sources)
+        if custom_jwt_authentication is not None:
+            pulumi.set(__self__, "custom_jwt_authentication", custom_jwt_authentication)
 
     @property
     @pulumi.getter(name="alternativeAuthenticationNameSources")
@@ -425,6 +461,14 @@ class ClientAuthenticationSettingsResponse(dict):
         Alternative authentication name sources related to client authentication settings for namespace resource.
         """
         return pulumi.get(self, "alternative_authentication_name_sources")
+
+    @property
+    @pulumi.getter(name="customJwtAuthentication")
+    def custom_jwt_authentication(self) -> Optional['outputs.CustomJwtAuthenticationSettingsResponse']:
+        """
+        Custom JWT authentication settings for namespace resource.
+        """
+        return pulumi.get(self, "custom_jwt_authentication")
 
 
 @pulumi.output_type
@@ -479,123 +523,6 @@ class ClientCertificateAuthenticationResponse(dict):
         The validation scheme used to authenticate the client. Default value is SubjectMatchesAuthenticationName.
         """
         return pulumi.get(self, "validation_scheme")
-
-
-@pulumi.output_type
-class ClientCertificateSubjectDistinguishedNameResponse(dict):
-    """
-    CA certificate subject distinguished name information used by service to authenticate clients.
-    For more information, see https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x500distinguishedname?view=net-6.0#remarks
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "commonName":
-            suggest = "common_name"
-        elif key == "countryCode":
-            suggest = "country_code"
-        elif key == "organizationUnit":
-            suggest = "organization_unit"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClientCertificateSubjectDistinguishedNameResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClientCertificateSubjectDistinguishedNameResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClientCertificateSubjectDistinguishedNameResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 common_name: Optional[str] = None,
-                 country_code: Optional[str] = None,
-                 organization: Optional[str] = None,
-                 organization_unit: Optional[str] = None):
-        """
-        CA certificate subject distinguished name information used by service to authenticate clients.
-        For more information, see https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x500distinguishedname?view=net-6.0#remarks
-        :param str common_name: The common name field in the subject name. The allowed limit is 64 characters and it should be specified.
-        :param str country_code: The country code field in the subject name. If present, the country code should be represented by two-letter code defined in ISO 2166-1 (alpha-2). For example: 'US'.
-        :param str organization: The organization field in the subject name. If present, the allowed limit is 64 characters.
-        :param str organization_unit: The organization unit field in the subject name. If present, the allowed limit is 32 characters.
-        """
-        if common_name is not None:
-            pulumi.set(__self__, "common_name", common_name)
-        if country_code is not None:
-            pulumi.set(__self__, "country_code", country_code)
-        if organization is not None:
-            pulumi.set(__self__, "organization", organization)
-        if organization_unit is not None:
-            pulumi.set(__self__, "organization_unit", organization_unit)
-
-    @property
-    @pulumi.getter(name="commonName")
-    def common_name(self) -> Optional[str]:
-        """
-        The common name field in the subject name. The allowed limit is 64 characters and it should be specified.
-        """
-        return pulumi.get(self, "common_name")
-
-    @property
-    @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[str]:
-        """
-        The country code field in the subject name. If present, the country code should be represented by two-letter code defined in ISO 2166-1 (alpha-2). For example: 'US'.
-        """
-        return pulumi.get(self, "country_code")
-
-    @property
-    @pulumi.getter
-    def organization(self) -> Optional[str]:
-        """
-        The organization field in the subject name. If present, the allowed limit is 64 characters.
-        """
-        return pulumi.get(self, "organization")
-
-    @property
-    @pulumi.getter(name="organizationUnit")
-    def organization_unit(self) -> Optional[str]:
-        """
-        The organization unit field in the subject name. If present, the allowed limit is 32 characters.
-        """
-        return pulumi.get(self, "organization_unit")
-
-
-@pulumi.output_type
-class ClientCertificateThumbprintResponse(dict):
-    """
-    Thumbprints are used by the service to validate the device permission when authentication is done using self signed certificate.
-    """
-    def __init__(__self__, *,
-                 primary: Optional[str] = None,
-                 secondary: Optional[str] = None):
-        """
-        Thumbprints are used by the service to validate the device permission when authentication is done using self signed certificate.
-        :param str primary: The primary thumbprint used for validation.
-        :param str secondary: The secondary thumbprint used for validation.
-        """
-        if primary is not None:
-            pulumi.set(__self__, "primary", primary)
-        if secondary is not None:
-            pulumi.set(__self__, "secondary", secondary)
-
-    @property
-    @pulumi.getter
-    def primary(self) -> Optional[str]:
-        """
-        The primary thumbprint used for validation.
-        """
-        return pulumi.get(self, "primary")
-
-    @property
-    @pulumi.getter
-    def secondary(self) -> Optional[str]:
-        """
-        The secondary thumbprint used for validation.
-        """
-        return pulumi.get(self, "secondary")
 
 
 @pulumi.output_type
@@ -663,6 +590,290 @@ class ConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class CustomDomainConfigurationResponse(dict):
+    """
+    A custom domain configuration that allows users to publish to their own domain name.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fullyQualifiedDomainName":
+            suggest = "fully_qualified_domain_name"
+        elif key == "certificateUrl":
+            suggest = "certificate_url"
+        elif key == "expectedTxtRecordName":
+            suggest = "expected_txt_record_name"
+        elif key == "expectedTxtRecordValue":
+            suggest = "expected_txt_record_value"
+        elif key == "validationState":
+            suggest = "validation_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomDomainConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomDomainConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomDomainConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fully_qualified_domain_name: str,
+                 certificate_url: Optional[str] = None,
+                 expected_txt_record_name: Optional[str] = None,
+                 expected_txt_record_value: Optional[str] = None,
+                 identity: Optional['outputs.CustomDomainIdentityResponse'] = None,
+                 validation_state: Optional[str] = None):
+        """
+        A custom domain configuration that allows users to publish to their own domain name.
+        :param str fully_qualified_domain_name: Fully Qualified Domain Name (FQDN) for the custom domain.
+        :param str certificate_url: The URL for the certificate that is used for publishing to the custom domain. We currently support certificates stored in Azure Key Vault only. While certificate URL can be either
+               versioned URL of the following format https://{key-vault-name}.vault.azure.net/certificates/{certificate-name}/{version-id}, or unversioned URL of the following format (e.g.,
+               https://contosovault.vault.azure.net/certificates/contosocert, we support unversioned certificate URL only (e.g., https://contosovault.vault.azure.net/certificates/contosocert)
+        :param str expected_txt_record_name: Expected DNS TXT record name. Event Grid will check for a TXT record with this name in the DNS record set of the custom domain name to prove ownership over the domain.
+               The values under this TXT record must contain the expected TXT record value.
+        :param str expected_txt_record_value: Expected DNS TXT record value. Event Grid will check for a TXT record with this value in the DNS record set of the custom domain name to prove ownership over the domain.
+        :param 'CustomDomainIdentityResponse' identity: Identity info for accessing the certificate for the custom domain. This identity info must match an identity that has been set on the namespace.
+        :param str validation_state: Validation state for the custom domain. This is a read only property and is initially set to 'Pending' and will be updated to 'Approved' by Event Grid only after ownership of the domain name has been successfully validated.
+        """
+        pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if certificate_url is not None:
+            pulumi.set(__self__, "certificate_url", certificate_url)
+        if expected_txt_record_name is not None:
+            pulumi.set(__self__, "expected_txt_record_name", expected_txt_record_name)
+        if expected_txt_record_value is not None:
+            pulumi.set(__self__, "expected_txt_record_value", expected_txt_record_value)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if validation_state is not None:
+            pulumi.set(__self__, "validation_state", validation_state)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedDomainName")
+    def fully_qualified_domain_name(self) -> str:
+        """
+        Fully Qualified Domain Name (FQDN) for the custom domain.
+        """
+        return pulumi.get(self, "fully_qualified_domain_name")
+
+    @property
+    @pulumi.getter(name="certificateUrl")
+    def certificate_url(self) -> Optional[str]:
+        """
+        The URL for the certificate that is used for publishing to the custom domain. We currently support certificates stored in Azure Key Vault only. While certificate URL can be either
+        versioned URL of the following format https://{key-vault-name}.vault.azure.net/certificates/{certificate-name}/{version-id}, or unversioned URL of the following format (e.g.,
+        https://contosovault.vault.azure.net/certificates/contosocert, we support unversioned certificate URL only (e.g., https://contosovault.vault.azure.net/certificates/contosocert)
+        """
+        return pulumi.get(self, "certificate_url")
+
+    @property
+    @pulumi.getter(name="expectedTxtRecordName")
+    def expected_txt_record_name(self) -> Optional[str]:
+        """
+        Expected DNS TXT record name. Event Grid will check for a TXT record with this name in the DNS record set of the custom domain name to prove ownership over the domain.
+        The values under this TXT record must contain the expected TXT record value.
+        """
+        return pulumi.get(self, "expected_txt_record_name")
+
+    @property
+    @pulumi.getter(name="expectedTxtRecordValue")
+    def expected_txt_record_value(self) -> Optional[str]:
+        """
+        Expected DNS TXT record value. Event Grid will check for a TXT record with this value in the DNS record set of the custom domain name to prove ownership over the domain.
+        """
+        return pulumi.get(self, "expected_txt_record_value")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.CustomDomainIdentityResponse']:
+        """
+        Identity info for accessing the certificate for the custom domain. This identity info must match an identity that has been set on the namespace.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="validationState")
+    def validation_state(self) -> Optional[str]:
+        """
+        Validation state for the custom domain. This is a read only property and is initially set to 'Pending' and will be updated to 'Approved' by Event Grid only after ownership of the domain name has been successfully validated.
+        """
+        return pulumi.get(self, "validation_state")
+
+
+@pulumi.output_type
+class CustomDomainIdentityResponse(dict):
+    """
+    The identity information for retrieving the certificate for the custom domain.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomDomainIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomDomainIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomDomainIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        The identity information for retrieving the certificate for the custom domain.
+        :param str type: The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+        :param str user_assigned_identity: The user identity associated with the resource.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The user identity associated with the resource.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
+class CustomJwtAuthenticationManagedIdentityResponse(dict):
+    """
+    The identity information for retrieving the certificate for custom JWT authentication.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomJwtAuthenticationManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomJwtAuthenticationManagedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomJwtAuthenticationManagedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        The identity information for retrieving the certificate for custom JWT authentication.
+        :param str type: The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+        :param str user_assigned_identity: The user identity associated with the resource.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The user identity associated with the resource.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
+class CustomJwtAuthenticationSettingsResponse(dict):
+    """
+    Custom JWT authentication settings for namespace resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encodedIssuerCertificates":
+            suggest = "encoded_issuer_certificates"
+        elif key == "issuerCertificates":
+            suggest = "issuer_certificates"
+        elif key == "tokenIssuer":
+            suggest = "token_issuer"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomJwtAuthenticationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomJwtAuthenticationSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomJwtAuthenticationSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encoded_issuer_certificates: Optional[Sequence['outputs.EncodedIssuerCertificateInfoResponse']] = None,
+                 issuer_certificates: Optional[Sequence['outputs.IssuerCertificateInfoResponse']] = None,
+                 token_issuer: Optional[str] = None):
+        """
+        Custom JWT authentication settings for namespace resource.
+        :param Sequence['EncodedIssuerCertificateInfoResponse'] encoded_issuer_certificates: Information about the encoded public certificates that are used for custom authentication.
+        :param Sequence['IssuerCertificateInfoResponse'] issuer_certificates: Information about the certificates that are used for token validation. We currently support maximum 2 certificates.
+        :param str token_issuer: Expected JWT token issuer.
+        """
+        if encoded_issuer_certificates is not None:
+            pulumi.set(__self__, "encoded_issuer_certificates", encoded_issuer_certificates)
+        if issuer_certificates is not None:
+            pulumi.set(__self__, "issuer_certificates", issuer_certificates)
+        if token_issuer is not None:
+            pulumi.set(__self__, "token_issuer", token_issuer)
+
+    @property
+    @pulumi.getter(name="encodedIssuerCertificates")
+    def encoded_issuer_certificates(self) -> Optional[Sequence['outputs.EncodedIssuerCertificateInfoResponse']]:
+        """
+        Information about the encoded public certificates that are used for custom authentication.
+        """
+        return pulumi.get(self, "encoded_issuer_certificates")
+
+    @property
+    @pulumi.getter(name="issuerCertificates")
+    def issuer_certificates(self) -> Optional[Sequence['outputs.IssuerCertificateInfoResponse']]:
+        """
+        Information about the certificates that are used for token validation. We currently support maximum 2 certificates.
+        """
+        return pulumi.get(self, "issuer_certificates")
+
+    @property
+    @pulumi.getter(name="tokenIssuer")
+    def token_issuer(self) -> Optional[str]:
+        """
+        Expected JWT token issuer.
+        """
+        return pulumi.get(self, "token_issuer")
+
+
+@pulumi.output_type
 class DeadLetterWithResourceIdentityResponse(dict):
     """
     Information about the deadletter destination with resource identity.
@@ -690,7 +901,7 @@ class DeadLetterWithResourceIdentityResponse(dict):
         """
         Information about the deadletter destination with resource identity.
         :param 'StorageBlobDeadLetterDestinationResponse' dead_letter_destination: Information about the destination where events have to be delivered for the event subscription.
-               Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+               Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during dead-lettering.
         :param 'EventSubscriptionIdentityResponse' identity: The identity to use when dead-lettering events.
         """
         if dead_letter_destination is not None:
@@ -703,7 +914,7 @@ class DeadLetterWithResourceIdentityResponse(dict):
     def dead_letter_destination(self) -> Optional['outputs.StorageBlobDeadLetterDestinationResponse']:
         """
         Information about the destination where events have to be delivered for the event subscription.
-        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during dead-lettering.
         """
         return pulumi.get(self, "dead_letter_destination")
 
@@ -740,14 +951,18 @@ class DeliveryConfigurationResponse(dict):
 
     def __init__(__self__, *,
                  delivery_mode: Optional[str] = None,
+                 push: Optional['outputs.PushInfoResponse'] = None,
                  queue: Optional['outputs.QueueInfoResponse'] = None):
         """
         Properties of the delivery configuration information of the event subscription.
         :param str delivery_mode: Delivery mode of the event subscription.
+        :param 'PushInfoResponse' push: This property should be populated when deliveryMode is push and represents information about the push subscription.
         :param 'QueueInfoResponse' queue: This property should be populated when deliveryMode is queue and represents information about the queue subscription.
         """
         if delivery_mode is not None:
             pulumi.set(__self__, "delivery_mode", delivery_mode)
+        if push is not None:
+            pulumi.set(__self__, "push", push)
         if queue is not None:
             pulumi.set(__self__, "queue", queue)
 
@@ -758,6 +973,14 @@ class DeliveryConfigurationResponse(dict):
         Delivery mode of the event subscription.
         """
         return pulumi.get(self, "delivery_mode")
+
+    @property
+    @pulumi.getter
+    def push(self) -> Optional['outputs.PushInfoResponse']:
+        """
+        This property should be populated when deliveryMode is push and represents information about the push subscription.
+        """
+        return pulumi.get(self, "push")
 
     @property
     @pulumi.getter
@@ -778,8 +1001,8 @@ class DeliveryWithResourceIdentityResponse(dict):
                  identity: Optional['outputs.EventSubscriptionIdentityResponse'] = None):
         """
         Information about the delivery for an event subscription with resource identity.
-        :param Union['AzureFunctionEventSubscriptionDestinationResponse', 'EventHubEventSubscriptionDestinationResponse', 'HybridConnectionEventSubscriptionDestinationResponse', 'ServiceBusQueueEventSubscriptionDestinationResponse', 'ServiceBusTopicEventSubscriptionDestinationResponse', 'StorageQueueEventSubscriptionDestinationResponse', 'WebHookEventSubscriptionDestinationResponse'] destination: Information about the destination where events have to be delivered for the event subscription.
-               Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        :param Union['AzureFunctionEventSubscriptionDestinationResponse', 'EventHubEventSubscriptionDestinationResponse', 'HybridConnectionEventSubscriptionDestinationResponse', 'MonitorAlertEventSubscriptionDestinationResponse', 'NamespaceTopicEventSubscriptionDestinationResponse', 'PartnerEventSubscriptionDestinationResponse', 'ServiceBusQueueEventSubscriptionDestinationResponse', 'ServiceBusTopicEventSubscriptionDestinationResponse', 'StorageQueueEventSubscriptionDestinationResponse', 'WebHookEventSubscriptionDestinationResponse'] destination: Information about the destination where events have to be delivered for the event subscription.
+               Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery.
         :param 'EventSubscriptionIdentityResponse' identity: The identity to use when delivering events.
         """
         if destination is not None:
@@ -792,7 +1015,7 @@ class DeliveryWithResourceIdentityResponse(dict):
     def destination(self) -> Optional[Any]:
         """
         Information about the destination where events have to be delivered for the event subscription.
-        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery.
         """
         return pulumi.get(self, "destination")
 
@@ -899,6 +1122,56 @@ class DynamicRoutingEnrichmentResponse(dict):
         Dynamic routing enrichment value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EncodedIssuerCertificateInfoResponse(dict):
+    """
+    Information about the public certificate that is used for custom authentication.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encodedCertificate":
+            suggest = "encoded_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncodedIssuerCertificateInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncodedIssuerCertificateInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncodedIssuerCertificateInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encoded_certificate: str,
+                 kid: str):
+        """
+        Information about the public certificate that is used for custom authentication.
+        :param str encoded_certificate: Certificate in pem format.
+        :param str kid: Identifier for the certificate.
+        """
+        pulumi.set(__self__, "encoded_certificate", encoded_certificate)
+        pulumi.set(__self__, "kid", kid)
+
+    @property
+    @pulumi.getter(name="encodedCertificate")
+    def encoded_certificate(self) -> str:
+        """
+        Certificate in pem format.
+        """
+        return pulumi.get(self, "encoded_certificate")
+
+    @property
+    @pulumi.getter
+    def kid(self) -> str:
+        """
+        Identifier for the certificate.
+        """
+        return pulumi.get(self, "kid")
 
 
 @pulumi.output_type
@@ -1098,7 +1371,9 @@ class EventSubscriptionIdentityResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "userAssignedIdentity":
+        if key == "federatedIdentityCredentialInfo":
+            suggest = "federated_identity_credential_info"
+        elif key == "userAssignedIdentity":
             suggest = "user_assigned_identity"
 
         if suggest:
@@ -1113,23 +1388,35 @@ class EventSubscriptionIdentityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 federated_identity_credential_info: Optional['outputs.FederatedIdentityCredentialInfoResponse'] = None,
                  type: Optional[str] = None,
                  user_assigned_identity: Optional[str] = None):
         """
         The identity information with the event subscription.
-        :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        :param 'FederatedIdentityCredentialInfoResponse' federated_identity_credential_info: The details of the Federated Identity Credential (FIC) used with the resource delivery.
+        :param str type: The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
         :param str user_assigned_identity: The user identity associated with the resource.
         """
+        if federated_identity_credential_info is not None:
+            pulumi.set(__self__, "federated_identity_credential_info", federated_identity_credential_info)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_assigned_identity is not None:
             pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
 
     @property
+    @pulumi.getter(name="federatedIdentityCredentialInfo")
+    def federated_identity_credential_info(self) -> Optional['outputs.FederatedIdentityCredentialInfoResponse']:
+        """
+        The details of the Federated Identity Credential (FIC) used with the resource delivery.
+        """
+        return pulumi.get(self, "federated_identity_credential_info")
+
+    @property
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
         """
         return pulumi.get(self, "type")
 
@@ -1196,6 +1483,80 @@ class EventTypeInfoResponse(dict):
         The kind of event type used.
         """
         return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    Definition of an Extended Location
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Definition of an Extended Location
+        :param str name: Fully qualified name of the extended location.
+        :param str type: Type of the extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Fully qualified name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FederatedIdentityCredentialInfoResponse(dict):
+    """
+    The details of the Federated Identity Credential (FIC) used with the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "federatedClientId":
+            suggest = "federated_client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FederatedIdentityCredentialInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FederatedIdentityCredentialInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FederatedIdentityCredentialInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 federated_client_id: str):
+        """
+        The details of the Federated Identity Credential (FIC) used with the resource.
+        :param str federated_client_id: The Multi-Tenant AAD Application where the Federated Identity Credential (FIC) is associated with.
+        """
+        pulumi.set(__self__, "federated_client_id", federated_client_id)
+
+    @property
+    @pulumi.getter(name="federatedClientId")
+    def federated_client_id(self) -> str:
+        """
+        The Multi-Tenant AAD Application where the Federated Identity Credential (FIC) is associated with.
+        """
+        return pulumi.get(self, "federated_client_id")
 
 
 @pulumi.output_type
@@ -1744,6 +2105,57 @@ class IsNullOrUndefinedFilterResponse(dict):
 
 
 @pulumi.output_type
+class IssuerCertificateInfoResponse(dict):
+    """
+    Information about the certificate that is used for token validation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateUrl":
+            suggest = "certificate_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IssuerCertificateInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IssuerCertificateInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IssuerCertificateInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_url: str,
+                 identity: Optional['outputs.CustomJwtAuthenticationManagedIdentityResponse'] = None):
+        """
+        Information about the certificate that is used for token validation.
+        :param str certificate_url: Keyvault certificate URL in https://keyvaultname.vault.azure.net/certificates/certificateName/certificateVersion format.
+        :param 'CustomJwtAuthenticationManagedIdentityResponse' identity: The identity that will be used to access the certificate.
+        """
+        pulumi.set(__self__, "certificate_url", certificate_url)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter(name="certificateUrl")
+    def certificate_url(self) -> str:
+        """
+        Keyvault certificate URL in https://keyvaultname.vault.azure.net/certificates/certificateName/certificateVersion format.
+        """
+        return pulumi.get(self, "certificate_url")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.CustomJwtAuthenticationManagedIdentityResponse']:
+        """
+        The identity that will be used to access the certificate.
+        """
+        return pulumi.get(self, "identity")
+
+
+@pulumi.output_type
 class JsonFieldResponse(dict):
     """
     This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
@@ -1963,6 +2375,89 @@ class JsonInputSchemaMappingResponse(dict):
 
 
 @pulumi.output_type
+class MonitorAlertEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the Monitor Alert destination for an event subscription.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "actionGroups":
+            suggest = "action_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorAlertEventSubscriptionDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorAlertEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorAlertEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 action_groups: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None,
+                 severity: Optional[str] = None):
+        """
+        Information about the Monitor Alert destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'MonitorAlert'.
+        :param Sequence[str] action_groups: The list of ARM Ids of Action Groups that will be triggered on every Alert fired through this event subscription.
+               Each resource ARM Id should follow this pattern: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Insights/actionGroups/{ActionGroupName}.
+        :param str description: The description that will be attached to every Alert fired through this event subscription.
+        :param str severity: The severity that will be attached to every Alert fired through this event subscription.
+               This field must be provided.
+        """
+        pulumi.set(__self__, "endpoint_type", 'MonitorAlert')
+        if action_groups is not None:
+            pulumi.set(__self__, "action_groups", action_groups)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'MonitorAlert'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="actionGroups")
+    def action_groups(self) -> Optional[Sequence[str]]:
+        """
+        The list of ARM Ids of Action Groups that will be triggered on every Alert fired through this event subscription.
+        Each resource ARM Id should follow this pattern: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Insights/actionGroups/{ActionGroupName}.
+        """
+        return pulumi.get(self, "action_groups")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description that will be attached to every Alert fired through this event subscription.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[str]:
+        """
+        The severity that will be attached to every Alert fired through this event subscription.
+        This field must be provided.
+        """
+        return pulumi.get(self, "severity")
+
+
+@pulumi.output_type
 class NamespaceSkuResponse(dict):
     """
     Represents available Sku pricing tiers.
@@ -1999,6 +2494,65 @@ class NamespaceSkuResponse(dict):
         The name of the SKU.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class NamespaceTopicEventSubscriptionDestinationResponse(dict):
+    """
+    Information about the Namespace Topic destination for an event subscription.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NamespaceTopicEventSubscriptionDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NamespaceTopicEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NamespaceTopicEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 resource_id: Optional[str] = None):
+        """
+        Information about the Namespace Topic destination for an event subscription.
+        :param str endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'NamespaceTopic'.
+        :param str resource_id: The Azure resource Id that represents the endpoint of the Event Grid Namespace Topic destination of an event subscription.
+               This field is required and the Namespace Topic resource listed must already exist.
+               The resource ARM Id should follow this pattern: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.EventGrid/namespaces/{NamespaceName}/topics/{TopicName}.
+        """
+        pulumi.set(__self__, "endpoint_type", 'NamespaceTopic')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'NamespaceTopic'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure resource Id that represents the endpoint of the Event Grid Namespace Topic destination of an event subscription.
+        This field is required and the Namespace Topic resource listed must already exist.
+        The resource ARM Id should follow this pattern: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.EventGrid/namespaces/{NamespaceName}/topics/{TopicName}.
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -3098,6 +3652,57 @@ class PartnerAuthorizationResponse(dict):
 
 
 @pulumi.output_type
+class PartnerEventSubscriptionDestinationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnerEventSubscriptionDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnerEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnerEventSubscriptionDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_type: str,
+                 resource_id: Optional[str] = None):
+        """
+        :param str endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'PartnerDestination'.
+        :param str resource_id: The Azure Resource Id that represents the endpoint of a Partner Destination of an event subscription.
+        """
+        pulumi.set(__self__, "endpoint_type", 'PartnerDestination')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'PartnerDestination'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The Azure Resource Id that represents the endpoint of a Partner Destination of an event subscription.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
 class PartnerResponse(dict):
     """
     Information about the partner.
@@ -3406,6 +4011,136 @@ class PrivateEndpointResponse(dict):
 
 
 @pulumi.output_type
+class PushInfoResponse(dict):
+    """
+    Properties of the destination info for event subscription supporting push.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deadLetterDestinationWithResourceIdentity":
+            suggest = "dead_letter_destination_with_resource_identity"
+        elif key == "deliveryWithResourceIdentity":
+            suggest = "delivery_with_resource_identity"
+        elif key == "eventTimeToLive":
+            suggest = "event_time_to_live"
+        elif key == "maxDeliveryCount":
+            suggest = "max_delivery_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PushInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PushInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PushInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dead_letter_destination_with_resource_identity: Optional['outputs.DeadLetterWithResourceIdentityResponse'] = None,
+                 delivery_with_resource_identity: Optional['outputs.DeliveryWithResourceIdentityResponse'] = None,
+                 destination: Optional[Any] = None,
+                 event_time_to_live: Optional[str] = None,
+                 max_delivery_count: Optional[int] = None):
+        """
+        Properties of the destination info for event subscription supporting push.
+        :param 'DeadLetterWithResourceIdentityResponse' dead_letter_destination_with_resource_identity: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+               Uses the managed identity setup on the parent resource (namely, namespace) to acquire the authentication tokens being used during dead-lettering.
+        :param 'DeliveryWithResourceIdentityResponse' delivery_with_resource_identity: Information about the destination where events have to be delivered for the event subscription.
+               Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery.
+        :param Union['AzureFunctionEventSubscriptionDestinationResponse', 'EventHubEventSubscriptionDestinationResponse', 'HybridConnectionEventSubscriptionDestinationResponse', 'MonitorAlertEventSubscriptionDestinationResponse', 'NamespaceTopicEventSubscriptionDestinationResponse', 'PartnerEventSubscriptionDestinationResponse', 'ServiceBusQueueEventSubscriptionDestinationResponse', 'ServiceBusTopicEventSubscriptionDestinationResponse', 'StorageQueueEventSubscriptionDestinationResponse', 'WebHookEventSubscriptionDestinationResponse'] destination: Information about the destination where events have to be delivered for the event subscription.
+               Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery.
+        :param str event_time_to_live: Time span duration in ISO 8601 format that determines how long messages are available to the subscription from the time the message was published.
+               This duration value is expressed using the following format: \\'P(n)Y(n)M(n)DT(n)H(n)M(n)S\\', where:
+                   - (n) is replaced by the value of each time element that follows the (n).
+                   - P is the duration (or Period) designator and is always placed at the beginning of the duration.
+                   - Y is the year designator, and it follows the value for the number of years.
+                   - M is the month designator, and it follows the value for the number of months.
+                   - W is the week designator, and it follows the value for the number of weeks.
+                   - D is the day designator, and it follows the value for the number of days.
+                   - T is the time designator, and it precedes the time components.
+                   - H is the hour designator, and it follows the value for the number of hours.
+                   - M is the minute designator, and it follows the value for the number of minutes.
+                   - S is the second designator, and it follows the value for the number of seconds.
+               This duration value cannot be set greater than the topic’s EventRetentionInDays. It is is an optional field where its minimum value is 1 minute, and its maximum is determined
+               by topic’s EventRetentionInDays value. The followings are examples of valid values:
+                   - \\'P0DT23H12M\\' or \\'PT23H12M\\': for duration of 23 hours and 12 minutes.
+                   - \\'P1D\\' or \\'P1DT0H0M0S\\': for duration of 1 day.
+        :param int max_delivery_count: The maximum delivery count of the events.
+        """
+        if dead_letter_destination_with_resource_identity is not None:
+            pulumi.set(__self__, "dead_letter_destination_with_resource_identity", dead_letter_destination_with_resource_identity)
+        if delivery_with_resource_identity is not None:
+            pulumi.set(__self__, "delivery_with_resource_identity", delivery_with_resource_identity)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if event_time_to_live is not None:
+            pulumi.set(__self__, "event_time_to_live", event_time_to_live)
+        if max_delivery_count is not None:
+            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+
+    @property
+    @pulumi.getter(name="deadLetterDestinationWithResourceIdentity")
+    def dead_letter_destination_with_resource_identity(self) -> Optional['outputs.DeadLetterWithResourceIdentityResponse']:
+        """
+        The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        Uses the managed identity setup on the parent resource (namely, namespace) to acquire the authentication tokens being used during dead-lettering.
+        """
+        return pulumi.get(self, "dead_letter_destination_with_resource_identity")
+
+    @property
+    @pulumi.getter(name="deliveryWithResourceIdentity")
+    def delivery_with_resource_identity(self) -> Optional['outputs.DeliveryWithResourceIdentityResponse']:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery.
+        """
+        return pulumi.get(self, "delivery_with_resource_identity")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[Any]:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="eventTimeToLive")
+    def event_time_to_live(self) -> Optional[str]:
+        """
+        Time span duration in ISO 8601 format that determines how long messages are available to the subscription from the time the message was published.
+        This duration value is expressed using the following format: \\'P(n)Y(n)M(n)DT(n)H(n)M(n)S\\', where:
+            - (n) is replaced by the value of each time element that follows the (n).
+            - P is the duration (or Period) designator and is always placed at the beginning of the duration.
+            - Y is the year designator, and it follows the value for the number of years.
+            - M is the month designator, and it follows the value for the number of months.
+            - W is the week designator, and it follows the value for the number of weeks.
+            - D is the day designator, and it follows the value for the number of days.
+            - T is the time designator, and it precedes the time components.
+            - H is the hour designator, and it follows the value for the number of hours.
+            - M is the minute designator, and it follows the value for the number of minutes.
+            - S is the second designator, and it follows the value for the number of seconds.
+        This duration value cannot be set greater than the topic’s EventRetentionInDays. It is is an optional field where its minimum value is 1 minute, and its maximum is determined
+        by topic’s EventRetentionInDays value. The followings are examples of valid values:
+            - \\'P0DT23H12M\\' or \\'PT23H12M\\': for duration of 23 hours and 12 minutes.
+            - \\'P1D\\' or \\'P1DT0H0M0S\\': for duration of 1 day.
+        """
+        return pulumi.get(self, "event_time_to_live")
+
+    @property
+    @pulumi.getter(name="maxDeliveryCount")
+    def max_delivery_count(self) -> Optional[int]:
+        """
+        The maximum delivery count of the events.
+        """
+        return pulumi.get(self, "max_delivery_count")
+
+
+@pulumi.output_type
 class QueueInfoResponse(dict):
     """
     Properties of the Queue info for event subscription.
@@ -3524,6 +4259,99 @@ class QueueInfoResponse(dict):
 
 
 @pulumi.output_type
+class ResourceMoveChangeHistoryResponse(dict):
+    """
+    The change history of the resource move.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureSubscriptionId":
+            suggest = "azure_subscription_id"
+        elif key == "changedTimeUtc":
+            suggest = "changed_time_utc"
+        elif key == "resourceGroupName":
+            suggest = "resource_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceMoveChangeHistoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceMoveChangeHistoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceMoveChangeHistoryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_subscription_id: Optional[str] = None,
+                 changed_time_utc: Optional[str] = None,
+                 resource_group_name: Optional[str] = None):
+        """
+        The change history of the resource move.
+        :param str azure_subscription_id: Azure subscription ID of the resource.
+        :param str changed_time_utc: UTC timestamp of when the resource was changed.
+        :param str resource_group_name: Azure Resource Group of the resource.
+        """
+        if azure_subscription_id is not None:
+            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
+        if changed_time_utc is not None:
+            pulumi.set(__self__, "changed_time_utc", changed_time_utc)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter(name="azureSubscriptionId")
+    def azure_subscription_id(self) -> Optional[str]:
+        """
+        Azure subscription ID of the resource.
+        """
+        return pulumi.get(self, "azure_subscription_id")
+
+    @property
+    @pulumi.getter(name="changedTimeUtc")
+    def changed_time_utc(self) -> Optional[str]:
+        """
+        UTC timestamp of when the resource was changed.
+        """
+        return pulumi.get(self, "changed_time_utc")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[str]:
+        """
+        Azure Resource Group of the resource.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+
+@pulumi.output_type
+class ResourceSkuResponse(dict):
+    """
+    Describes an EventGrid Resource Sku.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        Describes an EventGrid Resource Sku.
+        :param str name: The Sku name of the resource. The possible values are: Basic or Premium.
+        """
+        if name is None:
+            name = 'Basic'
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The Sku name of the resource. The possible values are: Basic or Premium.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class RetryPolicyResponse(dict):
     """
     Information about the retry policy for an event subscription.
@@ -3585,7 +4413,7 @@ class RetryPolicyResponse(dict):
 class RoutingEnrichmentsResponse(dict):
     def __init__(__self__, *,
                  dynamic: Optional[Sequence['outputs.DynamicRoutingEnrichmentResponse']] = None,
-                 static: Optional[Sequence['outputs.StaticRoutingEnrichmentResponse']] = None):
+                 static: Optional[Sequence['outputs.StaticStringRoutingEnrichmentResponse']] = None):
         if dynamic is not None:
             pulumi.set(__self__, "dynamic", dynamic)
         if static is not None:
@@ -3598,7 +4426,7 @@ class RoutingEnrichmentsResponse(dict):
 
     @property
     @pulumi.getter
-    def static(self) -> Optional[Sequence['outputs.StaticRoutingEnrichmentResponse']]:
+    def static(self) -> Optional[Sequence['outputs.StaticStringRoutingEnrichmentResponse']]:
         return pulumi.get(self, "static")
 
 
@@ -3629,6 +4457,7 @@ class RoutingIdentityInfoResponse(dict):
                  user_assigned_identity: Optional[str] = None):
         """
         Routing identity info for topic spaces configuration.
+        :param str type: Routing identity type for topic spaces configuration.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -3638,6 +4467,9 @@ class RoutingIdentityInfoResponse(dict):
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        Routing identity type for topic spaces configuration.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -3864,7 +4696,7 @@ class StaticDeliveryAttributeMappingResponse(dict):
 
 
 @pulumi.output_type
-class StaticRoutingEnrichmentResponse(dict):
+class StaticStringRoutingEnrichmentResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3872,27 +4704,40 @@ class StaticRoutingEnrichmentResponse(dict):
             suggest = "value_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StaticRoutingEnrichmentResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in StaticStringRoutingEnrichmentResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        StaticRoutingEnrichmentResponse.__key_warning(key)
+        StaticStringRoutingEnrichmentResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        StaticRoutingEnrichmentResponse.__key_warning(key)
+        StaticStringRoutingEnrichmentResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 value_type: str,
                  key: Optional[str] = None,
-                 value_type: Optional[str] = None):
+                 value: Optional[str] = None):
         """
-        :param str key: Static routing enrichment key.
         :param str value_type: Static routing enrichment value type. For e.g. this property value can be 'String'.
+               Expected value is 'String'.
+        :param str key: Static routing enrichment key.
+        :param str value: String type routing enrichment value.
         """
+        pulumi.set(__self__, "value_type", 'String')
         if key is not None:
             pulumi.set(__self__, "key", key)
-        if value_type is not None:
-            pulumi.set(__self__, "value_type", value_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> str:
+        """
+        Static routing enrichment value type. For e.g. this property value can be 'String'.
+        Expected value is 'String'.
+        """
+        return pulumi.get(self, "value_type")
 
     @property
     @pulumi.getter
@@ -3903,12 +4748,12 @@ class StaticRoutingEnrichmentResponse(dict):
         return pulumi.get(self, "key")
 
     @property
-    @pulumi.getter(name="valueType")
-    def value_type(self) -> Optional[str]:
+    @pulumi.getter
+    def value(self) -> Optional[str]:
         """
-        Static routing enrichment value type. For e.g. this property value can be 'String'.
+        String type routing enrichment value.
         """
-        return pulumi.get(self, "value_type")
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -4017,7 +4862,7 @@ class StorageQueueEventSubscriptionDestinationResponse(dict):
         Information about the storage queue destination for an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'StorageQueue'.
-        :param float queue_message_time_to_live_in_seconds: Storage queue message time to live in seconds.
+        :param float queue_message_time_to_live_in_seconds: Storage queue message time to live in seconds. This value cannot be zero or negative with the exception of using -1 to indicate that the Time To Live of the message is Infinite.
         :param str queue_name: The name of the Storage queue under a storage account that is the destination of an event subscription.
         :param str resource_id: The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
         """
@@ -4042,7 +4887,7 @@ class StorageQueueEventSubscriptionDestinationResponse(dict):
     @pulumi.getter(name="queueMessageTimeToLiveInSeconds")
     def queue_message_time_to_live_in_seconds(self) -> Optional[float]:
         """
-        Storage queue message time to live in seconds.
+        Storage queue message time to live in seconds. This value cannot be zero or negative with the exception of using -1 to indicate that the Time To Live of the message is Infinite.
         """
         return pulumi.get(self, "queue_message_time_to_live_in_seconds")
 
@@ -5223,6 +6068,8 @@ class TopicSpacesConfigurationResponse(dict):
         suggest = None
         if key == "clientAuthentication":
             suggest = "client_authentication"
+        elif key == "customDomains":
+            suggest = "custom_domains"
         elif key == "maximumClientSessionsPerAuthenticationName":
             suggest = "maximum_client_sessions_per_authentication_name"
         elif key == "maximumSessionExpiryInHours":
@@ -5248,6 +6095,7 @@ class TopicSpacesConfigurationResponse(dict):
     def __init__(__self__, *,
                  hostname: str,
                  client_authentication: Optional['outputs.ClientAuthenticationSettingsResponse'] = None,
+                 custom_domains: Optional[Sequence['outputs.CustomDomainConfigurationResponse']] = None,
                  maximum_client_sessions_per_authentication_name: Optional[int] = None,
                  maximum_session_expiry_in_hours: Optional[int] = None,
                  route_topic_resource_id: Optional[str] = None,
@@ -5258,6 +6106,7 @@ class TopicSpacesConfigurationResponse(dict):
         Properties of the Topic Spaces Configuration.
         :param str hostname: The endpoint for the topic spaces configuration. This is a read-only property.
         :param 'ClientAuthenticationSettingsResponse' client_authentication: Client authentication settings for topic spaces configuration.
+        :param Sequence['CustomDomainConfigurationResponse'] custom_domains: List of custom domain configurations for the namespace.
         :param int maximum_client_sessions_per_authentication_name: The maximum number of sessions per authentication name. The property default value is 1.
                Min allowed value is 1 and max allowed value is 100.
         :param int maximum_session_expiry_in_hours: The maximum session expiry in hours. The property default value is 1 hour.
@@ -5272,6 +6121,8 @@ class TopicSpacesConfigurationResponse(dict):
         pulumi.set(__self__, "hostname", hostname)
         if client_authentication is not None:
             pulumi.set(__self__, "client_authentication", client_authentication)
+        if custom_domains is not None:
+            pulumi.set(__self__, "custom_domains", custom_domains)
         if maximum_client_sessions_per_authentication_name is not None:
             pulumi.set(__self__, "maximum_client_sessions_per_authentication_name", maximum_client_sessions_per_authentication_name)
         if maximum_session_expiry_in_hours is not None:
@@ -5302,6 +6153,14 @@ class TopicSpacesConfigurationResponse(dict):
         Client authentication settings for topic spaces configuration.
         """
         return pulumi.get(self, "client_authentication")
+
+    @property
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> Optional[Sequence['outputs.CustomDomainConfigurationResponse']]:
+        """
+        List of custom domain configurations for the namespace.
+        """
+        return pulumi.get(self, "custom_domains")
 
     @property
     @pulumi.getter(name="maximumClientSessionsPerAuthenticationName")
@@ -5361,13 +6220,34 @@ class TopicsConfigurationResponse(dict):
     """
     Properties of the Topics Configuration.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customDomains":
+            suggest = "custom_domains"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicsConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicsConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 hostname: str):
+                 hostname: str,
+                 custom_domains: Optional[Sequence['outputs.CustomDomainConfigurationResponse']] = None):
         """
         Properties of the Topics Configuration.
         :param str hostname: The hostname for the topics configuration. This is a read-only property.
+        :param Sequence['CustomDomainConfigurationResponse'] custom_domains: List of custom domain configurations for the namespace.
         """
         pulumi.set(__self__, "hostname", hostname)
+        if custom_domains is not None:
+            pulumi.set(__self__, "custom_domains", custom_domains)
 
     @property
     @pulumi.getter
@@ -5376,6 +6256,14 @@ class TopicsConfigurationResponse(dict):
         The hostname for the topics configuration. This is a read-only property.
         """
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> Optional[Sequence['outputs.CustomDomainConfigurationResponse']]:
+        """
+        List of custom domain configurations for the namespace.
+        """
+        return pulumi.get(self, "custom_domains")
 
 
 @pulumi.output_type
@@ -5454,6 +6342,8 @@ class WebHookEventSubscriptionDestinationResponse(dict):
             suggest = "endpoint_url"
         elif key == "maxEventsPerBatch":
             suggest = "max_events_per_batch"
+        elif key == "minimumTlsVersionAllowed":
+            suggest = "minimum_tls_version_allowed"
         elif key == "preferredBatchSizeInKilobytes":
             suggest = "preferred_batch_size_in_kilobytes"
 
@@ -5476,6 +6366,7 @@ class WebHookEventSubscriptionDestinationResponse(dict):
                  delivery_attribute_mappings: Optional[Sequence[Any]] = None,
                  endpoint_url: Optional[str] = None,
                  max_events_per_batch: Optional[int] = None,
+                 minimum_tls_version_allowed: Optional[str] = None,
                  preferred_batch_size_in_kilobytes: Optional[int] = None):
         """
         Information about the webhook destination for an event subscription.
@@ -5487,6 +6378,7 @@ class WebHookEventSubscriptionDestinationResponse(dict):
         :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
         :param str endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
         :param int max_events_per_batch: Maximum number of events per batch.
+        :param str minimum_tls_version_allowed: Minimum TLS version that should be supported by webhook endpoint
         :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         """
         pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
@@ -5503,6 +6395,8 @@ class WebHookEventSubscriptionDestinationResponse(dict):
             max_events_per_batch = 1
         if max_events_per_batch is not None:
             pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if minimum_tls_version_allowed is not None:
+            pulumi.set(__self__, "minimum_tls_version_allowed", minimum_tls_version_allowed)
         if preferred_batch_size_in_kilobytes is None:
             preferred_batch_size_in_kilobytes = 64
         if preferred_batch_size_in_kilobytes is not None:
@@ -5566,11 +6460,176 @@ class WebHookEventSubscriptionDestinationResponse(dict):
         return pulumi.get(self, "max_events_per_batch")
 
     @property
+    @pulumi.getter(name="minimumTlsVersionAllowed")
+    def minimum_tls_version_allowed(self) -> Optional[str]:
+        """
+        Minimum TLS version that should be supported by webhook endpoint
+        """
+        return pulumi.get(self, "minimum_tls_version_allowed")
+
+    @property
     @pulumi.getter(name="preferredBatchSizeInKilobytes")
     def preferred_batch_size_in_kilobytes(self) -> Optional[int]:
         """
         Preferred batch size in Kilobytes.
         """
         return pulumi.get(self, "preferred_batch_size_in_kilobytes")
+
+
+@pulumi.output_type
+class WebhookPartnerDestinationInfoResponse(dict):
+    """
+    Information about the WebHook of the partner destination.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointType":
+            suggest = "endpoint_type"
+        elif key == "azureSubscriptionId":
+            suggest = "azure_subscription_id"
+        elif key == "clientAuthentication":
+            suggest = "client_authentication"
+        elif key == "endpointBaseUrl":
+            suggest = "endpoint_base_url"
+        elif key == "endpointServiceContext":
+            suggest = "endpoint_service_context"
+        elif key == "endpointUrl":
+            suggest = "endpoint_url"
+        elif key == "resourceGroupName":
+            suggest = "resource_group_name"
+        elif key == "resourceMoveChangeHistory":
+            suggest = "resource_move_change_history"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookPartnerDestinationInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookPartnerDestinationInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookPartnerDestinationInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_type: Optional[str] = None,
+                 azure_subscription_id: Optional[str] = None,
+                 client_authentication: Optional['outputs.AzureADPartnerClientAuthenticationResponse'] = None,
+                 endpoint_base_url: Optional[str] = None,
+                 endpoint_service_context: Optional[str] = None,
+                 endpoint_url: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 resource_move_change_history: Optional[Sequence['outputs.ResourceMoveChangeHistoryResponse']] = None):
+        """
+        Information about the WebHook of the partner destination.
+        :param str endpoint_type: Type of the endpoint for the partner destination
+               Expected value is 'WebHook'.
+        :param str azure_subscription_id: Azure subscription ID of the subscriber. The partner destination associated with the channel will be
+               created under this Azure subscription.
+        :param 'AzureADPartnerClientAuthenticationResponse' client_authentication: Partner client authentication
+        :param str endpoint_base_url: The base URL that represents the endpoint of the partner destination.
+        :param str endpoint_service_context: Additional context of the partner destination endpoint.
+        :param str endpoint_url: The URL that represents the endpoint of the partner destination.
+        :param str name: Name of the partner destination associated with the channel.
+        :param str resource_group_name: Azure Resource Group of the subscriber. The partner destination associated with the channel will be
+               created under this resource group.
+        :param Sequence['ResourceMoveChangeHistoryResponse'] resource_move_change_history: Change history of the resource move.
+        """
+        if endpoint_type is None:
+            endpoint_type = 'WebHook'
+        pulumi.set(__self__, "endpoint_type", 'WebHook')
+        if azure_subscription_id is not None:
+            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
+        if client_authentication is not None:
+            pulumi.set(__self__, "client_authentication", client_authentication)
+        if endpoint_base_url is not None:
+            pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
+        if endpoint_service_context is not None:
+            pulumi.set(__self__, "endpoint_service_context", endpoint_service_context)
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if resource_move_change_history is not None:
+            pulumi.set(__self__, "resource_move_change_history", resource_move_change_history)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> str:
+        """
+        Type of the endpoint for the partner destination
+        Expected value is 'WebHook'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="azureSubscriptionId")
+    def azure_subscription_id(self) -> Optional[str]:
+        """
+        Azure subscription ID of the subscriber. The partner destination associated with the channel will be
+        created under this Azure subscription.
+        """
+        return pulumi.get(self, "azure_subscription_id")
+
+    @property
+    @pulumi.getter(name="clientAuthentication")
+    def client_authentication(self) -> Optional['outputs.AzureADPartnerClientAuthenticationResponse']:
+        """
+        Partner client authentication
+        """
+        return pulumi.get(self, "client_authentication")
+
+    @property
+    @pulumi.getter(name="endpointBaseUrl")
+    def endpoint_base_url(self) -> Optional[str]:
+        """
+        The base URL that represents the endpoint of the partner destination.
+        """
+        return pulumi.get(self, "endpoint_base_url")
+
+    @property
+    @pulumi.getter(name="endpointServiceContext")
+    def endpoint_service_context(self) -> Optional[str]:
+        """
+        Additional context of the partner destination endpoint.
+        """
+        return pulumi.get(self, "endpoint_service_context")
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[str]:
+        """
+        The URL that represents the endpoint of the partner destination.
+        """
+        return pulumi.get(self, "endpoint_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the partner destination associated with the channel.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[str]:
+        """
+        Azure Resource Group of the subscriber. The partner destination associated with the channel will be
+        created under this resource group.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="resourceMoveChangeHistory")
+    def resource_move_change_history(self) -> Optional[Sequence['outputs.ResourceMoveChangeHistoryResponse']]:
+        """
+        Change history of the resource move.
+        """
+        return pulumi.get(self, "resource_move_change_history")
 
 

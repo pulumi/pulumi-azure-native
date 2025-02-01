@@ -50,6 +50,10 @@ export class L2Connection extends pulumi.CustomResource {
      */
     public readonly groundStation!: pulumi.Output<outputs.orbital.v20240301preview.L2ConnectionsPropertiesResponseGroundStation>;
     /**
+     * The name of the partner router to establish a connection to within the ground station.
+     */
+    public readonly groundStationPartnerRouter!: pulumi.Output<outputs.orbital.v20240301preview.L2ConnectionsPropertiesResponseGroundStationPartnerRouter>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -91,6 +95,9 @@ export class L2Connection extends pulumi.CustomResource {
             if ((!args || args.groundStation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groundStation'");
             }
+            if ((!args || args.groundStationPartnerRouter === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'groundStationPartnerRouter'");
+            }
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -102,6 +109,7 @@ export class L2Connection extends pulumi.CustomResource {
             }
             resourceInputs["edgeSite"] = args ? args.edgeSite : undefined;
             resourceInputs["groundStation"] = args ? args.groundStation : undefined;
+            resourceInputs["groundStationPartnerRouter"] = args ? args.groundStationPartnerRouter : undefined;
             resourceInputs["l2ConnectionName"] = args ? args.l2ConnectionName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -115,6 +123,7 @@ export class L2Connection extends pulumi.CustomResource {
             resourceInputs["circuitId"] = undefined /*out*/;
             resourceInputs["edgeSite"] = undefined /*out*/;
             resourceInputs["groundStation"] = undefined /*out*/;
+            resourceInputs["groundStationPartnerRouter"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -142,6 +151,10 @@ export interface L2ConnectionArgs {
      */
     groundStation: pulumi.Input<inputs.orbital.v20240301preview.L2ConnectionsPropertiesGroundStationArgs>;
     /**
+     * The name of the partner router to establish a connection to within the ground station.
+     */
+    groundStationPartnerRouter: pulumi.Input<inputs.orbital.v20240301preview.L2ConnectionsPropertiesGroundStationPartnerRouterArgs>;
+    /**
      * L2 Connection name.
      */
     l2ConnectionName?: pulumi.Input<string>;
@@ -150,7 +163,7 @@ export interface L2ConnectionArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+     * The unique name of the partner router that cross-connects with the Orbital Edge Router at the edge site.
      */
     name: pulumi.Input<string>;
     /**

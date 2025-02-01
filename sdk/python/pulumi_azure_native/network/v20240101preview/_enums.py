@@ -5,58 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'AddressPrefixType',
-    'AddressSpaceAggregationOption',
-    'AdminRuleKind',
-    'ConfigurationType',
-    'NetworkIntentPolicyBasedService',
     'NetworkProtocol',
-    'SecurityConfigurationRuleAccess',
-    'SecurityConfigurationRuleDirection',
-    'SecurityConfigurationRuleProtocol',
 ]
-
-
-class AddressPrefixType(str, Enum):
-    """
-    Address prefix type.
-    """
-    IP_PREFIX = "IPPrefix"
-    SERVICE_TAG = "ServiceTag"
-    NETWORK_GROUP = "NetworkGroup"
-
-
-class AddressSpaceAggregationOption(str, Enum):
-    """
-    Determine update behavior for changes to network groups referenced within the rules in this configuration.
-    """
-    NONE = "None"
-    MANUAL = "Manual"
-
-
-class AdminRuleKind(str, Enum):
-    """
-    Whether the rule is custom or default.
-    """
-    CUSTOM = "Custom"
-    DEFAULT = "Default"
-
-
-class ConfigurationType(str, Enum):
-    """
-    Configuration Deployment Type.
-    """
-    SECURITY_ADMIN = "SecurityAdmin"
-    CONNECTIVITY = "Connectivity"
-
-
-class NetworkIntentPolicyBasedService(str, Enum):
-    """
-    Network intent policy based services.
-    """
-    NONE = "None"
-    ALL = "All"
-    ALLOW_RULES_ONLY = "AllowRulesOnly"
 
 
 class NetworkProtocol(str, Enum):
@@ -67,32 +17,3 @@ class NetworkProtocol(str, Enum):
     TCP = "TCP"
     UDP = "UDP"
     ICMP = "ICMP"
-
-
-class SecurityConfigurationRuleAccess(str, Enum):
-    """
-    Indicates the access allowed for this particular rule
-    """
-    ALLOW = "Allow"
-    DENY = "Deny"
-    ALWAYS_ALLOW = "AlwaysAllow"
-
-
-class SecurityConfigurationRuleDirection(str, Enum):
-    """
-    Indicates if the traffic matched against the rule in inbound or outbound.
-    """
-    INBOUND = "Inbound"
-    OUTBOUND = "Outbound"
-
-
-class SecurityConfigurationRuleProtocol(str, Enum):
-    """
-    Network protocol this rule applies to.
-    """
-    TCP = "Tcp"
-    UDP = "Udp"
-    ICMP = "Icmp"
-    ESP = "Esp"
-    ANY = "Any"
-    AH = "Ah"

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * An instance of a script executed by a user - custom or AVS
- * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01.
  */
 export class ScriptExecution extends pulumi.CustomResource {
     /**
@@ -45,7 +45,8 @@ export class ScriptExecution extends pulumi.CustomResource {
      */
     public /*out*/ readonly errors!: pulumi.Output<string[]>;
     /**
-     * Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
+     * Error message if the script was able to run, but if the script itself had
+     * errors or powershell threw an exception
      */
     public readonly failureReason!: pulumi.Output<string | undefined>;
     /**
@@ -53,7 +54,8 @@ export class ScriptExecution extends pulumi.CustomResource {
      */
     public /*out*/ readonly finishedAt!: pulumi.Output<string>;
     /**
-     * Parameters that will be hidden/not visible to ARM, such as passwords and credentials
+     * Parameters that will be hidden/not visible to ARM, such as passwords and
+     * credentials
      */
     public readonly hiddenParameters!: pulumi.Output<(outputs.avs.PSCredentialExecutionParameterResponse | outputs.avs.ScriptSecureStringExecutionParameterResponse | outputs.avs.ScriptStringExecutionParameterResponse)[] | undefined>;
     /**
@@ -61,7 +63,7 @@ export class ScriptExecution extends pulumi.CustomResource {
      */
     public /*out*/ readonly information!: pulumi.Output<string[]>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -97,11 +99,15 @@ export class ScriptExecution extends pulumi.CustomResource {
      */
     public /*out*/ readonly submittedAt!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    /**
      * Time limit for execution
      */
     public readonly timeout!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -147,6 +153,7 @@ export class ScriptExecution extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["startedAt"] = undefined /*out*/;
             resourceInputs["submittedAt"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["warnings"] = undefined /*out*/;
         } else {
@@ -164,6 +171,7 @@ export class ScriptExecution extends pulumi.CustomResource {
             resourceInputs["scriptCmdletId"] = undefined /*out*/;
             resourceInputs["startedAt"] = undefined /*out*/;
             resourceInputs["submittedAt"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["timeout"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["warnings"] = undefined /*out*/;
@@ -180,11 +188,13 @@ export class ScriptExecution extends pulumi.CustomResource {
  */
 export interface ScriptExecutionArgs {
     /**
-     * Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
+     * Error message if the script was able to run, but if the script itself had
+     * errors or powershell threw an exception
      */
     failureReason?: pulumi.Input<string>;
     /**
-     * Parameters that will be hidden/not visible to ARM, such as passwords and credentials
+     * Parameters that will be hidden/not visible to ARM, such as passwords and
+     * credentials
      */
     hiddenParameters?: pulumi.Input<pulumi.Input<inputs.avs.PSCredentialExecutionParameterArgs | inputs.avs.ScriptSecureStringExecutionParameterArgs | inputs.avs.ScriptStringExecutionParameterArgs>[]>;
     /**
@@ -200,7 +210,7 @@ export interface ScriptExecutionArgs {
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.avs.PSCredentialExecutionParameterArgs | inputs.avs.ScriptSecureStringExecutionParameterArgs | inputs.avs.ScriptStringExecutionParameterArgs>[]>;
     /**
-     * The name of the private cloud.
+     * Name of the private cloud
      */
     privateCloudName: pulumi.Input<string>;
     /**
@@ -216,7 +226,7 @@ export interface ScriptExecutionArgs {
      */
     scriptCmdletId?: pulumi.Input<string>;
     /**
-     * Name of the user-invoked script execution resource
+     * Name of the script cmdlet.
      */
     scriptExecutionName?: pulumi.Input<string>;
     /**

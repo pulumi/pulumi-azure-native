@@ -236,9 +236,9 @@ def get_table(resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
     Gets a Log Analytics workspace table.
-    Azure REST API version: 2022-10-01.
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-09-01.
+    Other available API versions: 2022-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -275,9 +275,9 @@ def get_table_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     Gets a Log Analytics workspace table.
-    Azure REST API version: 2022-10-01.
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-09-01.
+    Other available API versions: 2022-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

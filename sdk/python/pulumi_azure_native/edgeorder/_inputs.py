@@ -26,8 +26,6 @@ __all__ = [
     'ChildConfigurationFilterDict',
     'ConfigurationFilter',
     'ConfigurationFilterDict',
-    'ConfigurationFilters',
-    'ConfigurationFiltersDict',
     'ContactDetailsArgs',
     'ContactDetailsArgsDict',
     'CustomerSubscriptionDetails',
@@ -52,8 +50,16 @@ __all__ = [
     'PreferencesArgsDict',
     'ProductDetailsArgs',
     'ProductDetailsArgsDict',
+    'ProvisioningDetailsArgs',
+    'ProvisioningDetailsArgsDict',
+    'ResourceIdentityArgs',
+    'ResourceIdentityArgsDict',
     'ShippingAddressArgs',
     'ShippingAddressArgsDict',
+    'SiteDetailsArgs',
+    'SiteDetailsArgsDict',
+    'TermCommitmentPreferencesArgs',
+    'TermCommitmentPreferencesArgsDict',
     'TransportPreferencesArgs',
     'TransportPreferencesArgsDict',
 ]
@@ -73,6 +79,10 @@ if not MYPY:
         """
         Quantity of the product.
         """
+        provisioning_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProvisioningDetailsArgsDict']]]]
+        """
+        List Provisioning Details for Devices in Additional Config.
+        """
 elif False:
     AdditionalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -80,14 +90,18 @@ elif False:
 class AdditionalConfigurationArgs:
     def __init__(__self__, *,
                  hierarchy_information: pulumi.Input['HierarchyInformationArgs'],
-                 quantity: pulumi.Input[int]):
+                 quantity: pulumi.Input[int],
+                 provisioning_details: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisioningDetailsArgs']]]] = None):
         """
         Additional Configuration details.
         :param pulumi.Input['HierarchyInformationArgs'] hierarchy_information: Hierarchy of the product which uniquely identifies the configuration.
         :param pulumi.Input[int] quantity: Quantity of the product.
+        :param pulumi.Input[Sequence[pulumi.Input['ProvisioningDetailsArgs']]] provisioning_details: List Provisioning Details for Devices in Additional Config.
         """
         pulumi.set(__self__, "hierarchy_information", hierarchy_information)
         pulumi.set(__self__, "quantity", quantity)
+        if provisioning_details is not None:
+            pulumi.set(__self__, "provisioning_details", provisioning_details)
 
     @property
     @pulumi.getter(name="hierarchyInformation")
@@ -113,6 +127,18 @@ class AdditionalConfigurationArgs:
     def quantity(self, value: pulumi.Input[int]):
         pulumi.set(self, "quantity", value)
 
+    @property
+    @pulumi.getter(name="provisioningDetails")
+    def provisioning_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProvisioningDetailsArgs']]]]:
+        """
+        List Provisioning Details for Devices in Additional Config.
+        """
+        return pulumi.get(self, "provisioning_details")
+
+    @provisioning_details.setter
+    def provisioning_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisioningDetailsArgs']]]]):
+        pulumi.set(self, "provisioning_details", value)
+
 
 if not MYPY:
     class AddressDetailsArgsDict(TypedDict):
@@ -121,7 +147,7 @@ if not MYPY:
         """
         forward_address: pulumi.Input['AddressPropertiesArgsDict']
         """
-        Customer address and contact details. It should be address resource
+        Customer address and contact details.
         """
 elif False:
     AddressDetailsArgsDict: TypeAlias = Mapping[str, Any]
@@ -132,7 +158,7 @@ class AddressDetailsArgs:
                  forward_address: pulumi.Input['AddressPropertiesArgs']):
         """
         Address details for an order item.
-        :param pulumi.Input['AddressPropertiesArgs'] forward_address: Customer address and contact details. It should be address resource
+        :param pulumi.Input['AddressPropertiesArgs'] forward_address: Customer address and contact details.
         """
         pulumi.set(__self__, "forward_address", forward_address)
 
@@ -140,7 +166,7 @@ class AddressDetailsArgs:
     @pulumi.getter(name="forwardAddress")
     def forward_address(self) -> pulumi.Input['AddressPropertiesArgs']:
         """
-        Customer address and contact details. It should be address resource
+        Customer address and contact details.
         """
         return pulumi.get(self, "forward_address")
 
@@ -152,15 +178,19 @@ class AddressDetailsArgs:
 if not MYPY:
     class AddressPropertiesArgsDict(TypedDict):
         """
-        Address Properties
+        Address Properties.
         """
-        contact_details: pulumi.Input['ContactDetailsArgsDict']
+        address_classification: NotRequired[pulumi.Input[Union[str, 'AddressClassification']]]
         """
-        Contact details for the address
+        Type of address based on its usage context.
+        """
+        contact_details: NotRequired[pulumi.Input['ContactDetailsArgsDict']]
+        """
+        Contact details for the address.
         """
         shipping_address: NotRequired[pulumi.Input['ShippingAddressArgsDict']]
         """
-        Shipping details for the address
+        Shipping details for the address.
         """
 elif False:
     AddressPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -168,34 +198,51 @@ elif False:
 @pulumi.input_type
 class AddressPropertiesArgs:
     def __init__(__self__, *,
-                 contact_details: pulumi.Input['ContactDetailsArgs'],
+                 address_classification: Optional[pulumi.Input[Union[str, 'AddressClassification']]] = None,
+                 contact_details: Optional[pulumi.Input['ContactDetailsArgs']] = None,
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None):
         """
-        Address Properties
-        :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for the address
-        :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping details for the address
+        Address Properties.
+        :param pulumi.Input[Union[str, 'AddressClassification']] address_classification: Type of address based on its usage context.
+        :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for the address.
+        :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping details for the address.
         """
-        pulumi.set(__self__, "contact_details", contact_details)
+        if address_classification is not None:
+            pulumi.set(__self__, "address_classification", address_classification)
+        if contact_details is not None:
+            pulumi.set(__self__, "contact_details", contact_details)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
 
     @property
-    @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> pulumi.Input['ContactDetailsArgs']:
+    @pulumi.getter(name="addressClassification")
+    def address_classification(self) -> Optional[pulumi.Input[Union[str, 'AddressClassification']]]:
         """
-        Contact details for the address
+        Type of address based on its usage context.
+        """
+        return pulumi.get(self, "address_classification")
+
+    @address_classification.setter
+    def address_classification(self, value: Optional[pulumi.Input[Union[str, 'AddressClassification']]]):
+        pulumi.set(self, "address_classification", value)
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> Optional[pulumi.Input['ContactDetailsArgs']]:
+        """
+        Contact details for the address.
         """
         return pulumi.get(self, "contact_details")
 
     @contact_details.setter
-    def contact_details(self, value: pulumi.Input['ContactDetailsArgs']):
+    def contact_details(self, value: Optional[pulumi.Input['ContactDetailsArgs']]):
         pulumi.set(self, "contact_details", value)
 
     @property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> Optional[pulumi.Input['ShippingAddressArgs']]:
         """
-        Shipping details for the address
+        Shipping details for the address.
         """
         return pulumi.get(self, "shipping_address")
 
@@ -336,80 +383,25 @@ class ConfigurationFilter:
 
 
 if not MYPY:
-    class ConfigurationFiltersDict(TypedDict):
-        """
-        Configuration filters
-        """
-        hierarchy_information: 'HierarchyInformationDict'
-        """
-        Product hierarchy information
-        """
-        filterable_property: NotRequired[Sequence['FilterablePropertyDict']]
-        """
-        Filters specific to product
-        """
-elif False:
-    ConfigurationFiltersDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ConfigurationFilters:
-    def __init__(__self__, *,
-                 hierarchy_information: 'HierarchyInformation',
-                 filterable_property: Optional[Sequence['FilterableProperty']] = None):
-        """
-        Configuration filters
-        :param 'HierarchyInformation' hierarchy_information: Product hierarchy information
-        :param Sequence['FilterableProperty'] filterable_property: Filters specific to product
-        """
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
-        if filterable_property is not None:
-            pulumi.set(__self__, "filterable_property", filterable_property)
-
-    @property
-    @pulumi.getter(name="hierarchyInformation")
-    def hierarchy_information(self) -> 'HierarchyInformation':
-        """
-        Product hierarchy information
-        """
-        return pulumi.get(self, "hierarchy_information")
-
-    @hierarchy_information.setter
-    def hierarchy_information(self, value: 'HierarchyInformation'):
-        pulumi.set(self, "hierarchy_information", value)
-
-    @property
-    @pulumi.getter(name="filterableProperty")
-    def filterable_property(self) -> Optional[Sequence['FilterableProperty']]:
-        """
-        Filters specific to product
-        """
-        return pulumi.get(self, "filterable_property")
-
-    @filterable_property.setter
-    def filterable_property(self, value: Optional[Sequence['FilterableProperty']]):
-        pulumi.set(self, "filterable_property", value)
-
-
-if not MYPY:
     class ContactDetailsArgsDict(TypedDict):
         """
         Contact Details.
         """
-        contact_name: pulumi.Input[str]
+        contact_name: NotRequired[pulumi.Input[str]]
         """
         Contact name of the person.
         """
-        email_list: pulumi.Input[Sequence[pulumi.Input[str]]]
+        email_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         List of Email-ids to be notified about job progress.
-        """
-        phone: pulumi.Input[str]
-        """
-        Phone number of the contact person.
         """
         mobile: NotRequired[pulumi.Input[str]]
         """
         Mobile number of the contact person.
+        """
+        phone: NotRequired[pulumi.Input[str]]
+        """
+        Phone number of the contact person.
         """
         phone_extension: NotRequired[pulumi.Input[str]]
         """
@@ -421,62 +413,53 @@ elif False:
 @pulumi.input_type
 class ContactDetailsArgs:
     def __init__(__self__, *,
-                 contact_name: pulumi.Input[str],
-                 email_list: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 phone: pulumi.Input[str],
+                 contact_name: Optional[pulumi.Input[str]] = None,
+                 email_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mobile: Optional[pulumi.Input[str]] = None,
+                 phone: Optional[pulumi.Input[str]] = None,
                  phone_extension: Optional[pulumi.Input[str]] = None):
         """
         Contact Details.
         :param pulumi.Input[str] contact_name: Contact name of the person.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_list: List of Email-ids to be notified about job progress.
-        :param pulumi.Input[str] phone: Phone number of the contact person.
         :param pulumi.Input[str] mobile: Mobile number of the contact person.
+        :param pulumi.Input[str] phone: Phone number of the contact person.
         :param pulumi.Input[str] phone_extension: Phone extension number of the contact person.
         """
-        pulumi.set(__self__, "contact_name", contact_name)
-        pulumi.set(__self__, "email_list", email_list)
-        pulumi.set(__self__, "phone", phone)
+        if contact_name is not None:
+            pulumi.set(__self__, "contact_name", contact_name)
+        if email_list is not None:
+            pulumi.set(__self__, "email_list", email_list)
         if mobile is not None:
             pulumi.set(__self__, "mobile", mobile)
+        if phone is not None:
+            pulumi.set(__self__, "phone", phone)
         if phone_extension is not None:
             pulumi.set(__self__, "phone_extension", phone_extension)
 
     @property
     @pulumi.getter(name="contactName")
-    def contact_name(self) -> pulumi.Input[str]:
+    def contact_name(self) -> Optional[pulumi.Input[str]]:
         """
         Contact name of the person.
         """
         return pulumi.get(self, "contact_name")
 
     @contact_name.setter
-    def contact_name(self, value: pulumi.Input[str]):
+    def contact_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "contact_name", value)
 
     @property
     @pulumi.getter(name="emailList")
-    def email_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def email_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of Email-ids to be notified about job progress.
         """
         return pulumi.get(self, "email_list")
 
     @email_list.setter
-    def email_list(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def email_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "email_list", value)
-
-    @property
-    @pulumi.getter
-    def phone(self) -> pulumi.Input[str]:
-        """
-        Phone number of the contact person.
-        """
-        return pulumi.get(self, "phone")
-
-    @phone.setter
-    def phone(self, value: pulumi.Input[str]):
-        pulumi.set(self, "phone", value)
 
     @property
     @pulumi.getter
@@ -489,6 +472,18 @@ class ContactDetailsArgs:
     @mobile.setter
     def mobile(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mobile", value)
+
+    @property
+    @pulumi.getter
+    def phone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Phone number of the contact person.
+        """
+        return pulumi.get(self, "phone")
+
+    @phone.setter
+    def phone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "phone", value)
 
     @property
     @pulumi.getter(name="phoneExtension")
@@ -637,7 +632,7 @@ class CustomerSubscriptionRegisteredFeatures:
 if not MYPY:
     class EncryptionPreferencesArgsDict(TypedDict):
         """
-        Preferences related to the double encryption
+        Preferences related to the double encryption.
         """
         double_encryption_status: NotRequired[pulumi.Input[Union[str, 'DoubleEncryptionStatus']]]
         """
@@ -651,7 +646,7 @@ class EncryptionPreferencesArgs:
     def __init__(__self__, *,
                  double_encryption_status: Optional[pulumi.Input[Union[str, 'DoubleEncryptionStatus']]] = None):
         """
-        Preferences related to the double encryption
+        Preferences related to the double encryption.
         :param pulumi.Input[Union[str, 'DoubleEncryptionStatus']] double_encryption_status: Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
         """
         if double_encryption_status is not None:
@@ -729,6 +724,10 @@ if not MYPY:
         """
         Holds details about product hierarchy information.
         """
+        configuration_id_display_name: NotRequired[str]
+        """
+        Represents Model Display Name.
+        """
         configuration_name: NotRequired[str]
         """
         Represents configuration name that uniquely identifies configuration.
@@ -751,17 +750,21 @@ elif False:
 @pulumi.input_type
 class HierarchyInformation:
     def __init__(__self__, *,
+                 configuration_id_display_name: Optional[str] = None,
                  configuration_name: Optional[str] = None,
                  product_family_name: Optional[str] = None,
                  product_line_name: Optional[str] = None,
                  product_name: Optional[str] = None):
         """
         Holds details about product hierarchy information.
+        :param str configuration_id_display_name: Represents Model Display Name.
         :param str configuration_name: Represents configuration name that uniquely identifies configuration.
         :param str product_family_name: Represents product family name that uniquely identifies product family.
         :param str product_line_name: Represents product line name that uniquely identifies product line.
         :param str product_name: Represents product name that uniquely identifies product.
         """
+        if configuration_id_display_name is not None:
+            pulumi.set(__self__, "configuration_id_display_name", configuration_id_display_name)
         if configuration_name is not None:
             pulumi.set(__self__, "configuration_name", configuration_name)
         if product_family_name is not None:
@@ -770,6 +773,18 @@ class HierarchyInformation:
             pulumi.set(__self__, "product_line_name", product_line_name)
         if product_name is not None:
             pulumi.set(__self__, "product_name", product_name)
+
+    @property
+    @pulumi.getter(name="configurationIdDisplayName")
+    def configuration_id_display_name(self) -> Optional[str]:
+        """
+        Represents Model Display Name.
+        """
+        return pulumi.get(self, "configuration_id_display_name")
+
+    @configuration_id_display_name.setter
+    def configuration_id_display_name(self, value: Optional[str]):
+        pulumi.set(self, "configuration_id_display_name", value)
 
     @property
     @pulumi.getter(name="configurationName")
@@ -825,6 +840,10 @@ if not MYPY:
         """
         Holds details about product hierarchy information.
         """
+        configuration_id_display_name: NotRequired[pulumi.Input[str]]
+        """
+        Represents Model Display Name.
+        """
         configuration_name: NotRequired[pulumi.Input[str]]
         """
         Represents configuration name that uniquely identifies configuration.
@@ -847,17 +866,21 @@ elif False:
 @pulumi.input_type
 class HierarchyInformationArgs:
     def __init__(__self__, *,
+                 configuration_id_display_name: Optional[pulumi.Input[str]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  product_family_name: Optional[pulumi.Input[str]] = None,
                  product_line_name: Optional[pulumi.Input[str]] = None,
                  product_name: Optional[pulumi.Input[str]] = None):
         """
         Holds details about product hierarchy information.
+        :param pulumi.Input[str] configuration_id_display_name: Represents Model Display Name.
         :param pulumi.Input[str] configuration_name: Represents configuration name that uniquely identifies configuration.
         :param pulumi.Input[str] product_family_name: Represents product family name that uniquely identifies product family.
         :param pulumi.Input[str] product_line_name: Represents product line name that uniquely identifies product line.
         :param pulumi.Input[str] product_name: Represents product name that uniquely identifies product.
         """
+        if configuration_id_display_name is not None:
+            pulumi.set(__self__, "configuration_id_display_name", configuration_id_display_name)
         if configuration_name is not None:
             pulumi.set(__self__, "configuration_name", configuration_name)
         if product_family_name is not None:
@@ -866,6 +889,18 @@ class HierarchyInformationArgs:
             pulumi.set(__self__, "product_line_name", product_line_name)
         if product_name is not None:
             pulumi.set(__self__, "product_name", product_name)
+
+    @property
+    @pulumi.getter(name="configurationIdDisplayName")
+    def configuration_id_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents Model Display Name.
+        """
+        return pulumi.get(self, "configuration_id_display_name")
+
+    @configuration_id_display_name.setter
+    def configuration_id_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_id_display_name", value)
 
     @property
     @pulumi.getter(name="configurationName")
@@ -919,11 +954,11 @@ class HierarchyInformationArgs:
 if not MYPY:
     class ManagementResourcePreferencesArgsDict(TypedDict):
         """
-        Management resource preference to link device
+        Management resource preference to link device.
         """
         preferred_management_resource_id: NotRequired[pulumi.Input[str]]
         """
-        Customer preferred Management resource ARM ID
+        Customer preferred Management resource ARM ID.
         """
 elif False:
     ManagementResourcePreferencesArgsDict: TypeAlias = Mapping[str, Any]
@@ -933,8 +968,8 @@ class ManagementResourcePreferencesArgs:
     def __init__(__self__, *,
                  preferred_management_resource_id: Optional[pulumi.Input[str]] = None):
         """
-        Management resource preference to link device
-        :param pulumi.Input[str] preferred_management_resource_id: Customer preferred Management resource ARM ID
+        Management resource preference to link device.
+        :param pulumi.Input[str] preferred_management_resource_id: Customer preferred Management resource ARM ID.
         """
         if preferred_management_resource_id is not None:
             pulumi.set(__self__, "preferred_management_resource_id", preferred_management_resource_id)
@@ -943,7 +978,7 @@ class ManagementResourcePreferencesArgs:
     @pulumi.getter(name="preferredManagementResourceId")
     def preferred_management_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Customer preferred Management resource ARM ID
+        Customer preferred Management resource ARM ID.
         """
         return pulumi.get(self, "preferred_management_resource_id")
 
@@ -1009,7 +1044,7 @@ class NotificationPreferenceArgs:
 if not MYPY:
     class OrderItemDetailsArgsDict(TypedDict):
         """
-        Order item details
+        Order item details.
         """
         order_item_type: pulumi.Input[Union[str, 'OrderItemType']]
         """
@@ -1017,11 +1052,11 @@ if not MYPY:
         """
         product_details: pulumi.Input['ProductDetailsArgsDict']
         """
-        Unique identifier for configuration.
+        Represents product details.
         """
         notification_email_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Additional notification email list
+        Additional notification email list.
         """
         order_item_mode: NotRequired[pulumi.Input[Union[str, 'OrderMode']]]
         """
@@ -1029,7 +1064,11 @@ if not MYPY:
         """
         preferences: NotRequired[pulumi.Input['PreferencesArgsDict']]
         """
-        Customer notification Preferences
+        Customer notification Preferences.
+        """
+        site_details: NotRequired[pulumi.Input['SiteDetailsArgsDict']]
+        """
+        Site Related Details.
         """
 elif False:
     OrderItemDetailsArgsDict: TypeAlias = Mapping[str, Any]
@@ -1041,14 +1080,16 @@ class OrderItemDetailsArgs:
                  product_details: pulumi.Input['ProductDetailsArgs'],
                  notification_email_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  order_item_mode: Optional[pulumi.Input[Union[str, 'OrderMode']]] = None,
-                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None):
+                 preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+                 site_details: Optional[pulumi.Input['SiteDetailsArgs']] = None):
         """
-        Order item details
+        Order item details.
         :param pulumi.Input[Union[str, 'OrderItemType']] order_item_type: Order item type.
-        :param pulumi.Input['ProductDetailsArgs'] product_details: Unique identifier for configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_email_list: Additional notification email list
+        :param pulumi.Input['ProductDetailsArgs'] product_details: Represents product details.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_email_list: Additional notification email list.
         :param pulumi.Input[Union[str, 'OrderMode']] order_item_mode: Defines the mode of the Order item.
-        :param pulumi.Input['PreferencesArgs'] preferences: Customer notification Preferences
+        :param pulumi.Input['PreferencesArgs'] preferences: Customer notification Preferences.
+        :param pulumi.Input['SiteDetailsArgs'] site_details: Site Related Details.
         """
         pulumi.set(__self__, "order_item_type", order_item_type)
         pulumi.set(__self__, "product_details", product_details)
@@ -1058,6 +1099,8 @@ class OrderItemDetailsArgs:
             pulumi.set(__self__, "order_item_mode", order_item_mode)
         if preferences is not None:
             pulumi.set(__self__, "preferences", preferences)
+        if site_details is not None:
+            pulumi.set(__self__, "site_details", site_details)
 
     @property
     @pulumi.getter(name="orderItemType")
@@ -1075,7 +1118,7 @@ class OrderItemDetailsArgs:
     @pulumi.getter(name="productDetails")
     def product_details(self) -> pulumi.Input['ProductDetailsArgs']:
         """
-        Unique identifier for configuration.
+        Represents product details.
         """
         return pulumi.get(self, "product_details")
 
@@ -1087,7 +1130,7 @@ class OrderItemDetailsArgs:
     @pulumi.getter(name="notificationEmailList")
     def notification_email_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Additional notification email list
+        Additional notification email list.
         """
         return pulumi.get(self, "notification_email_list")
 
@@ -1111,7 +1154,7 @@ class OrderItemDetailsArgs:
     @pulumi.getter
     def preferences(self) -> Optional[pulumi.Input['PreferencesArgs']]:
         """
-        Customer notification Preferences
+        Customer notification Preferences.
         """
         return pulumi.get(self, "preferences")
 
@@ -1119,11 +1162,23 @@ class OrderItemDetailsArgs:
     def preferences(self, value: Optional[pulumi.Input['PreferencesArgs']]):
         pulumi.set(self, "preferences", value)
 
+    @property
+    @pulumi.getter(name="siteDetails")
+    def site_details(self) -> Optional[pulumi.Input['SiteDetailsArgs']]:
+        """
+        Site Related Details.
+        """
+        return pulumi.get(self, "site_details")
+
+    @site_details.setter
+    def site_details(self, value: Optional[pulumi.Input['SiteDetailsArgs']]):
+        pulumi.set(self, "site_details", value)
+
 
 if not MYPY:
     class PreferencesArgsDict(TypedDict):
         """
-        Preferences related to the order
+        Preferences related to the order.
         """
         encryption_preferences: NotRequired[pulumi.Input['EncryptionPreferencesArgsDict']]
         """
@@ -1136,6 +1191,10 @@ if not MYPY:
         notification_preferences: NotRequired[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgsDict']]]]
         """
         Notification preferences.
+        """
+        term_commitment_preferences: NotRequired[pulumi.Input['TermCommitmentPreferencesArgsDict']]
+        """
+        Preferences related to the Term commitment.
         """
         transport_preferences: NotRequired[pulumi.Input['TransportPreferencesArgsDict']]
         """
@@ -1150,12 +1209,14 @@ class PreferencesArgs:
                  encryption_preferences: Optional[pulumi.Input['EncryptionPreferencesArgs']] = None,
                  management_resource_preferences: Optional[pulumi.Input['ManagementResourcePreferencesArgs']] = None,
                  notification_preferences: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]] = None,
+                 term_commitment_preferences: Optional[pulumi.Input['TermCommitmentPreferencesArgs']] = None,
                  transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None):
         """
-        Preferences related to the order
+        Preferences related to the order.
         :param pulumi.Input['EncryptionPreferencesArgs'] encryption_preferences: Preferences related to the Encryption.
         :param pulumi.Input['ManagementResourcePreferencesArgs'] management_resource_preferences: Preferences related to the Management resource.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]] notification_preferences: Notification preferences.
+        :param pulumi.Input['TermCommitmentPreferencesArgs'] term_commitment_preferences: Preferences related to the Term commitment.
         :param pulumi.Input['TransportPreferencesArgs'] transport_preferences: Preferences related to the shipment logistics of the order.
         """
         if encryption_preferences is not None:
@@ -1164,6 +1225,8 @@ class PreferencesArgs:
             pulumi.set(__self__, "management_resource_preferences", management_resource_preferences)
         if notification_preferences is not None:
             pulumi.set(__self__, "notification_preferences", notification_preferences)
+        if term_commitment_preferences is not None:
+            pulumi.set(__self__, "term_commitment_preferences", term_commitment_preferences)
         if transport_preferences is not None:
             pulumi.set(__self__, "transport_preferences", transport_preferences)
 
@@ -1204,6 +1267,18 @@ class PreferencesArgs:
         pulumi.set(self, "notification_preferences", value)
 
     @property
+    @pulumi.getter(name="termCommitmentPreferences")
+    def term_commitment_preferences(self) -> Optional[pulumi.Input['TermCommitmentPreferencesArgs']]:
+        """
+        Preferences related to the Term commitment.
+        """
+        return pulumi.get(self, "term_commitment_preferences")
+
+    @term_commitment_preferences.setter
+    def term_commitment_preferences(self, value: Optional[pulumi.Input['TermCommitmentPreferencesArgs']]):
+        pulumi.set(self, "term_commitment_preferences", value)
+
+    @property
     @pulumi.getter(name="transportPreferences")
     def transport_preferences(self) -> Optional[pulumi.Input['TransportPreferencesArgs']]:
         """
@@ -1219,15 +1294,19 @@ class PreferencesArgs:
 if not MYPY:
     class ProductDetailsArgsDict(TypedDict):
         """
-        Represents product details
+        Represents product details.
         """
         hierarchy_information: pulumi.Input['HierarchyInformationArgsDict']
         """
-        Hierarchy of the product which uniquely identifies the product
+        Hierarchy of the product which uniquely identifies the product.
         """
         opt_in_additional_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AdditionalConfigurationArgsDict']]]]
         """
         List of additional configurations customer wants in the order item apart from the ones included in the base configuration.
+        """
+        parent_provisioning_details: NotRequired[pulumi.Input['ProvisioningDetailsArgsDict']]
+        """
+        Device Provisioning Details for Parent.
         """
 elif False:
     ProductDetailsArgsDict: TypeAlias = Mapping[str, Any]
@@ -1236,21 +1315,25 @@ elif False:
 class ProductDetailsArgs:
     def __init__(__self__, *,
                  hierarchy_information: pulumi.Input['HierarchyInformationArgs'],
-                 opt_in_additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalConfigurationArgs']]]] = None):
+                 opt_in_additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalConfigurationArgs']]]] = None,
+                 parent_provisioning_details: Optional[pulumi.Input['ProvisioningDetailsArgs']] = None):
         """
-        Represents product details
-        :param pulumi.Input['HierarchyInformationArgs'] hierarchy_information: Hierarchy of the product which uniquely identifies the product
+        Represents product details.
+        :param pulumi.Input['HierarchyInformationArgs'] hierarchy_information: Hierarchy of the product which uniquely identifies the product.
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalConfigurationArgs']]] opt_in_additional_configurations: List of additional configurations customer wants in the order item apart from the ones included in the base configuration.
+        :param pulumi.Input['ProvisioningDetailsArgs'] parent_provisioning_details: Device Provisioning Details for Parent.
         """
         pulumi.set(__self__, "hierarchy_information", hierarchy_information)
         if opt_in_additional_configurations is not None:
             pulumi.set(__self__, "opt_in_additional_configurations", opt_in_additional_configurations)
+        if parent_provisioning_details is not None:
+            pulumi.set(__self__, "parent_provisioning_details", parent_provisioning_details)
 
     @property
     @pulumi.getter(name="hierarchyInformation")
     def hierarchy_information(self) -> pulumi.Input['HierarchyInformationArgs']:
         """
-        Hierarchy of the product which uniquely identifies the product
+        Hierarchy of the product which uniquely identifies the product.
         """
         return pulumi.get(self, "hierarchy_information")
 
@@ -1270,6 +1353,254 @@ class ProductDetailsArgs:
     def opt_in_additional_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalConfigurationArgs']]]]):
         pulumi.set(self, "opt_in_additional_configurations", value)
 
+    @property
+    @pulumi.getter(name="parentProvisioningDetails")
+    def parent_provisioning_details(self) -> Optional[pulumi.Input['ProvisioningDetailsArgs']]:
+        """
+        Device Provisioning Details for Parent.
+        """
+        return pulumi.get(self, "parent_provisioning_details")
+
+    @parent_provisioning_details.setter
+    def parent_provisioning_details(self, value: Optional[pulumi.Input['ProvisioningDetailsArgs']]):
+        pulumi.set(self, "parent_provisioning_details", value)
+
+
+if not MYPY:
+    class ProvisioningDetailsArgsDict(TypedDict):
+        """
+        Details Related To Provision Resource.
+        """
+        auto_provisioning_status: NotRequired[pulumi.Input[Union[str, 'AutoProvisioningStatus']]]
+        """
+        Auto Provisioning Details.
+        """
+        management_resource_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        Management Resource ArmId.
+        """
+        provisioning_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        Provisioning Resource Arm ID.
+        """
+        provisioning_end_point: NotRequired[pulumi.Input[str]]
+        """
+        Provisioning End Point.
+        """
+        quantity: NotRequired[pulumi.Input[int]]
+        """
+        Quantity of the devices.
+        """
+        ready_to_connect_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        Arc Enabled Resource Arm id.
+        """
+        serial_number: NotRequired[pulumi.Input[str]]
+        """
+        Serial Number for the Device.
+        """
+        vendor_name: NotRequired[pulumi.Input[str]]
+        """
+        Vendor Name for the Device , (for 1P devices - Microsoft).
+        """
+elif False:
+    ProvisioningDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProvisioningDetailsArgs:
+    def __init__(__self__, *,
+                 auto_provisioning_status: Optional[pulumi.Input[Union[str, 'AutoProvisioningStatus']]] = None,
+                 management_resource_arm_id: Optional[pulumi.Input[str]] = None,
+                 provisioning_arm_id: Optional[pulumi.Input[str]] = None,
+                 provisioning_end_point: Optional[pulumi.Input[str]] = None,
+                 quantity: Optional[pulumi.Input[int]] = None,
+                 ready_to_connect_arm_id: Optional[pulumi.Input[str]] = None,
+                 serial_number: Optional[pulumi.Input[str]] = None,
+                 vendor_name: Optional[pulumi.Input[str]] = None):
+        """
+        Details Related To Provision Resource.
+        :param pulumi.Input[Union[str, 'AutoProvisioningStatus']] auto_provisioning_status: Auto Provisioning Details.
+        :param pulumi.Input[str] management_resource_arm_id: Management Resource ArmId.
+        :param pulumi.Input[str] provisioning_arm_id: Provisioning Resource Arm ID.
+        :param pulumi.Input[str] provisioning_end_point: Provisioning End Point.
+        :param pulumi.Input[int] quantity: Quantity of the devices.
+        :param pulumi.Input[str] ready_to_connect_arm_id: Arc Enabled Resource Arm id.
+        :param pulumi.Input[str] serial_number: Serial Number for the Device.
+        :param pulumi.Input[str] vendor_name: Vendor Name for the Device , (for 1P devices - Microsoft).
+        """
+        if auto_provisioning_status is not None:
+            pulumi.set(__self__, "auto_provisioning_status", auto_provisioning_status)
+        if management_resource_arm_id is not None:
+            pulumi.set(__self__, "management_resource_arm_id", management_resource_arm_id)
+        if provisioning_arm_id is not None:
+            pulumi.set(__self__, "provisioning_arm_id", provisioning_arm_id)
+        if provisioning_end_point is not None:
+            pulumi.set(__self__, "provisioning_end_point", provisioning_end_point)
+        if quantity is None:
+            quantity = 0
+        if quantity is not None:
+            pulumi.set(__self__, "quantity", quantity)
+        if ready_to_connect_arm_id is not None:
+            pulumi.set(__self__, "ready_to_connect_arm_id", ready_to_connect_arm_id)
+        if serial_number is not None:
+            pulumi.set(__self__, "serial_number", serial_number)
+        if vendor_name is not None:
+            pulumi.set(__self__, "vendor_name", vendor_name)
+
+    @property
+    @pulumi.getter(name="autoProvisioningStatus")
+    def auto_provisioning_status(self) -> Optional[pulumi.Input[Union[str, 'AutoProvisioningStatus']]]:
+        """
+        Auto Provisioning Details.
+        """
+        return pulumi.get(self, "auto_provisioning_status")
+
+    @auto_provisioning_status.setter
+    def auto_provisioning_status(self, value: Optional[pulumi.Input[Union[str, 'AutoProvisioningStatus']]]):
+        pulumi.set(self, "auto_provisioning_status", value)
+
+    @property
+    @pulumi.getter(name="managementResourceArmId")
+    def management_resource_arm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Management Resource ArmId.
+        """
+        return pulumi.get(self, "management_resource_arm_id")
+
+    @management_resource_arm_id.setter
+    def management_resource_arm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "management_resource_arm_id", value)
+
+    @property
+    @pulumi.getter(name="provisioningArmId")
+    def provisioning_arm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning Resource Arm ID.
+        """
+        return pulumi.get(self, "provisioning_arm_id")
+
+    @provisioning_arm_id.setter
+    def provisioning_arm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_arm_id", value)
+
+    @property
+    @pulumi.getter(name="provisioningEndPoint")
+    def provisioning_end_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning End Point.
+        """
+        return pulumi.get(self, "provisioning_end_point")
+
+    @provisioning_end_point.setter
+    def provisioning_end_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_end_point", value)
+
+    @property
+    @pulumi.getter
+    def quantity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Quantity of the devices.
+        """
+        return pulumi.get(self, "quantity")
+
+    @quantity.setter
+    def quantity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "quantity", value)
+
+    @property
+    @pulumi.getter(name="readyToConnectArmId")
+    def ready_to_connect_arm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Arc Enabled Resource Arm id.
+        """
+        return pulumi.get(self, "ready_to_connect_arm_id")
+
+    @ready_to_connect_arm_id.setter
+    def ready_to_connect_arm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ready_to_connect_arm_id", value)
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        Serial Number for the Device.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @serial_number.setter
+    def serial_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "serial_number", value)
+
+    @property
+    @pulumi.getter(name="vendorName")
+    def vendor_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Vendor Name for the Device , (for 1P devices - Microsoft).
+        """
+        return pulumi.get(self, "vendor_name")
+
+    @vendor_name.setter
+    def vendor_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vendor_name", value)
+
+
+if not MYPY:
+    class ResourceIdentityArgsDict(TypedDict):
+        """
+        Msi identity details of the resource
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Identity type
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        User Assigned Identities
+        """
+elif False:
+    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Msi identity details of the resource
+        :param pulumi.Input[str] type: Identity type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: User Assigned Identities
+        """
+        if type is None:
+            type = 'None'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identity type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        User Assigned Identities
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
 
 if not MYPY:
     class ShippingAddressArgsDict(TypedDict):
@@ -1279,10 +1610,6 @@ if not MYPY:
         country: pulumi.Input[str]
         """
         Name of the Country.
-        """
-        street_address1: pulumi.Input[str]
-        """
-        Street Address line 1.
         """
         address_type: NotRequired[pulumi.Input[Union[str, 'AddressType']]]
         """
@@ -1304,6 +1631,10 @@ if not MYPY:
         """
         Name of the State or Province.
         """
+        street_address1: NotRequired[pulumi.Input[str]]
+        """
+        Street Address line 1.
+        """
         street_address2: NotRequired[pulumi.Input[str]]
         """
         Street Address line 2.
@@ -1323,30 +1654,29 @@ elif False:
 class ShippingAddressArgs:
     def __init__(__self__, *,
                  country: pulumi.Input[str],
-                 street_address1: pulumi.Input[str],
                  address_type: Optional[pulumi.Input[Union[str, 'AddressType']]] = None,
                  city: Optional[pulumi.Input[str]] = None,
                  company_name: Optional[pulumi.Input[str]] = None,
                  postal_code: Optional[pulumi.Input[str]] = None,
                  state_or_province: Optional[pulumi.Input[str]] = None,
+                 street_address1: Optional[pulumi.Input[str]] = None,
                  street_address2: Optional[pulumi.Input[str]] = None,
                  street_address3: Optional[pulumi.Input[str]] = None,
                  zip_extended_code: Optional[pulumi.Input[str]] = None):
         """
         Shipping address where customer wishes to receive the device.
         :param pulumi.Input[str] country: Name of the Country.
-        :param pulumi.Input[str] street_address1: Street Address line 1.
         :param pulumi.Input[Union[str, 'AddressType']] address_type: Type of address.
         :param pulumi.Input[str] city: Name of the City.
         :param pulumi.Input[str] company_name: Name of the company.
         :param pulumi.Input[str] postal_code: Postal code.
         :param pulumi.Input[str] state_or_province: Name of the State or Province.
+        :param pulumi.Input[str] street_address1: Street Address line 1.
         :param pulumi.Input[str] street_address2: Street Address line 2.
         :param pulumi.Input[str] street_address3: Street Address line 3.
         :param pulumi.Input[str] zip_extended_code: Extended Zip Code.
         """
         pulumi.set(__self__, "country", country)
-        pulumi.set(__self__, "street_address1", street_address1)
         if address_type is not None:
             pulumi.set(__self__, "address_type", address_type)
         if city is not None:
@@ -1357,6 +1687,8 @@ class ShippingAddressArgs:
             pulumi.set(__self__, "postal_code", postal_code)
         if state_or_province is not None:
             pulumi.set(__self__, "state_or_province", state_or_province)
+        if street_address1 is not None:
+            pulumi.set(__self__, "street_address1", street_address1)
         if street_address2 is not None:
             pulumi.set(__self__, "street_address2", street_address2)
         if street_address3 is not None:
@@ -1375,18 +1707,6 @@ class ShippingAddressArgs:
     @country.setter
     def country(self, value: pulumi.Input[str]):
         pulumi.set(self, "country", value)
-
-    @property
-    @pulumi.getter(name="streetAddress1")
-    def street_address1(self) -> pulumi.Input[str]:
-        """
-        Street Address line 1.
-        """
-        return pulumi.get(self, "street_address1")
-
-    @street_address1.setter
-    def street_address1(self, value: pulumi.Input[str]):
-        pulumi.set(self, "street_address1", value)
 
     @property
     @pulumi.getter(name="addressType")
@@ -1449,6 +1769,18 @@ class ShippingAddressArgs:
         pulumi.set(self, "state_or_province", value)
 
     @property
+    @pulumi.getter(name="streetAddress1")
+    def street_address1(self) -> Optional[pulumi.Input[str]]:
+        """
+        Street Address line 1.
+        """
+        return pulumi.get(self, "street_address1")
+
+    @street_address1.setter
+    def street_address1(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "street_address1", value)
+
+    @property
     @pulumi.getter(name="streetAddress2")
     def street_address2(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1486,9 +1818,99 @@ class ShippingAddressArgs:
 
 
 if not MYPY:
+    class SiteDetailsArgsDict(TypedDict):
+        """
+        Represents Site Related Details.
+        """
+        site_id: pulumi.Input[str]
+        """
+        Unique Id, Identifying A Site.
+        """
+elif False:
+    SiteDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SiteDetailsArgs:
+    def __init__(__self__, *,
+                 site_id: pulumi.Input[str]):
+        """
+        Represents Site Related Details.
+        :param pulumi.Input[str] site_id: Unique Id, Identifying A Site.
+        """
+        pulumi.set(__self__, "site_id", site_id)
+
+    @property
+    @pulumi.getter(name="siteId")
+    def site_id(self) -> pulumi.Input[str]:
+        """
+        Unique Id, Identifying A Site.
+        """
+        return pulumi.get(self, "site_id")
+
+    @site_id.setter
+    def site_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "site_id", value)
+
+
+if not MYPY:
+    class TermCommitmentPreferencesArgsDict(TypedDict):
+        """
+        Term Commitment preference received from customer.
+        """
+        preferred_term_commitment_type: pulumi.Input[Union[str, 'TermCommitmentType']]
+        """
+        Term Commitment Type
+        """
+        preferred_term_commitment_duration: NotRequired[pulumi.Input[str]]
+        """
+        Customer preferred Term Duration.
+        """
+elif False:
+    TermCommitmentPreferencesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TermCommitmentPreferencesArgs:
+    def __init__(__self__, *,
+                 preferred_term_commitment_type: pulumi.Input[Union[str, 'TermCommitmentType']],
+                 preferred_term_commitment_duration: Optional[pulumi.Input[str]] = None):
+        """
+        Term Commitment preference received from customer.
+        :param pulumi.Input[Union[str, 'TermCommitmentType']] preferred_term_commitment_type: Term Commitment Type
+        :param pulumi.Input[str] preferred_term_commitment_duration: Customer preferred Term Duration.
+        """
+        pulumi.set(__self__, "preferred_term_commitment_type", preferred_term_commitment_type)
+        if preferred_term_commitment_duration is not None:
+            pulumi.set(__self__, "preferred_term_commitment_duration", preferred_term_commitment_duration)
+
+    @property
+    @pulumi.getter(name="preferredTermCommitmentType")
+    def preferred_term_commitment_type(self) -> pulumi.Input[Union[str, 'TermCommitmentType']]:
+        """
+        Term Commitment Type
+        """
+        return pulumi.get(self, "preferred_term_commitment_type")
+
+    @preferred_term_commitment_type.setter
+    def preferred_term_commitment_type(self, value: pulumi.Input[Union[str, 'TermCommitmentType']]):
+        pulumi.set(self, "preferred_term_commitment_type", value)
+
+    @property
+    @pulumi.getter(name="preferredTermCommitmentDuration")
+    def preferred_term_commitment_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Customer preferred Term Duration.
+        """
+        return pulumi.get(self, "preferred_term_commitment_duration")
+
+    @preferred_term_commitment_duration.setter
+    def preferred_term_commitment_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_term_commitment_duration", value)
+
+
+if not MYPY:
     class TransportPreferencesArgsDict(TypedDict):
         """
-        Preferences related to the shipment logistics of the sku
+        Preferences related to the shipment logistics of the sku.
         """
         preferred_shipment_type: pulumi.Input[Union[str, 'TransportShipmentTypes']]
         """
@@ -1502,7 +1924,7 @@ class TransportPreferencesArgs:
     def __init__(__self__, *,
                  preferred_shipment_type: pulumi.Input[Union[str, 'TransportShipmentTypes']]):
         """
-        Preferences related to the shipment logistics of the sku
+        Preferences related to the shipment logistics of the sku.
         :param pulumi.Input[Union[str, 'TransportShipmentTypes']] preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
         """
         pulumi.set(__self__, "preferred_shipment_type", preferred_shipment_type)

@@ -36,6 +36,8 @@ __all__ = [
     'GroundStationsPropertiesGlobalCommunicationsSiteArgsDict',
     'L2ConnectionsPropertiesEdgeSiteArgs',
     'L2ConnectionsPropertiesEdgeSiteArgsDict',
+    'L2ConnectionsPropertiesGroundStationPartnerRouterArgs',
+    'L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict',
     'L2ConnectionsPropertiesGroundStationArgs',
     'L2ConnectionsPropertiesGroundStationArgsDict',
     'SpacecraftLinkArgs',
@@ -702,6 +704,41 @@ class L2ConnectionsPropertiesEdgeSiteArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict(TypedDict):
+        """
+        The name of the partner router to establish a connection to within the ground station.
+        """
+        name: pulumi.Input[str]
+        """
+        The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+        """
+elif False:
+    L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class L2ConnectionsPropertiesGroundStationPartnerRouterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        The name of the partner router to establish a connection to within the ground station.
+        :param pulumi.Input[str] name: The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 if not MYPY:

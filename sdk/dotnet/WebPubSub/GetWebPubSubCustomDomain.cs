@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.WebPubSub
     {
         /// <summary>
         /// Get a custom domain.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Task<GetWebPubSubCustomDomainResult> InvokeAsync(GetWebPubSubCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubCustomDomainResult>("azure-native:webpubsub:getWebPubSubCustomDomain", args ?? new GetWebPubSubCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a custom domain.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetWebPubSubCustomDomainResult> Invoke(GetWebPubSubCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubCustomDomainResult>("azure-native:webpubsub:getWebPubSubCustomDomain", args ?? new GetWebPubSubCustomDomainInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a custom domain.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetWebPubSubCustomDomainResult> Invoke(GetWebPubSubCustomDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubCustomDomainResult>("azure-native:webpubsub:getWebPubSubCustomDomain", args ?? new GetWebPubSubCustomDomainInvokeArgs(), options.WithDefaults());
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -105,11 +105,11 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly string DomainName;
         /// <summary>
-        /// Fully qualified resource Id for the resource.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -117,11 +117,11 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

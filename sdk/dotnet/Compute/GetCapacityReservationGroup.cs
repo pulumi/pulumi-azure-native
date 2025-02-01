@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// The operation that retrieves information about a capacity reservation group.
-        /// Azure REST API version: 2023-03-01.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-03-01.
         /// </summary>
         public static Task<GetCapacityReservationGroupResult> InvokeAsync(GetCapacityReservationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationGroupResult>("azure-native:compute:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation that retrieves information about a capacity reservation group.
-        /// Azure REST API version: 2023-03-01.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-03-01.
         /// </summary>
         public static Output<GetCapacityReservationGroupResult> Invoke(GetCapacityReservationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityReservationGroupResult>("azure-native:compute:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation that retrieves information about a capacity reservation group.
-        /// Azure REST API version: 2023-03-01.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-03-01.
         /// </summary>
         public static Output<GetCapacityReservationGroupResult> Invoke(GetCapacityReservationGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityReservationGroupResult>("azure-native:compute:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupInvokeArgs(), options.WithDefaults());
@@ -117,6 +117,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+        /// </summary>
+        public readonly Outputs.ResourceSharingProfileResponse? SharingProfile;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -145,6 +149,8 @@ namespace Pulumi.AzureNative.Compute
 
             string name,
 
+            Outputs.ResourceSharingProfileResponse? sharingProfile,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -158,6 +164,7 @@ namespace Pulumi.AzureNative.Compute
             InstanceView = instanceView;
             Location = location;
             Name = name;
+            SharingProfile = sharingProfile;
             Tags = tags;
             Type = type;
             VirtualMachinesAssociated = virtualMachinesAssociated;

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         /// Gets or sets the cleanup state of the solution.
         /// </summary>
         [Input("cleanupState")]
-        public InputUnion<string, Pulumi.AzureNative.Migrate.CleanupState>? CleanupState { get; set; }
+        public Input<string>? CleanupState { get; set; }
 
         /// <summary>
         /// Gets or sets the details of the solution.
@@ -31,25 +31,25 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         /// Gets or sets the goal of the solution.
         /// </summary>
         [Input("goal")]
-        public InputUnion<string, Pulumi.AzureNative.Migrate.Goal>? Goal { get; set; }
+        public Input<string>? Goal { get; set; }
 
         /// <summary>
         /// Gets or sets the purpose of the solution.
         /// </summary>
         [Input("purpose")]
-        public InputUnion<string, Pulumi.AzureNative.Migrate.Purpose>? Purpose { get; set; }
+        public Input<string>? Purpose { get; set; }
 
         /// <summary>
         /// Gets or sets the current status of the solution.
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNative.Migrate.Status>? Status { get; set; }
+        public Input<string>? Status { get; set; }
 
         /// <summary>
         /// Gets or sets the tool being used in the solution.
         /// </summary>
         [Input("tool")]
-        public InputUnion<string, Pulumi.AzureNative.Migrate.Tool>? Tool { get; set; }
+        public Input<string>? Tool { get; set; }
 
         public SolutionPropertiesArgs()
         {

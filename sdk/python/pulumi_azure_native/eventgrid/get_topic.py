@@ -27,7 +27,7 @@ class GetTopicResult:
     """
     EventGrid Topic
     """
-    def __init__(__self__, data_residency_boundary=None, disable_local_auth=None, endpoint=None, id=None, identity=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, data_residency_boundary=None, disable_local_auth=None, endpoint=None, event_type_info=None, extended_location=None, id=None, identity=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, kind=None, location=None, metric_resource_id=None, minimum_tls_version_allowed=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, system_data=None, tags=None, type=None):
         if data_residency_boundary and not isinstance(data_residency_boundary, str):
             raise TypeError("Expected argument 'data_residency_boundary' to be a str")
         pulumi.set(__self__, "data_residency_boundary", data_residency_boundary)
@@ -37,6 +37,12 @@ class GetTopicResult:
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if event_type_info and not isinstance(event_type_info, dict):
+            raise TypeError("Expected argument 'event_type_info' to be a dict")
+        pulumi.set(__self__, "event_type_info", event_type_info)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,12 +58,18 @@ class GetTopicResult:
         if input_schema_mapping and not isinstance(input_schema_mapping, dict):
             raise TypeError("Expected argument 'input_schema_mapping' to be a dict")
         pulumi.set(__self__, "input_schema_mapping", input_schema_mapping)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if metric_resource_id and not isinstance(metric_resource_id, str):
             raise TypeError("Expected argument 'metric_resource_id' to be a str")
         pulumi.set(__self__, "metric_resource_id", metric_resource_id)
+        if minimum_tls_version_allowed and not isinstance(minimum_tls_version_allowed, str):
+            raise TypeError("Expected argument 'minimum_tls_version_allowed' to be a str")
+        pulumi.set(__self__, "minimum_tls_version_allowed", minimum_tls_version_allowed)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -70,6 +82,9 @@ class GetTopicResult:
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -103,6 +118,23 @@ class GetTopicResult:
         Endpoint for the topic.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="eventTypeInfo")
+    def event_type_info(self) -> Optional['outputs.EventTypeInfoResponse']:
+        """
+        Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+        subscriber to view different types of events that are published.
+        """
+        return pulumi.get(self, "event_type_info")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        Extended location of the resource.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter
@@ -146,6 +178,14 @@ class GetTopicResult:
 
     @property
     @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of the resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
         Location of the resource.
@@ -161,6 +201,14 @@ class GetTopicResult:
         return pulumi.get(self, "metric_resource_id")
 
     @property
+    @pulumi.getter(name="minimumTlsVersionAllowed")
+    def minimum_tls_version_allowed(self) -> Optional[str]:
+        """
+        Minimum TLS version of the publisher allowed to publish to this topic
+        """
+        return pulumi.get(self, "minimum_tls_version_allowed")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -171,6 +219,9 @@ class GetTopicResult:
     @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connections.
+        """
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
@@ -191,10 +242,18 @@ class GetTopicResult:
         return pulumi.get(self, "public_network_access")
 
     @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ResourceSkuResponse']:
+        """
+        The Sku pricing tier for the topic.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to Topic resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -224,17 +283,22 @@ class AwaitableGetTopicResult(GetTopicResult):
             data_residency_boundary=self.data_residency_boundary,
             disable_local_auth=self.disable_local_auth,
             endpoint=self.endpoint,
+            event_type_info=self.event_type_info,
+            extended_location=self.extended_location,
             id=self.id,
             identity=self.identity,
             inbound_ip_rules=self.inbound_ip_rules,
             input_schema=self.input_schema,
             input_schema_mapping=self.input_schema_mapping,
+            kind=self.kind,
             location=self.location,
             metric_resource_id=self.metric_resource_id,
+            minimum_tls_version_allowed=self.minimum_tls_version_allowed,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
+            sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -245,9 +309,9 @@ def get_topic(resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
     Get properties of a topic.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -263,17 +327,22 @@ def get_topic(resource_group_name: Optional[str] = None,
         data_residency_boundary=pulumi.get(__ret__, 'data_residency_boundary'),
         disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
+        event_type_info=pulumi.get(__ret__, 'event_type_info'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         inbound_ip_rules=pulumi.get(__ret__, 'inbound_ip_rules'),
         input_schema=pulumi.get(__ret__, 'input_schema'),
         input_schema_mapping=pulumi.get(__ret__, 'input_schema_mapping'),
+        kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         metric_resource_id=pulumi.get(__ret__, 'metric_resource_id'),
+        minimum_tls_version_allowed=pulumi.get(__ret__, 'minimum_tls_version_allowed'),
         name=pulumi.get(__ret__, 'name'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -282,9 +351,9 @@ def get_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     Get properties of a topic.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2022-06-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -299,17 +368,22 @@ def get_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
         data_residency_boundary=pulumi.get(__response__, 'data_residency_boundary'),
         disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
         endpoint=pulumi.get(__response__, 'endpoint'),
+        event_type_info=pulumi.get(__response__, 'event_type_info'),
+        extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         inbound_ip_rules=pulumi.get(__response__, 'inbound_ip_rules'),
         input_schema=pulumi.get(__response__, 'input_schema'),
         input_schema_mapping=pulumi.get(__response__, 'input_schema_mapping'),
+        kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
         metric_resource_id=pulumi.get(__response__, 'metric_resource_id'),
+        minimum_tls_version_allowed=pulumi.get(__response__, 'minimum_tls_version_allowed'),
         name=pulumi.get(__response__, 'name'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         public_network_access=pulumi.get(__response__, 'public_network_access'),
+        sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

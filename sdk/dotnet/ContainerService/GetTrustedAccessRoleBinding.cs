@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Defines binding between a resource and role
-        /// Azure REST API version: 2023-05-02-preview.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview.
+        /// Other available API versions: 2023-05-02-preview, 2024-09-02-preview.
         /// </summary>
         public static Task<GetTrustedAccessRoleBindingResult> InvokeAsync(GetTrustedAccessRoleBindingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrustedAccessRoleBindingResult>("azure-native:containerservice:getTrustedAccessRoleBinding", args ?? new GetTrustedAccessRoleBindingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines binding between a resource and role
-        /// Azure REST API version: 2023-05-02-preview.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview.
+        /// Other available API versions: 2023-05-02-preview, 2024-09-02-preview.
         /// </summary>
         public static Output<GetTrustedAccessRoleBindingResult> Invoke(GetTrustedAccessRoleBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustedAccessRoleBindingResult>("azure-native:containerservice:getTrustedAccessRoleBinding", args ?? new GetTrustedAccessRoleBindingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines binding between a resource and role
-        /// Azure REST API version: 2023-05-02-preview.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview.
+        /// Other available API versions: 2023-05-02-preview, 2024-09-02-preview.
         /// </summary>
         public static Output<GetTrustedAccessRoleBindingResult> Invoke(GetTrustedAccessRoleBindingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustedAccessRoleBindingResult>("azure-native:containerservice:getTrustedAccessRoleBinding", args ?? new GetTrustedAccessRoleBindingInvokeArgs(), options.WithDefaults());
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class GetTrustedAccessRoleBindingResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>

@@ -52,9 +52,9 @@ def list_endpoint_keys(endpoint_name: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEndpointKeysResult:
     """
-    Azure REST API version: 2024-01-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-01-01-preview, 2024-07-01-preview.
 
 
     :param str endpoint_name: Name of the endpoint resource.
@@ -75,9 +75,9 @@ def list_endpoint_keys_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEndpointKeysResult]:
     """
-    Azure REST API version: 2024-01-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-01-01-preview, 2024-07-01-preview.
 
 
     :param str endpoint_name: Name of the endpoint resource.

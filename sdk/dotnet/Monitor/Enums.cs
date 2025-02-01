@@ -8,6 +8,134 @@ using Pulumi;
 namespace Pulumi.AzureNative.Monitor
 {
     /// <summary>
+    /// Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessMode : IEquatable<AccessMode>
+    {
+        private readonly string _value;
+
+        private AccessMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessMode Open { get; } = new AccessMode("Open");
+        public static AccessMode PrivateOnly { get; } = new AccessMode("PrivateOnly");
+
+        public static bool operator ==(AccessMode left, AccessMode right) => left.Equals(right);
+        public static bool operator !=(AccessMode left, AccessMode right) => !left.Equals(right);
+
+        public static explicit operator string(AccessMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessMode other && Equals(other);
+        public bool Equals(AccessMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The criteria operator. Relevant and required only for rules of the kind LogAlert.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConditionOperator : IEquatable<ConditionOperator>
+    {
+        private readonly string _value;
+
+        private ConditionOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConditionOperator EqualsValue { get; } = new ConditionOperator("Equals");
+        public static ConditionOperator GreaterThan { get; } = new ConditionOperator("GreaterThan");
+        public static ConditionOperator GreaterThanOrEqual { get; } = new ConditionOperator("GreaterThanOrEqual");
+        public static ConditionOperator LessThan { get; } = new ConditionOperator("LessThan");
+        public static ConditionOperator LessThanOrEqual { get; } = new ConditionOperator("LessThanOrEqual");
+        public static ConditionOperator GreaterOrLessThan { get; } = new ConditionOperator("GreaterOrLessThan");
+
+        public static bool operator ==(ConditionOperator left, ConditionOperator right) => left.Equals(right);
+        public static bool operator !=(ConditionOperator left, ConditionOperator right) => !left.Equals(right);
+
+        public static explicit operator string(ConditionOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConditionOperator other && Equals(other);
+        public bool Equals(ConditionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the type of threshold criteria
+    /// </summary>
+    [EnumType]
+    public readonly struct CriterionType : IEquatable<CriterionType>
+    {
+        private readonly string _value;
+
+        private CriterionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CriterionType StaticThresholdCriterion { get; } = new CriterionType("StaticThresholdCriterion");
+        public static CriterionType DynamicThresholdCriterion { get; } = new CriterionType("DynamicThresholdCriterion");
+
+        public static bool operator ==(CriterionType left, CriterionType right) => left.Equals(right);
+        public static bool operator !=(CriterionType left, CriterionType right) => !left.Equals(right);
+
+        public static explicit operator string(CriterionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CriterionType other && Equals(other);
+        public bool Equals(CriterionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Operator for dimension values
+    /// </summary>
+    [EnumType]
+    public readonly struct DimensionOperator : IEquatable<DimensionOperator>
+    {
+        private readonly string _value;
+
+        private DimensionOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DimensionOperator Include { get; } = new DimensionOperator("Include");
+        public static DimensionOperator Exclude { get; } = new DimensionOperator("Exclude");
+
+        public static bool operator ==(DimensionOperator left, DimensionOperator right) => left.Equals(right);
+        public static bool operator !=(DimensionOperator left, DimensionOperator right) => !left.Equals(right);
+
+        public static explicit operator string(DimensionOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DimensionOperator other && Equals(other);
+        public bool Equals(DimensionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of exporter.
     /// </summary>
     [EnumType]
@@ -115,6 +243,170 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
+    /// Type of managed service identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        public static IdentityType None { get; } = new IdentityType("None");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The incident management service type
+    /// </summary>
+    [EnumType]
+    public readonly struct IncidentManagementService : IEquatable<IncidentManagementService>
+    {
+        private readonly string _value;
+
+        private IncidentManagementService(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IncidentManagementService Icm { get; } = new IncidentManagementService("Icm");
+
+        public static bool operator ==(IncidentManagementService left, IncidentManagementService right) => left.Equals(right);
+        public static bool operator !=(IncidentManagementService left, IncidentManagementService right) => !left.Equals(right);
+
+        public static explicit operator string(IncidentManagementService value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IncidentManagementService other && Equals(other);
+        public bool Equals(IncidentManagementService other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+    /// </summary>
+    [EnumType]
+    public readonly struct JsonMapperElement : IEquatable<JsonMapperElement>
+    {
+        private readonly string _value;
+
+        private JsonMapperElement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Read or write the json array from or to the body of the message.
+        /// </summary>
+        public static JsonMapperElement Body { get; } = new JsonMapperElement("body");
+        /// <summary>
+        /// Read or write the json array from or to the attributes of the message.
+        /// </summary>
+        public static JsonMapperElement Attributes { get; } = new JsonMapperElement("attributes");
+
+        public static bool operator ==(JsonMapperElement left, JsonMapperElement right) => left.Equals(right);
+        public static bool operator !=(JsonMapperElement left, JsonMapperElement right) => !left.Equals(right);
+
+        public static explicit operator string(JsonMapperElement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JsonMapperElement other && Equals(other);
+        public bool Equals(JsonMapperElement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the type of scheduled query rule. The default is LogAlert.
+    /// </summary>
+    [EnumType]
+    public readonly struct Kind : IEquatable<Kind>
+    {
+        private readonly string _value;
+
+        private Kind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Kind LogAlert { get; } = new Kind("LogAlert");
+        public static Kind EventLogAlert { get; } = new Kind("EventLogAlert");
+        public static Kind LogToMetric { get; } = new Kind("LogToMetric");
+
+        public static bool operator ==(Kind left, Kind right) => left.Equals(right);
+        public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
+
+        public static explicit operator string(Kind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Kind other && Equals(other);
+        public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of pipeline
     /// </summary>
     [EnumType]
@@ -130,7 +422,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Pipeline for logs telemetry.
         /// </summary>
-        public static PipelineType Logs { get; } = new PipelineType("logs");
+        public static PipelineType Logs { get; } = new PipelineType("Logs");
 
         public static bool operator ==(PipelineType left, PipelineType right) => left.Equals(right);
         public static bool operator !=(PipelineType left, PipelineType right) => !left.Equals(right);
@@ -140,6 +432,38 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PipelineType other && Equals(other);
         public bool Equals(PipelineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointServiceConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
+        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
+        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
+
+        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
+        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -173,37 +497,6 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProcessorType other && Equals(other);
         public bool Equals(ProcessorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Gets or sets allow or disallow public network access to Azure Monitor Workspace
-    /// </summary>
-    [EnumType]
-    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
-    {
-        private readonly string _value;
-
-        private PublicNetworkAccess(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
-        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
-
-        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
-        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
-
-        public static explicit operator string(PublicNetworkAccess value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
-        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -253,6 +546,37 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ReceiverType other && Equals(other);
         public bool Equals(ReceiverType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of scoped Azure monitor resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScopedResourceKind : IEquatable<ScopedResourceKind>
+    {
+        private readonly string _value;
+
+        private ScopedResourceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScopedResourceKind Resource { get; } = new ScopedResourceKind("Resource");
+        public static ScopedResourceKind Metrics { get; } = new ScopedResourceKind("Metrics");
+
+        public static bool operator ==(ScopedResourceKind left, ScopedResourceKind right) => left.Equals(right);
+        public static bool operator !=(ScopedResourceKind left, ScopedResourceKind right) => !left.Equals(right);
+
+        public static explicit operator string(ScopedResourceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScopedResourceKind other && Equals(other);
+        public bool Equals(ScopedResourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -343,6 +667,40 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SyslogProtocol other && Equals(other);
         public bool Equals(SyslogProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Aggregation type. Relevant and required only for rules of the kind LogAlert.
+    /// </summary>
+    [EnumType]
+    public readonly struct TimeAggregation : IEquatable<TimeAggregation>
+    {
+        private readonly string _value;
+
+        private TimeAggregation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TimeAggregation Count { get; } = new TimeAggregation("Count");
+        public static TimeAggregation Average { get; } = new TimeAggregation("Average");
+        public static TimeAggregation Minimum { get; } = new TimeAggregation("Minimum");
+        public static TimeAggregation Maximum { get; } = new TimeAggregation("Maximum");
+        public static TimeAggregation Total { get; } = new TimeAggregation("Total");
+
+        public static bool operator ==(TimeAggregation left, TimeAggregation right) => left.Equals(right);
+        public static bool operator !=(TimeAggregation left, TimeAggregation right) => !left.Equals(right);
+
+        public static explicit operator string(TimeAggregation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TimeAggregation other && Equals(other);
+        public bool Equals(TimeAggregation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

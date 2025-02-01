@@ -30,8 +30,8 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         /// <summary>
         /// Whether the shard key is unique
         /// </summary>
-        [Input("isUnique", required: true)]
-        public Input<bool> IsUnique { get; set; } = null!;
+        [Input("isUnique")]
+        public Input<bool>? IsUnique { get; set; }
 
         public MongoDbShardKeySettingArgs()
         {

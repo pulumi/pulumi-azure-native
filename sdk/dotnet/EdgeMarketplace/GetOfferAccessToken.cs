@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.EdgeMarketplace
     {
         /// <summary>
         /// get access token.
-        /// Azure REST API version: 2023-08-01-preview.
+        /// Azure REST API version: 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01.
+        /// Other available API versions: 2023-08-01-preview.
         /// </summary>
         public static Task<GetOfferAccessTokenResult> InvokeAsync(GetOfferAccessTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOfferAccessTokenResult>("azure-native:edgemarketplace:getOfferAccessToken", args ?? new GetOfferAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// get access token.
-        /// Azure REST API version: 2023-08-01-preview.
+        /// Azure REST API version: 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01.
+        /// Other available API versions: 2023-08-01-preview.
         /// </summary>
         public static Output<GetOfferAccessTokenResult> Invoke(GetOfferAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfferAccessTokenResult>("azure-native:edgemarketplace:getOfferAccessToken", args ?? new GetOfferAccessTokenInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// get access token.
-        /// Azure REST API version: 2023-08-01-preview.
+        /// Azure REST API version: 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01.
+        /// Other available API versions: 2023-08-01-preview.
         /// </summary>
         public static Output<GetOfferAccessTokenResult> Invoke(GetOfferAccessTokenInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfferAccessTokenResult>("azure-native:edgemarketplace:getOfferAccessToken", args ?? new GetOfferAccessTokenInvokeArgs(), options.WithDefaults());

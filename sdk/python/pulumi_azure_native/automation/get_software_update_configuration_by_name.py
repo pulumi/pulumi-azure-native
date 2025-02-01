@@ -188,9 +188,9 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSoftwareUpdateConfigurationByNameResult:
     """
     Get a single software update configuration by name.
-    Azure REST API version: 2019-06-01.
+    Azure REST API version: 2023-05-15-preview.
 
-    Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
+    Other available API versions: 2017-05-15-preview, 2019-06-01, 2024-10-23.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -223,9 +223,9 @@ def get_software_update_configuration_by_name_output(automation_account_name: Op
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSoftwareUpdateConfigurationByNameResult]:
     """
     Get a single software update configuration by name.
-    Azure REST API version: 2019-06-01.
+    Azure REST API version: 2023-05-15-preview.
 
-    Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
+    Other available API versions: 2017-05-15-preview, 2019-06-01, 2024-10-23.
 
 
     :param str automation_account_name: The name of the automation account.

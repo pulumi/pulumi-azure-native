@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.HybridNetwork.Inputs
     /// </summary>
     public sealed class ArtifactStorePropertiesFormatArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The artifact store backing resource network access type
+        /// </summary>
+        [Input("backingResourcePublicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.HybridNetwork.BackingResourcePublicNetworkAccess>? BackingResourcePublicNetworkAccess { get; set; }
+
         [Input("managedResourceGroupConfiguration")]
         public Input<Inputs.ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs>? ManagedResourceGroupConfiguration { get; set; }
 

@@ -17,9 +17,15 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AutomaticResourcePredictionsProfileResponse',
     'AzureDevOpsOrganizationProfileResponse',
+    'AzureDevOpsPermissionProfileResponse',
+    'DataDiskResponse',
     'DevOpsAzureSkuResponse',
+    'GitHubOrganizationProfileResponse',
+    'GitHubOrganizationResponse',
     'ManagedServiceIdentityResponse',
+    'ManualResourcePredictionsProfileResponse',
     'NetworkProfileResponse',
     'OrganizationResponse',
     'OsProfileResponse',
@@ -27,27 +33,102 @@ __all__ = [
     'SecretsManagementSettingsResponse',
     'StatefulResponse',
     'StatelessAgentProfileResponse',
+    'StorageProfileResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
     'VmssFabricProfileResponse',
 ]
 
 @pulumi.output_type
+class AutomaticResourcePredictionsProfileResponse(dict):
+    """
+    The stand-by agent scheme is determined based on historical demand.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predictionPreference":
+            suggest = "prediction_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomaticResourcePredictionsProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomaticResourcePredictionsProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomaticResourcePredictionsProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kind: str,
+                 prediction_preference: Optional[str] = None):
+        """
+        The stand-by agent scheme is determined based on historical demand.
+        :param str kind: Determines how the stand-by scheme should be provided.
+               Expected value is 'Automatic'.
+        :param str prediction_preference: Determines the balance between cost and performance.
+        """
+        pulumi.set(__self__, "kind", 'Automatic')
+        if prediction_preference is not None:
+            pulumi.set(__self__, "prediction_preference", prediction_preference)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Determines how the stand-by scheme should be provided.
+        Expected value is 'Automatic'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="predictionPreference")
+    def prediction_preference(self) -> Optional[str]:
+        """
+        Determines the balance between cost and performance.
+        """
+        return pulumi.get(self, "prediction_preference")
+
+
+@pulumi.output_type
 class AzureDevOpsOrganizationProfileResponse(dict):
     """
     Azure DevOps organization profile
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "permissionProfile":
+            suggest = "permission_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureDevOpsOrganizationProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureDevOpsOrganizationProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureDevOpsOrganizationProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kind: str,
-                 organizations: Sequence['outputs.OrganizationResponse']):
+                 organizations: Sequence['outputs.OrganizationResponse'],
+                 permission_profile: Optional['outputs.AzureDevOpsPermissionProfileResponse'] = None):
         """
         Azure DevOps organization profile
         :param str kind: Discriminator property for OrganizationProfile.
                Expected value is 'AzureDevOps'.
         :param Sequence['OrganizationResponse'] organizations: The list of Azure DevOps organizations the pool should be present in.
+        :param 'AzureDevOpsPermissionProfileResponse' permission_profile: The type of permission which determines which accounts are admins on the Azure DevOps pool.
         """
         pulumi.set(__self__, "kind", 'AzureDevOps')
         pulumi.set(__self__, "organizations", organizations)
+        if permission_profile is not None:
+            pulumi.set(__self__, "permission_profile", permission_profile)
 
     @property
     @pulumi.getter
@@ -66,6 +147,140 @@ class AzureDevOpsOrganizationProfileResponse(dict):
         """
         return pulumi.get(self, "organizations")
 
+    @property
+    @pulumi.getter(name="permissionProfile")
+    def permission_profile(self) -> Optional['outputs.AzureDevOpsPermissionProfileResponse']:
+        """
+        The type of permission which determines which accounts are admins on the Azure DevOps pool.
+        """
+        return pulumi.get(self, "permission_profile")
+
+
+@pulumi.output_type
+class AzureDevOpsPermissionProfileResponse(dict):
+    """
+    Defines the type of Azure DevOps pool permission.
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 groups: Optional[Sequence[str]] = None,
+                 users: Optional[Sequence[str]] = None):
+        """
+        Defines the type of Azure DevOps pool permission.
+        :param str kind: Determines who has admin permissions to the Azure DevOps pool.
+        :param Sequence[str] groups: Group email addresses
+        :param Sequence[str] users: User email addresses
+        """
+        pulumi.set(__self__, "kind", kind)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Determines who has admin permissions to the Azure DevOps pool.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence[str]]:
+        """
+        Group email addresses
+        """
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence[str]]:
+        """
+        User email addresses
+        """
+        return pulumi.get(self, "users")
+
+
+@pulumi.output_type
+class DataDiskResponse(dict):
+    """
+    The data disk of the VMSS.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeGiB":
+            suggest = "disk_size_gi_b"
+        elif key == "driveLetter":
+            suggest = "drive_letter"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 caching: Optional[str] = None,
+                 disk_size_gi_b: Optional[int] = None,
+                 drive_letter: Optional[str] = None,
+                 storage_account_type: Optional[str] = None):
+        """
+        The data disk of the VMSS.
+        :param str caching: The type of caching to be enabled for the data disks. The default value for caching is readwrite. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+        :param int disk_size_gi_b: The initial disk size in gigabytes.
+        :param str drive_letter: The drive letter for the empty data disk. If not specified, it will be the first available letter.
+        :param str storage_account_type: The storage Account type to be used for the data disk. If omitted, the default is "standard_lrs".
+        """
+        if caching is not None:
+            pulumi.set(__self__, "caching", caching)
+        if disk_size_gi_b is not None:
+            pulumi.set(__self__, "disk_size_gi_b", disk_size_gi_b)
+        if drive_letter is not None:
+            pulumi.set(__self__, "drive_letter", drive_letter)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+
+    @property
+    @pulumi.getter
+    def caching(self) -> Optional[str]:
+        """
+        The type of caching to be enabled for the data disks. The default value for caching is readwrite. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+        """
+        return pulumi.get(self, "caching")
+
+    @property
+    @pulumi.getter(name="diskSizeGiB")
+    def disk_size_gi_b(self) -> Optional[int]:
+        """
+        The initial disk size in gigabytes.
+        """
+        return pulumi.get(self, "disk_size_gi_b")
+
+    @property
+    @pulumi.getter(name="driveLetter")
+    def drive_letter(self) -> Optional[str]:
+        """
+        The drive letter for the empty data disk. If not specified, it will be the first available letter.
+        """
+        return pulumi.get(self, "drive_letter")
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[str]:
+        """
+        The storage Account type to be used for the data disk. If omitted, the default is "standard_lrs".
+        """
+        return pulumi.get(self, "storage_account_type")
+
 
 @pulumi.output_type
 class DevOpsAzureSkuResponse(dict):
@@ -73,18 +288,12 @@ class DevOpsAzureSkuResponse(dict):
     The Azure SKU of the machines in the pool.
     """
     def __init__(__self__, *,
-                 name: str,
-                 tier: Optional[str] = None):
+                 name: str):
         """
         The Azure SKU of the machines in the pool.
         :param str name: The Azure SKU name of the machines in the pool.
-        :param str tier: The Azure SKU tier of the machines in the pool.
         """
         pulumi.set(__self__, "name", name)
-        if tier is None:
-            tier = 'Standard'
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -94,13 +303,74 @@ class DevOpsAzureSkuResponse(dict):
         """
         return pulumi.get(self, "name")
 
+
+@pulumi.output_type
+class GitHubOrganizationProfileResponse(dict):
+    """
+    GitHub organization profile
+    """
+    def __init__(__self__, *,
+                 kind: str,
+                 organizations: Sequence['outputs.GitHubOrganizationResponse']):
+        """
+        GitHub organization profile
+        :param str kind: Discriminator property for OrganizationProfile.
+               Expected value is 'GitHub'.
+        :param Sequence['GitHubOrganizationResponse'] organizations: The list of GitHub organizations/repositories the pool should be present in.
+        """
+        pulumi.set(__self__, "kind", 'GitHub')
+        pulumi.set(__self__, "organizations", organizations)
+
     @property
     @pulumi.getter
-    def tier(self) -> Optional[str]:
+    def kind(self) -> str:
         """
-        The Azure SKU tier of the machines in the pool.
+        Discriminator property for OrganizationProfile.
+        Expected value is 'GitHub'.
         """
-        return pulumi.get(self, "tier")
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def organizations(self) -> Sequence['outputs.GitHubOrganizationResponse']:
+        """
+        The list of GitHub organizations/repositories the pool should be present in.
+        """
+        return pulumi.get(self, "organizations")
+
+
+@pulumi.output_type
+class GitHubOrganizationResponse(dict):
+    """
+    Defines a GitHub organization
+    """
+    def __init__(__self__, *,
+                 url: str,
+                 repositories: Optional[Sequence[str]] = None):
+        """
+        Defines a GitHub organization
+        :param str url: The GitHub organization URL in which the pool should be created.
+        :param Sequence[str] repositories: Optional list of repositories in which the pool should be created.
+        """
+        pulumi.set(__self__, "url", url)
+        if repositories is not None:
+            pulumi.set(__self__, "repositories", repositories)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The GitHub organization URL in which the pool should be created.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def repositories(self) -> Optional[Sequence[str]]:
+        """
+        Optional list of repositories in which the pool should be created.
+        """
+        return pulumi.get(self, "repositories")
 
 
 @pulumi.output_type
@@ -178,6 +448,30 @@ class ManagedServiceIdentityResponse(dict):
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ManualResourcePredictionsProfileResponse(dict):
+    """
+    Customer provides the stand-by agent scheme.
+    """
+    def __init__(__self__, *,
+                 kind: str):
+        """
+        Customer provides the stand-by agent scheme.
+        :param str kind: Determines how the stand-by scheme should be provided.
+               Expected value is 'Manual'.
+        """
+        pulumi.set(__self__, "kind", 'Manual')
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Determines how the stand-by scheme should be provided.
+        Expected value is 'Manual'.
+        """
+        return pulumi.get(self, "kind")
 
 
 @pulumi.output_type
@@ -273,7 +567,9 @@ class OsProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "secretsManagementSettings":
+        if key == "logonType":
+            suggest = "logon_type"
+        elif key == "secretsManagementSettings":
             suggest = "secrets_management_settings"
 
         if suggest:
@@ -288,16 +584,29 @@ class OsProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 secrets_management_settings: 'outputs.SecretsManagementSettingsResponse'):
+                 logon_type: Optional[str] = None,
+                 secrets_management_settings: Optional['outputs.SecretsManagementSettingsResponse'] = None):
         """
         The OS profile of the machines in the pool.
+        :param str logon_type: Determines how the service should be run. By default, this will be set to Service.
         :param 'SecretsManagementSettingsResponse' secrets_management_settings: The secret management settings of the machines in the pool.
         """
-        pulumi.set(__self__, "secrets_management_settings", secrets_management_settings)
+        if logon_type is not None:
+            pulumi.set(__self__, "logon_type", logon_type)
+        if secrets_management_settings is not None:
+            pulumi.set(__self__, "secrets_management_settings", secrets_management_settings)
+
+    @property
+    @pulumi.getter(name="logonType")
+    def logon_type(self) -> Optional[str]:
+        """
+        Determines how the service should be run. By default, this will be set to Service.
+        """
+        return pulumi.get(self, "logon_type")
 
     @property
     @pulumi.getter(name="secretsManagementSettings")
-    def secrets_management_settings(self) -> 'outputs.SecretsManagementSettingsResponse':
+    def secrets_management_settings(self) -> Optional['outputs.SecretsManagementSettingsResponse']:
         """
         The secret management settings of the machines in the pool.
         """
@@ -314,6 +623,8 @@ class PoolImageResponse(dict):
         suggest = None
         if key == "resourceId":
             suggest = "resource_id"
+        elif key == "wellKnownImageName":
+            suggest = "well_known_image_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PoolImageResponse. Access the value via the '{suggest}' property getter instead.")
@@ -327,30 +638,27 @@ class PoolImageResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_id: str,
                  aliases: Optional[Sequence[str]] = None,
-                 buffer: Optional[str] = None):
+                 buffer: Optional[str] = None,
+                 resource_id: Optional[str] = None,
+                 well_known_image_name: Optional[str] = None):
         """
         The VM image of the machines in the pool.
-        :param str resource_id: The resource id of the image.
         :param Sequence[str] aliases: List of aliases to reference the image by.
         :param str buffer: The percentage of the buffer to be allocated to this image.
+        :param str resource_id: The resource id of the image.
+        :param str well_known_image_name: The image to use from a well-known set of images made available to customers.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
         if aliases is not None:
             pulumi.set(__self__, "aliases", aliases)
         if buffer is None:
             buffer = '*'
         if buffer is not None:
             pulumi.set(__self__, "buffer", buffer)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
-        """
-        The resource id of the image.
-        """
-        return pulumi.get(self, "resource_id")
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if well_known_image_name is not None:
+            pulumi.set(__self__, "well_known_image_name", well_known_image_name)
 
     @property
     @pulumi.getter
@@ -367,6 +675,22 @@ class PoolImageResponse(dict):
         The percentage of the buffer to be allocated to this image.
         """
         return pulumi.get(self, "buffer")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The resource id of the image.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="wellKnownImageName")
+    def well_known_image_name(self) -> Optional[str]:
+        """
+        The image to use from a well-known set of images made available to customers.
+        """
+        return pulumi.get(self, "well_known_image_name")
 
 
 @pulumi.output_type
@@ -443,10 +767,14 @@ class StatefulResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "maxAgentLifetime":
+        if key == "gracePeriodTimeSpan":
+            suggest = "grace_period_time_span"
+        elif key == "maxAgentLifetime":
             suggest = "max_agent_lifetime"
         elif key == "resourcePredictions":
             suggest = "resource_predictions"
+        elif key == "resourcePredictionsProfile":
+            suggest = "resource_predictions_profile"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in StatefulResponse. Access the value via the '{suggest}' property getter instead.")
@@ -461,19 +789,28 @@ class StatefulResponse(dict):
 
     def __init__(__self__, *,
                  kind: str,
-                 max_agent_lifetime: str,
-                 resource_predictions: Optional[Any] = None):
+                 grace_period_time_span: Optional[str] = None,
+                 max_agent_lifetime: Optional[str] = None,
+                 resource_predictions: Optional[Any] = None,
+                 resource_predictions_profile: Optional[Any] = None):
         """
         Stateful profile meaning that the machines will be returned to the pool after running a job.
         :param str kind: Discriminator property for AgentProfile.
                Expected value is 'Stateful'.
+        :param str grace_period_time_span: How long should the machine be kept around after it ran a workload when there are no stand-by agents. The maximum is one week.
         :param str max_agent_lifetime: How long should stateful machines be kept around. The maximum is one week.
-        :param Any resource_predictions: Defines pool buffer.
+        :param Any resource_predictions: Defines pool buffer/stand-by agents.
+        :param Union['AutomaticResourcePredictionsProfileResponse', 'ManualResourcePredictionsProfileResponse'] resource_predictions_profile: Defines how the pool buffer/stand-by agents is provided.
         """
         pulumi.set(__self__, "kind", 'Stateful')
-        pulumi.set(__self__, "max_agent_lifetime", max_agent_lifetime)
+        if grace_period_time_span is not None:
+            pulumi.set(__self__, "grace_period_time_span", grace_period_time_span)
+        if max_agent_lifetime is not None:
+            pulumi.set(__self__, "max_agent_lifetime", max_agent_lifetime)
         if resource_predictions is not None:
             pulumi.set(__self__, "resource_predictions", resource_predictions)
+        if resource_predictions_profile is not None:
+            pulumi.set(__self__, "resource_predictions_profile", resource_predictions_profile)
 
     @property
     @pulumi.getter
@@ -485,8 +822,16 @@ class StatefulResponse(dict):
         return pulumi.get(self, "kind")
 
     @property
+    @pulumi.getter(name="gracePeriodTimeSpan")
+    def grace_period_time_span(self) -> Optional[str]:
+        """
+        How long should the machine be kept around after it ran a workload when there are no stand-by agents. The maximum is one week.
+        """
+        return pulumi.get(self, "grace_period_time_span")
+
+    @property
     @pulumi.getter(name="maxAgentLifetime")
-    def max_agent_lifetime(self) -> str:
+    def max_agent_lifetime(self) -> Optional[str]:
         """
         How long should stateful machines be kept around. The maximum is one week.
         """
@@ -496,9 +841,17 @@ class StatefulResponse(dict):
     @pulumi.getter(name="resourcePredictions")
     def resource_predictions(self) -> Optional[Any]:
         """
-        Defines pool buffer.
+        Defines pool buffer/stand-by agents.
         """
         return pulumi.get(self, "resource_predictions")
+
+    @property
+    @pulumi.getter(name="resourcePredictionsProfile")
+    def resource_predictions_profile(self) -> Optional[Any]:
+        """
+        Defines how the pool buffer/stand-by agents is provided.
+        """
+        return pulumi.get(self, "resource_predictions_profile")
 
 
 @pulumi.output_type
@@ -511,6 +864,8 @@ class StatelessAgentProfileResponse(dict):
         suggest = None
         if key == "resourcePredictions":
             suggest = "resource_predictions"
+        elif key == "resourcePredictionsProfile":
+            suggest = "resource_predictions_profile"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in StatelessAgentProfileResponse. Access the value via the '{suggest}' property getter instead.")
@@ -525,16 +880,20 @@ class StatelessAgentProfileResponse(dict):
 
     def __init__(__self__, *,
                  kind: str,
-                 resource_predictions: Optional[Any] = None):
+                 resource_predictions: Optional[Any] = None,
+                 resource_predictions_profile: Optional[Any] = None):
         """
         Stateless profile meaning that the machines will be cleaned up after running a job.
         :param str kind: Discriminator property for AgentProfile.
                Expected value is 'Stateless'.
-        :param Any resource_predictions: Defines pool buffer.
+        :param Any resource_predictions: Defines pool buffer/stand-by agents.
+        :param Union['AutomaticResourcePredictionsProfileResponse', 'ManualResourcePredictionsProfileResponse'] resource_predictions_profile: Defines how the pool buffer/stand-by agents is provided.
         """
         pulumi.set(__self__, "kind", 'Stateless')
         if resource_predictions is not None:
             pulumi.set(__self__, "resource_predictions", resource_predictions)
+        if resource_predictions_profile is not None:
+            pulumi.set(__self__, "resource_predictions_profile", resource_predictions_profile)
 
     @property
     @pulumi.getter
@@ -549,9 +908,71 @@ class StatelessAgentProfileResponse(dict):
     @pulumi.getter(name="resourcePredictions")
     def resource_predictions(self) -> Optional[Any]:
         """
-        Defines pool buffer.
+        Defines pool buffer/stand-by agents.
         """
         return pulumi.get(self, "resource_predictions")
+
+    @property
+    @pulumi.getter(name="resourcePredictionsProfile")
+    def resource_predictions_profile(self) -> Optional[Any]:
+        """
+        Defines how the pool buffer/stand-by agents is provided.
+        """
+        return pulumi.get(self, "resource_predictions_profile")
+
+
+@pulumi.output_type
+class StorageProfileResponse(dict):
+    """
+    The storage profile of the VMSS.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataDisks":
+            suggest = "data_disks"
+        elif key == "osDiskStorageAccountType":
+            suggest = "os_disk_storage_account_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_disks: Optional[Sequence['outputs.DataDiskResponse']] = None,
+                 os_disk_storage_account_type: Optional[str] = None):
+        """
+        The storage profile of the VMSS.
+        :param Sequence['DataDiskResponse'] data_disks: A list of empty data disks to attach.
+        :param str os_disk_storage_account_type: The Azure SKU name of the machines in the pool.
+        """
+        if data_disks is not None:
+            pulumi.set(__self__, "data_disks", data_disks)
+        if os_disk_storage_account_type is not None:
+            pulumi.set(__self__, "os_disk_storage_account_type", os_disk_storage_account_type)
+
+    @property
+    @pulumi.getter(name="dataDisks")
+    def data_disks(self) -> Optional[Sequence['outputs.DataDiskResponse']]:
+        """
+        A list of empty data disks to attach.
+        """
+        return pulumi.get(self, "data_disks")
+
+    @property
+    @pulumi.getter(name="osDiskStorageAccountType")
+    def os_disk_storage_account_type(self) -> Optional[str]:
+        """
+        The Azure SKU name of the machines in the pool.
+        """
+        return pulumi.get(self, "os_disk_storage_account_type")
 
 
 @pulumi.output_type
@@ -728,6 +1149,8 @@ class VmssFabricProfileResponse(dict):
             suggest = "network_profile"
         elif key == "osProfile":
             suggest = "os_profile"
+        elif key == "storageProfile":
+            suggest = "storage_profile"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VmssFabricProfileResponse. Access the value via the '{suggest}' property getter instead.")
@@ -745,7 +1168,8 @@ class VmssFabricProfileResponse(dict):
                  kind: str,
                  sku: 'outputs.DevOpsAzureSkuResponse',
                  network_profile: Optional['outputs.NetworkProfileResponse'] = None,
-                 os_profile: Optional['outputs.OsProfileResponse'] = None):
+                 os_profile: Optional['outputs.OsProfileResponse'] = None,
+                 storage_profile: Optional['outputs.StorageProfileResponse'] = None):
         """
         The agents will run on Virtual Machine Scale Sets.
         :param Sequence['PoolImageResponse'] images: The VM images of the machines in the pool.
@@ -754,6 +1178,7 @@ class VmssFabricProfileResponse(dict):
         :param 'DevOpsAzureSkuResponse' sku: The Azure SKU of the machines in the pool.
         :param 'NetworkProfileResponse' network_profile: The network profile of the machines in the pool.
         :param 'OsProfileResponse' os_profile: The OS profile of the machines in the pool.
+        :param 'StorageProfileResponse' storage_profile: The storage profile of the machines in the pool.
         """
         pulumi.set(__self__, "images", images)
         pulumi.set(__self__, "kind", 'Vmss')
@@ -762,6 +1187,8 @@ class VmssFabricProfileResponse(dict):
             pulumi.set(__self__, "network_profile", network_profile)
         if os_profile is not None:
             pulumi.set(__self__, "os_profile", os_profile)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
 
     @property
     @pulumi.getter
@@ -803,5 +1230,13 @@ class VmssFabricProfileResponse(dict):
         The OS profile of the machines in the pool.
         """
         return pulumi.get(self, "os_profile")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional['outputs.StorageProfileResponse']:
+        """
+        The storage profile of the machines in the pool.
+        """
+        return pulumi.get(self, "storage_profile")
 
 

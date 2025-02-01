@@ -5,11 +5,27 @@
 from enum import Enum
 
 __all__ = [
+    'AuthenticationMode',
     'ConnectionStatus',
     'CreateMode',
     'IdentityType',
+    'PrivateLinkDelegation',
     'PublicNetworkAccess',
 ]
+
+
+class AuthenticationMode(str, Enum):
+    """
+    The data plane proxy authentication mode. This property manages the authentication mode of request to the data plane resources.
+    """
+    LOCAL = "Local"
+    """
+    The local authentication mode. Users are not required to have data plane permissions if local authentication is not disabled.
+    """
+    PASS_THROUGH = "Pass-through"
+    """
+    The pass-through authentication mode. User identity will be passed through from Azure Resource Manager (ARM), requiring user to have data plane action permissions (Available via App Configuration Data Owner/ App Configuration Data Reader).
+    """
 
 
 class ConnectionStatus(str, Enum):
@@ -38,6 +54,20 @@ class IdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+
+
+class PrivateLinkDelegation(str, Enum):
+    """
+    The data plane proxy private link delegation. This property manages if a request from delegated Azure Resource Manager (ARM) private link is allowed when the data plane resource requires private link.
+    """
+    ENABLED = "Enabled"
+    """
+    Azure Resource Manager (ARM) private endpoint is required if the resource requires private link.
+    """
+    DISABLED = "Disabled"
+    """
+    Request is denied if the resource requires private link.
+    """
 
 
 class PublicNetworkAccess(str, Enum):

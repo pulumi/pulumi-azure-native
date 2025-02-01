@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Returns supported virtual machine sizes for resize
-        /// Azure REST API version: 2023-08-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-08-01-preview.
         /// </summary>
         public static Task<GetComputeAllowedResizeSizesResult> InvokeAsync(GetComputeAllowedResizeSizesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputeAllowedResizeSizesResult>("azure-native:machinelearningservices:getComputeAllowedResizeSizes", args ?? new GetComputeAllowedResizeSizesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns supported virtual machine sizes for resize
-        /// Azure REST API version: 2023-08-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-08-01-preview.
         /// </summary>
         public static Output<GetComputeAllowedResizeSizesResult> Invoke(GetComputeAllowedResizeSizesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputeAllowedResizeSizesResult>("azure-native:machinelearningservices:getComputeAllowedResizeSizes", args ?? new GetComputeAllowedResizeSizesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns supported virtual machine sizes for resize
-        /// Azure REST API version: 2023-08-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-08-01-preview.
         /// </summary>
         public static Output<GetComputeAllowedResizeSizesResult> Invoke(GetComputeAllowedResizeSizesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputeAllowedResizeSizesResult>("azure-native:machinelearningservices:getComputeAllowedResizeSizes", args ?? new GetComputeAllowedResizeSizesInvokeArgs(), options.WithDefaults());

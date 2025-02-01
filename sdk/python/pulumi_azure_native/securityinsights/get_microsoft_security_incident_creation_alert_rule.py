@@ -225,7 +225,7 @@ def get_microsoft_security_incident_creation_alert_rule(resource_group_name: Opt
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMicrosoftSecurityIncidentCreationAlertRuleResult:
     """
     Gets the alert rule.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -261,7 +261,7 @@ def get_microsoft_security_incident_creation_alert_rule_output(resource_group_na
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMicrosoftSecurityIncidentCreationAlertRuleResult]:
     """
     Gets the alert rule.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

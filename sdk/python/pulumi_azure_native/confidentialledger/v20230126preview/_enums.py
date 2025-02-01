@@ -6,9 +6,6 @@ from enum import Enum
 
 __all__ = [
     'LanguageRuntime',
-    'LedgerRoleName',
-    'LedgerType',
-    'RunningState',
 ]
 
 
@@ -18,32 +15,3 @@ class LanguageRuntime(str, Enum):
     """
     CPP = "CPP"
     JS = "JS"
-
-
-class LedgerRoleName(str, Enum):
-    """
-    LedgerRole associated with the Security Principal of Ledger
-    """
-    READER = "Reader"
-    CONTRIBUTOR = "Contributor"
-    ADMINISTRATOR = "Administrator"
-
-
-class LedgerType(str, Enum):
-    """
-    Type of Confidential Ledger
-    """
-    UNKNOWN = "Unknown"
-    PUBLIC = "Public"
-    PRIVATE = "Private"
-
-
-class RunningState(str, Enum):
-    """
-    Object representing RunningState for Ledger.
-    """
-    ACTIVE = "Active"
-    PAUSED = "Paused"
-    UNKNOWN = "Unknown"
-    PAUSING = "Pausing"
-    RESUMING = "Resuming"

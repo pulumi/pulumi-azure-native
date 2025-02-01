@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a managed private endpoint.
- * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-08-27.
+ * Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
  *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Other available API versions: 2022-12-29.
  */
 export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
@@ -153,7 +153,7 @@ export interface ManagedPrivateEndpointArgs {
      */
     requestMessage?: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

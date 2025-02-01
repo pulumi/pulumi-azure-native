@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
     public sealed class BackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Backup interval hours for the server.
+        /// </summary>
+        [Input("backupIntervalHours")]
+        public Input<int>? BackupIntervalHours { get; set; }
+
+        /// <summary>
         /// Backup retention days for the server.
         /// </summary>
         [Input("backupRetentionDays")]

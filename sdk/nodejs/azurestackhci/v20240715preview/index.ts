@@ -5,50 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { GalleryImageArgs } from "./galleryImage";
-export type GalleryImage = import("./galleryImage").GalleryImage;
-export const GalleryImage: typeof import("./galleryImage").GalleryImage = null as any;
-utilities.lazyLoad(exports, ["GalleryImage"], () => require("./galleryImage"));
-
-export { GetGalleryImageArgs, GetGalleryImageResult, GetGalleryImageOutputArgs } from "./getGalleryImage";
-export const getGalleryImage: typeof import("./getGalleryImage").getGalleryImage = null as any;
-export const getGalleryImageOutput: typeof import("./getGalleryImage").getGalleryImageOutput = null as any;
-utilities.lazyLoad(exports, ["getGalleryImage","getGalleryImageOutput"], () => require("./getGalleryImage"));
-
-export { GetGuestAgentArgs, GetGuestAgentResult, GetGuestAgentOutputArgs } from "./getGuestAgent";
-export const getGuestAgent: typeof import("./getGuestAgent").getGuestAgent = null as any;
-export const getGuestAgentOutput: typeof import("./getGuestAgent").getGuestAgentOutput = null as any;
-utilities.lazyLoad(exports, ["getGuestAgent","getGuestAgentOutput"], () => require("./getGuestAgent"));
-
-export { GetLogicalNetworkArgs, GetLogicalNetworkResult, GetLogicalNetworkOutputArgs } from "./getLogicalNetwork";
-export const getLogicalNetwork: typeof import("./getLogicalNetwork").getLogicalNetwork = null as any;
-export const getLogicalNetworkOutput: typeof import("./getLogicalNetwork").getLogicalNetworkOutput = null as any;
-utilities.lazyLoad(exports, ["getLogicalNetwork","getLogicalNetworkOutput"], () => require("./getLogicalNetwork"));
-
-export { GetMarketplaceGalleryImageArgs, GetMarketplaceGalleryImageResult, GetMarketplaceGalleryImageOutputArgs } from "./getMarketplaceGalleryImage";
-export const getMarketplaceGalleryImage: typeof import("./getMarketplaceGalleryImage").getMarketplaceGalleryImage = null as any;
-export const getMarketplaceGalleryImageOutput: typeof import("./getMarketplaceGalleryImage").getMarketplaceGalleryImageOutput = null as any;
-utilities.lazyLoad(exports, ["getMarketplaceGalleryImage","getMarketplaceGalleryImageOutput"], () => require("./getMarketplaceGalleryImage"));
-
 export { GetNetworkInterfaceArgs, GetNetworkInterfaceResult, GetNetworkInterfaceOutputArgs } from "./getNetworkInterface";
 export const getNetworkInterface: typeof import("./getNetworkInterface").getNetworkInterface = null as any;
 export const getNetworkInterfaceOutput: typeof import("./getNetworkInterface").getNetworkInterfaceOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkInterface","getNetworkInterfaceOutput"], () => require("./getNetworkInterface"));
-
-export { GetNetworkSecurityGroupArgs, GetNetworkSecurityGroupResult, GetNetworkSecurityGroupOutputArgs } from "./getNetworkSecurityGroup";
-export const getNetworkSecurityGroup: typeof import("./getNetworkSecurityGroup").getNetworkSecurityGroup = null as any;
-export const getNetworkSecurityGroupOutput: typeof import("./getNetworkSecurityGroup").getNetworkSecurityGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getNetworkSecurityGroup","getNetworkSecurityGroupOutput"], () => require("./getNetworkSecurityGroup"));
-
-export { GetSecurityRuleArgs, GetSecurityRuleResult, GetSecurityRuleOutputArgs } from "./getSecurityRule";
-export const getSecurityRule: typeof import("./getSecurityRule").getSecurityRule = null as any;
-export const getSecurityRuleOutput: typeof import("./getSecurityRule").getSecurityRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getSecurityRule","getSecurityRuleOutput"], () => require("./getSecurityRule"));
-
-export { GetStorageContainerArgs, GetStorageContainerResult, GetStorageContainerOutputArgs } from "./getStorageContainer";
-export const getStorageContainer: typeof import("./getStorageContainer").getStorageContainer = null as any;
-export const getStorageContainerOutput: typeof import("./getStorageContainer").getStorageContainerOutput = null as any;
-utilities.lazyLoad(exports, ["getStorageContainer","getStorageContainerOutput"], () => require("./getStorageContainer"));
 
 export { GetVirtualHardDiskArgs, GetVirtualHardDiskResult, GetVirtualHardDiskOutputArgs } from "./getVirtualHardDisk";
 export const getVirtualHardDisk: typeof import("./getVirtualHardDisk").getVirtualHardDisk = null as any;
@@ -60,40 +20,10 @@ export const getVirtualMachineInstance: typeof import("./getVirtualMachineInstan
 export const getVirtualMachineInstanceOutput: typeof import("./getVirtualMachineInstance").getVirtualMachineInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualMachineInstance","getVirtualMachineInstanceOutput"], () => require("./getVirtualMachineInstance"));
 
-export { GuestAgentArgs } from "./guestAgent";
-export type GuestAgent = import("./guestAgent").GuestAgent;
-export const GuestAgent: typeof import("./guestAgent").GuestAgent = null as any;
-utilities.lazyLoad(exports, ["GuestAgent"], () => require("./guestAgent"));
-
-export { LogicalNetworkArgs } from "./logicalNetwork";
-export type LogicalNetwork = import("./logicalNetwork").LogicalNetwork;
-export const LogicalNetwork: typeof import("./logicalNetwork").LogicalNetwork = null as any;
-utilities.lazyLoad(exports, ["LogicalNetwork"], () => require("./logicalNetwork"));
-
-export { MarketplaceGalleryImageArgs } from "./marketplaceGalleryImage";
-export type MarketplaceGalleryImage = import("./marketplaceGalleryImage").MarketplaceGalleryImage;
-export const MarketplaceGalleryImage: typeof import("./marketplaceGalleryImage").MarketplaceGalleryImage = null as any;
-utilities.lazyLoad(exports, ["MarketplaceGalleryImage"], () => require("./marketplaceGalleryImage"));
-
 export { NetworkInterfaceArgs } from "./networkInterface";
 export type NetworkInterface = import("./networkInterface").NetworkInterface;
 export const NetworkInterface: typeof import("./networkInterface").NetworkInterface = null as any;
 utilities.lazyLoad(exports, ["NetworkInterface"], () => require("./networkInterface"));
-
-export { NetworkSecurityGroupArgs } from "./networkSecurityGroup";
-export type NetworkSecurityGroup = import("./networkSecurityGroup").NetworkSecurityGroup;
-export const NetworkSecurityGroup: typeof import("./networkSecurityGroup").NetworkSecurityGroup = null as any;
-utilities.lazyLoad(exports, ["NetworkSecurityGroup"], () => require("./networkSecurityGroup"));
-
-export { SecurityRuleArgs } from "./securityRule";
-export type SecurityRule = import("./securityRule").SecurityRule;
-export const SecurityRule: typeof import("./securityRule").SecurityRule = null as any;
-utilities.lazyLoad(exports, ["SecurityRule"], () => require("./securityRule"));
-
-export { StorageContainerArgs } from "./storageContainer";
-export type StorageContainer = import("./storageContainer").StorageContainer;
-export const StorageContainer: typeof import("./storageContainer").StorageContainer = null as any;
-utilities.lazyLoad(exports, ["StorageContainer"], () => require("./storageContainer"));
 
 export { VirtualHardDiskArgs } from "./virtualHardDisk";
 export type VirtualHardDisk = import("./virtualHardDisk").VirtualHardDisk;
@@ -113,22 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:azurestackhci/v20240715preview:GalleryImage":
-                return new GalleryImage(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci/v20240715preview:GuestAgent":
-                return new GuestAgent(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci/v20240715preview:LogicalNetwork":
-                return new LogicalNetwork(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci/v20240715preview:MarketplaceGalleryImage":
-                return new MarketplaceGalleryImage(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20240715preview:NetworkInterface":
                 return new NetworkInterface(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci/v20240715preview:NetworkSecurityGroup":
-                return new NetworkSecurityGroup(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci/v20240715preview:SecurityRule":
-                return new SecurityRule(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci/v20240715preview:StorageContainer":
-                return new StorageContainer(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20240715preview:VirtualHardDisk":
                 return new VirtualHardDisk(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20240715preview:VirtualMachineInstance":

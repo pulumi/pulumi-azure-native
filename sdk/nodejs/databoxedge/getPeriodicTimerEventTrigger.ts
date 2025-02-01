@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific trigger by name.
- * Azure REST API version: 2022-03-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getPeriodicTimerEventTrigger(args: GetPeriodicTimerEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetPeriodicTimerEventTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -75,7 +75,7 @@ export interface GetPeriodicTimerEventTriggerResult {
 }
 /**
  * Get a specific trigger by name.
- * Azure REST API version: 2022-03-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getPeriodicTimerEventTriggerOutput(args: GetPeriodicTimerEventTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPeriodicTimerEventTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

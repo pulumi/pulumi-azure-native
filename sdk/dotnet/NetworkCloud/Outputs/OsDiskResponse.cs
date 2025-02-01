@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// </summary>
         public readonly string? DeleteOption;
         /// <summary>
-        /// The size of the disk in gigabytes. Required if the createOption is Ephemeral.
+        /// The size of the disk. Required if the createOption is Ephemeral. Allocations are measured in gibibytes.
         /// </summary>
         public readonly double DiskSizeGB;
 

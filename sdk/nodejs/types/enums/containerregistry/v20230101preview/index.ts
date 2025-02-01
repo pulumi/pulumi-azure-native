@@ -11,16 +11,6 @@ export const Action = {
  */
 export type Action = (typeof Action)[keyof typeof Action];
 
-export const ActionsRequired = {
-    None: "None",
-    Recreate: "Recreate",
-} as const;
-
-/**
- * A message indicating if changes on the service provider require any updates on the consumer.
- */
-export type ActionsRequired = (typeof ActionsRequired)[keyof typeof ActionsRequired];
-
 export const AuditLogStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -52,18 +42,6 @@ export const ConnectedRegistryMode = {
  * The mode of the connected registry resource that indicates the permissions of the registry.
  */
 export type ConnectedRegistryMode = (typeof ConnectedRegistryMode)[keyof typeof ConnectedRegistryMode];
-
-export const ConnectionStatus = {
-    Approved: "Approved",
-    Pending: "Pending",
-    Rejected: "Rejected",
-    Disconnected: "Disconnected",
-} as const;
-
-/**
- * The private link service connection status.
- */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 export const CredentialName = {
     Credential1: "Credential1",
@@ -207,33 +185,6 @@ export const SkuName = {
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
-export const TokenCertificateName = {
-    Certificate1: "certificate1",
-    Certificate2: "certificate2",
-} as const;
-
-export type TokenCertificateName = (typeof TokenCertificateName)[keyof typeof TokenCertificateName];
-
-export const TokenPasswordName = {
-    Password1: "password1",
-    Password2: "password2",
-} as const;
-
-/**
- * The password name "password1" or "password2"
- */
-export type TokenPasswordName = (typeof TokenPasswordName)[keyof typeof TokenPasswordName];
-
-export const TokenStatus = {
-    Enabled: "enabled",
-    Disabled: "disabled",
-} as const;
-
-/**
- * The status of the token example enabled or disabled.
- */
-export type TokenStatus = (typeof TokenStatus)[keyof typeof TokenStatus];
-
 export const TriggerStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -253,32 +204,12 @@ export const TrustPolicyType = {
  */
 export type TrustPolicyType = (typeof TrustPolicyType)[keyof typeof TrustPolicyType];
 
-export const WebhookAction = {
-    Push: "push",
-    Delete: "delete",
-    Quarantine: "quarantine",
-    Chart_push: "chart_push",
-    Chart_delete: "chart_delete",
-} as const;
-
-export type WebhookAction = (typeof WebhookAction)[keyof typeof WebhookAction];
-
-export const WebhookStatus = {
-    Enabled: "enabled",
-    Disabled: "disabled",
-} as const;
-
-/**
- * The status of the webhook at the time the operation was called.
- */
-export type WebhookStatus = (typeof WebhookStatus)[keyof typeof WebhookStatus];
-
 export const ZoneRedundancy = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
 
 /**
- * Whether or not zone redundancy is enabled for this container registry replication
+ * Whether or not zone redundancy is enabled for this container registry
  */
 export type ZoneRedundancy = (typeof ZoneRedundancy)[keyof typeof ZoneRedundancy];

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing a read write database.
-    /// Azure REST API version: 2021-06-01-preview.
+    /// Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:ReadWriteDatabase")]
     public partial class ReadWriteDatabase : global::Pulumi.CustomResource
@@ -110,7 +110,9 @@ namespace Pulumi.AzureNative.Synapse
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:ReadOnlyFollowingDatabase" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

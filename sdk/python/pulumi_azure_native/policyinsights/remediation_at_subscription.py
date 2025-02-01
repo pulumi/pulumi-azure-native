@@ -171,9 +171,9 @@ class RemediationAtSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         The remediation definition.
-        Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2019-07-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2021-10-01.
 
-        Other available API versions: 2024-10-01.
+        Other available API versions: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,9 +194,9 @@ class RemediationAtSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The remediation definition.
-        Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2019-07-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2021-10-01.
 
-        Other available API versions: 2024-10-01.
+        Other available API versions: 2021-10-01.
 
         :param str resource_name: The name of the resource.
         :param RemediationAtSubscriptionArgs args: The arguments to use to populate this resource's properties.

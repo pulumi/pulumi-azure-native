@@ -158,6 +158,37 @@ namespace Pulumi.AzureNative.WebPubSub
     }
 
     /// <summary>
+    /// The kind of the service
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceKind : IEquatable<ServiceKind>
+    {
+        private readonly string _value;
+
+        private ServiceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceKind WebPubSub { get; } = new ServiceKind("WebPubSub");
+        public static ServiceKind SocketIO { get; } = new ServiceKind("SocketIO");
+
+        public static bool operator ==(ServiceKind left, ServiceKind right) => left.Equals(right);
+        public static bool operator !=(ServiceKind left, ServiceKind right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceKind other && Equals(other);
+        public bool Equals(ServiceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Upstream auth type enum.
     /// </summary>
     [EnumType]

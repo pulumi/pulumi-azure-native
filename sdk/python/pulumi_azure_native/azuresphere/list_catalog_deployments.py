@@ -37,7 +37,7 @@ class ListCatalogDeploymentsResult:
 
     @property
     @pulumi.getter(name="nextLink")
-    def next_link(self) -> str:
+    def next_link(self) -> Optional[str]:
         """
         The link to the next page of items
         """
@@ -71,9 +71,9 @@ def list_catalog_deployments(catalog_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCatalogDeploymentsResult:
     """
     Lists deployments for catalog.
-    Azure REST API version: 2022-09-01-preview.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog
@@ -105,9 +105,9 @@ def list_catalog_deployments_output(catalog_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListCatalogDeploymentsResult]:
     """
     Lists deployments for catalog.
-    Azure REST API version: 2022-09-01-preview.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog

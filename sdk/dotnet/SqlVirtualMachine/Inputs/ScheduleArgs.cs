@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
 {
 
+    /// <summary>
+    /// Set assessment schedule for SQL Server.
+    /// </summary>
     public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

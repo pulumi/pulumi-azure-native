@@ -23,6 +23,7 @@ namespace Pulumi.AzureNative.Storage
         public static AccessTier Hot { get; } = new AccessTier("Hot");
         public static AccessTier Cool { get; } = new AccessTier("Cool");
         public static AccessTier Premium { get; } = new AccessTier("Premium");
+        public static AccessTier Cold { get; } = new AccessTier("Cold");
 
         public static bool operator ==(AccessTier left, AccessTier right) => left.Equals(right);
         public static bool operator !=(AccessTier left, AccessTier right) => !left.Equals(right);
@@ -181,6 +182,8 @@ namespace Pulumi.AzureNative.Storage
         public static AllowedMethods OPTIONS { get; } = new AllowedMethods("OPTIONS");
         public static AllowedMethods PUT { get; } = new AllowedMethods("PUT");
         public static AllowedMethods PATCH { get; } = new AllowedMethods("PATCH");
+        public static AllowedMethods CONNECT { get; } = new AllowedMethods("CONNECT");
+        public static AllowedMethods TRACE { get; } = new AllowedMethods("TRACE");
 
         public static bool operator ==(AllowedMethods left, AllowedMethods right) => left.Equals(right);
         public static bool operator !=(AllowedMethods left, AllowedMethods right) => !left.Equals(right);
@@ -530,7 +533,7 @@ namespace Pulumi.AzureNative.Storage
     }
 
     /// <summary>
-    /// The SAS expiration action. Can only be Log.
+    /// The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
     /// </summary>
     [EnumType]
     public readonly struct ExpirationAction : IEquatable<ExpirationAction>
@@ -543,6 +546,7 @@ namespace Pulumi.AzureNative.Storage
         }
 
         public static ExpirationAction Log { get; } = new ExpirationAction("Log");
+        public static ExpirationAction Block { get; } = new ExpirationAction("Block");
 
         public static bool operator ==(ExpirationAction left, ExpirationAction right) => left.Equals(right);
         public static bool operator !=(ExpirationAction left, ExpirationAction right) => !left.Equals(right);
@@ -887,6 +891,7 @@ namespace Pulumi.AzureNative.Storage
         public static MinimumTlsVersion TLS1_0 { get; } = new MinimumTlsVersion("TLS1_0");
         public static MinimumTlsVersion TLS1_1 { get; } = new MinimumTlsVersion("TLS1_1");
         public static MinimumTlsVersion TLS1_2 { get; } = new MinimumTlsVersion("TLS1_2");
+        public static MinimumTlsVersion TLS1_3 { get; } = new MinimumTlsVersion("TLS1_3");
 
         public static bool operator ==(MinimumTlsVersion left, MinimumTlsVersion right) => left.Equals(right);
         public static bool operator !=(MinimumTlsVersion left, MinimumTlsVersion right) => !left.Equals(right);
@@ -1066,7 +1071,7 @@ namespace Pulumi.AzureNative.Storage
     }
 
     /// <summary>
-    /// Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+    /// Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
     /// </summary>
     [EnumType]
     public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
@@ -1080,6 +1085,7 @@ namespace Pulumi.AzureNative.Storage
 
         public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
         public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+        public static PublicNetworkAccess SecuredByPerimeter { get; } = new PublicNetworkAccess("SecuredByPerimeter");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
         public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);

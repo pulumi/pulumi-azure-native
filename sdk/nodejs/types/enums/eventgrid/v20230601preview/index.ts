@@ -2,33 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AdvancedFilterOperatorType = {
-    NumberIn: "NumberIn",
-    NumberNotIn: "NumberNotIn",
-    NumberLessThan: "NumberLessThan",
-    NumberGreaterThan: "NumberGreaterThan",
-    NumberLessThanOrEquals: "NumberLessThanOrEquals",
-    NumberGreaterThanOrEquals: "NumberGreaterThanOrEquals",
-    BoolEquals: "BoolEquals",
-    StringIn: "StringIn",
-    StringNotIn: "StringNotIn",
-    StringBeginsWith: "StringBeginsWith",
-    StringEndsWith: "StringEndsWith",
-    StringContains: "StringContains",
-    NumberInRange: "NumberInRange",
-    NumberNotInRange: "NumberNotInRange",
-    StringNotBeginsWith: "StringNotBeginsWith",
-    StringNotEndsWith: "StringNotEndsWith",
-    StringNotContains: "StringNotContains",
-    IsNullOrUndefined: "IsNullOrUndefined",
-    IsNotNull: "IsNotNull",
-} as const;
-
-/**
- * The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
- */
-export type AdvancedFilterOperatorType = (typeof AdvancedFilterOperatorType)[keyof typeof AdvancedFilterOperatorType];
-
 export const AlternativeAuthenticationNameSource = {
     ClientCertificateSubject: "ClientCertificateSubject",
     ClientCertificateDns: "ClientCertificateDns",
@@ -38,32 +11,6 @@ export const AlternativeAuthenticationNameSource = {
 } as const;
 
 export type AlternativeAuthenticationNameSource = (typeof AlternativeAuthenticationNameSource)[keyof typeof AlternativeAuthenticationNameSource];
-
-export const ChannelProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Canceled: "Canceled",
-    Failed: "Failed",
-    IdleDueToMirroredPartnerTopicDeletion: "IdleDueToMirroredPartnerTopicDeletion",
-    IdleDueToMirroredPartnerDestinationDeletion: "IdleDueToMirroredPartnerDestinationDeletion",
-} as const;
-
-/**
- * Provisioning state of the channel.
- */
-export type ChannelProvisioningState = (typeof ChannelProvisioningState)[keyof typeof ChannelProvisioningState];
-
-export const ChannelType = {
-    PartnerTopic: "PartnerTopic",
-    PartnerDestination: "PartnerDestination",
-} as const;
-
-/**
- * The type of the event channel which represents the direction flow of events.
- */
-export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
 export const ClientCertificateValidationScheme = {
     SubjectMatchesAuthenticationName: "SubjectMatchesAuthenticationName",
@@ -89,16 +36,6 @@ export const ClientState = {
  */
 export type ClientState = (typeof ClientState)[keyof typeof ClientState];
 
-export const DataResidencyBoundary = {
-    WithinGeopair: "WithinGeopair",
-    WithinRegion: "WithinRegion",
-} as const;
-
-/**
- * Data Residency Boundary of the resource.
- */
-export type DataResidencyBoundary = (typeof DataResidencyBoundary)[keyof typeof DataResidencyBoundary];
-
 export const DeadLetterEndPointType = {
     StorageBlob: "StorageBlob",
 } as const;
@@ -107,16 +44,6 @@ export const DeadLetterEndPointType = {
  * Type of the endpoint for the dead letter destination
  */
 export type DeadLetterEndPointType = (typeof DeadLetterEndPointType)[keyof typeof DeadLetterEndPointType];
-
-export const DeliveryAttributeMappingType = {
-    Static: "Static",
-    Dynamic: "Dynamic",
-} as const;
-
-/**
- * Type of the delivery attribute or header name.
- */
-export type DeliveryAttributeMappingType = (typeof DeliveryAttributeMappingType)[keyof typeof DeliveryAttributeMappingType];
 
 export const DeliveryMode = {
     Queue: "Queue",
@@ -135,42 +62,6 @@ export const DeliverySchema = {
  * The event delivery schema for the event subscription.
  */
 export type DeliverySchema = (typeof DeliverySchema)[keyof typeof DeliverySchema];
-
-export const EndpointType = {
-    WebHook: "WebHook",
-    EventHub: "EventHub",
-    StorageQueue: "StorageQueue",
-    HybridConnection: "HybridConnection",
-    ServiceBusQueue: "ServiceBusQueue",
-    ServiceBusTopic: "ServiceBusTopic",
-    AzureFunction: "AzureFunction",
-    PartnerDestination: "PartnerDestination",
-} as const;
-
-/**
- * Type of the endpoint for the event subscription destination.
- */
-export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
-
-export const EventDefinitionKind = {
-    Inline: "Inline",
-} as const;
-
-/**
- * The kind of event type used.
- */
-export type EventDefinitionKind = (typeof EventDefinitionKind)[keyof typeof EventDefinitionKind];
-
-export const EventDeliverySchema = {
-    EventGridSchema: "EventGridSchema",
-    CustomInputSchema: "CustomInputSchema",
-    CloudEventSchemaV1_0: "CloudEventSchemaV1_0",
-} as const;
-
-/**
- * The event delivery schema for the event subscription.
- */
-export type EventDeliverySchema = (typeof EventDeliverySchema)[keyof typeof EventDeliverySchema];
 
 export const EventInputSchema = {
     CloudEventSchemaV1_0: "CloudEventSchemaV1_0",
@@ -230,26 +121,6 @@ export const IdentityType = {
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
-export const InputSchema = {
-    EventGridSchema: "EventGridSchema",
-    CustomEventSchema: "CustomEventSchema",
-    CloudEventSchemaV1_0: "CloudEventSchemaV1_0",
-} as const;
-
-/**
- * This determines the format that Event Grid should expect for incoming events published to the topic.
- */
-export type InputSchema = (typeof InputSchema)[keyof typeof InputSchema];
-
-export const InputSchemaMappingType = {
-    Json: "Json",
-} as const;
-
-/**
- * Type of the custom mapping
- */
-export type InputSchemaMappingType = (typeof InputSchemaMappingType)[keyof typeof InputSchemaMappingType];
-
 export const IpActionType = {
     Allow: "Allow",
 } as const;
@@ -258,29 +129,6 @@ export const IpActionType = {
  * Action to perform based on the match or no match of the IpMask.
  */
 export type IpActionType = (typeof IpActionType)[keyof typeof IpActionType];
-
-export const PartnerClientAuthenticationType = {
-    AzureAD: "AzureAD",
-} as const;
-
-/**
- * Type of client authentication
- */
-export type PartnerClientAuthenticationType = (typeof PartnerClientAuthenticationType)[keyof typeof PartnerClientAuthenticationType];
-
-export const PartnerConfigurationProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Canceled: "Canceled",
-    Failed: "Failed",
-} as const;
-
-/**
- * Provisioning state of the partner configuration.
- */
-export type PartnerConfigurationProvisioningState = (typeof PartnerConfigurationProvisioningState)[keyof typeof PartnerConfigurationProvisioningState];
 
 export const PartnerDestinationActivationState = {
     NeverActivated: "NeverActivated",
@@ -291,37 +139,6 @@ export const PartnerDestinationActivationState = {
  * Activation state of the partner destination.
  */
 export type PartnerDestinationActivationState = (typeof PartnerDestinationActivationState)[keyof typeof PartnerDestinationActivationState];
-
-export const PartnerEndpointType = {
-    WebHook: "WebHook",
-} as const;
-
-/**
- * Type of the endpoint for the partner destination
- */
-export type PartnerEndpointType = (typeof PartnerEndpointType)[keyof typeof PartnerEndpointType];
-
-export const PartnerTopicActivationState = {
-    NeverActivated: "NeverActivated",
-    Activated: "Activated",
-    Deactivated: "Deactivated",
-} as const;
-
-/**
- * Activation state of the partner topic.
- */
-export type PartnerTopicActivationState = (typeof PartnerTopicActivationState)[keyof typeof PartnerTopicActivationState];
-
-export const PartnerTopicRoutingMode = {
-    SourceEventAttribute: "SourceEventAttribute",
-    ChannelNameHeader: "ChannelNameHeader",
-} as const;
-
-/**
- * This determines if events published to this partner namespace should use the source attribute in the event payload
- * or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
- */
-export type PartnerTopicRoutingMode = (typeof PartnerTopicRoutingMode)[keyof typeof PartnerTopicRoutingMode];
 
 export const PermissionType = {
     Publisher: "Publisher",
@@ -351,8 +168,8 @@ export const PublicNetworkAccess = {
 } as const;
 
 /**
- * This determines if traffic is allowed over public network. By default it is enabled. 
- * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
+ * This determines if traffic is allowed over public network. By default it is enabled.
+ * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PubSub.NamespaceProperties.InboundIpRules" />
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
@@ -364,26 +181,6 @@ export const PublisherType = {
  * Publisher type of the namespace topic.
  */
 export type PublisherType = (typeof PublisherType)[keyof typeof PublisherType];
-
-export const ReadinessState = {
-    NeverActivated: "NeverActivated",
-    Activated: "Activated",
-} as const;
-
-/**
- * The readiness state of the corresponding partner topic.
- */
-export type ReadinessState = (typeof ReadinessState)[keyof typeof ReadinessState];
-
-export const ResourceKind = {
-    Azure: "Azure",
-    AzureArc: "AzureArc",
-} as const;
-
-/**
- * Kind of the resource.
- */
-export type ResourceKind = (typeof ResourceKind)[keyof typeof ResourceKind];
 
 export const ResourceProvisioningState = {
     Creating: "Creating",
@@ -406,16 +203,6 @@ export const RoutingIdentityType = {
 } as const;
 
 export type RoutingIdentityType = (typeof RoutingIdentityType)[keyof typeof RoutingIdentityType];
-
-export const Sku = {
-    Basic: "Basic",
-    Premium: "Premium",
-} as const;
-
-/**
- * The Sku name of the resource. The possible values are: Basic or Premium.
- */
-export type Sku = (typeof Sku)[keyof typeof Sku];
 
 export const SkuName = {
     Standard: "Standard",
@@ -442,7 +229,7 @@ export const TlsVersion = {
 } as const;
 
 /**
- * Minimum TLS version that should be supported by webhook endpoint
+ * Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
  */
 export type TlsVersion = (typeof TlsVersion)[keyof typeof TlsVersion];
 

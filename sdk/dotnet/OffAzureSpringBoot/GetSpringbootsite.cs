@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
     {
         /// <summary>
         /// Get a springbootsites resource.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
         /// </summary>
         public static Task<GetSpringbootsiteResult> InvokeAsync(GetSpringbootsiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpringbootsiteResult>("azure-native:offazurespringboot:getSpringbootsite", args ?? new GetSpringbootsiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a springbootsites resource.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
         /// </summary>
         public static Output<GetSpringbootsiteResult> Invoke(GetSpringbootsiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootsiteResult>("azure-native:offazurespringboot:getSpringbootsite", args ?? new GetSpringbootsiteInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a springbootsites resource.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
         /// </summary>
         public static Output<GetSpringbootsiteResult> Invoke(GetSpringbootsiteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootsiteResult>("azure-native:offazurespringboot:getSpringbootsite", args ?? new GetSpringbootsiteInvokeArgs(), options.WithDefaults());

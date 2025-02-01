@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get the API portal custom domain.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetApiPortalCustomDomainResult> InvokeAsync(GetApiPortalCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiPortalCustomDomainResult>("azure-native:appplatform:getApiPortalCustomDomain", args ?? new GetApiPortalCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the API portal custom domain.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetApiPortalCustomDomainResult> Invoke(GetApiPortalCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiPortalCustomDomainResult>("azure-native:appplatform:getApiPortalCustomDomain", args ?? new GetApiPortalCustomDomainInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the API portal custom domain.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetApiPortalCustomDomainResult> Invoke(GetApiPortalCustomDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiPortalCustomDomainResult>("azure-native:appplatform:getApiPortalCustomDomain", args ?? new GetApiPortalCustomDomainInvokeArgs(), options.WithDefaults());

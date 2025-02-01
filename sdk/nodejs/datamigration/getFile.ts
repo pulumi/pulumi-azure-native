@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
- * Azure REST API version: 2021-06-30.
+ * Azure REST API version: 2023-07-15-preview.
  *
- * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+ * Other available API versions: 2021-06-30.
  */
 export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise<GetFileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,9 +73,9 @@ export interface GetFileResult {
 }
 /**
  * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
- * Azure REST API version: 2021-06-30.
+ * Azure REST API version: 2023-07-15-preview.
  *
- * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+ * Other available API versions: 2021-06-30.
  */
 export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

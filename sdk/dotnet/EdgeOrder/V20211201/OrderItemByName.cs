@@ -95,8 +95,11 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderItemByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20220501preview:OrderItem" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20220501preview:OrderItemByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20240201:OrderItem" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20240201:OrderItemByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder:OrderItem" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder:OrderItemByName" },
                 },
             };

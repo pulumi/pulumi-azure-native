@@ -247,9 +247,9 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscpConfigurationResult:
     """
     Gets a DSCP Configuration.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2023-02-01.
 
 
     :param str dscp_configuration_name: The name of the resource.
@@ -284,9 +284,9 @@ def get_dscp_configuration_output(dscp_configuration_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDscpConfigurationResult]:
     """
     Gets a DSCP Configuration.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2023-02-01.
 
 
     :param str dscp_configuration_name: The name of the resource.

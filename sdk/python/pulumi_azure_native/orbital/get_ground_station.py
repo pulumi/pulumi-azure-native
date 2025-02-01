@@ -213,8 +213,6 @@ def get_ground_station(ground_station_name: Optional[str] = None,
     Gets the specified ground station in a specified resource group.
     Azure REST API version: 2024-03-01-preview.
 
-    Other available API versions: 2024-03-01.
-
 
     :param str ground_station_name: Ground Station name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -246,8 +244,6 @@ def get_ground_station_output(ground_station_name: Optional[pulumi.Input[str]] =
     """
     Gets the specified ground station in a specified resource group.
     Azure REST API version: 2024-03-01-preview.
-
-    Other available API versions: 2024-03-01.
 
 
     :param str ground_station_name: Ground Station name.

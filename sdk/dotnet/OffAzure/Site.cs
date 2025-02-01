@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.OffAzure
 {
     /// <summary>
     /// Site REST Resource.
-    /// Azure REST API version: 2020-07-07. Prior API version in Azure Native 1.x: 2020-01-01.
+    /// Azure REST API version: 2020-07-07. Prior API version in Azure Native 2.x: 2020-07-07.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:Site")]
     public partial class Site : global::Pulumi.CustomResource
@@ -83,8 +83,12 @@ namespace Pulumi.AzureNative.OffAzure
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:SitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:SitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:Site" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:SitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:SitesController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

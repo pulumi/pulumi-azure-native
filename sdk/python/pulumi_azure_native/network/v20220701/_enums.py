@@ -5,8 +5,6 @@
 from enum import Enum
 
 __all__ = [
-    'ForwardingRuleState',
-    'IpAllocationMethod',
     'RouteNextHopType',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
@@ -14,22 +12,6 @@ __all__ = [
     'VirtualNetworkPrivateEndpointNetworkPolicies',
     'VirtualNetworkPrivateLinkServiceNetworkPolicies',
 ]
-
-
-class ForwardingRuleState(str, Enum):
-    """
-    The state of forwarding rule.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class IpAllocationMethod(str, Enum):
-    """
-    Private IP address allocation method.
-    """
-    STATIC = "Static"
-    DYNAMIC = "Dynamic"
 
 
 class RouteNextHopType(str, Enum):

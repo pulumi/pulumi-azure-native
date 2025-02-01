@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * This operation lists all the policy definition versions for all policy definitions at the management group scope.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2024-05-01, 2025-01-01.
+ * Other available API versions: 2023-04-01, 2025-01-01.
  */
 export function listPolicyDefinitionVersionAllAtManagementGroup(args: ListPolicyDefinitionVersionAllAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<ListPolicyDefinitionVersionAllAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,9 +42,9 @@ export interface ListPolicyDefinitionVersionAllAtManagementGroupResult {
 }
 /**
  * This operation lists all the policy definition versions for all policy definitions at the management group scope.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2024-05-01, 2025-01-01.
+ * Other available API versions: 2023-04-01, 2025-01-01.
  */
 export function listPolicyDefinitionVersionAllAtManagementGroupOutput(args: ListPolicyDefinitionVersionAllAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPolicyDefinitionVersionAllAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

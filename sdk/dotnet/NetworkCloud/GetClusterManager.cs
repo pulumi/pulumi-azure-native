@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get the properties of the provided cluster manager.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetClusterManagerResult> InvokeAsync(GetClusterManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterManagerResult>("azure-native:networkcloud:getClusterManager", args ?? new GetClusterManagerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of the provided cluster manager.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetClusterManagerResult> Invoke(GetClusterManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterManagerResult>("azure-native:networkcloud:getClusterManager", args ?? new GetClusterManagerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of the provided cluster manager.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetClusterManagerResult> Invoke(GetClusterManagerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterManagerResult>("azure-native:networkcloud:getClusterManager", args ?? new GetClusterManagerInvokeArgs(), options.WithDefaults());
@@ -113,6 +113,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The identity of the cluster manager.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
             string location,
 
             Outputs.ManagedResourceGroupConfigurationResponse? managedResourceGroupConfiguration,
@@ -190,6 +196,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             DetailedStatusMessage = detailedStatusMessage;
             FabricControllerId = fabricControllerId;
             Id = id;
+            Identity = identity;
             Location = location;
             ManagedResourceGroupConfiguration = managedResourceGroupConfiguration;
             ManagerExtendedLocation = managerExtendedLocation;

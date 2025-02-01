@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
             set => _acceleratorTags = value;
         }
 
+        /// <summary>
+        /// Type of the customized accelerator.
+        /// </summary>
+        [Input("acceleratorType")]
+        public InputUnion<string, Pulumi.AzureNative.AppPlatform.CustomizedAcceleratorType>? AcceleratorType { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 

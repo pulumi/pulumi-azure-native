@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the user rule collection.
- * Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+ * Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
  *
- * Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
+ * Other available API versions: 2021-02-01-preview.
  */
 export class UserRuleCollection extends pulumi.CustomResource {
     /**
@@ -113,7 +113,7 @@ export class UserRuleCollection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:UserRuleCollection" }, { type: "azure-native:network/v20210501preview:UserRuleCollection" }, { type: "azure-native:network/v20220201preview:UserRuleCollection" }, { type: "azure-native:network/v20220401preview:UserRuleCollection" }, { type: "azure-native:network/v20240301:UserRuleCollection" }, { type: "azure-native:network/v20240501:UserRuleCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:UserRuleCollection" }, { type: "azure-native:network/v20210501preview:UserRuleCollection" }, { type: "azure-native:network/v20220201preview:UserRuleCollection" }, { type: "azure-native:network/v20220401preview:UserRuleCollection" }, { type: "azure-native:network/v20240301:SecurityUserRuleCollection" }, { type: "azure-native:network/v20240301:UserRuleCollection" }, { type: "azure-native:network/v20240501:SecurityUserRuleCollection" }, { type: "azure-native:network/v20240501:UserRuleCollection" }, { type: "azure-native:network:SecurityUserRuleCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UserRuleCollection.__pulumiType, name, resourceInputs, opts);
     }

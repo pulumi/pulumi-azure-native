@@ -223,9 +223,9 @@ def get_vmm_server(resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVmmServerResult:
     """
     Implements VMMServer GET method.
-    Azure REST API version: 2022-05-21-preview.
+    Azure REST API version: 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2022-05-21-preview, 2024-06-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -258,9 +258,9 @@ def get_vmm_server_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVmmServerResult]:
     """
     Implements VMMServer GET method.
-    Azure REST API version: 2022-05-21-preview.
+    Azure REST API version: 2023-04-01-preview.
 
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Other available API versions: 2022-05-21-preview, 2024-06-01.
 
 
     :param str resource_group_name: The name of the resource group.

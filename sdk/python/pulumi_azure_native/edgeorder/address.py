@@ -22,43 +22,36 @@ __all__ = ['AddressArgs', 'Address']
 @pulumi.input_type
 class AddressArgs:
     def __init__(__self__, *,
-                 contact_details: pulumi.Input['ContactDetailsArgs'],
                  resource_group_name: pulumi.Input[str],
+                 address_classification: Optional[pulumi.Input[Union[str, 'AddressClassification']]] = None,
                  address_name: Optional[pulumi.Input[str]] = None,
+                 contact_details: Optional[pulumi.Input['ContactDetailsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Address resource.
-        :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for the address.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union[str, 'AddressClassification']] address_classification: Type of address based on its usage context.
         :param pulumi.Input[str] address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
+        :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for the address.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping details for the address.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "contact_details", contact_details)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if address_classification is not None:
+            pulumi.set(__self__, "address_classification", address_classification)
         if address_name is not None:
             pulumi.set(__self__, "address_name", address_name)
+        if contact_details is not None:
+            pulumi.set(__self__, "contact_details", contact_details)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> pulumi.Input['ContactDetailsArgs']:
-        """
-        Contact details for the address.
-        """
-        return pulumi.get(self, "contact_details")
-
-    @contact_details.setter
-    def contact_details(self, value: pulumi.Input['ContactDetailsArgs']):
-        pulumi.set(self, "contact_details", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -73,6 +66,18 @@ class AddressArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="addressClassification")
+    def address_classification(self) -> Optional[pulumi.Input[Union[str, 'AddressClassification']]]:
+        """
+        Type of address based on its usage context.
+        """
+        return pulumi.get(self, "address_classification")
+
+    @address_classification.setter
+    def address_classification(self, value: Optional[pulumi.Input[Union[str, 'AddressClassification']]]):
+        pulumi.set(self, "address_classification", value)
+
+    @property
     @pulumi.getter(name="addressName")
     def address_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -83,6 +88,18 @@ class AddressArgs:
     @address_name.setter
     def address_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "address_name", value)
+
+    @property
+    @pulumi.getter(name="contactDetails")
+    def contact_details(self) -> Optional[pulumi.Input['ContactDetailsArgs']]:
+        """
+        Contact details for the address.
+        """
+        return pulumi.get(self, "contact_details")
+
+    @contact_details.setter
+    def contact_details(self, value: Optional[pulumi.Input['ContactDetailsArgs']]):
+        pulumi.set(self, "contact_details", value)
 
     @property
     @pulumi.getter
@@ -126,6 +143,7 @@ class Address(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 address_classification: Optional[pulumi.Input[Union[str, 'AddressClassification']]] = None,
                  address_name: Optional[pulumi.Input[str]] = None,
                  contact_details: Optional[pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -135,12 +153,13 @@ class Address(pulumi.CustomResource):
                  __props__=None):
         """
         Address Resource.
-        Azure REST API version: 2022-05-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2022-05-01-preview.
 
-        Other available API versions: 2024-02-01.
+        Other available API versions: 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[str, 'AddressClassification']] address_classification: Type of address based on its usage context.
         :param pulumi.Input[str] address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
         :param pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']] contact_details: Contact details for the address.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -156,9 +175,9 @@ class Address(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Address Resource.
-        Azure REST API version: 2022-05-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2022-05-01-preview.
 
-        Other available API versions: 2024-02-01.
+        Other available API versions: 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AddressArgs args: The arguments to use to populate this resource's properties.
@@ -175,6 +194,7 @@ class Address(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 address_classification: Optional[pulumi.Input[Union[str, 'AddressClassification']]] = None,
                  address_name: Optional[pulumi.Input[str]] = None,
                  contact_details: Optional[pulumi.Input[Union['ContactDetailsArgs', 'ContactDetailsArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -190,9 +210,8 @@ class Address(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AddressArgs.__new__(AddressArgs)
 
+            __props__.__dict__["address_classification"] = address_classification
             __props__.__dict__["address_name"] = address_name
-            if contact_details is None and not opts.urn:
-                raise TypeError("Missing required property 'contact_details'")
             __props__.__dict__["contact_details"] = contact_details
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -202,9 +221,10 @@ class Address(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["address_validation_status"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder/v20201201preview:Address"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:Address"), pulumi.Alias(type_="azure-native:edgeorder/v20220501preview:Address"), pulumi.Alias(type_="azure-native:edgeorder/v20240201:Address")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder/v20201201preview:Address"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:Address"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:AddressByName"), pulumi.Alias(type_="azure-native:edgeorder/v20220501preview:Address"), pulumi.Alias(type_="azure-native:edgeorder/v20240201:Address"), pulumi.Alias(type_="azure-native:edgeorder:AddressByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Address, __self__).__init__(
             'azure-native:edgeorder:Address',
@@ -228,15 +248,25 @@ class Address(pulumi.CustomResource):
 
         __props__ = AddressArgs.__new__(AddressArgs)
 
+        __props__.__dict__["address_classification"] = None
         __props__.__dict__["address_validation_status"] = None
         __props__.__dict__["contact_details"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["shipping_address"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Address(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="addressClassification")
+    def address_classification(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of address based on its usage context.
+        """
+        return pulumi.get(self, "address_classification")
 
     @property
     @pulumi.getter(name="addressValidationStatus")
@@ -248,7 +278,7 @@ class Address(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> pulumi.Output['outputs.ContactDetailsResponse']:
+    def contact_details(self) -> pulumi.Output[Optional['outputs.ContactDetailsResponse']]:
         """
         Contact details for the address.
         """
@@ -271,6 +301,14 @@ class Address(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        Provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> pulumi.Output[Optional['outputs.ShippingAddressResponse']]:
         """
@@ -282,7 +320,7 @@ class Address(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Represents resource creation and update time.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

@@ -8,6 +8,74 @@ using Pulumi;
 namespace Pulumi.AzureNative.VirtualMachineImages
 {
     /// <summary>
+    /// Enabling this field will trigger an automatic build on image template creation or update.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoRunState : IEquatable<AutoRunState>
+    {
+        private readonly string _value;
+
+        private AutoRunState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Autorun is enabled
+        /// </summary>
+        public static AutoRunState AutoRunEnabled { get; } = new AutoRunState("Enabled");
+        /// <summary>
+        /// Autorun is disabled
+        /// </summary>
+        public static AutoRunState AutoRunDisabled { get; } = new AutoRunState("Disabled");
+
+        public static bool operator ==(AutoRunState left, AutoRunState right) => left.Equals(right);
+        public static bool operator !=(AutoRunState left, AutoRunState right) => !left.Equals(right);
+
+        public static explicit operator string(AutoRunState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoRunState other && Equals(other);
+        public bool Equals(AutoRunState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// If there is a validation error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a validation error and this field is set to 'abort', the build VM will be preserved.
+    /// </summary>
+    [EnumType]
+    public readonly struct OnBuildError : IEquatable<OnBuildError>
+    {
+        private readonly string _value;
+
+        private OnBuildError(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OnBuildError Cleanup { get; } = new OnBuildError("cleanup");
+        public static OnBuildError Abort { get; } = new OnBuildError("abort");
+
+        public static bool operator ==(OnBuildError left, OnBuildError right) => left.Equals(right);
+        public static bool operator !=(OnBuildError left, OnBuildError right) => !left.Equals(right);
+
+        public static explicit operator string(OnBuildError value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OnBuildError other && Equals(other);
+        public bool Equals(OnBuildError other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
     /// </summary>
     [EnumType]

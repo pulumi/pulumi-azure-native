@@ -27,10 +27,16 @@ class GetPoolResult:
     """
     A pool of Virtual Machines.
     """
-    def __init__(__self__, dev_box_definition_name=None, health_status=None, health_status_details=None, id=None, license_type=None, local_administrator=None, location=None, name=None, network_connection_name=None, provisioning_state=None, stop_on_disconnect=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, dev_box_count=None, dev_box_definition_name=None, display_name=None, health_status=None, health_status_details=None, id=None, license_type=None, local_administrator=None, location=None, managed_virtual_network_regions=None, name=None, network_connection_name=None, provisioning_state=None, single_sign_on_status=None, stop_on_disconnect=None, system_data=None, tags=None, type=None, virtual_network_type=None):
+        if dev_box_count and not isinstance(dev_box_count, int):
+            raise TypeError("Expected argument 'dev_box_count' to be a int")
+        pulumi.set(__self__, "dev_box_count", dev_box_count)
         if dev_box_definition_name and not isinstance(dev_box_definition_name, str):
             raise TypeError("Expected argument 'dev_box_definition_name' to be a str")
         pulumi.set(__self__, "dev_box_definition_name", dev_box_definition_name)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
         if health_status and not isinstance(health_status, str):
             raise TypeError("Expected argument 'health_status' to be a str")
         pulumi.set(__self__, "health_status", health_status)
@@ -49,6 +55,9 @@ class GetPoolResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_virtual_network_regions and not isinstance(managed_virtual_network_regions, list):
+            raise TypeError("Expected argument 'managed_virtual_network_regions' to be a list")
+        pulumi.set(__self__, "managed_virtual_network_regions", managed_virtual_network_regions)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -58,6 +67,9 @@ class GetPoolResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if single_sign_on_status and not isinstance(single_sign_on_status, str):
+            raise TypeError("Expected argument 'single_sign_on_status' to be a str")
+        pulumi.set(__self__, "single_sign_on_status", single_sign_on_status)
         if stop_on_disconnect and not isinstance(stop_on_disconnect, dict):
             raise TypeError("Expected argument 'stop_on_disconnect' to be a dict")
         pulumi.set(__self__, "stop_on_disconnect", stop_on_disconnect)
@@ -70,6 +82,17 @@ class GetPoolResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if virtual_network_type and not isinstance(virtual_network_type, str):
+            raise TypeError("Expected argument 'virtual_network_type' to be a str")
+        pulumi.set(__self__, "virtual_network_type", virtual_network_type)
+
+    @property
+    @pulumi.getter(name="devBoxCount")
+    def dev_box_count(self) -> int:
+        """
+        Indicates the number of provisioned Dev Boxes in this pool.
+        """
+        return pulumi.get(self, "dev_box_count")
 
     @property
     @pulumi.getter(name="devBoxDefinitionName")
@@ -78,6 +101,14 @@ class GetPoolResult:
         Name of a Dev Box definition in parent Project of this Pool
         """
         return pulumi.get(self, "dev_box_definition_name")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the pool.
+        """
+        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="healthStatus")
@@ -99,7 +130,7 @@ class GetPoolResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -128,6 +159,14 @@ class GetPoolResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedVirtualNetworkRegions")
+    def managed_virtual_network_regions(self) -> Optional[Sequence[str]]:
+        """
+        The regions of the managed virtual network (required when managedNetworkType is Managed).
+        """
+        return pulumi.get(self, "managed_virtual_network_regions")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -150,6 +189,14 @@ class GetPoolResult:
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="singleSignOnStatus")
+    def single_sign_on_status(self) -> Optional[str]:
+        """
+        Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
+        """
+        return pulumi.get(self, "single_sign_on_status")
 
     @property
     @pulumi.getter(name="stopOnDisconnect")
@@ -183,6 +230,14 @@ class GetPoolResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="virtualNetworkType")
+    def virtual_network_type(self) -> Optional[str]:
+        """
+        Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
+        """
+        return pulumi.get(self, "virtual_network_type")
+
 
 class AwaitableGetPoolResult(GetPoolResult):
     # pylint: disable=using-constant-test
@@ -190,20 +245,25 @@ class AwaitableGetPoolResult(GetPoolResult):
         if False:
             yield self
         return GetPoolResult(
+            dev_box_count=self.dev_box_count,
             dev_box_definition_name=self.dev_box_definition_name,
+            display_name=self.display_name,
             health_status=self.health_status,
             health_status_details=self.health_status_details,
             id=self.id,
             license_type=self.license_type,
             local_administrator=self.local_administrator,
             location=self.location,
+            managed_virtual_network_regions=self.managed_virtual_network_regions,
             name=self.name,
             network_connection_name=self.network_connection_name,
             provisioning_state=self.provisioning_state,
+            single_sign_on_status=self.single_sign_on_status,
             stop_on_disconnect=self.stop_on_disconnect,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_network_type=self.virtual_network_type)
 
 
 def get_pool(pool_name: Optional[str] = None,
@@ -212,9 +272,9 @@ def get_pool(pool_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Gets a machine pool
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-04-01, 2024-10-01-preview.
 
 
     :param str pool_name: Name of the pool.
@@ -229,29 +289,34 @@ def get_pool(pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter:getPool', __args__, opts=opts, typ=GetPoolResult).value
 
     return AwaitableGetPoolResult(
+        dev_box_count=pulumi.get(__ret__, 'dev_box_count'),
         dev_box_definition_name=pulumi.get(__ret__, 'dev_box_definition_name'),
+        display_name=pulumi.get(__ret__, 'display_name'),
         health_status=pulumi.get(__ret__, 'health_status'),
         health_status_details=pulumi.get(__ret__, 'health_status_details'),
         id=pulumi.get(__ret__, 'id'),
         license_type=pulumi.get(__ret__, 'license_type'),
         local_administrator=pulumi.get(__ret__, 'local_administrator'),
         location=pulumi.get(__ret__, 'location'),
+        managed_virtual_network_regions=pulumi.get(__ret__, 'managed_virtual_network_regions'),
         name=pulumi.get(__ret__, 'name'),
         network_connection_name=pulumi.get(__ret__, 'network_connection_name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        single_sign_on_status=pulumi.get(__ret__, 'single_sign_on_status'),
         stop_on_disconnect=pulumi.get(__ret__, 'stop_on_disconnect'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        virtual_network_type=pulumi.get(__ret__, 'virtual_network_type'))
 def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
                     project_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """
     Gets a machine pool
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-04-01, 2024-10-01-preview.
 
 
     :param str pool_name: Name of the pool.
@@ -265,17 +330,22 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getPool', __args__, opts=opts, typ=GetPoolResult)
     return __ret__.apply(lambda __response__: GetPoolResult(
+        dev_box_count=pulumi.get(__response__, 'dev_box_count'),
         dev_box_definition_name=pulumi.get(__response__, 'dev_box_definition_name'),
+        display_name=pulumi.get(__response__, 'display_name'),
         health_status=pulumi.get(__response__, 'health_status'),
         health_status_details=pulumi.get(__response__, 'health_status_details'),
         id=pulumi.get(__response__, 'id'),
         license_type=pulumi.get(__response__, 'license_type'),
         local_administrator=pulumi.get(__response__, 'local_administrator'),
         location=pulumi.get(__response__, 'location'),
+        managed_virtual_network_regions=pulumi.get(__response__, 'managed_virtual_network_regions'),
         name=pulumi.get(__response__, 'name'),
         network_connection_name=pulumi.get(__response__, 'network_connection_name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        single_sign_on_status=pulumi.get(__response__, 'single_sign_on_status'),
         stop_on_disconnect=pulumi.get(__response__, 'stop_on_disconnect'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        virtual_network_type=pulumi.get(__response__, 'virtual_network_type')))

@@ -28,20 +28,11 @@ __all__ = [
     'DeploymentDataResponse',
     'DeploymentSecuritySettingsResponse',
     'DeploymentStepResponse',
-    'DeviceConfigurationResponse',
     'EceActionStatusResponse',
     'EceDeploymentSecretsResponse',
     'EceReportedPropertiesResponse',
-    'ErrorDetailResponse',
     'ExtensionInstanceViewResponse',
     'ExtensionInstanceViewResponseStatus',
-    'ExtensionProfileResponse',
-    'ExtensionResponse',
-    'HciEdgeDevicePropertiesResponse',
-    'HciNetworkProfileResponse',
-    'HciNicDetailResponse',
-    'HciOsProfileResponse',
-    'HciReportedPropertiesResponse',
     'HostNetworkResponse',
     'InfrastructureNetworkResponse',
     'IntentsResponse',
@@ -51,7 +42,6 @@ __all__ = [
     'LogCollectionPropertiesResponse',
     'LogCollectionSessionResponse',
     'NetworkControllerResponse',
-    'NicDetailResponse',
     'ObservabilityResponse',
     'OptionalServicesResponse',
     'PerNodeExtensionStateResponse',
@@ -63,7 +53,6 @@ __all__ = [
     'RemoteSupportPropertiesResponse',
     'SbeCredentialsResponse',
     'SbeDeploymentInfoResponse',
-    'SbeDeploymentPackageInfoResponse',
     'SbePartnerInfoResponse',
     'SbePartnerPropertiesResponse',
     'ScaleUnitsResponse',
@@ -75,8 +64,6 @@ __all__ = [
     'StorageAdapterIPInfoResponse',
     'StorageNetworksResponse',
     'StorageResponse',
-    'SwitchDetailResponse',
-    'SwitchExtensionResponse',
     'SystemDataResponse',
     'UpdatePrerequisiteResponse',
     'UserAssignedIdentityResponse',
@@ -110,22 +97,25 @@ class AdapterPropertyOverridesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 jumbo_packet: str,
-                 network_direct: str,
-                 network_direct_technology: str):
+                 jumbo_packet: Optional[str] = None,
+                 network_direct: Optional[str] = None,
+                 network_direct_technology: Optional[str] = None):
         """
         The AdapterPropertyOverrides of a cluster.
         :param str jumbo_packet: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         :param str network_direct: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         :param str network_direct_technology: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
         """
-        pulumi.set(__self__, "jumbo_packet", jumbo_packet)
-        pulumi.set(__self__, "network_direct", network_direct)
-        pulumi.set(__self__, "network_direct_technology", network_direct_technology)
+        if jumbo_packet is not None:
+            pulumi.set(__self__, "jumbo_packet", jumbo_packet)
+        if network_direct is not None:
+            pulumi.set(__self__, "network_direct", network_direct)
+        if network_direct_technology is not None:
+            pulumi.set(__self__, "network_direct_technology", network_direct_technology)
 
     @property
     @pulumi.getter(name="jumboPacket")
-    def jumbo_packet(self) -> str:
+    def jumbo_packet(self) -> Optional[str]:
         """
         This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         """
@@ -133,7 +123,7 @@ class AdapterPropertyOverridesResponse(dict):
 
     @property
     @pulumi.getter(name="networkDirect")
-    def network_direct(self) -> str:
+    def network_direct(self) -> Optional[str]:
         """
         This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         """
@@ -141,7 +131,7 @@ class AdapterPropertyOverridesResponse(dict):
 
     @property
     @pulumi.getter(name="networkDirectTechnology")
-    def network_direct_technology(self) -> str:
+    def network_direct_technology(self) -> Optional[str]:
         """
         This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
         """
@@ -1349,60 +1339,6 @@ class DeploymentStepResponse(dict):
 
 
 @pulumi.output_type
-class DeviceConfigurationResponse(dict):
-    """
-    The device Configuration for edge device.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "deviceMetadata":
-            suggest = "device_metadata"
-        elif key == "nicDetails":
-            suggest = "nic_details"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeviceConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DeviceConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DeviceConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 device_metadata: Optional[str] = None,
-                 nic_details: Optional[Sequence['outputs.NicDetailResponse']] = None):
-        """
-        The device Configuration for edge device.
-        :param str device_metadata: Device metadata details.
-        :param Sequence['NicDetailResponse'] nic_details: NIC Details of device
-        """
-        if device_metadata is not None:
-            pulumi.set(__self__, "device_metadata", device_metadata)
-        if nic_details is not None:
-            pulumi.set(__self__, "nic_details", nic_details)
-
-    @property
-    @pulumi.getter(name="deviceMetadata")
-    def device_metadata(self) -> Optional[str]:
-        """
-        Device metadata details.
-        """
-        return pulumi.get(self, "device_metadata")
-
-    @property
-    @pulumi.getter(name="nicDetails")
-    def nic_details(self) -> Optional[Sequence['outputs.NicDetailResponse']]:
-        """
-        NIC Details of device
-        """
-        return pulumi.get(self, "nic_details")
-
-
-@pulumi.output_type
 class EceActionStatusResponse(dict):
     """
     The ECE action plan deployment status for AzureStackHCI Cluster.
@@ -1553,28 +1489,6 @@ class EceReportedPropertiesResponse(dict):
         validation status of AzureStackHCI Cluster Deployment.
         """
         return pulumi.get(self, "validation_status")
-
-
-@pulumi.output_type
-class ErrorDetailResponse(dict):
-    """
-    details of validation failure
-    """
-    def __init__(__self__, *,
-                 exception: str):
-        """
-        details of validation failure
-        :param str exception: Exception details while installing extension.
-        """
-        pulumi.set(__self__, "exception", exception)
-
-    @property
-    @pulumi.getter
-    def exception(self) -> str:
-        """
-        Exception details while installing extension.
-        """
-        return pulumi.get(self, "exception")
 
 
 @pulumi.output_type
@@ -1742,625 +1656,6 @@ class ExtensionInstanceViewResponseStatus(dict):
 
 
 @pulumi.output_type
-class ExtensionProfileResponse(dict):
-    """
-    Extensions details for edge device.
-    """
-    def __init__(__self__, *,
-                 extensions: Sequence['outputs.ExtensionResponse']):
-        """
-        Extensions details for edge device.
-        :param Sequence['ExtensionResponse'] extensions: List of Arc extensions installed on edge device.
-        """
-        pulumi.set(__self__, "extensions", extensions)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Sequence['outputs.ExtensionResponse']:
-        """
-        List of Arc extensions installed on edge device.
-        """
-        return pulumi.get(self, "extensions")
-
-
-@pulumi.output_type
-class ExtensionResponse(dict):
-    """
-    Arc extension installed on edge device.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "errorDetails":
-            suggest = "error_details"
-        elif key == "extensionName":
-            suggest = "extension_name"
-        elif key == "extensionResourceId":
-            suggest = "extension_resource_id"
-        elif key == "managedBy":
-            suggest = "managed_by"
-        elif key == "typeHandlerVersion":
-            suggest = "type_handler_version"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ExtensionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ExtensionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ExtensionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 error_details: Sequence['outputs.ErrorDetailResponse'],
-                 extension_name: str,
-                 extension_resource_id: str,
-                 managed_by: Optional[str] = None,
-                 state: str,
-                 type_handler_version: str):
-        """
-        Arc extension installed on edge device.
-        :param Sequence['ErrorDetailResponse'] error_details: Error details while installing Arc extension.
-        :param str extension_name: Arc extension name installed on edge device.
-        :param str extension_resource_id: Arc Extension Azure resource id.
-        :param str managed_by: Extension managed by user or Azure.
-        :param str state: Arc extension state from arc machine extension.
-        :param str type_handler_version: Extension version installed.
-        """
-        pulumi.set(__self__, "error_details", error_details)
-        pulumi.set(__self__, "extension_name", extension_name)
-        pulumi.set(__self__, "extension_resource_id", extension_resource_id)
-        if managed_by is None:
-            managed_by = 'Azure'
-        pulumi.set(__self__, "managed_by", managed_by)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "type_handler_version", type_handler_version)
-
-    @property
-    @pulumi.getter(name="errorDetails")
-    def error_details(self) -> Sequence['outputs.ErrorDetailResponse']:
-        """
-        Error details while installing Arc extension.
-        """
-        return pulumi.get(self, "error_details")
-
-    @property
-    @pulumi.getter(name="extensionName")
-    def extension_name(self) -> str:
-        """
-        Arc extension name installed on edge device.
-        """
-        return pulumi.get(self, "extension_name")
-
-    @property
-    @pulumi.getter(name="extensionResourceId")
-    def extension_resource_id(self) -> str:
-        """
-        Arc Extension Azure resource id.
-        """
-        return pulumi.get(self, "extension_resource_id")
-
-    @property
-    @pulumi.getter(name="managedBy")
-    def managed_by(self) -> str:
-        """
-        Extension managed by user or Azure.
-        """
-        return pulumi.get(self, "managed_by")
-
-    @property
-    @pulumi.getter
-    def state(self) -> str:
-        """
-        Arc extension state from arc machine extension.
-        """
-        return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> str:
-        """
-        Extension version installed.
-        """
-        return pulumi.get(self, "type_handler_version")
-
-
-@pulumi.output_type
-class HciEdgeDevicePropertiesResponse(dict):
-    """
-    properties for Arc-enabled edge device with HCI OS.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "reportedProperties":
-            suggest = "reported_properties"
-        elif key == "deviceConfiguration":
-            suggest = "device_configuration"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HciEdgeDevicePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        HciEdgeDevicePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        HciEdgeDevicePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: str,
-                 reported_properties: 'outputs.HciReportedPropertiesResponse',
-                 device_configuration: Optional['outputs.DeviceConfigurationResponse'] = None):
-        """
-        properties for Arc-enabled edge device with HCI OS.
-        :param str provisioning_state: Provisioning state of edgeDevice resource
-        :param 'HciReportedPropertiesResponse' reported_properties: The instance view of all current configurations on HCI device.
-        :param 'DeviceConfigurationResponse' device_configuration: Device Configuration
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "reported_properties", reported_properties)
-        if device_configuration is not None:
-            pulumi.set(__self__, "device_configuration", device_configuration)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Provisioning state of edgeDevice resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="reportedProperties")
-    def reported_properties(self) -> 'outputs.HciReportedPropertiesResponse':
-        """
-        The instance view of all current configurations on HCI device.
-        """
-        return pulumi.get(self, "reported_properties")
-
-    @property
-    @pulumi.getter(name="deviceConfiguration")
-    def device_configuration(self) -> Optional['outputs.DeviceConfigurationResponse']:
-        """
-        Device Configuration
-        """
-        return pulumi.get(self, "device_configuration")
-
-
-@pulumi.output_type
-class HciNetworkProfileResponse(dict):
-    """
-    The network profile of a device.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "hostNetwork":
-            suggest = "host_network"
-        elif key == "nicDetails":
-            suggest = "nic_details"
-        elif key == "switchDetails":
-            suggest = "switch_details"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HciNetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        HciNetworkProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        HciNetworkProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 host_network: 'outputs.HostNetworkResponse',
-                 nic_details: Sequence['outputs.HciNicDetailResponse'],
-                 switch_details: Sequence['outputs.SwitchDetailResponse']):
-        """
-        The network profile of a device.
-        :param 'HostNetworkResponse' host_network: HostNetwork config to deploy AzureStackHCI Cluster.
-        :param Sequence['HciNicDetailResponse'] nic_details: List of NIC Details of device.
-        :param Sequence['SwitchDetailResponse'] switch_details: List of switch details for edge device.
-        """
-        pulumi.set(__self__, "host_network", host_network)
-        pulumi.set(__self__, "nic_details", nic_details)
-        pulumi.set(__self__, "switch_details", switch_details)
-
-    @property
-    @pulumi.getter(name="hostNetwork")
-    def host_network(self) -> 'outputs.HostNetworkResponse':
-        """
-        HostNetwork config to deploy AzureStackHCI Cluster.
-        """
-        return pulumi.get(self, "host_network")
-
-    @property
-    @pulumi.getter(name="nicDetails")
-    def nic_details(self) -> Sequence['outputs.HciNicDetailResponse']:
-        """
-        List of NIC Details of device.
-        """
-        return pulumi.get(self, "nic_details")
-
-    @property
-    @pulumi.getter(name="switchDetails")
-    def switch_details(self) -> Sequence['outputs.SwitchDetailResponse']:
-        """
-        List of switch details for edge device.
-        """
-        return pulumi.get(self, "switch_details")
-
-
-@pulumi.output_type
-class HciNicDetailResponse(dict):
-    """
-    The NIC Detail of a device.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "adapterName":
-            suggest = "adapter_name"
-        elif key == "componentId":
-            suggest = "component_id"
-        elif key == "defaultGateway":
-            suggest = "default_gateway"
-        elif key == "defaultIsolationId":
-            suggest = "default_isolation_id"
-        elif key == "dnsServers":
-            suggest = "dns_servers"
-        elif key == "driverVersion":
-            suggest = "driver_version"
-        elif key == "interfaceDescription":
-            suggest = "interface_description"
-        elif key == "ip4Address":
-            suggest = "ip4_address"
-        elif key == "macAddress":
-            suggest = "mac_address"
-        elif key == "nicStatus":
-            suggest = "nic_status"
-        elif key == "nicType":
-            suggest = "nic_type"
-        elif key == "subnetMask":
-            suggest = "subnet_mask"
-        elif key == "switchName":
-            suggest = "switch_name"
-        elif key == "vlanId":
-            suggest = "vlan_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HciNicDetailResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        HciNicDetailResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        HciNicDetailResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 adapter_name: str,
-                 component_id: str,
-                 default_gateway: str,
-                 default_isolation_id: str,
-                 dns_servers: Sequence[str],
-                 driver_version: str,
-                 interface_description: str,
-                 ip4_address: str,
-                 mac_address: str,
-                 nic_status: str,
-                 nic_type: str,
-                 slot: str,
-                 subnet_mask: str,
-                 switch_name: str,
-                 vlan_id: str):
-        """
-        The NIC Detail of a device.
-        :param str adapter_name: Adapter Name of NIC
-        :param str component_id: Component Id of NIC
-        :param str default_gateway: Default Gateway of NIC
-        :param str default_isolation_id: Default Isolation of Management NIC
-        :param Sequence[str] dns_servers: DNS Servers for NIC
-        :param str driver_version: Driver Version of NIC
-        :param str interface_description: Interface Description of NIC
-        :param str ip4_address: Subnet Mask of NIC
-        :param str mac_address: MAC address information of NIC.
-        :param str nic_status: The status of NIC, up, disconnected.
-        :param str nic_type: The type of NIC, physical, virtual, management.
-        :param str slot: The slot attached to the NIC.
-        :param str subnet_mask: Subnet Mask of NIC
-        :param str switch_name: The switch attached to the NIC, if any.
-        :param str vlan_id: The VLAN ID of the physical NIC.
-        """
-        pulumi.set(__self__, "adapter_name", adapter_name)
-        pulumi.set(__self__, "component_id", component_id)
-        pulumi.set(__self__, "default_gateway", default_gateway)
-        pulumi.set(__self__, "default_isolation_id", default_isolation_id)
-        pulumi.set(__self__, "dns_servers", dns_servers)
-        pulumi.set(__self__, "driver_version", driver_version)
-        pulumi.set(__self__, "interface_description", interface_description)
-        pulumi.set(__self__, "ip4_address", ip4_address)
-        pulumi.set(__self__, "mac_address", mac_address)
-        pulumi.set(__self__, "nic_status", nic_status)
-        pulumi.set(__self__, "nic_type", nic_type)
-        pulumi.set(__self__, "slot", slot)
-        pulumi.set(__self__, "subnet_mask", subnet_mask)
-        pulumi.set(__self__, "switch_name", switch_name)
-        pulumi.set(__self__, "vlan_id", vlan_id)
-
-    @property
-    @pulumi.getter(name="adapterName")
-    def adapter_name(self) -> str:
-        """
-        Adapter Name of NIC
-        """
-        return pulumi.get(self, "adapter_name")
-
-    @property
-    @pulumi.getter(name="componentId")
-    def component_id(self) -> str:
-        """
-        Component Id of NIC
-        """
-        return pulumi.get(self, "component_id")
-
-    @property
-    @pulumi.getter(name="defaultGateway")
-    def default_gateway(self) -> str:
-        """
-        Default Gateway of NIC
-        """
-        return pulumi.get(self, "default_gateway")
-
-    @property
-    @pulumi.getter(name="defaultIsolationId")
-    def default_isolation_id(self) -> str:
-        """
-        Default Isolation of Management NIC
-        """
-        return pulumi.get(self, "default_isolation_id")
-
-    @property
-    @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Sequence[str]:
-        """
-        DNS Servers for NIC
-        """
-        return pulumi.get(self, "dns_servers")
-
-    @property
-    @pulumi.getter(name="driverVersion")
-    def driver_version(self) -> str:
-        """
-        Driver Version of NIC
-        """
-        return pulumi.get(self, "driver_version")
-
-    @property
-    @pulumi.getter(name="interfaceDescription")
-    def interface_description(self) -> str:
-        """
-        Interface Description of NIC
-        """
-        return pulumi.get(self, "interface_description")
-
-    @property
-    @pulumi.getter(name="ip4Address")
-    def ip4_address(self) -> str:
-        """
-        Subnet Mask of NIC
-        """
-        return pulumi.get(self, "ip4_address")
-
-    @property
-    @pulumi.getter(name="macAddress")
-    def mac_address(self) -> str:
-        """
-        MAC address information of NIC.
-        """
-        return pulumi.get(self, "mac_address")
-
-    @property
-    @pulumi.getter(name="nicStatus")
-    def nic_status(self) -> str:
-        """
-        The status of NIC, up, disconnected.
-        """
-        return pulumi.get(self, "nic_status")
-
-    @property
-    @pulumi.getter(name="nicType")
-    def nic_type(self) -> str:
-        """
-        The type of NIC, physical, virtual, management.
-        """
-        return pulumi.get(self, "nic_type")
-
-    @property
-    @pulumi.getter
-    def slot(self) -> str:
-        """
-        The slot attached to the NIC.
-        """
-        return pulumi.get(self, "slot")
-
-    @property
-    @pulumi.getter(name="subnetMask")
-    def subnet_mask(self) -> str:
-        """
-        Subnet Mask of NIC
-        """
-        return pulumi.get(self, "subnet_mask")
-
-    @property
-    @pulumi.getter(name="switchName")
-    def switch_name(self) -> str:
-        """
-        The switch attached to the NIC, if any.
-        """
-        return pulumi.get(self, "switch_name")
-
-    @property
-    @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> str:
-        """
-        The VLAN ID of the physical NIC.
-        """
-        return pulumi.get(self, "vlan_id")
-
-
-@pulumi.output_type
-class HciOsProfileResponse(dict):
-    """
-    OS configurations for HCI device.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "assemblyVersion":
-            suggest = "assembly_version"
-        elif key == "bootType":
-            suggest = "boot_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HciOsProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        HciOsProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        HciOsProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 assembly_version: str,
-                 boot_type: str):
-        """
-        OS configurations for HCI device.
-        :param str assembly_version: Version of assembly present on device
-        :param str boot_type: The boot type of the device. e.g. UEFI, Legacy etc
-        """
-        pulumi.set(__self__, "assembly_version", assembly_version)
-        pulumi.set(__self__, "boot_type", boot_type)
-
-    @property
-    @pulumi.getter(name="assemblyVersion")
-    def assembly_version(self) -> str:
-        """
-        Version of assembly present on device
-        """
-        return pulumi.get(self, "assembly_version")
-
-    @property
-    @pulumi.getter(name="bootType")
-    def boot_type(self) -> str:
-        """
-        The boot type of the device. e.g. UEFI, Legacy etc
-        """
-        return pulumi.get(self, "boot_type")
-
-
-@pulumi.output_type
-class HciReportedPropertiesResponse(dict):
-    """
-    The device Configuration for HCI device.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "deviceState":
-            suggest = "device_state"
-        elif key == "extensionProfile":
-            suggest = "extension_profile"
-        elif key == "networkProfile":
-            suggest = "network_profile"
-        elif key == "osProfile":
-            suggest = "os_profile"
-        elif key == "sbeDeploymentPackageInfo":
-            suggest = "sbe_deployment_package_info"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HciReportedPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        HciReportedPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        HciReportedPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 device_state: str,
-                 extension_profile: 'outputs.ExtensionProfileResponse',
-                 network_profile: 'outputs.HciNetworkProfileResponse',
-                 os_profile: 'outputs.HciOsProfileResponse',
-                 sbe_deployment_package_info: 'outputs.SbeDeploymentPackageInfoResponse'):
-        """
-        The device Configuration for HCI device.
-        :param str device_state: edge device state.
-        :param 'ExtensionProfileResponse' extension_profile: Extensions details for edge device.
-        :param 'HciNetworkProfileResponse' network_profile: HCI device network information.
-        :param 'HciOsProfileResponse' os_profile: HCI device OS specific information.
-        :param 'SbeDeploymentPackageInfoResponse' sbe_deployment_package_info: Solution builder extension (SBE) deployment package information.
-        """
-        pulumi.set(__self__, "device_state", device_state)
-        pulumi.set(__self__, "extension_profile", extension_profile)
-        pulumi.set(__self__, "network_profile", network_profile)
-        pulumi.set(__self__, "os_profile", os_profile)
-        pulumi.set(__self__, "sbe_deployment_package_info", sbe_deployment_package_info)
-
-    @property
-    @pulumi.getter(name="deviceState")
-    def device_state(self) -> str:
-        """
-        edge device state.
-        """
-        return pulumi.get(self, "device_state")
-
-    @property
-    @pulumi.getter(name="extensionProfile")
-    def extension_profile(self) -> 'outputs.ExtensionProfileResponse':
-        """
-        Extensions details for edge device.
-        """
-        return pulumi.get(self, "extension_profile")
-
-    @property
-    @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> 'outputs.HciNetworkProfileResponse':
-        """
-        HCI device network information.
-        """
-        return pulumi.get(self, "network_profile")
-
-    @property
-    @pulumi.getter(name="osProfile")
-    def os_profile(self) -> 'outputs.HciOsProfileResponse':
-        """
-        HCI device OS specific information.
-        """
-        return pulumi.get(self, "os_profile")
-
-    @property
-    @pulumi.getter(name="sbeDeploymentPackageInfo")
-    def sbe_deployment_package_info(self) -> 'outputs.SbeDeploymentPackageInfoResponse':
-        """
-        Solution builder extension (SBE) deployment package information.
-        """
-        return pulumi.get(self, "sbe_deployment_package_info")
-
-
-@pulumi.output_type
 class HostNetworkResponse(dict):
     """
     The HostNetwork of a cluster.
@@ -2387,25 +1682,33 @@ class HostNetworkResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enable_storage_auto_ip: bool,
-                 intents: Sequence['outputs.IntentsResponse'],
-                 storage_connectivity_switchless: bool,
-                 storage_networks: Sequence['outputs.StorageNetworksResponse']):
+                 enable_storage_auto_ip: Optional[bool] = None,
+                 intents: Optional[Sequence['outputs.IntentsResponse']] = None,
+                 storage_connectivity_switchless: Optional[bool] = None,
+                 storage_networks: Optional[Sequence['outputs.StorageNetworksResponse']] = None):
         """
         The HostNetwork of a cluster.
         :param bool enable_storage_auto_ip: Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
         :param Sequence['IntentsResponse'] intents: The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
-        :param bool storage_connectivity_switchless: Defines how the storage adapters between nodes are connected either switch or switch less.
+        :param bool storage_connectivity_switchless: Defines how the storage adapters between nodes are connected either switch or switch less..
         :param Sequence['StorageNetworksResponse'] storage_networks: List of StorageNetworks config to deploy AzureStackHCI Cluster.
         """
-        pulumi.set(__self__, "enable_storage_auto_ip", enable_storage_auto_ip)
-        pulumi.set(__self__, "intents", intents)
-        pulumi.set(__self__, "storage_connectivity_switchless", storage_connectivity_switchless)
-        pulumi.set(__self__, "storage_networks", storage_networks)
+        if enable_storage_auto_ip is None:
+            enable_storage_auto_ip = False
+        if enable_storage_auto_ip is not None:
+            pulumi.set(__self__, "enable_storage_auto_ip", enable_storage_auto_ip)
+        if intents is not None:
+            pulumi.set(__self__, "intents", intents)
+        if storage_connectivity_switchless is None:
+            storage_connectivity_switchless = False
+        if storage_connectivity_switchless is not None:
+            pulumi.set(__self__, "storage_connectivity_switchless", storage_connectivity_switchless)
+        if storage_networks is not None:
+            pulumi.set(__self__, "storage_networks", storage_networks)
 
     @property
     @pulumi.getter(name="enableStorageAutoIp")
-    def enable_storage_auto_ip(self) -> bool:
+    def enable_storage_auto_ip(self) -> Optional[bool]:
         """
         Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
         """
@@ -2413,7 +1716,7 @@ class HostNetworkResponse(dict):
 
     @property
     @pulumi.getter
-    def intents(self) -> Sequence['outputs.IntentsResponse']:
+    def intents(self) -> Optional[Sequence['outputs.IntentsResponse']]:
         """
         The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
         """
@@ -2421,15 +1724,15 @@ class HostNetworkResponse(dict):
 
     @property
     @pulumi.getter(name="storageConnectivitySwitchless")
-    def storage_connectivity_switchless(self) -> bool:
+    def storage_connectivity_switchless(self) -> Optional[bool]:
         """
-        Defines how the storage adapters between nodes are connected either switch or switch less.
+        Defines how the storage adapters between nodes are connected either switch or switch less..
         """
         return pulumi.get(self, "storage_connectivity_switchless")
 
     @property
     @pulumi.getter(name="storageNetworks")
-    def storage_networks(self) -> Sequence['outputs.StorageNetworksResponse']:
+    def storage_networks(self) -> Optional[Sequence['outputs.StorageNetworksResponse']]:
         """
         List of StorageNetworks config to deploy AzureStackHCI Cluster.
         """
@@ -2540,26 +1843,6 @@ class IntentsResponse(dict):
         suggest = None
         if key == "adapterPropertyOverrides":
             suggest = "adapter_property_overrides"
-        elif key == "intentAdapters":
-            suggest = "intent_adapters"
-        elif key == "intentName":
-            suggest = "intent_name"
-        elif key == "intentType":
-            suggest = "intent_type"
-        elif key == "isComputeIntentSet":
-            suggest = "is_compute_intent_set"
-        elif key == "isManagementIntentSet":
-            suggest = "is_management_intent_set"
-        elif key == "isNetworkIntentType":
-            suggest = "is_network_intent_type"
-        elif key == "isOnlyStorage":
-            suggest = "is_only_storage"
-        elif key == "isOnlyStretch":
-            suggest = "is_only_stretch"
-        elif key == "isStorageIntentSet":
-            suggest = "is_storage_intent_set"
-        elif key == "isStretchIntentSet":
-            suggest = "is_stretch_intent_set"
         elif key == "overrideAdapterProperty":
             suggest = "override_adapter_property"
         elif key == "overrideQosPolicy":
@@ -2568,10 +1851,10 @@ class IntentsResponse(dict):
             suggest = "override_virtual_switch_configuration"
         elif key == "qosPolicyOverrides":
             suggest = "qos_policy_overrides"
-        elif key == "virtualSwitchConfigurationOverrides":
-            suggest = "virtual_switch_configuration_overrides"
         elif key == "trafficType":
             suggest = "traffic_type"
+        elif key == "virtualSwitchConfigurationOverrides":
+            suggest = "virtual_switch_configuration_overrides"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IntentsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2585,208 +1868,51 @@ class IntentsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 adapter_property_overrides: 'outputs.AdapterPropertyOverridesResponse',
-                 intent_adapters: Sequence[str],
-                 intent_name: str,
-                 intent_type: float,
-                 is_compute_intent_set: bool,
-                 is_management_intent_set: bool,
-                 is_network_intent_type: bool,
-                 is_only_storage: bool,
-                 is_only_stretch: bool,
-                 is_storage_intent_set: bool,
-                 is_stretch_intent_set: bool,
-                 override_adapter_property: bool,
-                 override_qos_policy: bool,
-                 override_virtual_switch_configuration: bool,
-                 qos_policy_overrides: 'outputs.QosPolicyOverridesResponse',
-                 scope: float,
-                 virtual_switch_configuration_overrides: 'outputs.VirtualSwitchConfigurationOverridesResponse',
                  adapter: Optional[Sequence[str]] = None,
+                 adapter_property_overrides: Optional['outputs.AdapterPropertyOverridesResponse'] = None,
                  name: Optional[str] = None,
-                 traffic_type: Optional[Sequence[str]] = None):
+                 override_adapter_property: Optional[bool] = None,
+                 override_qos_policy: Optional[bool] = None,
+                 override_virtual_switch_configuration: Optional[bool] = None,
+                 qos_policy_overrides: Optional['outputs.QosPolicyOverridesResponse'] = None,
+                 traffic_type: Optional[Sequence[str]] = None,
+                 virtual_switch_configuration_overrides: Optional['outputs.VirtualSwitchConfigurationOverridesResponse'] = None):
         """
         The Intents of a cluster.
+        :param Sequence[str] adapter: Array of network interfaces used for the network intent.
         :param 'AdapterPropertyOverridesResponse' adapter_property_overrides: Set Adapter PropertyOverrides for cluster.
-        :param Sequence[str] intent_adapters: Array of adapters used for the network intent.
-        :param str intent_name: Name of the network intent you wish to create.
-        :param float intent_type: IntentType for host network intent.
-        :param bool is_compute_intent_set: IsComputeIntentSet for host network intent.
-        :param bool is_management_intent_set: IsManagementIntentSet for host network intent.
-        :param bool is_network_intent_type: IsNetworkIntentType for host network intent.
-        :param bool is_only_storage: IntentType for host network intent.
-        :param bool is_only_stretch: IsOnlyStretch for host network intent.
-        :param bool is_storage_intent_set: IsStorageIntentSet for host network intent.
-        :param bool is_stretch_intent_set: IsStretchIntentSet for host network intent.
+        :param str name: Name of the network intent you wish to create.
         :param bool override_adapter_property: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         :param bool override_qos_policy: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         :param bool override_virtual_switch_configuration: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         :param 'QosPolicyOverridesResponse' qos_policy_overrides: Set QoS PolicyOverrides for cluster.
-        :param float scope: Scope for host network intent.
-        :param 'VirtualSwitchConfigurationOverridesResponse' virtual_switch_configuration_overrides: Set virtualSwitch ConfigurationOverrides for cluster.
-        :param Sequence[str] adapter: Array of network interfaces used for the network intent.
-        :param str name: Name of the network intent you wish to create.
         :param Sequence[str] traffic_type: List of network traffic types. Only allowed values are 'Compute', 'Storage', 'Management'.
+        :param 'VirtualSwitchConfigurationOverridesResponse' virtual_switch_configuration_overrides: Set virtualSwitch ConfigurationOverrides for cluster.
         """
-        pulumi.set(__self__, "adapter_property_overrides", adapter_property_overrides)
-        pulumi.set(__self__, "intent_adapters", intent_adapters)
-        pulumi.set(__self__, "intent_name", intent_name)
-        pulumi.set(__self__, "intent_type", intent_type)
-        pulumi.set(__self__, "is_compute_intent_set", is_compute_intent_set)
-        pulumi.set(__self__, "is_management_intent_set", is_management_intent_set)
-        pulumi.set(__self__, "is_network_intent_type", is_network_intent_type)
-        pulumi.set(__self__, "is_only_storage", is_only_storage)
-        pulumi.set(__self__, "is_only_stretch", is_only_stretch)
-        pulumi.set(__self__, "is_storage_intent_set", is_storage_intent_set)
-        pulumi.set(__self__, "is_stretch_intent_set", is_stretch_intent_set)
-        pulumi.set(__self__, "override_adapter_property", override_adapter_property)
-        pulumi.set(__self__, "override_qos_policy", override_qos_policy)
-        pulumi.set(__self__, "override_virtual_switch_configuration", override_virtual_switch_configuration)
-        pulumi.set(__self__, "qos_policy_overrides", qos_policy_overrides)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "virtual_switch_configuration_overrides", virtual_switch_configuration_overrides)
         if adapter is not None:
             pulumi.set(__self__, "adapter", adapter)
+        if adapter_property_overrides is not None:
+            pulumi.set(__self__, "adapter_property_overrides", adapter_property_overrides)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if override_adapter_property is None:
+            override_adapter_property = False
+        if override_adapter_property is not None:
+            pulumi.set(__self__, "override_adapter_property", override_adapter_property)
+        if override_qos_policy is None:
+            override_qos_policy = False
+        if override_qos_policy is not None:
+            pulumi.set(__self__, "override_qos_policy", override_qos_policy)
+        if override_virtual_switch_configuration is None:
+            override_virtual_switch_configuration = False
+        if override_virtual_switch_configuration is not None:
+            pulumi.set(__self__, "override_virtual_switch_configuration", override_virtual_switch_configuration)
+        if qos_policy_overrides is not None:
+            pulumi.set(__self__, "qos_policy_overrides", qos_policy_overrides)
         if traffic_type is not None:
             pulumi.set(__self__, "traffic_type", traffic_type)
-
-    @property
-    @pulumi.getter(name="adapterPropertyOverrides")
-    def adapter_property_overrides(self) -> 'outputs.AdapterPropertyOverridesResponse':
-        """
-        Set Adapter PropertyOverrides for cluster.
-        """
-        return pulumi.get(self, "adapter_property_overrides")
-
-    @property
-    @pulumi.getter(name="intentAdapters")
-    def intent_adapters(self) -> Sequence[str]:
-        """
-        Array of adapters used for the network intent.
-        """
-        return pulumi.get(self, "intent_adapters")
-
-    @property
-    @pulumi.getter(name="intentName")
-    def intent_name(self) -> str:
-        """
-        Name of the network intent you wish to create.
-        """
-        return pulumi.get(self, "intent_name")
-
-    @property
-    @pulumi.getter(name="intentType")
-    def intent_type(self) -> float:
-        """
-        IntentType for host network intent.
-        """
-        return pulumi.get(self, "intent_type")
-
-    @property
-    @pulumi.getter(name="isComputeIntentSet")
-    def is_compute_intent_set(self) -> bool:
-        """
-        IsComputeIntentSet for host network intent.
-        """
-        return pulumi.get(self, "is_compute_intent_set")
-
-    @property
-    @pulumi.getter(name="isManagementIntentSet")
-    def is_management_intent_set(self) -> bool:
-        """
-        IsManagementIntentSet for host network intent.
-        """
-        return pulumi.get(self, "is_management_intent_set")
-
-    @property
-    @pulumi.getter(name="isNetworkIntentType")
-    def is_network_intent_type(self) -> bool:
-        """
-        IsNetworkIntentType for host network intent.
-        """
-        return pulumi.get(self, "is_network_intent_type")
-
-    @property
-    @pulumi.getter(name="isOnlyStorage")
-    def is_only_storage(self) -> bool:
-        """
-        IntentType for host network intent.
-        """
-        return pulumi.get(self, "is_only_storage")
-
-    @property
-    @pulumi.getter(name="isOnlyStretch")
-    def is_only_stretch(self) -> bool:
-        """
-        IsOnlyStretch for host network intent.
-        """
-        return pulumi.get(self, "is_only_stretch")
-
-    @property
-    @pulumi.getter(name="isStorageIntentSet")
-    def is_storage_intent_set(self) -> bool:
-        """
-        IsStorageIntentSet for host network intent.
-        """
-        return pulumi.get(self, "is_storage_intent_set")
-
-    @property
-    @pulumi.getter(name="isStretchIntentSet")
-    def is_stretch_intent_set(self) -> bool:
-        """
-        IsStretchIntentSet for host network intent.
-        """
-        return pulumi.get(self, "is_stretch_intent_set")
-
-    @property
-    @pulumi.getter(name="overrideAdapterProperty")
-    def override_adapter_property(self) -> bool:
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        return pulumi.get(self, "override_adapter_property")
-
-    @property
-    @pulumi.getter(name="overrideQosPolicy")
-    def override_qos_policy(self) -> bool:
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        return pulumi.get(self, "override_qos_policy")
-
-    @property
-    @pulumi.getter(name="overrideVirtualSwitchConfiguration")
-    def override_virtual_switch_configuration(self) -> bool:
-        """
-        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
-        """
-        return pulumi.get(self, "override_virtual_switch_configuration")
-
-    @property
-    @pulumi.getter(name="qosPolicyOverrides")
-    def qos_policy_overrides(self) -> 'outputs.QosPolicyOverridesResponse':
-        """
-        Set QoS PolicyOverrides for cluster.
-        """
-        return pulumi.get(self, "qos_policy_overrides")
-
-    @property
-    @pulumi.getter
-    def scope(self) -> float:
-        """
-        Scope for host network intent.
-        """
-        return pulumi.get(self, "scope")
-
-    @property
-    @pulumi.getter(name="virtualSwitchConfigurationOverrides")
-    def virtual_switch_configuration_overrides(self) -> 'outputs.VirtualSwitchConfigurationOverridesResponse':
-        """
-        Set virtualSwitch ConfigurationOverrides for cluster.
-        """
-        return pulumi.get(self, "virtual_switch_configuration_overrides")
+        if virtual_switch_configuration_overrides is not None:
+            pulumi.set(__self__, "virtual_switch_configuration_overrides", virtual_switch_configuration_overrides)
 
     @property
     @pulumi.getter
@@ -2797,6 +1923,14 @@ class IntentsResponse(dict):
         return pulumi.get(self, "adapter")
 
     @property
+    @pulumi.getter(name="adapterPropertyOverrides")
+    def adapter_property_overrides(self) -> Optional['outputs.AdapterPropertyOverridesResponse']:
+        """
+        Set Adapter PropertyOverrides for cluster.
+        """
+        return pulumi.get(self, "adapter_property_overrides")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
@@ -2805,12 +1939,52 @@ class IntentsResponse(dict):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="overrideAdapterProperty")
+    def override_adapter_property(self) -> Optional[bool]:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "override_adapter_property")
+
+    @property
+    @pulumi.getter(name="overrideQosPolicy")
+    def override_qos_policy(self) -> Optional[bool]:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "override_qos_policy")
+
+    @property
+    @pulumi.getter(name="overrideVirtualSwitchConfiguration")
+    def override_virtual_switch_configuration(self) -> Optional[bool]:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "override_virtual_switch_configuration")
+
+    @property
+    @pulumi.getter(name="qosPolicyOverrides")
+    def qos_policy_overrides(self) -> Optional['outputs.QosPolicyOverridesResponse']:
+        """
+        Set QoS PolicyOverrides for cluster.
+        """
+        return pulumi.get(self, "qos_policy_overrides")
+
+    @property
     @pulumi.getter(name="trafficType")
     def traffic_type(self) -> Optional[Sequence[str]]:
         """
         List of network traffic types. Only allowed values are 'Compute', 'Storage', 'Management'.
         """
         return pulumi.get(self, "traffic_type")
+
+    @property
+    @pulumi.getter(name="virtualSwitchConfigurationOverrides")
+    def virtual_switch_configuration_overrides(self) -> Optional['outputs.VirtualSwitchConfigurationOverridesResponse']:
+        """
+        Set virtualSwitch ConfigurationOverrides for cluster.
+        """
+        return pulumi.get(self, "virtual_switch_configuration_overrides")
 
 
 @pulumi.output_type
@@ -3267,158 +2441,6 @@ class NetworkControllerResponse(dict):
         NetworkVirtualizationEnabled of network controller used for SDN Integration.
         """
         return pulumi.get(self, "network_virtualization_enabled")
-
-
-@pulumi.output_type
-class NicDetailResponse(dict):
-    """
-    The NIC Detail of a device.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "adapterName":
-            suggest = "adapter_name"
-        elif key == "componentId":
-            suggest = "component_id"
-        elif key == "defaultGateway":
-            suggest = "default_gateway"
-        elif key == "defaultIsolationId":
-            suggest = "default_isolation_id"
-        elif key == "dnsServers":
-            suggest = "dns_servers"
-        elif key == "driverVersion":
-            suggest = "driver_version"
-        elif key == "interfaceDescription":
-            suggest = "interface_description"
-        elif key == "ip4Address":
-            suggest = "ip4_address"
-        elif key == "subnetMask":
-            suggest = "subnet_mask"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NicDetailResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NicDetailResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NicDetailResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 adapter_name: Optional[str] = None,
-                 component_id: Optional[str] = None,
-                 default_gateway: Optional[str] = None,
-                 default_isolation_id: Optional[str] = None,
-                 dns_servers: Optional[Sequence[str]] = None,
-                 driver_version: Optional[str] = None,
-                 interface_description: Optional[str] = None,
-                 ip4_address: Optional[str] = None,
-                 subnet_mask: Optional[str] = None):
-        """
-        The NIC Detail of a device.
-        :param str adapter_name: Adapter Name of NIC
-        :param str component_id: Component Id of NIC
-        :param str default_gateway: Default Gateway of NIC
-        :param str default_isolation_id: Default Isolation of Management NIC
-        :param Sequence[str] dns_servers: DNS Servers for NIC
-        :param str driver_version: Driver Version of NIC
-        :param str interface_description: Interface Description of NIC
-        :param str ip4_address: Subnet Mask of NIC
-        :param str subnet_mask: Subnet Mask of NIC
-        """
-        if adapter_name is not None:
-            pulumi.set(__self__, "adapter_name", adapter_name)
-        if component_id is not None:
-            pulumi.set(__self__, "component_id", component_id)
-        if default_gateway is not None:
-            pulumi.set(__self__, "default_gateway", default_gateway)
-        if default_isolation_id is not None:
-            pulumi.set(__self__, "default_isolation_id", default_isolation_id)
-        if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
-        if driver_version is not None:
-            pulumi.set(__self__, "driver_version", driver_version)
-        if interface_description is not None:
-            pulumi.set(__self__, "interface_description", interface_description)
-        if ip4_address is not None:
-            pulumi.set(__self__, "ip4_address", ip4_address)
-        if subnet_mask is not None:
-            pulumi.set(__self__, "subnet_mask", subnet_mask)
-
-    @property
-    @pulumi.getter(name="adapterName")
-    def adapter_name(self) -> Optional[str]:
-        """
-        Adapter Name of NIC
-        """
-        return pulumi.get(self, "adapter_name")
-
-    @property
-    @pulumi.getter(name="componentId")
-    def component_id(self) -> Optional[str]:
-        """
-        Component Id of NIC
-        """
-        return pulumi.get(self, "component_id")
-
-    @property
-    @pulumi.getter(name="defaultGateway")
-    def default_gateway(self) -> Optional[str]:
-        """
-        Default Gateway of NIC
-        """
-        return pulumi.get(self, "default_gateway")
-
-    @property
-    @pulumi.getter(name="defaultIsolationId")
-    def default_isolation_id(self) -> Optional[str]:
-        """
-        Default Isolation of Management NIC
-        """
-        return pulumi.get(self, "default_isolation_id")
-
-    @property
-    @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[Sequence[str]]:
-        """
-        DNS Servers for NIC
-        """
-        return pulumi.get(self, "dns_servers")
-
-    @property
-    @pulumi.getter(name="driverVersion")
-    def driver_version(self) -> Optional[str]:
-        """
-        Driver Version of NIC
-        """
-        return pulumi.get(self, "driver_version")
-
-    @property
-    @pulumi.getter(name="interfaceDescription")
-    def interface_description(self) -> Optional[str]:
-        """
-        Interface Description of NIC
-        """
-        return pulumi.get(self, "interface_description")
-
-    @property
-    @pulumi.getter(name="ip4Address")
-    def ip4_address(self) -> Optional[str]:
-        """
-        Subnet Mask of NIC
-        """
-        return pulumi.get(self, "ip4_address")
-
-    @property
-    @pulumi.getter(name="subnetMask")
-    def subnet_mask(self) -> Optional[str]:
-        """
-        Subnet Mask of NIC
-        """
-        return pulumi.get(self, "subnet_mask")
 
 
 @pulumi.output_type
@@ -4260,67 +3282,6 @@ class SbeDeploymentInfoResponse(dict):
 
 
 @pulumi.output_type
-class SbeDeploymentPackageInfoResponse(dict):
-    """
-    Solution builder extension (SBE) deployment package information.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sbeManifest":
-            suggest = "sbe_manifest"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SbeDeploymentPackageInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SbeDeploymentPackageInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SbeDeploymentPackageInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 code: str,
-                 message: str,
-                 sbe_manifest: str):
-        """
-        Solution builder extension (SBE) deployment package information.
-        :param str code: SBE deployment validation code.
-        :param str message: A detailed message that explains the SBE package validation result.
-        :param str sbe_manifest: This represents discovered update results for matching updates and store it as SBE manifest.
-        """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "sbe_manifest", sbe_manifest)
-
-    @property
-    @pulumi.getter
-    def code(self) -> str:
-        """
-        SBE deployment validation code.
-        """
-        return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter
-    def message(self) -> str:
-        """
-        A detailed message that explains the SBE package validation result.
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter(name="sbeManifest")
-    def sbe_manifest(self) -> str:
-        """
-        This represents discovered update results for matching updates and store it as SBE manifest.
-        """
-        return pulumi.get(self, "sbe_manifest")
-
-
-@pulumi.output_type
 class SbePartnerInfoResponse(dict):
     """
     The solution builder extension (SBE) partner deployment info for cluster.
@@ -4894,22 +3855,25 @@ class StorageAdapterIPInfoResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ipv4_address: str,
-                 physical_node: str,
-                 subnet_mask: str):
+                 ipv4_address: Optional[str] = None,
+                 physical_node: Optional[str] = None,
+                 subnet_mask: Optional[str] = None):
         """
         The StorageAdapter physical nodes of a cluster.
         :param str ipv4_address: The IPv4 address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
         :param str physical_node: storage adapter physical node name.
         :param str subnet_mask: The SubnetMask address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
         """
-        pulumi.set(__self__, "ipv4_address", ipv4_address)
-        pulumi.set(__self__, "physical_node", physical_node)
-        pulumi.set(__self__, "subnet_mask", subnet_mask)
+        if ipv4_address is not None:
+            pulumi.set(__self__, "ipv4_address", ipv4_address)
+        if physical_node is not None:
+            pulumi.set(__self__, "physical_node", physical_node)
+        if subnet_mask is not None:
+            pulumi.set(__self__, "subnet_mask", subnet_mask)
 
     @property
     @pulumi.getter(name="ipv4Address")
-    def ipv4_address(self) -> str:
+    def ipv4_address(self) -> Optional[str]:
         """
         The IPv4 address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
         """
@@ -4917,7 +3881,7 @@ class StorageAdapterIPInfoResponse(dict):
 
     @property
     @pulumi.getter(name="physicalNode")
-    def physical_node(self) -> str:
+    def physical_node(self) -> Optional[str]:
         """
         storage adapter physical node name.
         """
@@ -4925,7 +3889,7 @@ class StorageAdapterIPInfoResponse(dict):
 
     @property
     @pulumi.getter(name="subnetMask")
-    def subnet_mask(self) -> str:
+    def subnet_mask(self) -> Optional[str]:
         """
         The SubnetMask address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
         """
@@ -4944,8 +3908,6 @@ class StorageNetworksResponse(dict):
             suggest = "network_adapter_name"
         elif key == "storageAdapterIPInfo":
             suggest = "storage_adapter_ip_info"
-        elif key == "storageVlanId":
-            suggest = "storage_vlan_id"
         elif key == "vlanId":
             suggest = "vlan_id"
 
@@ -4961,29 +3923,29 @@ class StorageNetworksResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 name: str,
-                 network_adapter_name: str,
-                 storage_adapter_ip_info: Sequence['outputs.StorageAdapterIPInfoResponse'],
-                 storage_vlan_id: str,
+                 name: Optional[str] = None,
+                 network_adapter_name: Optional[str] = None,
+                 storage_adapter_ip_info: Optional[Sequence['outputs.StorageAdapterIPInfoResponse']] = None,
                  vlan_id: Optional[str] = None):
         """
         The StorageNetworks of a cluster.
         :param str name: Name of the storage network.
         :param str network_adapter_name: Name of the storage network adapter.
         :param Sequence['StorageAdapterIPInfoResponse'] storage_adapter_ip_info: List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
-        :param str storage_vlan_id: ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
         :param str vlan_id: ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "network_adapter_name", network_adapter_name)
-        pulumi.set(__self__, "storage_adapter_ip_info", storage_adapter_ip_info)
-        pulumi.set(__self__, "storage_vlan_id", storage_vlan_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_adapter_name is not None:
+            pulumi.set(__self__, "network_adapter_name", network_adapter_name)
+        if storage_adapter_ip_info is not None:
+            pulumi.set(__self__, "storage_adapter_ip_info", storage_adapter_ip_info)
         if vlan_id is not None:
             pulumi.set(__self__, "vlan_id", vlan_id)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> Optional[str]:
         """
         Name of the storage network.
         """
@@ -4991,7 +3953,7 @@ class StorageNetworksResponse(dict):
 
     @property
     @pulumi.getter(name="networkAdapterName")
-    def network_adapter_name(self) -> str:
+    def network_adapter_name(self) -> Optional[str]:
         """
         Name of the storage network adapter.
         """
@@ -4999,19 +3961,11 @@ class StorageNetworksResponse(dict):
 
     @property
     @pulumi.getter(name="storageAdapterIPInfo")
-    def storage_adapter_ip_info(self) -> Sequence['outputs.StorageAdapterIPInfoResponse']:
+    def storage_adapter_ip_info(self) -> Optional[Sequence['outputs.StorageAdapterIPInfoResponse']]:
         """
         List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
         """
         return pulumi.get(self, "storage_adapter_ip_info")
-
-    @property
-    @pulumi.getter(name="storageVlanId")
-    def storage_vlan_id(self) -> str:
-        """
-        ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
-        """
-        return pulumi.get(self, "storage_vlan_id")
 
     @property
     @pulumi.getter(name="vlanId")
@@ -5062,134 +4016,6 @@ class StorageResponse(dict):
         By default, this mode is set to Express and your storage is configured as per best practices based on the number of nodes in the cluster. Allowed values are 'Express','InfraOnly', 'KeepStorage'
         """
         return pulumi.get(self, "configuration_mode")
-
-
-@pulumi.output_type
-class SwitchDetailResponse(dict):
-    """
-    List of switch details for edge device.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "switchName":
-            suggest = "switch_name"
-        elif key == "switchType":
-            suggest = "switch_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SwitchDetailResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SwitchDetailResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SwitchDetailResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 extensions: Sequence['outputs.SwitchExtensionResponse'],
-                 switch_name: str,
-                 switch_type: str):
-        """
-        List of switch details for edge device.
-        :param Sequence['SwitchExtensionResponse'] extensions: This represents extensions installed on virtualSwitch.
-        :param str switch_name: The name of the switch.
-        :param str switch_type: The type of the switch. e.g. external, internal.
-        """
-        pulumi.set(__self__, "extensions", extensions)
-        pulumi.set(__self__, "switch_name", switch_name)
-        pulumi.set(__self__, "switch_type", switch_type)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Sequence['outputs.SwitchExtensionResponse']:
-        """
-        This represents extensions installed on virtualSwitch.
-        """
-        return pulumi.get(self, "extensions")
-
-    @property
-    @pulumi.getter(name="switchName")
-    def switch_name(self) -> str:
-        """
-        The name of the switch.
-        """
-        return pulumi.get(self, "switch_name")
-
-    @property
-    @pulumi.getter(name="switchType")
-    def switch_type(self) -> str:
-        """
-        The type of the switch. e.g. external, internal.
-        """
-        return pulumi.get(self, "switch_type")
-
-
-@pulumi.output_type
-class SwitchExtensionResponse(dict):
-    """
-    This represents extensions installed on virtualSwitch.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "extensionEnabled":
-            suggest = "extension_enabled"
-        elif key == "extensionName":
-            suggest = "extension_name"
-        elif key == "switchId":
-            suggest = "switch_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SwitchExtensionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SwitchExtensionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SwitchExtensionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 extension_enabled: bool,
-                 extension_name: str,
-                 switch_id: str):
-        """
-        This represents extensions installed on virtualSwitch.
-        :param bool extension_enabled: This represents whether extension is enabled on virtualSwitch.
-        :param str extension_name: This will show extension name for virtualSwitch.
-        :param str switch_id: Unique identifier for virtualSwitch.
-        """
-        pulumi.set(__self__, "extension_enabled", extension_enabled)
-        pulumi.set(__self__, "extension_name", extension_name)
-        pulumi.set(__self__, "switch_id", switch_id)
-
-    @property
-    @pulumi.getter(name="extensionEnabled")
-    def extension_enabled(self) -> bool:
-        """
-        This represents whether extension is enabled on virtualSwitch.
-        """
-        return pulumi.get(self, "extension_enabled")
-
-    @property
-    @pulumi.getter(name="extensionName")
-    def extension_name(self) -> str:
-        """
-        This will show extension name for virtualSwitch.
-        """
-        return pulumi.get(self, "extension_name")
-
-    @property
-    @pulumi.getter(name="switchId")
-    def switch_id(self) -> str:
-        """
-        Unique identifier for virtualSwitch.
-        """
-        return pulumi.get(self, "switch_id")
 
 
 @pulumi.output_type
@@ -5445,19 +4271,21 @@ class VirtualSwitchConfigurationOverridesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enable_iov: str,
-                 load_balancing_algorithm: str):
+                 enable_iov: Optional[str] = None,
+                 load_balancing_algorithm: Optional[str] = None):
         """
         The VirtualSwitchConfigurationOverrides of a cluster.
         :param str enable_iov: Enable IoV for Virtual Switch
         :param str load_balancing_algorithm: Load Balancing Algorithm for Virtual Switch
         """
-        pulumi.set(__self__, "enable_iov", enable_iov)
-        pulumi.set(__self__, "load_balancing_algorithm", load_balancing_algorithm)
+        if enable_iov is not None:
+            pulumi.set(__self__, "enable_iov", enable_iov)
+        if load_balancing_algorithm is not None:
+            pulumi.set(__self__, "load_balancing_algorithm", load_balancing_algorithm)
 
     @property
     @pulumi.getter(name="enableIov")
-    def enable_iov(self) -> str:
+    def enable_iov(self) -> Optional[str]:
         """
         Enable IoV for Virtual Switch
         """
@@ -5465,7 +4293,7 @@ class VirtualSwitchConfigurationOverridesResponse(dict):
 
     @property
     @pulumi.getter(name="loadBalancingAlgorithm")
-    def load_balancing_algorithm(self) -> str:
+    def load_balancing_algorithm(self) -> Optional[str]:
         """
         Load Balancing Algorithm for Virtual Switch
         """

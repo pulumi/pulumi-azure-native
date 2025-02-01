@@ -85,7 +85,7 @@ export class Solution extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230101:Solution" }, { type: "azure-native:migrate:Solution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230101:Solution" }, { type: "azure-native:migrate/v20230101:SolutionsControllerSolution" }, { type: "azure-native:migrate:Solution" }, { type: "azure-native:migrate:SolutionsControllerSolution" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Solution.__pulumiType, name, resourceInputs, opts);
     }

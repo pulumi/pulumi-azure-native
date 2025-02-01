@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.Workloads.Outputs
     [OutputType]
     public sealed class LoadBalancerDetailsResponse
     {
+        /// <summary>
+        /// Fully qualified resource ID for the load balancer.
+        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

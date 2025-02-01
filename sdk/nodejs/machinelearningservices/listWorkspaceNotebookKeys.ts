@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * List keys of a notebook.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Other available API versions: 2022-01-01-preview, 2023-04-01, 2023-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
  */
 export function listWorkspaceNotebookKeys(args: ListWorkspaceNotebookKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNotebookKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,9 +35,9 @@ export interface ListWorkspaceNotebookKeysResult {
 }
 /**
  * List keys of a notebook.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Other available API versions: 2022-01-01-preview, 2023-04-01, 2023-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
  */
 export function listWorkspaceNotebookKeysOutput(args: ListWorkspaceNotebookKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceNotebookKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

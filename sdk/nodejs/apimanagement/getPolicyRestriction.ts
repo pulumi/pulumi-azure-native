@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get the policy restriction of the Api Management service.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2024-06-01-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-05-01-preview.
  */
 export function getPolicyRestriction(args: GetPolicyRestrictionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyRestrictionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,9 +61,9 @@ export interface GetPolicyRestrictionResult {
 }
 /**
  * Get the policy restriction of the Api Management service.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2024-06-01-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-05-01-preview.
  */
 export function getPolicyRestrictionOutput(args: GetPolicyRestrictionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyRestrictionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

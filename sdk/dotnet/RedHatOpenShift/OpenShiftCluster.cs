@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 {
     /// <summary>
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-    /// Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2020-04-30.
+    /// Azure REST API version: 2023-11-22. Prior API version in Azure Native 2.x: 2022-09-04.
     /// 
-    /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+    /// Other available API versions: 2022-09-04, 2023-07-01-preview, 2023-09-04, 2024-08-12-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift:OpenShiftCluster")]
     public partial class OpenShiftCluster : global::Pulumi.CustomResource
@@ -102,6 +102,12 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         [Output("workerProfiles")]
         public Output<ImmutableArray<Outputs.WorkerProfileResponse>> WorkerProfiles { get; private set; } = null!;
 
+        /// <summary>
+        /// The cluster worker profiles status.
+        /// </summary>
+        [Output("workerProfilesStatus")]
+        public Output<ImmutableArray<Outputs.WorkerProfileResponse>> WorkerProfilesStatus { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a OpenShiftCluster resource with the given unique name, arguments, and options.
@@ -171,12 +177,6 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         [Input("clusterProfile")]
         public Input<Inputs.ClusterProfileArgs>? ClusterProfile { get; set; }
 
-        /// <summary>
-        /// The console profile.
-        /// </summary>
-        [Input("consoleProfile")]
-        public Input<Inputs.ConsoleProfileArgs>? ConsoleProfile { get; set; }
-
         [Input("ingressProfiles")]
         private InputList<Inputs.IngressProfileArgs>? _ingressProfiles;
 
@@ -211,7 +211,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// The cluster provisioning state.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.RedHatOpenShift.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

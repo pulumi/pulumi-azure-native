@@ -32,6 +32,8 @@ __all__ = [
     'P2SVpnServerConfigVpnClientRevokedCertificateArgsDict',
     'P2SVpnServerConfigVpnClientRootCertificateArgs',
     'P2SVpnServerConfigVpnClientRootCertificateArgsDict',
+    'P2SVpnServerConfigurationPropertiesArgs',
+    'P2SVpnServerConfigurationPropertiesArgsDict',
     'P2SVpnServerConfigurationArgs',
     'P2SVpnServerConfigurationArgsDict',
     'PolicySettingsArgs',
@@ -799,17 +801,13 @@ class P2SVpnServerConfigVpnClientRootCertificateArgs:
 
 
 if not MYPY:
-    class P2SVpnServerConfigurationArgsDict(TypedDict):
+    class P2SVpnServerConfigurationPropertiesArgsDict(TypedDict):
         """
-        P2SVpnServerConfiguration Resource.
+        Parameters for P2SVpnServerConfiguration.
         """
         etag: NotRequired[pulumi.Input[str]]
         """
         A unique read-only string that changes whenever the resource is updated.
-        """
-        id: NotRequired[pulumi.Input[str]]
-        """
-        Resource ID.
         """
         name: NotRequired[pulumi.Input[str]]
         """
@@ -848,13 +846,12 @@ if not MYPY:
         VPN protocols for the P2SVpnServerConfiguration.
         """
 elif False:
-    P2SVpnServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    P2SVpnServerConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class P2SVpnServerConfigurationArgs:
+class P2SVpnServerConfigurationPropertiesArgs:
     def __init__(__self__, *,
                  etag: Optional[pulumi.Input[str]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  p2_s_vpn_server_config_radius_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigRadiusClientRootCertificateArgs']]]] = None,
                  p2_s_vpn_server_config_radius_server_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigRadiusServerRootCertificateArgs']]]] = None,
@@ -865,9 +862,8 @@ class P2SVpnServerConfigurationArgs:
                  vpn_client_ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
                  vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]] = None):
         """
-        P2SVpnServerConfiguration Resource.
+        Parameters for P2SVpnServerConfiguration.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
-        :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
         :param pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigRadiusClientRootCertificateArgs']]] p2_s_vpn_server_config_radius_client_root_certificates: Radius client root certificate of P2SVpnServerConfiguration.
         :param pulumi.Input[Sequence[pulumi.Input['P2SVpnServerConfigRadiusServerRootCertificateArgs']]] p2_s_vpn_server_config_radius_server_root_certificates: Radius Server root certificate of P2SVpnServerConfiguration.
@@ -880,8 +876,6 @@ class P2SVpnServerConfigurationArgs:
         """
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if p2_s_vpn_server_config_radius_client_root_certificates is not None:
@@ -912,18 +906,6 @@ class P2SVpnServerConfigurationArgs:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter
@@ -1032,6 +1014,82 @@ class P2SVpnServerConfigurationArgs:
     @vpn_protocols.setter
     def vpn_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]]):
         pulumi.set(self, "vpn_protocols", value)
+
+
+if not MYPY:
+    class P2SVpnServerConfigurationArgsDict(TypedDict):
+        """
+        P2SVpnServerConfiguration Resource.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        properties: NotRequired[pulumi.Input['P2SVpnServerConfigurationPropertiesArgsDict']]
+        """
+        Properties of the P2SVpnServer configuration.
+        """
+elif False:
+    P2SVpnServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class P2SVpnServerConfigurationArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['P2SVpnServerConfigurationPropertiesArgs']] = None):
+        """
+        P2SVpnServerConfiguration Resource.
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input['P2SVpnServerConfigurationPropertiesArgs'] properties: Properties of the P2SVpnServer configuration.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['P2SVpnServerConfigurationPropertiesArgs']]:
+        """
+        Properties of the P2SVpnServer configuration.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['P2SVpnServerConfigurationPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 if not MYPY:

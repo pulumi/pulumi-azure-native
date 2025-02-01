@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The NSP access rule resource
-    /// Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+    /// Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 2.x: 2021-02-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+    /// Other available API versions: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NspAccessRule")]
     public partial class NspAccessRule : global::Pulumi.CustomResource
@@ -71,6 +71,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Inbound rules service tag names.
+        /// </summary>
+        [Output("serviceTags")]
+        public Output<ImmutableArray<string>> ServiceTags { get; private set; } = null!;
 
         /// <summary>
         /// List of subscription ids
@@ -236,6 +242,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("serviceTags")]
+        private InputList<string>? _serviceTags;
+
+        /// <summary>
+        /// Inbound rules service tag names.
+        /// </summary>
+        public InputList<string> ServiceTags
+        {
+            get => _serviceTags ?? (_serviceTags = new InputList<string>());
+            set => _serviceTags = value;
+        }
 
         [Input("subscriptions")]
         private InputList<Inputs.SubscriptionIdArgs>? _subscriptions;

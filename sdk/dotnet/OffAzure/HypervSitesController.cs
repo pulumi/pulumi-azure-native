@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.OffAzure
 {
     /// <summary>
     /// A HyperV SiteResource
-    /// Azure REST API version: 2023-06-06.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
     /// 
-    /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    /// Other available API versions: 2023-06-06, 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:HypervSitesController")]
     public partial class HypervSitesController : global::Pulumi.CustomResource
@@ -118,10 +118,12 @@ namespace Pulumi.AzureNative.OffAzure
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:HypervSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:HyperVSite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:HypervSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:HypervSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:HypervSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:HypervSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:HyperVSite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

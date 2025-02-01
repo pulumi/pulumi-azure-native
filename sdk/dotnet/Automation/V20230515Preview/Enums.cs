@@ -8,68 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Automation.V20230515Preview
 {
     /// <summary>
-    /// Gets or sets the content source type.
-    /// </summary>
-    [EnumType]
-    public readonly struct ContentSourceType : IEquatable<ContentSourceType>
-    {
-        private readonly string _value;
-
-        private ContentSourceType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ContentSourceType EmbeddedContent { get; } = new ContentSourceType("embeddedContent");
-        public static ContentSourceType Uri { get; } = new ContentSourceType("uri");
-
-        public static bool operator ==(ContentSourceType left, ContentSourceType right) => left.Equals(right);
-        public static bool operator !=(ContentSourceType left, ContentSourceType right) => !left.Equals(right);
-
-        public static explicit operator string(ContentSourceType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ContentSourceType other && Equals(other);
-        public bool Equals(ContentSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Encryption Key Source
-    /// </summary>
-    [EnumType]
-    public readonly struct EncryptionKeySourceType : IEquatable<EncryptionKeySourceType>
-    {
-        private readonly string _value;
-
-        private EncryptionKeySourceType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EncryptionKeySourceType Microsoft_Automation { get; } = new EncryptionKeySourceType("Microsoft.Automation");
-        public static EncryptionKeySourceType Microsoft_Keyvault { get; } = new EncryptionKeySourceType("Microsoft.Keyvault");
-
-        public static bool operator ==(EncryptionKeySourceType left, EncryptionKeySourceType right) => left.Equals(right);
-        public static bool operator !=(EncryptionKeySourceType left, EncryptionKeySourceType right) => !left.Equals(right);
-
-        public static explicit operator string(EncryptionKeySourceType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EncryptionKeySourceType other && Equals(other);
-        public bool Equals(EncryptionKeySourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Update classifications included in the software update configuration.
     /// </summary>
     [EnumType]
@@ -126,77 +64,6 @@ namespace Pulumi.AzureNative.Automation.V20230515Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OperatingSystemType other && Equals(other);
         public bool Equals(OperatingSystemType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The identity type.
-    /// </summary>
-    [EnumType]
-    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
-    {
-        private readonly string _value;
-
-        private ResourceIdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
-        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
-        public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned, UserAssigned");
-        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
-
-        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
-        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(ResourceIdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
-        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Gets or sets the type of the runbook.
-    /// </summary>
-    [EnumType]
-    public readonly struct RunbookTypeEnum : IEquatable<RunbookTypeEnum>
-    {
-        private readonly string _value;
-
-        private RunbookTypeEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RunbookTypeEnum Script { get; } = new RunbookTypeEnum("Script");
-        public static RunbookTypeEnum Graph { get; } = new RunbookTypeEnum("Graph");
-        public static RunbookTypeEnum PowerShellWorkflow { get; } = new RunbookTypeEnum("PowerShellWorkflow");
-        public static RunbookTypeEnum PowerShell { get; } = new RunbookTypeEnum("PowerShell");
-        public static RunbookTypeEnum GraphPowerShellWorkflow { get; } = new RunbookTypeEnum("GraphPowerShellWorkflow");
-        public static RunbookTypeEnum GraphPowerShell { get; } = new RunbookTypeEnum("GraphPowerShell");
-        public static RunbookTypeEnum Python2 { get; } = new RunbookTypeEnum("Python2");
-        public static RunbookTypeEnum Python3 { get; } = new RunbookTypeEnum("Python3");
-        public static RunbookTypeEnum Python { get; } = new RunbookTypeEnum("Python");
-
-        public static bool operator ==(RunbookTypeEnum left, RunbookTypeEnum right) => left.Equals(right);
-        public static bool operator !=(RunbookTypeEnum left, RunbookTypeEnum right) => !left.Equals(right);
-
-        public static explicit operator string(RunbookTypeEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RunbookTypeEnum other && Equals(other);
-        public bool Equals(RunbookTypeEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -279,69 +146,6 @@ namespace Pulumi.AzureNative.Automation.V20230515Preview
     }
 
     /// <summary>
-    /// Gets or sets the SKU name of the account.
-    /// </summary>
-    [EnumType]
-    public readonly struct SkuNameEnum : IEquatable<SkuNameEnum>
-    {
-        private readonly string _value;
-
-        private SkuNameEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SkuNameEnum Free { get; } = new SkuNameEnum("Free");
-        public static SkuNameEnum Basic { get; } = new SkuNameEnum("Basic");
-
-        public static bool operator ==(SkuNameEnum left, SkuNameEnum right) => left.Equals(right);
-        public static bool operator !=(SkuNameEnum left, SkuNameEnum right) => !left.Equals(right);
-
-        public static explicit operator string(SkuNameEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SkuNameEnum other && Equals(other);
-        public bool Equals(SkuNameEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
-    /// </summary>
-    [EnumType]
-    public readonly struct SourceType : IEquatable<SourceType>
-    {
-        private readonly string _value;
-
-        private SourceType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SourceType VsoGit { get; } = new SourceType("VsoGit");
-        public static SourceType VsoTfvc { get; } = new SourceType("VsoTfvc");
-        public static SourceType GitHub { get; } = new SourceType("GitHub");
-
-        public static bool operator ==(SourceType left, SourceType right) => left.Equals(right);
-        public static bool operator !=(SourceType left, SourceType right) => !left.Equals(right);
-
-        public static explicit operator string(SourceType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SourceType other && Equals(other);
-        public bool Equals(SourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Filter VMs by Any or All specified tags.
     /// </summary>
     [EnumType]
@@ -365,37 +169,6 @@ namespace Pulumi.AzureNative.Automation.V20230515Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TagOperators other && Equals(other);
         public bool Equals(TagOperators other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The token type. Must be either PersonalAccessToken or Oauth.
-    /// </summary>
-    [EnumType]
-    public readonly struct TokenType : IEquatable<TokenType>
-    {
-        private readonly string _value;
-
-        private TokenType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static TokenType PersonalAccessToken { get; } = new TokenType("PersonalAccessToken");
-        public static TokenType Oauth { get; } = new TokenType("Oauth");
-
-        public static bool operator ==(TokenType left, TokenType right) => left.Equals(right);
-        public static bool operator !=(TokenType left, TokenType right) => !left.Equals(right);
-
-        public static explicit operator string(TokenType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TokenType other && Equals(other);
-        public bool Equals(TokenType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

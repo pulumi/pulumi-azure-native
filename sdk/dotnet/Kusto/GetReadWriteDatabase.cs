@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Returns a database.
-        /// Azure REST API version: 2022-12-29.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Task<GetReadWriteDatabaseResult> InvokeAsync(GetReadWriteDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReadWriteDatabaseResult>("azure-native:kusto:getReadWriteDatabase", args ?? new GetReadWriteDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a database.
-        /// Azure REST API version: 2022-12-29.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Output<GetReadWriteDatabaseResult> Invoke(GetReadWriteDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReadWriteDatabaseResult>("azure-native:kusto:getReadWriteDatabase", args ?? new GetReadWriteDatabaseInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a database.
-        /// Azure REST API version: 2022-12-29.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Output<GetReadWriteDatabaseResult> Invoke(GetReadWriteDatabaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReadWriteDatabaseResult>("azure-native:kusto:getReadWriteDatabase", args ?? new GetReadWriteDatabaseInvokeArgs(), options.WithDefaults());
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Kusto
         public string DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly bool IsFollowed;
         /// <summary>
+        /// KeyVault properties for the database encryption.
+        /// </summary>
+        public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
+        /// <summary>
         /// Kind of the database
         /// Expected value is 'ReadWrite'.
         /// </summary>
@@ -128,6 +132,10 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly Outputs.DatabaseStatisticsResponse Statistics;
         /// <summary>
+        /// The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+        /// </summary>
+        public readonly Outputs.SuspensionDetailsResponse SuspensionDetails;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -139,6 +147,8 @@ namespace Pulumi.AzureNative.Kusto
             string id,
 
             bool isFollowed,
+
+            Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
 
             string kind,
 
@@ -152,17 +162,21 @@ namespace Pulumi.AzureNative.Kusto
 
             Outputs.DatabaseStatisticsResponse statistics,
 
+            Outputs.SuspensionDetailsResponse suspensionDetails,
+
             string type)
         {
             HotCachePeriod = hotCachePeriod;
             Id = id;
             IsFollowed = isFollowed;
+            KeyVaultProperties = keyVaultProperties;
             Kind = kind;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             SoftDeletePeriod = softDeletePeriod;
             Statistics = statistics;
+            SuspensionDetails = suspensionDetails;
             Type = type;
         }
     }

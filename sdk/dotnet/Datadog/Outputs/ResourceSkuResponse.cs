@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Datadog.Outputs
     public sealed class ResourceSkuResponse
     {
         /// <summary>
-        /// Name of the SKU.
+        /// Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'.
         /// </summary>
         public readonly string Name;
 

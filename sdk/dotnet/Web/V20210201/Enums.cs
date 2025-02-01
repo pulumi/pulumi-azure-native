@@ -101,40 +101,6 @@ namespace Pulumi.AzureNative.Web.V20210201
     }
 
     /// <summary>
-    /// Log level.
-    /// </summary>
-    [EnumType]
-    public readonly struct LogLevel : IEquatable<LogLevel>
-    {
-        private readonly string _value;
-
-        private LogLevel(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static LogLevel Off { get; } = new LogLevel("Off");
-        public static LogLevel Verbose { get; } = new LogLevel("Verbose");
-        public static LogLevel Information { get; } = new LogLevel("Information");
-        public static LogLevel Warning { get; } = new LogLevel("Warning");
-        public static LogLevel Error { get; } = new LogLevel("Error");
-
-        public static bool operator ==(LogLevel left, LogLevel right) => left.Equals(right);
-        public static bool operator !=(LogLevel left, LogLevel right) => !left.Equals(right);
-
-        public static explicit operator string(LogLevel value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LogLevel other && Equals(other);
-        public bool Equals(LogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Type of managed service identity.
     /// </summary>
     [EnumType]

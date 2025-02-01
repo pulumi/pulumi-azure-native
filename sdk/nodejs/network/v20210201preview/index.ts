@@ -45,11 +45,6 @@ export const getNetworkManager: typeof import("./getNetworkManager").getNetworkM
 export const getNetworkManagerOutput: typeof import("./getNetworkManager").getNetworkManagerOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkManager","getNetworkManagerOutput"], () => require("./getNetworkManager"));
 
-export { GetNetworkSecurityPerimeterArgs, GetNetworkSecurityPerimeterResult, GetNetworkSecurityPerimeterOutputArgs } from "./getNetworkSecurityPerimeter";
-export const getNetworkSecurityPerimeter: typeof import("./getNetworkSecurityPerimeter").getNetworkSecurityPerimeter = null as any;
-export const getNetworkSecurityPerimeterOutput: typeof import("./getNetworkSecurityPerimeter").getNetworkSecurityPerimeterOutput = null as any;
-utilities.lazyLoad(exports, ["getNetworkSecurityPerimeter","getNetworkSecurityPerimeterOutput"], () => require("./getNetworkSecurityPerimeter"));
-
 export { GetNspAccessRuleArgs, GetNspAccessRuleResult, GetNspAccessRuleOutputArgs } from "./getNspAccessRule";
 export const getNspAccessRule: typeof import("./getNspAccessRule").getNspAccessRule = null as any;
 export const getNspAccessRuleOutput: typeof import("./getNspAccessRule").getNspAccessRuleOutput = null as any;
@@ -125,11 +120,6 @@ export type NetworkManager = import("./networkManager").NetworkManager;
 export const NetworkManager: typeof import("./networkManager").NetworkManager = null as any;
 utilities.lazyLoad(exports, ["NetworkManager"], () => require("./networkManager"));
 
-export { NetworkSecurityPerimeterArgs } from "./networkSecurityPerimeter";
-export type NetworkSecurityPerimeter = import("./networkSecurityPerimeter").NetworkSecurityPerimeter;
-export const NetworkSecurityPerimeter: typeof import("./networkSecurityPerimeter").NetworkSecurityPerimeter = null as any;
-utilities.lazyLoad(exports, ["NetworkSecurityPerimeter"], () => require("./networkSecurityPerimeter"));
-
 export { NspAccessRuleArgs } from "./nspAccessRule";
 export type NspAccessRule = import("./nspAccessRule").NspAccessRule;
 export const NspAccessRule: typeof import("./nspAccessRule").NspAccessRule = null as any;
@@ -173,8 +163,6 @@ const _module = {
                 return new NetworkGroup(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NetworkManager":
                 return new NetworkManager(name, <any>undefined, { urn })
-            case "azure-native:network/v20210201preview:NetworkSecurityPerimeter":
-                return new NetworkSecurityPerimeter(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NspAccessRule":
                 return new NspAccessRule(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NspAssociation":

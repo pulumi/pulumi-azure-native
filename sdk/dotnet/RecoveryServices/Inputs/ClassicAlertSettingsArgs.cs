@@ -18,6 +18,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("alertsForCriticalOperations")]
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.AlertsState>? AlertsForCriticalOperations { get; set; }
 
+        [Input("emailNotificationsForSiteRecovery")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.AlertsState>? EmailNotificationsForSiteRecovery { get; set; }
+
         public ClassicAlertSettingsArgs()
         {
         }

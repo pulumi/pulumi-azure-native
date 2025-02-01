@@ -5,36 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { EnvironmentArgs } from "./environment";
-export type Environment = import("./environment").Environment;
-export const Environment: typeof import("./environment").Environment = null as any;
-utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
-
-export { EnvironmentSettingArgs } from "./environmentSetting";
-export type EnvironmentSetting = import("./environmentSetting").EnvironmentSetting;
-export const EnvironmentSetting: typeof import("./environmentSetting").EnvironmentSetting = null as any;
-utilities.lazyLoad(exports, ["EnvironmentSetting"], () => require("./environmentSetting"));
-
-export { GalleryImageArgs } from "./galleryImage";
-export type GalleryImage = import("./galleryImage").GalleryImage;
-export const GalleryImage: typeof import("./galleryImage").GalleryImage = null as any;
-utilities.lazyLoad(exports, ["GalleryImage"], () => require("./galleryImage"));
-
-export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
-export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
-export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironmentOutput = null as any;
-utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
-
-export { GetEnvironmentSettingArgs, GetEnvironmentSettingResult, GetEnvironmentSettingOutputArgs } from "./getEnvironmentSetting";
-export const getEnvironmentSetting: typeof import("./getEnvironmentSetting").getEnvironmentSetting = null as any;
-export const getEnvironmentSettingOutput: typeof import("./getEnvironmentSetting").getEnvironmentSettingOutput = null as any;
-utilities.lazyLoad(exports, ["getEnvironmentSetting","getEnvironmentSettingOutput"], () => require("./getEnvironmentSetting"));
-
-export { GetGalleryImageArgs, GetGalleryImageResult, GetGalleryImageOutputArgs } from "./getGalleryImage";
-export const getGalleryImage: typeof import("./getGalleryImage").getGalleryImage = null as any;
-export const getGalleryImageOutput: typeof import("./getGalleryImage").getGalleryImageOutput = null as any;
-utilities.lazyLoad(exports, ["getGalleryImage","getGalleryImageOutput"], () => require("./getGalleryImage"));
-
 export { GetGlobalUserEnvironmentArgs, GetGlobalUserEnvironmentResult, GetGlobalUserEnvironmentOutputArgs } from "./getGlobalUserEnvironment";
 export const getGlobalUserEnvironment: typeof import("./getGlobalUserEnvironment").getGlobalUserEnvironment = null as any;
 export const getGlobalUserEnvironmentOutput: typeof import("./getGlobalUserEnvironment").getGlobalUserEnvironmentOutput = null as any;
@@ -55,11 +25,6 @@ export const getGlobalUserPersonalPreferences: typeof import("./getGlobalUserPer
 export const getGlobalUserPersonalPreferencesOutput: typeof import("./getGlobalUserPersonalPreferences").getGlobalUserPersonalPreferencesOutput = null as any;
 utilities.lazyLoad(exports, ["getGlobalUserPersonalPreferences","getGlobalUserPersonalPreferencesOutput"], () => require("./getGlobalUserPersonalPreferences"));
 
-export { GetLabArgs, GetLabResult, GetLabOutputArgs } from "./getLab";
-export const getLab: typeof import("./getLab").getLab = null as any;
-export const getLabOutput: typeof import("./getLab").getLabOutput = null as any;
-utilities.lazyLoad(exports, ["getLab","getLabOutput"], () => require("./getLab"));
-
 export { GetLabAccountArgs, GetLabAccountResult, GetLabAccountOutputArgs } from "./getLabAccount";
 export const getLabAccount: typeof import("./getLabAccount").getLabAccount = null as any;
 export const getLabAccountOutput: typeof import("./getLabAccount").getLabAccountOutput = null as any;
@@ -69,16 +34,6 @@ export { GetLabAccountRegionalAvailabilityArgs, GetLabAccountRegionalAvailabilit
 export const getLabAccountRegionalAvailability: typeof import("./getLabAccountRegionalAvailability").getLabAccountRegionalAvailability = null as any;
 export const getLabAccountRegionalAvailabilityOutput: typeof import("./getLabAccountRegionalAvailability").getLabAccountRegionalAvailabilityOutput = null as any;
 utilities.lazyLoad(exports, ["getLabAccountRegionalAvailability","getLabAccountRegionalAvailabilityOutput"], () => require("./getLabAccountRegionalAvailability"));
-
-export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
-export const getUser: typeof import("./getUser").getUser = null as any;
-export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
-utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
-
-export { LabArgs } from "./lab";
-export type Lab = import("./lab").Lab;
-export const Lab: typeof import("./lab").Lab = null as any;
-utilities.lazyLoad(exports, ["Lab"], () => require("./lab"));
 
 export { LabAccountArgs } from "./labAccount";
 export type LabAccount = import("./labAccount").LabAccount;
@@ -95,11 +50,6 @@ export const listGlobalUserLabs: typeof import("./listGlobalUserLabs").listGloba
 export const listGlobalUserLabsOutput: typeof import("./listGlobalUserLabs").listGlobalUserLabsOutput = null as any;
 utilities.lazyLoad(exports, ["listGlobalUserLabs","listGlobalUserLabsOutput"], () => require("./listGlobalUserLabs"));
 
-export { UserArgs } from "./user";
-export type User = import("./user").User;
-export const User: typeof import("./user").User = null as any;
-utilities.lazyLoad(exports, ["User"], () => require("./user"));
-
 
 // Export enums:
 export * from "../../types/enums/labservices/v20181015";
@@ -108,18 +58,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:labservices/v20181015:Environment":
-                return new Environment(name, <any>undefined, { urn })
-            case "azure-native:labservices/v20181015:EnvironmentSetting":
-                return new EnvironmentSetting(name, <any>undefined, { urn })
-            case "azure-native:labservices/v20181015:GalleryImage":
-                return new GalleryImage(name, <any>undefined, { urn })
-            case "azure-native:labservices/v20181015:Lab":
-                return new Lab(name, <any>undefined, { urn })
             case "azure-native:labservices/v20181015:LabAccount":
                 return new LabAccount(name, <any>undefined, { urn })
-            case "azure-native:labservices/v20181015:User":
-                return new User(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

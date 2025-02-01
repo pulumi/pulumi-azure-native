@@ -199,9 +199,9 @@ def get_remote_rendering_account(account_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteRenderingAccountResult:
     """
     Retrieve a Remote Rendering Account.
-    Azure REST API version: 2021-01-01.
+    Azure REST API version: 2021-03-01-preview.
 
-    Other available API versions: 2021-03-01-preview.
+    Other available API versions: 2021-01-01.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -232,9 +232,9 @@ def get_remote_rendering_account_output(account_name: Optional[pulumi.Input[str]
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemoteRenderingAccountResult]:
     """
     Retrieve a Remote Rendering Account.
-    Azure REST API version: 2021-01-01.
+    Azure REST API version: 2021-03-01-preview.
 
-    Other available API versions: 2021-03-01-preview.
+    Other available API versions: 2021-01-01.
 
 
     :param str account_name: Name of an Mixed Reality Account.

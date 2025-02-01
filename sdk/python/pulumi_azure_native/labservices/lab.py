@@ -251,9 +251,9 @@ class Lab(pulumi.CustomResource):
                  __props__=None):
         """
         The lab resource.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
+        Azure REST API version: 2023-06-07. Prior API version in Azure Native 2.x: 2022-08-01.
 
-        Other available API versions: 2018-10-15, 2023-06-07.
+        Other available API versions: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -279,9 +279,9 @@ class Lab(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The lab resource.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
+        Azure REST API version: 2023-06-07. Prior API version in Azure Native 2.x: 2022-08-01.
 
-        Other available API versions: 2018-10-15, 2023-06-07.
+        Other available API versions: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param LabArgs args: The arguments to use to populate this resource's properties.
@@ -345,10 +345,11 @@ class Lab(pulumi.CustomResource):
             __props__.__dict__["virtual_machine_profile"] = virtual_machine_profile
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_operation_error"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20211001preview:Lab"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:Lab"), pulumi.Alias(type_="azure-native:labservices/v20220801:Lab"), pulumi.Alias(type_="azure-native:labservices/v20230607:Lab")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20181015:Lab"), pulumi.Alias(type_="azure-native:labservices/v20211001preview:Lab"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:Lab"), pulumi.Alias(type_="azure-native:labservices/v20220801:Lab"), pulumi.Alias(type_="azure-native:labservices/v20230607:Lab")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Lab, __self__).__init__(
             'azure-native:labservices:Lab',
@@ -380,6 +381,7 @@ class Lab(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["network_profile"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_operation_error"] = None
         __props__.__dict__["roster_profile"] = None
         __props__.__dict__["security_profile"] = None
         __props__.__dict__["state"] = None
@@ -453,6 +455,14 @@ class Lab(pulumi.CustomResource):
         Current provisioning state of the lab.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceOperationError")
+    def resource_operation_error(self) -> pulumi.Output['outputs.ResourceOperationErrorResponse']:
+        """
+        Error details of last operation done on lab.
+        """
+        return pulumi.get(self, "resource_operation_error")
 
     @property
     @pulumi.getter(name="rosterProfile")

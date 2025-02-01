@@ -185,7 +185,7 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
                  __props__=None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
-        Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2021-02-01. Prior API version in Azure Native 2.x: 2021-02-01.
 
         Other available API versions: 2020-10-01.
 
@@ -209,7 +209,7 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
-        Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2021-02-01. Prior API version in Azure Native 2.x: 2021-02-01.
 
         Other available API versions: 2020-10-01.
 

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Azure OpenAI Content Filters resource.
- * Azure REST API version: 2024-04-01-preview.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
  *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-04-01-preview.
  */
 export class ConnectionRaiPolicy extends pulumi.CustomResource {
     /**
@@ -82,6 +82,7 @@ export class ConnectionRaiPolicy extends pulumi.CustomResource {
             }
             resourceInputs["connectionName"] = args ? args.connectionName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["proxyApiVersion"] = args ? args.proxyApiVersion : undefined;
             resourceInputs["raiPolicyName"] = args ? args.raiPolicyName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
@@ -113,6 +114,10 @@ export interface ConnectionRaiPolicyArgs {
      * Azure OpenAI Content Filters properties.
      */
     properties: pulumi.Input<inputs.machinelearningservices.RaiPolicyPropertiesArgs>;
+    /**
+     * Api version used by proxy call
+     */
+    proxyApiVersion?: pulumi.Input<string>;
     /**
      * Name of the Rai Policy.
      */

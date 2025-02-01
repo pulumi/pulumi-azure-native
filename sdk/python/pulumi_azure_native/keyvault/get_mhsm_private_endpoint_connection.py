@@ -27,13 +27,16 @@ class GetMHSMPrivateEndpointConnectionResult:
     """
     Private endpoint connection resource.
     """
-    def __init__(__self__, etag=None, id=None, location=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, identity=None, location=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -77,6 +80,14 @@ class GetMHSMPrivateEndpointConnectionResult:
         The Azure Resource Manager resource ID for the managed HSM Pool.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -159,6 +170,7 @@ class AwaitableGetMHSMPrivateEndpointConnectionResult(GetMHSMPrivateEndpointConn
         return GetMHSMPrivateEndpointConnectionResult(
             etag=self.etag,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             private_endpoint=self.private_endpoint,
@@ -176,9 +188,9 @@ def get_mhsm_private_endpoint_connection(name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMHSMPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the managed HSM Pool.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+    Other available API versions: 2023-02-01, 2024-12-01-preview.
 
 
     :param str name: Name of the managed HSM Pool
@@ -195,6 +207,7 @@ def get_mhsm_private_endpoint_connection(name: Optional[str] = None,
     return AwaitableGetMHSMPrivateEndpointConnectionResult(
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
@@ -210,9 +223,9 @@ def get_mhsm_private_endpoint_connection_output(name: Optional[pulumi.Input[str]
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMHSMPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the managed HSM Pool.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-11-01.
 
-    Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+    Other available API versions: 2023-02-01, 2024-12-01-preview.
 
 
     :param str name: Name of the managed HSM Pool
@@ -228,6 +241,7 @@ def get_mhsm_private_endpoint_connection_output(name: Optional[pulumi.Input[str]
     return __ret__.apply(lambda __response__: GetMHSMPrivateEndpointConnectionResult(
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         private_endpoint=pulumi.get(__response__, 'private_endpoint'),

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AzureDataTransfer
     {
         /// <summary>
         /// Lists the schemas for the specified connection in a pipeline.
-        /// Azure REST API version: 2023-10-11-preview.
+        /// Azure REST API version: 2024-09-27.
         /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+        /// Other available API versions: 2023-10-11-preview.
         /// </summary>
         public static Task<ListListSchemaResult> InvokeAsync(ListListSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListListSchemaResult>("azure-native:azuredatatransfer:listListSchema", args ?? new ListListSchemaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the schemas for the specified connection in a pipeline.
-        /// Azure REST API version: 2023-10-11-preview.
+        /// Azure REST API version: 2024-09-27.
         /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+        /// Other available API versions: 2023-10-11-preview.
         /// </summary>
         public static Output<ListListSchemaResult> Invoke(ListListSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListListSchemaResult>("azure-native:azuredatatransfer:listListSchema", args ?? new ListListSchemaInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the schemas for the specified connection in a pipeline.
-        /// Azure REST API version: 2023-10-11-preview.
+        /// Azure REST API version: 2024-09-27.
         /// 
-        /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+        /// Other available API versions: 2023-10-11-preview.
         /// </summary>
         public static Output<ListListSchemaResult> Invoke(ListListSchemaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListListSchemaResult>("azure-native:azuredatatransfer:listListSchema", args ?? new ListListSchemaInvokeArgs(), options.WithDefaults());
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// </summary>
         [Input("content")]
         public string? Content { get; set; }
+
+        /// <summary>
+        /// The direction of the schema.
+        /// </summary>
+        [Input("direction")]
+        public Union<string, Pulumi.AzureNative.AzureDataTransfer.SchemaDirection>? Direction { get; set; }
 
         /// <summary>
         /// ID associated with this schema
@@ -77,6 +83,18 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Schema Type
+        /// </summary>
+        [Input("schemaType")]
+        public Union<string, Pulumi.AzureNative.AzureDataTransfer.SchemaType>? SchemaType { get; set; }
+
+        /// <summary>
+        /// Uri containing SAS token for the zipped schema
+        /// </summary>
+        [Input("schemaUri")]
+        public string? SchemaUri { get; set; }
 
         /// <summary>
         /// Status of the schema
@@ -105,6 +123,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         public Input<string>? Content { get; set; }
 
         /// <summary>
+        /// The direction of the schema.
+        /// </summary>
+        [Input("direction")]
+        public InputUnion<string, Pulumi.AzureNative.AzureDataTransfer.SchemaDirection>? Direction { get; set; }
+
+        /// <summary>
         /// ID associated with this schema
         /// </summary>
         [Input("id")]
@@ -127,6 +151,18 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Schema Type
+        /// </summary>
+        [Input("schemaType")]
+        public InputUnion<string, Pulumi.AzureNative.AzureDataTransfer.SchemaType>? SchemaType { get; set; }
+
+        /// <summary>
+        /// Uri containing SAS token for the zipped schema
+        /// </summary>
+        [Input("schemaUri")]
+        public Input<string>? SchemaUri { get; set; }
 
         /// <summary>
         /// Status of the schema

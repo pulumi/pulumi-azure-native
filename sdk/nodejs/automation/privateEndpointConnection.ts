@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection
- * Azure REST API version: 2020-01-13-preview. Prior API version in Azure Native 1.x: 2020-01-13-preview.
+ * Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2020-01-13-preview.
  *
- * Other available API versions: 2023-05-15-preview, 2024-10-23.
+ * Other available API versions: 2020-01-13-preview, 2024-10-23.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -57,7 +57,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.automation.PrivateLinkServiceConnectionStatePropertyResponse | undefined>;
     /**
-     * The type of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.automation.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -85,12 +89,14 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

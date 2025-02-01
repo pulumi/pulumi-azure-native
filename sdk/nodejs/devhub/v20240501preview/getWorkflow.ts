@@ -34,38 +34,13 @@ export interface GetWorkflowArgs {
  */
 export interface GetWorkflowResult {
     /**
-     * Information on the azure container registry
-     */
-    readonly acr?: outputs.devhub.v20240501preview.ACRResponse;
-    /**
-     * The Azure Kubernetes Cluster Resource the application will be deployed to.
-     */
-    readonly aksResourceId?: string;
-    /**
      * The name of the app.
      */
     readonly appName?: string;
     /**
-     * Determines the authorization status of requests.
-     */
-    readonly authStatus: string;
-    /**
-     * Repository Branch Name
-     */
-    readonly branchName?: string;
-    /**
      * The version of the language image used for building the code in the generated dockerfile.
      */
     readonly builderVersion?: string;
-    readonly deploymentProperties?: outputs.devhub.v20240501preview.DeploymentPropertiesResponse;
-    /**
-     * Path to Dockerfile Build Context within the repository.
-     */
-    readonly dockerBuildContext?: string;
-    /**
-     * Path to the Dockerfile within the repository.
-     */
-    readonly dockerfile?: string;
     /**
      * The mode of generation to be used for generating Dockerfiles.
      */
@@ -78,6 +53,10 @@ export interface GetWorkflowResult {
      * The programming language used.
      */
     readonly generationLanguage?: string;
+    /**
+     * Profile of a github workflow.
+     */
+    readonly githubWorkflowProfile?: outputs.devhub.v20240501preview.GitHubWorkflowProfileResponse;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -94,7 +73,6 @@ export interface GetWorkflowResult {
      * The version of the language image used for execution in the generated dockerfile.
      */
     readonly languageVersion?: string;
-    readonly lastWorkflowRun?: outputs.devhub.v20240501preview.WorkflowRunResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -116,37 +94,13 @@ export interface GetWorkflowResult {
      */
     readonly name: string;
     /**
-     * Kubernetes namespace the application is deployed to.
+     * The namespace to deploy the application to.
      */
     readonly namespace?: string;
-    /**
-     * The fields needed for OIDC with GitHub.
-     */
-    readonly oidcCredentials?: outputs.devhub.v20240501preview.GitHubWorkflowProfileResponseOidcCredentials;
     /**
      * The port the application is exposed on.
      */
     readonly port?: string;
-    /**
-     * The status of the Pull Request submitted against the users repository.
-     */
-    readonly prStatus: string;
-    /**
-     * The URL to the Pull Request submitted against the users repository.
-     */
-    readonly prURL: string;
-    /**
-     * The number associated with the submitted pull request.
-     */
-    readonly pullNumber: number;
-    /**
-     * Repository Name
-     */
-    readonly repositoryName?: string;
-    /**
-     * Repository Owner
-     */
-    readonly repositoryOwner?: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

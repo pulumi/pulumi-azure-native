@@ -128,9 +128,9 @@ def get_trigger(image_template_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTriggerResult:
     """
     Get the specified trigger for the specified image template resource
-    Azure REST API version: 2022-07-01.
+    Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2023-07-01, 2024-02-01.
+    Other available API versions: 2022-07-01.
 
 
     :param str image_template_name: The name of the image Template
@@ -158,9 +158,9 @@ def get_trigger_output(image_template_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTriggerResult]:
     """
     Get the specified trigger for the specified image template resource
-    Azure REST API version: 2022-07-01.
+    Azure REST API version: 2024-02-01.
 
-    Other available API versions: 2023-07-01, 2024-02-01.
+    Other available API versions: 2022-07-01.
 
 
     :param str image_template_name: The name of the image Template

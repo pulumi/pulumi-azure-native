@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified user.
- * Azure REST API version: 2022-03-01.
+ * Azure REST API version: 2023-07-01.
  *
- * Other available API versions: 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Other available API versions: 2022-03-01, 2023-12-01.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,9 +72,9 @@ export interface GetUserResult {
 }
 /**
  * Gets the properties of the specified user.
- * Azure REST API version: 2022-03-01.
+ * Azure REST API version: 2023-07-01.
  *
- * Other available API versions: 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Other available API versions: 2022-03-01, 2023-12-01.
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the names of app settings and connection strings that stick to the slot (not swapped).
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2020-10-01, 2022-09-01.
  */
 export function getWebAppSlotConfigurationNames(args: GetWebAppSlotConfigurationNamesArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotConfigurationNamesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,9 +64,9 @@ export interface GetWebAppSlotConfigurationNamesResult {
 }
 /**
  * Description for Gets the names of app settings and connection strings that stick to the slot (not swapped).
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2020-10-01, 2022-09-01.
  */
 export function getWebAppSlotConfigurationNamesOutput(args: GetWebAppSlotConfigurationNamesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSlotConfigurationNamesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

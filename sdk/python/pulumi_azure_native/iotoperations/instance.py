@@ -24,6 +24,7 @@ class InstanceArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['InstancePropertiesArgs']] = None,
@@ -32,6 +33,7 @@ class InstanceArgs:
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] instance_name: Name of instance.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['InstancePropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -39,6 +41,8 @@ class InstanceArgs:
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
         if location is not None:
@@ -71,6 +75,18 @@ class InstanceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        The managed service identities assigned to this resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="instanceName")
@@ -127,6 +143,7 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['InstancePropertiesArgs', 'InstancePropertiesArgsDict']]] = None,
@@ -135,13 +152,14 @@ class Instance(pulumi.CustomResource):
                  __props__=None):
         """
         A Instance resource is a logical container for a set of child resources.
-        Azure REST API version: 2024-07-01-preview.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2024-07-01-preview.
 
-        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        Other available API versions: 2024-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Edge location of the resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] instance_name: Name of instance.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['InstancePropertiesArgs', 'InstancePropertiesArgsDict']] properties: The resource-specific properties for this resource.
@@ -156,9 +174,9 @@ class Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Instance resource is a logical container for a set of child resources.
-        Azure REST API version: 2024-07-01-preview.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2024-07-01-preview.
 
-        Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        Other available API versions: 2024-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
@@ -176,6 +194,7 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['InstancePropertiesArgs', 'InstancePropertiesArgsDict']]] = None,
@@ -193,6 +212,7 @@ class Instance(pulumi.CustomResource):
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
@@ -228,6 +248,7 @@ class Instance(pulumi.CustomResource):
         __props__ = InstanceArgs.__new__(InstanceArgs)
 
         __props__.__dict__["extended_location"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -243,6 +264,14 @@ class Instance(pulumi.CustomResource):
         Edge location of the resource.
         """
         return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        The managed service identities assigned to this resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

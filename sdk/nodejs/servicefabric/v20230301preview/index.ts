@@ -35,11 +35,6 @@ export const getNodeType: typeof import("./getNodeType").getNodeType = null as a
 export const getNodeTypeOutput: typeof import("./getNodeType").getNodeTypeOutput = null as any;
 utilities.lazyLoad(exports, ["getNodeType","getNodeTypeOutput"], () => require("./getNodeType"));
 
-export { GetmanagedAzResiliencyStatusArgs, GetmanagedAzResiliencyStatusResult, GetmanagedAzResiliencyStatusOutputArgs } from "./getmanagedAzResiliencyStatus";
-export const getmanagedAzResiliencyStatus: typeof import("./getmanagedAzResiliencyStatus").getmanagedAzResiliencyStatus = null as any;
-export const getmanagedAzResiliencyStatusOutput: typeof import("./getmanagedAzResiliencyStatus").getmanagedAzResiliencyStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getmanagedAzResiliencyStatus","getmanagedAzResiliencyStatusOutput"], () => require("./getmanagedAzResiliencyStatus"));
-
 export { ManagedClusterArgs } from "./managedCluster";
 export type ManagedCluster = import("./managedCluster").ManagedCluster;
 export const ManagedCluster: typeof import("./managedCluster").ManagedCluster = null as any;

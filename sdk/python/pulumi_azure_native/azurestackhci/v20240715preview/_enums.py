@@ -5,36 +5,15 @@
 from enum import Enum
 
 __all__ = [
-    'CloudInitDataSource',
     'DiskFileFormat',
     'ExtendedLocationTypes',
     'GpuAssignmentTypeEnum',
     'HyperVGeneration',
-    'IPPoolTypeEnum',
-    'IpAllocationMethodEnum',
     'ManagedServiceIdentityType',
     'OperatingSystemTypes',
-    'ProvisioningAction',
-    'SecurityRuleAccess',
-    'SecurityRuleDirection',
-    'SecurityRuleProtocol',
     'SecurityTypes',
     'VmSizeEnum',
 ]
-
-
-class CloudInitDataSource(str, Enum):
-    """
-    Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
-    """
-    NO_CLOUD = "NoCloud"
-    """
-    NoCloud is used as the datasource
-    """
-    AZURE = "Azure"
-    """
-    Azure is used as the datasource
-    """
 
 
 class DiskFileFormat(str, Enum):
@@ -89,34 +68,6 @@ class HyperVGeneration(str, Enum):
     """
 
 
-class IPPoolTypeEnum(str, Enum):
-    """
-    Type of the IP Pool [vm, vippool]
-    """
-    VM = "vm"
-    """
-    Virtual Machine IP Pool
-    """
-    VIPPOOL = "vippool"
-    """
-    VIP Pool
-    """
-
-
-class IpAllocationMethodEnum(str, Enum):
-    """
-    IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
-    """
-    DYNAMIC = "Dynamic"
-    """
-    Dynamic IP allocation method
-    """
-    STATIC = "Static"
-    """
-    Static IP allocation method
-    """
-
-
 class ManagedServiceIdentityType(str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -138,74 +89,6 @@ class OperatingSystemTypes(str, Enum):
     LINUX = "Linux"
     """
     Linux operating system
-    """
-
-
-class ProvisioningAction(str, Enum):
-    """
-    The guest agent provisioning action.
-    """
-    INSTALL = "install"
-    """
-    Install guest agent
-    """
-    UNINSTALL = "uninstall"
-    """
-    Uninstall guest agent
-    """
-    REPAIR = "repair"
-    """
-    Repair guest agent
-    """
-
-
-class SecurityRuleAccess(str, Enum):
-    """
-    The network traffic is allowed or denied.
-    """
-    ALLOW = "Allow"
-    """
-    Network traffic is allowed
-    """
-    DENY = "Deny"
-    """
-    Network traffic is denied
-    """
-
-
-class SecurityRuleDirection(str, Enum):
-    """
-    The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-    """
-    INBOUND = "Inbound"
-    """
-    Rule is evaluated on incoming traffic
-    """
-    OUTBOUND = "Outbound"
-    """
-    Rule is evaluated on outgoing traffic
-    """
-
-
-class SecurityRuleProtocol(str, Enum):
-    """
-    Network protocol this rule applies to.
-    """
-    TCP = "Tcp"
-    """
-    Transmission Control Protocol
-    """
-    UDP = "Udp"
-    """
-    User Datagram Protocol
-    """
-    ICMP = "Icmp"
-    """
-    Internet Control Message Protocol
-    """
-    ASTERISK = "*"
-    """
-    Wildcard rule for all protocols
     """
 
 

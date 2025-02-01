@@ -27,13 +27,10 @@ class GetClientResult:
     """
     The Client resource.
     """
-    def __init__(__self__, attributes=None, authentication=None, authentication_name=None, client_certificate_authentication=None, description=None, id=None, name=None, provisioning_state=None, state=None, system_data=None, type=None):
+    def __init__(__self__, attributes=None, authentication_name=None, client_certificate_authentication=None, description=None, id=None, name=None, provisioning_state=None, state=None, system_data=None, type=None):
         if attributes and not isinstance(attributes, dict):
             raise TypeError("Expected argument 'attributes' to be a dict")
         pulumi.set(__self__, "attributes", attributes)
-        if authentication and not isinstance(authentication, dict):
-            raise TypeError("Expected argument 'authentication' to be a dict")
-        pulumi.set(__self__, "authentication", authentication)
         if authentication_name and not isinstance(authentication_name, str):
             raise TypeError("Expected argument 'authentication_name' to be a str")
         pulumi.set(__self__, "authentication_name", authentication_name)
@@ -71,14 +68,6 @@ class GetClientResult:
         "attributes": { "room": "345", "floor": 12, "deviceTypes": ["Fan", "Light"] }
         """
         return pulumi.get(self, "attributes")
-
-    @property
-    @pulumi.getter
-    def authentication(self) -> Optional['outputs.ClientAuthenticationResponse']:
-        """
-        Authentication information for the client.
-        """
-        return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter(name="authenticationName")
@@ -140,7 +129,7 @@ class GetClientResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to the Client resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -160,7 +149,6 @@ class AwaitableGetClientResult(GetClientResult):
             yield self
         return GetClientResult(
             attributes=self.attributes,
-            authentication=self.authentication,
             authentication_name=self.authentication_name,
             client_certificate_authentication=self.client_certificate_authentication,
             description=self.description,
@@ -178,9 +166,9 @@ def get_client(client_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClientResult:
     """
     Get properties of a client.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str client_name: Name of the client.
@@ -196,7 +184,6 @@ def get_client(client_name: Optional[str] = None,
 
     return AwaitableGetClientResult(
         attributes=pulumi.get(__ret__, 'attributes'),
-        authentication=pulumi.get(__ret__, 'authentication'),
         authentication_name=pulumi.get(__ret__, 'authentication_name'),
         client_certificate_authentication=pulumi.get(__ret__, 'client_certificate_authentication'),
         description=pulumi.get(__ret__, 'description'),
@@ -212,9 +199,9 @@ def get_client_output(client_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClientResult]:
     """
     Get properties of a client.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str client_name: Name of the client.
@@ -229,7 +216,6 @@ def get_client_output(client_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getClient', __args__, opts=opts, typ=GetClientResult)
     return __ret__.apply(lambda __response__: GetClientResult(
         attributes=pulumi.get(__response__, 'attributes'),
-        authentication=pulumi.get(__response__, 'authentication'),
         authentication_name=pulumi.get(__response__, 'authentication_name'),
         client_certificate_authentication=pulumi.get(__response__, 'client_certificate_authentication'),
         description=pulumi.get(__response__, 'description'),

@@ -34,6 +34,18 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public Input<Inputs.MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs>? Input { get; set; }
 
         /// <summary>
+        /// whether the task can be cloned or not
+        /// </summary>
+        [Input("isCloneable")]
+        public Input<bool>? IsCloneable { get; set; }
+
+        /// <summary>
+        /// Task id 
+        /// </summary>
+        [Input("taskId")]
+        public Input<string>? TaskId { get; set; }
+
+        /// <summary>
         /// Task type.
         /// Expected value is 'Migrate.MySql.AzureDbForMySql'.
         /// </summary>

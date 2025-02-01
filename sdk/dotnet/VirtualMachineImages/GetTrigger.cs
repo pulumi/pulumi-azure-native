@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     {
         /// <summary>
         /// Get the specified trigger for the specified image template resource
-        /// Azure REST API version: 2022-07-01.
+        /// Azure REST API version: 2024-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-02-01.
+        /// Other available API versions: 2022-07-01.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:virtualmachineimages:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the specified trigger for the specified image template resource
-        /// Azure REST API version: 2022-07-01.
+        /// Azure REST API version: 2024-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-02-01.
+        /// Other available API versions: 2022-07-01.
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:virtualmachineimages:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the specified trigger for the specified image template resource
-        /// Azure REST API version: 2022-07-01.
+        /// Azure REST API version: 2024-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-02-01.
+        /// Other available API versions: 2022-07-01.
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:virtualmachineimages:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());

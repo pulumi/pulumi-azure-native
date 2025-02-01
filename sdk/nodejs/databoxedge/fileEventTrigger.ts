@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Trigger details.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
  */
 export class FileEventTrigger extends pulumi.CustomResource {
     /**
@@ -113,7 +113,7 @@ export class FileEventTrigger extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:FileEventTrigger" }, { type: "azure-native:databoxedge/v20190701:FileEventTrigger" }, { type: "azure-native:databoxedge/v20190801:FileEventTrigger" }, { type: "azure-native:databoxedge/v20200501preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20200901:FileEventTrigger" }, { type: "azure-native:databoxedge/v20200901preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20201201:FileEventTrigger" }, { type: "azure-native:databoxedge/v20210201:FileEventTrigger" }, { type: "azure-native:databoxedge/v20210201preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20210601:FileEventTrigger" }, { type: "azure-native:databoxedge/v20210601preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20220301:FileEventTrigger" }, { type: "azure-native:databoxedge/v20220401preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20221201preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20230101preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20230701:FileEventTrigger" }, { type: "azure-native:databoxedge/v20231201:FileEventTrigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:FileEventTrigger" }, { type: "azure-native:databoxedge/v20190701:FileEventTrigger" }, { type: "azure-native:databoxedge/v20190801:FileEventTrigger" }, { type: "azure-native:databoxedge/v20200501preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20200901:FileEventTrigger" }, { type: "azure-native:databoxedge/v20200901preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20201201:FileEventTrigger" }, { type: "azure-native:databoxedge/v20210201:FileEventTrigger" }, { type: "azure-native:databoxedge/v20210201preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20210601:FileEventTrigger" }, { type: "azure-native:databoxedge/v20210601preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20220301:FileEventTrigger" }, { type: "azure-native:databoxedge/v20220401preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20221201preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20230101preview:FileEventTrigger" }, { type: "azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20230701:FileEventTrigger" }, { type: "azure-native:databoxedge/v20230701:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20231201:FileEventTrigger" }, { type: "azure-native:databoxedge/v20231201:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge:PeriodicTimerEventTrigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileEventTrigger.__pulumiType, name, resourceInputs, opts);
     }

@@ -101,7 +101,9 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPoolDatabasePrincipalAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse:DatabasePrincipalAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:KustoPoolDatabasePrincipalAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -2,26 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const CloudInitDataSource = {
-    NoCloud: "NoCloud",
-    Azure: "Azure",
-} as const;
-
-/**
- * Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
- */
-export type CloudInitDataSource = (typeof CloudInitDataSource)[keyof typeof CloudInitDataSource];
-
-export const DiskFileFormat = {
-    Vhdx: "vhdx",
-    Vhd: "vhd",
-} as const;
-
-/**
- * The format of the actual VHD file [vhd, vhdx]
- */
-export type DiskFileFormat = (typeof DiskFileFormat)[keyof typeof DiskFileFormat];
-
 export const ExtendedLocationTypes = {
     CustomLocation: "CustomLocation",
 } as const;
@@ -30,16 +10,6 @@ export const ExtendedLocationTypes = {
  * The type of the extended location.
  */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
-
-export const HyperVGeneration = {
-    V1: "V1",
-    V2: "V2",
-} as const;
-
-/**
- * The hypervisor generation of the Virtual Machine [V1, V2]
- */
-export type HyperVGeneration = (typeof HyperVGeneration)[keyof typeof HyperVGeneration];
 
 export const IpAllocationMethodEnum = {
     Dynamic: "Dynamic",

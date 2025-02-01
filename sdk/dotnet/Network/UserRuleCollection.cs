@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Defines the user rule collection.
-    /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+    /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
     /// 
-    /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
+    /// Other available API versions: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:UserRuleCollection")]
     public partial class UserRuleCollection : global::Pulumi.CustomResource
@@ -89,8 +89,11 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:UserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:UserRuleCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240301:SecurityUserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:UserRuleCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:SecurityUserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:UserRuleCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:SecurityUserRuleCollection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

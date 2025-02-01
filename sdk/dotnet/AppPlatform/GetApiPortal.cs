@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get the API portal and its properties.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetApiPortalResult> InvokeAsync(GetApiPortalArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiPortalResult>("azure-native:appplatform:getApiPortal", args ?? new GetApiPortalArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the API portal and its properties.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetApiPortalResult> Invoke(GetApiPortalInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiPortalResult>("azure-native:appplatform:getApiPortal", args ?? new GetApiPortalInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the API portal and its properties.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetApiPortalResult> Invoke(GetApiPortalInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiPortalResult>("azure-native:appplatform:getApiPortal", args ?? new GetApiPortalInvokeArgs(), options.WithDefaults());

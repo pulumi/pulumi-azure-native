@@ -102,9 +102,9 @@ def get_tenant_configuration(configuration_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTenantConfigurationResult:
     """
     Gets the tenant configuration.
-    Azure REST API version: 2020-09-01-preview.
+    Azure REST API version: 2022-12-01-preview.
 
-    Other available API versions: 2022-12-01-preview.
+    Other available API versions: 2019-01-01-preview, 2020-09-01-preview.
 
 
     :param str configuration_name: The name of the Configuration
@@ -124,9 +124,9 @@ def get_tenant_configuration_output(configuration_name: Optional[pulumi.Input[st
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTenantConfigurationResult]:
     """
     Gets the tenant configuration.
-    Azure REST API version: 2020-09-01-preview.
+    Azure REST API version: 2022-12-01-preview.
 
-    Other available API versions: 2022-12-01-preview.
+    Other available API versions: 2019-01-01-preview, 2020-09-01-preview.
 
 
     :param str configuration_name: The name of the Configuration

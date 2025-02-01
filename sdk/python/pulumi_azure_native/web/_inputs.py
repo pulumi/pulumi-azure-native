@@ -132,6 +132,8 @@ __all__ = [
     'CustomScaleRuleArgsDict',
     'DaprComponentArgs',
     'DaprComponentArgsDict',
+    'DaprConfigArgs',
+    'DaprConfigArgsDict',
     'DaprMetadataArgs',
     'DaprMetadataArgsDict',
     'DaprArgs',
@@ -164,6 +166,24 @@ __all__ = [
     'ForwardProxyArgsDict',
     'FrontEndConfigurationArgs',
     'FrontEndConfigurationArgsDict',
+    'FunctionAppConfigArgs',
+    'FunctionAppConfigArgsDict',
+    'FunctionsAlwaysReadyConfigArgs',
+    'FunctionsAlwaysReadyConfigArgsDict',
+    'FunctionsDeploymentAuthenticationArgs',
+    'FunctionsDeploymentAuthenticationArgsDict',
+    'FunctionsDeploymentStorageArgs',
+    'FunctionsDeploymentStorageArgsDict',
+    'FunctionsDeploymentArgs',
+    'FunctionsDeploymentArgsDict',
+    'FunctionsRuntimeArgs',
+    'FunctionsRuntimeArgsDict',
+    'FunctionsScaleAndConcurrencyHttpArgs',
+    'FunctionsScaleAndConcurrencyHttpArgsDict',
+    'FunctionsScaleAndConcurrencyTriggersArgs',
+    'FunctionsScaleAndConcurrencyTriggersArgsDict',
+    'FunctionsScaleAndConcurrencyArgs',
+    'FunctionsScaleAndConcurrencyArgsDict',
     'GitHubActionCodeConfigurationArgs',
     'GitHubActionCodeConfigurationArgsDict',
     'GitHubActionConfigurationArgs',
@@ -236,6 +256,8 @@ __all__ = [
     'RegistryCredentialsArgsDict',
     'RequestsBasedTriggerArgs',
     'RequestsBasedTriggerArgsDict',
+    'ResourceConfigArgs',
+    'ResourceConfigArgsDict',
     'ScaleRuleAuthArgs',
     'ScaleRuleAuthArgsDict',
     'ScaleRuleArgs',
@@ -246,6 +268,8 @@ __all__ = [
     'SecretArgsDict',
     'SiteConfigArgs',
     'SiteConfigArgsDict',
+    'SiteDnsConfigArgs',
+    'SiteDnsConfigArgsDict',
     'SiteLimitsArgs',
     'SiteLimitsArgsDict',
     'SkuCapacityArgs',
@@ -2812,6 +2836,10 @@ if not MYPY:
         """
         Path to mount the storage within the site's runtime environment.
         """
+        protocol: NotRequired[pulumi.Input[Union[str, 'AzureStorageProtocol']]]
+        """
+        Mounting protocol to use for the storage account.
+        """
         share_name: NotRequired[pulumi.Input[str]]
         """
         Name of the file share (container name, for Blob storage).
@@ -2829,6 +2857,7 @@ class AzureStorageInfoValueArgs:
                  access_key: Optional[pulumi.Input[str]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  mount_path: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[Union[str, 'AzureStorageProtocol']]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input['AzureStorageType']] = None):
         """
@@ -2836,6 +2865,7 @@ class AzureStorageInfoValueArgs:
         :param pulumi.Input[str] access_key: Access key for the storage account.
         :param pulumi.Input[str] account_name: Name of the storage account.
         :param pulumi.Input[str] mount_path: Path to mount the storage within the site's runtime environment.
+        :param pulumi.Input[Union[str, 'AzureStorageProtocol']] protocol: Mounting protocol to use for the storage account.
         :param pulumi.Input[str] share_name: Name of the file share (container name, for Blob storage).
         :param pulumi.Input['AzureStorageType'] type: Type of storage.
         """
@@ -2845,6 +2875,8 @@ class AzureStorageInfoValueArgs:
             pulumi.set(__self__, "account_name", account_name)
         if mount_path is not None:
             pulumi.set(__self__, "mount_path", mount_path)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
         if share_name is not None:
             pulumi.set(__self__, "share_name", share_name)
         if type is not None:
@@ -2885,6 +2917,18 @@ class AzureStorageInfoValueArgs:
     @mount_path.setter
     def mount_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mount_path", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[Union[str, 'AzureStorageProtocol']]]:
+        """
+        Mounting protocol to use for the storage account.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[Union[str, 'AzureStorageProtocol']]]):
+        pulumi.set(self, "protocol", value)
 
     @property
     @pulumi.getter(name="shareName")
@@ -5494,6 +5538,164 @@ class DaprComponentArgs:
 
 
 if not MYPY:
+    class DaprConfigArgsDict(TypedDict):
+        """
+        App Dapr configuration.
+        """
+        app_id: NotRequired[pulumi.Input[str]]
+        """
+        Dapr application identifier
+        """
+        app_port: NotRequired[pulumi.Input[int]]
+        """
+        Tells Dapr which port your application is listening on
+        """
+        enable_api_logging: NotRequired[pulumi.Input[bool]]
+        """
+        Enables API logging for the Dapr sidecar
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean indicating if the Dapr side car is enabled
+        """
+        http_max_request_size: NotRequired[pulumi.Input[int]]
+        """
+        Increasing max size of request body http servers parameter in MB to handle uploading of big files. Default is 4 MB.
+        """
+        http_read_buffer_size: NotRequired[pulumi.Input[int]]
+        """
+        Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB.
+        """
+        log_level: NotRequired[pulumi.Input[Union[str, 'DaprLogLevel']]]
+        """
+        Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
+        """
+elif False:
+    DaprConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DaprConfigArgs:
+    def __init__(__self__, *,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 app_port: Optional[pulumi.Input[int]] = None,
+                 enable_api_logging: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 http_max_request_size: Optional[pulumi.Input[int]] = None,
+                 http_read_buffer_size: Optional[pulumi.Input[int]] = None,
+                 log_level: Optional[pulumi.Input[Union[str, 'DaprLogLevel']]] = None):
+        """
+        App Dapr configuration.
+        :param pulumi.Input[str] app_id: Dapr application identifier
+        :param pulumi.Input[int] app_port: Tells Dapr which port your application is listening on
+        :param pulumi.Input[bool] enable_api_logging: Enables API logging for the Dapr sidecar
+        :param pulumi.Input[bool] enabled: Boolean indicating if the Dapr side car is enabled
+        :param pulumi.Input[int] http_max_request_size: Increasing max size of request body http servers parameter in MB to handle uploading of big files. Default is 4 MB.
+        :param pulumi.Input[int] http_read_buffer_size: Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB.
+        :param pulumi.Input[Union[str, 'DaprLogLevel']] log_level: Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if app_port is not None:
+            pulumi.set(__self__, "app_port", app_port)
+        if enable_api_logging is not None:
+            pulumi.set(__self__, "enable_api_logging", enable_api_logging)
+        if enabled is None:
+            enabled = False
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if http_max_request_size is not None:
+            pulumi.set(__self__, "http_max_request_size", http_max_request_size)
+        if http_read_buffer_size is not None:
+            pulumi.set(__self__, "http_read_buffer_size", http_read_buffer_size)
+        if log_level is not None:
+            pulumi.set(__self__, "log_level", log_level)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dapr application identifier
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="appPort")
+    def app_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Tells Dapr which port your application is listening on
+        """
+        return pulumi.get(self, "app_port")
+
+    @app_port.setter
+    def app_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "app_port", value)
+
+    @property
+    @pulumi.getter(name="enableApiLogging")
+    def enable_api_logging(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables API logging for the Dapr sidecar
+        """
+        return pulumi.get(self, "enable_api_logging")
+
+    @enable_api_logging.setter
+    def enable_api_logging(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_api_logging", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean indicating if the Dapr side car is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="httpMaxRequestSize")
+    def http_max_request_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Increasing max size of request body http servers parameter in MB to handle uploading of big files. Default is 4 MB.
+        """
+        return pulumi.get(self, "http_max_request_size")
+
+    @http_max_request_size.setter
+    def http_max_request_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_max_request_size", value)
+
+    @property
+    @pulumi.getter(name="httpReadBufferSize")
+    def http_read_buffer_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB.
+        """
+        return pulumi.get(self, "http_read_buffer_size")
+
+    @http_read_buffer_size.setter
+    def http_read_buffer_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_read_buffer_size", value)
+
+    @property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> Optional[pulumi.Input[Union[str, 'DaprLogLevel']]]:
+        """
+        Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
+        """
+        return pulumi.get(self, "log_level")
+
+    @log_level.setter
+    def log_level(self, value: Optional[pulumi.Input[Union[str, 'DaprLogLevel']]]):
+        pulumi.set(self, "log_level", value)
+
+
+if not MYPY:
     class DaprMetadataArgsDict(TypedDict):
         """
         Container App Dapr component metadata.
@@ -6492,6 +6694,550 @@ class FrontEndConfigurationArgs:
     @kind.setter
     def kind(self, value: Optional[pulumi.Input['FrontEndServiceType']]):
         pulumi.set(self, "kind", value)
+
+
+if not MYPY:
+    class FunctionAppConfigArgsDict(TypedDict):
+        """
+        Function app configuration.
+        """
+        deployment: NotRequired[pulumi.Input['FunctionsDeploymentArgsDict']]
+        """
+        Function app deployment configuration.
+        """
+        runtime: NotRequired[pulumi.Input['FunctionsRuntimeArgsDict']]
+        """
+        Function app runtime settings.
+        """
+        scale_and_concurrency: NotRequired[pulumi.Input['FunctionsScaleAndConcurrencyArgsDict']]
+        """
+        Function app scale and concurrency settings.
+        """
+elif False:
+    FunctionAppConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionAppConfigArgs:
+    def __init__(__self__, *,
+                 deployment: Optional[pulumi.Input['FunctionsDeploymentArgs']] = None,
+                 runtime: Optional[pulumi.Input['FunctionsRuntimeArgs']] = None,
+                 scale_and_concurrency: Optional[pulumi.Input['FunctionsScaleAndConcurrencyArgs']] = None):
+        """
+        Function app configuration.
+        :param pulumi.Input['FunctionsDeploymentArgs'] deployment: Function app deployment configuration.
+        :param pulumi.Input['FunctionsRuntimeArgs'] runtime: Function app runtime settings.
+        :param pulumi.Input['FunctionsScaleAndConcurrencyArgs'] scale_and_concurrency: Function app scale and concurrency settings.
+        """
+        if deployment is not None:
+            pulumi.set(__self__, "deployment", deployment)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
+        if scale_and_concurrency is not None:
+            pulumi.set(__self__, "scale_and_concurrency", scale_and_concurrency)
+
+    @property
+    @pulumi.getter
+    def deployment(self) -> Optional[pulumi.Input['FunctionsDeploymentArgs']]:
+        """
+        Function app deployment configuration.
+        """
+        return pulumi.get(self, "deployment")
+
+    @deployment.setter
+    def deployment(self, value: Optional[pulumi.Input['FunctionsDeploymentArgs']]):
+        pulumi.set(self, "deployment", value)
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[pulumi.Input['FunctionsRuntimeArgs']]:
+        """
+        Function app runtime settings.
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[pulumi.Input['FunctionsRuntimeArgs']]):
+        pulumi.set(self, "runtime", value)
+
+    @property
+    @pulumi.getter(name="scaleAndConcurrency")
+    def scale_and_concurrency(self) -> Optional[pulumi.Input['FunctionsScaleAndConcurrencyArgs']]:
+        """
+        Function app scale and concurrency settings.
+        """
+        return pulumi.get(self, "scale_and_concurrency")
+
+    @scale_and_concurrency.setter
+    def scale_and_concurrency(self, value: Optional[pulumi.Input['FunctionsScaleAndConcurrencyArgs']]):
+        pulumi.set(self, "scale_and_concurrency", value)
+
+
+if not MYPY:
+    class FunctionsAlwaysReadyConfigArgsDict(TypedDict):
+        """
+        Sets the number of 'Always Ready' instances for a function group or a specific function.
+        """
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Either a function group or a function name is required. For additional information see https://aka.ms/flexconsumption/alwaysready.
+        """
+elif False:
+    FunctionsAlwaysReadyConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionsAlwaysReadyConfigArgs:
+    def __init__(__self__, *,
+                 instance_count: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Sets the number of 'Always Ready' instances for a function group or a specific function.
+        :param pulumi.Input[int] instance_count: Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
+        :param pulumi.Input[str] name: Either a function group or a function name is required. For additional information see https://aka.ms/flexconsumption/alwaysready.
+        """
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Either a function group or a function name is required. For additional information see https://aka.ms/flexconsumption/alwaysready.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class FunctionsDeploymentAuthenticationArgsDict(TypedDict):
+        """
+        Authentication method to access the storage account for deployment.
+        """
+        storage_account_connection_string_name: NotRequired[pulumi.Input[str]]
+        """
+        Use this property for StorageAccountConnectionString. Set the name of the app setting that has the storage account connection string. Do not set a value for this property when using other authentication type.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'AuthenticationType']]]
+        """
+        Property to select authentication type to access the selected storage account. Available options: SystemAssignedIdentity, UserAssignedIdentity, StorageAccountConnectionString.
+        """
+        user_assigned_identity_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Use this property for UserAssignedIdentity. Set the resource ID of the identity. Do not set a value for this property when using other authentication type.
+        """
+elif False:
+    FunctionsDeploymentAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionsDeploymentAuthenticationArgs:
+    def __init__(__self__, *,
+                 storage_account_connection_string_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+                 user_assigned_identity_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Authentication method to access the storage account for deployment.
+        :param pulumi.Input[str] storage_account_connection_string_name: Use this property for StorageAccountConnectionString. Set the name of the app setting that has the storage account connection string. Do not set a value for this property when using other authentication type.
+        :param pulumi.Input[Union[str, 'AuthenticationType']] type: Property to select authentication type to access the selected storage account. Available options: SystemAssignedIdentity, UserAssignedIdentity, StorageAccountConnectionString.
+        :param pulumi.Input[str] user_assigned_identity_resource_id: Use this property for UserAssignedIdentity. Set the resource ID of the identity. Do not set a value for this property when using other authentication type.
+        """
+        if storage_account_connection_string_name is not None:
+            pulumi.set(__self__, "storage_account_connection_string_name", storage_account_connection_string_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="storageAccountConnectionStringName")
+    def storage_account_connection_string_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this property for StorageAccountConnectionString. Set the name of the app setting that has the storage account connection string. Do not set a value for this property when using other authentication type.
+        """
+        return pulumi.get(self, "storage_account_connection_string_name")
+
+    @storage_account_connection_string_name.setter
+    def storage_account_connection_string_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_connection_string_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationType']]]:
+        """
+        Property to select authentication type to access the selected storage account. Available options: SystemAssignedIdentity, UserAssignedIdentity, StorageAccountConnectionString.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this property for UserAssignedIdentity. Set the resource ID of the identity. Do not set a value for this property when using other authentication type.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+    @user_assigned_identity_resource_id.setter
+    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_resource_id", value)
+
+
+if not MYPY:
+    class FunctionsDeploymentStorageArgsDict(TypedDict):
+        """
+        Storage for deployed package used by the function app.
+        """
+        authentication: NotRequired[pulumi.Input['FunctionsDeploymentAuthenticationArgsDict']]
+        """
+        Authentication method to access the storage account for deployment.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'FunctionsDeploymentStorageType']]]
+        """
+        Property to select Azure Storage type. Available options: blobContainer.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
+        """
+elif False:
+    FunctionsDeploymentStorageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionsDeploymentStorageArgs:
+    def __init__(__self__, *,
+                 authentication: Optional[pulumi.Input['FunctionsDeploymentAuthenticationArgs']] = None,
+                 type: Optional[pulumi.Input[Union[str, 'FunctionsDeploymentStorageType']]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Storage for deployed package used by the function app.
+        :param pulumi.Input['FunctionsDeploymentAuthenticationArgs'] authentication: Authentication method to access the storage account for deployment.
+        :param pulumi.Input[Union[str, 'FunctionsDeploymentStorageType']] type: Property to select Azure Storage type. Available options: blobContainer.
+        :param pulumi.Input[str] value: Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
+        """
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input['FunctionsDeploymentAuthenticationArgs']]:
+        """
+        Authentication method to access the storage account for deployment.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input['FunctionsDeploymentAuthenticationArgs']]):
+        pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'FunctionsDeploymentStorageType']]]:
+        """
+        Property to select Azure Storage type. Available options: blobContainer.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'FunctionsDeploymentStorageType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class FunctionsDeploymentArgsDict(TypedDict):
+        """
+        Configuration section for the function app deployment.
+        """
+        storage: NotRequired[pulumi.Input['FunctionsDeploymentStorageArgsDict']]
+        """
+        Storage for deployed package used by the function app.
+        """
+elif False:
+    FunctionsDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionsDeploymentArgs:
+    def __init__(__self__, *,
+                 storage: Optional[pulumi.Input['FunctionsDeploymentStorageArgs']] = None):
+        """
+        Configuration section for the function app deployment.
+        :param pulumi.Input['FunctionsDeploymentStorageArgs'] storage: Storage for deployed package used by the function app.
+        """
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
+
+    @property
+    @pulumi.getter
+    def storage(self) -> Optional[pulumi.Input['FunctionsDeploymentStorageArgs']]:
+        """
+        Storage for deployed package used by the function app.
+        """
+        return pulumi.get(self, "storage")
+
+    @storage.setter
+    def storage(self, value: Optional[pulumi.Input['FunctionsDeploymentStorageArgs']]):
+        pulumi.set(self, "storage", value)
+
+
+if not MYPY:
+    class FunctionsRuntimeArgsDict(TypedDict):
+        """
+        Function app runtime name and version.
+        """
+        name: NotRequired[pulumi.Input[Union[str, 'RuntimeName']]]
+        """
+        Function app runtime name. Available options: dotnet-isolated, node, java, powershell, python, custom
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Function app runtime version. Example: 8 (for dotnet-isolated)
+        """
+elif False:
+    FunctionsRuntimeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionsRuntimeArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[Union[str, 'RuntimeName']]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Function app runtime name and version.
+        :param pulumi.Input[Union[str, 'RuntimeName']] name: Function app runtime name. Available options: dotnet-isolated, node, java, powershell, python, custom
+        :param pulumi.Input[str] version: Function app runtime version. Example: 8 (for dotnet-isolated)
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[Union[str, 'RuntimeName']]]:
+        """
+        Function app runtime name. Available options: dotnet-isolated, node, java, powershell, python, custom
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[Union[str, 'RuntimeName']]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Function app runtime version. Example: 8 (for dotnet-isolated)
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class FunctionsScaleAndConcurrencyHttpArgsDict(TypedDict):
+        """
+        Scale and concurrency settings for the HTTP trigger.
+        """
+        per_instance_concurrency: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of concurrent HTTP trigger invocations per instance.
+        """
+elif False:
+    FunctionsScaleAndConcurrencyHttpArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionsScaleAndConcurrencyHttpArgs:
+    def __init__(__self__, *,
+                 per_instance_concurrency: Optional[pulumi.Input[int]] = None):
+        """
+        Scale and concurrency settings for the HTTP trigger.
+        :param pulumi.Input[int] per_instance_concurrency: The maximum number of concurrent HTTP trigger invocations per instance.
+        """
+        if per_instance_concurrency is not None:
+            pulumi.set(__self__, "per_instance_concurrency", per_instance_concurrency)
+
+    @property
+    @pulumi.getter(name="perInstanceConcurrency")
+    def per_instance_concurrency(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of concurrent HTTP trigger invocations per instance.
+        """
+        return pulumi.get(self, "per_instance_concurrency")
+
+    @per_instance_concurrency.setter
+    def per_instance_concurrency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "per_instance_concurrency", value)
+
+
+if not MYPY:
+    class FunctionsScaleAndConcurrencyTriggersArgsDict(TypedDict):
+        """
+        Scale and concurrency settings for the function app triggers.
+        """
+        http: NotRequired[pulumi.Input['FunctionsScaleAndConcurrencyHttpArgsDict']]
+        """
+        Scale and concurrency settings for the HTTP trigger.
+        """
+elif False:
+    FunctionsScaleAndConcurrencyTriggersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionsScaleAndConcurrencyTriggersArgs:
+    def __init__(__self__, *,
+                 http: Optional[pulumi.Input['FunctionsScaleAndConcurrencyHttpArgs']] = None):
+        """
+        Scale and concurrency settings for the function app triggers.
+        :param pulumi.Input['FunctionsScaleAndConcurrencyHttpArgs'] http: Scale and concurrency settings for the HTTP trigger.
+        """
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional[pulumi.Input['FunctionsScaleAndConcurrencyHttpArgs']]:
+        """
+        Scale and concurrency settings for the HTTP trigger.
+        """
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: Optional[pulumi.Input['FunctionsScaleAndConcurrencyHttpArgs']]):
+        pulumi.set(self, "http", value)
+
+
+if not MYPY:
+    class FunctionsScaleAndConcurrencyArgsDict(TypedDict):
+        """
+        Scale and concurrency settings for the function app.
+        """
+        always_ready: NotRequired[pulumi.Input[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgsDict']]]]
+        """
+        'Always Ready' configuration for the function app.
+        """
+        instance_memory_mb: NotRequired[pulumi.Input[int]]
+        """
+        Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
+        """
+        maximum_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of instances for the function app.
+        """
+        triggers: NotRequired[pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgsDict']]
+        """
+        Scale and concurrency settings for the function app triggers.
+        """
+elif False:
+    FunctionsScaleAndConcurrencyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionsScaleAndConcurrencyArgs:
+    def __init__(__self__, *,
+                 always_ready: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]]] = None,
+                 instance_memory_mb: Optional[pulumi.Input[int]] = None,
+                 maximum_instance_count: Optional[pulumi.Input[int]] = None,
+                 triggers: Optional[pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgs']] = None):
+        """
+        Scale and concurrency settings for the function app.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]] always_ready: 'Always Ready' configuration for the function app.
+        :param pulumi.Input[int] instance_memory_mb: Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
+        :param pulumi.Input[int] maximum_instance_count: The maximum number of instances for the function app.
+        :param pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgs'] triggers: Scale and concurrency settings for the function app triggers.
+        """
+        if always_ready is not None:
+            pulumi.set(__self__, "always_ready", always_ready)
+        if instance_memory_mb is not None:
+            pulumi.set(__self__, "instance_memory_mb", instance_memory_mb)
+        if maximum_instance_count is not None:
+            pulumi.set(__self__, "maximum_instance_count", maximum_instance_count)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
+
+    @property
+    @pulumi.getter(name="alwaysReady")
+    def always_ready(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]]]:
+        """
+        'Always Ready' configuration for the function app.
+        """
+        return pulumi.get(self, "always_ready")
+
+    @always_ready.setter
+    def always_ready(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionsAlwaysReadyConfigArgs']]]]):
+        pulumi.set(self, "always_ready", value)
+
+    @property
+    @pulumi.getter(name="instanceMemoryMB")
+    def instance_memory_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
+        """
+        return pulumi.get(self, "instance_memory_mb")
+
+    @instance_memory_mb.setter
+    def instance_memory_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_memory_mb", value)
+
+    @property
+    @pulumi.getter(name="maximumInstanceCount")
+    def maximum_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of instances for the function app.
+        """
+        return pulumi.get(self, "maximum_instance_count")
+
+    @maximum_instance_count.setter
+    def maximum_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_instance_count", value)
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgs']]:
+        """
+        Scale and concurrency settings for the function app triggers.
+        """
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input['FunctionsScaleAndConcurrencyTriggersArgs']]):
+        pulumi.set(self, "triggers", value)
 
 
 if not MYPY:
@@ -9594,6 +10340,62 @@ class RequestsBasedTriggerArgs:
 
 
 if not MYPY:
+    class ResourceConfigArgsDict(TypedDict):
+        """
+        Function app resource requirements.
+        """
+        cpu: NotRequired[pulumi.Input[float]]
+        """
+        Required CPU in cores, e.g. 0.5
+        """
+        memory: NotRequired[pulumi.Input[str]]
+        """
+        Required memory, e.g. "1Gi"
+        """
+elif False:
+    ResourceConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceConfigArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input[float]] = None,
+                 memory: Optional[pulumi.Input[str]] = None):
+        """
+        Function app resource requirements.
+        :param pulumi.Input[float] cpu: Required CPU in cores, e.g. 0.5
+        :param pulumi.Input[str] memory: Required memory, e.g. "1Gi"
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input[float]]:
+        """
+        Required CPU in cores, e.g. 0.5
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required memory, e.g. "1Gi"
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "memory", value)
+
+
+if not MYPY:
     class ScaleRuleAuthArgsDict(TypedDict):
         """
         Auth Secrets for Container App Scale Rule
@@ -10042,6 +10844,10 @@ if not MYPY:
         """
         Application metadata. This property cannot be retrieved, since it may contain secrets.
         """
+        min_tls_cipher_suite: NotRequired[pulumi.Input[Union[str, 'TlsCipherSuites']]]
+        """
+        The minimum strength TLS cipher suite allowed for an application
+        """
         min_tls_version: NotRequired[pulumi.Input[Union[str, 'SupportedTlsVersions']]]
         """
         MinTlsVersion: configures the minimum version of TLS required for SSL requests
@@ -10213,6 +11019,7 @@ class SiteConfigArgs:
                  managed_pipeline_mode: Optional[pulumi.Input['ManagedPipelineMode']] = None,
                  managed_service_identity_id: Optional[pulumi.Input[int]] = None,
                  metadata: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
+                 min_tls_cipher_suite: Optional[pulumi.Input[Union[str, 'TlsCipherSuites']]] = None,
                  min_tls_version: Optional[pulumi.Input[Union[str, 'SupportedTlsVersions']]] = None,
                  minimum_elastic_instance_count: Optional[pulumi.Input[int]] = None,
                  net_framework_version: Optional[pulumi.Input[str]] = None,
@@ -10289,6 +11096,7 @@ class SiteConfigArgs:
         :param pulumi.Input['ManagedPipelineMode'] managed_pipeline_mode: Managed pipeline mode.
         :param pulumi.Input[int] managed_service_identity_id: Managed Service Identity Id
         :param pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]] metadata: Application metadata. This property cannot be retrieved, since it may contain secrets.
+        :param pulumi.Input[Union[str, 'TlsCipherSuites']] min_tls_cipher_suite: The minimum strength TLS cipher suite allowed for an application
         :param pulumi.Input[Union[str, 'SupportedTlsVersions']] min_tls_version: MinTlsVersion: configures the minimum version of TLS required for SSL requests
         :param pulumi.Input[int] minimum_elastic_instance_count: Number of minimum instance count for a site
                This setting only applies to the Elastic Plans
@@ -10405,6 +11213,8 @@ class SiteConfigArgs:
             pulumi.set(__self__, "managed_service_identity_id", managed_service_identity_id)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if min_tls_cipher_suite is not None:
+            pulumi.set(__self__, "min_tls_cipher_suite", min_tls_cipher_suite)
         if min_tls_version is not None:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
         if minimum_elastic_instance_count is not None:
@@ -10943,6 +11753,18 @@ class SiteConfigArgs:
         pulumi.set(self, "metadata", value)
 
     @property
+    @pulumi.getter(name="minTlsCipherSuite")
+    def min_tls_cipher_suite(self) -> Optional[pulumi.Input[Union[str, 'TlsCipherSuites']]]:
+        """
+        The minimum strength TLS cipher suite allowed for an application
+        """
+        return pulumi.get(self, "min_tls_cipher_suite")
+
+    @min_tls_cipher_suite.setter
+    def min_tls_cipher_suite(self, value: Optional[pulumi.Input[Union[str, 'TlsCipherSuites']]]):
+        pulumi.set(self, "min_tls_cipher_suite", value)
+
+    @property
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> Optional[pulumi.Input[Union[str, 'SupportedTlsVersions']]]:
         """
@@ -11315,6 +12137,118 @@ class SiteConfigArgs:
     @x_managed_service_identity_id.setter
     def x_managed_service_identity_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "x_managed_service_identity_id", value)
+
+
+if not MYPY:
+    class SiteDnsConfigArgsDict(TypedDict):
+        dns_alt_server: NotRequired[pulumi.Input[str]]
+        """
+        Alternate DNS server to be used by apps. This property replicates the WEBSITE_DNS_ALT_SERVER app setting.
+        """
+        dns_max_cache_timeout: NotRequired[pulumi.Input[int]]
+        """
+        Custom time for DNS to be cached in seconds. Allowed range: 0-60. Default is 30 seconds. 0 means caching disabled.
+        """
+        dns_retry_attempt_count: NotRequired[pulumi.Input[int]]
+        """
+        Total number of retries for dns lookup. Allowed range: 1-5. Default is 3.
+        """
+        dns_retry_attempt_timeout: NotRequired[pulumi.Input[int]]
+        """
+        Timeout for a single dns lookup in seconds. Allowed range: 1-30. Default is 3.
+        """
+        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of custom DNS servers to be used by an app for lookups. Maximum 5 dns servers can be set.
+        """
+elif False:
+    SiteDnsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SiteDnsConfigArgs:
+    def __init__(__self__, *,
+                 dns_alt_server: Optional[pulumi.Input[str]] = None,
+                 dns_max_cache_timeout: Optional[pulumi.Input[int]] = None,
+                 dns_retry_attempt_count: Optional[pulumi.Input[int]] = None,
+                 dns_retry_attempt_timeout: Optional[pulumi.Input[int]] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] dns_alt_server: Alternate DNS server to be used by apps. This property replicates the WEBSITE_DNS_ALT_SERVER app setting.
+        :param pulumi.Input[int] dns_max_cache_timeout: Custom time for DNS to be cached in seconds. Allowed range: 0-60. Default is 30 seconds. 0 means caching disabled.
+        :param pulumi.Input[int] dns_retry_attempt_count: Total number of retries for dns lookup. Allowed range: 1-5. Default is 3.
+        :param pulumi.Input[int] dns_retry_attempt_timeout: Timeout for a single dns lookup in seconds. Allowed range: 1-30. Default is 3.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of custom DNS servers to be used by an app for lookups. Maximum 5 dns servers can be set.
+        """
+        if dns_alt_server is not None:
+            pulumi.set(__self__, "dns_alt_server", dns_alt_server)
+        if dns_max_cache_timeout is not None:
+            pulumi.set(__self__, "dns_max_cache_timeout", dns_max_cache_timeout)
+        if dns_retry_attempt_count is not None:
+            pulumi.set(__self__, "dns_retry_attempt_count", dns_retry_attempt_count)
+        if dns_retry_attempt_timeout is not None:
+            pulumi.set(__self__, "dns_retry_attempt_timeout", dns_retry_attempt_timeout)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+
+    @property
+    @pulumi.getter(name="dnsAltServer")
+    def dns_alt_server(self) -> Optional[pulumi.Input[str]]:
+        """
+        Alternate DNS server to be used by apps. This property replicates the WEBSITE_DNS_ALT_SERVER app setting.
+        """
+        return pulumi.get(self, "dns_alt_server")
+
+    @dns_alt_server.setter
+    def dns_alt_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_alt_server", value)
+
+    @property
+    @pulumi.getter(name="dnsMaxCacheTimeout")
+    def dns_max_cache_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Custom time for DNS to be cached in seconds. Allowed range: 0-60. Default is 30 seconds. 0 means caching disabled.
+        """
+        return pulumi.get(self, "dns_max_cache_timeout")
+
+    @dns_max_cache_timeout.setter
+    def dns_max_cache_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dns_max_cache_timeout", value)
+
+    @property
+    @pulumi.getter(name="dnsRetryAttemptCount")
+    def dns_retry_attempt_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Total number of retries for dns lookup. Allowed range: 1-5. Default is 3.
+        """
+        return pulumi.get(self, "dns_retry_attempt_count")
+
+    @dns_retry_attempt_count.setter
+    def dns_retry_attempt_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dns_retry_attempt_count", value)
+
+    @property
+    @pulumi.getter(name="dnsRetryAttemptTimeout")
+    def dns_retry_attempt_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Timeout for a single dns lookup in seconds. Allowed range: 1-30. Default is 3.
+        """
+        return pulumi.get(self, "dns_retry_attempt_timeout")
+
+    @dns_retry_attempt_timeout.setter
+    def dns_retry_attempt_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dns_retry_attempt_timeout", value)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of custom DNS servers to be used by an app for lookups. Maximum 5 dns servers can be set.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
 
 
 if not MYPY:

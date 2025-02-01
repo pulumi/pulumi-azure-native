@@ -27,10 +27,7 @@ class GetFhirServiceResult:
     """
     The description of Fhir Service
     """
-    def __init__(__self__, access_policies=None, acr_configuration=None, authentication_configuration=None, cors_configuration=None, etag=None, event_state=None, export_configuration=None, id=None, identity=None, implementation_guides_configuration=None, import_configuration=None, kind=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, resource_version_policy_configuration=None, system_data=None, tags=None, type=None):
-        if access_policies and not isinstance(access_policies, list):
-            raise TypeError("Expected argument 'access_policies' to be a list")
-        pulumi.set(__self__, "access_policies", access_policies)
+    def __init__(__self__, acr_configuration=None, authentication_configuration=None, cors_configuration=None, encryption=None, etag=None, event_state=None, export_configuration=None, id=None, identity=None, implementation_guides_configuration=None, import_configuration=None, kind=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, resource_version_policy_configuration=None, system_data=None, tags=None, type=None):
         if acr_configuration and not isinstance(acr_configuration, dict):
             raise TypeError("Expected argument 'acr_configuration' to be a dict")
         pulumi.set(__self__, "acr_configuration", acr_configuration)
@@ -40,6 +37,9 @@ class GetFhirServiceResult:
         if cors_configuration and not isinstance(cors_configuration, dict):
             raise TypeError("Expected argument 'cors_configuration' to be a dict")
         pulumi.set(__self__, "cors_configuration", cors_configuration)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -93,14 +93,6 @@ class GetFhirServiceResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[Sequence['outputs.FhirServiceAccessPolicyEntryResponse']]:
-        """
-        Fhir Service access policies.
-        """
-        return pulumi.get(self, "access_policies")
-
-    @property
     @pulumi.getter(name="acrConfiguration")
     def acr_configuration(self) -> Optional['outputs.FhirServiceAcrConfigurationResponse']:
         """
@@ -123,6 +115,14 @@ class GetFhirServiceResult:
         Fhir Service Cors configuration.
         """
         return pulumi.get(self, "cors_configuration")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+        """
+        The encryption settings of the FHIR service
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter
@@ -267,10 +267,10 @@ class AwaitableGetFhirServiceResult(GetFhirServiceResult):
         if False:
             yield self
         return GetFhirServiceResult(
-            access_policies=self.access_policies,
             acr_configuration=self.acr_configuration,
             authentication_configuration=self.authentication_configuration,
             cors_configuration=self.cors_configuration,
+            encryption=self.encryption,
             etag=self.etag,
             event_state=self.event_state,
             export_configuration=self.export_configuration,
@@ -296,9 +296,9 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFhirServiceResult:
     """
     Gets the properties of the specified FHIR Service.
-    Azure REST API version: 2023-02-28.
+    Azure REST API version: 2024-03-31.
 
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+    Other available API versions: 2023-02-28.
 
 
     :param str fhir_service_name: The name of FHIR Service resource.
@@ -313,10 +313,10 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:healthcareapis:getFhirService', __args__, opts=opts, typ=GetFhirServiceResult).value
 
     return AwaitableGetFhirServiceResult(
-        access_policies=pulumi.get(__ret__, 'access_policies'),
         acr_configuration=pulumi.get(__ret__, 'acr_configuration'),
         authentication_configuration=pulumi.get(__ret__, 'authentication_configuration'),
         cors_configuration=pulumi.get(__ret__, 'cors_configuration'),
+        encryption=pulumi.get(__ret__, 'encryption'),
         etag=pulumi.get(__ret__, 'etag'),
         event_state=pulumi.get(__ret__, 'event_state'),
         export_configuration=pulumi.get(__ret__, 'export_configuration'),
@@ -340,9 +340,9 @@ def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFhirServiceResult]:
     """
     Gets the properties of the specified FHIR Service.
-    Azure REST API version: 2023-02-28.
+    Azure REST API version: 2024-03-31.
 
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+    Other available API versions: 2023-02-28.
 
 
     :param str fhir_service_name: The name of FHIR Service resource.
@@ -356,10 +356,10 @@ def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:healthcareapis:getFhirService', __args__, opts=opts, typ=GetFhirServiceResult)
     return __ret__.apply(lambda __response__: GetFhirServiceResult(
-        access_policies=pulumi.get(__response__, 'access_policies'),
         acr_configuration=pulumi.get(__response__, 'acr_configuration'),
         authentication_configuration=pulumi.get(__response__, 'authentication_configuration'),
         cors_configuration=pulumi.get(__response__, 'cors_configuration'),
+        encryption=pulumi.get(__response__, 'encryption'),
         etag=pulumi.get(__response__, 'etag'),
         event_state=pulumi.get(__response__, 'event_state'),
         export_configuration=pulumi.get(__response__, 'export_configuration'),

@@ -5,62 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'DataType',
-    'Direction',
-    'FlowBillingTier',
-    'FlowStatus',
-    'FlowType',
     'ListApprovedSchemasDirection',
-    'ManagedServiceIdentityType',
-    'SchemaStatus',
 ]
-
-
-class DataType(str, Enum):
-    """
-    Transfer Storage Blobs or Tables
-    """
-    BLOB = "Blob"
-    TABLE = "Table"
-
-
-class Direction(str, Enum):
-    """
-    Direction of data movement
-    """
-    SEND = "Send"
-    RECEIVE = "Receive"
-
-
-class FlowBillingTier(str, Enum):
-    """
-    Billing tier for this messaging flow
-    """
-    BLOB_TRANSPORT = "BlobTransport"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
-
-
-class FlowStatus(str, Enum):
-    """
-    Status of the current flow
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class FlowType(str, Enum):
-    """
-    Flow type for the specified resource
-    """
-    UNKNOWN = "Unknown"
-    COMPLEX = "Complex"
-    DEV_SEC_OPS = "DevSecOps"
-    MESSAGING = "Messaging"
-    MISSION = "Mission"
-    MICROSOFT_INTERNAL = "MicrosoftInternal"
-    BASIC_FILES = "BasicFiles"
-    DATA = "Data"
 
 
 class ListApprovedSchemasDirection(str, Enum):
@@ -69,21 +15,3 @@ class ListApprovedSchemasDirection(str, Enum):
     """
     SEND = "Send"
     RECEIVE = "Receive"
-
-
-class ManagedServiceIdentityType(str, Enum):
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
-
-
-class SchemaStatus(str, Enum):
-    """
-    Status of the schema
-    """
-    NEW = "New"
-    APPROVED = "Approved"

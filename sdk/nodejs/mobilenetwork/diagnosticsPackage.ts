@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Diagnostics package resource.
- * Azure REST API version: 2023-06-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
  *
- * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+ * Other available API versions: 2023-06-01.
  */
 export class DiagnosticsPackage extends pulumi.CustomResource {
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * LoadTest profile mapping resource details
- * Azure REST API version: 2023-12-01-preview.
+ * Azure REST API version: 2023-12-01-preview. Prior API version in Azure Native 2.x: 2023-12-01-preview.
  */
 export class LoadTestProfileMapping extends pulumi.CustomResource {
     /**

@@ -22,23 +22,28 @@ class SandboxCustomImageArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
                  language: pulumi.Input[Union[str, 'Language']],
-                 language_version: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 base_image_name: Optional[pulumi.Input[str]] = None,
+                 language_version: Optional[pulumi.Input[str]] = None,
                  requirements_file_content: Optional[pulumi.Input[str]] = None,
                  sandbox_custom_image_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SandboxCustomImage resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[Union[str, 'Language']] language: The language name, for example Python.
-        :param pulumi.Input[str] language_version: The version of the language.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] base_image_name: The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
+        :param pulumi.Input[str] language_version: The version of the language. Either this property or baseImageName should be specified.
         :param pulumi.Input[str] requirements_file_content: The requirements file content.
         :param pulumi.Input[str] sandbox_custom_image_name: The name of the sandbox custom image.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "language", language)
-        pulumi.set(__self__, "language_version", language_version)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if base_image_name is not None:
+            pulumi.set(__self__, "base_image_name", base_image_name)
+        if language_version is not None:
+            pulumi.set(__self__, "language_version", language_version)
         if requirements_file_content is not None:
             pulumi.set(__self__, "requirements_file_content", requirements_file_content)
         if sandbox_custom_image_name is not None:
@@ -69,18 +74,6 @@ class SandboxCustomImageArgs:
         pulumi.set(self, "language", value)
 
     @property
-    @pulumi.getter(name="languageVersion")
-    def language_version(self) -> pulumi.Input[str]:
-        """
-        The version of the language.
-        """
-        return pulumi.get(self, "language_version")
-
-    @language_version.setter
-    def language_version(self, value: pulumi.Input[str]):
-        pulumi.set(self, "language_version", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -91,6 +84,30 @@ class SandboxCustomImageArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="baseImageName")
+    def base_image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
+        """
+        return pulumi.get(self, "base_image_name")
+
+    @base_image_name.setter
+    def base_image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base_image_name", value)
+
+    @property
+    @pulumi.getter(name="languageVersion")
+    def language_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the language. Either this property or baseImageName should be specified.
+        """
+        return pulumi.get(self, "language_version")
+
+    @language_version.setter
+    def language_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "language_version", value)
 
     @property
     @pulumi.getter(name="requirementsFileContent")
@@ -122,6 +139,7 @@ class SandboxCustomImage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 base_image_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  language: Optional[pulumi.Input[Union[str, 'Language']]] = None,
                  language_version: Optional[pulumi.Input[str]] = None,
@@ -131,15 +149,16 @@ class SandboxCustomImage(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a Kusto sandbox custom image.
-        Azure REST API version: 2023-08-15.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2023-08-15.
 
-        Other available API versions: 2024-04-13.
+        Other available API versions: 2023-08-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] base_image_name: The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[Union[str, 'Language']] language: The language name, for example Python.
-        :param pulumi.Input[str] language_version: The version of the language.
+        :param pulumi.Input[str] language_version: The version of the language. Either this property or baseImageName should be specified.
         :param pulumi.Input[str] requirements_file_content: The requirements file content.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sandbox_custom_image_name: The name of the sandbox custom image.
@@ -152,9 +171,9 @@ class SandboxCustomImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Kusto sandbox custom image.
-        Azure REST API version: 2023-08-15.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2023-08-15.
 
-        Other available API versions: 2024-04-13.
+        Other available API versions: 2023-08-15.
 
         :param str resource_name: The name of the resource.
         :param SandboxCustomImageArgs args: The arguments to use to populate this resource's properties.
@@ -171,6 +190,7 @@ class SandboxCustomImage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 base_image_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  language: Optional[pulumi.Input[Union[str, 'Language']]] = None,
                  language_version: Optional[pulumi.Input[str]] = None,
@@ -186,14 +206,13 @@ class SandboxCustomImage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SandboxCustomImageArgs.__new__(SandboxCustomImageArgs)
 
+            __props__.__dict__["base_image_name"] = base_image_name
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             if language is None and not opts.urn:
                 raise TypeError("Missing required property 'language'")
             __props__.__dict__["language"] = language
-            if language_version is None and not opts.urn:
-                raise TypeError("Missing required property 'language_version'")
             __props__.__dict__["language_version"] = language_version
             __props__.__dict__["requirements_file_content"] = requirements_file_content
             if resource_group_name is None and not opts.urn:
@@ -227,6 +246,7 @@ class SandboxCustomImage(pulumi.CustomResource):
 
         __props__ = SandboxCustomImageArgs.__new__(SandboxCustomImageArgs)
 
+        __props__.__dict__["base_image_name"] = None
         __props__.__dict__["language"] = None
         __props__.__dict__["language_version"] = None
         __props__.__dict__["name"] = None
@@ -234,6 +254,14 @@ class SandboxCustomImage(pulumi.CustomResource):
         __props__.__dict__["requirements_file_content"] = None
         __props__.__dict__["type"] = None
         return SandboxCustomImage(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="baseImageName")
+    def base_image_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
+        """
+        return pulumi.get(self, "base_image_name")
 
     @property
     @pulumi.getter
@@ -245,9 +273,9 @@ class SandboxCustomImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="languageVersion")
-    def language_version(self) -> pulumi.Output[str]:
+    def language_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The version of the language.
+        The version of the language. Either this property or baseImageName should be specified.
         """
         return pulumi.get(self, "language_version")
 

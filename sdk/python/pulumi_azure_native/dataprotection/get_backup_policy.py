@@ -104,9 +104,9 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
     Gets a backup policy belonging to a backup vault
-    Azure REST API version: 2023-01-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01.
+    Other available API versions: 2023-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -131,9 +131,9 @@ def get_backup_policy_output(backup_policy_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
     Gets a backup policy belonging to a backup vault
-    Azure REST API version: 2023-01-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01.
+    Other available API versions: 2023-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

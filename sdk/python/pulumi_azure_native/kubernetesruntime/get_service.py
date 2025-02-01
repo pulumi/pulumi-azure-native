@@ -117,8 +117,6 @@ def get_service(resource_uri: Optional[str] = None,
     Get a ServiceResource
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-10-01-preview.
-
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param str service_name: The name of the the service
@@ -142,8 +140,6 @@ def get_service_output(resource_uri: Optional[pulumi.Input[str]] = None,
     """
     Get a ServiceResource
     Azure REST API version: 2024-03-01.
-
-    Other available API versions: 2023-10-01-preview.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.

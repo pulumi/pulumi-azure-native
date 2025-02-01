@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a data connection.
- * Azure REST API version: 2022-12-29.
+ * Azure REST API version: 2024-04-13.
  */
 export function getCosmosDbDataConnection(args: GetCosmosDbDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetCosmosDbDataConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +32,7 @@ export interface GetCosmosDbDataConnectionArgs {
      */
     databaseName: string;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -101,7 +101,7 @@ export interface GetCosmosDbDataConnectionResult {
 }
 /**
  * Returns a data connection.
- * Azure REST API version: 2022-12-29.
+ * Azure REST API version: 2024-04-13.
  */
 export function getCosmosDbDataConnectionOutput(args: GetCosmosDbDataConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCosmosDbDataConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -127,7 +127,7 @@ export interface GetCosmosDbDataConnectionOutputArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

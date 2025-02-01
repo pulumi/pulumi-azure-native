@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site REST Resource.
- * Azure REST API version: 2020-07-07. Prior API version in Azure Native 1.x: 2020-01-01.
+ * Azure REST API version: 2020-07-07. Prior API version in Azure Native 2.x: 2020-07-07.
  */
 export class Site extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:Site" }, { type: "azure-native:offazure/v20200707:Site" }, { type: "azure-native:offazure/v20230606:Site" }, { type: "azure-native:offazure/v20231001preview:Site" }, { type: "azure-native:offazure/v20240501preview:Site" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:Site" }, { type: "azure-native:offazure/v20200707:Site" }, { type: "azure-native:offazure/v20230606:Site" }, { type: "azure-native:offazure/v20230606:SitesController" }, { type: "azure-native:offazure/v20231001preview:Site" }, { type: "azure-native:offazure/v20231001preview:SitesController" }, { type: "azure-native:offazure/v20240501preview:Site" }, { type: "azure-native:offazure/v20240501preview:SitesController" }, { type: "azure-native:offazure:SitesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Site.__pulumiType, name, resourceInputs, opts);
     }

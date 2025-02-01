@@ -27,7 +27,7 @@ class GetAccessReviewHistoryDefinitionByIdResult:
     """
     Access Review History Definition.
     """
-    def __init__(__self__, created_date_time=None, decisions=None, display_name=None, end_date=None, id=None, instances=None, interval=None, name=None, number_of_occurrences=None, principal_id=None, principal_name=None, principal_type=None, review_history_period_end_date_time=None, review_history_period_start_date_time=None, scopes=None, start_date=None, status=None, type=None, user_principal_name=None):
+    def __init__(__self__, created_date_time=None, decisions=None, display_name=None, id=None, instances=None, interval=None, name=None, principal_id=None, principal_name=None, principal_type=None, range=None, review_history_period_end_date_time=None, review_history_period_start_date_time=None, scopes=None, status=None, type=None, user_principal_name=None):
         if created_date_time and not isinstance(created_date_time, str):
             raise TypeError("Expected argument 'created_date_time' to be a str")
         pulumi.set(__self__, "created_date_time", created_date_time)
@@ -37,9 +37,6 @@ class GetAccessReviewHistoryDefinitionByIdResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
-        if end_date and not isinstance(end_date, str):
-            raise TypeError("Expected argument 'end_date' to be a str")
-        pulumi.set(__self__, "end_date", end_date)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,9 +49,6 @@ class GetAccessReviewHistoryDefinitionByIdResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if number_of_occurrences and not isinstance(number_of_occurrences, int):
-            raise TypeError("Expected argument 'number_of_occurrences' to be a int")
-        pulumi.set(__self__, "number_of_occurrences", number_of_occurrences)
         if principal_id and not isinstance(principal_id, str):
             raise TypeError("Expected argument 'principal_id' to be a str")
         pulumi.set(__self__, "principal_id", principal_id)
@@ -64,6 +58,9 @@ class GetAccessReviewHistoryDefinitionByIdResult:
         if principal_type and not isinstance(principal_type, str):
             raise TypeError("Expected argument 'principal_type' to be a str")
         pulumi.set(__self__, "principal_type", principal_type)
+        if range and not isinstance(range, dict):
+            raise TypeError("Expected argument 'range' to be a dict")
+        pulumi.set(__self__, "range", range)
         if review_history_period_end_date_time and not isinstance(review_history_period_end_date_time, str):
             raise TypeError("Expected argument 'review_history_period_end_date_time' to be a str")
         pulumi.set(__self__, "review_history_period_end_date_time", review_history_period_end_date_time)
@@ -73,9 +70,6 @@ class GetAccessReviewHistoryDefinitionByIdResult:
         if scopes and not isinstance(scopes, list):
             raise TypeError("Expected argument 'scopes' to be a list")
         pulumi.set(__self__, "scopes", scopes)
-        if start_date and not isinstance(start_date, str):
-            raise TypeError("Expected argument 'start_date' to be a str")
-        pulumi.set(__self__, "start_date", start_date)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -111,14 +105,6 @@ class GetAccessReviewHistoryDefinitionByIdResult:
         return pulumi.get(self, "display_name")
 
     @property
-    @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[str]:
-        """
-        The DateTime when the review is scheduled to end. Required if type is endDate
-        """
-        return pulumi.get(self, "end_date")
-
-    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -151,14 +137,6 @@ class GetAccessReviewHistoryDefinitionByIdResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="numberOfOccurrences")
-    def number_of_occurrences(self) -> Optional[int]:
-        """
-        The number of times to repeat the access review. Required and must be positive if type is numbered.
-        """
-        return pulumi.get(self, "number_of_occurrences")
-
-    @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
@@ -183,6 +161,14 @@ class GetAccessReviewHistoryDefinitionByIdResult:
         return pulumi.get(self, "principal_type")
 
     @property
+    @pulumi.getter
+    def range(self) -> Optional['outputs.AccessReviewRecurrenceRangeResponse']:
+        """
+        Access Review History Definition recurrence settings.
+        """
+        return pulumi.get(self, "range")
+
+    @property
     @pulumi.getter(name="reviewHistoryPeriodEndDateTime")
     def review_history_period_end_date_time(self) -> str:
         """
@@ -205,14 +191,6 @@ class GetAccessReviewHistoryDefinitionByIdResult:
         A collection of scopes used when selecting review history data
         """
         return pulumi.get(self, "scopes")
-
-    @property
-    @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[str]:
-        """
-        The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-        """
-        return pulumi.get(self, "start_date")
 
     @property
     @pulumi.getter
@@ -248,19 +226,17 @@ class AwaitableGetAccessReviewHistoryDefinitionByIdResult(GetAccessReviewHistory
             created_date_time=self.created_date_time,
             decisions=self.decisions,
             display_name=self.display_name,
-            end_date=self.end_date,
             id=self.id,
             instances=self.instances,
             interval=self.interval,
             name=self.name,
-            number_of_occurrences=self.number_of_occurrences,
             principal_id=self.principal_id,
             principal_name=self.principal_name,
             principal_type=self.principal_type,
+            range=self.range,
             review_history_period_end_date_time=self.review_history_period_end_date_time,
             review_history_period_start_date_time=self.review_history_period_start_date_time,
             scopes=self.scopes,
-            start_date=self.start_date,
             status=self.status,
             type=self.type,
             user_principal_name=self.user_principal_name)
@@ -283,19 +259,17 @@ def get_access_review_history_definition_by_id(history_definition_id: Optional[s
         created_date_time=pulumi.get(__ret__, 'created_date_time'),
         decisions=pulumi.get(__ret__, 'decisions'),
         display_name=pulumi.get(__ret__, 'display_name'),
-        end_date=pulumi.get(__ret__, 'end_date'),
         id=pulumi.get(__ret__, 'id'),
         instances=pulumi.get(__ret__, 'instances'),
         interval=pulumi.get(__ret__, 'interval'),
         name=pulumi.get(__ret__, 'name'),
-        number_of_occurrences=pulumi.get(__ret__, 'number_of_occurrences'),
         principal_id=pulumi.get(__ret__, 'principal_id'),
         principal_name=pulumi.get(__ret__, 'principal_name'),
         principal_type=pulumi.get(__ret__, 'principal_type'),
+        range=pulumi.get(__ret__, 'range'),
         review_history_period_end_date_time=pulumi.get(__ret__, 'review_history_period_end_date_time'),
         review_history_period_start_date_time=pulumi.get(__ret__, 'review_history_period_start_date_time'),
         scopes=pulumi.get(__ret__, 'scopes'),
-        start_date=pulumi.get(__ret__, 'start_date'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'),
         user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
@@ -315,19 +289,17 @@ def get_access_review_history_definition_by_id_output(history_definition_id: Opt
         created_date_time=pulumi.get(__response__, 'created_date_time'),
         decisions=pulumi.get(__response__, 'decisions'),
         display_name=pulumi.get(__response__, 'display_name'),
-        end_date=pulumi.get(__response__, 'end_date'),
         id=pulumi.get(__response__, 'id'),
         instances=pulumi.get(__response__, 'instances'),
         interval=pulumi.get(__response__, 'interval'),
         name=pulumi.get(__response__, 'name'),
-        number_of_occurrences=pulumi.get(__response__, 'number_of_occurrences'),
         principal_id=pulumi.get(__response__, 'principal_id'),
         principal_name=pulumi.get(__response__, 'principal_name'),
         principal_type=pulumi.get(__response__, 'principal_type'),
+        range=pulumi.get(__response__, 'range'),
         review_history_period_end_date_time=pulumi.get(__response__, 'review_history_period_end_date_time'),
         review_history_period_start_date_time=pulumi.get(__response__, 'review_history_period_start_date_time'),
         scopes=pulumi.get(__response__, 'scopes'),
-        start_date=pulumi.get(__response__, 'start_date'),
         status=pulumi.get(__response__, 'status'),
         type=pulumi.get(__response__, 'type'),
         user_principal_name=pulumi.get(__response__, 'user_principal_name')))

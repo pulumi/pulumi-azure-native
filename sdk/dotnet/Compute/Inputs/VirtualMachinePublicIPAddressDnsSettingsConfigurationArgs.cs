@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         [Input("domainNameLabel", required: true)]
         public Input<string> DomainNameLabel { get; set; } = null!;
 
+        /// <summary>
+        /// The Domain name label scope of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the hashed domain name label with policy according to the domain name label scope and vm network profile unique ID.
+        /// </summary>
+        [Input("domainNameLabelScope")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.DomainNameLabelScopeTypes>? DomainNameLabelScope { get; set; }
+
         public VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs()
         {
         }

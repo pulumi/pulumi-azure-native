@@ -184,7 +184,7 @@ class SapDatabaseInstance(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_details"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:SapDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:SapDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:SapDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SapDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads:SapDatabaseInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:SapDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:SapDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:SAPDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:SapDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SAPDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SapDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads:SAPDatabaseInstance"), pulumi.Alias(type_="azure-native:workloads:SapDatabaseInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SapDatabaseInstance, __self__).__init__(
             'azure-native:workloads/v20240901:SapDatabaseInstance',

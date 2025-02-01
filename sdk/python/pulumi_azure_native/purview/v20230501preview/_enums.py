@@ -5,50 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'CredentialsType',
-    'EventHubType',
-    'EventStreamingState',
-    'EventStreamingType',
     'ManagedEventHubState',
     'ManagedResourcesPublicNetworkAccess',
     'PublicNetworkAccess',
-    'Status',
     'Type',
 ]
-
-
-class CredentialsType(str, Enum):
-    """
-    Identity Type.
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-
-
-class EventHubType(str, Enum):
-    """
-    The event hub type.
-    """
-    NOTIFICATION = "Notification"
-    HOOK = "Hook"
-
-
-class EventStreamingState(str, Enum):
-    """
-    The state of the event streaming service
-    """
-    DISABLED = "Disabled"
-    ENABLED = "Enabled"
-
-
-class EventStreamingType(str, Enum):
-    """
-    The event streaming service type
-    """
-    NONE = "None"
-    MANAGED = "Managed"
-    AZURE = "Azure"
 
 
 class ManagedEventHubState(str, Enum):
@@ -76,17 +37,6 @@ class PublicNetworkAccess(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class Status(str, Enum):
-    """
-    The status.
-    """
-    UNKNOWN = "Unknown"
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
 
 
 class Type(str, Enum):

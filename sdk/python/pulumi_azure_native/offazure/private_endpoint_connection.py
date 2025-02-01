@@ -82,7 +82,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         REST model used to encapsulate the user visible state of a PrivateEndpoint.
-        Azure REST API version: 2020-07-07. Prior API version in Azure Native 1.x: 2020-07-07.
+        Azure REST API version: 2020-07-07. Prior API version in Azure Native 2.x: 2020-07-07.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,7 +98,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         REST model used to encapsulate the user visible state of a PrivateEndpoint.
-        Azure REST API version: 2020-07-07. Prior API version in Azure Native 1.x: 2020-07-07.
+        Azure REST API version: 2020-07-07. Prior API version in Azure Native 2.x: 2020-07-07.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -139,7 +139,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20200707:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:offazure/v20230606:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20200707:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:offazure/v20230606:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:offazure/v20230606:PrivateEndpointConnectionController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:PrivateEndpointConnectionController"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:PrivateEndpointConnectionController"), pulumi.Alias(type_="azure-native:offazure:PrivateEndpointConnectionController")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:offazure:PrivateEndpointConnection',

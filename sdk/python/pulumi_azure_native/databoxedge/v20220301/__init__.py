@@ -13,14 +13,12 @@ from .get_bandwidth_schedule import *
 from .get_container import *
 from .get_device import *
 from .get_device_extended_information import *
-from .get_io_t_addon import *
 from .get_monitoring_config import *
 from .get_order import *
 from .get_share import *
 from .get_storage_account import *
 from .get_storage_account_credential import *
 from .get_user import *
-from .io_t_addon import *
 from .list_order_dc_access_code import *
 from .monitoring_config import *
 from .order import *

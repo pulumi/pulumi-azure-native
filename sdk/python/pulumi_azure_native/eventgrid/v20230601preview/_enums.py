@@ -5,72 +5,29 @@
 from enum import Enum
 
 __all__ = [
-    'AdvancedFilterOperatorType',
     'AlternativeAuthenticationNameSource',
-    'ChannelProvisioningState',
-    'ChannelType',
     'ClientCertificateValidationScheme',
     'ClientState',
-    'DataResidencyBoundary',
     'DeadLetterEndPointType',
-    'DeliveryAttributeMappingType',
     'DeliveryMode',
     'DeliverySchema',
-    'EndpointType',
-    'EventDefinitionKind',
-    'EventDeliverySchema',
     'EventInputSchema',
     'EventSubscriptionIdentityType',
     'FilterOperatorType',
     'IdentityType',
-    'InputSchema',
-    'InputSchemaMappingType',
     'IpActionType',
-    'PartnerClientAuthenticationType',
-    'PartnerConfigurationProvisioningState',
     'PartnerDestinationActivationState',
-    'PartnerEndpointType',
-    'PartnerTopicActivationState',
-    'PartnerTopicRoutingMode',
     'PermissionType',
     'PersistedConnectionStatus',
     'PublicNetworkAccess',
     'PublisherType',
-    'ReadinessState',
-    'ResourceKind',
     'ResourceProvisioningState',
     'RoutingIdentityType',
-    'Sku',
     'SkuName',
     'StaticRoutingEnrichmentType',
     'TlsVersion',
     'TopicSpacesConfigurationState',
 ]
-
-
-class AdvancedFilterOperatorType(str, Enum):
-    """
-    The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-    """
-    NUMBER_IN = "NumberIn"
-    NUMBER_NOT_IN = "NumberNotIn"
-    NUMBER_LESS_THAN = "NumberLessThan"
-    NUMBER_GREATER_THAN = "NumberGreaterThan"
-    NUMBER_LESS_THAN_OR_EQUALS = "NumberLessThanOrEquals"
-    NUMBER_GREATER_THAN_OR_EQUALS = "NumberGreaterThanOrEquals"
-    BOOL_EQUALS = "BoolEquals"
-    STRING_IN = "StringIn"
-    STRING_NOT_IN = "StringNotIn"
-    STRING_BEGINS_WITH = "StringBeginsWith"
-    STRING_ENDS_WITH = "StringEndsWith"
-    STRING_CONTAINS = "StringContains"
-    NUMBER_IN_RANGE = "NumberInRange"
-    NUMBER_NOT_IN_RANGE = "NumberNotInRange"
-    STRING_NOT_BEGINS_WITH = "StringNotBeginsWith"
-    STRING_NOT_ENDS_WITH = "StringNotEndsWith"
-    STRING_NOT_CONTAINS = "StringNotContains"
-    IS_NULL_OR_UNDEFINED = "IsNullOrUndefined"
-    IS_NOT_NULL = "IsNotNull"
 
 
 class AlternativeAuthenticationNameSource(str, Enum):
@@ -79,28 +36,6 @@ class AlternativeAuthenticationNameSource(str, Enum):
     CLIENT_CERTIFICATE_URI = "ClientCertificateUri"
     CLIENT_CERTIFICATE_IP = "ClientCertificateIp"
     CLIENT_CERTIFICATE_EMAIL = "ClientCertificateEmail"
-
-
-class ChannelProvisioningState(str, Enum):
-    """
-    Provisioning state of the channel.
-    """
-    CREATING = "Creating"
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    SUCCEEDED = "Succeeded"
-    CANCELED = "Canceled"
-    FAILED = "Failed"
-    IDLE_DUE_TO_MIRRORED_PARTNER_TOPIC_DELETION = "IdleDueToMirroredPartnerTopicDeletion"
-    IDLE_DUE_TO_MIRRORED_PARTNER_DESTINATION_DELETION = "IdleDueToMirroredPartnerDestinationDeletion"
-
-
-class ChannelType(str, Enum):
-    """
-    The type of the event channel which represents the direction flow of events.
-    """
-    PARTNER_TOPIC = "PartnerTopic"
-    PARTNER_DESTINATION = "PartnerDestination"
 
 
 class ClientCertificateValidationScheme(str, Enum):
@@ -123,27 +58,11 @@ class ClientState(str, Enum):
     DISABLED = "Disabled"
 
 
-class DataResidencyBoundary(str, Enum):
-    """
-    Data Residency Boundary of the resource.
-    """
-    WITHIN_GEOPAIR = "WithinGeopair"
-    WITHIN_REGION = "WithinRegion"
-
-
 class DeadLetterEndPointType(str, Enum):
     """
     Type of the endpoint for the dead letter destination
     """
     STORAGE_BLOB = "StorageBlob"
-
-
-class DeliveryAttributeMappingType(str, Enum):
-    """
-    Type of the delivery attribute or header name.
-    """
-    STATIC = "Static"
-    DYNAMIC = "Dynamic"
 
 
 class DeliveryMode(str, Enum):
@@ -157,36 +76,6 @@ class DeliverySchema(str, Enum):
     """
     The event delivery schema for the event subscription.
     """
-    CLOUD_EVENT_SCHEMA_V1_0 = "CloudEventSchemaV1_0"
-
-
-class EndpointType(str, Enum):
-    """
-    Type of the endpoint for the event subscription destination.
-    """
-    WEB_HOOK = "WebHook"
-    EVENT_HUB = "EventHub"
-    STORAGE_QUEUE = "StorageQueue"
-    HYBRID_CONNECTION = "HybridConnection"
-    SERVICE_BUS_QUEUE = "ServiceBusQueue"
-    SERVICE_BUS_TOPIC = "ServiceBusTopic"
-    AZURE_FUNCTION = "AzureFunction"
-    PARTNER_DESTINATION = "PartnerDestination"
-
-
-class EventDefinitionKind(str, Enum):
-    """
-    The kind of event type used.
-    """
-    INLINE = "Inline"
-
-
-class EventDeliverySchema(str, Enum):
-    """
-    The event delivery schema for the event subscription.
-    """
-    EVENT_GRID_SCHEMA = "EventGridSchema"
-    CUSTOM_INPUT_SCHEMA = "CustomInputSchema"
     CLOUD_EVENT_SCHEMA_V1_0 = "CloudEventSchemaV1_0"
 
 
@@ -240,46 +129,11 @@ class IdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
-class InputSchema(str, Enum):
-    """
-    This determines the format that Event Grid should expect for incoming events published to the topic.
-    """
-    EVENT_GRID_SCHEMA = "EventGridSchema"
-    CUSTOM_EVENT_SCHEMA = "CustomEventSchema"
-    CLOUD_EVENT_SCHEMA_V1_0 = "CloudEventSchemaV1_0"
-
-
-class InputSchemaMappingType(str, Enum):
-    """
-    Type of the custom mapping
-    """
-    JSON = "Json"
-
-
 class IpActionType(str, Enum):
     """
     Action to perform based on the match or no match of the IpMask.
     """
     ALLOW = "Allow"
-
-
-class PartnerClientAuthenticationType(str, Enum):
-    """
-    Type of client authentication
-    """
-    AZURE_AD = "AzureAD"
-
-
-class PartnerConfigurationProvisioningState(str, Enum):
-    """
-    Provisioning state of the partner configuration.
-    """
-    CREATING = "Creating"
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    SUCCEEDED = "Succeeded"
-    CANCELED = "Canceled"
-    FAILED = "Failed"
 
 
 class PartnerDestinationActivationState(str, Enum):
@@ -288,31 +142,6 @@ class PartnerDestinationActivationState(str, Enum):
     """
     NEVER_ACTIVATED = "NeverActivated"
     ACTIVATED = "Activated"
-
-
-class PartnerEndpointType(str, Enum):
-    """
-    Type of the endpoint for the partner destination
-    """
-    WEB_HOOK = "WebHook"
-
-
-class PartnerTopicActivationState(str, Enum):
-    """
-    Activation state of the partner topic.
-    """
-    NEVER_ACTIVATED = "NeverActivated"
-    ACTIVATED = "Activated"
-    DEACTIVATED = "Deactivated"
-
-
-class PartnerTopicRoutingMode(str, Enum):
-    """
-    This determines if events published to this partner namespace should use the source attribute in the event payload
-    or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
-    """
-    SOURCE_EVENT_ATTRIBUTE = "SourceEventAttribute"
-    CHANNEL_NAME_HEADER = "ChannelNameHeader"
 
 
 class PermissionType(str, Enum):
@@ -335,8 +164,8 @@ class PersistedConnectionStatus(str, Enum):
 
 class PublicNetworkAccess(str, Enum):
     """
-    This determines if traffic is allowed over public network. By default it is enabled. 
-    You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
+    This determines if traffic is allowed over public network. By default it is enabled.
+    You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PubSub.NamespaceProperties.InboundIpRules" />
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
@@ -347,22 +176,6 @@ class PublisherType(str, Enum):
     Publisher type of the namespace topic.
     """
     CUSTOM = "Custom"
-
-
-class ReadinessState(str, Enum):
-    """
-    The readiness state of the corresponding partner topic.
-    """
-    NEVER_ACTIVATED = "NeverActivated"
-    ACTIVATED = "Activated"
-
-
-class ResourceKind(str, Enum):
-    """
-    Kind of the resource.
-    """
-    AZURE = "Azure"
-    AZURE_ARC = "AzureArc"
 
 
 class ResourceProvisioningState(str, Enum):
@@ -383,14 +196,6 @@ class RoutingIdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
-class Sku(str, Enum):
-    """
-    The Sku name of the resource. The possible values are: Basic or Premium.
-    """
-    BASIC = "Basic"
-    PREMIUM = "Premium"
-
-
 class SkuName(str, Enum):
     """
     The name of the SKU.
@@ -407,7 +212,7 @@ class StaticRoutingEnrichmentType(str, Enum):
 
 class TlsVersion(str, Enum):
     """
-    Minimum TLS version that should be supported by webhook endpoint
+    Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
     """
     TLS_VERSION_1_0 = "1.0"
     TLS_VERSION_1_1 = "1.1"

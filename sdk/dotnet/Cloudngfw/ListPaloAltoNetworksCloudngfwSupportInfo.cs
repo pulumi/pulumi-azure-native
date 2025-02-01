@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// Support information for the service
-        /// Azure REST API version: 2024-02-07-preview.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2024-01-19-preview.
+        /// Other available API versions: 2024-02-07-preview.
         /// </summary>
         public static Task<ListPaloAltoNetworksCloudngfwSupportInfoResult> InvokeAsync(ListPaloAltoNetworksCloudngfwSupportInfoArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPaloAltoNetworksCloudngfwSupportInfoResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwSupportInfo", args ?? new ListPaloAltoNetworksCloudngfwSupportInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// Support information for the service
-        /// Azure REST API version: 2024-02-07-preview.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2024-01-19-preview.
+        /// Other available API versions: 2024-02-07-preview.
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwSupportInfoResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwSupportInfo", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Support information for the service
-        /// Azure REST API version: 2024-02-07-preview.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2024-01-19-preview.
+        /// Other available API versions: 2024-02-07-preview.
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwSupportInfoResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwSupportInfo", InvokeArgs.Empty, options.WithDefaults());

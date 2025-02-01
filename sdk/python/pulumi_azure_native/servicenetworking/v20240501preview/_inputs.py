@@ -13,91 +13,13 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
-from ._enums import *
 
 __all__ = [
-    'AssociationSubnetArgs',
-    'AssociationSubnetArgsDict',
-    'SecurityPolicyConfigurationsArgs',
-    'SecurityPolicyConfigurationsArgsDict',
     'WafPolicyArgs',
     'WafPolicyArgsDict',
-    'WafSecurityPolicyArgs',
-    'WafSecurityPolicyArgsDict',
 ]
 
 MYPY = False
-
-if not MYPY:
-    class AssociationSubnetArgsDict(TypedDict):
-        """
-        Association Subnet.
-        """
-        id: pulumi.Input[str]
-        """
-        Association ID.
-        """
-elif False:
-    AssociationSubnetArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AssociationSubnetArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        Association Subnet.
-        :param pulumi.Input[str] id: Association ID.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        Association ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class SecurityPolicyConfigurationsArgsDict(TypedDict):
-        """
-        SecurityPolicyConfigurations Subresource of Traffic Controller.
-        """
-        waf_security_policy: NotRequired[pulumi.Input['WafSecurityPolicyArgsDict']]
-        """
-        Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
-        """
-elif False:
-    SecurityPolicyConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class SecurityPolicyConfigurationsArgs:
-    def __init__(__self__, *,
-                 waf_security_policy: Optional[pulumi.Input['WafSecurityPolicyArgs']] = None):
-        """
-        SecurityPolicyConfigurations Subresource of Traffic Controller.
-        :param pulumi.Input['WafSecurityPolicyArgs'] waf_security_policy: Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
-        """
-        if waf_security_policy is not None:
-            pulumi.set(__self__, "waf_security_policy", waf_security_policy)
-
-    @property
-    @pulumi.getter(name="wafSecurityPolicy")
-    def waf_security_policy(self) -> Optional[pulumi.Input['WafSecurityPolicyArgs']]:
-        """
-        Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
-        """
-        return pulumi.get(self, "waf_security_policy")
-
-    @waf_security_policy.setter
-    def waf_security_policy(self, value: Optional[pulumi.Input['WafSecurityPolicyArgs']]):
-        pulumi.set(self, "waf_security_policy", value)
-
 
 if not MYPY:
     class WafPolicyArgsDict(TypedDict):
@@ -126,41 +48,6 @@ class WafPolicyArgs:
     def id(self) -> pulumi.Input[str]:
         """
         Resource ID of the WAF
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class WafSecurityPolicyArgsDict(TypedDict):
-        """
-        Web Application Firewall Security Policy
-        """
-        id: pulumi.Input[str]
-        """
-        Resource ID of the Waf Security Policy
-        """
-elif False:
-    WafSecurityPolicyArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class WafSecurityPolicyArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        Web Application Firewall Security Policy
-        :param pulumi.Input[str] id: Resource ID of the Waf Security Policy
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        Resource ID of the Waf Security Policy
         """
         return pulumi.get(self, "id")
 

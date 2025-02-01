@@ -19,23 +19,23 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240401.Outputs
         /// <summary>
         /// This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         /// </summary>
-        public readonly string JumboPacket;
+        public readonly string? JumboPacket;
         /// <summary>
         /// This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
         /// </summary>
-        public readonly string NetworkDirect;
+        public readonly string? NetworkDirect;
         /// <summary>
         /// This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
         /// </summary>
-        public readonly string NetworkDirectTechnology;
+        public readonly string? NetworkDirectTechnology;
 
         [OutputConstructor]
         private AdapterPropertyOverridesResponse(
-            string jumboPacket,
+            string? jumboPacket,
 
-            string networkDirect,
+            string? networkDirect,
 
-            string networkDirectTechnology)
+            string? networkDirectTechnology)
         {
             JumboPacket = jumboPacket;
             NetworkDirect = networkDirect;

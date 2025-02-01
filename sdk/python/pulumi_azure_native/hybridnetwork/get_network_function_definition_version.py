@@ -129,9 +129,9 @@ def get_network_function_definition_version(network_function_definition_group_na
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkFunctionDefinitionVersionResult:
     """
     Gets information about a network function definition version.
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-04-15.
 
-    Other available API versions: 2024-04-15.
+    Other available API versions: 2023-09-01.
 
 
     :param str network_function_definition_group_name: The name of the network function definition group.
@@ -162,9 +162,9 @@ def get_network_function_definition_version_output(network_function_definition_g
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFunctionDefinitionVersionResult]:
     """
     Gets information about a network function definition version.
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-04-15.
 
-    Other available API versions: 2024-04-15.
+    Other available API versions: 2023-09-01.
 
 
     :param str network_function_definition_group_name: The name of the network function definition group.

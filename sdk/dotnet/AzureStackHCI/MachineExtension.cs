@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Describes a Machine Extension.
-    /// Azure REST API version: 2022-12-15-preview.
+    /// Azure REST API version: 2022-12-15-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource

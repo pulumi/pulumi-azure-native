@@ -194,7 +194,9 @@ namespace Pulumi.AzureNative.ContainerInstance.V20241101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20240501preview:CGProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20240501preview:ContainerGroupProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance:CGProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance:ContainerGroupProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

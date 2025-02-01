@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * List credential for publishing artifacts defined in artifact manifest.
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01.
  */
 export function listArtifactManifestCredential(args: ListArtifactManifestCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListArtifactManifestCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,9 +50,9 @@ export interface ListArtifactManifestCredentialResult {
 }
 /**
  * List credential for publishing artifacts defined in artifact manifest.
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01.
  */
 export function listArtifactManifestCredentialOutput(args: ListArtifactManifestCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListArtifactManifestCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

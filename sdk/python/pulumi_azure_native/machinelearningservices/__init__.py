@@ -113,7 +113,6 @@ from .list_featureset_version_materialization_jobs import *
 from .list_inference_group_delta_models_async import *
 from .list_online_endpoint_keys import *
 from .list_serverless_endpoint_keys import *
-from .list_workspace_connection_models import *
 from .list_workspace_connection_secrets import *
 from .list_workspace_keys import *
 from .list_workspace_notebook_access_token import *
@@ -175,12 +174,8 @@ if typing.TYPE_CHECKING:
     v20230601preview = __v20230601preview
     import pulumi_azure_native.machinelearningservices.v20230801preview as __v20230801preview
     v20230801preview = __v20230801preview
-    import pulumi_azure_native.machinelearningservices.v20231001 as __v20231001
-    v20231001 = __v20231001
     import pulumi_azure_native.machinelearningservices.v20240101preview as __v20240101preview
     v20240101preview = __v20240101preview
-    import pulumi_azure_native.machinelearningservices.v20240401 as __v20240401
-    v20240401 = __v20240401
     import pulumi_azure_native.machinelearningservices.v20240401preview as __v20240401preview
     v20240401preview = __v20240401preview
     import pulumi_azure_native.machinelearningservices.v20240701preview as __v20240701preview
@@ -203,9 +198,7 @@ else:
     v20230401preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230401preview')
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230601preview')
     v20230801preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230801preview')
-    v20231001 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20231001')
     v20240101preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20240101preview')
-    v20240401 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20240401')
     v20240401preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20240401preview')
     v20240701preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20240701preview')
     v20241001 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20241001')

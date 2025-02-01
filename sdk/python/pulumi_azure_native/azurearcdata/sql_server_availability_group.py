@@ -133,7 +133,7 @@ class SqlServerAvailabilityGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Arc Sql Server Availability Group
-        Azure REST API version: 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2024-01-01.
 
         Other available API versions: 2024-05-01-preview.
 
@@ -154,7 +154,7 @@ class SqlServerAvailabilityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Arc Sql Server Availability Group
-        Azure REST API version: 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2024-01-01.
 
         Other available API versions: 2024-05-01-preview.
 

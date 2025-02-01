@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['BillingRoleAssignmentByEnrollmentAccountArgs', 'BillingRoleAssignmentByEnrollmentAccount']
 
@@ -22,36 +24,24 @@ class BillingRoleAssignmentByEnrollmentAccountArgs:
                  billing_account_name: pulumi.Input[str],
                  enrollment_account_name: pulumi.Input[str],
                  billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None,
-                 principal_tenant_id: Optional[pulumi.Input[str]] = None,
-                 role_definition_id: Optional[pulumi.Input[str]] = None,
-                 user_authentication_type: Optional[pulumi.Input[str]] = None,
-                 user_email_address: Optional[pulumi.Input[str]] = None):
+                 properties: Optional[pulumi.Input['BillingRoleAssignmentPropertiesArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BillingRoleAssignmentByEnrollmentAccount resource.
         :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.
-        :param pulumi.Input[str] enrollment_account_name: The ID that uniquely identifies an enrollment account.
+        :param pulumi.Input[str] enrollment_account_name: The name of the enrollment account.
         :param pulumi.Input[str] billing_role_assignment_name: The ID that uniquely identifies a role assignment.
-        :param pulumi.Input[str] principal_id: The principal id of the user to whom the role was assigned.
-        :param pulumi.Input[str] principal_tenant_id: The principal tenant id of the user to whom the role was assigned.
-        :param pulumi.Input[str] role_definition_id: The ID of the role definition.
-        :param pulumi.Input[str] user_authentication_type: The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        :param pulumi.Input[str] user_email_address: The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        :param pulumi.Input['BillingRoleAssignmentPropertiesArgs'] properties: The properties of the billing role assignment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
         pulumi.set(__self__, "billing_account_name", billing_account_name)
         pulumi.set(__self__, "enrollment_account_name", enrollment_account_name)
         if billing_role_assignment_name is not None:
             pulumi.set(__self__, "billing_role_assignment_name", billing_role_assignment_name)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if principal_tenant_id is not None:
-            pulumi.set(__self__, "principal_tenant_id", principal_tenant_id)
-        if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
-        if user_authentication_type is not None:
-            pulumi.set(__self__, "user_authentication_type", user_authentication_type)
-        if user_email_address is not None:
-            pulumi.set(__self__, "user_email_address", user_email_address)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="billingAccountName")
@@ -69,7 +59,7 @@ class BillingRoleAssignmentByEnrollmentAccountArgs:
     @pulumi.getter(name="enrollmentAccountName")
     def enrollment_account_name(self) -> pulumi.Input[str]:
         """
-        The ID that uniquely identifies an enrollment account.
+        The name of the enrollment account.
         """
         return pulumi.get(self, "enrollment_account_name")
 
@@ -90,64 +80,28 @@ class BillingRoleAssignmentByEnrollmentAccountArgs:
         pulumi.set(self, "billing_role_assignment_name", value)
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['BillingRoleAssignmentPropertiesArgs']]:
         """
-        The principal id of the user to whom the role was assigned.
+        The properties of the billing role assignment.
         """
-        return pulumi.get(self, "principal_id")
+        return pulumi.get(self, "properties")
 
-    @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "principal_id", value)
-
-    @property
-    @pulumi.getter(name="principalTenantId")
-    def principal_tenant_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The principal tenant id of the user to whom the role was assigned.
-        """
-        return pulumi.get(self, "principal_tenant_id")
-
-    @principal_tenant_id.setter
-    def principal_tenant_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "principal_tenant_id", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['BillingRoleAssignmentPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
     @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The ID of the role definition.
+        Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
-        return pulumi.get(self, "role_definition_id")
+        return pulumi.get(self, "tags")
 
-    @role_definition_id.setter
-    def role_definition_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "role_definition_id", value)
-
-    @property
-    @pulumi.getter(name="userAuthenticationType")
-    def user_authentication_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        """
-        return pulumi.get(self, "user_authentication_type")
-
-    @user_authentication_type.setter
-    def user_authentication_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "user_authentication_type", value)
-
-    @property
-    @pulumi.getter(name="userEmailAddress")
-    def user_email_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        """
-        return pulumi.get(self, "user_email_address")
-
-    @user_email_address.setter
-    def user_email_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "user_email_address", value)
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
@@ -158,28 +112,22 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
                  billing_account_name: Optional[pulumi.Input[str]] = None,
                  billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
                  enrollment_account_name: Optional[pulumi.Input[str]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None,
-                 principal_tenant_id: Optional[pulumi.Input[str]] = None,
-                 role_definition_id: Optional[pulumi.Input[str]] = None,
-                 user_authentication_type: Optional[pulumi.Input[str]] = None,
-                 user_email_address: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union['BillingRoleAssignmentPropertiesArgs', 'BillingRoleAssignmentPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        The role assignment
-        Azure REST API version: 2019-10-01-preview. Prior API version in Azure Native 1.x: 2019-10-01-preview.
+        The properties of the billing role assignment.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2019-10-01-preview.
 
-        Other available API versions: 2024-04-01.
+        Other available API versions: 2019-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.
         :param pulumi.Input[str] billing_role_assignment_name: The ID that uniquely identifies a role assignment.
-        :param pulumi.Input[str] enrollment_account_name: The ID that uniquely identifies an enrollment account.
-        :param pulumi.Input[str] principal_id: The principal id of the user to whom the role was assigned.
-        :param pulumi.Input[str] principal_tenant_id: The principal tenant id of the user to whom the role was assigned.
-        :param pulumi.Input[str] role_definition_id: The ID of the role definition.
-        :param pulumi.Input[str] user_authentication_type: The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        :param pulumi.Input[str] user_email_address: The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        :param pulumi.Input[str] enrollment_account_name: The name of the enrollment account.
+        :param pulumi.Input[Union['BillingRoleAssignmentPropertiesArgs', 'BillingRoleAssignmentPropertiesArgsDict']] properties: The properties of the billing role assignment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
         ...
     @overload
@@ -188,10 +136,10 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
                  args: BillingRoleAssignmentByEnrollmentAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The role assignment
-        Azure REST API version: 2019-10-01-preview. Prior API version in Azure Native 1.x: 2019-10-01-preview.
+        The properties of the billing role assignment.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2019-10-01-preview.
 
-        Other available API versions: 2024-04-01.
+        Other available API versions: 2019-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param BillingRoleAssignmentByEnrollmentAccountArgs args: The arguments to use to populate this resource's properties.
@@ -211,11 +159,8 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
                  billing_account_name: Optional[pulumi.Input[str]] = None,
                  billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
                  enrollment_account_name: Optional[pulumi.Input[str]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None,
-                 principal_tenant_id: Optional[pulumi.Input[str]] = None,
-                 role_definition_id: Optional[pulumi.Input[str]] = None,
-                 user_authentication_type: Optional[pulumi.Input[str]] = None,
-                 user_email_address: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union['BillingRoleAssignmentPropertiesArgs', 'BillingRoleAssignmentPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,17 +177,10 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
             if enrollment_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'enrollment_account_name'")
             __props__.__dict__["enrollment_account_name"] = enrollment_account_name
-            __props__.__dict__["principal_id"] = principal_id
-            __props__.__dict__["principal_tenant_id"] = principal_tenant_id
-            __props__.__dict__["role_definition_id"] = role_definition_id
-            __props__.__dict__["user_authentication_type"] = user_authentication_type
-            __props__.__dict__["user_email_address"] = user_email_address
-            __props__.__dict__["created_by_principal_id"] = None
-            __props__.__dict__["created_by_principal_tenant_id"] = None
-            __props__.__dict__["created_by_user_email_address"] = None
-            __props__.__dict__["created_on"] = None
+            __props__.__dict__["properties"] = properties
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["scope"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount"), pulumi.Alias(type_="azure-native:billing/v20240401:BillingRoleAssignmentByEnrollmentAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -268,113 +206,50 @@ class BillingRoleAssignmentByEnrollmentAccount(pulumi.CustomResource):
 
         __props__ = BillingRoleAssignmentByEnrollmentAccountArgs.__new__(BillingRoleAssignmentByEnrollmentAccountArgs)
 
-        __props__.__dict__["created_by_principal_id"] = None
-        __props__.__dict__["created_by_principal_tenant_id"] = None
-        __props__.__dict__["created_by_user_email_address"] = None
-        __props__.__dict__["created_on"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["principal_id"] = None
-        __props__.__dict__["principal_tenant_id"] = None
-        __props__.__dict__["role_definition_id"] = None
-        __props__.__dict__["scope"] = None
+        __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["user_authentication_type"] = None
-        __props__.__dict__["user_email_address"] = None
         return BillingRoleAssignmentByEnrollmentAccount(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="createdByPrincipalId")
-    def created_by_principal_id(self) -> pulumi.Output[str]:
-        """
-        The principal Id of the user who created the role assignment.
-        """
-        return pulumi.get(self, "created_by_principal_id")
-
-    @property
-    @pulumi.getter(name="createdByPrincipalTenantId")
-    def created_by_principal_tenant_id(self) -> pulumi.Output[str]:
-        """
-        The tenant Id of the user who created the role assignment.
-        """
-        return pulumi.get(self, "created_by_principal_tenant_id")
-
-    @property
-    @pulumi.getter(name="createdByUserEmailAddress")
-    def created_by_user_email_address(self) -> pulumi.Output[str]:
-        """
-        The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        """
-        return pulumi.get(self, "created_by_user_email_address")
-
-    @property
-    @pulumi.getter(name="createdOn")
-    def created_on(self) -> pulumi.Output[str]:
-        """
-        The date the role assignment was created.
-        """
-        return pulumi.get(self, "created_on")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.BillingRoleAssignmentPropertiesResponse']:
         """
-        The principal id of the user to whom the role was assigned.
+        The properties of the billing role assignment.
         """
-        return pulumi.get(self, "principal_id")
+        return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="principalTenantId")
-    def principal_tenant_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The principal tenant id of the user to whom the role was assigned.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
-        return pulumi.get(self, "principal_tenant_id")
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ID of the role definition.
-        """
-        return pulumi.get(self, "role_definition_id")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[str]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        The scope at which the role was assigned.
+        Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
-        return pulumi.get(self, "scope")
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userAuthenticationType")
-    def user_authentication_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        """
-        return pulumi.get(self, "user_authentication_type")
-
-    @property
-    @pulumi.getter(name="userEmailAddress")
-    def user_email_address(self) -> pulumi.Output[Optional[str]]:
-        """
-        The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        """
-        return pulumi.get(self, "user_email_address")
 

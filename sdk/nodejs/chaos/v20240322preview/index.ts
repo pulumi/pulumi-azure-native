@@ -35,20 +35,10 @@ export const getPrivateAccess: typeof import("./getPrivateAccess").getPrivateAcc
 export const getPrivateAccessOutput: typeof import("./getPrivateAccess").getPrivateAccessOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateAccess","getPrivateAccessOutput"], () => require("./getPrivateAccess"));
 
-export { GetTargetArgs, GetTargetResult, GetTargetOutputArgs } from "./getTarget";
-export const getTarget: typeof import("./getTarget").getTarget = null as any;
-export const getTargetOutput: typeof import("./getTarget").getTargetOutput = null as any;
-utilities.lazyLoad(exports, ["getTarget","getTargetOutput"], () => require("./getTarget"));
-
 export { PrivateAccessArgs } from "./privateAccess";
 export type PrivateAccess = import("./privateAccess").PrivateAccess;
 export const PrivateAccess: typeof import("./privateAccess").PrivateAccess = null as any;
 utilities.lazyLoad(exports, ["PrivateAccess"], () => require("./privateAccess"));
-
-export { TargetArgs } from "./target";
-export type Target = import("./target").Target;
-export const Target: typeof import("./target").Target = null as any;
-utilities.lazyLoad(exports, ["Target"], () => require("./target"));
 
 
 // Export enums:
@@ -64,8 +54,6 @@ const _module = {
                 return new Experiment(name, <any>undefined, { urn })
             case "azure-native:chaos/v20240322preview:PrivateAccess":
                 return new PrivateAccess(name, <any>undefined, { urn })
-            case "azure-native:chaos/v20240322preview:Target":
-                return new Target(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

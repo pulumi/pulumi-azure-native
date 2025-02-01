@@ -27,7 +27,9 @@ class ContainerAppsSessionPoolArgs:
                  custom_container_template: Optional[pulumi.Input['CustomContainerTemplateArgs']] = None,
                  dynamic_pool_configuration: Optional[pulumi.Input['DynamicPoolConfigurationArgs']] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_identity_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedIdentitySettingArgs']]]] = None,
                  pool_management_type: Optional[pulumi.Input[Union[str, 'PoolManagementType']]] = None,
                  scale_configuration: Optional[pulumi.Input['ScaleConfigurationArgs']] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SessionPoolSecretArgs']]]] = None,
@@ -41,7 +43,9 @@ class ContainerAppsSessionPoolArgs:
         :param pulumi.Input['CustomContainerTemplateArgs'] custom_container_template: The custom container configuration if the containerType is CustomContainer.
         :param pulumi.Input['DynamicPoolConfigurationArgs'] dynamic_pool_configuration: The pool configuration if the poolManagementType is dynamic.
         :param pulumi.Input[str] environment_id: Resource ID of the session pool's environment.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedIdentitySettingArgs']]] managed_identity_settings: Optional settings for a Managed Identity that is assigned to the Session pool.
         :param pulumi.Input[Union[str, 'PoolManagementType']] pool_management_type: The pool management type of the session pool.
         :param pulumi.Input['ScaleConfigurationArgs'] scale_configuration: The scale configuration of the session pool.
         :param pulumi.Input[Sequence[pulumi.Input['SessionPoolSecretArgs']]] secrets: The secrets of the session pool.
@@ -58,8 +62,12 @@ class ContainerAppsSessionPoolArgs:
             pulumi.set(__self__, "dynamic_pool_configuration", dynamic_pool_configuration)
         if environment_id is not None:
             pulumi.set(__self__, "environment_id", environment_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_identity_settings is not None:
+            pulumi.set(__self__, "managed_identity_settings", managed_identity_settings)
         if pool_management_type is not None:
             pulumi.set(__self__, "pool_management_type", pool_management_type)
         if scale_configuration is not None:
@@ -135,6 +143,18 @@ class ContainerAppsSessionPoolArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The geo-location where the resource lives
@@ -144,6 +164,18 @@ class ContainerAppsSessionPoolArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managedIdentitySettings")
+    def managed_identity_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedIdentitySettingArgs']]]]:
+        """
+        Optional settings for a Managed Identity that is assigned to the Session pool.
+        """
+        return pulumi.get(self, "managed_identity_settings")
+
+    @managed_identity_settings.setter
+    def managed_identity_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedIdentitySettingArgs']]]]):
+        pulumi.set(self, "managed_identity_settings", value)
 
     @property
     @pulumi.getter(name="poolManagementType")
@@ -227,7 +259,9 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
                  custom_container_template: Optional[pulumi.Input[Union['CustomContainerTemplateArgs', 'CustomContainerTemplateArgsDict']]] = None,
                  dynamic_pool_configuration: Optional[pulumi.Input[Union['DynamicPoolConfigurationArgs', 'DynamicPoolConfigurationArgsDict']]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_identity_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedIdentitySettingArgs', 'ManagedIdentitySettingArgsDict']]]]] = None,
                  pool_management_type: Optional[pulumi.Input[Union[str, 'PoolManagementType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_configuration: Optional[pulumi.Input[Union['ScaleConfigurationArgs', 'ScaleConfigurationArgsDict']]] = None,
@@ -238,9 +272,9 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
                  __props__=None):
         """
         Container App session pool.
-        Azure REST API version: 2024-02-02-preview.
+        Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2024-02-02-preview.
 
-        Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+        Other available API versions: 2024-02-02-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,7 +282,9 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
         :param pulumi.Input[Union['CustomContainerTemplateArgs', 'CustomContainerTemplateArgsDict']] custom_container_template: The custom container configuration if the containerType is CustomContainer.
         :param pulumi.Input[Union['DynamicPoolConfigurationArgs', 'DynamicPoolConfigurationArgsDict']] dynamic_pool_configuration: The pool configuration if the poolManagementType is dynamic.
         :param pulumi.Input[str] environment_id: Resource ID of the session pool's environment.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedIdentitySettingArgs', 'ManagedIdentitySettingArgsDict']]]] managed_identity_settings: Optional settings for a Managed Identity that is assigned to the Session pool.
         :param pulumi.Input[Union[str, 'PoolManagementType']] pool_management_type: The pool management type of the session pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ScaleConfigurationArgs', 'ScaleConfigurationArgsDict']] scale_configuration: The scale configuration of the session pool.
@@ -265,9 +301,9 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container App session pool.
-        Azure REST API version: 2024-02-02-preview.
+        Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2024-02-02-preview.
 
-        Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+        Other available API versions: 2024-02-02-preview.
 
         :param str resource_name: The name of the resource.
         :param ContainerAppsSessionPoolArgs args: The arguments to use to populate this resource's properties.
@@ -288,7 +324,9 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
                  custom_container_template: Optional[pulumi.Input[Union['CustomContainerTemplateArgs', 'CustomContainerTemplateArgsDict']]] = None,
                  dynamic_pool_configuration: Optional[pulumi.Input[Union['DynamicPoolConfigurationArgs', 'DynamicPoolConfigurationArgsDict']]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_identity_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedIdentitySettingArgs', 'ManagedIdentitySettingArgsDict']]]]] = None,
                  pool_management_type: Optional[pulumi.Input[Union[str, 'PoolManagementType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_configuration: Optional[pulumi.Input[Union['ScaleConfigurationArgs', 'ScaleConfigurationArgsDict']]] = None,
@@ -309,7 +347,9 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
             __props__.__dict__["custom_container_template"] = custom_container_template
             __props__.__dict__["dynamic_pool_configuration"] = dynamic_pool_configuration
             __props__.__dict__["environment_id"] = environment_id
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_identity_settings"] = managed_identity_settings
             __props__.__dict__["pool_management_type"] = pool_management_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -353,7 +393,9 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
         __props__.__dict__["custom_container_template"] = None
         __props__.__dict__["dynamic_pool_configuration"] = None
         __props__.__dict__["environment_id"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["managed_identity_settings"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["node_count"] = None
         __props__.__dict__["pool_management_endpoint"] = None
@@ -401,11 +443,27 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedIdentitySettings")
+    def managed_identity_settings(self) -> pulumi.Output[Optional[Sequence['outputs.ManagedIdentitySettingResponse']]]:
+        """
+        Optional settings for a Managed Identity that is assigned to the Session pool.
+        """
+        return pulumi.get(self, "managed_identity_settings")
 
     @property
     @pulumi.getter

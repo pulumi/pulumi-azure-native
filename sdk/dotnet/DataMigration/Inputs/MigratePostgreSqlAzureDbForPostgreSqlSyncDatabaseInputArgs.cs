@@ -15,17 +15,11 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     /// </summary>
     public sealed class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("migrationSetting")]
-        private InputMap<string>? _migrationSetting;
-
         /// <summary>
         /// Migration settings which tune the migration behavior
         /// </summary>
-        public InputMap<string> MigrationSetting
-        {
-            get => _migrationSetting ?? (_migrationSetting = new InputMap<string>());
-            set => _migrationSetting = value;
-        }
+        [Input("migrationSetting")]
+        public Input<object>? MigrationSetting { get; set; }
 
         /// <summary>
         /// Name of the database

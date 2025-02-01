@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a CA certificate.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Task<GetCaCertificateResult> InvokeAsync(GetCaCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCaCertificateResult>("azure-native:eventgrid:getCaCertificate", args ?? new GetCaCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a CA certificate.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Output<GetCaCertificateResult> Invoke(GetCaCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCaCertificateResult>("azure-native:eventgrid:getCaCertificate", args ?? new GetCaCertificateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a CA certificate.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Output<GetCaCertificateResult> Invoke(GetCaCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCaCertificateResult>("azure-native:eventgrid:getCaCertificate", args ?? new GetCaCertificateInvokeArgs(), options.WithDefaults());
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system metadata relating to the CaCertificate resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

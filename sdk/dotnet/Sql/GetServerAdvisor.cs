@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a server advisor.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2014-04-01, 2024-05-01-preview.
         /// </summary>
         public static Task<GetServerAdvisorResult> InvokeAsync(GetServerAdvisorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerAdvisorResult>("azure-native:sql:getServerAdvisor", args ?? new GetServerAdvisorArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a server advisor.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2014-04-01, 2024-05-01-preview.
         /// </summary>
         public static Output<GetServerAdvisorResult> Invoke(GetServerAdvisorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerAdvisorResult>("azure-native:sql:getServerAdvisor", args ?? new GetServerAdvisorInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a server advisor.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2014-04-01, 2024-05-01-preview.
         /// </summary>
         public static Output<GetServerAdvisorResult> Invoke(GetServerAdvisorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerAdvisorResult>("azure-native:sql:getServerAdvisor", args ?? new GetServerAdvisorInvokeArgs(), options.WithDefaults());

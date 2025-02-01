@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the capacity reservation group that the capacity reservations should be assigned to. Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-04-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Other available API versions: 2023-03-01.
  */
 export class CapacityReservationGroup extends pulumi.CustomResource {
     /**
@@ -57,6 +57,10 @@ export class CapacityReservationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+     */
+    public readonly sharingProfile!: pulumi.Output<outputs.compute.ResourceSharingProfileResponse | undefined>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -90,6 +94,7 @@ export class CapacityReservationGroup extends pulumi.CustomResource {
             resourceInputs["capacityReservationGroupName"] = args ? args.capacityReservationGroupName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sharingProfile"] = args ? args.sharingProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["capacityReservations"] = undefined /*out*/;
@@ -102,6 +107,7 @@ export class CapacityReservationGroup extends pulumi.CustomResource {
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sharingProfile"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachinesAssociated"] = undefined /*out*/;
@@ -130,6 +136,10 @@ export interface CapacityReservationGroupArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+     */
+    sharingProfile?: pulumi.Input<inputs.compute.ResourceSharingProfileArgs>;
     /**
      * Resource tags
      */

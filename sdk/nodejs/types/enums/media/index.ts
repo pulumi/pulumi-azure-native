@@ -732,22 +732,6 @@ export const LiveEventInputProtocol = {
  */
 export type LiveEventInputProtocol = (typeof LiveEventInputProtocol)[keyof typeof LiveEventInputProtocol];
 
-export const MediaGraphRtspTransport = {
-    /**
-     * HTTP/HTTPS transport. This should be used when HTTP tunneling is desired.
-     */
-    Http: "Http",
-    /**
-     * TCP transport. This should be used when HTTP tunneling is not desired.
-     */
-    Tcp: "Tcp",
-} as const;
-
-/**
- * Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
- */
-export type MediaGraphRtspTransport = (typeof MediaGraphRtspTransport)[keyof typeof MediaGraphRtspTransport];
-
 export const MinimumTlsVersion = {
     /**
      * Minimum TLS version is TLS 1.0.

@@ -30,10 +30,10 @@ class SignalRSharedPrivateLinkResourceArgs:
         The set of arguments for constructing a SignalRSharedPrivateLinkResource resource.
         :param pulumi.Input[str] group_id: The group id from the provider of resource the shared private link resource is for
         :param pulumi.Input[str] private_link_resource_id: The resource id of the resource the shared private link resource is for
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name: The name of the resource.
         :param pulumi.Input[str] request_message: The request message for requesting approval of the shared private link resource
-        :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource
+        :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
@@ -72,7 +72,7 @@ class SignalRSharedPrivateLinkResourceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -108,7 +108,7 @@ class SignalRSharedPrivateLinkResourceArgs:
     @pulumi.getter(name="sharedPrivateLinkResourceName")
     def shared_private_link_resource_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the shared private link resource
+        The name of the shared private link resource.
         """
         return pulumi.get(self, "shared_private_link_resource_name")
 
@@ -131,18 +131,18 @@ class SignalRSharedPrivateLinkResource(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Shared Private Link Resource
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-02-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: The group id from the provider of resource the shared private link resource is for
         :param pulumi.Input[str] private_link_resource_id: The resource id of the resource the shared private link resource is for
         :param pulumi.Input[str] request_message: The request message for requesting approval of the shared private link resource
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the resource.
-        :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource
+        :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource.
         """
         ...
     @overload
@@ -152,9 +152,9 @@ class SignalRSharedPrivateLinkResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Shared Private Link Resource
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-02-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SignalRSharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.
@@ -251,7 +251,7 @@ class SignalRSharedPrivateLinkResource(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -291,7 +291,7 @@ class SignalRSharedPrivateLinkResource(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -299,7 +299,7 @@ class SignalRSharedPrivateLinkResource(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.BotService.Inputs
 
         public MsTeamsChannelPropertiesArgs()
         {
-            DeploymentEnvironment = "FallbackDeploymentEnvironment";
+            DeploymentEnvironment = "CommercialDeployment";
             EnableCalling = false;
         }
         public static new MsTeamsChannelPropertiesArgs Empty => new MsTeamsChannelPropertiesArgs();

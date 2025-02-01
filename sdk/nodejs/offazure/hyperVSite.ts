@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site REST Resource.
- * Azure REST API version: 2020-07-07. Prior API version in Azure Native 1.x: 2020-01-01.
+ * Azure REST API version: 2020-07-07. Prior API version in Azure Native 2.x: 2020-07-07.
  */
 export class HyperVSite extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class HyperVSite extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:HyperVSite" }, { type: "azure-native:offazure/v20200707:HyperVSite" }, { type: "azure-native:offazure/v20230606:HyperVSite" }, { type: "azure-native:offazure/v20231001preview:HyperVSite" }, { type: "azure-native:offazure/v20240501preview:HyperVSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:HyperVSite" }, { type: "azure-native:offazure/v20200707:HyperVSite" }, { type: "azure-native:offazure/v20230606:HyperVSite" }, { type: "azure-native:offazure/v20230606:HypervSitesController" }, { type: "azure-native:offazure/v20231001preview:HyperVSite" }, { type: "azure-native:offazure/v20231001preview:HypervSitesController" }, { type: "azure-native:offazure/v20240501preview:HyperVSite" }, { type: "azure-native:offazure/v20240501preview:HypervSitesController" }, { type: "azure-native:offazure:HypervSitesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HyperVSite.__pulumiType, name, resourceInputs, opts);
     }

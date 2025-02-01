@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Gets properties of a specified share.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Task<GetFileShareResult> InvokeAsync(GetFileShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-native:storage:getFileShare", args ?? new GetFileShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a specified share.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Output<GetFileShareResult> Invoke(GetFileShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileShareResult>("azure-native:storage:getFileShare", args ?? new GetFileShareInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a specified share.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Output<GetFileShareResult> Invoke(GetFileShareInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileShareResult>("azure-native:storage:getFileShare", args ?? new GetFileShareInvokeArgs(), options.WithDefaults());

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ScVmm
     {
         /// <summary>
         /// Implements VirtualMachineTemplate GET method.
-        /// Azure REST API version: 2022-05-21-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Other available API versions: 2022-05-21-preview, 2024-06-01.
         /// </summary>
         public static Task<GetVirtualMachineTemplateResult> InvokeAsync(GetVirtualMachineTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineTemplateResult>("azure-native:scvmm:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements VirtualMachineTemplate GET method.
-        /// Azure REST API version: 2022-05-21-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Other available API versions: 2022-05-21-preview, 2024-06-01.
         /// </summary>
         public static Output<GetVirtualMachineTemplateResult> Invoke(GetVirtualMachineTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineTemplateResult>("azure-native:scvmm:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements VirtualMachineTemplate GET method.
-        /// Azure REST API version: 2022-05-21-preview.
+        /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        /// Other available API versions: 2022-05-21-preview, 2024-06-01.
         /// </summary>
         public static Output<GetVirtualMachineTemplateResult> Invoke(GetVirtualMachineTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineTemplateResult>("azure-native:scvmm:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateInvokeArgs(), options.WithDefaults());

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Impact
 {
     /// <summary>
     /// Workload Impact properties
-    /// Azure REST API version: 2024-05-01-preview.
+    /// Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:impact:WorkloadImpact")]
     public partial class WorkloadImpact : global::Pulumi.CustomResource

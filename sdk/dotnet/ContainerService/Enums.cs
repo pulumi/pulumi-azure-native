@@ -119,6 +119,43 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// The type of the managed inbound Load Balancer BackendPool.
+    /// </summary>
+    [EnumType]
+    public readonly struct BackendPoolType : IEquatable<BackendPoolType>
+    {
+        private readonly string _value;
+
+        private BackendPoolType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The type of the managed inbound Load Balancer BackendPool. https://cloud-provider-azure.sigs.k8s.io/topics/loadbalancer/#configure-load-balancer-backend.
+        /// </summary>
+        public static BackendPoolType NodeIPConfiguration { get; } = new BackendPoolType("NodeIPConfiguration");
+        /// <summary>
+        /// The type of the managed inbound Load Balancer BackendPool. https://cloud-provider-azure.sigs.k8s.io/topics/loadbalancer/#configure-load-balancer-backend.
+        /// </summary>
+        public static BackendPoolType NodeIP { get; } = new BackendPoolType("NodeIP");
+
+        public static bool operator ==(BackendPoolType left, BackendPoolType right) => left.Equals(right);
+        public static bool operator !=(BackendPoolType left, BackendPoolType right) => !left.Equals(right);
+
+        public static explicit operator string(BackendPoolType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackendPoolType other && Equals(other);
+        public bool Equals(BackendPoolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Tells whether the cluster is Running or Stopped
     /// </summary>
     [EnumType]
@@ -321,6 +358,43 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IpFamily other && Equals(other);
         public bool Equals(IpFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Mode of an ingress gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct IstioIngressGatewayMode : IEquatable<IstioIngressGatewayMode>
+    {
+        private readonly string _value;
+
+        private IstioIngressGatewayMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The ingress gateway is assigned a public IP address and is publicly accessible.
+        /// </summary>
+        public static IstioIngressGatewayMode External { get; } = new IstioIngressGatewayMode("External");
+        /// <summary>
+        /// The ingress gateway is assigned an internal IP address and cannot is accessed publicly.
+        /// </summary>
+        public static IstioIngressGatewayMode Internal { get; } = new IstioIngressGatewayMode("Internal");
+
+        public static bool operator ==(IstioIngressGatewayMode left, IstioIngressGatewayMode right) => left.Equals(right);
+        public static bool operator !=(IstioIngressGatewayMode left, IstioIngressGatewayMode right) => !left.Equals(right);
+
+        public static explicit operator string(IstioIngressGatewayMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IstioIngressGatewayMode other && Equals(other);
+        public bool Equals(IstioIngressGatewayMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -602,6 +676,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// NodeImageOnly upgrades only the node images of the target ManagedClusters. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to NOT be set.
         /// </summary>
         public static ManagedClusterUpgradeType NodeImageOnly { get; } = new ManagedClusterUpgradeType("NodeImageOnly");
+        /// <summary>
+        /// ControlPlaneOnly upgrades only targets the KubernetesVersion of the ManagedClusters and will not be applied to the AgentPool. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to be set.
+        /// </summary>
+        public static ManagedClusterUpgradeType ControlPlaneOnly { get; } = new ManagedClusterUpgradeType("ControlPlaneOnly");
 
         public static bool operator ==(ManagedClusterUpgradeType left, ManagedClusterUpgradeType right) => left.Equals(right);
         public static bool operator !=(ManagedClusterUpgradeType left, ManagedClusterUpgradeType right) => !left.Equals(right);
@@ -611,6 +689,39 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedClusterUpgradeType other && Equals(other);
         public bool Equals(ManagedClusterUpgradeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned, UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -780,6 +891,10 @@ namespace Pulumi.AzureNative.ContainerService
         }
 
         /// <summary>
+        /// Network policies will not be enforced. This is the default value when NetworkPolicy is not specified.
+        /// </summary>
+        public static NetworkPolicy None { get; } = new NetworkPolicy("none");
+        /// <summary>
         /// Use Calico network policies. See [differences between Azure and Calico policies](https://docs.microsoft.com/azure/aks/use-network-policies#differences-between-azure-and-calico-policies-and-their-capabilities) for more information.
         /// </summary>
         public static NetworkPolicy Calico { get; } = new NetworkPolicy("calico");
@@ -800,6 +915,92 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NetworkPolicy other && Equals(other);
         public bool Equals(NetworkPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The node image upgrade type.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodeImageSelectionType : IEquatable<NodeImageSelectionType>
+    {
+        private readonly string _value;
+
+        private NodeImageSelectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Use the latest image version when upgrading nodes. Clusters may use different image versions (e.g., 'AKSUbuntu-1804gen2containerd-2021.10.12' and 'AKSUbuntu-1804gen2containerd-2021.10.19') because, for example, the latest available version is different in different regions.
+        /// </summary>
+        public static NodeImageSelectionType Latest { get; } = new NodeImageSelectionType("Latest");
+        /// <summary>
+        /// The image versions to upgrade nodes to are selected as described below: for each node pool in managed clusters affected by the update run, the system selects the latest image version such that it is available across all other node pools (in all other clusters) of the same image type. As a result, all node pools of the same image type will be upgraded to the same image version. For example, if the latest image version for image type 'AKSUbuntu-1804gen2containerd' is 'AKSUbuntu-1804gen2containerd-2021.10.12' for a node pool in cluster A in region X, and is 'AKSUbuntu-1804gen2containerd-2021.10.17' for a node pool in cluster B in region Y, the system will upgrade both node pools to image version 'AKSUbuntu-1804gen2containerd-2021.10.12'.
+        /// </summary>
+        public static NodeImageSelectionType Consistent { get; } = new NodeImageSelectionType("Consistent");
+        /// <summary>
+        /// Upgrade the nodes to the custom image versions. When set, update run will use node image versions provided in customNodeImageVersions to upgrade the nodes. If set, customNodeImageVersions must not be empty.
+        /// </summary>
+        public static NodeImageSelectionType Custom { get; } = new NodeImageSelectionType("Custom");
+
+        public static bool operator ==(NodeImageSelectionType left, NodeImageSelectionType right) => left.Equals(right);
+        public static bool operator !=(NodeImageSelectionType left, NodeImageSelectionType right) => !left.Equals(right);
+
+        public static explicit operator string(NodeImageSelectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodeImageSelectionType other && Equals(other);
+        public bool Equals(NodeImageSelectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Manner in which the OS on your nodes is updated. The default is NodeImage.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodeOSUpgradeChannel : IEquatable<NodeOSUpgradeChannel>
+    {
+        private readonly string _value;
+
+        private NodeOSUpgradeChannel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// No attempt to update your machines OS will be made either by OS or by rolling VHDs. This means you are responsible for your security updates
+        /// </summary>
+        public static NodeOSUpgradeChannel None { get; } = new NodeOSUpgradeChannel("None");
+        /// <summary>
+        /// OS updates will be applied automatically through the OS built-in patching infrastructure. Newly scaled in machines will be unpatched initially and will be patched at some point by the OS's infrastructure. Behavior of this option depends on the OS in question. Ubuntu and Mariner apply security patches through unattended upgrade roughly once a day around 06:00 UTC. Windows does not apply security patches automatically and so for them this option is equivalent to None till further notice
+        /// </summary>
+        public static NodeOSUpgradeChannel Unmanaged { get; } = new NodeOSUpgradeChannel("Unmanaged");
+        /// <summary>
+        /// AKS will update the nodes with a newly patched VHD containing security fixes and bugfixes on a weekly cadence. With the VHD update machines will be rolling reimaged to that VHD following maintenance windows and surge settings. No extra VHD cost is incurred when choosing this option as AKS hosts the images.
+        /// </summary>
+        public static NodeOSUpgradeChannel NodeImage { get; } = new NodeOSUpgradeChannel("NodeImage");
+        /// <summary>
+        /// AKS downloads and updates the nodes with tested security updates. These updates honor the maintenance window settings and produce a new VHD that is used on new nodes. On some occasions it's not possible to apply the updates in place, in such cases the existing nodes will also be re-imaged to the newly produced VHD in order to apply the changes. This option incurs an extra cost of hosting the new Security Patch VHDs in your resource group for just in time consumption.
+        /// </summary>
+        public static NodeOSUpgradeChannel SecurityPatch { get; } = new NodeOSUpgradeChannel("SecurityPatch");
+
+        public static bool operator ==(NodeOSUpgradeChannel left, NodeOSUpgradeChannel right) => left.Equals(right);
+        public static bool operator !=(NodeOSUpgradeChannel left, NodeOSUpgradeChannel right) => !left.Equals(right);
+
+        public static explicit operator string(NodeOSUpgradeChannel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodeOSUpgradeChannel other && Equals(other);
+        public bool Equals(NodeOSUpgradeChannel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -894,7 +1095,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+    /// The operating system type. The default is Linux.
     /// </summary>
     [EnumType]
     public readonly struct OSType : IEquatable<OSType>
@@ -906,7 +1107,13 @@ namespace Pulumi.AzureNative.ContainerService
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Use Linux.
+        /// </summary>
         public static OSType Linux { get; } = new OSType("Linux");
+        /// <summary>
+        /// Use Windows.
+        /// </summary>
         public static OSType Windows { get; } = new OSType("Windows");
 
         public static bool operator ==(OSType left, OSType right) => left.Equals(right);
@@ -917,99 +1124,6 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OSType other && Equals(other);
         public bool Equals(OSType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Define the role of the AgentPoolProfile.
-    /// </summary>
-    [EnumType]
-    public readonly struct OpenShiftAgentPoolProfileRole : IEquatable<OpenShiftAgentPoolProfileRole>
-    {
-        private readonly string _value;
-
-        private OpenShiftAgentPoolProfileRole(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static OpenShiftAgentPoolProfileRole Compute { get; } = new OpenShiftAgentPoolProfileRole("compute");
-        public static OpenShiftAgentPoolProfileRole Infra { get; } = new OpenShiftAgentPoolProfileRole("infra");
-
-        public static bool operator ==(OpenShiftAgentPoolProfileRole left, OpenShiftAgentPoolProfileRole right) => left.Equals(right);
-        public static bool operator !=(OpenShiftAgentPoolProfileRole left, OpenShiftAgentPoolProfileRole right) => !left.Equals(right);
-
-        public static explicit operator string(OpenShiftAgentPoolProfileRole value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is OpenShiftAgentPoolProfileRole other && Equals(other);
-        public bool Equals(OpenShiftAgentPoolProfileRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Size of agent VMs.
-    /// </summary>
-    [EnumType]
-    public readonly struct OpenShiftContainerServiceVMSize : IEquatable<OpenShiftContainerServiceVMSize>
-    {
-        private readonly string _value;
-
-        private OpenShiftContainerServiceVMSize(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static OpenShiftContainerServiceVMSize Standard_D2s_v3 { get; } = new OpenShiftContainerServiceVMSize("Standard_D2s_v3");
-        public static OpenShiftContainerServiceVMSize Standard_D4s_v3 { get; } = new OpenShiftContainerServiceVMSize("Standard_D4s_v3");
-        public static OpenShiftContainerServiceVMSize Standard_D8s_v3 { get; } = new OpenShiftContainerServiceVMSize("Standard_D8s_v3");
-        public static OpenShiftContainerServiceVMSize Standard_D16s_v3 { get; } = new OpenShiftContainerServiceVMSize("Standard_D16s_v3");
-        public static OpenShiftContainerServiceVMSize Standard_D32s_v3 { get; } = new OpenShiftContainerServiceVMSize("Standard_D32s_v3");
-        public static OpenShiftContainerServiceVMSize Standard_D64s_v3 { get; } = new OpenShiftContainerServiceVMSize("Standard_D64s_v3");
-        public static OpenShiftContainerServiceVMSize Standard_DS4_v2 { get; } = new OpenShiftContainerServiceVMSize("Standard_DS4_v2");
-        public static OpenShiftContainerServiceVMSize Standard_DS5_v2 { get; } = new OpenShiftContainerServiceVMSize("Standard_DS5_v2");
-        public static OpenShiftContainerServiceVMSize Standard_F8s_v2 { get; } = new OpenShiftContainerServiceVMSize("Standard_F8s_v2");
-        public static OpenShiftContainerServiceVMSize Standard_F16s_v2 { get; } = new OpenShiftContainerServiceVMSize("Standard_F16s_v2");
-        public static OpenShiftContainerServiceVMSize Standard_F32s_v2 { get; } = new OpenShiftContainerServiceVMSize("Standard_F32s_v2");
-        public static OpenShiftContainerServiceVMSize Standard_F64s_v2 { get; } = new OpenShiftContainerServiceVMSize("Standard_F64s_v2");
-        public static OpenShiftContainerServiceVMSize Standard_F72s_v2 { get; } = new OpenShiftContainerServiceVMSize("Standard_F72s_v2");
-        public static OpenShiftContainerServiceVMSize Standard_F8s { get; } = new OpenShiftContainerServiceVMSize("Standard_F8s");
-        public static OpenShiftContainerServiceVMSize Standard_F16s { get; } = new OpenShiftContainerServiceVMSize("Standard_F16s");
-        public static OpenShiftContainerServiceVMSize Standard_E4s_v3 { get; } = new OpenShiftContainerServiceVMSize("Standard_E4s_v3");
-        public static OpenShiftContainerServiceVMSize Standard_E8s_v3 { get; } = new OpenShiftContainerServiceVMSize("Standard_E8s_v3");
-        public static OpenShiftContainerServiceVMSize Standard_E16s_v3 { get; } = new OpenShiftContainerServiceVMSize("Standard_E16s_v3");
-        public static OpenShiftContainerServiceVMSize Standard_E20s_v3 { get; } = new OpenShiftContainerServiceVMSize("Standard_E20s_v3");
-        public static OpenShiftContainerServiceVMSize Standard_E32s_v3 { get; } = new OpenShiftContainerServiceVMSize("Standard_E32s_v3");
-        public static OpenShiftContainerServiceVMSize Standard_E64s_v3 { get; } = new OpenShiftContainerServiceVMSize("Standard_E64s_v3");
-        public static OpenShiftContainerServiceVMSize Standard_GS2 { get; } = new OpenShiftContainerServiceVMSize("Standard_GS2");
-        public static OpenShiftContainerServiceVMSize Standard_GS3 { get; } = new OpenShiftContainerServiceVMSize("Standard_GS3");
-        public static OpenShiftContainerServiceVMSize Standard_GS4 { get; } = new OpenShiftContainerServiceVMSize("Standard_GS4");
-        public static OpenShiftContainerServiceVMSize Standard_GS5 { get; } = new OpenShiftContainerServiceVMSize("Standard_GS5");
-        public static OpenShiftContainerServiceVMSize Standard_DS12_v2 { get; } = new OpenShiftContainerServiceVMSize("Standard_DS12_v2");
-        public static OpenShiftContainerServiceVMSize Standard_DS13_v2 { get; } = new OpenShiftContainerServiceVMSize("Standard_DS13_v2");
-        public static OpenShiftContainerServiceVMSize Standard_DS14_v2 { get; } = new OpenShiftContainerServiceVMSize("Standard_DS14_v2");
-        public static OpenShiftContainerServiceVMSize Standard_DS15_v2 { get; } = new OpenShiftContainerServiceVMSize("Standard_DS15_v2");
-        public static OpenShiftContainerServiceVMSize Standard_L4s { get; } = new OpenShiftContainerServiceVMSize("Standard_L4s");
-        public static OpenShiftContainerServiceVMSize Standard_L8s { get; } = new OpenShiftContainerServiceVMSize("Standard_L8s");
-        public static OpenShiftContainerServiceVMSize Standard_L16s { get; } = new OpenShiftContainerServiceVMSize("Standard_L16s");
-        public static OpenShiftContainerServiceVMSize Standard_L32s { get; } = new OpenShiftContainerServiceVMSize("Standard_L32s");
-
-        public static bool operator ==(OpenShiftContainerServiceVMSize left, OpenShiftContainerServiceVMSize right) => left.Equals(right);
-        public static bool operator !=(OpenShiftContainerServiceVMSize left, OpenShiftContainerServiceVMSize right) => !left.Equals(right);
-
-        public static explicit operator string(OpenShiftContainerServiceVMSize value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is OpenShiftContainerServiceVMSize other && Equals(other);
-        public bool Equals(OpenShiftContainerServiceVMSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1108,6 +1222,43 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// The network protocol of the port.
+    /// </summary>
+    [EnumType]
+    public readonly struct Protocol : IEquatable<Protocol>
+    {
+        private readonly string _value;
+
+        private Protocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// TCP protocol.
+        /// </summary>
+        public static Protocol TCP { get; } = new Protocol("TCP");
+        /// <summary>
+        /// UDP protocol.
+        /// </summary>
+        public static Protocol UDP { get; } = new Protocol("UDP");
+
+        public static bool operator ==(Protocol left, Protocol right) => left.Equals(right);
+        public static bool operator !=(Protocol left, Protocol right) => !left.Equals(right);
+
+        public static explicit operator string(Protocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Protocol other && Equals(other);
+        public bool Equals(Protocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Allow or deny public network access for AKS
     /// </summary>
     [EnumType]
@@ -1172,6 +1323,43 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The restriction level applied to the cluster's node resource group. If not specified, the default is 'Unrestricted'
+    /// </summary>
+    [EnumType]
+    public readonly struct RestrictionLevel : IEquatable<RestrictionLevel>
+    {
+        private readonly string _value;
+
+        private RestrictionLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// All RBAC permissions are allowed on the managed node resource group
+        /// </summary>
+        public static RestrictionLevel Unrestricted { get; } = new RestrictionLevel("Unrestricted");
+        /// <summary>
+        /// Only */read RBAC permissions allowed on the managed node resource group
+        /// </summary>
+        public static RestrictionLevel ReadOnly { get; } = new RestrictionLevel("ReadOnly");
+
+        public static bool operator ==(RestrictionLevel left, RestrictionLevel right) => left.Equals(right);
+        public static bool operator !=(RestrictionLevel left, RestrictionLevel right) => !left.Equals(right);
+
+        public static explicit operator string(RestrictionLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RestrictionLevel other && Equals(other);
+        public bool Equals(RestrictionLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1291,6 +1479,43 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// Mode of the service mesh.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceMeshMode : IEquatable<ServiceMeshMode>
+    {
+        private readonly string _value;
+
+        private ServiceMeshMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Istio deployed as an AKS addon.
+        /// </summary>
+        public static ServiceMeshMode Istio { get; } = new ServiceMeshMode("Istio");
+        /// <summary>
+        /// Mesh is disabled.
+        /// </summary>
+        public static ServiceMeshMode Disabled { get; } = new ServiceMeshMode("Disabled");
+
+        public static bool operator ==(ServiceMeshMode left, ServiceMeshMode right) => left.Equals(right);
+        public static bool operator !=(ServiceMeshMode left, ServiceMeshMode right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceMeshMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceMeshMode other && Equals(other);
+        public bool Equals(ServiceMeshMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of a snapshot. The default is NodePool.
     /// </summary>
     [EnumType]
@@ -1324,6 +1549,55 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// Specifies on which week of the month the dayOfWeek applies.
+    /// </summary>
+    [EnumType]
+    public readonly struct Type : IEquatable<Type>
+    {
+        private readonly string _value;
+
+        private Type(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// First week of the month.
+        /// </summary>
+        public static Type First { get; } = new Type("First");
+        /// <summary>
+        /// Second week of the month.
+        /// </summary>
+        public static Type Second { get; } = new Type("Second");
+        /// <summary>
+        /// Third week of the month.
+        /// </summary>
+        public static Type Third { get; } = new Type("Third");
+        /// <summary>
+        /// Fourth week of the month.
+        /// </summary>
+        public static Type Fourth { get; } = new Type("Fourth");
+        /// <summary>
+        /// Last week of the month.
+        /// </summary>
+        public static Type Last { get; } = new Type("Last");
+
+        public static bool operator ==(Type left, Type right) => left.Equals(right);
+        public static bool operator !=(Type left, Type right) => !left.Equals(right);
+
+        public static explicit operator string(Type value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Type other && Equals(other);
+        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
     /// </summary>
     [EnumType]
@@ -1349,7 +1623,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public static UpgradeChannel Patch { get; } = new UpgradeChannel("patch");
         /// <summary>
-        /// Automatically upgrade the node image to the latest version available. Microsoft provides patches and new images for image nodes frequently (usually weekly), but your running nodes won't get the new images unless you do a node image upgrade. Turning on the node-image channel will automatically update your node images whenever a new version is available.
+        /// Automatically upgrade the node image to the latest version available. Consider using nodeOSUpgradeChannel instead as that allows you to configure node OS patching separate from Kubernetes version patching
         /// </summary>
         public static UpgradeChannel Node_image { get; } = new UpgradeChannel("node-image");
         /// <summary>

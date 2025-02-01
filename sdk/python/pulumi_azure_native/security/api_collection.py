@@ -81,7 +81,7 @@ class APICollection(pulumi.CustomResource):
                  __props__=None):
         """
         An API collection as represented by Defender for APIs.
-        Azure REST API version: 2022-11-20-preview.
+        Azure REST API version: 2022-11-20-preview. Prior API version in Azure Native 2.x: 2022-11-20-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,7 +97,7 @@ class APICollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An API collection as represented by Defender for APIs.
-        Azure REST API version: 2022-11-20-preview.
+        Azure REST API version: 2022-11-20-preview. Prior API version in Azure Native 2.x: 2022-11-20-preview.
 
         :param str resource_name: The name of the resource.
         :param APICollectionArgs args: The arguments to use to populate this resource's properties.
@@ -137,7 +137,7 @@ class APICollection(pulumi.CustomResource):
             __props__.__dict__["display_name"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20221120preview:APICollection"), pulumi.Alias(type_="azure-native:security/v20231115:APICollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20221120preview:APICollection"), pulumi.Alias(type_="azure-native:security/v20231115:APICollection"), pulumi.Alias(type_="azure-native:security/v20231115:APICollectionByAzureApiManagementService"), pulumi.Alias(type_="azure-native:security:APICollectionByAzureApiManagementService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(APICollection, __self__).__init__(
             'azure-native:security:APICollection',

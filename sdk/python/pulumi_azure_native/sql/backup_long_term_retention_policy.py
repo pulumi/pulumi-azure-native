@@ -165,7 +165,7 @@ class BackupLongTermRetentionPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         A long term retention policy.
-        Azure REST API version: 2017-03-01-preview.
+        Azure REST API version: 2017-03-01-preview. Prior API version in Azure Native 2.x: 2017-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,7 +186,7 @@ class BackupLongTermRetentionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A long term retention policy.
-        Azure REST API version: 2017-03-01-preview.
+        Azure REST API version: 2017-03-01-preview. Prior API version in Azure Native 2.x: 2017-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param BackupLongTermRetentionPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -236,7 +236,7 @@ class BackupLongTermRetentionPolicy(pulumi.CustomResource):
             __props__.__dict__["yearly_retention"] = yearly_retention
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20170301preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230201preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230501preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20240501preview:BackupLongTermRetentionPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20170301preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230201preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230201preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230501preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230501preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20240501preview:BackupLongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20240501preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql:LongTermRetentionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupLongTermRetentionPolicy, __self__).__init__(
             'azure-native:sql:BackupLongTermRetentionPolicy',

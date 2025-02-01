@@ -21,10 +21,8 @@ __all__ = [
     'InputLinuxParametersResponse',
     'InputPatchConfigurationResponse',
     'InputWindowsParametersResponse',
-    'MaintenanceOverridePropertiesResponse',
     'SystemDataResponse',
     'TagSettingsPropertiesResponse',
-    'TaskPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -199,10 +197,6 @@ class InputPatchConfigurationResponse(dict):
         suggest = None
         if key == "linuxParameters":
             suggest = "linux_parameters"
-        elif key == "postTasks":
-            suggest = "post_tasks"
-        elif key == "preTasks":
-            suggest = "pre_tasks"
         elif key == "rebootSetting":
             suggest = "reboot_setting"
         elif key == "windowsParameters":
@@ -221,24 +215,16 @@ class InputPatchConfigurationResponse(dict):
 
     def __init__(__self__, *,
                  linux_parameters: Optional['outputs.InputLinuxParametersResponse'] = None,
-                 post_tasks: Optional[Sequence['outputs.TaskPropertiesResponse']] = None,
-                 pre_tasks: Optional[Sequence['outputs.TaskPropertiesResponse']] = None,
                  reboot_setting: Optional[str] = None,
                  windows_parameters: Optional['outputs.InputWindowsParametersResponse'] = None):
         """
         Input configuration for a patch run
         :param 'InputLinuxParametersResponse' linux_parameters: Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
-        :param Sequence['TaskPropertiesResponse'] post_tasks: List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
-        :param Sequence['TaskPropertiesResponse'] pre_tasks: List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
         :param str reboot_setting: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
         :param 'InputWindowsParametersResponse' windows_parameters: Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
         """
         if linux_parameters is not None:
             pulumi.set(__self__, "linux_parameters", linux_parameters)
-        if post_tasks is not None:
-            pulumi.set(__self__, "post_tasks", post_tasks)
-        if pre_tasks is not None:
-            pulumi.set(__self__, "pre_tasks", pre_tasks)
         if reboot_setting is None:
             reboot_setting = 'IfRequired'
         if reboot_setting is not None:
@@ -253,22 +239,6 @@ class InputPatchConfigurationResponse(dict):
         Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
         """
         return pulumi.get(self, "linux_parameters")
-
-    @property
-    @pulumi.getter(name="postTasks")
-    def post_tasks(self) -> Optional[Sequence['outputs.TaskPropertiesResponse']]:
-        """
-        List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
-        """
-        return pulumi.get(self, "post_tasks")
-
-    @property
-    @pulumi.getter(name="preTasks")
-    def pre_tasks(self) -> Optional[Sequence['outputs.TaskPropertiesResponse']]:
-        """
-        List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
-        """
-        return pulumi.get(self, "pre_tasks")
 
     @property
     @pulumi.getter(name="rebootSetting")
@@ -367,88 +337,6 @@ class InputWindowsParametersResponse(dict):
         Windows KBID to be included for patching.
         """
         return pulumi.get(self, "kb_numbers_to_include")
-
-
-@pulumi.output_type
-class MaintenanceOverridePropertiesResponse(dict):
-    """
-    Definition of a MaintenanceOverrideProperties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "endDateTime":
-            suggest = "end_date_time"
-        elif key == "overrideProperties":
-            suggest = "override_properties"
-        elif key == "startDateTime":
-            suggest = "start_date_time"
-        elif key == "timeZone":
-            suggest = "time_zone"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MaintenanceOverridePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MaintenanceOverridePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MaintenanceOverridePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 end_date_time: Optional[str] = None,
-                 override_properties: Optional[Mapping[str, str]] = None,
-                 start_date_time: Optional[str] = None,
-                 time_zone: Optional[str] = None):
-        """
-        Definition of a MaintenanceOverrideProperties
-        :param str end_date_time: Effective end date of the maintenance override window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
-        :param Mapping[str, str] override_properties: Gets or sets overrideProperties of the maintenanceConfiguration
-        :param str start_date_time: Effective start date of the maintenance override window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
-        :param str time_zone: Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
-        """
-        if end_date_time is not None:
-            pulumi.set(__self__, "end_date_time", end_date_time)
-        if override_properties is not None:
-            pulumi.set(__self__, "override_properties", override_properties)
-        if start_date_time is not None:
-            pulumi.set(__self__, "start_date_time", start_date_time)
-        if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
-
-    @property
-    @pulumi.getter(name="endDateTime")
-    def end_date_time(self) -> Optional[str]:
-        """
-        Effective end date of the maintenance override window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
-        """
-        return pulumi.get(self, "end_date_time")
-
-    @property
-    @pulumi.getter(name="overrideProperties")
-    def override_properties(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets overrideProperties of the maintenanceConfiguration
-        """
-        return pulumi.get(self, "override_properties")
-
-    @property
-    @pulumi.getter(name="startDateTime")
-    def start_date_time(self) -> Optional[str]:
-        """
-        Effective start date of the maintenance override window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
-        """
-        return pulumi.get(self, "start_date_time")
-
-    @property
-    @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[str]:
-        """
-        Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
-        """
-        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type
@@ -611,71 +499,5 @@ class TagSettingsPropertiesResponse(dict):
         Dictionary of tags with its list of values.
         """
         return pulumi.get(self, "tags")
-
-
-@pulumi.output_type
-class TaskPropertiesResponse(dict):
-    """
-    Task properties of the software update configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "taskScope":
-            suggest = "task_scope"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TaskPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TaskPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TaskPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 parameters: Optional[Mapping[str, str]] = None,
-                 source: Optional[str] = None,
-                 task_scope: Optional[str] = None):
-        """
-        Task properties of the software update configuration.
-        :param Mapping[str, str] parameters: Gets or sets the parameters of the task.
-        :param str source: Gets or sets the name of the runbook.
-        :param str task_scope: Global Task execute once when schedule trigger. Resource task execute for each VM.
-        """
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
-        if task_scope is None:
-            task_scope = 'Global'
-        if task_scope is not None:
-            pulumi.set(__self__, "task_scope", task_scope)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the parameters of the task.
-        """
-        return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter
-    def source(self) -> Optional[str]:
-        """
-        Gets or sets the name of the runbook.
-        """
-        return pulumi.get(self, "source")
-
-    @property
-    @pulumi.getter(name="taskScope")
-    def task_scope(self) -> Optional[str]:
-        """
-        Global Task execute once when schedule trigger. Resource task execute for each VM.
-        """
-        return pulumi.get(self, "task_scope")
 
 

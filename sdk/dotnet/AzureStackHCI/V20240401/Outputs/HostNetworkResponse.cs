@@ -19,15 +19,15 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240401.Outputs
         /// <summary>
         /// Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
         /// </summary>
-        public readonly bool EnableStorageAutoIp;
+        public readonly bool? EnableStorageAutoIp;
         /// <summary>
         /// The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
         /// </summary>
         public readonly ImmutableArray<Outputs.IntentsResponse> Intents;
         /// <summary>
-        /// Defines how the storage adapters between nodes are connected either switch or switch less.
+        /// Defines how the storage adapters between nodes are connected either switch or switch less..
         /// </summary>
-        public readonly bool StorageConnectivitySwitchless;
+        public readonly bool? StorageConnectivitySwitchless;
         /// <summary>
         /// List of StorageNetworks config to deploy AzureStackHCI Cluster.
         /// </summary>
@@ -35,11 +35,11 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240401.Outputs
 
         [OutputConstructor]
         private HostNetworkResponse(
-            bool enableStorageAutoIp,
+            bool? enableStorageAutoIp,
 
             ImmutableArray<Outputs.IntentsResponse> intents,
 
-            bool storageConnectivitySwitchless,
+            bool? storageConnectivitySwitchless,
 
             ImmutableArray<Outputs.StorageNetworksResponse> storageNetworks)
         {

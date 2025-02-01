@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the Database Migration resource.
- * Azure REST API version: 2022-03-30-preview.
+ * Azure REST API version: 2023-07-15-preview.
  *
- * Other available API versions: 2023-07-15-preview.
+ * Other available API versions: 2022-03-30-preview.
  */
 export function getDatabaseMigrationsSqlDb(args: GetDatabaseMigrationsSqlDbArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseMigrationsSqlDbResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,9 +62,9 @@ export interface GetDatabaseMigrationsSqlDbResult {
 }
 /**
  * Retrieve the Database Migration resource.
- * Azure REST API version: 2022-03-30-preview.
+ * Azure REST API version: 2023-07-15-preview.
  *
- * Other available API versions: 2023-07-15-preview.
+ * Other available API versions: 2022-03-30-preview.
  */
 export function getDatabaseMigrationsSqlDbOutput(args: GetDatabaseMigrationsSqlDbOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseMigrationsSqlDbResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

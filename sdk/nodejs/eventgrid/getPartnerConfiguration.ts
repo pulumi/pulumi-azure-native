@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a partner configuration.
- * Azure REST API version: 2022-06-15.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2022-06-15.
  */
 export function getPartnerConfiguration(args: GetPartnerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,7 +52,7 @@ export interface GetPartnerConfigurationResult {
      */
     readonly provisioningState?: string;
     /**
-     * The system metadata relating to partner configuration resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -66,9 +66,9 @@ export interface GetPartnerConfigurationResult {
 }
 /**
  * Get properties of a partner configuration.
- * Azure REST API version: 2022-06-15.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2022-06-15.
  */
 export function getPartnerConfigurationOutput(args: GetPartnerConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -16,6 +16,7 @@ export const Action = {
     Close: "Close",
     Uninstall: "Uninstall",
     Custom: "Custom",
+    FlowDrivenCustom: "FlowDrivenCustom",
 } as const;
 
 /**
@@ -79,6 +80,22 @@ export const Engagements = {
 } as const;
 
 export type Engagements = (typeof Engagements)[keyof typeof Engagements];
+
+export const FileUploadResourceType = {
+    /**
+     * Upload file for package onboarding.
+     */
+    Package: "Package",
+    /**
+     * Upload VHD file for image onboarding.
+     */
+    VHD: "VHD",
+} as const;
+
+/**
+ * Resource type for file uploading.
+ */
+export type FileUploadResourceType = (typeof FileUploadResourceType)[keyof typeof FileUploadResourceType];
 
 export const ImageArchitecture = {
     /**
@@ -190,9 +207,20 @@ export const RequestTypes = {
 
 export type RequestTypes = (typeof RequestTypes)[keyof typeof RequestTypes];
 
+export const SystemAssignedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (either system assigned, or none).
+ */
+export type SystemAssignedServiceIdentityType = (typeof SystemAssignedServiceIdentityType)[keyof typeof SystemAssignedServiceIdentityType];
+
 export const TestType = {
     OutOfBoxTest: "OutOfBoxTest",
     FunctionalTest: "FunctionalTest",
+    FlowDrivenTest: "FlowDrivenTest",
 } as const;
 
 /**

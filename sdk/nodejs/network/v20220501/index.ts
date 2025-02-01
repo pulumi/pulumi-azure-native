@@ -20,24 +20,11 @@ export const getNetworkWatcher: typeof import("./getNetworkWatcher").getNetworkW
 export const getNetworkWatcherOutput: typeof import("./getNetworkWatcher").getNetworkWatcherOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkWatcher","getNetworkWatcherOutput"], () => require("./getNetworkWatcher"));
 
-export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
-export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
-export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
-utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
-
 export { NetworkWatcherArgs } from "./networkWatcher";
 export type NetworkWatcher = import("./networkWatcher").NetworkWatcher;
 export const NetworkWatcher: typeof import("./networkWatcher").NetworkWatcher = null as any;
 utilities.lazyLoad(exports, ["NetworkWatcher"], () => require("./networkWatcher"));
 
-export { PolicyArgs } from "./policy";
-export type Policy = import("./policy").Policy;
-export const Policy: typeof import("./policy").Policy = null as any;
-utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
-
-
-// Export enums:
-export * from "../../types/enums/network/v20220501";
 
 const _module = {
     version: utilities.getVersion(),
@@ -47,8 +34,6 @@ const _module = {
                 return new DdosProtectionPlan(name, <any>undefined, { urn })
             case "azure-native:network/v20220501:NetworkWatcher":
                 return new NetworkWatcher(name, <any>undefined, { urn })
-            case "azure-native:network/v20220501:Policy":
-                return new Policy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

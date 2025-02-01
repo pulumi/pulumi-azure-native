@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Get a Service Fabric node type of a given managed cluster.
-        /// Azure REST API version: 2023-03-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Task<GetNodeTypeResult> InvokeAsync(GetNodeTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Service Fabric node type of a given managed cluster.
-        /// Azure REST API version: 2023-03-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetNodeTypeResult> Invoke(GetNodeTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Service Fabric node type of a given managed cluster.
-        /// Azure REST API version: 2023-03-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetNodeTypeResult> Invoke(GetNodeTypeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeTypeResult>("azure-native:servicefabric:getNodeType", args ?? new GetNodeTypeInvokeArgs(), options.WithDefaults());
@@ -101,6 +101,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly ImmutableArray<Outputs.VmssDataDiskResponse> AdditionalDataDisks;
         /// <summary>
+        /// Specifies the settings for any additional secondary network interfaces to attach to the node type.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AdditionalNetworkInterfaceConfigurationResponse> AdditionalNetworkInterfaceConfigurations;
+        /// <summary>
         /// The range of ports from which cluster assigned port to Service Fabric applications.
         /// </summary>
         public readonly Outputs.EndpointRangeDescriptionResponse? ApplicationPorts;
@@ -108,6 +112,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Capacities;
+        /// <summary>
+        /// Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
+        /// </summary>
+        public readonly string? ComputerNamePrefix;
         /// <summary>
         /// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
         /// </summary>
@@ -121,6 +129,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string? DataDiskType;
         /// <summary>
+        /// Specifies the resource id of the DSCP configuration to apply to the node type network interface.
+        /// </summary>
+        public readonly string? DscpConfigurationId;
+        /// <summary>
         /// Specifies whether the network interface is accelerated networking-enabled.
         /// </summary>
         public readonly bool? EnableAcceleratedNetworking;
@@ -129,9 +141,13 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly bool? EnableEncryptionAtHost;
         /// <summary>
-        /// Specifies whether each node is allocated its own public IP address. This is only supported on secondary node types with custom Load Balancers.
+        /// Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
         /// </summary>
         public readonly bool? EnableNodePublicIP;
+        /// <summary>
+        /// Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
+        /// </summary>
+        public readonly bool? EnableNodePublicIPv6;
         /// <summary>
         /// Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
         /// </summary>
@@ -177,6 +193,10 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NodeTypeNatConfigResponse> NatConfigurations;
+        /// <summary>
         /// Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
         /// </summary>
         public readonly string? NatGatewayId;
@@ -197,9 +217,13 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly bool? SecureBootEnabled;
         /// <summary>
-        /// Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+        /// Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
         /// </summary>
         public readonly string? SecurityType;
+        /// <summary>
+        /// Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
+        /// </summary>
+        public readonly string? ServiceArtifactReferenceId;
         /// <summary>
         /// The node type sku.
         /// </summary>
@@ -297,9 +321,13 @@ namespace Pulumi.AzureNative.ServiceFabric
         private GetNodeTypeResult(
             ImmutableArray<Outputs.VmssDataDiskResponse> additionalDataDisks,
 
+            ImmutableArray<Outputs.AdditionalNetworkInterfaceConfigurationResponse> additionalNetworkInterfaceConfigurations,
+
             Outputs.EndpointRangeDescriptionResponse? applicationPorts,
 
             ImmutableDictionary<string, string>? capacities,
+
+            string? computerNamePrefix,
 
             string? dataDiskLetter,
 
@@ -307,11 +335,15 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string? dataDiskType,
 
+            string? dscpConfigurationId,
+
             bool? enableAcceleratedNetworking,
 
             bool? enableEncryptionAtHost,
 
             bool? enableNodePublicIP,
+
+            bool? enableNodePublicIPv6,
 
             bool? enableOverProvisioning,
 
@@ -335,6 +367,8 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string name,
 
+            ImmutableArray<Outputs.NodeTypeNatConfigResponse> natConfigurations,
+
             string? natGatewayId,
 
             ImmutableArray<Outputs.NetworkSecurityRuleResponse> networkSecurityRules,
@@ -346,6 +380,8 @@ namespace Pulumi.AzureNative.ServiceFabric
             bool? secureBootEnabled,
 
             string? securityType,
+
+            string? serviceArtifactReferenceId,
 
             Outputs.NodeTypeSkuResponse? sku,
 
@@ -394,14 +430,18 @@ namespace Pulumi.AzureNative.ServiceFabric
             ImmutableArray<string> zones)
         {
             AdditionalDataDisks = additionalDataDisks;
+            AdditionalNetworkInterfaceConfigurations = additionalNetworkInterfaceConfigurations;
             ApplicationPorts = applicationPorts;
             Capacities = capacities;
+            ComputerNamePrefix = computerNamePrefix;
             DataDiskLetter = dataDiskLetter;
             DataDiskSizeGB = dataDiskSizeGB;
             DataDiskType = dataDiskType;
+            DscpConfigurationId = dscpConfigurationId;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
             EnableEncryptionAtHost = enableEncryptionAtHost;
             EnableNodePublicIP = enableNodePublicIP;
+            EnableNodePublicIPv6 = enableNodePublicIPv6;
             EnableOverProvisioning = enableOverProvisioning;
             EphemeralPorts = ephemeralPorts;
             EvictionPolicy = evictionPolicy;
@@ -413,12 +453,14 @@ namespace Pulumi.AzureNative.ServiceFabric
             IsStateless = isStateless;
             MultiplePlacementGroups = multiplePlacementGroups;
             Name = name;
+            NatConfigurations = natConfigurations;
             NatGatewayId = natGatewayId;
             NetworkSecurityRules = networkSecurityRules;
             PlacementProperties = placementProperties;
             ProvisioningState = provisioningState;
             SecureBootEnabled = secureBootEnabled;
             SecurityType = securityType;
+            ServiceArtifactReferenceId = serviceArtifactReferenceId;
             Sku = sku;
             SpotRestoreTimeout = spotRestoreTimeout;
             SubnetId = subnetId;

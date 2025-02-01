@@ -39,6 +39,13 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         [Input("friendlyName")]
         public Input<string>? FriendlyName { get; set; }
 
+        /// <summary>
+        /// Contains information of the Identity Details for the BI.
+        /// If it is null, default will be considered as System Assigned.
+        /// </summary>
+        [Input("identityDetails")]
+        public Input<Inputs.IdentityDetailsArgs>? IdentityDetails { get; set; }
+
         [Input("objectType", required: true)]
         public Input<string> ObjectType { get; set; } = null!;
 
@@ -47,6 +54,18 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         /// </summary>
         [Input("policyInfo", required: true)]
         public Input<Inputs.PolicyInfoArgs> PolicyInfo { get; set; } = null!;
+
+        [Input("resourceGuardOperationRequests")]
+        private InputList<string>? _resourceGuardOperationRequests;
+
+        /// <summary>
+        /// ResourceGuardOperationRequests on which LAC check will be performed
+        /// </summary>
+        public InputList<string> ResourceGuardOperationRequests
+        {
+            get => _resourceGuardOperationRequests ?? (_resourceGuardOperationRequests = new InputList<string>());
+            set => _resourceGuardOperationRequests = value;
+        }
 
         /// <summary>
         /// Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.

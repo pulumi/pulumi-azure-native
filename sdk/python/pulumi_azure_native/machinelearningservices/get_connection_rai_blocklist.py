@@ -59,9 +59,9 @@ class GetConnectionRaiBlocklistResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.RaiBlocklistItemPropertiesResponse':
+    def properties(self) -> 'outputs.RaiBlocklistPropertiesResponse':
         """
-        RAI Custom Blocklist Item properties.
+        RAI Custom Blocklist properties.
         """
         return pulumi.get(self, "properties")
 
@@ -96,26 +96,21 @@ class AwaitableGetConnectionRaiBlocklistResult(GetConnectionRaiBlocklistResult):
 
 
 def get_connection_rai_blocklist(connection_name: Optional[str] = None,
-                                 rai_blocklist_item_name: Optional[str] = None,
                                  rai_blocklist_name: Optional[str] = None,
                                  resource_group_name: Optional[str] = None,
                                  workspace_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionRaiBlocklistResult:
     """
-    Azure REST API version: 2024-04-01-preview.
-
-    Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection
-    :param str rai_blocklist_item_name: Name of the RaiBlocklist Item
     :param str rai_blocklist_name: The name of the RaiBlocklist.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['connectionName'] = connection_name
-    __args__['raiBlocklistItemName'] = rai_blocklist_item_name
     __args__['raiBlocklistName'] = rai_blocklist_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
@@ -129,26 +124,21 @@ def get_connection_rai_blocklist(connection_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_connection_rai_blocklist_output(connection_name: Optional[pulumi.Input[str]] = None,
-                                        rai_blocklist_item_name: Optional[pulumi.Input[str]] = None,
                                         rai_blocklist_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         workspace_name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionRaiBlocklistResult]:
     """
-    Azure REST API version: 2024-04-01-preview.
-
-    Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection
-    :param str rai_blocklist_item_name: Name of the RaiBlocklist Item
     :param str rai_blocklist_name: The name of the RaiBlocklist.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['connectionName'] = connection_name
-    __args__['raiBlocklistItemName'] = rai_blocklist_item_name
     __args__['raiBlocklistName'] = rai_blocklist_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name

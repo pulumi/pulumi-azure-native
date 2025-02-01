@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.WebPubSub
 {
     /// <summary>
     /// Describes a Shared Private Link Resource
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Other available API versions: 2023-02-01, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubSharedPrivateLinkResource")]
     public partial class WebPubSubSharedPrivateLinkResource : global::Pulumi.CustomResource
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public Output<string> GroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -55,13 +55,13 @@ namespace Pulumi.AzureNative.WebPubSub
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public Input<string>? RequestMessage { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the shared private link resource
+        /// The name of the shared private link resource.
         /// </summary>
         [Input("sharedPrivateLinkResourceName")]
         public Input<string>? SharedPrivateLinkResourceName { get; set; }

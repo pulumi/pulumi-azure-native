@@ -27,13 +27,16 @@ class GetPrivateLinkServiceResult:
     """
     Private link service resource.
     """
-    def __init__(__self__, alias=None, auto_approval=None, enable_proxy_protocol=None, etag=None, extended_location=None, fqdns=None, id=None, ip_configurations=None, load_balancer_frontend_ip_configurations=None, location=None, name=None, network_interfaces=None, private_endpoint_connections=None, provisioning_state=None, tags=None, type=None, visibility=None):
+    def __init__(__self__, alias=None, auto_approval=None, destination_ip_address=None, enable_proxy_protocol=None, etag=None, extended_location=None, fqdns=None, id=None, ip_configurations=None, load_balancer_frontend_ip_configurations=None, location=None, name=None, network_interfaces=None, private_endpoint_connections=None, provisioning_state=None, tags=None, type=None, visibility=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
         if auto_approval and not isinstance(auto_approval, dict):
             raise TypeError("Expected argument 'auto_approval' to be a dict")
         pulumi.set(__self__, "auto_approval", auto_approval)
+        if destination_ip_address and not isinstance(destination_ip_address, str):
+            raise TypeError("Expected argument 'destination_ip_address' to be a str")
+        pulumi.set(__self__, "destination_ip_address", destination_ip_address)
         if enable_proxy_protocol and not isinstance(enable_proxy_protocol, bool):
             raise TypeError("Expected argument 'enable_proxy_protocol' to be a bool")
         pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
@@ -95,6 +98,14 @@ class GetPrivateLinkServiceResult:
         The auto-approval list of the private link service.
         """
         return pulumi.get(self, "auto_approval")
+
+    @property
+    @pulumi.getter(name="destinationIPAddress")
+    def destination_ip_address(self) -> Optional[str]:
+        """
+        The destination IP address of the private link service.
+        """
+        return pulumi.get(self, "destination_ip_address")
 
     @property
     @pulumi.getter(name="enableProxyProtocol")
@@ -225,6 +236,7 @@ class AwaitableGetPrivateLinkServiceResult(GetPrivateLinkServiceResult):
         return GetPrivateLinkServiceResult(
             alias=self.alias,
             auto_approval=self.auto_approval,
+            destination_ip_address=self.destination_ip_address,
             enable_proxy_protocol=self.enable_proxy_protocol,
             etag=self.etag,
             extended_location=self.extended_location,
@@ -248,9 +260,9 @@ def get_private_link_service(expand: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServiceResult:
     """
     Gets the specified private link service by resource group.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2019-08-01, 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2019-08-01, 2021-02-01, 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -267,6 +279,7 @@ def get_private_link_service(expand: Optional[str] = None,
     return AwaitableGetPrivateLinkServiceResult(
         alias=pulumi.get(__ret__, 'alias'),
         auto_approval=pulumi.get(__ret__, 'auto_approval'),
+        destination_ip_address=pulumi.get(__ret__, 'destination_ip_address'),
         enable_proxy_protocol=pulumi.get(__ret__, 'enable_proxy_protocol'),
         etag=pulumi.get(__ret__, 'etag'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
@@ -288,9 +301,9 @@ def get_private_link_service_output(expand: Optional[pulumi.Input[Optional[str]]
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServiceResult]:
     """
     Gets the specified private link service by resource group.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2019-08-01, 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2019-08-01, 2021-02-01, 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -306,6 +319,7 @@ def get_private_link_service_output(expand: Optional[pulumi.Input[Optional[str]]
     return __ret__.apply(lambda __response__: GetPrivateLinkServiceResult(
         alias=pulumi.get(__response__, 'alias'),
         auto_approval=pulumi.get(__response__, 'auto_approval'),
+        destination_ip_address=pulumi.get(__response__, 'destination_ip_address'),
         enable_proxy_protocol=pulumi.get(__response__, 'enable_proxy_protocol'),
         etag=pulumi.get(__response__, 'etag'),
         extended_location=pulumi.get(__response__, 'extended_location'),

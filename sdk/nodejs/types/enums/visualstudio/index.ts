@@ -7,15 +7,3 @@ import * as v20171101preview from "./v20171101preview";
 export {
     v20171101preview,
 };
-
-export const AccountResourceRequestOperationType = {
-    Unknown: "unknown",
-    Create: "create",
-    Update: "update",
-    Link: "link",
-} as const;
-
-/**
- * The type of the operation.
- */
-export type AccountResourceRequestOperationType = (typeof AccountResourceRequestOperationType)[keyof typeof AccountResourceRequestOperationType];

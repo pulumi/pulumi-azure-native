@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         /// </summary>
         public readonly Outputs.AdditionalFeaturesServerConfigurationsResponse? AdditionalFeaturesServerConfigurations;
         /// <summary>
+        /// Azure AD authentication Settings.
+        /// </summary>
+        public readonly Outputs.AADAuthenticationSettingsResponse? AzureAdAuthenticationSettings;
+        /// <summary>
         /// SQL connectivity type settings.
         /// </summary>
         public readonly Outputs.SqlConnectivityUpdateSettingsResponse? SqlConnectivityUpdateSettings;
@@ -41,6 +45,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         private ServerConfigurationsManagementSettingsResponse(
             Outputs.AdditionalFeaturesServerConfigurationsResponse? additionalFeaturesServerConfigurations,
 
+            Outputs.AADAuthenticationSettingsResponse? azureAdAuthenticationSettings,
+
             Outputs.SqlConnectivityUpdateSettingsResponse? sqlConnectivityUpdateSettings,
 
             Outputs.SQLInstanceSettingsResponse? sqlInstanceSettings,
@@ -50,6 +56,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
             Outputs.SqlWorkloadTypeUpdateSettingsResponse? sqlWorkloadTypeUpdateSettings)
         {
             AdditionalFeaturesServerConfigurations = additionalFeaturesServerConfigurations;
+            AzureAdAuthenticationSettings = azureAdAuthenticationSettings;
             SqlConnectivityUpdateSettings = sqlConnectivityUpdateSettings;
             SqlInstanceSettings = sqlInstanceSettings;
             SqlStorageUpdateSettings = sqlStorageUpdateSettings;

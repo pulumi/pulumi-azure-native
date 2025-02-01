@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.Search
 {
     /// <summary>
-    /// Describes what response the data plane API of a Search service would send for requests that failed authentication.
+    /// Describes what response the data plane API of a search service would send for requests that failed authentication.
     /// </summary>
     [EnumType]
     public readonly struct AadAuthFailureMode : IEquatable<AadAuthFailureMode>
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
+    /// The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
     /// </summary>
     [EnumType]
     public readonly struct PrivateLinkServiceConnectionProvisioningState : IEquatable<PrivateLinkServiceConnectionProvisioningState>
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+    /// Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
     /// </summary>
     [EnumType]
     public readonly struct PrivateLinkServiceConnectionStatus : IEquatable<PrivateLinkServiceConnectionStatus>
@@ -242,7 +242,7 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// Describes how a search service should enforce having one or more non customer encrypted resources.
+    /// Describes how a search service should enforce having one or more non-customer-encrypted resources.
     /// </summary>
     [EnumType]
     public readonly struct SearchEncryptionWithCmk : IEquatable<SearchEncryptionWithCmk>
@@ -255,11 +255,11 @@ namespace Pulumi.AzureNative.Search
         }
 
         /// <summary>
-        /// No enforcement will be made and the search service can have non customer encrypted resources.
+        /// No enforcement will be made and the search service can have non-customer-encrypted resources.
         /// </summary>
         public static SearchEncryptionWithCmk Disabled { get; } = new SearchEncryptionWithCmk("Disabled");
         /// <summary>
-        /// Search service will be marked as non-compliant if there are one or more non customer encrypted resources.
+        /// Search service will be marked as non-compliant if there are one or more non-customer-encrypted resources.
         /// </summary>
         public static SearchEncryptionWithCmk Enabled { get; } = new SearchEncryptionWithCmk("Enabled");
         /// <summary>
@@ -283,7 +283,48 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
+    /// Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+    /// </summary>
+    [EnumType]
+    public readonly struct SearchSemanticSearch : IEquatable<SearchSemanticSearch>
+    {
+        private readonly string _value;
+
+        private SearchSemanticSearch(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates that semantic ranking is disabled for the search service.
+        /// </summary>
+        public static SearchSemanticSearch Disabled { get; } = new SearchSemanticSearch("disabled");
+        /// <summary>
+        /// Enables semantic ranking on a search service and indicates that it is to be used within the limits of the free tier. This would cap the volume of semantic ranking requests and is offered at no extra charge. This is the default for newly provisioned search services.
+        /// </summary>
+        public static SearchSemanticSearch Free { get; } = new SearchSemanticSearch("free");
+        /// <summary>
+        /// Enables semantic ranking on a search service as a billable feature, with higher throughput and volume of semantic ranking requests.
+        /// </summary>
+        public static SearchSemanticSearch Standard { get; } = new SearchSemanticSearch("standard");
+
+        public static bool operator ==(SearchSemanticSearch left, SearchSemanticSearch right) => left.Equals(right);
+        public static bool operator !=(SearchSemanticSearch left, SearchSemanticSearch right) => !left.Equals(right);
+
+        public static explicit operator string(SearchSemanticSearch value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SearchSemanticSearch other && Equals(other);
+        public bool Equals(SearchSemanticSearch other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
     /// </summary>
     [EnumType]
     public readonly struct SharedPrivateLinkResourceProvisioningState : IEquatable<SharedPrivateLinkResourceProvisioningState>
@@ -317,7 +358,7 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
+    /// Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
     /// </summary>
     [EnumType]
     public readonly struct SharedPrivateLinkResourceStatus : IEquatable<SharedPrivateLinkResourceStatus>
@@ -363,15 +404,15 @@ namespace Pulumi.AzureNative.Search
         }
 
         /// <summary>
-        /// Free tier, with no SLA guarantees and a subset of features offered to paid tiers.
+        /// Free tier, with no SLA guarantees and a subset of the features offered on billable tiers.
         /// </summary>
         public static SkuName Free { get; } = new SkuName("free");
         /// <summary>
-        /// Paid tier dedicated service with up to 3 replicas.
+        /// Billable tier for a dedicated service having up to 3 replicas.
         /// </summary>
         public static SkuName Basic { get; } = new SkuName("basic");
         /// <summary>
-        /// Paid tier dedicated service with up to 12 partitions and 12 replicas.
+        /// Billable tier for a dedicated service having up to 12 partitions and 12 replicas.
         /// </summary>
         public static SkuName Standard { get; } = new SkuName("standard");
         /// <summary>
@@ -383,11 +424,11 @@ namespace Pulumi.AzureNative.Search
         /// </summary>
         public static SkuName Standard3 { get; } = new SkuName("standard3");
         /// <summary>
-        /// Paid tier dedicated service that supports 1TB per partition, up to 12 partitions.
+        /// Billable tier for a dedicated service that supports 1TB per partition, up to 12 partitions.
         /// </summary>
         public static SkuName StorageOptimizedL1 { get; } = new SkuName("storage_optimized_l1");
         /// <summary>
-        /// Paid tier dedicated service that supports 2TB per partition, up to 12 partitions.
+        /// Billable tier for a dedicated service that supports 2TB per partition, up to 12 partitions.
         /// </summary>
         public static SkuName StorageOptimizedL2 { get; } = new SkuName("storage_optimized_l2");
 

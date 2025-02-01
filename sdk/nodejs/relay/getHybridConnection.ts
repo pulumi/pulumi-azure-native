@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the description for the specified hybrid connection.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2024-01-01.
+ * Other available API versions: 2021-11-01.
  */
 export function getHybridConnection(args: GetHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,9 +84,9 @@ export interface GetHybridConnectionResult {
 }
 /**
  * Returns the description for the specified hybrid connection.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2024-01-01.
+ * Other available API versions: 2021-11-01.
  */
 export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

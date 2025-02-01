@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// Server backup properties
-    /// Azure REST API version: 2024-03-01-preview.
+    /// Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2024-03-01-preview.
     /// 
-    /// Other available API versions: 2024-08-01, 2024-11-01-preview.
+    /// Other available API versions: 2024-03-01-preview, 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Backup")]
     public partial class Backup : global::Pulumi.CustomResource

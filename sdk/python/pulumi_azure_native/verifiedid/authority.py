@@ -100,7 +100,7 @@ class Authority(pulumi.CustomResource):
                  __props__=None):
         """
         A VerifiedId authority resource
-        Azure REST API version: 2024-01-26-preview.
+        Azure REST API version: 2024-01-26-preview. Prior API version in Azure Native 2.x: 2024-01-26-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +117,7 @@ class Authority(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A VerifiedId authority resource
-        Azure REST API version: 2024-01-26-preview.
+        Azure REST API version: 2024-01-26-preview. Prior API version in Azure Native 2.x: 2024-01-26-preview.
 
         :param str resource_name: The name of the resource.
         :param AuthorityArgs args: The arguments to use to populate this resource's properties.

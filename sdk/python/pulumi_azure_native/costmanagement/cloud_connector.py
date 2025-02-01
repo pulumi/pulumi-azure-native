@@ -187,7 +187,7 @@ class CloudConnector(pulumi.CustomResource):
                  __props__=None):
         """
         The Connector model definition
-        Azure REST API version: 2019-03-01-preview. Prior API version in Azure Native 1.x: 2019-03-01-preview.
+        Azure REST API version: 2019-03-01-preview. Prior API version in Azure Native 2.x: 2019-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,7 +209,7 @@ class CloudConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Connector model definition
-        Azure REST API version: 2019-03-01-preview. Prior API version in Azure Native 1.x: 2019-03-01-preview.
+        Azure REST API version: 2019-03-01-preview. Prior API version in Azure Native 2.x: 2019-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CloudConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -263,7 +263,7 @@ class CloudConnector(pulumi.CustomResource):
             __props__.__dict__["provider_billing_account_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20180801preview:CloudConnector"), pulumi.Alias(type_="azure-native:costmanagement/v20190301preview:CloudConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20180801preview:CloudConnector"), pulumi.Alias(type_="azure-native:costmanagement/v20180801preview:Connector"), pulumi.Alias(type_="azure-native:costmanagement/v20190301preview:CloudConnector"), pulumi.Alias(type_="azure-native:costmanagement:Connector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudConnector, __self__).__init__(
             'azure-native:costmanagement:CloudConnector',

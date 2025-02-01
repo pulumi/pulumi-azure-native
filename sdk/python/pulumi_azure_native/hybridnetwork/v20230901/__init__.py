@@ -14,7 +14,6 @@ from .get_artifact_manifest import *
 from .get_artifact_store import *
 from .get_configuration_group_schema import *
 from .get_configuration_group_value import *
-from .get_network_function import *
 from .get_network_function_definition_group import *
 from .get_network_function_definition_version import *
 from .get_network_service_design_group import *
@@ -23,7 +22,6 @@ from .get_publisher import *
 from .get_site import *
 from .get_site_network_service import *
 from .list_artifact_manifest_credential import *
-from .network_function import *
 from .network_function_definition_group import *
 from .network_function_definition_version import *
 from .network_service_design_group import *

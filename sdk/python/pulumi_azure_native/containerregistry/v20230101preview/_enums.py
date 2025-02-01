@@ -6,11 +6,9 @@ from enum import Enum
 
 __all__ = [
     'Action',
-    'ActionsRequired',
     'AuditLogStatus',
     'AzureADAuthenticationAsArmPolicyStatus',
     'ConnectedRegistryMode',
-    'ConnectionStatus',
     'CredentialName',
     'DefaultAction',
     'EncryptionStatus',
@@ -25,13 +23,8 @@ __all__ = [
     'PublicNetworkAccess',
     'ResourceIdentityType',
     'SkuName',
-    'TokenCertificateName',
-    'TokenPasswordName',
-    'TokenStatus',
     'TriggerStatus',
     'TrustPolicyType',
-    'WebhookAction',
-    'WebhookStatus',
     'ZoneRedundancy',
 ]
 
@@ -41,14 +34,6 @@ class Action(str, Enum):
     The action of IP ACL rule.
     """
     ALLOW = "Allow"
-
-
-class ActionsRequired(str, Enum):
-    """
-    A message indicating if changes on the service provider require any updates on the consumer.
-    """
-    NONE = "None"
-    RECREATE = "Recreate"
 
 
 class AuditLogStatus(str, Enum):
@@ -75,16 +60,6 @@ class ConnectedRegistryMode(str, Enum):
     READ_ONLY = "ReadOnly"
     REGISTRY = "Registry"
     MIRROR = "Mirror"
-
-
-class ConnectionStatus(str, Enum):
-    """
-    The private link service connection status.
-    """
-    APPROVED = "Approved"
-    PENDING = "Pending"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
 
 
 class CredentialName(str, Enum):
@@ -201,27 +176,6 @@ class SkuName(str, Enum):
     PREMIUM = "Premium"
 
 
-class TokenCertificateName(str, Enum):
-    CERTIFICATE1 = "certificate1"
-    CERTIFICATE2 = "certificate2"
-
-
-class TokenPasswordName(str, Enum):
-    """
-    The password name "password1" or "password2"
-    """
-    PASSWORD1 = "password1"
-    PASSWORD2 = "password2"
-
-
-class TokenStatus(str, Enum):
-    """
-    The status of the token example enabled or disabled.
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
-
-
 class TriggerStatus(str, Enum):
     """
     The current status of the source trigger.
@@ -237,25 +191,9 @@ class TrustPolicyType(str, Enum):
     NOTARY = "Notary"
 
 
-class WebhookAction(str, Enum):
-    PUSH = "push"
-    DELETE = "delete"
-    QUARANTINE = "quarantine"
-    CHART_PUSH = "chart_push"
-    CHART_DELETE = "chart_delete"
-
-
-class WebhookStatus(str, Enum):
-    """
-    The status of the webhook at the time the operation was called.
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
-
-
 class ZoneRedundancy(str, Enum):
     """
-    Whether or not zone redundancy is enabled for this container registry replication
+    Whether or not zone redundancy is enabled for this container registry
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

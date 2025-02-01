@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? AuxiliarySku;
         /// <summary>
+        /// Whether default outbound connectivity for nic was configured or not.
+        /// </summary>
+        public readonly bool DefaultOutboundConnectivityEnabled;
+        /// <summary>
         /// Indicates whether to disable tcp state tracking.
         /// </summary>
         public readonly bool? DisableTcpStateTracking;
@@ -143,6 +147,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? auxiliarySku,
 
+            bool defaultOutboundConnectivityEnabled,
+
             bool? disableTcpStateTracking,
 
             Outputs.NetworkInterfaceDnsSettingsResponse? dnsSettings,
@@ -201,6 +207,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         {
             AuxiliaryMode = auxiliaryMode;
             AuxiliarySku = auxiliarySku;
+            DefaultOutboundConnectivityEnabled = defaultOutboundConnectivityEnabled;
             DisableTcpStateTracking = disableTcpStateTracking;
             DnsSettings = dnsSettings;
             DscpConfiguration = dscpConfiguration;

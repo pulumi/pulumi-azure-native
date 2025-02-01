@@ -187,6 +187,7 @@ namespace Pulumi.AzureNative.Automation
         public static RunbookTypeEnum GraphPowerShell { get; } = new RunbookTypeEnum("GraphPowerShell");
         public static RunbookTypeEnum Python2 { get; } = new RunbookTypeEnum("Python2");
         public static RunbookTypeEnum Python3 { get; } = new RunbookTypeEnum("Python3");
+        public static RunbookTypeEnum PowerShell72 { get; } = new RunbookTypeEnum("PowerShell72");
 
         public static bool operator ==(RunbookTypeEnum left, RunbookTypeEnum right) => left.Equals(right);
         public static bool operator !=(RunbookTypeEnum left, RunbookTypeEnum right) => !left.Equals(right);

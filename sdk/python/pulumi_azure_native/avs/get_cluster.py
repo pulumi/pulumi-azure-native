@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A cluster resource
     """
-    def __init__(__self__, cluster_id=None, cluster_size=None, hosts=None, id=None, name=None, provisioning_state=None, sku=None, type=None):
+    def __init__(__self__, cluster_id=None, cluster_size=None, hosts=None, id=None, name=None, provisioning_state=None, sku=None, system_data=None, type=None, vsan_datastore_name=None):
         if cluster_id and not isinstance(cluster_id, int):
             raise TypeError("Expected argument 'cluster_id' to be a int")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -49,9 +49,15 @@ class GetClusterResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if vsan_datastore_name and not isinstance(vsan_datastore_name, str):
+            raise TypeError("Expected argument 'vsan_datastore_name' to be a str")
+        pulumi.set(__self__, "vsan_datastore_name", vsan_datastore_name)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -81,7 +87,7 @@ class GetClusterResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -89,7 +95,7 @@ class GetClusterResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -105,17 +111,33 @@ class GetClusterResult:
     @pulumi.getter
     def sku(self) -> 'outputs.SkuResponse':
         """
-        The cluster SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vsanDatastoreName")
+    def vsan_datastore_name(self) -> Optional[str]:
+        """
+        Name of the vsan datastore associated with the cluster
+        """
+        return pulumi.get(self, "vsan_datastore_name")
 
 
 class AwaitableGetClusterResult(GetClusterResult):
@@ -131,7 +153,9 @@ class AwaitableGetClusterResult(GetClusterResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             sku=self.sku,
-            type=self.type)
+            system_data=self.system_data,
+            type=self.type,
+            vsan_datastore_name=self.vsan_datastore_name)
 
 
 def get_cluster(cluster_name: Optional[str] = None,
@@ -139,13 +163,13 @@ def get_cluster(cluster_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    A cluster resource
-    Azure REST API version: 2022-05-01.
+    Get a Cluster
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01, 2023-09-01.
+    Other available API versions: 2022-05-01.
 
 
-    :param str cluster_name: Name of the cluster in the private cloud
+    :param str cluster_name: Name of the cluster
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -164,19 +188,21 @@ def get_cluster(cluster_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         sku=pulumi.get(__ret__, 'sku'),
-        type=pulumi.get(__ret__, 'type'))
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        vsan_datastore_name=pulumi.get(__ret__, 'vsan_datastore_name'))
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        private_cloud_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
-    A cluster resource
-    Azure REST API version: 2022-05-01.
+    Get a Cluster
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01, 2023-09-01.
+    Other available API versions: 2022-05-01.
 
 
-    :param str cluster_name: Name of the cluster in the private cloud
+    :param str cluster_name: Name of the cluster
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -194,4 +220,6 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         sku=pulumi.get(__response__, 'sku'),
-        type=pulumi.get(__response__, 'type')))
+        system_data=pulumi.get(__response__, 'system_data'),
+        type=pulumi.get(__response__, 'type'),
+        vsan_datastore_name=pulumi.get(__response__, 'vsan_datastore_name')))

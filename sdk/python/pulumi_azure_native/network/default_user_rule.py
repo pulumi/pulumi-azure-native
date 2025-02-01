@@ -149,7 +149,7 @@ class DefaultUserRule(pulumi.CustomResource):
                  __props__=None):
         """
         Network security default user rule.
-        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,7 +170,7 @@ class DefaultUserRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network security default user rule.
-        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DefaultUserRuleArgs args: The arguments to use to populate this resource's properties.
@@ -232,7 +232,7 @@ class DefaultUserRule(pulumi.CustomResource):
             __props__.__dict__["sources"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20240301:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20240501:DefaultUserRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:UserRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:UserRule"), pulumi.Alias(type_="azure-native:network/v20240301:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20240301:SecurityUserRule"), pulumi.Alias(type_="azure-native:network/v20240501:DefaultUserRule"), pulumi.Alias(type_="azure-native:network/v20240501:SecurityUserRule"), pulumi.Alias(type_="azure-native:network:SecurityUserRule"), pulumi.Alias(type_="azure-native:network:UserRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefaultUserRule, __self__).__init__(
             'azure-native:network:DefaultUserRule',

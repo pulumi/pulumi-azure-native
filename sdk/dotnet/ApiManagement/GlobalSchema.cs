@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Global Schema Contract details.
-    /// Azure REST API version: 2022-08-01.
+    /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
     /// 
-    /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    /// Other available API versions: 2022-08-01, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:GlobalSchema")]
     public partial class GlobalSchema : global::Pulumi.CustomResource
@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GlobalSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Schema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:GlobalSchema" },
@@ -84,6 +85,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:GlobalSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:GlobalSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Schema" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

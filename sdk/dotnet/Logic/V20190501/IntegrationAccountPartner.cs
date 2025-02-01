@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountPartner" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountPartner" },
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:Partner" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountPartner" },
                     new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountPartner" },
                 },

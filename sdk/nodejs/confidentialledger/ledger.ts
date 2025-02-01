@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Confidential Ledger. Contains the properties of Confidential Ledger Resource.
- * Azure REST API version: 2022-05-13. Prior API version in Azure Native 1.x: 2020-12-01-preview.
+ * Azure REST API version: 2023-06-28-preview. Prior API version in Azure Native 2.x: 2022-05-13.
  *
- * Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+ * Other available API versions: 2022-05-13, 2024-09-19-preview.
  */
 export class Ledger extends pulumi.CustomResource {
     /**
@@ -41,11 +41,11 @@ export class Ledger extends pulumi.CustomResource {
     }
 
     /**
-     * The Azure location where the Confidential Ledger is running.
+     * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * Name of the Resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -53,15 +53,15 @@ export class Ledger extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.confidentialledger.LedgerPropertiesResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.confidentialledger.SystemDataResponse>;
     /**
-     * Additional tags for Confidential Ledger
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -111,7 +111,7 @@ export interface LedgerArgs {
      */
     ledgerName?: pulumi.Input<string>;
     /**
-     * The Azure location where the Confidential Ledger is running.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -119,11 +119,11 @@ export interface LedgerArgs {
      */
     properties?: pulumi.Input<inputs.confidentialledger.LedgerPropertiesArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Additional tags for Confidential Ledger
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

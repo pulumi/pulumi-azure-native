@@ -11,7 +11,6 @@ __all__ = [
     'AgentPoolType',
     'BackendPoolType',
     'Code',
-    'ConnectionStatus',
     'Expander',
     'ExtendedLocationTypes',
     'GPUInstanceProfile',
@@ -46,10 +45,7 @@ __all__ = [
     'ScaleSetEvictionPolicy',
     'ScaleSetPriority',
     'ServiceMeshMode',
-    'SnapshotType',
-    'Type',
     'UpgradeChannel',
-    'WeekDay',
     'WorkloadRuntime',
 ]
 
@@ -140,16 +136,6 @@ class Code(str, Enum):
     """
     The cluster is stopped.
     """
-
-
-class ConnectionStatus(str, Enum):
-    """
-    The private link service connection status.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
 
 
 class Expander(str, Enum):
@@ -667,46 +653,6 @@ class ServiceMeshMode(str, Enum):
     """
 
 
-class SnapshotType(str, Enum):
-    """
-    The type of a snapshot. The default is NodePool.
-    """
-    NODE_POOL = "NodePool"
-    """
-    The snapshot is a snapshot of a node pool.
-    """
-    MANAGED_CLUSTER = "ManagedCluster"
-    """
-    The snapshot is a snapshot of a managed cluster.
-    """
-
-
-class Type(str, Enum):
-    """
-    Specifies on which instance of the allowed days specified in daysOfWeek the maintenance occurs.
-    """
-    FIRST = "First"
-    """
-    First.
-    """
-    SECOND = "Second"
-    """
-    Second.
-    """
-    THIRD = "Third"
-    """
-    Third.
-    """
-    FOURTH = "Fourth"
-    """
-    Fourth.
-    """
-    LAST = "Last"
-    """
-    Last.
-    """
-
-
 class UpgradeChannel(str, Enum):
     """
     For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
@@ -731,19 +677,6 @@ class UpgradeChannel(str, Enum):
     """
     Disables auto-upgrades and keeps the cluster at its current version of Kubernetes.
     """
-
-
-class WeekDay(str, Enum):
-    """
-    The day of the week.
-    """
-    SUNDAY = "Sunday"
-    MONDAY = "Monday"
-    TUESDAY = "Tuesday"
-    WEDNESDAY = "Wednesday"
-    THURSDAY = "Thursday"
-    FRIDAY = "Friday"
-    SATURDAY = "Saturday"
 
 
 class WorkloadRuntime(str, Enum):

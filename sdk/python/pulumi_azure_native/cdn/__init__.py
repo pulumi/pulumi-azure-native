@@ -48,26 +48,17 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.cdn.v20200901 as __v20200901
-    v20200901 = __v20200901
     import pulumi_azure_native.cdn.v20230501 as __v20230501
     v20230501 = __v20230501
     import pulumi_azure_native.cdn.v20230701preview as __v20230701preview
     v20230701preview = __v20230701preview
-    import pulumi_azure_native.cdn.v20240201 as __v20240201
-    v20240201 = __v20240201
-    import pulumi_azure_native.cdn.v20240501preview as __v20240501preview
-    v20240501preview = __v20240501preview
     import pulumi_azure_native.cdn.v20240601preview as __v20240601preview
     v20240601preview = __v20240601preview
     import pulumi_azure_native.cdn.v20240901 as __v20240901
     v20240901 = __v20240901
 else:
-    v20200901 = _utilities.lazy_import('pulumi_azure_native.cdn.v20200901')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.cdn.v20230501')
     v20230701preview = _utilities.lazy_import('pulumi_azure_native.cdn.v20230701preview')
-    v20240201 = _utilities.lazy_import('pulumi_azure_native.cdn.v20240201')
-    v20240501preview = _utilities.lazy_import('pulumi_azure_native.cdn.v20240501preview')
     v20240601preview = _utilities.lazy_import('pulumi_azure_native.cdn.v20240601preview')
     v20240901 = _utilities.lazy_import('pulumi_azure_native.cdn.v20240901')
 

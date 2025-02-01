@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get the metadata of a service instance.
- * Azure REST API version: 2023-02-28.
+ * Azure REST API version: 2024-03-31.
  *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+ * Other available API versions: 2023-02-28.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,9 +79,9 @@ export interface GetServiceResult {
 }
 /**
  * Get the metadata of a service instance.
- * Azure REST API version: 2023-02-28.
+ * Azure REST API version: 2024-03-31.
  *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+ * Other available API versions: 2023-02-28.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

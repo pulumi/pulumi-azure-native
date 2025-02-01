@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * ConnectedCache Resource. Represents the high level Nodes needed to provision CacheNode and customer resources used in private preview
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 2.x: 2023-05-01-preview.
  */
 export class EnterpriseCustomerOperation extends pulumi.CustomResource {
     /**

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Storage.Outputs
     public sealed class PermissionScopeResponse
     {
         /// <summary>
-        /// The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+        /// The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), Create (c), Modify Ownership (o), and Modify Permissions (p).
         /// </summary>
         public readonly string Permissions;
         /// <summary>

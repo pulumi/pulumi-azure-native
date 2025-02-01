@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// An iSCSI path resource
-    /// Azure REST API version: 2023-09-01.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:IscsiPath")]
     public partial class IscsiPath : global::Pulumi.CustomResource

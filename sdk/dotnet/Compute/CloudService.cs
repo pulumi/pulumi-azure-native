@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes the cloud service.
-    /// Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2021-03-01.
+    /// Azure REST API version: 2022-09-04. Prior API version in Azure Native 2.x: 2022-09-04.
     /// 
     /// Other available API versions: 2024-11-04.
     /// </summary>

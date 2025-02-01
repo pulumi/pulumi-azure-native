@@ -39,7 +39,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input['ControlPlaneNodeConfigurationArgs'] control_plane_node_configuration: The defining characteristics of the control plane for this Kubernetes Cluster.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[Sequence[pulumi.Input['InitialAgentPoolConfigurationArgs']]] initial_agent_pool_configurations: The agent pools that are created with this Kubernetes cluster for running critical system services and workloads. This data in this field is only used during creation, and the field will be empty following the creation of the Kubernetes Cluster. After creation, the management of agent pools is done using the agentPools sub-resource.
-        :param pulumi.Input[str] kubernetes_version: The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.
+        :param pulumi.Input[str] kubernetes_version: The Kubernetes version for this cluster.
         :param pulumi.Input['NetworkConfigurationArgs'] network_configuration: The configuration of the Kubernetes cluster networking, including the attachment of networks that span the cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AadConfigurationArgs'] aad_configuration: The Azure Active Directory Integration properties.
@@ -108,7 +108,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="kubernetesVersion")
     def kubernetes_version(self) -> pulumi.Input[str]:
         """
-        The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.
+        The Kubernetes version for this cluster.
         """
         return pulumi.get(self, "kubernetes_version")
 
@@ -232,9 +232,9 @@ class KubernetesCluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-10-01-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -244,7 +244,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InitialAgentPoolConfigurationArgs', 'InitialAgentPoolConfigurationArgsDict']]]] initial_agent_pool_configurations: The agent pools that are created with this Kubernetes cluster for running critical system services and workloads. This data in this field is only used during creation, and the field will be empty following the creation of the Kubernetes Cluster. After creation, the management of agent pools is done using the agentPools sub-resource.
         :param pulumi.Input[str] kubernetes_cluster_name: The name of the Kubernetes cluster.
-        :param pulumi.Input[str] kubernetes_version: The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.
+        :param pulumi.Input[str] kubernetes_version: The Kubernetes version for this cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
         :param pulumi.Input[Union['NetworkConfigurationArgs', 'NetworkConfigurationArgsDict']] network_configuration: The configuration of the Kubernetes cluster networking, including the attachment of networks that span the cluster.
@@ -258,9 +258,9 @@ class KubernetesCluster(pulumi.CustomResource):
                  args: KubernetesClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-10-01-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param KubernetesClusterArgs args: The arguments to use to populate this resource's properties.
@@ -492,7 +492,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="kubernetesVersion")
     def kubernetes_version(self) -> pulumi.Output[str]:
         """
-        The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.
+        The Kubernetes version for this cluster.
         """
         return pulumi.get(self, "kubernetes_version")
 

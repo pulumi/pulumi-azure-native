@@ -199,7 +199,7 @@ class RelationshipLink(pulumi.CustomResource):
                  __props__=None):
         """
         The relationship link resource format.
-        Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26.
+        Azure REST API version: 2017-04-26. Prior API version in Azure Native 2.x: 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,7 +222,7 @@ class RelationshipLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The relationship link resource format.
-        Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26.
+        Azure REST API version: 2017-04-26. Prior API version in Azure Native 2.x: 2017-04-26.
 
         :param str resource_name: The name of the resource.
         :param RelationshipLinkArgs args: The arguments to use to populate this resource's properties.

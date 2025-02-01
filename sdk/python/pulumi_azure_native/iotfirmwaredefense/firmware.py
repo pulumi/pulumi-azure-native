@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['FirmwareArgs', 'Firmware']
 
@@ -29,7 +30,7 @@ class FirmwareArgs:
                  firmware_id: Optional[pulumi.Input[str]] = None,
                  model: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
-                 status_messages: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 status_messages: Optional[pulumi.Input[Sequence[pulumi.Input['StatusMessageArgs']]]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -42,7 +43,7 @@ class FirmwareArgs:
         :param pulumi.Input[str] firmware_id: The id of the firmware.
         :param pulumi.Input[str] model: Firmware model.
         :param pulumi.Input[Union[str, 'Status']] status: The status of firmware scan.
-        :param pulumi.Input[Sequence[Any]] status_messages: A list of errors or other messages generated during firmware analysis
+        :param pulumi.Input[Sequence[pulumi.Input['StatusMessageArgs']]] status_messages: A list of errors or other messages generated during firmware analysis
         :param pulumi.Input[str] vendor: Firmware vendor.
         :param pulumi.Input[str] version: Firmware version.
         """
@@ -167,14 +168,14 @@ class FirmwareArgs:
 
     @property
     @pulumi.getter(name="statusMessages")
-    def status_messages(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+    def status_messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatusMessageArgs']]]]:
         """
         A list of errors or other messages generated during firmware analysis
         """
         return pulumi.get(self, "status_messages")
 
     @status_messages.setter
-    def status_messages(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+    def status_messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatusMessageArgs']]]]):
         pulumi.set(self, "status_messages", value)
 
     @property
@@ -214,16 +215,16 @@ class Firmware(pulumi.CustomResource):
                  model: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
-                 status_messages: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 status_messages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatusMessageArgs', 'StatusMessageArgsDict']]]]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Firmware definition
-        Azure REST API version: 2023-02-08-preview.
+        Azure REST API version: 2024-01-10. Prior API version in Azure Native 2.x: 2023-02-08-preview.
 
-        Other available API versions: 2024-01-10.
+        Other available API versions: 2023-02-08-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,7 +235,7 @@ class Firmware(pulumi.CustomResource):
         :param pulumi.Input[str] model: Firmware model.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'Status']] status: The status of firmware scan.
-        :param pulumi.Input[Sequence[Any]] status_messages: A list of errors or other messages generated during firmware analysis
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusMessageArgs', 'StatusMessageArgsDict']]]] status_messages: A list of errors or other messages generated during firmware analysis
         :param pulumi.Input[str] vendor: Firmware vendor.
         :param pulumi.Input[str] version: Firmware version.
         :param pulumi.Input[str] workspace_name: The name of the firmware analysis workspace.
@@ -247,9 +248,9 @@ class Firmware(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Firmware definition
-        Azure REST API version: 2023-02-08-preview.
+        Azure REST API version: 2024-01-10. Prior API version in Azure Native 2.x: 2023-02-08-preview.
 
-        Other available API versions: 2024-01-10.
+        Other available API versions: 2023-02-08-preview.
 
         :param str resource_name: The name of the resource.
         :param FirmwareArgs args: The arguments to use to populate this resource's properties.
@@ -273,7 +274,7 @@ class Firmware(pulumi.CustomResource):
                  model: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
-                 status_messages: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 status_messages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatusMessageArgs', 'StatusMessageArgsDict']]]]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -403,7 +404,7 @@ class Firmware(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statusMessages")
-    def status_messages(self) -> pulumi.Output[Optional[Sequence[Any]]]:
+    def status_messages(self) -> pulumi.Output[Optional[Sequence['outputs.StatusMessageResponse']]]:
         """
         A list of errors or other messages generated during firmware analysis
         """

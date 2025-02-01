@@ -21,8 +21,6 @@ from .get_marketplace_gallery_image import *
 from .get_network_interface import *
 from .get_storage_container import *
 from .get_update import *
-from .get_update_run import *
-from .get_update_summary import *
 from .get_virtual_hard_disk import *
 from .get_virtual_machine import *
 from .get_virtual_network import *
@@ -33,8 +31,6 @@ from .marketplace_gallery_image import *
 from .network_interface import *
 from .storage_container import *
 from .update import *
-from .update_run import *
-from .update_summary import *
 from .virtual_hard_disk import *
 from .virtual_machine import *
 from .virtual_network import *

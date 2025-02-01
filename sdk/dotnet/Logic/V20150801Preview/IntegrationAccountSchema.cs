@@ -110,6 +110,7 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:Schema" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountSchema" },
                     new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountSchema" },

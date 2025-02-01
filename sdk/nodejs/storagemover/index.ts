@@ -61,14 +61,10 @@ export * from "../types/enums/storagemover";
 
 // Export sub-modules:
 import * as v20230301 from "./v20230301";
-import * as v20230701preview from "./v20230701preview";
-import * as v20231001 from "./v20231001";
 import * as v20240701 from "./v20240701";
 
 export {
     v20230301,
-    v20230701preview,
-    v20231001,
     v20240701,
 };
 

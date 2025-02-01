@@ -29,10 +29,11 @@ class ContainerAppArgs:
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
                  managed_environment_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input['TemplateArgs']] = None,
-                 workload_profile_type: Optional[pulumi.Input[str]] = None):
+                 workload_profile_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ContainerApp resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -42,10 +43,11 @@ class ContainerAppArgs:
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[str] managed_environment_id: Deprecated. Resource ID of the Container App's environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['TemplateArgs'] template: Container App versioned application definition.
-        :param pulumi.Input[str] workload_profile_type: Workload profile type to pin for container app execution.
+        :param pulumi.Input[str] workload_profile_name: Workload profile name to pin for container app execution.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if configuration is not None:
@@ -60,14 +62,16 @@ class ContainerAppArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_by is not None:
+            pulumi.set(__self__, "managed_by", managed_by)
         if managed_environment_id is not None:
             pulumi.set(__self__, "managed_environment_id", managed_environment_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if template is not None:
             pulumi.set(__self__, "template", template)
-        if workload_profile_type is not None:
-            pulumi.set(__self__, "workload_profile_type", workload_profile_type)
+        if workload_profile_name is not None:
+            pulumi.set(__self__, "workload_profile_name", workload_profile_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -154,6 +158,18 @@ class ContainerAppArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @managed_by.setter
+    def managed_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_by", value)
+
+    @property
     @pulumi.getter(name="managedEnvironmentId")
     def managed_environment_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -190,16 +206,16 @@ class ContainerAppArgs:
         pulumi.set(self, "template", value)
 
     @property
-    @pulumi.getter(name="workloadProfileType")
-    def workload_profile_type(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="workloadProfileName")
+    def workload_profile_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Workload profile type to pin for container app execution.
+        Workload profile name to pin for container app execution.
         """
-        return pulumi.get(self, "workload_profile_type")
+        return pulumi.get(self, "workload_profile_name")
 
-    @workload_profile_type.setter
-    def workload_profile_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "workload_profile_type", value)
+    @workload_profile_name.setter
+    def workload_profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workload_profile_name", value)
 
 
 class ContainerApp(pulumi.CustomResource):
@@ -213,19 +229,18 @@ class ContainerApp(pulumi.CustomResource):
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
                  managed_environment_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict']]] = None,
-                 workload_profile_type: Optional[pulumi.Input[str]] = None,
+                 workload_profile_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Container App.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
-        Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
-
-        **Note**: the current default Azure API version for this resource, 2022-10-01, has an issue with referencing Key Vault secrets via the `KeyVaultUrl` property. If you encounter the error _"invalid: value or keyVaultUrl and identity should be provided"_ with such a configuration, you can use API version 2023-05-1 instead. In v3 of this provider, we will update the default API version.
+        Other available API versions: 2022-10-01, 2024-10-02-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,11 +250,12 @@ class ContainerApp(pulumi.CustomResource):
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The complex type of the extended location.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[str] managed_environment_id: Deprecated. Resource ID of the Container App's environment.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict']] template: Container App versioned application definition.
-        :param pulumi.Input[str] workload_profile_type: Workload profile type to pin for container app execution.
+        :param pulumi.Input[str] workload_profile_name: Workload profile name to pin for container app execution.
         """
         ...
     @overload
@@ -249,11 +265,9 @@ class ContainerApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container App.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
-        Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
-
-        **Note**: the current default Azure API version for this resource, 2022-10-01, has an issue with referencing Key Vault secrets via the `KeyVaultUrl` property. If you encounter the error _"invalid: value or keyVaultUrl and identity should be provided"_ with such a configuration, you can use API version 2023-05-1 instead. In v3 of this provider, we will update the default API version.
+        Other available API versions: 2022-10-01, 2024-10-02-preview.
 
         :param str resource_name: The name of the resource.
         :param ContainerAppArgs args: The arguments to use to populate this resource's properties.
@@ -276,11 +290,12 @@ class ContainerApp(pulumi.CustomResource):
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 managed_by: Optional[pulumi.Input[str]] = None,
                  managed_environment_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[Union['TemplateArgs', 'TemplateArgsDict']]] = None,
-                 workload_profile_type: Optional[pulumi.Input[str]] = None,
+                 workload_profile_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -296,13 +311,14 @@ class ContainerApp(pulumi.CustomResource):
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_by"] = managed_by
             __props__.__dict__["managed_environment_id"] = managed_environment_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template"] = template
-            __props__.__dict__["workload_profile_type"] = workload_profile_type
+            __props__.__dict__["workload_profile_name"] = workload_profile_name
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["event_stream_endpoint"] = None
             __props__.__dict__["latest_ready_revision_name"] = None
@@ -347,6 +363,7 @@ class ContainerApp(pulumi.CustomResource):
         __props__.__dict__["latest_revision_fqdn"] = None
         __props__.__dict__["latest_revision_name"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["managed_by"] = None
         __props__.__dict__["managed_environment_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["outbound_ip_addresses"] = None
@@ -355,7 +372,7 @@ class ContainerApp(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["template"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["workload_profile_type"] = None
+        __props__.__dict__["workload_profile_name"] = None
         return ContainerApp(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -439,6 +456,14 @@ class ContainerApp(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Output[Optional[str]]:
+        """
+        The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
     @pulumi.getter(name="managedEnvironmentId")
     def managed_environment_id(self) -> pulumi.Output[Optional[str]]:
         """
@@ -503,10 +528,10 @@ class ContainerApp(pulumi.CustomResource):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="workloadProfileType")
-    def workload_profile_type(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="workloadProfileName")
+    def workload_profile_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Workload profile type to pin for container app execution.
+        Workload profile name to pin for container app execution.
         """
-        return pulumi.get(self, "workload_profile_type")
+        return pulumi.get(self, "workload_profile_name")
 

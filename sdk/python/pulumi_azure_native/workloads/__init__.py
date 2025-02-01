@@ -16,7 +16,7 @@ from .get_monitor import *
 from .get_provider_instance import *
 from .get_sap_application_server_instance import *
 from .get_sap_availability_zone_details import *
-from .get_sap_central_instance import *
+from .get_sap_central_server_instance import *
 from .get_sap_database_instance import *
 from .get_sap_discovery_site import *
 from .get_sap_disk_configurations import *
@@ -33,7 +33,7 @@ from .get_server_instance import *
 from .monitor import *
 from .provider_instance import *
 from .sap_application_server_instance import *
-from .sap_central_instance import *
+from .sap_central_server_instance import *
 from .sap_database_instance import *
 from .sap_discovery_site import *
 from .sap_instance import *
@@ -45,10 +45,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.workloads.v20211201preview as __v20211201preview
-    v20211201preview = __v20211201preview
-    import pulumi_azure_native.workloads.v20221101preview as __v20221101preview
-    v20221101preview = __v20221101preview
     import pulumi_azure_native.workloads.v20230401 as __v20230401
     v20230401 = __v20230401
     import pulumi_azure_native.workloads.v20231001preview as __v20231001preview
@@ -60,8 +56,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.workloads.v20240901 as __v20240901
     v20240901 = __v20240901
 else:
-    v20211201preview = _utilities.lazy_import('pulumi_azure_native.workloads.v20211201preview')
-    v20221101preview = _utilities.lazy_import('pulumi_azure_native.workloads.v20221101preview')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.workloads.v20230401')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.workloads.v20231001preview')
     v20231201preview = _utilities.lazy_import('pulumi_azure_native.workloads.v20231201preview')

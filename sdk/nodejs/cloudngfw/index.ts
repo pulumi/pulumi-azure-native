@@ -200,16 +200,6 @@ export const listLocalRulestackSecurityServices: typeof import("./listLocalRules
 export const listLocalRulestackSecurityServicesOutput: typeof import("./listLocalRulestackSecurityServices").listLocalRulestackSecurityServicesOutput = null as any;
 utilities.lazyLoad(exports, ["listLocalRulestackSecurityServices","listLocalRulestackSecurityServicesOutput"], () => require("./listLocalRulestackSecurityServices"));
 
-export { ListPaloAltoNetworksCloudngfwCloudManagerTenantsArgs, ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult } from "./listPaloAltoNetworksCloudngfwCloudManagerTenants";
-export const listPaloAltoNetworksCloudngfwCloudManagerTenants: typeof import("./listPaloAltoNetworksCloudngfwCloudManagerTenants").listPaloAltoNetworksCloudngfwCloudManagerTenants = null as any;
-export const listPaloAltoNetworksCloudngfwCloudManagerTenantsOutput: typeof import("./listPaloAltoNetworksCloudngfwCloudManagerTenants").listPaloAltoNetworksCloudngfwCloudManagerTenantsOutput = null as any;
-utilities.lazyLoad(exports, ["listPaloAltoNetworksCloudngfwCloudManagerTenants","listPaloAltoNetworksCloudngfwCloudManagerTenantsOutput"], () => require("./listPaloAltoNetworksCloudngfwCloudManagerTenants"));
-
-export { ListPaloAltoNetworksCloudngfwProductSerialNumberStatusArgs, ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult } from "./listPaloAltoNetworksCloudngfwProductSerialNumberStatus";
-export const listPaloAltoNetworksCloudngfwProductSerialNumberStatus: typeof import("./listPaloAltoNetworksCloudngfwProductSerialNumberStatus").listPaloAltoNetworksCloudngfwProductSerialNumberStatus = null as any;
-export const listPaloAltoNetworksCloudngfwProductSerialNumberStatusOutput: typeof import("./listPaloAltoNetworksCloudngfwProductSerialNumberStatus").listPaloAltoNetworksCloudngfwProductSerialNumberStatusOutput = null as any;
-utilities.lazyLoad(exports, ["listPaloAltoNetworksCloudngfwProductSerialNumberStatus","listPaloAltoNetworksCloudngfwProductSerialNumberStatusOutput"], () => require("./listPaloAltoNetworksCloudngfwProductSerialNumberStatus"));
-
 export { ListPaloAltoNetworksCloudngfwSupportInfoArgs, ListPaloAltoNetworksCloudngfwSupportInfoResult } from "./listPaloAltoNetworksCloudngfwSupportInfo";
 export const listPaloAltoNetworksCloudngfwSupportInfo: typeof import("./listPaloAltoNetworksCloudngfwSupportInfo").listPaloAltoNetworksCloudngfwSupportInfo = null as any;
 export const listPaloAltoNetworksCloudngfwSupportInfoOutput: typeof import("./listPaloAltoNetworksCloudngfwSupportInfo").listPaloAltoNetworksCloudngfwSupportInfoOutput = null as any;
@@ -250,20 +240,12 @@ utilities.lazyLoad(exports, ["PrefixListLocalRulestack"], () => require("./prefi
 export * from "../types/enums/cloudngfw";
 
 // Export sub-modules:
-import * as v20220829 from "./v20220829";
-import * as v20220829preview from "./v20220829preview";
 import * as v20230901 from "./v20230901";
-import * as v20230901preview from "./v20230901preview";
-import * as v20231010preview from "./v20231010preview";
 import * as v20240119preview from "./v20240119preview";
 import * as v20240207preview from "./v20240207preview";
 
 export {
-    v20220829,
-    v20220829preview,
     v20230901,
-    v20230901preview,
-    v20231010preview,
     v20240119preview,
     v20240207preview,
 };

@@ -157,7 +157,7 @@ class SolutionsControllerSolution(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20180901preview:SolutionsControllerSolution"), pulumi.Alias(type_="azure-native:migrate:SolutionsControllerSolution")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20180901preview:Solution"), pulumi.Alias(type_="azure-native:migrate/v20180901preview:SolutionsControllerSolution"), pulumi.Alias(type_="azure-native:migrate:Solution"), pulumi.Alias(type_="azure-native:migrate:SolutionsControllerSolution")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SolutionsControllerSolution, __self__).__init__(
             'azure-native:migrate/v20230101:SolutionsControllerSolution',

@@ -5,53 +5,13 @@
 from enum import Enum
 
 __all__ = [
-    'ApplicationGroupType',
-    'CommandLineSetting',
     'DayOfWeek',
-    'DirectUDP',
-    'FailHealthCheckOnStagingFailure',
-    'HostPoolType',
-    'HostpoolPublicNetworkAccess',
-    'LoadBalancerType',
-    'ManagedPrivateUDP',
-    'ManagedServiceIdentityType',
-    'ManagementType',
-    'PackageTimestamped',
-    'PersonalDesktopAssignmentType',
-    'PreferredAppGroupType',
-    'PrivateEndpointServiceConnectionStatus',
-    'PublicNetworkAccess',
-    'PublicUDP',
-    'RegistrationTokenOperation',
-    'RelayUDP',
-    'RemoteApplicationType',
-    'SSOSecretType',
-    'ScalingHostPoolType',
     'SessionHandlingOperation',
-    'SessionHostComponentUpdateType',
     'SessionHostLoadBalancingAlgorithm',
     'SetStartVMOnConnect',
-    'SkuTier',
     'StartupBehavior',
     'StopHostsWhen',
 ]
-
-
-class ApplicationGroupType(str, Enum):
-    """
-    Resource Type of ApplicationGroup.
-    """
-    REMOTE_APP = "RemoteApp"
-    DESKTOP = "Desktop"
-
-
-class CommandLineSetting(str, Enum):
-    """
-    Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-    """
-    DO_NOT_ALLOW = "DoNotAllow"
-    ALLOW = "Allow"
-    REQUIRE = "Require"
 
 
 class DayOfWeek(str, Enum):
@@ -64,190 +24,6 @@ class DayOfWeek(str, Enum):
     SUNDAY = "Sunday"
 
 
-class DirectUDP(str, Enum):
-    """
-    Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
-    """
-    DEFAULT = "Default"
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class FailHealthCheckOnStagingFailure(str, Enum):
-    """
-    Parameter indicating how the health check should behave if this package fails staging
-    """
-    UNHEALTHY = "Unhealthy"
-    NEEDS_ASSISTANCE = "NeedsAssistance"
-    DO_NOT_FAIL = "DoNotFail"
-
-
-class HostPoolType(str, Enum):
-    """
-    HostPool type for desktop.
-    """
-    PERSONAL = "Personal"
-    """
-    Users will be assigned a SessionHost either by administrators (PersonalDesktopAssignmentType = Direct) or upon connecting to the pool (PersonalDesktopAssignmentType = Automatic). They will always be redirected to their assigned SessionHost.
-    """
-    POOLED = "Pooled"
-    """
-    Users get a new (random) SessionHost every time it connects to the HostPool.
-    """
-    BYO_DESKTOP = "BYODesktop"
-    """
-    Users assign their own machines, load balancing logic remains the same as Personal. PersonalDesktopAssignmentType must be Direct.
-    """
-
-
-class HostpoolPublicNetworkAccess(str, Enum):
-    """
-    Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-    ENABLED_FOR_SESSION_HOSTS_ONLY = "EnabledForSessionHostsOnly"
-    ENABLED_FOR_CLIENTS_ONLY = "EnabledForClientsOnly"
-
-
-class LoadBalancerType(str, Enum):
-    """
-    The type of the load balancer.
-    """
-    BREADTH_FIRST = "BreadthFirst"
-    DEPTH_FIRST = "DepthFirst"
-    PERSISTENT = "Persistent"
-    MULTIPLE_PERSISTENT = "MultiplePersistent"
-
-
-class ManagedPrivateUDP(str, Enum):
-    """
-    Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
-    """
-    DEFAULT = "Default"
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class ManagedServiceIdentityType(str, Enum):
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
-
-
-class ManagementType(str, Enum):
-    """
-    The type of management for this hostpool, Automated or Standard. The default value is Automated.
-    """
-    AUTOMATED = "Automated"
-    STANDARD = "Standard"
-
-
-class PackageTimestamped(str, Enum):
-    """
-    Is package timestamped so it can ignore the certificate expiry date
-    """
-    TIMESTAMPED = "Timestamped"
-    NOT_TIMESTAMPED = "NotTimestamped"
-
-
-class PersonalDesktopAssignmentType(str, Enum):
-    """
-    PersonalDesktopAssignment type for HostPool.
-    """
-    AUTOMATIC = "Automatic"
-    DIRECT = "Direct"
-
-
-class PreferredAppGroupType(str, Enum):
-    """
-    The type of preferred application group type, default to Desktop Application Group
-    """
-    NONE = "None"
-    DESKTOP = "Desktop"
-    RAIL_APPLICATIONS = "RailApplications"
-
-
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-
-
-class PublicNetworkAccess(str, Enum):
-    """
-    Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class PublicUDP(str, Enum):
-    """
-    Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
-    """
-    DEFAULT = "Default"
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class RegistrationTokenOperation(str, Enum):
-    """
-    The type of resetting the token.
-    """
-    DELETE = "Delete"
-    NONE = "None"
-    UPDATE = "Update"
-
-
-class RelayUDP(str, Enum):
-    """
-    Default: AVD-wide settings are used to determine connection availability, Enabled: UDP will attempt this connection type when making connections. This means that this connection is possible, but is not guaranteed, as there are other factors that may prevent this connection type, Disabled: UDP will not attempt this connection type when making connections
-    """
-    DEFAULT = "Default"
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class RemoteApplicationType(str, Enum):
-    """
-    Resource Type of Application.
-    """
-    IN_BUILT = "InBuilt"
-    MSIX_APPLICATION = "MsixApplication"
-
-
-class SSOSecretType(str, Enum):
-    """
-    The type of single sign on Secret Type.
-    """
-    SHARED_KEY = "SharedKey"
-    CERTIFICATE = "Certificate"
-    SHARED_KEY_IN_KEY_VAULT = "SharedKeyInKeyVault"
-    CERTIFICATE_IN_KEY_VAULT = "CertificateInKeyVault"
-
-
-class ScalingHostPoolType(str, Enum):
-    """
-    HostPool type for desktop.
-    """
-    POOLED = "Pooled"
-    """
-    Users get a new (random) SessionHost every time it connects to the HostPool.
-    """
-    PERSONAL = "Personal"
-    """
-    Users will be assigned a SessionHost either by administrators (PersonalDesktopAssignmentType = Direct) or upon connecting to the pool (PersonalDesktopAssignmentType = Automatic). They will always be redirected to their assigned SessionHost.
-    """
-
-
 class SessionHandlingOperation(str, Enum):
     """
     Action to be taken after a logoff during the ramp up period.
@@ -255,20 +31,6 @@ class SessionHandlingOperation(str, Enum):
     NONE = "None"
     DEALLOCATE = "Deallocate"
     HIBERNATE = "Hibernate"
-
-
-class SessionHostComponentUpdateType(str, Enum):
-    """
-    The type of maintenance for session host components.
-    """
-    DEFAULT = "Default"
-    """
-    Agent and other agent side components are delivery schedule is controlled by WVD Infra.
-    """
-    SCHEDULED = "Scheduled"
-    """
-    TenantAdmin have opted in for Scheduled Component Update feature.
-    """
 
 
 class SessionHostLoadBalancingAlgorithm(str, Enum):
@@ -285,16 +47,6 @@ class SetStartVMOnConnect(str, Enum):
     """
     ENABLE = "Enable"
     DISABLE = "Disable"
-
-
-class SkuTier(str, Enum):
-    """
-    This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-    """
-    FREE = "Free"
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
 
 
 class StartupBehavior(str, Enum):

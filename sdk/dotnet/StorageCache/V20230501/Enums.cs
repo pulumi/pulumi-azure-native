@@ -8,37 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.StorageCache.V20230501
 {
     /// <summary>
-    /// The type of identity used for the resource.
-    /// </summary>
-    [EnumType]
-    public readonly struct AmlFilesystemIdentityType : IEquatable<AmlFilesystemIdentityType>
-    {
-        private readonly string _value;
-
-        private AmlFilesystemIdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AmlFilesystemIdentityType UserAssigned { get; } = new AmlFilesystemIdentityType("UserAssigned");
-        public static AmlFilesystemIdentityType None { get; } = new AmlFilesystemIdentityType("None");
-
-        public static bool operator ==(AmlFilesystemIdentityType left, AmlFilesystemIdentityType right) => left.Equals(right);
-        public static bool operator !=(AmlFilesystemIdentityType left, AmlFilesystemIdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(AmlFilesystemIdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AmlFilesystemIdentityType other && Equals(other);
-        public bool Equals(AmlFilesystemIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The type of identity used for the cache
     /// </summary>
     [EnumType]
@@ -64,42 +33,6 @@ namespace Pulumi.AzureNative.StorageCache.V20230501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CacheIdentityType other && Equals(other);
         public bool Equals(CacheIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Day of the week on which the maintenance window will occur.
-    /// </summary>
-    [EnumType]
-    public readonly struct MaintenanceDayOfWeekType : IEquatable<MaintenanceDayOfWeekType>
-    {
-        private readonly string _value;
-
-        private MaintenanceDayOfWeekType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MaintenanceDayOfWeekType Monday { get; } = new MaintenanceDayOfWeekType("Monday");
-        public static MaintenanceDayOfWeekType Tuesday { get; } = new MaintenanceDayOfWeekType("Tuesday");
-        public static MaintenanceDayOfWeekType Wednesday { get; } = new MaintenanceDayOfWeekType("Wednesday");
-        public static MaintenanceDayOfWeekType Thursday { get; } = new MaintenanceDayOfWeekType("Thursday");
-        public static MaintenanceDayOfWeekType Friday { get; } = new MaintenanceDayOfWeekType("Friday");
-        public static MaintenanceDayOfWeekType Saturday { get; } = new MaintenanceDayOfWeekType("Saturday");
-        public static MaintenanceDayOfWeekType Sunday { get; } = new MaintenanceDayOfWeekType("Sunday");
-
-        public static bool operator ==(MaintenanceDayOfWeekType left, MaintenanceDayOfWeekType right) => left.Equals(right);
-        public static bool operator !=(MaintenanceDayOfWeekType left, MaintenanceDayOfWeekType right) => !left.Equals(right);
-
-        public static explicit operator string(MaintenanceDayOfWeekType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MaintenanceDayOfWeekType other && Equals(other);
-        public bool Equals(MaintenanceDayOfWeekType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -24,6 +24,8 @@ __all__ = [
     'AzureResourceArgsDict',
     'ConfigurationInfoArgs',
     'ConfigurationInfoArgsDict',
+    'ConfigurationStoreArgs',
+    'ConfigurationStoreArgsDict',
     'ConfluentBootstrapServerArgs',
     'ConfluentBootstrapServerArgsDict',
     'ConfluentSchemaRegistryArgs',
@@ -34,6 +36,8 @@ __all__ = [
     'DaprMetadataArgsDict',
     'DaprPropertiesArgs',
     'DaprPropertiesArgsDict',
+    'EasyAuthMicrosoftEntraIDAuthInfoArgs',
+    'EasyAuthMicrosoftEntraIDAuthInfoArgsDict',
     'FirewallRulesArgs',
     'FirewallRulesArgsDict',
     'KeyVaultSecretReferenceSecretInfoArgs',
@@ -76,6 +80,10 @@ if not MYPY:
         The authentication type.
         Expected value is 'accessKey'.
         """
+        auth_mode: NotRequired[pulumi.Input[Union[str, 'AuthMode']]]
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
         permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessKeyPermissions']]]]]
         """
         Permissions of the accessKey. `Read` and `Write` are for Azure Cosmos DB and Azure App Configuration, `Listen`, `Send` and `Manage` are for Azure Event Hub and Azure Service Bus.
@@ -87,14 +95,18 @@ elif False:
 class AccessKeyInfoBaseArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[str],
+                 auth_mode: Optional[pulumi.Input[Union[str, 'AuthMode']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessKeyPermissions']]]]] = None):
         """
         The access key directly from target resource properties, which target service is Azure Resource, such as Microsoft.Storage
         :param pulumi.Input[str] auth_type: The authentication type.
                Expected value is 'accessKey'.
+        :param pulumi.Input[Union[str, 'AuthMode']] auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessKeyPermissions']]]] permissions: Permissions of the accessKey. `Read` and `Write` are for Azure Cosmos DB and Azure App Configuration, `Listen`, `Send` and `Manage` are for Azure Event Hub and Azure Service Bus.
         """
         pulumi.set(__self__, "auth_type", 'accessKey')
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
 
@@ -110,6 +122,18 @@ class AccessKeyInfoBaseArgs:
     @auth_type.setter
     def auth_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthMode']]]:
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthMode']]]):
+        pulumi.set(self, "auth_mode", value)
 
     @property
     @pulumi.getter
@@ -273,6 +297,14 @@ if not MYPY:
         """
         A dictionary of additional configurations to be added. Service will auto generate a set of basic configurations and this property is to full fill more customized configurations
         """
+        additional_connection_string_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A dictionary of additional properties to be added in the end of connection string.
+        """
+        configuration_store: NotRequired[pulumi.Input['ConfigurationStoreArgsDict']]
+        """
+        An option to store configuration into different place
+        """
         customized_keys: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         Optional. A dictionary of default key name and customized key name mapping. If not specified, default key name will be used for generate configurations
@@ -293,6 +325,8 @@ class ConfigurationInfoArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[Union[str, 'ActionType']]] = None,
                  additional_configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 additional_connection_string_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 configuration_store: Optional[pulumi.Input['ConfigurationStoreArgs']] = None,
                  customized_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  dapr_properties: Optional[pulumi.Input['DaprPropertiesArgs']] = None,
                  delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None):
@@ -300,6 +334,8 @@ class ConfigurationInfoArgs:
         The configuration information, used to generate configurations or save to applications
         :param pulumi.Input[Union[str, 'ActionType']] action: Optional, indicate whether to apply configurations on source application. If enable, generate configurations and applied to the source application. Default is enable. If optOut, no configuration change will be made on source.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_configurations: A dictionary of additional configurations to be added. Service will auto generate a set of basic configurations and this property is to full fill more customized configurations
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_connection_string_properties: A dictionary of additional properties to be added in the end of connection string.
+        :param pulumi.Input['ConfigurationStoreArgs'] configuration_store: An option to store configuration into different place
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] customized_keys: Optional. A dictionary of default key name and customized key name mapping. If not specified, default key name will be used for generate configurations
         :param pulumi.Input['DaprPropertiesArgs'] dapr_properties: Indicates some additional properties for dapr client type
         :param pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']] delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
@@ -308,6 +344,10 @@ class ConfigurationInfoArgs:
             pulumi.set(__self__, "action", action)
         if additional_configurations is not None:
             pulumi.set(__self__, "additional_configurations", additional_configurations)
+        if additional_connection_string_properties is not None:
+            pulumi.set(__self__, "additional_connection_string_properties", additional_connection_string_properties)
+        if configuration_store is not None:
+            pulumi.set(__self__, "configuration_store", configuration_store)
         if customized_keys is not None:
             pulumi.set(__self__, "customized_keys", customized_keys)
         if dapr_properties is not None:
@@ -338,6 +378,30 @@ class ConfigurationInfoArgs:
     @additional_configurations.setter
     def additional_configurations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "additional_configurations", value)
+
+    @property
+    @pulumi.getter(name="additionalConnectionStringProperties")
+    def additional_connection_string_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A dictionary of additional properties to be added in the end of connection string.
+        """
+        return pulumi.get(self, "additional_connection_string_properties")
+
+    @additional_connection_string_properties.setter
+    def additional_connection_string_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_connection_string_properties", value)
+
+    @property
+    @pulumi.getter(name="configurationStore")
+    def configuration_store(self) -> Optional[pulumi.Input['ConfigurationStoreArgs']]:
+        """
+        An option to store configuration into different place
+        """
+        return pulumi.get(self, "configuration_store")
+
+    @configuration_store.setter
+    def configuration_store(self, value: Optional[pulumi.Input['ConfigurationStoreArgs']]):
+        pulumi.set(self, "configuration_store", value)
 
     @property
     @pulumi.getter(name="customizedKeys")
@@ -374,6 +438,42 @@ class ConfigurationInfoArgs:
     @delete_or_update_behavior.setter
     def delete_or_update_behavior(self, value: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]]):
         pulumi.set(self, "delete_or_update_behavior", value)
+
+
+if not MYPY:
+    class ConfigurationStoreArgsDict(TypedDict):
+        """
+        An option to store configuration into different place
+        """
+        app_configuration_id: NotRequired[pulumi.Input[str]]
+        """
+        The app configuration id to store configuration
+        """
+elif False:
+    ConfigurationStoreArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfigurationStoreArgs:
+    def __init__(__self__, *,
+                 app_configuration_id: Optional[pulumi.Input[str]] = None):
+        """
+        An option to store configuration into different place
+        :param pulumi.Input[str] app_configuration_id: The app configuration id to store configuration
+        """
+        if app_configuration_id is not None:
+            pulumi.set(__self__, "app_configuration_id", app_configuration_id)
+
+    @property
+    @pulumi.getter(name="appConfigurationId")
+    def app_configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app configuration id to store configuration
+        """
+        return pulumi.get(self, "app_configuration_id")
+
+    @app_configuration_id.setter
+    def app_configuration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_configuration_id", value)
 
 
 if not MYPY:
@@ -502,7 +602,7 @@ if not MYPY:
         The name of action for you dryrun job.
         Expected value is 'createOrUpdate'.
         """
-        auth_info: NotRequired[pulumi.Input[Union['AccessKeyInfoBaseArgsDict', 'SecretAuthInfoArgsDict', 'ServicePrincipalCertificateAuthInfoArgsDict', 'ServicePrincipalSecretAuthInfoArgsDict', 'SystemAssignedIdentityAuthInfoArgsDict', 'UserAccountAuthInfoArgsDict', 'UserAssignedIdentityAuthInfoArgsDict']]]
+        auth_info: NotRequired[pulumi.Input[Union['AccessKeyInfoBaseArgsDict', 'EasyAuthMicrosoftEntraIDAuthInfoArgsDict', 'SecretAuthInfoArgsDict', 'ServicePrincipalCertificateAuthInfoArgsDict', 'ServicePrincipalSecretAuthInfoArgsDict', 'SystemAssignedIdentityAuthInfoArgsDict', 'UserAccountAuthInfoArgsDict', 'UserAssignedIdentityAuthInfoArgsDict']]]
         """
         The authentication type.
         """
@@ -541,7 +641,7 @@ elif False:
 class CreateOrUpdateDryrunParametersArgs:
     def __init__(__self__, *,
                  action_name: pulumi.Input[str],
-                 auth_info: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]] = None,
+                 auth_info: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]] = None,
                  client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
                  configuration_info: Optional[pulumi.Input['ConfigurationInfoArgs']] = None,
                  public_network_solution: Optional[pulumi.Input['PublicNetworkSolutionArgs']] = None,
@@ -553,7 +653,7 @@ class CreateOrUpdateDryrunParametersArgs:
         The dryrun parameters for creation or update a linker
         :param pulumi.Input[str] action_name: The name of action for you dryrun job.
                Expected value is 'createOrUpdate'.
-        :param pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']] auth_info: The authentication type.
+        :param pulumi.Input[Union['AccessKeyInfoBaseArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']] auth_info: The authentication type.
         :param pulumi.Input[Union[str, 'ClientType']] client_type: The application client type
         :param pulumi.Input['ConfigurationInfoArgs'] configuration_info: The connection information consumed by applications, including secrets, connection strings.
         :param pulumi.Input['PublicNetworkSolutionArgs'] public_network_solution: The network solution.
@@ -595,14 +695,14 @@ class CreateOrUpdateDryrunParametersArgs:
 
     @property
     @pulumi.getter(name="authInfo")
-    def auth_info(self) -> Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]:
+    def auth_info(self) -> Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]:
         """
         The authentication type.
         """
         return pulumi.get(self, "auth_info")
 
     @auth_info.setter
-    def auth_info(self, value: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]):
+    def auth_info(self, value: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'EasyAuthMicrosoftEntraIDAuthInfoArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]]):
         pulumi.set(self, "auth_info", value)
 
     @property
@@ -695,9 +795,17 @@ if not MYPY:
         """
         The dapr component metadata.
         """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the metadata, returned from configuration api
+        """
         name: NotRequired[pulumi.Input[str]]
         """
         Metadata property name.
+        """
+        required: NotRequired[pulumi.Input[Union[str, 'DaprMetadataRequired']]]
+        """
+        The value indicating whether the metadata is required or not
         """
         secret_ref: NotRequired[pulumi.Input[str]]
         """
@@ -713,21 +821,41 @@ elif False:
 @pulumi.input_type
 class DaprMetadataArgs:
     def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 required: Optional[pulumi.Input[Union[str, 'DaprMetadataRequired']]] = None,
                  secret_ref: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         The dapr component metadata.
+        :param pulumi.Input[str] description: The description of the metadata, returned from configuration api
         :param pulumi.Input[str] name: Metadata property name.
+        :param pulumi.Input[Union[str, 'DaprMetadataRequired']] required: The value indicating whether the metadata is required or not
         :param pulumi.Input[str] secret_ref: The secret name where dapr could get value
         :param pulumi.Input[str] value: Metadata property value.
         """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
         if secret_ref is not None:
             pulumi.set(__self__, "secret_ref", secret_ref)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the metadata, returned from configuration api
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -740,6 +868,18 @@ class DaprMetadataArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[Union[str, 'DaprMetadataRequired']]]:
+        """
+        The value indicating whether the metadata is required or not
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[Union[str, 'DaprMetadataRequired']]]):
+        pulumi.set(self, "required", value)
 
     @property
     @pulumi.getter(name="secretRef")
@@ -880,6 +1020,124 @@ class DaprPropertiesArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class EasyAuthMicrosoftEntraIDAuthInfoArgsDict(TypedDict):
+        """
+        The authentication info when authType is EasyAuth Microsoft Entra ID
+        """
+        auth_type: pulumi.Input[str]
+        """
+        The authentication type.
+        Expected value is 'easyAuthMicrosoftEntraID'.
+        """
+        auth_mode: NotRequired[pulumi.Input[Union[str, 'AuthMode']]]
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Application clientId for EasyAuth Microsoft Entra ID.
+        """
+        delete_or_update_behavior: NotRequired[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]]
+        """
+        Indicates whether to clean up previous operation when Linker is updating or deleting
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Application Secret for EasyAuth Microsoft Entra ID.
+        """
+elif False:
+    EasyAuthMicrosoftEntraIDAuthInfoArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EasyAuthMicrosoftEntraIDAuthInfoArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input[str],
+                 auth_mode: Optional[pulumi.Input[Union[str, 'AuthMode']]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
+                 secret: Optional[pulumi.Input[str]] = None):
+        """
+        The authentication info when authType is EasyAuth Microsoft Entra ID
+        :param pulumi.Input[str] auth_type: The authentication type.
+               Expected value is 'easyAuthMicrosoftEntraID'.
+        :param pulumi.Input[Union[str, 'AuthMode']] auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        :param pulumi.Input[str] client_id: Application clientId for EasyAuth Microsoft Entra ID.
+        :param pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']] delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
+        :param pulumi.Input[str] secret: Application Secret for EasyAuth Microsoft Entra ID.
+        """
+        pulumi.set(__self__, "auth_type", 'easyAuthMicrosoftEntraID')
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if delete_or_update_behavior is not None:
+            pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[str]:
+        """
+        The authentication type.
+        Expected value is 'easyAuthMicrosoftEntraID'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthMode']]]:
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthMode']]]):
+        pulumi.set(self, "auth_mode", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application clientId for EasyAuth Microsoft Entra ID.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="deleteOrUpdateBehavior")
+    def delete_or_update_behavior(self) -> Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]]:
+        """
+        Indicates whether to clean up previous operation when Linker is updating or deleting
+        """
+        return pulumi.get(self, "delete_or_update_behavior")
+
+    @delete_or_update_behavior.setter
+    def delete_or_update_behavior(self, value: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]]):
+        pulumi.set(self, "delete_or_update_behavior", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application Secret for EasyAuth Microsoft Entra ID.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret", value)
 
 
 if not MYPY:
@@ -1180,6 +1438,10 @@ if not MYPY:
         The authentication type.
         Expected value is 'secret'.
         """
+        auth_mode: NotRequired[pulumi.Input[Union[str, 'AuthMode']]]
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
         name: NotRequired[pulumi.Input[str]]
         """
         Username or account name for secret auth.
@@ -1195,16 +1457,20 @@ elif False:
 class SecretAuthInfoArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[str],
+                 auth_mode: Optional[pulumi.Input[Union[str, 'AuthMode']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  secret_info: Optional[pulumi.Input[Union['KeyVaultSecretReferenceSecretInfoArgs', 'KeyVaultSecretUriSecretInfoArgs', 'ValueSecretInfoArgs']]] = None):
         """
         The authentication info when authType is secret
         :param pulumi.Input[str] auth_type: The authentication type.
                Expected value is 'secret'.
+        :param pulumi.Input[Union[str, 'AuthMode']] auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
         :param pulumi.Input[str] name: Username or account name for secret auth.
         :param pulumi.Input[Union['KeyVaultSecretReferenceSecretInfoArgs', 'KeyVaultSecretUriSecretInfoArgs', 'ValueSecretInfoArgs']] secret_info: Password or key vault secret for secret auth.
         """
         pulumi.set(__self__, "auth_type", 'secret')
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if secret_info is not None:
@@ -1222,6 +1488,18 @@ class SecretAuthInfoArgs:
     @auth_type.setter
     def auth_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthMode']]]:
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthMode']]]):
+        pulumi.set(self, "auth_mode", value)
 
     @property
     @pulumi.getter
@@ -1384,6 +1662,10 @@ if not MYPY:
         """
         Principal Id for servicePrincipal auth.
         """
+        auth_mode: NotRequired[pulumi.Input[Union[str, 'AuthMode']]]
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
         delete_or_update_behavior: NotRequired[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]]
         """
         Indicates whether to clean up previous operation when Linker is updating or deleting
@@ -1402,6 +1684,7 @@ class ServicePrincipalCertificateAuthInfoArgs:
                  certificate: pulumi.Input[str],
                  client_id: pulumi.Input[str],
                  principal_id: pulumi.Input[str],
+                 auth_mode: Optional[pulumi.Input[Union[str, 'AuthMode']]] = None,
                  delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -1411,6 +1694,7 @@ class ServicePrincipalCertificateAuthInfoArgs:
         :param pulumi.Input[str] certificate: ServicePrincipal certificate for servicePrincipal auth.
         :param pulumi.Input[str] client_id: Application clientId for servicePrincipal auth.
         :param pulumi.Input[str] principal_id: Principal Id for servicePrincipal auth.
+        :param pulumi.Input[Union[str, 'AuthMode']] auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
         :param pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']] delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
         """
@@ -1418,6 +1702,8 @@ class ServicePrincipalCertificateAuthInfoArgs:
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
         if delete_or_update_behavior is not None:
             pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
         if roles is not None:
@@ -1473,6 +1759,18 @@ class ServicePrincipalCertificateAuthInfoArgs:
         pulumi.set(self, "principal_id", value)
 
     @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthMode']]]:
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthMode']]]):
+        pulumi.set(self, "auth_mode", value)
+
+    @property
     @pulumi.getter(name="deleteOrUpdateBehavior")
     def delete_or_update_behavior(self) -> Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]]:
         """
@@ -1519,6 +1817,10 @@ if not MYPY:
         """
         Secret for servicePrincipal auth.
         """
+        auth_mode: NotRequired[pulumi.Input[Union[str, 'AuthMode']]]
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
         delete_or_update_behavior: NotRequired[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]]
         """
         Indicates whether to clean up previous operation when Linker is updating or deleting
@@ -1541,6 +1843,7 @@ class ServicePrincipalSecretAuthInfoArgs:
                  client_id: pulumi.Input[str],
                  principal_id: pulumi.Input[str],
                  secret: pulumi.Input[str],
+                 auth_mode: Optional[pulumi.Input[Union[str, 'AuthMode']]] = None,
                  delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
@@ -1551,6 +1854,7 @@ class ServicePrincipalSecretAuthInfoArgs:
         :param pulumi.Input[str] client_id: ServicePrincipal application clientId for servicePrincipal auth.
         :param pulumi.Input[str] principal_id: Principal Id for servicePrincipal auth.
         :param pulumi.Input[str] secret: Secret for servicePrincipal auth.
+        :param pulumi.Input[Union[str, 'AuthMode']] auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
         :param pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']] delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
         :param pulumi.Input[str] user_name: Username created in the database which is mapped to a user in AAD.
@@ -1559,6 +1863,8 @@ class ServicePrincipalSecretAuthInfoArgs:
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "secret", secret)
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
         if delete_or_update_behavior is not None:
             pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
         if roles is not None:
@@ -1616,6 +1922,18 @@ class ServicePrincipalSecretAuthInfoArgs:
         pulumi.set(self, "secret", value)
 
     @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthMode']]]:
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthMode']]]):
+        pulumi.set(self, "auth_mode", value)
+
+    @property
     @pulumi.getter(name="deleteOrUpdateBehavior")
     def delete_or_update_behavior(self) -> Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]]:
         """
@@ -1662,6 +1980,10 @@ if not MYPY:
         The authentication type.
         Expected value is 'systemAssignedIdentity'.
         """
+        auth_mode: NotRequired[pulumi.Input[Union[str, 'AuthMode']]]
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
         delete_or_update_behavior: NotRequired[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]]
         """
         Indicates whether to clean up previous operation when Linker is updating or deleting
@@ -1681,6 +2003,7 @@ elif False:
 class SystemAssignedIdentityAuthInfoArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[str],
+                 auth_mode: Optional[pulumi.Input[Union[str, 'AuthMode']]] = None,
                  delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
@@ -1688,11 +2011,14 @@ class SystemAssignedIdentityAuthInfoArgs:
         The authentication info when authType is systemAssignedIdentity
         :param pulumi.Input[str] auth_type: The authentication type.
                Expected value is 'systemAssignedIdentity'.
+        :param pulumi.Input[Union[str, 'AuthMode']] auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
         :param pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']] delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Optional, this value specifies the Azure role to be assigned
         :param pulumi.Input[str] user_name: Username created in the database which is mapped to a user in AAD.
         """
         pulumi.set(__self__, "auth_type", 'systemAssignedIdentity')
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
         if delete_or_update_behavior is not None:
             pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
         if roles is not None:
@@ -1712,6 +2038,18 @@ class SystemAssignedIdentityAuthInfoArgs:
     @auth_type.setter
     def auth_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthMode']]]:
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthMode']]]):
+        pulumi.set(self, "auth_mode", value)
 
     @property
     @pulumi.getter(name="deleteOrUpdateBehavior")
@@ -1760,6 +2098,10 @@ if not MYPY:
         The authentication type.
         Expected value is 'userAccount'.
         """
+        auth_mode: NotRequired[pulumi.Input[Union[str, 'AuthMode']]]
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
         delete_or_update_behavior: NotRequired[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]]
         """
         Indicates whether to clean up previous operation when Linker is updating or deleting
@@ -1783,6 +2125,7 @@ elif False:
 class UserAccountAuthInfoArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[str],
+                 auth_mode: Optional[pulumi.Input[Union[str, 'AuthMode']]] = None,
                  delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1791,12 +2134,15 @@ class UserAccountAuthInfoArgs:
         The authentication info when authType is user account
         :param pulumi.Input[str] auth_type: The authentication type.
                Expected value is 'userAccount'.
+        :param pulumi.Input[Union[str, 'AuthMode']] auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
         :param pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']] delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         :param pulumi.Input[str] principal_id: Principal Id for user account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Optional, this value specifies the Azure roles to be assigned. Automatically 
         :param pulumi.Input[str] user_name: Username created in the database which is mapped to a user in AAD.
         """
         pulumi.set(__self__, "auth_type", 'userAccount')
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
         if delete_or_update_behavior is not None:
             pulumi.set(__self__, "delete_or_update_behavior", delete_or_update_behavior)
         if principal_id is not None:
@@ -1818,6 +2164,18 @@ class UserAccountAuthInfoArgs:
     @auth_type.setter
     def auth_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthMode']]]:
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthMode']]]):
+        pulumi.set(self, "auth_mode", value)
 
     @property
     @pulumi.getter(name="deleteOrUpdateBehavior")
@@ -1878,6 +2236,10 @@ if not MYPY:
         The authentication type.
         Expected value is 'userAssignedIdentity'.
         """
+        auth_mode: NotRequired[pulumi.Input[Union[str, 'AuthMode']]]
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
         client_id: NotRequired[pulumi.Input[str]]
         """
         Client Id for userAssignedIdentity.
@@ -1905,6 +2267,7 @@ elif False:
 class UserAssignedIdentityAuthInfoArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[str],
+                 auth_mode: Optional[pulumi.Input[Union[str, 'AuthMode']]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  delete_or_update_behavior: Optional[pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1914,6 +2277,7 @@ class UserAssignedIdentityAuthInfoArgs:
         The authentication info when authType is userAssignedIdentity
         :param pulumi.Input[str] auth_type: The authentication type.
                Expected value is 'userAssignedIdentity'.
+        :param pulumi.Input[Union[str, 'AuthMode']] auth_mode: Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
         :param pulumi.Input[str] client_id: Client Id for userAssignedIdentity.
         :param pulumi.Input[Union[str, 'DeleteOrUpdateBehavior']] delete_or_update_behavior: Indicates whether to clean up previous operation when Linker is updating or deleting
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Optional, this value specifies the Azure role to be assigned
@@ -1921,6 +2285,8 @@ class UserAssignedIdentityAuthInfoArgs:
         :param pulumi.Input[str] user_name: Username created in the database which is mapped to a user in AAD.
         """
         pulumi.set(__self__, "auth_type", 'userAssignedIdentity')
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if delete_or_update_behavior is not None:
@@ -1944,6 +2310,18 @@ class UserAssignedIdentityAuthInfoArgs:
     @auth_type.setter
     def auth_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthMode']]]:
+        """
+        Optional. Indicates how to configure authentication. If optInAllAuth, service linker configures authentication such as enabling identity on source resource and granting RBAC roles. If optOutAllAuth, opt out authentication setup. Default is optInAllAuth.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthMode']]]):
+        pulumi.set(self, "auth_mode", value)
 
     @property
     @pulumi.getter(name="clientId")

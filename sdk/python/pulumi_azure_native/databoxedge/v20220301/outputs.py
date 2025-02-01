@@ -19,14 +19,12 @@ from ._enums import *
 __all__ = [
     'AddressResponse',
     'AsymmetricEncryptedSecretResponse',
-    'AuthenticationResponse',
     'AzureContainerInfoResponse',
     'ClientAccessRightResponse',
     'ContactDetailsResponse',
     'DataResidencyResponse',
     'EdgeProfileResponse',
     'EdgeProfileSubscriptionResponse',
-    'IoTDeviceInfoResponse',
     'MetricConfigurationResponse',
     'MetricCounterResponse',
     'MetricCounterSetResponse',
@@ -40,7 +38,6 @@ __all__ = [
     'ShareAccessRightResponse',
     'SkuResponse',
     'SubscriptionRegisteredFeaturesResponse',
-    'SymmetricKeyResponse',
     'SystemDataResponse',
     'TrackingInfoResponse',
     'UserAccessRightResponse',
@@ -225,46 +222,6 @@ class AsymmetricEncryptedSecretResponse(dict):
         Thumbprint certificate used to encrypt \\"Value\\". If the value is unencrypted, it will be null.
         """
         return pulumi.get(self, "encryption_cert_thumbprint")
-
-
-@pulumi.output_type
-class AuthenticationResponse(dict):
-    """
-    Authentication mechanism for IoT devices.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "symmetricKey":
-            suggest = "symmetric_key"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AuthenticationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AuthenticationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 symmetric_key: Optional['outputs.SymmetricKeyResponse'] = None):
-        """
-        Authentication mechanism for IoT devices.
-        :param 'SymmetricKeyResponse' symmetric_key: Symmetric key for authentication.
-        """
-        if symmetric_key is not None:
-            pulumi.set(__self__, "symmetric_key", symmetric_key)
-
-    @property
-    @pulumi.getter(name="symmetricKey")
-    def symmetric_key(self) -> Optional['outputs.SymmetricKeyResponse']:
-        """
-        Symmetric key for authentication.
-        """
-        return pulumi.get(self, "symmetric_key")
 
 
 @pulumi.output_type
@@ -632,84 +589,6 @@ class EdgeProfileSubscriptionResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         return pulumi.get(self, "tenant_id")
-
-
-@pulumi.output_type
-class IoTDeviceInfoResponse(dict):
-    """
-    Metadata of IoT device/IoT Edge device to be configured.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "deviceId":
-            suggest = "device_id"
-        elif key == "ioTHostHub":
-            suggest = "io_t_host_hub"
-        elif key == "ioTHostHubId":
-            suggest = "io_t_host_hub_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IoTDeviceInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IoTDeviceInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IoTDeviceInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 device_id: str,
-                 io_t_host_hub: str,
-                 authentication: Optional['outputs.AuthenticationResponse'] = None,
-                 io_t_host_hub_id: Optional[str] = None):
-        """
-        Metadata of IoT device/IoT Edge device to be configured.
-        :param str device_id: ID of the IoT device/edge device.
-        :param str io_t_host_hub: Host name for the IoT hub associated to the device.
-        :param 'AuthenticationResponse' authentication: Encrypted IoT device/IoT edge device connection string.
-        :param str io_t_host_hub_id: Id for the IoT hub associated to the device.
-        """
-        pulumi.set(__self__, "device_id", device_id)
-        pulumi.set(__self__, "io_t_host_hub", io_t_host_hub)
-        if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
-        if io_t_host_hub_id is not None:
-            pulumi.set(__self__, "io_t_host_hub_id", io_t_host_hub_id)
-
-    @property
-    @pulumi.getter(name="deviceId")
-    def device_id(self) -> str:
-        """
-        ID of the IoT device/edge device.
-        """
-        return pulumi.get(self, "device_id")
-
-    @property
-    @pulumi.getter(name="ioTHostHub")
-    def io_t_host_hub(self) -> str:
-        """
-        Host name for the IoT hub associated to the device.
-        """
-        return pulumi.get(self, "io_t_host_hub")
-
-    @property
-    @pulumi.getter
-    def authentication(self) -> Optional['outputs.AuthenticationResponse']:
-        """
-        Encrypted IoT device/IoT edge device connection string.
-        """
-        return pulumi.get(self, "authentication")
-
-    @property
-    @pulumi.getter(name="ioTHostHubId")
-    def io_t_host_hub_id(self) -> Optional[str]:
-        """
-        Id for the IoT hub associated to the device.
-        """
-        return pulumi.get(self, "io_t_host_hub_id")
 
 
 @pulumi.output_type
@@ -1465,46 +1344,6 @@ class SubscriptionRegisteredFeaturesResponse(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
-
-
-@pulumi.output_type
-class SymmetricKeyResponse(dict):
-    """
-    Symmetric key for authentication.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "connectionString":
-            suggest = "connection_string"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SymmetricKeyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SymmetricKeyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SymmetricKeyResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 connection_string: Optional['outputs.AsymmetricEncryptedSecretResponse'] = None):
-        """
-        Symmetric key for authentication.
-        :param 'AsymmetricEncryptedSecretResponse' connection_string: Connection string based on the symmetric key.
-        """
-        if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional['outputs.AsymmetricEncryptedSecretResponse']:
-        """
-        Connection string based on the symmetric key.
-        """
-        return pulumi.get(self, "connection_string")
 
 
 @pulumi.output_type

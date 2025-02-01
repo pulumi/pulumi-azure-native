@@ -12,28 +12,28 @@ namespace Pulumi.AzureNative.ApiCenter
     public static class GetService
     {
         /// <summary>
-        /// Get service
-        /// Azure REST API version: 2023-07-01-preview.
+        /// Returns details of the service.
+        /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:apicenter:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get service
-        /// Azure REST API version: 2023-07-01-preview.
+        /// Returns details of the service.
+        /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:apicenter:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get service
-        /// Azure REST API version: 2023-07-01-preview.
+        /// Returns details of the service.
+        /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:apicenter:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.ApiCenter
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Service name
+        /// The name of Azure API Center service.
         /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.ApiCenter
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Service name
+        /// The name of Azure API Center service.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.ApiCenter
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identity of the service.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.ApiCenter
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The status of the last operation.
+        /// Provisioning state of the service.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>

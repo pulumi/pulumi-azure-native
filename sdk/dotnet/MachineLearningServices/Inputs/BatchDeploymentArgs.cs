@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? Compute { get; set; }
 
         /// <summary>
+        /// Properties relevant to different deployment types.
+        /// </summary>
+        [Input("deploymentConfiguration")]
+        public Input<Inputs.BatchPipelineComponentDeploymentConfigurationArgs>? DeploymentConfiguration { get; set; }
+
+        /// <summary>
         /// Description of the endpoint deployment.
         /// </summary>
         [Input("description")]

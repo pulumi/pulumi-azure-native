@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A container for a managed identity to execute DevTest lab services.
- * Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+ * Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
  */
 export class ServiceRunner extends pulumi.CustomResource {
     /**

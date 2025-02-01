@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
     public sealed class BackupVaultResponse
     {
         /// <summary>
+        /// Security Level of Backup Vault
+        /// </summary>
+        public readonly string BcdrSecurityLevel;
+        /// <summary>
         /// Feature Settings
         /// </summary>
         public readonly Outputs.FeatureSettingsResponse? FeatureSettings;
@@ -33,6 +37,14 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// List of replicated regions for Backup Vault
+        /// </summary>
+        public readonly ImmutableArray<string> ReplicatedRegions;
+        /// <summary>
+        /// ResourceGuardOperationRequests on which LAC check will be performed
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGuardOperationRequests;
+        /// <summary>
         /// Resource move details for backup vault
         /// </summary>
         public readonly Outputs.ResourceMoveDetailsResponse ResourceMoveDetails;
@@ -40,6 +52,10 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// Resource move state for backup vault
         /// </summary>
         public readonly string ResourceMoveState;
+        /// <summary>
+        /// Secure Score of Backup Vault
+        /// </summary>
+        public readonly string SecureScore;
         /// <summary>
         /// Security Settings
         /// </summary>
@@ -51,6 +67,8 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
         [OutputConstructor]
         private BackupVaultResponse(
+            string bcdrSecurityLevel,
+
             Outputs.FeatureSettingsResponse? featureSettings,
 
             bool isVaultProtectedByResourceGuard,
@@ -59,20 +77,30 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
             string provisioningState,
 
+            ImmutableArray<string> replicatedRegions,
+
+            ImmutableArray<string> resourceGuardOperationRequests,
+
             Outputs.ResourceMoveDetailsResponse resourceMoveDetails,
 
             string resourceMoveState,
+
+            string secureScore,
 
             Outputs.SecuritySettingsResponse? securitySettings,
 
             ImmutableArray<Outputs.StorageSettingResponse> storageSettings)
         {
+            BcdrSecurityLevel = bcdrSecurityLevel;
             FeatureSettings = featureSettings;
             IsVaultProtectedByResourceGuard = isVaultProtectedByResourceGuard;
             MonitoringSettings = monitoringSettings;
             ProvisioningState = provisioningState;
+            ReplicatedRegions = replicatedRegions;
+            ResourceGuardOperationRequests = resourceGuardOperationRequests;
             ResourceMoveDetails = resourceMoveDetails;
             ResourceMoveState = resourceMoveState;
+            SecureScore = secureScore;
             SecuritySettings = securitySettings;
             StorageSettings = storageSettings;
         }

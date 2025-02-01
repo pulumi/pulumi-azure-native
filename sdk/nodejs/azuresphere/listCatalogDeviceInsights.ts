@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Lists device insights for catalog.
- * Azure REST API version: 2022-09-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview.
  */
 export function listCatalogDeviceInsights(args: ListCatalogDeviceInsightsArgs, opts?: pulumi.InvokeOptions): Promise<ListCatalogDeviceInsightsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,7 +59,7 @@ export interface ListCatalogDeviceInsightsResult {
     /**
      * The link to the next page of items
      */
-    readonly nextLink: string;
+    readonly nextLink?: string;
     /**
      * The DeviceInsight items on this page
      */
@@ -67,9 +67,9 @@ export interface ListCatalogDeviceInsightsResult {
 }
 /**
  * Lists device insights for catalog.
- * Azure REST API version: 2022-09-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview.
  */
 export function listCatalogDeviceInsightsOutput(args: ListCatalogDeviceInsightsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListCatalogDeviceInsightsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Cluster details.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-10-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
     /// 
-    /// Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    /// Other available API versions: 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -61,10 +61,22 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<string?> CloudManagementEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Overall connectivity status for the cluster resource.
+        /// </summary>
+        [Output("connectivityStatus")]
+        public Output<string> ConnectivityStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Desired properties of the cluster.
         /// </summary>
         [Output("desiredProperties")]
         public Output<Outputs.ClusterDesiredPropertiesResponse?> DesiredProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// Attestation configurations for isolated VM (e.g. TVM, CVM) of the cluster.
+        /// </summary>
+        [Output("isolatedVmAttestationConfiguration")]
+        public Output<Outputs.IsolatedVmAttestationConfigurationResponse> IsolatedVmAttestationConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Most recent billing meter timestamp.
@@ -83,6 +95,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Log Collection properties of the cluster.
+        /// </summary>
+        [Output("logCollectionProperties")]
+        public Output<Outputs.LogCollectionPropertiesResponse?> LogCollectionProperties { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -107,6 +125,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("registrationTimestamp")]
         public Output<string> RegistrationTimestamp { get; private set; } = null!;
+
+        /// <summary>
+        /// RemoteSupport properties of the cluster.
+        /// </summary>
+        [Output("remoteSupportProperties")]
+        public Output<Outputs.RemoteSupportPropertiesResponse?> RemoteSupportProperties { get; private set; } = null!;
 
         /// <summary>
         /// Properties reported by cluster agent.

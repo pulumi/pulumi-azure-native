@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.HDInsight.V20240501Preview.Inputs
         /// Ssh profile for the cluster.
         /// </summary>
         [Input("sshProfile")]
-        public Input<Inputs.SshProfileArgs>? SshProfile { get; set; }
+        public Input<Inputs.ClusterPoolSshProfileArgs>? SshProfile { get; set; }
 
         /// <summary>
         /// Stub cluster profile.

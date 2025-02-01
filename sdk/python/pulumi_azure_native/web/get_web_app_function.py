@@ -247,9 +247,9 @@ def get_web_app_function(function_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppFunctionResult:
     """
     Description for Get function information by its ID for web site, or a deployment slot.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2016-08-01, 2020-10-01, 2022-09-01.
 
 
     :param str function_name: Function name.
@@ -287,9 +287,9 @@ def get_web_app_function_output(function_name: Optional[pulumi.Input[str]] = Non
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppFunctionResult]:
     """
     Description for Get function information by its ID for web site, or a deployment slot.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2016-08-01, 2020-10-01, 2022-09-01.
 
 
     :param str function_name: Function name.

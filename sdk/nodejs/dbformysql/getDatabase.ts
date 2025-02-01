@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a database.
- * Azure REST API version: 2022-01-01.
+ * Azure REST API version: 2023-12-30.
  *
- * Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+ * Other available API versions: 2022-01-01.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,7 +50,7 @@ export interface GetDatabaseResult {
      */
     readonly collation?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -58,7 +58,7 @@ export interface GetDatabaseResult {
      */
     readonly name: string;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.dbformysql.SystemDataResponse;
     /**
@@ -68,9 +68,9 @@ export interface GetDatabaseResult {
 }
 /**
  * Gets information about a database.
- * Azure REST API version: 2022-01-01.
+ * Azure REST API version: 2023-12-30.
  *
- * Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+ * Other available API versions: 2022-01-01.
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

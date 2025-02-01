@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified configuration group schema.
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01.
  */
 export function getConfigurationGroupSchema(args: GetConfigurationGroupSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationGroupSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,9 +72,9 @@ export interface GetConfigurationGroupSchemaResult {
 }
 /**
  * Gets information about the specified configuration group schema.
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01.
  */
 export function getConfigurationGroupSchemaOutput(args: GetConfigurationGroupSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationGroupSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

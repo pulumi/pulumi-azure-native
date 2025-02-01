@@ -57,6 +57,8 @@ __all__ = [
     'HttpMessageDiagnosticResponse',
     'KeyVaultContractPropertiesResponse',
     'KeyVaultLastAccessStatusContractPropertiesResponse',
+    'LLMDiagnosticSettingsResponse',
+    'LLMMessageDiagnosticSettingsResponse',
     'OAuth2AuthenticationSettingsContractResponse',
     'OpenIdAuthenticationSettingsContractResponse',
     'ParameterContractResponse',
@@ -2391,6 +2393,105 @@ class KeyVaultLastAccessStatusContractPropertiesResponse(dict):
         Last time secret was accessed. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
         return pulumi.get(self, "time_stamp_utc")
+
+
+@pulumi.output_type
+class LLMDiagnosticSettingsResponse(dict):
+    """
+    Diagnostic settings for Large Language Models
+    """
+    def __init__(__self__, *,
+                 logs: Optional[str] = None,
+                 requests: Optional['outputs.LLMMessageDiagnosticSettingsResponse'] = None,
+                 responses: Optional['outputs.LLMMessageDiagnosticSettingsResponse'] = None):
+        """
+        Diagnostic settings for Large Language Models
+        :param str logs: Specifies whether default diagnostic should be enabled for Large Language Models or not.
+        :param 'LLMMessageDiagnosticSettingsResponse' requests: Diagnostic settings for Large Language Models requests.
+        :param 'LLMMessageDiagnosticSettingsResponse' responses: Diagnostic settings for Large Language Models responses.
+        """
+        if logs is not None:
+            pulumi.set(__self__, "logs", logs)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+        if responses is not None:
+            pulumi.set(__self__, "responses", responses)
+
+    @property
+    @pulumi.getter
+    def logs(self) -> Optional[str]:
+        """
+        Specifies whether default diagnostic should be enabled for Large Language Models or not.
+        """
+        return pulumi.get(self, "logs")
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional['outputs.LLMMessageDiagnosticSettingsResponse']:
+        """
+        Diagnostic settings for Large Language Models requests.
+        """
+        return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def responses(self) -> Optional['outputs.LLMMessageDiagnosticSettingsResponse']:
+        """
+        Diagnostic settings for Large Language Models responses.
+        """
+        return pulumi.get(self, "responses")
+
+
+@pulumi.output_type
+class LLMMessageDiagnosticSettingsResponse(dict):
+    """
+    Diagnostic settings for Large Language Models Messages
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxSizeInBytes":
+            suggest = "max_size_in_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LLMMessageDiagnosticSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LLMMessageDiagnosticSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LLMMessageDiagnosticSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_size_in_bytes: Optional[int] = None,
+                 messages: Optional[str] = None):
+        """
+        Diagnostic settings for Large Language Models Messages
+        :param int max_size_in_bytes: Maximum size of message to logs in bytes. The default size is 32KB.
+        :param str messages: Specifies which message should be logged. Currently there is only 'all' option.
+        """
+        if max_size_in_bytes is not None:
+            pulumi.set(__self__, "max_size_in_bytes", max_size_in_bytes)
+        if messages is not None:
+            pulumi.set(__self__, "messages", messages)
+
+    @property
+    @pulumi.getter(name="maxSizeInBytes")
+    def max_size_in_bytes(self) -> Optional[int]:
+        """
+        Maximum size of message to logs in bytes. The default size is 32KB.
+        """
+        return pulumi.get(self, "max_size_in_bytes")
+
+    @property
+    @pulumi.getter
+    def messages(self) -> Optional[str]:
+        """
+        Specifies which message should be logged. Currently there is only 'all' option.
+        """
+        return pulumi.get(self, "messages")
 
 
 @pulumi.output_type

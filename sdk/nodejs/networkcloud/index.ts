@@ -190,14 +190,12 @@ utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
 export * from "../types/enums/networkcloud";
 
 // Export sub-modules:
-import * as v20230701 from "./v20230701";
 import * as v20231001preview from "./v20231001preview";
 import * as v20240601preview from "./v20240601preview";
 import * as v20240701 from "./v20240701";
 import * as v20241001preview from "./v20241001preview";
 
 export {
-    v20230701,
     v20231001preview,
     v20240601preview,
     v20240701,

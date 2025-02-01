@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Get a ImportSite
-        /// Azure REST API version: 2023-06-06.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview.
         /// </summary>
         public static Task<GetImportSitesControllerResult> InvokeAsync(GetImportSitesControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImportSitesControllerResult>("azure-native:offazure:getImportSitesController", args ?? new GetImportSitesControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ImportSite
-        /// Azure REST API version: 2023-06-06.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview.
         /// </summary>
         public static Output<GetImportSitesControllerResult> Invoke(GetImportSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImportSitesControllerResult>("azure-native:offazure:getImportSitesController", args ?? new GetImportSitesControllerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ImportSite
-        /// Azure REST API version: 2023-06-06.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview.
         /// </summary>
         public static Output<GetImportSitesControllerResult> Invoke(GetImportSitesControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImportSitesControllerResult>("azure-native:offazure:getImportSitesController", args ?? new GetImportSitesControllerInvokeArgs(), options.WithDefaults());

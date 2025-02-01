@@ -56,21 +56,6 @@ export const ArcSqlManagedInstanceLicenseType = {
  */
 export type ArcSqlManagedInstanceLicenseType = (typeof ArcSqlManagedInstanceLicenseType)[keyof typeof ArcSqlManagedInstanceLicenseType];
 
-export const ArcSqlServerLicenseType = {
-    Undefined: "Undefined",
-    Free: "Free",
-    HADR: "HADR",
-    ServerCAL: "ServerCAL",
-    LicenseOnly: "LicenseOnly",
-    PAYG: "PAYG",
-    Paid: "Paid",
-} as const;
-
-/**
- * SQL Server license type.
- */
-export type ArcSqlServerLicenseType = (typeof ArcSqlServerLicenseType)[keyof typeof ArcSqlServerLicenseType];
-
 export const BillingPlan = {
     PAYG: "PAYG",
     Paid: "Paid",
@@ -81,17 +66,15 @@ export const BillingPlan = {
  */
 export type BillingPlan = (typeof BillingPlan)[keyof typeof BillingPlan];
 
-export const ConnectionStatus = {
-    Connected: "Connected",
-    Disconnected: "Disconnected",
-    Registered: "Registered",
-    Unknown: "Unknown",
+export const DatabaseCreateMode = {
+    Default: "Default",
+    PointInTimeRestore: "PointInTimeRestore",
 } as const;
 
 /**
- * The cloud connectivity status.
+ * Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
  */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
+export type DatabaseCreateMode = (typeof DatabaseCreateMode)[keyof typeof DatabaseCreateMode];
 
 export const DatabaseState = {
     Online: "Online",
@@ -109,17 +92,6 @@ export const DatabaseState = {
  * State of the database.
  */
 export type DatabaseState = (typeof DatabaseState)[keyof typeof DatabaseState];
-
-export const DefenderStatus = {
-    Protected: "Protected",
-    Unprotected: "Unprotected",
-    Unknown: "Unknown",
-} as const;
-
-/**
- * Status of Azure Defender.
- */
-export type DefenderStatus = (typeof DefenderStatus)[keyof typeof DefenderStatus];
 
 export const EditionType = {
     Evaluation: "Evaluation",

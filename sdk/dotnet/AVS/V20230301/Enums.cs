@@ -196,40 +196,6 @@ namespace Pulumi.AzureNative.AVS.V20230301
     }
 
     /// <summary>
-    /// DNS Service log level.
-    /// </summary>
-    [EnumType]
-    public readonly struct DnsServiceLogLevelEnum : IEquatable<DnsServiceLogLevelEnum>
-    {
-        private readonly string _value;
-
-        private DnsServiceLogLevelEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DnsServiceLogLevelEnum DEBUG { get; } = new DnsServiceLogLevelEnum("DEBUG");
-        public static DnsServiceLogLevelEnum INFO { get; } = new DnsServiceLogLevelEnum("INFO");
-        public static DnsServiceLogLevelEnum WARNING { get; } = new DnsServiceLogLevelEnum("WARNING");
-        public static DnsServiceLogLevelEnum ERROR { get; } = new DnsServiceLogLevelEnum("ERROR");
-        public static DnsServiceLogLevelEnum FATAL { get; } = new DnsServiceLogLevelEnum("FATAL");
-
-        public static bool operator ==(DnsServiceLogLevelEnum left, DnsServiceLogLevelEnum right) => left.Equals(right);
-        public static bool operator !=(DnsServiceLogLevelEnum left, DnsServiceLogLevelEnum right) => !left.Equals(right);
-
-        public static explicit operator string(DnsServiceLogLevelEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DnsServiceLogLevelEnum other && Equals(other);
-        public bool Equals(DnsServiceLogLevelEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Status of customer managed encryption key
     /// </summary>
     [EnumType]
@@ -284,37 +250,6 @@ namespace Pulumi.AzureNative.AVS.V20230301
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is InternetEnum other && Equals(other);
         public bool Equals(InternetEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-    /// </summary>
-    [EnumType]
-    public readonly struct MountOptionEnum : IEquatable<MountOptionEnum>
-    {
-        private readonly string _value;
-
-        private MountOptionEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MountOptionEnum MOUNT { get; } = new MountOptionEnum("MOUNT");
-        public static MountOptionEnum ATTACH { get; } = new MountOptionEnum("ATTACH");
-
-        public static bool operator ==(MountOptionEnum left, MountOptionEnum right) => left.Equals(right);
-        public static bool operator !=(MountOptionEnum left, MountOptionEnum right) => !left.Equals(right);
-
-        public static explicit operator string(MountOptionEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MountOptionEnum other && Equals(other);
-        public bool Equals(MountOptionEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -385,38 +320,6 @@ namespace Pulumi.AzureNative.AVS.V20230301
     }
 
     /// <summary>
-    /// Direction of port mirroring profile.
-    /// </summary>
-    [EnumType]
-    public readonly struct PortMirroringDirectionEnum : IEquatable<PortMirroringDirectionEnum>
-    {
-        private readonly string _value;
-
-        private PortMirroringDirectionEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PortMirroringDirectionEnum INGRESS { get; } = new PortMirroringDirectionEnum("INGRESS");
-        public static PortMirroringDirectionEnum EGRESS { get; } = new PortMirroringDirectionEnum("EGRESS");
-        public static PortMirroringDirectionEnum BIDIRECTIONAL { get; } = new PortMirroringDirectionEnum("BIDIRECTIONAL");
-
-        public static bool operator ==(PortMirroringDirectionEnum left, PortMirroringDirectionEnum right) => left.Equals(right);
-        public static bool operator !=(PortMirroringDirectionEnum left, PortMirroringDirectionEnum right) => !left.Equals(right);
-
-        public static explicit operator string(PortMirroringDirectionEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PortMirroringDirectionEnum other && Equals(other);
-        public bool Equals(PortMirroringDirectionEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
     /// </summary>
     [EnumType]
@@ -440,38 +343,6 @@ namespace Pulumi.AzureNative.AVS.V20230301
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The type of execution parameter
-    /// </summary>
-    [EnumType]
-    public readonly struct ScriptExecutionParameterType : IEquatable<ScriptExecutionParameterType>
-    {
-        private readonly string _value;
-
-        private ScriptExecutionParameterType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ScriptExecutionParameterType Value { get; } = new ScriptExecutionParameterType("Value");
-        public static ScriptExecutionParameterType SecureValue { get; } = new ScriptExecutionParameterType("SecureValue");
-        public static ScriptExecutionParameterType Credential { get; } = new ScriptExecutionParameterType("Credential");
-
-        public static bool operator ==(ScriptExecutionParameterType left, ScriptExecutionParameterType right) => left.Equals(right);
-        public static bool operator !=(ScriptExecutionParameterType left, ScriptExecutionParameterType right) => !left.Equals(right);
-
-        public static explicit operator string(ScriptExecutionParameterType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ScriptExecutionParameterType other && Equals(other);
-        public bool Equals(ScriptExecutionParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

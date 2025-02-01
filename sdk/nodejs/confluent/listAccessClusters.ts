@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * List cluster success response
- * Azure REST API version: 2023-08-22.
+ * Details of the clusters returned on successful response
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2024-02-13, 2024-07-01.
+ * Other available API versions: 2023-08-22.
  */
 export function listAccessClusters(args: ListAccessClustersArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessClustersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,11 +38,11 @@ export interface ListAccessClustersArgs {
 }
 
 /**
- * List cluster success response
+ * Details of the clusters returned on successful response
  */
 export interface ListAccessClustersResult {
     /**
-     * Data of the environments list
+     * List of clusters
      */
     readonly data?: outputs.confluent.ClusterRecordResponse[];
     /**
@@ -55,10 +55,10 @@ export interface ListAccessClustersResult {
     readonly metadata?: outputs.confluent.ConfluentListMetadataResponse;
 }
 /**
- * List cluster success response
- * Azure REST API version: 2023-08-22.
+ * Details of the clusters returned on successful response
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2024-02-13, 2024-07-01.
+ * Other available API versions: 2023-08-22.
  */
 export function listAccessClustersOutput(args: ListAccessClustersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessClustersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

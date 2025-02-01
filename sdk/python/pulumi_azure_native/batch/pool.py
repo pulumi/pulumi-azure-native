@@ -35,11 +35,14 @@ class PoolArgs:
                  mount_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['MountConfigurationArgs']]]] = None,
                  network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
+                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  scale_settings: Optional[pulumi.Input['ScaleSettingsArgs']] = None,
                  start_task: Optional[pulumi.Input['StartTaskArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_node_communication_mode: Optional[pulumi.Input['NodeCommunicationMode']] = None,
                  task_scheduling_policy: Optional[pulumi.Input['TaskSchedulingPolicyArgs']] = None,
                  task_slots_per_node: Optional[pulumi.Input[int]] = None,
+                 upgrade_policy: Optional[pulumi.Input['UpgradePolicyArgs']] = None,
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccountArgs']]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
@@ -51,7 +54,6 @@ class PoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CertificateReferenceArgs']]] certificates: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
                
                Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
-        :param pulumi.Input['DeploymentConfigurationArgs'] deployment_configuration: Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         :param pulumi.Input[str] display_name: The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
         :param pulumi.Input['BatchPoolIdentityArgs'] identity: The type of identity used for the Batch Pool.
         :param pulumi.Input['InterNodeCommunicationState'] inter_node_communication: This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
@@ -59,12 +61,15 @@ class PoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MountConfigurationArgs']]] mount_configuration: This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
         :param pulumi.Input['NetworkConfigurationArgs'] network_configuration: The network configuration for a pool.
         :param pulumi.Input[str] pool_name: The pool name. This must be unique within the account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: The user-defined tags to be associated with the Azure Batch Pool. When specified, these tags are propagated to the backing Azure resources associated with the pool. This property can only be specified when the Batch account was created with the poolAllocationMode property set to 'UserSubscription'.
         :param pulumi.Input['ScaleSettingsArgs'] scale_settings: Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         :param pulumi.Input['StartTaskArgs'] start_task: In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input['NodeCommunicationMode'] target_node_communication_mode: If omitted, the default value is Default.
         :param pulumi.Input['TaskSchedulingPolicyArgs'] task_scheduling_policy: If not specified, the default is spread.
         :param pulumi.Input[int] task_slots_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-        :param pulumi.Input[str] vm_size: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        :param pulumi.Input['UpgradePolicyArgs'] upgrade_policy: Describes an upgrade policy - automatic, manual, or rolling.
+        :param pulumi.Input[str] vm_size: For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -90,10 +95,14 @@ class PoolArgs:
             pulumi.set(__self__, "network_configuration", network_configuration)
         if pool_name is not None:
             pulumi.set(__self__, "pool_name", pool_name)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
         if scale_settings is not None:
             pulumi.set(__self__, "scale_settings", scale_settings)
         if start_task is not None:
             pulumi.set(__self__, "start_task", start_task)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if target_node_communication_mode is not None:
             pulumi.set(__self__, "target_node_communication_mode", target_node_communication_mode)
         if task_scheduling_policy is not None:
@@ -102,6 +111,8 @@ class PoolArgs:
             task_slots_per_node = 1
         if task_slots_per_node is not None:
             pulumi.set(__self__, "task_slots_per_node", task_slots_per_node)
+        if upgrade_policy is not None:
+            pulumi.set(__self__, "upgrade_policy", upgrade_policy)
         if user_accounts is not None:
             pulumi.set(__self__, "user_accounts", user_accounts)
         if vm_size is not None:
@@ -172,9 +183,6 @@ class PoolArgs:
     @property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> Optional[pulumi.Input['DeploymentConfigurationArgs']]:
-        """
-        Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
-        """
         return pulumi.get(self, "deployment_configuration")
 
     @deployment_configuration.setter
@@ -266,6 +274,18 @@ class PoolArgs:
         pulumi.set(self, "pool_name", value)
 
     @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The user-defined tags to be associated with the Azure Batch Pool. When specified, these tags are propagated to the backing Azure resources associated with the pool. This property can only be specified when the Batch account was created with the poolAllocationMode property set to 'UserSubscription'.
+        """
+        return pulumi.get(self, "resource_tags")
+
+    @resource_tags.setter
+    def resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_tags", value)
+
+    @property
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> Optional[pulumi.Input['ScaleSettingsArgs']]:
         """
@@ -288,6 +308,18 @@ class PoolArgs:
     @start_task.setter
     def start_task(self, value: Optional[pulumi.Input['StartTaskArgs']]):
         pulumi.set(self, "start_task", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="targetNodeCommunicationMode")
@@ -326,6 +358,18 @@ class PoolArgs:
         pulumi.set(self, "task_slots_per_node", value)
 
     @property
+    @pulumi.getter(name="upgradePolicy")
+    def upgrade_policy(self) -> Optional[pulumi.Input['UpgradePolicyArgs']]:
+        """
+        Describes an upgrade policy - automatic, manual, or rolling.
+        """
+        return pulumi.get(self, "upgrade_policy")
+
+    @upgrade_policy.setter
+    def upgrade_policy(self, value: Optional[pulumi.Input['UpgradePolicyArgs']]):
+        pulumi.set(self, "upgrade_policy", value)
+
+    @property
     @pulumi.getter(name="userAccounts")
     def user_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserAccountArgs']]]]:
         return pulumi.get(self, "user_accounts")
@@ -338,7 +382,7 @@ class PoolArgs:
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[pulumi.Input[str]]:
         """
-        For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
         return pulumi.get(self, "vm_size")
 
@@ -365,19 +409,22 @@ class Pool(pulumi.CustomResource):
                  network_configuration: Optional[pulumi.Input[Union['NetworkConfigurationArgs', 'NetworkConfigurationArgsDict']]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  scale_settings: Optional[pulumi.Input[Union['ScaleSettingsArgs', 'ScaleSettingsArgsDict']]] = None,
                  start_task: Optional[pulumi.Input[Union['StartTaskArgs', 'StartTaskArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_node_communication_mode: Optional[pulumi.Input['NodeCommunicationMode']] = None,
                  task_scheduling_policy: Optional[pulumi.Input[Union['TaskSchedulingPolicyArgs', 'TaskSchedulingPolicyArgsDict']]] = None,
                  task_slots_per_node: Optional[pulumi.Input[int]] = None,
+                 upgrade_policy: Optional[pulumi.Input[Union['UpgradePolicyArgs', 'UpgradePolicyArgsDict']]] = None,
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserAccountArgs', 'UserAccountArgsDict']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Contains information about a pool.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
-        Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        Other available API versions: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -387,7 +434,6 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateReferenceArgs', 'CertificateReferenceArgsDict']]]] certificates: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
                
                Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
-        :param pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']] deployment_configuration: Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         :param pulumi.Input[str] display_name: The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
         :param pulumi.Input[Union['BatchPoolIdentityArgs', 'BatchPoolIdentityArgsDict']] identity: The type of identity used for the Batch Pool.
         :param pulumi.Input['InterNodeCommunicationState'] inter_node_communication: This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
@@ -396,12 +442,15 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Union['NetworkConfigurationArgs', 'NetworkConfigurationArgsDict']] network_configuration: The network configuration for a pool.
         :param pulumi.Input[str] pool_name: The pool name. This must be unique within the account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: The user-defined tags to be associated with the Azure Batch Pool. When specified, these tags are propagated to the backing Azure resources associated with the pool. This property can only be specified when the Batch account was created with the poolAllocationMode property set to 'UserSubscription'.
         :param pulumi.Input[Union['ScaleSettingsArgs', 'ScaleSettingsArgsDict']] scale_settings: Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         :param pulumi.Input[Union['StartTaskArgs', 'StartTaskArgsDict']] start_task: In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input['NodeCommunicationMode'] target_node_communication_mode: If omitted, the default value is Default.
         :param pulumi.Input[Union['TaskSchedulingPolicyArgs', 'TaskSchedulingPolicyArgsDict']] task_scheduling_policy: If not specified, the default is spread.
         :param pulumi.Input[int] task_slots_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-        :param pulumi.Input[str] vm_size: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        :param pulumi.Input[Union['UpgradePolicyArgs', 'UpgradePolicyArgsDict']] upgrade_policy: Describes an upgrade policy - automatic, manual, or rolling.
+        :param pulumi.Input[str] vm_size: For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
         ...
     @overload
@@ -411,9 +460,9 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains information about a pool.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
-        Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        Other available API versions: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.
@@ -443,11 +492,14 @@ class Pool(pulumi.CustomResource):
                  network_configuration: Optional[pulumi.Input[Union['NetworkConfigurationArgs', 'NetworkConfigurationArgsDict']]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  scale_settings: Optional[pulumi.Input[Union['ScaleSettingsArgs', 'ScaleSettingsArgsDict']]] = None,
                  start_task: Optional[pulumi.Input[Union['StartTaskArgs', 'StartTaskArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_node_communication_mode: Optional[pulumi.Input['NodeCommunicationMode']] = None,
                  task_scheduling_policy: Optional[pulumi.Input[Union['TaskSchedulingPolicyArgs', 'TaskSchedulingPolicyArgsDict']]] = None,
                  task_slots_per_node: Optional[pulumi.Input[int]] = None,
+                 upgrade_policy: Optional[pulumi.Input[Union['UpgradePolicyArgs', 'UpgradePolicyArgsDict']]] = None,
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserAccountArgs', 'UserAccountArgsDict']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -476,13 +528,16 @@ class Pool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_tags"] = resource_tags
             __props__.__dict__["scale_settings"] = scale_settings
             __props__.__dict__["start_task"] = start_task
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["target_node_communication_mode"] = target_node_communication_mode
             __props__.__dict__["task_scheduling_policy"] = task_scheduling_policy
             if task_slots_per_node is None:
                 task_slots_per_node = 1
             __props__.__dict__["task_slots_per_node"] = task_slots_per_node
+            __props__.__dict__["upgrade_policy"] = upgrade_policy
             __props__.__dict__["user_accounts"] = user_accounts
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["allocation_state"] = None
@@ -546,12 +601,15 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["provisioning_state_transition_time"] = None
         __props__.__dict__["resize_operation_status"] = None
+        __props__.__dict__["resource_tags"] = None
         __props__.__dict__["scale_settings"] = None
         __props__.__dict__["start_task"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["target_node_communication_mode"] = None
         __props__.__dict__["task_scheduling_policy"] = None
         __props__.__dict__["task_slots_per_node"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["upgrade_policy"] = None
         __props__.__dict__["user_accounts"] = None
         __props__.__dict__["vm_size"] = None
         return Pool(resource_name, opts=opts, __props__=__props__)
@@ -623,9 +681,6 @@ class Pool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> pulumi.Output[Optional['outputs.DeploymentConfigurationResponse']]:
-        """
-        Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
-        """
         return pulumi.get(self, "deployment_configuration")
 
     @property
@@ -719,6 +774,14 @@ class Pool(pulumi.CustomResource):
         return pulumi.get(self, "resize_operation_status")
 
     @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The user-defined tags to be associated with the Azure Batch Pool. When specified, these tags are propagated to the backing Azure resources associated with the pool. This property can only be specified when the Batch account was created with the poolAllocationMode property set to 'UserSubscription'.
+        """
+        return pulumi.get(self, "resource_tags")
+
+    @property
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> pulumi.Output[Optional['outputs.ScaleSettingsResponse']]:
         """
@@ -733,6 +796,14 @@ class Pool(pulumi.CustomResource):
         In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
         """
         return pulumi.get(self, "start_task")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetNodeCommunicationMode")
@@ -767,6 +838,14 @@ class Pool(pulumi.CustomResource):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="upgradePolicy")
+    def upgrade_policy(self) -> pulumi.Output[Optional['outputs.UpgradePolicyResponse']]:
+        """
+        Describes an upgrade policy - automatic, manual, or rolling.
+        """
+        return pulumi.get(self, "upgrade_policy")
+
+    @property
     @pulumi.getter(name="userAccounts")
     def user_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.UserAccountResponse']]]:
         return pulumi.get(self, "user_accounts")
@@ -775,7 +854,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> pulumi.Output[Optional[str]]:
         """
-        For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
         return pulumi.get(self, "vm_size")
 

@@ -5,27 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'ManagedIdentityTypes',
-    'MonitoringStatus',
     'Operation',
     'Status',
     'TagAction',
 ]
-
-
-class ManagedIdentityTypes(str, Enum):
-    """
-    Managed identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-
-
-class MonitoringStatus(str, Enum):
-    """
-    Flag specifying if the resource monitoring is enabled or disabled.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class Operation(str, Enum):

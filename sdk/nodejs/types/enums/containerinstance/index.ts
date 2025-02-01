@@ -2,23 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20210301 from "./v20210301";
-import * as v20210701 from "./v20210701";
-import * as v20230201preview from "./v20230201preview";
 import * as v20230501 from "./v20230501";
 import * as v20240501preview from "./v20240501preview";
 import * as v20240901preview from "./v20240901preview";
-import * as v20241001preview from "./v20241001preview";
 import * as v20241101preview from "./v20241101preview";
 
 export {
-    v20210301,
-    v20210701,
-    v20230201preview,
     v20230501,
     v20240501preview,
     v20240901preview,
-    v20241001preview,
     v20241101preview,
 };
 
@@ -139,7 +131,7 @@ export const ResourceIdentityType = {
 } as const;
 
 /**
- * The type of identity used for the container scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the nGroup.
+ * The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 

@@ -11,15 +11,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Dto object representing feature entity version
+    /// DTO object representing feature entity version
     /// </summary>
     [OutputType]
     public sealed class FeaturestoreEntityVersionResponse
     {
-        /// <summary>
-        /// Specifies the lifecycle setting of managed data asset.
-        /// </summary>
-        public readonly Outputs.AutoDeleteSettingResponse? AutoDeleteSetting;
         /// <summary>
         /// The asset description text.
         /// </summary>
@@ -29,11 +25,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.IndexColumnResponse> IndexColumns;
         /// <summary>
-        /// If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
+        /// If the name version are system generated (anonymous registration).
         /// </summary>
         public readonly bool? IsAnonymous;
         /// <summary>
-        /// Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        /// Is the asset archived?
         /// </summary>
         public readonly bool? IsArchived;
         /// <summary>
@@ -55,8 +51,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
         [OutputConstructor]
         private FeaturestoreEntityVersionResponse(
-            Outputs.AutoDeleteSettingResponse? autoDeleteSetting,
-
             string? description,
 
             ImmutableArray<Outputs.IndexColumnResponse> indexColumns,
@@ -73,7 +67,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             ImmutableDictionary<string, string>? tags)
         {
-            AutoDeleteSetting = autoDeleteSetting;
             Description = description;
             IndexColumns = indexColumns;
             IsAnonymous = isAnonymous;

@@ -393,15 +393,15 @@ if not MYPY:
         """
         content_hash: NotRequired[pulumi.Input['ContentHashArgsDict']]
         """
-        Gets or sets the hash.
+        Sets the hash.
         """
         uri: NotRequired[pulumi.Input[str]]
         """
-        Gets or sets the uri of the runbook content.
+        Sets the uri of the content.
         """
         version: NotRequired[pulumi.Input[str]]
         """
-        Gets or sets the version of the content.
+        Sets the version of the content.
         """
 elif False:
     ContentLinkArgsDict: TypeAlias = Mapping[str, Any]
@@ -414,9 +414,9 @@ class ContentLinkArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         Definition of the content link.
-        :param pulumi.Input['ContentHashArgs'] content_hash: Gets or sets the hash.
-        :param pulumi.Input[str] uri: Gets or sets the uri of the runbook content.
-        :param pulumi.Input[str] version: Gets or sets the version of the content.
+        :param pulumi.Input['ContentHashArgs'] content_hash: Sets the hash.
+        :param pulumi.Input[str] uri: Sets the uri of the content.
+        :param pulumi.Input[str] version: Sets the version of the content.
         """
         if content_hash is not None:
             pulumi.set(__self__, "content_hash", content_hash)
@@ -429,7 +429,7 @@ class ContentLinkArgs:
     @pulumi.getter(name="contentHash")
     def content_hash(self) -> Optional[pulumi.Input['ContentHashArgs']]:
         """
-        Gets or sets the hash.
+        Sets the hash.
         """
         return pulumi.get(self, "content_hash")
 
@@ -441,7 +441,7 @@ class ContentLinkArgs:
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets or sets the uri of the runbook content.
+        Sets the uri of the content.
         """
         return pulumi.get(self, "uri")
 
@@ -453,7 +453,7 @@ class ContentLinkArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets or sets the version of the content.
+        Sets the version of the content.
         """
         return pulumi.get(self, "version")
 

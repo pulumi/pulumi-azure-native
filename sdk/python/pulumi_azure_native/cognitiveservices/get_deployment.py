@@ -27,7 +27,7 @@ class GetDeploymentResult:
     """
     Cognitive Services account deployment.
     """
-    def __init__(__self__, etag=None, id=None, name=None, properties=None, sku=None, system_data=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -46,6 +46,9 @@ class GetDeploymentResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -100,6 +103,14 @@ class GetDeploymentResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -119,6 +130,7 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
             properties=self.properties,
             sku=self.sku,
             system_data=self.system_data,
+            tags=self.tags,
             type=self.type)
 
 
@@ -128,9 +140,9 @@ def get_deployment(account_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
     Gets the specified deployments associated with the Cognitive Services account.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+    Other available API versions: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -151,6 +163,7 @@ def get_deployment(account_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_deployment_output(account_name: Optional[pulumi.Input[str]] = None,
                           deployment_name: Optional[pulumi.Input[str]] = None,
@@ -158,9 +171,9 @@ def get_deployment_output(account_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     Gets the specified deployments associated with the Cognitive Services account.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+    Other available API versions: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -180,4 +193,5 @@ def get_deployment_output(account_name: Optional[pulumi.Input[str]] = None,
         properties=pulumi.get(__response__, 'properties'),
         sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

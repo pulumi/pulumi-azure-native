@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ServiceNetworking
     {
         /// <summary>
         /// Get a SecurityPolicy
-        /// Azure REST API version: 2024-05-01-preview.
+        /// Azure REST API version: 2025-01-01.
         /// 
-        /// Other available API versions: 2025-01-01.
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Task<GetSecurityPoliciesInterfaceResult> InvokeAsync(GetSecurityPoliciesInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPoliciesInterfaceResult>("azure-native:servicenetworking:getSecurityPoliciesInterface", args ?? new GetSecurityPoliciesInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SecurityPolicy
-        /// Azure REST API version: 2024-05-01-preview.
+        /// Azure REST API version: 2025-01-01.
         /// 
-        /// Other available API versions: 2025-01-01.
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Output<GetSecurityPoliciesInterfaceResult> Invoke(GetSecurityPoliciesInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPoliciesInterfaceResult>("azure-native:servicenetworking:getSecurityPoliciesInterface", args ?? new GetSecurityPoliciesInterfaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SecurityPolicy
-        /// Azure REST API version: 2024-05-01-preview.
+        /// Azure REST API version: 2025-01-01.
         /// 
-        /// Other available API versions: 2025-01-01.
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Output<GetSecurityPoliciesInterfaceResult> Invoke(GetSecurityPoliciesInterfaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPoliciesInterfaceResult>("azure-native:servicenetworking:getSecurityPoliciesInterface", args ?? new GetSecurityPoliciesInterfaceInvokeArgs(), options.WithDefaults());

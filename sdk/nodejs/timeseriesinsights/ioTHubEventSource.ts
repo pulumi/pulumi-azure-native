@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An event source that receives its data from an Azure IoTHub.
- * Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
+ * Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
  */
 export class IoTHubEventSource extends pulumi.CustomResource {
     /**
@@ -166,7 +166,7 @@ export class IoTHubEventSource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20171115:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20200515:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20171115:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20200515:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights:EventHubEventSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IoTHubEventSource.__pulumiType, name, resourceInputs, opts);
     }

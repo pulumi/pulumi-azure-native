@@ -16,13 +16,19 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
     public sealed class VirtualNetworkConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. Omit or specify empty string to use the default (Standard_A1_v2).
+        /// Resource id of a pre-existing subnet on which Azure Container Instance will be deployed for Isolated Builds. This field may be specified only if `subnetId` is also specified and must be on the same Virtual Network as the subnet specified in `subnetId`.
+        /// </summary>
+        [Input("containerInstanceSubnetId")]
+        public Input<string>? ContainerInstanceSubnetId { get; set; }
+
+        /// <summary>
+        /// Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
         /// </summary>
         [Input("proxyVmSize")]
         public Input<string>? ProxyVmSize { get; set; }
 
         /// <summary>
-        /// Resource id of a pre-existing subnet.
+        /// Resource id of a pre-existing subnet on which the build VM and validation VM will be deployed
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

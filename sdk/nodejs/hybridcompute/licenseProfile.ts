@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a license profile in a hybrid machine.
- * Azure REST API version: 2023-06-20-preview.
+ * Azure REST API version: 2024-07-10. Prior API version in Azure Native 2.x: 2023-06-20-preview.
  *
- * Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+ * Other available API versions: 2023-06-20-preview, 2024-11-10-preview.
  */
 export class LicenseProfile extends pulumi.CustomResource {
     /**
@@ -49,6 +49,26 @@ export class LicenseProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly assignedLicenseImmutableId!: pulumi.Output<string>;
     /**
+     * The timestamp in UTC when the billing ends.
+     */
+    public /*out*/ readonly billingEndDate!: pulumi.Output<string>;
+    /**
+     * The timestamp in UTC when the billing starts.
+     */
+    public /*out*/ readonly billingStartDate!: pulumi.Output<string>;
+    /**
+     * The timestamp in UTC when the user disenrolled the feature.
+     */
+    public /*out*/ readonly disenrollmentDate!: pulumi.Output<string>;
+    /**
+     * The timestamp in UTC when the user enrolls the feature.
+     */
+    public /*out*/ readonly enrollmentDate!: pulumi.Output<string>;
+    /**
+     * The errors that were encountered during the feature enrollment or disenrollment.
+     */
+    public /*out*/ readonly error!: pulumi.Output<outputs.hybridcompute.ErrorDetailResponse>;
+    /**
      * Indicates the eligibility state of Esu.
      */
     public /*out*/ readonly esuEligibility!: pulumi.Output<string>;
@@ -69,6 +89,14 @@ export class LicenseProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The list of product features.
+     */
+    public readonly productFeatures!: pulumi.Output<outputs.hybridcompute.ProductFeatureResponse[] | undefined>;
+    /**
+     * Indicates the product type of the license.
+     */
+    public readonly productType!: pulumi.Output<string | undefined>;
+    /**
      * The provisioning state, which only appears in the response.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -76,6 +104,14 @@ export class LicenseProfile extends pulumi.CustomResource {
      * The type of the Esu servers.
      */
     public /*out*/ readonly serverType!: pulumi.Output<string>;
+    /**
+     * Specifies if this machine is licensed as part of a Software Assurance agreement.
+     */
+    public readonly softwareAssuranceCustomer!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates the subscription status of the product.
+     */
+    public readonly subscriptionStatus!: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -110,9 +146,18 @@ export class LicenseProfile extends pulumi.CustomResource {
             resourceInputs["licenseProfileName"] = args ? args.licenseProfileName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["machineName"] = args ? args.machineName : undefined;
+            resourceInputs["productFeatures"] = args ? args.productFeatures : undefined;
+            resourceInputs["productType"] = args ? args.productType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["softwareAssuranceCustomer"] = args ? args.softwareAssuranceCustomer : undefined;
+            resourceInputs["subscriptionStatus"] = args ? args.subscriptionStatus : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["assignedLicenseImmutableId"] = undefined /*out*/;
+            resourceInputs["billingEndDate"] = undefined /*out*/;
+            resourceInputs["billingStartDate"] = undefined /*out*/;
+            resourceInputs["disenrollmentDate"] = undefined /*out*/;
+            resourceInputs["enrollmentDate"] = undefined /*out*/;
+            resourceInputs["error"] = undefined /*out*/;
             resourceInputs["esuEligibility"] = undefined /*out*/;
             resourceInputs["esuKeyState"] = undefined /*out*/;
             resourceInputs["esuKeys"] = undefined /*out*/;
@@ -124,13 +169,22 @@ export class LicenseProfile extends pulumi.CustomResource {
         } else {
             resourceInputs["assignedLicense"] = undefined /*out*/;
             resourceInputs["assignedLicenseImmutableId"] = undefined /*out*/;
+            resourceInputs["billingEndDate"] = undefined /*out*/;
+            resourceInputs["billingStartDate"] = undefined /*out*/;
+            resourceInputs["disenrollmentDate"] = undefined /*out*/;
+            resourceInputs["enrollmentDate"] = undefined /*out*/;
+            resourceInputs["error"] = undefined /*out*/;
             resourceInputs["esuEligibility"] = undefined /*out*/;
             resourceInputs["esuKeyState"] = undefined /*out*/;
             resourceInputs["esuKeys"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["productFeatures"] = undefined /*out*/;
+            resourceInputs["productType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serverType"] = undefined /*out*/;
+            resourceInputs["softwareAssuranceCustomer"] = undefined /*out*/;
+            resourceInputs["subscriptionStatus"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -163,9 +217,25 @@ export interface LicenseProfileArgs {
      */
     machineName: pulumi.Input<string>;
     /**
+     * The list of product features.
+     */
+    productFeatures?: pulumi.Input<pulumi.Input<inputs.hybridcompute.ProductFeatureArgs>[]>;
+    /**
+     * Indicates the product type of the license.
+     */
+    productType?: pulumi.Input<string | enums.hybridcompute.LicenseProfileProductType>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies if this machine is licensed as part of a Software Assurance agreement.
+     */
+    softwareAssuranceCustomer?: pulumi.Input<boolean>;
+    /**
+     * Indicates the subscription status of the product.
+     */
+    subscriptionStatus?: pulumi.Input<string | enums.hybridcompute.LicenseProfileSubscriptionStatus>;
     /**
      * Resource tags.
      */

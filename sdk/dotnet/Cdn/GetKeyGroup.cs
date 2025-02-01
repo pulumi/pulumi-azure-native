@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Gets an existing KeyGroup within a profile.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Task<GetKeyGroupResult> InvokeAsync(GetKeyGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyGroupResult>("azure-native:cdn:getKeyGroup", args ?? new GetKeyGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing KeyGroup within a profile.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("azure-native:cdn:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing KeyGroup within a profile.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-07-01-preview.
         /// </summary>
         public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("azure-native:cdn:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Cdn
         public string ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

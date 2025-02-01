@@ -17,6 +17,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AdditionalCapabilitiesResponse',
+    'AdditionalLocationsProfileResponse',
     'AdditionalUnattendContentResponse',
     'ApiEntityReferenceResponse',
     'ApplicationProfileResponse',
@@ -33,6 +35,7 @@ __all__ = [
     'LinuxConfigurationResponse',
     'LinuxPatchSettingsResponse',
     'LinuxVMGuestPatchAutomaticByPlatformSettingsResponse',
+    'LocationProfileResponse',
     'ManagedServiceIdentityResponse',
     'OSImageNotificationProfileResponse',
     'PatchSettingsResponse',
@@ -52,6 +55,9 @@ __all__ = [
     'TerminateNotificationProfileResponse',
     'UefiSettingsResponse',
     'UserAssignedIdentityResponse',
+    'VMAttributeMinMaxDoubleResponse',
+    'VMAttributeMinMaxIntegerResponse',
+    'VMAttributesResponse',
     'VMDiskSecurityProfileResponse',
     'VMGalleryApplicationResponse',
     'VMSizePropertiesResponse',
@@ -83,6 +89,101 @@ __all__ = [
     'WindowsConfigurationResponse',
     'WindowsVMGuestPatchAutomaticByPlatformSettingsResponse',
 ]
+
+@pulumi.output_type
+class AdditionalCapabilitiesResponse(dict):
+    """
+    AdditionalCapabilities for VM.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hibernationEnabled":
+            suggest = "hibernation_enabled"
+        elif key == "ultraSSDEnabled":
+            suggest = "ultra_ssd_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdditionalCapabilitiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdditionalCapabilitiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdditionalCapabilitiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hibernation_enabled: Optional[bool] = None,
+                 ultra_ssd_enabled: Optional[bool] = None):
+        """
+        AdditionalCapabilities for VM.
+        :param bool hibernation_enabled: The flag that enables or disables hibernation capability on the VM.
+        :param bool ultra_ssd_enabled: The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS.
+               Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
+        """
+        if hibernation_enabled is not None:
+            pulumi.set(__self__, "hibernation_enabled", hibernation_enabled)
+        if ultra_ssd_enabled is not None:
+            pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
+
+    @property
+    @pulumi.getter(name="hibernationEnabled")
+    def hibernation_enabled(self) -> Optional[bool]:
+        """
+        The flag that enables or disables hibernation capability on the VM.
+        """
+        return pulumi.get(self, "hibernation_enabled")
+
+    @property
+    @pulumi.getter(name="ultraSSDEnabled")
+    def ultra_ssd_enabled(self) -> Optional[bool]:
+        """
+        The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS.
+        Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
+        """
+        return pulumi.get(self, "ultra_ssd_enabled")
+
+
+@pulumi.output_type
+class AdditionalLocationsProfileResponse(dict):
+    """
+    Represents the configuration for additional locations where Fleet resources may be deployed.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "locationProfiles":
+            suggest = "location_profiles"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdditionalLocationsProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdditionalLocationsProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdditionalLocationsProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location_profiles: Sequence['outputs.LocationProfileResponse']):
+        """
+        Represents the configuration for additional locations where Fleet resources may be deployed.
+        :param Sequence['LocationProfileResponse'] location_profiles: The list of location profiles.
+        """
+        pulumi.set(__self__, "location_profiles", location_profiles)
+
+    @property
+    @pulumi.getter(name="locationProfiles")
+    def location_profiles(self) -> Sequence['outputs.LocationProfileResponse']:
+        """
+        The list of location profiles.
+        """
+        return pulumi.get(self, "location_profiles")
+
 
 @pulumi.output_type
 class AdditionalUnattendContentResponse(dict):
@@ -626,6 +727,8 @@ class ComputeProfileResponse(dict):
         suggest = None
         if key == "baseVirtualMachineProfile":
             suggest = "base_virtual_machine_profile"
+        elif key == "additionalVirtualMachineCapabilities":
+            suggest = "additional_virtual_machine_capabilities"
         elif key == "computeApiVersion":
             suggest = "compute_api_version"
         elif key == "platformFaultDomainCount":
@@ -644,11 +747,16 @@ class ComputeProfileResponse(dict):
 
     def __init__(__self__, *,
                  base_virtual_machine_profile: 'outputs.BaseVirtualMachineProfileResponse',
+                 additional_virtual_machine_capabilities: Optional['outputs.AdditionalCapabilitiesResponse'] = None,
                  compute_api_version: Optional[str] = None,
                  platform_fault_domain_count: Optional[int] = None):
         """
         Compute Profile to use for running user's workloads.
         :param 'BaseVirtualMachineProfileResponse' base_virtual_machine_profile: Base Virtual Machine Profile Properties to be specified according to "specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/{computeApiVersion}/virtualMachineScaleSet.json#/definitions/VirtualMachineScaleSetVMProfile"
+        :param 'AdditionalCapabilitiesResponse' additional_virtual_machine_capabilities: Specifies VMSS and VM API entity models support two additional capabilities as of today: ultraSSDEnabled and hibernationEnabled.
+               ultraSSDEnabled: Enables UltraSSD_LRS storage account type on the VMSS VMs.
+               hibernationEnabled: Enables the hibernation capability on the VMSS VMs.
+               Default value is null if not specified. This property cannot be updated once set.
         :param str compute_api_version: Specifies the Microsoft.Compute API version to use when creating underlying Virtual Machine scale sets and Virtual Machines.
                The default value will be the latest supported computeApiVersion by Compute Fleet.
         :param int platform_fault_domain_count: Specifies the number of fault domains to use when creating the underlying VMSS.
@@ -658,6 +766,8 @@ class ComputeProfileResponse(dict):
                This property cannot be updated.
         """
         pulumi.set(__self__, "base_virtual_machine_profile", base_virtual_machine_profile)
+        if additional_virtual_machine_capabilities is not None:
+            pulumi.set(__self__, "additional_virtual_machine_capabilities", additional_virtual_machine_capabilities)
         if compute_api_version is not None:
             pulumi.set(__self__, "compute_api_version", compute_api_version)
         if platform_fault_domain_count is not None:
@@ -670,6 +780,17 @@ class ComputeProfileResponse(dict):
         Base Virtual Machine Profile Properties to be specified according to "specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/{computeApiVersion}/virtualMachineScaleSet.json#/definitions/VirtualMachineScaleSetVMProfile"
         """
         return pulumi.get(self, "base_virtual_machine_profile")
+
+    @property
+    @pulumi.getter(name="additionalVirtualMachineCapabilities")
+    def additional_virtual_machine_capabilities(self) -> Optional['outputs.AdditionalCapabilitiesResponse']:
+        """
+        Specifies VMSS and VM API entity models support two additional capabilities as of today: ultraSSDEnabled and hibernationEnabled.
+        ultraSSDEnabled: Enables UltraSSD_LRS storage account type on the VMSS VMs.
+        hibernationEnabled: Enables the hibernation capability on the VMSS VMs.
+        Default value is null if not specified. This property cannot be updated once set.
+        """
+        return pulumi.get(self, "additional_virtual_machine_capabilities")
 
     @property
     @pulumi.getter(name="computeApiVersion")
@@ -1328,6 +1449,59 @@ class LinuxVMGuestPatchAutomaticByPlatformSettingsResponse(dict):
         operations.
         """
         return pulumi.get(self, "reboot_setting")
+
+
+@pulumi.output_type
+class LocationProfileResponse(dict):
+    """
+    Represents the profile for a single additional location in the Fleet. The location and the virtualMachineProfileOverride (optional).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualMachineProfileOverride":
+            suggest = "virtual_machine_profile_override"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: str,
+                 virtual_machine_profile_override: Optional['outputs.BaseVirtualMachineProfileResponse'] = None):
+        """
+        Represents the profile for a single additional location in the Fleet. The location and the virtualMachineProfileOverride (optional).
+        :param str location: The ARM location name of the additional region. If LocationProfile is specified, then location is required.
+        :param 'BaseVirtualMachineProfileResponse' virtual_machine_profile_override: An override for computeProfile.baseVirtualMachineProfile specific to this region. 
+               This override is merged with the base virtual machine profile to define the final virtual machine profile for the resources deployed in this location.
+        """
+        pulumi.set(__self__, "location", location)
+        if virtual_machine_profile_override is not None:
+            pulumi.set(__self__, "virtual_machine_profile_override", virtual_machine_profile_override)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The ARM location name of the additional region. If LocationProfile is specified, then location is required.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="virtualMachineProfileOverride")
+    def virtual_machine_profile_override(self) -> Optional['outputs.BaseVirtualMachineProfileResponse']:
+        """
+        An override for computeProfile.baseVirtualMachineProfile specific to this region. 
+        This override is merged with the base virtual machine profile to define the final virtual machine profile for the resources deployed in this location.
+        """
+        return pulumi.get(self, "virtual_machine_profile_override")
 
 
 @pulumi.output_type
@@ -2633,6 +2807,404 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class VMAttributeMinMaxDoubleResponse(dict):
+    """
+    VMAttributes using double values.
+    """
+    def __init__(__self__, *,
+                 max: Optional[float] = None,
+                 min: Optional[float] = None):
+        """
+        VMAttributes using double values.
+        :param float max: Maximum value. Double.MaxValue(1.7976931348623157E+308)
+        :param float min: Minimum value. default 0. Double.MinValue()
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[float]:
+        """
+        Maximum value. Double.MaxValue(1.7976931348623157E+308)
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[float]:
+        """
+        Minimum value. default 0. Double.MinValue()
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class VMAttributeMinMaxIntegerResponse(dict):
+    """
+    While retrieving VMSizes from CRS, Min = 0 (uint.MinValue) if not specified, Max = 4294967295 (uint.MaxValue) if not specified. This allows to filter VMAttributes on all available VMSizes.
+    """
+    def __init__(__self__, *,
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
+        """
+        While retrieving VMSizes from CRS, Min = 0 (uint.MinValue) if not specified, Max = 4294967295 (uint.MaxValue) if not specified. This allows to filter VMAttributes on all available VMSizes.
+        :param int max: Max VMSize from CRS, Max = 4294967295 (uint.MaxValue) if not specified.
+        :param int min: Min VMSize from CRS, Min = 0 (uint.MinValue) if not specified.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[int]:
+        """
+        Max VMSize from CRS, Max = 4294967295 (uint.MaxValue) if not specified.
+        """
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[int]:
+        """
+        Min VMSize from CRS, Min = 0 (uint.MinValue) if not specified.
+        """
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class VMAttributesResponse(dict):
+    """
+    VMAttributes that will be used to filter VMSizes which will be used to build Fleet.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "memoryInGiB":
+            suggest = "memory_in_gi_b"
+        elif key == "vCpuCount":
+            suggest = "v_cpu_count"
+        elif key == "acceleratorCount":
+            suggest = "accelerator_count"
+        elif key == "acceleratorManufacturers":
+            suggest = "accelerator_manufacturers"
+        elif key == "acceleratorSupport":
+            suggest = "accelerator_support"
+        elif key == "acceleratorTypes":
+            suggest = "accelerator_types"
+        elif key == "architectureTypes":
+            suggest = "architecture_types"
+        elif key == "burstableSupport":
+            suggest = "burstable_support"
+        elif key == "cpuManufacturers":
+            suggest = "cpu_manufacturers"
+        elif key == "dataDiskCount":
+            suggest = "data_disk_count"
+        elif key == "excludedVMSizes":
+            suggest = "excluded_vm_sizes"
+        elif key == "localStorageDiskTypes":
+            suggest = "local_storage_disk_types"
+        elif key == "localStorageInGiB":
+            suggest = "local_storage_in_gi_b"
+        elif key == "localStorageSupport":
+            suggest = "local_storage_support"
+        elif key == "memoryInGiBPerVCpu":
+            suggest = "memory_in_gi_b_per_v_cpu"
+        elif key == "networkBandwidthInMbps":
+            suggest = "network_bandwidth_in_mbps"
+        elif key == "networkInterfaceCount":
+            suggest = "network_interface_count"
+        elif key == "rdmaNetworkInterfaceCount":
+            suggest = "rdma_network_interface_count"
+        elif key == "rdmaSupport":
+            suggest = "rdma_support"
+        elif key == "vmCategories":
+            suggest = "vm_categories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VMAttributesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VMAttributesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VMAttributesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 memory_in_gi_b: 'outputs.VMAttributeMinMaxDoubleResponse',
+                 v_cpu_count: 'outputs.VMAttributeMinMaxIntegerResponse',
+                 accelerator_count: Optional['outputs.VMAttributeMinMaxIntegerResponse'] = None,
+                 accelerator_manufacturers: Optional[Sequence[str]] = None,
+                 accelerator_support: Optional[str] = None,
+                 accelerator_types: Optional[Sequence[str]] = None,
+                 architecture_types: Optional[Sequence[str]] = None,
+                 burstable_support: Optional[str] = None,
+                 cpu_manufacturers: Optional[Sequence[str]] = None,
+                 data_disk_count: Optional['outputs.VMAttributeMinMaxIntegerResponse'] = None,
+                 excluded_vm_sizes: Optional[Sequence[str]] = None,
+                 local_storage_disk_types: Optional[Sequence[str]] = None,
+                 local_storage_in_gi_b: Optional['outputs.VMAttributeMinMaxDoubleResponse'] = None,
+                 local_storage_support: Optional[str] = None,
+                 memory_in_gi_b_per_v_cpu: Optional['outputs.VMAttributeMinMaxDoubleResponse'] = None,
+                 network_bandwidth_in_mbps: Optional['outputs.VMAttributeMinMaxDoubleResponse'] = None,
+                 network_interface_count: Optional['outputs.VMAttributeMinMaxIntegerResponse'] = None,
+                 rdma_network_interface_count: Optional['outputs.VMAttributeMinMaxIntegerResponse'] = None,
+                 rdma_support: Optional[str] = None,
+                 vm_categories: Optional[Sequence[str]] = None):
+        """
+        VMAttributes that will be used to filter VMSizes which will be used to build Fleet.
+        :param 'VMAttributeMinMaxDoubleResponse' memory_in_gi_b: The range of memory specified from Min to Max. Must be specified if VMAttributes are specified, either Min or Max is required if specified.
+        :param 'VMAttributeMinMaxIntegerResponse' v_cpu_count: The range of vCpuCount specified from Min to Max. Must be specified if VMAttributes are specified, either Min or Max is required if specified.
+        :param 'VMAttributeMinMaxIntegerResponse' accelerator_count: The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
+               acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+        :param Sequence[str] accelerator_manufacturers: The accelerator manufacturers specified as a list. 
+               acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+        :param str accelerator_support: Specifies whether the VMSize supporting accelerator should be used to build Fleet or not.
+               acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+        :param Sequence[str] accelerator_types: The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+        :param Sequence[str] architecture_types: The VM architecture types specified as a list. Optional parameter.
+        :param str burstable_support: Specifies whether the VMSize supporting burstable capability should be used to build Fleet or not.
+        :param Sequence[str] cpu_manufacturers: The VM CPU manufacturers specified as a list. Optional parameter.
+        :param 'VMAttributeMinMaxIntegerResponse' data_disk_count: The range of data disk count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+        :param Sequence[str] excluded_vm_sizes: Specifies which VMSizes should be excluded while building Fleet. Optional parameter.
+        :param Sequence[str] local_storage_disk_types: The local storage disk types specified as a list. LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If localStorageSupport is "Excluded", this VMAttribute can not be used.
+        :param 'VMAttributeMinMaxDoubleResponse' local_storage_in_gi_b: LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If localStorageSupport is "Excluded", this VMAttribute can not be used.
+        :param str local_storage_support: Specifies whether the VMSize supporting local storage should be used to build Fleet or not.
+               Included - Default if not specified as most Azure VMs support local storage.
+        :param 'VMAttributeMinMaxDoubleResponse' memory_in_gi_b_per_v_cpu: The range of memory in GiB per vCPU specified from min to max. Optional parameter. Either Min or Max is required if specified.
+        :param 'VMAttributeMinMaxDoubleResponse' network_bandwidth_in_mbps: The range of network bandwidth in Mbps specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+        :param 'VMAttributeMinMaxIntegerResponse' network_interface_count: The range of network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+        :param 'VMAttributeMinMaxIntegerResponse' rdma_network_interface_count: The range of RDMA (Remote Direct Memory Access) network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+               rdmaSupport should be set to "Included" or "Required" to use this VMAttribute. 
+               If rdmaSupport is "Excluded", this VMAttribute can not be used.
+        :param str rdma_support: Specifies whether the VMSize supporting RDMA (Remote Direct Memory Access) should be used to build Fleet or not.
+        :param Sequence[str] vm_categories: The VM category specified as a list. Optional parameter.
+        """
+        pulumi.set(__self__, "memory_in_gi_b", memory_in_gi_b)
+        pulumi.set(__self__, "v_cpu_count", v_cpu_count)
+        if accelerator_count is not None:
+            pulumi.set(__self__, "accelerator_count", accelerator_count)
+        if accelerator_manufacturers is not None:
+            pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
+        if accelerator_support is not None:
+            pulumi.set(__self__, "accelerator_support", accelerator_support)
+        if accelerator_types is not None:
+            pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if architecture_types is not None:
+            pulumi.set(__self__, "architecture_types", architecture_types)
+        if burstable_support is not None:
+            pulumi.set(__self__, "burstable_support", burstable_support)
+        if cpu_manufacturers is not None:
+            pulumi.set(__self__, "cpu_manufacturers", cpu_manufacturers)
+        if data_disk_count is not None:
+            pulumi.set(__self__, "data_disk_count", data_disk_count)
+        if excluded_vm_sizes is not None:
+            pulumi.set(__self__, "excluded_vm_sizes", excluded_vm_sizes)
+        if local_storage_disk_types is not None:
+            pulumi.set(__self__, "local_storage_disk_types", local_storage_disk_types)
+        if local_storage_in_gi_b is not None:
+            pulumi.set(__self__, "local_storage_in_gi_b", local_storage_in_gi_b)
+        if local_storage_support is not None:
+            pulumi.set(__self__, "local_storage_support", local_storage_support)
+        if memory_in_gi_b_per_v_cpu is not None:
+            pulumi.set(__self__, "memory_in_gi_b_per_v_cpu", memory_in_gi_b_per_v_cpu)
+        if network_bandwidth_in_mbps is not None:
+            pulumi.set(__self__, "network_bandwidth_in_mbps", network_bandwidth_in_mbps)
+        if network_interface_count is not None:
+            pulumi.set(__self__, "network_interface_count", network_interface_count)
+        if rdma_network_interface_count is not None:
+            pulumi.set(__self__, "rdma_network_interface_count", rdma_network_interface_count)
+        if rdma_support is not None:
+            pulumi.set(__self__, "rdma_support", rdma_support)
+        if vm_categories is not None:
+            pulumi.set(__self__, "vm_categories", vm_categories)
+
+    @property
+    @pulumi.getter(name="memoryInGiB")
+    def memory_in_gi_b(self) -> 'outputs.VMAttributeMinMaxDoubleResponse':
+        """
+        The range of memory specified from Min to Max. Must be specified if VMAttributes are specified, either Min or Max is required if specified.
+        """
+        return pulumi.get(self, "memory_in_gi_b")
+
+    @property
+    @pulumi.getter(name="vCpuCount")
+    def v_cpu_count(self) -> 'outputs.VMAttributeMinMaxIntegerResponse':
+        """
+        The range of vCpuCount specified from Min to Max. Must be specified if VMAttributes are specified, either Min or Max is required if specified.
+        """
+        return pulumi.get(self, "v_cpu_count")
+
+    @property
+    @pulumi.getter(name="acceleratorCount")
+    def accelerator_count(self) -> Optional['outputs.VMAttributeMinMaxIntegerResponse']:
+        """
+        The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
+        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+        """
+        return pulumi.get(self, "accelerator_count")
+
+    @property
+    @pulumi.getter(name="acceleratorManufacturers")
+    def accelerator_manufacturers(self) -> Optional[Sequence[str]]:
+        """
+        The accelerator manufacturers specified as a list. 
+        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+        """
+        return pulumi.get(self, "accelerator_manufacturers")
+
+    @property
+    @pulumi.getter(name="acceleratorSupport")
+    def accelerator_support(self) -> Optional[str]:
+        """
+        Specifies whether the VMSize supporting accelerator should be used to build Fleet or not.
+        acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+        """
+        return pulumi.get(self, "accelerator_support")
+
+    @property
+    @pulumi.getter(name="acceleratorTypes")
+    def accelerator_types(self) -> Optional[Sequence[str]]:
+        """
+        The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+        """
+        return pulumi.get(self, "accelerator_types")
+
+    @property
+    @pulumi.getter(name="architectureTypes")
+    def architecture_types(self) -> Optional[Sequence[str]]:
+        """
+        The VM architecture types specified as a list. Optional parameter.
+        """
+        return pulumi.get(self, "architecture_types")
+
+    @property
+    @pulumi.getter(name="burstableSupport")
+    def burstable_support(self) -> Optional[str]:
+        """
+        Specifies whether the VMSize supporting burstable capability should be used to build Fleet or not.
+        """
+        return pulumi.get(self, "burstable_support")
+
+    @property
+    @pulumi.getter(name="cpuManufacturers")
+    def cpu_manufacturers(self) -> Optional[Sequence[str]]:
+        """
+        The VM CPU manufacturers specified as a list. Optional parameter.
+        """
+        return pulumi.get(self, "cpu_manufacturers")
+
+    @property
+    @pulumi.getter(name="dataDiskCount")
+    def data_disk_count(self) -> Optional['outputs.VMAttributeMinMaxIntegerResponse']:
+        """
+        The range of data disk count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+        """
+        return pulumi.get(self, "data_disk_count")
+
+    @property
+    @pulumi.getter(name="excludedVMSizes")
+    def excluded_vm_sizes(self) -> Optional[Sequence[str]]:
+        """
+        Specifies which VMSizes should be excluded while building Fleet. Optional parameter.
+        """
+        return pulumi.get(self, "excluded_vm_sizes")
+
+    @property
+    @pulumi.getter(name="localStorageDiskTypes")
+    def local_storage_disk_types(self) -> Optional[Sequence[str]]:
+        """
+        The local storage disk types specified as a list. LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If localStorageSupport is "Excluded", this VMAttribute can not be used.
+        """
+        return pulumi.get(self, "local_storage_disk_types")
+
+    @property
+    @pulumi.getter(name="localStorageInGiB")
+    def local_storage_in_gi_b(self) -> Optional['outputs.VMAttributeMinMaxDoubleResponse']:
+        """
+        LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If localStorageSupport is "Excluded", this VMAttribute can not be used.
+        """
+        return pulumi.get(self, "local_storage_in_gi_b")
+
+    @property
+    @pulumi.getter(name="localStorageSupport")
+    def local_storage_support(self) -> Optional[str]:
+        """
+        Specifies whether the VMSize supporting local storage should be used to build Fleet or not.
+        Included - Default if not specified as most Azure VMs support local storage.
+        """
+        return pulumi.get(self, "local_storage_support")
+
+    @property
+    @pulumi.getter(name="memoryInGiBPerVCpu")
+    def memory_in_gi_b_per_v_cpu(self) -> Optional['outputs.VMAttributeMinMaxDoubleResponse']:
+        """
+        The range of memory in GiB per vCPU specified from min to max. Optional parameter. Either Min or Max is required if specified.
+        """
+        return pulumi.get(self, "memory_in_gi_b_per_v_cpu")
+
+    @property
+    @pulumi.getter(name="networkBandwidthInMbps")
+    def network_bandwidth_in_mbps(self) -> Optional['outputs.VMAttributeMinMaxDoubleResponse']:
+        """
+        The range of network bandwidth in Mbps specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+        """
+        return pulumi.get(self, "network_bandwidth_in_mbps")
+
+    @property
+    @pulumi.getter(name="networkInterfaceCount")
+    def network_interface_count(self) -> Optional['outputs.VMAttributeMinMaxIntegerResponse']:
+        """
+        The range of network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+        """
+        return pulumi.get(self, "network_interface_count")
+
+    @property
+    @pulumi.getter(name="rdmaNetworkInterfaceCount")
+    def rdma_network_interface_count(self) -> Optional['outputs.VMAttributeMinMaxIntegerResponse']:
+        """
+        The range of RDMA (Remote Direct Memory Access) network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+        rdmaSupport should be set to "Included" or "Required" to use this VMAttribute. 
+        If rdmaSupport is "Excluded", this VMAttribute can not be used.
+        """
+        return pulumi.get(self, "rdma_network_interface_count")
+
+    @property
+    @pulumi.getter(name="rdmaSupport")
+    def rdma_support(self) -> Optional[str]:
+        """
+        Specifies whether the VMSize supporting RDMA (Remote Direct Memory Access) should be used to build Fleet or not.
+        """
+        return pulumi.get(self, "rdma_support")
+
+    @property
+    @pulumi.getter(name="vmCategories")
+    def vm_categories(self) -> Optional[Sequence[str]]:
+        """
+        The VM category specified as a list. Optional parameter.
+        """
+        return pulumi.get(self, "vm_categories")
 
 
 @pulumi.output_type

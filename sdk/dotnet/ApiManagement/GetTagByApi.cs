@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get tag associated with the API.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetTagByApiResult> InvokeAsync(GetTagByApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagByApiResult>("azure-native:apimanagement:getTagByApi", args ?? new GetTagByApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get tag associated with the API.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetTagByApiResult> Invoke(GetTagByApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagByApiResult>("azure-native:apimanagement:getTagByApi", args ?? new GetTagByApiInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get tag associated with the API.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetTagByApiResult> Invoke(GetTagByApiInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagByApiResult>("azure-native:apimanagement:getTagByApi", args ?? new GetTagByApiInvokeArgs(), options.WithDefaults());

@@ -11,15 +11,15 @@ namespace Pulumi.AzureNative.ApiCenter
 {
     /// <summary>
     /// The service entity.
-    /// Azure REST API version: 2023-07-01-preview.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-07-01-preview.
     /// 
-    /// Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+    /// Other available API versions: 2023-07-01-preview, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apicenter:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The identity of the service.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.ApiCenter
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the last operation.
+        /// Provisioning state of the service.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.ApiCenter
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity of the service.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.ApiCenter
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Service name
+        /// The name of Azure API Center service.
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Inputs
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// The name of the SKU. Ex - P3. It is typically a letter+number code
+        /// The name of the SKU. E.g. P3. It is typically a letter+number code
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

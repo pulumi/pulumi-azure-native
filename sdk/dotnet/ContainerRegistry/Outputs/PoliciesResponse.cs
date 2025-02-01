@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.ContainerRegistry.Outputs
     public sealed class PoliciesResponse
     {
         /// <summary>
+        /// The policy for using ARM audience token for a container registry.
+        /// </summary>
+        public readonly Outputs.AzureADAuthenticationAsArmPolicyResponse? AzureADAuthenticationAsArmPolicy;
+        /// <summary>
         /// The export policy for a container registry.
         /// </summary>
         public readonly Outputs.ExportPolicyResponse? ExportPolicy;
@@ -29,23 +33,33 @@ namespace Pulumi.AzureNative.ContainerRegistry.Outputs
         /// </summary>
         public readonly Outputs.RetentionPolicyResponse? RetentionPolicy;
         /// <summary>
+        /// The soft delete policy for a container registry.
+        /// </summary>
+        public readonly Outputs.SoftDeletePolicyResponse? SoftDeletePolicy;
+        /// <summary>
         /// The content trust policy for a container registry.
         /// </summary>
         public readonly Outputs.TrustPolicyResponse? TrustPolicy;
 
         [OutputConstructor]
         private PoliciesResponse(
+            Outputs.AzureADAuthenticationAsArmPolicyResponse? azureADAuthenticationAsArmPolicy,
+
             Outputs.ExportPolicyResponse? exportPolicy,
 
             Outputs.QuarantinePolicyResponse? quarantinePolicy,
 
             Outputs.RetentionPolicyResponse? retentionPolicy,
 
+            Outputs.SoftDeletePolicyResponse? softDeletePolicy,
+
             Outputs.TrustPolicyResponse? trustPolicy)
         {
+            AzureADAuthenticationAsArmPolicy = azureADAuthenticationAsArmPolicy;
             ExportPolicy = exportPolicy;
             QuarantinePolicy = quarantinePolicy;
             RetentionPolicy = retentionPolicy;
+            SoftDeletePolicy = softDeletePolicy;
             TrustPolicy = trustPolicy;
         }
     }

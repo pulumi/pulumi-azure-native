@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         }
 
         /// <summary>
+        /// AKS will associate the specified agent pool with the Capacity Reservation Group.
+        /// </summary>
+        [Input("capacityReservationGroupID")]
+        public Input<string>? CapacityReservationGroupID { get; set; }
+
+        /// <summary>
         /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         /// </summary>
         [Input("count")]
@@ -129,6 +135,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Network-related settings of an agent pool.
+        /// </summary>
+        [Input("networkProfile")]
+        public Input<Inputs.AgentPoolNetworkProfileArgs>? NetworkProfile { get; set; }
+
         [Input("nodeLabels")]
         private InputMap<string>? _nodeLabels;
 
@@ -226,6 +238,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public InputUnion<string, Pulumi.AzureNative.ContainerService.ScaleSetPriority>? ScaleSetPriority { get; set; }
 
         /// <summary>
+        /// The security settings of an agent pool.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.AgentPoolSecurityProfileArgs>? SecurityProfile { get; set; }
+
+        /// <summary>
         /// Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         /// </summary>
         [Input("spotMaxPrice")]
@@ -266,6 +284,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         /// </summary>
         [Input("vnetSubnetID")]
         public Input<string>? VnetSubnetID { get; set; }
+
+        /// <summary>
+        /// The Windows agent pool's specific profile.
+        /// </summary>
+        [Input("windowsProfile")]
+        public Input<Inputs.AgentPoolWindowsProfileArgs>? WindowsProfile { get; set; }
 
         /// <summary>
         /// Determines the type of workload a node can run.

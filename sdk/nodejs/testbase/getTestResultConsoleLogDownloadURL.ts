@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the download URL of the test execution console log file.
- * Azure REST API version: 2022-04-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export function getTestResultConsoleLogDownloadURL(args: GetTestResultConsoleLogDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultConsoleLogDownloadURLResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,7 +31,7 @@ export interface GetTestResultConsoleLogDownloadURLArgs {
      */
     packageName: string;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -59,9 +59,9 @@ export interface GetTestResultConsoleLogDownloadURLResult {
 }
 /**
  * Gets the download URL of the test execution console log file.
- * Azure REST API version: 2022-04-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export function getTestResultConsoleLogDownloadURLOutput(args: GetTestResultConsoleLogDownloadURLOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestResultConsoleLogDownloadURLResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,7 +84,7 @@ export interface GetTestResultConsoleLogDownloadURLOutputArgs {
      */
     packageName: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

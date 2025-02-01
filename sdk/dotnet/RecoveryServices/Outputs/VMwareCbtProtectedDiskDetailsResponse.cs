@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? DiskType;
         /// <summary>
+        /// A value indicating the gateway operation details.
+        /// </summary>
+        public readonly Outputs.GatewayOperationDetailsResponse GatewayOperationDetails;
+        /// <summary>
         /// A value indicating whether the disk is the OS disk.
         /// </summary>
         public readonly string IsOSDisk;
@@ -52,6 +56,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The key vault secret name of the log storage account.
         /// </summary>
         public readonly string LogStorageAccountSasSecretName;
+        /// <summary>
+        /// The logical sector size (in bytes), 512 by default.
+        /// </summary>
+        public readonly int? SectorSizeInBytes;
         /// <summary>
         /// The uri of the seed blob.
         /// </summary>
@@ -87,11 +95,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? diskType,
 
+            Outputs.GatewayOperationDetailsResponse gatewayOperationDetails,
+
             string isOSDisk,
 
             string logStorageAccountId,
 
             string logStorageAccountSasSecretName,
+
+            int? sectorSizeInBytes,
 
             string seedBlobUri,
 
@@ -109,9 +121,11 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             DiskName = diskName;
             DiskPath = diskPath;
             DiskType = diskType;
+            GatewayOperationDetails = gatewayOperationDetails;
             IsOSDisk = isOSDisk;
             LogStorageAccountId = logStorageAccountId;
             LogStorageAccountSasSecretName = logStorageAccountSasSecretName;
+            SectorSizeInBytes = sectorSizeInBytes;
             SeedBlobUri = seedBlobUri;
             SeedManagedDiskId = seedManagedDiskId;
             TargetBlobUri = targetBlobUri;

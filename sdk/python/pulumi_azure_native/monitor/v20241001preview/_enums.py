@@ -8,7 +8,9 @@ __all__ = [
     'ExporterType',
     'ExtendedLocationType',
     'ExternalNetworkingMode',
+    'IncidentManagementService',
     'JsonMapperElement',
+    'ManagedServiceIdentityType',
     'PipelineType',
     'ProcessorType',
     'ReceiverType',
@@ -55,6 +57,13 @@ class ExternalNetworkingMode(str, Enum):
     """
 
 
+class IncidentManagementService(str, Enum):
+    """
+    The incident management service type
+    """
+    ICM = "Icm"
+
+
 class JsonMapperElement(str, Enum):
     """
     Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
@@ -67,6 +76,16 @@ class JsonMapperElement(str, Enum):
     """
     Read or write the json array from or to the attributes of the message.
     """
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class PipelineType(str, Enum):

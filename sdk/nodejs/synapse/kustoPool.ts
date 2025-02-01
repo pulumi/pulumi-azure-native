@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Kusto kusto pool.
- * Azure REST API version: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
+ *
+ * Other available API versions: 2021-04-01-preview.
  */
 export class KustoPool extends pulumi.CustomResource {
     /**

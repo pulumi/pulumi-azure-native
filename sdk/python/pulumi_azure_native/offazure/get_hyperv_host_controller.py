@@ -176,9 +176,9 @@ def get_hyperv_host_controller(host_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHypervHostControllerResult:
     """
     Get a HypervHost
-    Azure REST API version: 2023-06-06.
+    Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Other available API versions: 2023-06-06, 2024-05-01-preview.
 
 
     :param str host_name:  Host name
@@ -210,9 +210,9 @@ def get_hyperv_host_controller_output(host_name: Optional[pulumi.Input[str]] = N
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHypervHostControllerResult]:
     """
     Get a HypervHost
-    Azure REST API version: 2023-06-06.
+    Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Other available API versions: 2023-06-06, 2024-05-01-preview.
 
 
     :param str host_name:  Host name

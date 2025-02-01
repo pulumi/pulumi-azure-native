@@ -107,7 +107,7 @@ class GetCloudEndpointResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -213,9 +213,9 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudEndpointResult:
     """
     Get a given CloudEndpoint.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2022-09-01.
+    Other available API versions: 2022-06-01.
 
 
     :param str cloud_endpoint_name: Name of Cloud Endpoint object.
@@ -253,9 +253,9 @@ def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudEndpointResult]:
     """
     Get a given CloudEndpoint.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2022-09-01.
+    Other available API versions: 2022-06-01.
 
 
     :param str cloud_endpoint_name: Name of Cloud Endpoint object.

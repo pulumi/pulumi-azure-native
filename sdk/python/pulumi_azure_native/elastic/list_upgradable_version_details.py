@@ -66,13 +66,13 @@ def list_upgradable_version_details(monitor_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListUpgradableVersionDetailsResult:
     """
     Stack Versions that this version can upgrade to
-    Azure REST API version: 2023-06-01.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+    Other available API versions: 2023-06-01, 2024-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name
-    :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['monitorName'] = monitor_name
@@ -88,13 +88,13 @@ def list_upgradable_version_details_output(monitor_name: Optional[pulumi.Input[s
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListUpgradableVersionDetailsResult]:
     """
     Stack Versions that this version can upgrade to
-    Azure REST API version: 2023-06-01.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+    Other available API versions: 2023-06-01, 2024-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name
-    :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['monitorName'] = monitor_name

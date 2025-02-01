@@ -119,7 +119,7 @@ export class EndpointVariant extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20200515preview:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20200901preview:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20210101:EndpointVariant" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20200515preview:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20200901preview:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20210101:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20210401:ACIService" }, { type: "azure-native:machinelearningservices/v20210401:AKSService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EndpointVariant.__pulumiType, name, resourceInputs, opts);
     }

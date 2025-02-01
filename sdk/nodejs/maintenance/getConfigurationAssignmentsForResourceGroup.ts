@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get configuration assignment for resource..
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2023-04-01.
  */
 export function getConfigurationAssignmentsForResourceGroup(args: GetConfigurationAssignmentsForResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssignmentsForResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,9 +71,9 @@ export interface GetConfigurationAssignmentsForResourceGroupResult {
 }
 /**
  * Get configuration assignment for resource..
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2023-04-01.
  */
 export function getConfigurationAssignmentsForResourceGroupOutput(args: GetConfigurationAssignmentsForResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationAssignmentsForResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

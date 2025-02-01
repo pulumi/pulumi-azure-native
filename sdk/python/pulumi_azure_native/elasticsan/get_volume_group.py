@@ -27,19 +27,31 @@ class GetVolumeGroupResult:
     """
     Response for Volume Group request.
     """
-    def __init__(__self__, encryption=None, id=None, name=None, network_acls=None, protocol_type=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, encryption_properties=None, enforce_data_integrity_check_for_iscsi=None, id=None, identity=None, name=None, network_acls=None, private_endpoint_connections=None, protocol_type=None, provisioning_state=None, system_data=None, type=None):
         if encryption and not isinstance(encryption, str):
             raise TypeError("Expected argument 'encryption' to be a str")
         pulumi.set(__self__, "encryption", encryption)
+        if encryption_properties and not isinstance(encryption_properties, dict):
+            raise TypeError("Expected argument 'encryption_properties' to be a dict")
+        pulumi.set(__self__, "encryption_properties", encryption_properties)
+        if enforce_data_integrity_check_for_iscsi and not isinstance(enforce_data_integrity_check_for_iscsi, bool):
+            raise TypeError("Expected argument 'enforce_data_integrity_check_for_iscsi' to be a bool")
+        pulumi.set(__self__, "enforce_data_integrity_check_for_iscsi", enforce_data_integrity_check_for_iscsi)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if network_acls and not isinstance(network_acls, dict):
             raise TypeError("Expected argument 'network_acls' to be a dict")
         pulumi.set(__self__, "network_acls", network_acls)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if protocol_type and not isinstance(protocol_type, str):
             raise TypeError("Expected argument 'protocol_type' to be a str")
         pulumi.set(__self__, "protocol_type", protocol_type)
@@ -49,9 +61,6 @@ class GetVolumeGroupResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -65,18 +74,42 @@ class GetVolumeGroupResult:
         return pulumi.get(self, "encryption")
 
     @property
+    @pulumi.getter(name="encryptionProperties")
+    def encryption_properties(self) -> Optional['outputs.EncryptionPropertiesResponse']:
+        """
+        Encryption Properties describing Key Vault and Identity information
+        """
+        return pulumi.get(self, "encryption_properties")
+
+    @property
+    @pulumi.getter(name="enforceDataIntegrityCheckForIscsi")
+    def enforce_data_integrity_check_for_iscsi(self) -> Optional[bool]:
+        """
+        A boolean indicating whether or not Data Integrity Check is enabled
+        """
+        return pulumi.get(self, "enforce_data_integrity_check_for_iscsi")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource identifier.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -87,6 +120,14 @@ class GetVolumeGroupResult:
         A collection of rules governing the accessibility from specific network locations.
         """
         return pulumi.get(self, "network_acls")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        The list of Private Endpoint Connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="protocolType")
@@ -108,23 +149,15 @@ class GetVolumeGroupResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Resource metadata required by ARM RPC
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Azure resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -136,13 +169,16 @@ class AwaitableGetVolumeGroupResult(GetVolumeGroupResult):
             yield self
         return GetVolumeGroupResult(
             encryption=self.encryption,
+            encryption_properties=self.encryption_properties,
+            enforce_data_integrity_check_for_iscsi=self.enforce_data_integrity_check_for_iscsi,
             id=self.id,
+            identity=self.identity,
             name=self.name,
             network_acls=self.network_acls,
+            private_endpoint_connections=self.private_endpoint_connections,
             protocol_type=self.protocol_type,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
-            tags=self.tags,
             type=self.type)
 
 
@@ -152,9 +188,9 @@ def get_volume_group(elastic_san_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeGroupResult:
     """
     Get an VolumeGroups.
-    Azure REST API version: 2021-11-20-preview.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-11-20-preview, 2024-06-01-preview.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -170,13 +206,16 @@ def get_volume_group(elastic_san_name: Optional[str] = None,
 
     return AwaitableGetVolumeGroupResult(
         encryption=pulumi.get(__ret__, 'encryption'),
+        encryption_properties=pulumi.get(__ret__, 'encryption_properties'),
+        enforce_data_integrity_check_for_iscsi=pulumi.get(__ret__, 'enforce_data_integrity_check_for_iscsi'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         name=pulumi.get(__ret__, 'name'),
         network_acls=pulumi.get(__ret__, 'network_acls'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         protocol_type=pulumi.get(__ret__, 'protocol_type'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
-        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_volume_group_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -184,9 +223,9 @@ def get_volume_group_output(elastic_san_name: Optional[pulumi.Input[str]] = None
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeGroupResult]:
     """
     Get an VolumeGroups.
-    Azure REST API version: 2021-11-20-preview.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2021-11-20-preview, 2024-06-01-preview.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -201,11 +240,14 @@ def get_volume_group_output(elastic_san_name: Optional[pulumi.Input[str]] = None
     __ret__ = pulumi.runtime.invoke_output('azure-native:elasticsan:getVolumeGroup', __args__, opts=opts, typ=GetVolumeGroupResult)
     return __ret__.apply(lambda __response__: GetVolumeGroupResult(
         encryption=pulumi.get(__response__, 'encryption'),
+        encryption_properties=pulumi.get(__response__, 'encryption_properties'),
+        enforce_data_integrity_check_for_iscsi=pulumi.get(__response__, 'enforce_data_integrity_check_for_iscsi'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         name=pulumi.get(__response__, 'name'),
         network_acls=pulumi.get(__response__, 'network_acls'),
+        private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
         protocol_type=pulumi.get(__response__, 'protocol_type'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

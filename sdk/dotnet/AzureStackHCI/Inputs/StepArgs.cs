@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         public Input<string>? ErrorMessage { get; set; }
 
         /// <summary>
+        /// Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
+        /// </summary>
+        [Input("expectedExecutionTime")]
+        public Input<string>? ExpectedExecutionTime { get; set; }
+
+        /// <summary>
         /// Completion time of this step or the last completed sub-step.
         /// </summary>
         [Input("lastUpdatedTimeUtc")]

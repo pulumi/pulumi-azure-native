@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2022-04-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export function getBillingHubServiceFreeHourBalance(args: GetBillingHubServiceFreeHourBalanceArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingHubServiceFreeHourBalanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -22,7 +22,7 @@ export function getBillingHubServiceFreeHourBalance(args: GetBillingHubServiceFr
 
 export interface GetBillingHubServiceFreeHourBalanceArgs {
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -36,9 +36,9 @@ export interface GetBillingHubServiceFreeHourBalanceResult {
     readonly totalRemainingFreeHours?: number;
 }
 /**
- * Azure REST API version: 2022-04-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export function getBillingHubServiceFreeHourBalanceOutput(args: GetBillingHubServiceFreeHourBalanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingHubServiceFreeHourBalanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,7 +50,7 @@ export function getBillingHubServiceFreeHourBalanceOutput(args: GetBillingHubSer
 
 export interface GetBillingHubServiceFreeHourBalanceOutputArgs {
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

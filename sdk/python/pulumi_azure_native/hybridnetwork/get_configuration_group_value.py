@@ -127,9 +127,9 @@ def get_configuration_group_value(configuration_group_value_name: Optional[str] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationGroupValueResult:
     """
     Gets information about the specified hybrid configuration group values.
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-04-15.
 
-    Other available API versions: 2024-04-15.
+    Other available API versions: 2023-09-01.
 
 
     :param str configuration_group_value_name: The name of the configuration group value.
@@ -154,9 +154,9 @@ def get_configuration_group_value_output(configuration_group_value_name: Optiona
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationGroupValueResult]:
     """
     Gets information about the specified hybrid configuration group values.
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-04-15.
 
-    Other available API versions: 2024-04-15.
+    Other available API versions: 2023-09-01.
 
 
     :param str configuration_group_value_name: The name of the configuration group value.

@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     {
         /// <summary>
         /// This is the private endpoint connection name created on SRP
-        /// Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/privateEndpointConnections/{peConnectionName}
+        /// Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
         /// </summary>
         public readonly string? Id;
         /// <summary>

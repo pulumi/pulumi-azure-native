@@ -31,6 +31,7 @@ class WorkspaceArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None):
@@ -40,9 +41,10 @@ class WorkspaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_group_references: List of applicationGroup resource Ids.
         :param pulumi.Input[str] description: Description of Workspace.
         :param pulumi.Input[str] friendly_name: Friendly name of Workspace.
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
@@ -63,6 +65,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "managed_by", managed_by)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -131,7 +135,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
@@ -171,6 +175,18 @@ class WorkspaceArgs:
     @plan.setter
     def plan(self, value: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']]):
         pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter
@@ -219,6 +235,7 @@ class Workspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -226,18 +243,19 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Workspace definition.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
 
-        Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        Other available API versions: 2022-09-09, 2024-08-08-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_group_references: List of applicationGroup resource Ids.
         :param pulumi.Input[str] description: Description of Workspace.
         :param pulumi.Input[str] friendly_name: Friendly name of Workspace.
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the workspace
@@ -250,9 +268,9 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Workspace definition.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
 
-        Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        Other available API versions: 2022-09-09, 2024-08-08-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -277,6 +295,7 @@ class Workspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -298,6 +317,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by
             __props__.__dict__["plan"] = plan
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -308,6 +328,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["object_id"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:Workspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:Workspace")])
@@ -346,6 +367,8 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["object_id"] = None
         __props__.__dict__["plan"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -401,13 +424,13 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -443,6 +466,22 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "plan")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connection associated with the specified resource
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']]:
         return pulumi.get(self, "sku")
@@ -451,7 +490,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * ApiRelease details.
- * Azure REST API version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2024-06-01-preview.
  */
 export class WorkspaceApiRelease extends pulumi.CustomResource {
     /**

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a hunt, without relations and comments.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Task<GetHuntResult> InvokeAsync(GetHuntArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHuntResult>("azure-native:securityinsights:getHunt", args ?? new GetHuntArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a hunt, without relations and comments.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Output<GetHuntResult> Invoke(GetHuntInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHuntResult>("azure-native:securityinsights:getHunt", args ?? new GetHuntInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a hunt, without relations and comments.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-06-01-preview.
         /// </summary>
         public static Output<GetHuntResult> Invoke(GetHuntInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHuntResult>("azure-native:securityinsights:getHunt", args ?? new GetHuntInvokeArgs(), options.WithDefaults());

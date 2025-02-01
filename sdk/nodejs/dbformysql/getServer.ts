@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a server.
- * Azure REST API version: 2022-01-01.
+ * Azure REST API version: 2023-12-30.
  *
- * Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2022-01-01, 2022-09-30-preview, 2024-10-01-preview.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,13 +61,17 @@ export interface GetServerResult {
      */
     readonly highAvailability?: outputs.dbformysql.HighAvailabilityResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
      * The cmk identity for the server.
      */
-    readonly identity?: outputs.dbformysql.IdentityResponse;
+    readonly identity?: outputs.dbformysql.MySQLServerIdentityResponse;
+    /**
+     * Source properties for import from storage.
+     */
+    readonly importSourceProperties?: outputs.dbformysql.ImportSourcePropertiesResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -85,6 +89,10 @@ export interface GetServerResult {
      */
     readonly network?: outputs.dbformysql.NetworkResponse;
     /**
+     * PrivateEndpointConnections related properties of a server.
+     */
+    readonly privateEndpointConnections: outputs.dbformysql.PrivateEndpointConnectionResponse[];
+    /**
      * The maximum number of replicas that a primary server can have.
      */
     readonly replicaCapacity: number;
@@ -95,7 +103,7 @@ export interface GetServerResult {
     /**
      * The SKU (pricing tier) of the server.
      */
-    readonly sku?: outputs.dbformysql.SkuResponse;
+    readonly sku?: outputs.dbformysql.MySQLServerSkuResponse;
     /**
      * The source MySQL server id.
      */
@@ -109,7 +117,7 @@ export interface GetServerResult {
      */
     readonly storage?: outputs.dbformysql.StorageResponse;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.dbformysql.SystemDataResponse;
     /**
@@ -127,9 +135,9 @@ export interface GetServerResult {
 }
 /**
  * Gets information about a server.
- * Azure REST API version: 2022-01-01.
+ * Azure REST API version: 2023-12-30.
  *
- * Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2022-01-01, 2022-09-30-preview, 2024-10-01-preview.
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

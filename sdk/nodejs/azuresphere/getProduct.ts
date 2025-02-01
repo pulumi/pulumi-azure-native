@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
- * Azure REST API version: 2022-09-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,7 +44,7 @@ export interface GetProductResult {
     /**
      * Description of the product
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -68,9 +68,9 @@ export interface GetProductResult {
 }
 /**
  * Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
- * Azure REST API version: 2022-09-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2024-04-01.
+ * Other available API versions: 2022-09-01-preview.
  */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a topic.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:eventgrid:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a topic.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:eventgrid:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a topic.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:eventgrid:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
@@ -97,6 +97,15 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
+        /// Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+        /// subscriber to view different types of events that are published.
+        /// </summary>
+        public readonly Outputs.EventTypeInfoResponse? EventTypeInfo;
+        /// <summary>
+        /// Extended location of the resource.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Fully qualified identifier of the resource.
         /// </summary>
         public readonly string Id;
@@ -117,6 +126,10 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly Outputs.JsonInputSchemaMappingResponse? InputSchemaMapping;
         /// <summary>
+        /// Kind of the resource.
+        /// </summary>
+        public readonly string? Kind;
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         public readonly string Location;
@@ -125,9 +138,16 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string MetricResourceId;
         /// <summary>
+        /// Minimum TLS version of the publisher allowed to publish to this topic
+        /// </summary>
+        public readonly string? MinimumTlsVersionAllowed;
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Provisioning state of the topic.
@@ -139,7 +159,11 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
-        /// The system metadata relating to Topic resource.
+        /// The Sku pricing tier for the topic.
+        /// </summary>
+        public readonly Outputs.ResourceSkuResponse? Sku;
+        /// <summary>
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -159,6 +183,10 @@ namespace Pulumi.AzureNative.EventGrid
 
             string endpoint,
 
+            Outputs.EventTypeInfoResponse? eventTypeInfo,
+
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string id,
 
             Outputs.IdentityInfoResponse? identity,
@@ -169,9 +197,13 @@ namespace Pulumi.AzureNative.EventGrid
 
             Outputs.JsonInputSchemaMappingResponse? inputSchemaMapping,
 
+            string? kind,
+
             string location,
 
             string metricResourceId,
+
+            string? minimumTlsVersionAllowed,
 
             string name,
 
@@ -180,6 +212,8 @@ namespace Pulumi.AzureNative.EventGrid
             string provisioningState,
 
             string? publicNetworkAccess,
+
+            Outputs.ResourceSkuResponse? sku,
 
             Outputs.SystemDataResponse systemData,
 
@@ -190,17 +224,22 @@ namespace Pulumi.AzureNative.EventGrid
             DataResidencyBoundary = dataResidencyBoundary;
             DisableLocalAuth = disableLocalAuth;
             Endpoint = endpoint;
+            EventTypeInfo = eventTypeInfo;
+            ExtendedLocation = extendedLocation;
             Id = id;
             Identity = identity;
             InboundIpRules = inboundIpRules;
             InputSchema = inputSchema;
             InputSchemaMapping = inputSchemaMapping;
+            Kind = kind;
             Location = location;
             MetricResourceId = metricResourceId;
+            MinimumTlsVersionAllowed = minimumTlsVersionAllowed;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            Sku = sku;
             SystemData = systemData;
             Tags = tags;
             Type = type;

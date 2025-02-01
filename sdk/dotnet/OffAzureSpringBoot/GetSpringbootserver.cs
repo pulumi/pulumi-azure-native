@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
     {
         /// <summary>
         /// List springbootservers resource.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-01-01-preview.
         /// </summary>
         public static Task<GetSpringbootserverResult> InvokeAsync(GetSpringbootserverArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpringbootserverResult>("azure-native:offazurespringboot:getSpringbootserver", args ?? new GetSpringbootserverArgs(), options.WithDefaults());
 
         /// <summary>
         /// List springbootservers resource.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-01-01-preview.
         /// </summary>
         public static Output<GetSpringbootserverResult> Invoke(GetSpringbootserverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootserverResult>("azure-native:offazurespringboot:getSpringbootserver", args ?? new GetSpringbootserverInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List springbootservers resource.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-01-01-preview.
         /// </summary>
         public static Output<GetSpringbootserverResult> Invoke(GetSpringbootserverInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootserverResult>("azure-native:offazurespringboot:getSpringbootserver", args ?? new GetSpringbootserverInvokeArgs(), options.WithDefaults());
@@ -107,10 +113,6 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource tags
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -125,15 +127,12 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
 
             Outputs.SystemDataResponse systemData,
 
-            ImmutableDictionary<string, string>? tags,
-
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
             SystemData = systemData;
-            Tags = tags;
             Type = type;
         }
     }

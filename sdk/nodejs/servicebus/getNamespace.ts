@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a description for the specified namespace.
- * Azure REST API version: 2022-01-01-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2022-01-01-preview, 2023-01-01-preview.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -27,7 +27,7 @@ export interface GetNamespaceArgs {
      */
     namespaceName: string;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -77,6 +77,10 @@ export interface GetNamespaceResult {
      */
     readonly name: string;
     /**
+     * The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+     */
+    readonly premiumMessagingPartitions?: number;
+    /**
      * List of private endpoint connections.
      */
     readonly privateEndpointConnections?: outputs.servicebus.PrivateEndpointConnectionResponse[];
@@ -123,9 +127,9 @@ export interface GetNamespaceResult {
 }
 /**
  * Gets a description for the specified namespace.
- * Azure REST API version: 2022-01-01-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2022-01-01-preview, 2023-01-01-preview.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -141,7 +145,7 @@ export interface GetNamespaceOutputArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

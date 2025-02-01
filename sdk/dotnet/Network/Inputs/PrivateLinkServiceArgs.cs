@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<Inputs.PrivateLinkServicePropertiesAutoApprovalArgs>? AutoApproval { get; set; }
 
         /// <summary>
+        /// The destination IP address of the private link service.
+        /// </summary>
+        [Input("destinationIPAddress")]
+        public Input<string>? DestinationIPAddress { get; set; }
+
+        /// <summary>
         /// Whether the private link service is enabled for proxy protocol or not.
         /// </summary>
         [Input("enableProxyProtocol")]

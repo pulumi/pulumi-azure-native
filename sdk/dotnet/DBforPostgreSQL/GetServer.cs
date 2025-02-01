@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     {
         /// <summary>
         /// Gets information about a server.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2022-12-01, 2024-11-01-preview.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbforpostgresql:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a server.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2022-12-01, 2024-11-01-preview.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbforpostgresql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a server.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2017-12-01, 2017-12-01-preview, 2020-02-14-preview, 2021-04-10-privatepreview, 2021-06-15-privatepreview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2022-12-01, 2024-11-01-preview.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbforpostgresql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly Outputs.HighAvailabilityResponse? HighAvailability;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -141,6 +141,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly Outputs.NetworkResponse? Network;
         /// <summary>
+        /// List of private endpoint connections associated with the specified resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Replica properties of a server. These Replica properties are required to be passed only in case you want to Promote a server.
+        /// </summary>
+        public readonly Outputs.ReplicaResponse? Replica;
+        /// <summary>
         /// Replicas allowed for a server.
         /// </summary>
         public readonly int ReplicaCapacity;
@@ -153,7 +161,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
-        /// The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+        /// The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica' or 'ReviveDropped'. This property is returned only for Replica server
         /// </summary>
         public readonly string? SourceServerResourceId;
         /// <summary>
@@ -211,6 +219,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             Outputs.NetworkResponse? network,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
+            Outputs.ReplicaResponse? replica,
+
             int replicaCapacity,
 
             string? replicationRole,
@@ -245,6 +257,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             MinorVersion = minorVersion;
             Name = name;
             Network = network;
+            PrivateEndpointConnections = privateEndpointConnections;
+            Replica = replica;
             ReplicaCapacity = replicaCapacity;
             ReplicationRole = replicationRole;
             Sku = sku;

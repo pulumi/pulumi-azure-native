@@ -11,15 +11,11 @@ __all__ = [
     'AvailabilityStrategy',
     'AzureHybridBenefitType',
     'DhcpTypeEnum',
-    'DnsServiceLogLevelEnum',
     'EncryptionState',
     'InternetEnum',
-    'MountOptionEnum',
     'PlacementPolicyState',
     'PlacementPolicyType',
-    'PortMirroringDirectionEnum',
     'ResourceIdentityType',
-    'ScriptExecutionParameterType',
     'SslEnum',
 ]
 
@@ -74,17 +70,6 @@ class DhcpTypeEnum(str, Enum):
     RELAY = "RELAY"
 
 
-class DnsServiceLogLevelEnum(str, Enum):
-    """
-    DNS Service log level.
-    """
-    DEBUG = "DEBUG"
-    INFO = "INFO"
-    WARNING = "WARNING"
-    ERROR = "ERROR"
-    FATAL = "FATAL"
-
-
 class EncryptionState(str, Enum):
     """
     Status of customer managed encryption key
@@ -99,14 +84,6 @@ class InternetEnum(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class MountOptionEnum(str, Enum):
-    """
-    Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-    """
-    MOUNT = "MOUNT"
-    ATTACH = "ATTACH"
 
 
 class PlacementPolicyState(str, Enum):
@@ -125,30 +102,12 @@ class PlacementPolicyType(str, Enum):
     VM_HOST = "VmHost"
 
 
-class PortMirroringDirectionEnum(str, Enum):
-    """
-    Direction of port mirroring profile.
-    """
-    INGRESS = "INGRESS"
-    EGRESS = "EGRESS"
-    BIDIRECTIONAL = "BIDIRECTIONAL"
-
-
 class ResourceIdentityType(str, Enum):
     """
     The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     NONE = "None"
-
-
-class ScriptExecutionParameterType(str, Enum):
-    """
-    The type of execution parameter
-    """
-    VALUE = "Value"
-    SECURE_VALUE = "SecureValue"
-    CREDENTIAL = "Credential"
 
 
 class SslEnum(str, Enum):

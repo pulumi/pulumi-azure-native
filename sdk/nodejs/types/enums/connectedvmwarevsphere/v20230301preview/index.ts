@@ -62,21 +62,6 @@ export const IdentityType = {
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
-export const InventoryType = {
-    ResourcePool: "ResourcePool",
-    VirtualMachine: "VirtualMachine",
-    VirtualMachineTemplate: "VirtualMachineTemplate",
-    VirtualNetwork: "VirtualNetwork",
-    Cluster: "Cluster",
-    Datastore: "Datastore",
-    Host: "Host",
-} as const;
-
-/**
- * They inventory type.
- */
-export type InventoryType = (typeof InventoryType)[keyof typeof InventoryType];
-
 export const NICType = {
     Vmxnet3: "vmxnet3",
     Vmxnet2: "vmxnet2",

@@ -27,6 +27,10 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         [Input("headerName", required: true)]
         public Input<string> HeaderName { get; set; } = null!;
 
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleHeaderActionParameters'.
+        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

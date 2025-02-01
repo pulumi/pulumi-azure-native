@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Blueprint artifact that deploys a Resource Manager template.
- * Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 1.x: 2018-11-01-preview.
+ * Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 2.x: 2018-11-01-preview.
  */
 export class TemplateArtifact extends pulumi.CustomResource {
     /**
@@ -126,7 +126,7 @@ export class TemplateArtifact extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:TemplateArtifact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact" }, { type: "azure-native:blueprint/v20181101preview:RoleAssignmentArtifact" }, { type: "azure-native:blueprint/v20181101preview:TemplateArtifact" }, { type: "azure-native:blueprint:PolicyAssignmentArtifact" }, { type: "azure-native:blueprint:RoleAssignmentArtifact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TemplateArtifact.__pulumiType, name, resourceInputs, opts);
     }

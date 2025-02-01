@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * An API collection as represented by Microsoft Defender for APIs.
- * Azure REST API version: 2023-11-15.
+ * Azure REST API version: 2023-11-15. Prior API version in Azure Native 2.x: 2023-11-15.
  */
 export class APICollectionByAzureApiManagementService extends pulumi.CustomResource {
     /**
@@ -131,7 +131,7 @@ export class APICollectionByAzureApiManagementService extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20221120preview:APICollectionByAzureApiManagementService" }, { type: "azure-native:security/v20231115:APICollectionByAzureApiManagementService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20221120preview:APICollection" }, { type: "azure-native:security/v20221120preview:APICollectionByAzureApiManagementService" }, { type: "azure-native:security/v20231115:APICollectionByAzureApiManagementService" }, { type: "azure-native:security:APICollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(APICollectionByAzureApiManagementService.__pulumiType, name, resourceInputs, opts);
     }

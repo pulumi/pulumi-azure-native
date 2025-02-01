@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DeviceRegistry.Outputs
     public sealed class DataPointResponse
     {
         /// <summary>
-        /// The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
-        /// </summary>
-        public readonly string? CapabilityId;
-        /// <summary>
         /// Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         /// </summary>
         public readonly string? DataPointConfiguration;
@@ -31,7 +27,7 @@ namespace Pulumi.AzureNative.DeviceRegistry.Outputs
         /// <summary>
         /// The name of the data point.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// An indication of how the data point should be mapped to OpenTelemetry.
         /// </summary>
@@ -39,17 +35,14 @@ namespace Pulumi.AzureNative.DeviceRegistry.Outputs
 
         [OutputConstructor]
         private DataPointResponse(
-            string? capabilityId,
-
             string? dataPointConfiguration,
 
             string dataSource,
 
-            string? name,
+            string name,
 
             string? observabilityMode)
         {
-            CapabilityId = capabilityId;
             DataPointConfiguration = dataPointConfiguration;
             DataSource = dataSource;
             Name = name;

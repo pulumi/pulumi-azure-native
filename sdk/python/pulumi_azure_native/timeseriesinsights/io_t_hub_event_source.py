@@ -284,7 +284,7 @@ class IoTHubEventSource(pulumi.CustomResource):
                  __props__=None):
         """
         An event source that receives its data from an Azure IoTHub.
-        Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
+        Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,7 +313,7 @@ class IoTHubEventSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An event source that receives its data from an Azure IoTHub.
-        Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
+        Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
 
         :param str resource_name: The name of the resource.
         :param IoTHubEventSourceArgs args: The arguments to use to populate this resource's properties.
@@ -388,7 +388,7 @@ class IoTHubEventSource(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:EventHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource"), pulumi.Alias(type_="azure-native:timeseriesinsights:EventHubEventSource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IoTHubEventSource, __self__).__init__(
             'azure-native:timeseriesinsights:IoTHubEventSource',

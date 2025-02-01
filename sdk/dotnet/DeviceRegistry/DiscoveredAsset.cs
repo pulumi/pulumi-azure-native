@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
 {
     /// <summary>
     /// Discovered Asset definition.
-    /// Azure REST API version: 2024-09-01-preview.
+    /// Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:DiscoveredAsset")]
     public partial class DiscoveredAsset : global::Pulumi.CustomResource

@@ -54,6 +54,16 @@ export const AutoExecuteStatus = {
  */
 export type AutoExecuteStatus = (typeof AutoExecuteStatus)[keyof typeof AutoExecuteStatus];
 
+export const BackupStorageAccessTier = {
+    Hot: "Hot",
+    Archive: "Archive",
+} as const;
+
+/**
+ * The BackupStorageAccessTier for the LTR backups
+ */
+export type BackupStorageAccessTier = (typeof BackupStorageAccessTier)[keyof typeof BackupStorageAccessTier];
+
 export const BackupStorageRedundancy = {
     Geo: "Geo",
     Local: "Local",

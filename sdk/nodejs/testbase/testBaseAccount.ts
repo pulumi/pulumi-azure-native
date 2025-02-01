@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The Test Base Account resource.
- * Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+ * Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export class TestBaseAccount extends pulumi.CustomResource {
     /**
@@ -45,15 +45,15 @@ export class TestBaseAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly accessLevel!: pulumi.Output<string>;
     /**
-     * Resource Etag.
+     * The identity of the testBaseAccount.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public readonly identity!: pulumi.Output<outputs.testbase.SystemAssignedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -65,15 +65,15 @@ export class TestBaseAccount extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.testbase.TestBaseAccountSKUResponse>;
     /**
-     * The system metadata relating to this resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.testbase.SystemDataResponse>;
     /**
-     * The tags of the resource.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -94,6 +94,7 @@ export class TestBaseAccount extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restore"] = args ? args.restore : undefined;
@@ -101,14 +102,13 @@ export class TestBaseAccount extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
             resourceInputs["accessLevel"] = undefined /*out*/;
-            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessLevel"] = undefined /*out*/;
-            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -129,11 +129,15 @@ export class TestBaseAccount extends pulumi.CustomResource {
  */
 export interface TestBaseAccountArgs {
     /**
+     * The identity of the testBaseAccount.
+     */
+    identity?: pulumi.Input<inputs.testbase.SystemAssignedServiceIdentityArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -145,7 +149,7 @@ export interface TestBaseAccountArgs {
      */
     sku: pulumi.Input<inputs.testbase.TestBaseAccountSKUArgs>;
     /**
-     * The tags of the resource.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

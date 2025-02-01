@@ -6,79 +6,73 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .aks_assessment_operation import *
-from .assessment import *
+from .assessment_projects_aks_assessment_operation import *
+from .assessment_projects_assessment import *
+from .assessment_projects_assessments_operation import *
+from .assessment_projects_avs_assessments_operation import *
+from .assessment_projects_business_case_operation import *
+from .assessment_projects_group import *
+from .assessment_projects_groups_operation import *
+from .assessment_projects_hyper_v_collector import *
+from .assessment_projects_hyperv_collectors_operation import *
+from .assessment_projects_import_collector import *
+from .assessment_projects_import_collectors_operation import *
 from .assessment_projects_operation import *
-from .assessments_operation import *
-from .avs_assessments_operation import *
-from .business_case_operation import *
-from .get_aks_assessment_operation import *
-from .get_assessment import *
+from .assessment_projects_private_endpoint_connection import *
+from .assessment_projects_private_endpoint_connection_operation import *
+from .assessment_projects_project import *
+from .assessment_projects_server_collector import *
+from .assessment_projects_server_collectors_operation import *
+from .assessment_projects_sql_assessment_v2_operation import *
+from .assessment_projects_sql_collector_operation import *
+from .assessment_projects_v_mware_collector import *
+from .assessment_projects_vmware_collectors_operation import *
+from .assessment_projects_web_app_assessment_v2_operation import *
+from .assessment_projects_web_app_collector_operation import *
+from .get_assessment_projects_aks_assessment_operation import *
+from .get_assessment_projects_assessment import *
+from .get_assessment_projects_assessments_operation import *
+from .get_assessment_projects_avs_assessments_operation import *
+from .get_assessment_projects_business_case_operation import *
+from .get_assessment_projects_business_case_operation_report_download_url import *
+from .get_assessment_projects_group import *
+from .get_assessment_projects_groups_operation import *
+from .get_assessment_projects_hyper_v_collector import *
+from .get_assessment_projects_hyperv_collectors_operation import *
+from .get_assessment_projects_import_collector import *
+from .get_assessment_projects_import_collectors_operation import *
 from .get_assessment_projects_operation import *
-from .get_assessments_operation import *
-from .get_avs_assessments_operation import *
-from .get_business_case_operation import *
-from .get_business_case_operation_report_download_url import *
-from .get_group import *
-from .get_groups_operation import *
-from .get_hyper_v_collector import *
-from .get_hyperv_collectors_operation import *
-from .get_import_collector import *
-from .get_import_collectors_operation import *
+from .get_assessment_projects_private_endpoint_connection import *
+from .get_assessment_projects_private_endpoint_connection_operation import *
+from .get_assessment_projects_project import *
+from .get_assessment_projects_server_collector import *
+from .get_assessment_projects_server_collectors_operation import *
+from .get_assessment_projects_sql_assessment_v2_operation import *
+from .get_assessment_projects_sql_collector_operation import *
+from .get_assessment_projects_v_mware_collector import *
+from .get_assessment_projects_vmware_collectors_operation import *
+from .get_assessment_projects_web_app_assessment_v2_operation import *
+from .get_assessment_projects_web_app_collector_operation import *
 from .get_migrate_agent import *
 from .get_migrate_project import *
 from .get_migrate_projects_controller_migrate_project import *
 from .get_modernize_project import *
 from .get_move_collection import *
 from .get_move_resource import *
-from .get_private_endpoint_connection import *
 from .get_private_endpoint_connection_controller_private_endpoint_connection import *
-from .get_private_endpoint_connection_operation import *
-from .get_private_endpoint_connection_proxy_controller import *
-from .get_project import *
-from .get_project_keys import *
-from .get_server_collector import *
-from .get_server_collectors_operation import *
 from .get_solution import *
 from .get_solution_config import *
-from .get_solutions_controller_config import *
-from .get_solutions_controller_solution import *
-from .get_sql_assessment_v2_operation import *
-from .get_sql_collector_operation import *
-from .get_v_mware_collector import *
-from .get_vmware_collectors_operation import *
-from .get_web_app_assessment_v2_operation import *
-from .get_web_app_collector_operation import *
 from .get_workload_deployment import *
 from .get_workload_deployment_secret_configurations import *
 from .get_workload_instance import *
-from .group import *
-from .groups_operation import *
-from .hyper_v_collector import *
-from .hyperv_collectors_operation import *
-from .import_collector import *
-from .import_collectors_operation import *
 from .migrate_agent import *
 from .migrate_project import *
 from .migrate_projects_controller_migrate_project import *
 from .modernize_project import *
 from .move_collection import *
 from .move_resource import *
-from .private_endpoint_connection import *
 from .private_endpoint_connection_controller_private_endpoint_connection import *
-from .private_endpoint_connection_operation import *
-from .private_endpoint_connection_proxy_controller import *
-from .project import *
-from .server_collector import *
-from .server_collectors_operation import *
 from .solution import *
-from .solutions_controller_solution import *
-from .sql_assessment_v2_operation import *
-from .sql_collector_operation import *
-from .v_mware_collector import *
-from .vmware_collectors_operation import *
-from .web_app_assessment_v2_operation import *
-from .web_app_collector_operation import *
 from .workload_deployment import *
 from .workload_instance import *
 from ._inputs import *
@@ -102,14 +96,8 @@ if typing.TYPE_CHECKING:
     v20230101 = __v20230101
     import pulumi_azure_native.migrate.v20230315 as __v20230315
     v20230315 = __v20230315
-    import pulumi_azure_native.migrate.v20230401preview as __v20230401preview
-    v20230401preview = __v20230401preview
-    import pulumi_azure_native.migrate.v20230501preview as __v20230501preview
-    v20230501preview = __v20230501preview
     import pulumi_azure_native.migrate.v20230801 as __v20230801
     v20230801 = __v20230801
-    import pulumi_azure_native.migrate.v20230909preview as __v20230909preview
-    v20230909preview = __v20230909preview
     import pulumi_azure_native.migrate.v20240101preview as __v20240101preview
     v20240101preview = __v20240101preview
 else:
@@ -121,9 +109,6 @@ else:
     v20220801 = _utilities.lazy_import('pulumi_azure_native.migrate.v20220801')
     v20230101 = _utilities.lazy_import('pulumi_azure_native.migrate.v20230101')
     v20230315 = _utilities.lazy_import('pulumi_azure_native.migrate.v20230315')
-    v20230401preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20230401preview')
-    v20230501preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20230501preview')
     v20230801 = _utilities.lazy_import('pulumi_azure_native.migrate.v20230801')
-    v20230909preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20230909preview')
     v20240101preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20240101preview')
 

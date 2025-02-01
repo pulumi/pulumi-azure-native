@@ -188,14 +188,14 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedDatabaseConfigurationResult:
     """
     Returns an attached database configuration.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
-    Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+    Other available API versions: 2022-12-29.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.
     :param str cluster_name: The name of the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['attachedDatabaseConfigurationName'] = attached_database_configuration_name
@@ -223,14 +223,14 @@ def get_attached_database_configuration_output(attached_database_configuration_n
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachedDatabaseConfigurationResult]:
     """
     Returns an attached database configuration.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
-    Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+    Other available API versions: 2022-12-29.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.
     :param str cluster_name: The name of the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['attachedDatabaseConfigurationName'] = attached_database_configuration_name

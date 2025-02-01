@@ -115,9 +115,9 @@ class User(pulumi.CustomResource):
                  __props__=None):
         """
         User of a lab that can register for and use virtual machines within the lab.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
+        Azure REST API version: 2023-06-07. Prior API version in Azure Native 2.x: 2022-08-01.
 
-        Other available API versions: 2018-10-15, 2023-06-07.
+        Other available API versions: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,9 +135,9 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         User of a lab that can register for and use virtual machines within the lab.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
+        Azure REST API version: 2023-06-07. Prior API version in Azure Native 2.x: 2022-08-01.
 
-        Other available API versions: 2018-10-15, 2023-06-07.
+        Other available API versions: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
@@ -185,10 +185,11 @@ class User(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["registration_state"] = None
+            __props__.__dict__["resource_operation_error"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["total_usage"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20211001preview:User"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:User"), pulumi.Alias(type_="azure-native:labservices/v20220801:User"), pulumi.Alias(type_="azure-native:labservices/v20230607:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20181015:User"), pulumi.Alias(type_="azure-native:labservices/v20211001preview:User"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:User"), pulumi.Alias(type_="azure-native:labservices/v20220801:User"), pulumi.Alias(type_="azure-native:labservices/v20230607:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-native:labservices:User',
@@ -220,6 +221,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["registration_state"] = None
+        __props__.__dict__["resource_operation_error"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["total_usage"] = None
         __props__.__dict__["type"] = None
@@ -288,6 +290,14 @@ class User(pulumi.CustomResource):
         State of the user's registration within the lab.
         """
         return pulumi.get(self, "registration_state")
+
+    @property
+    @pulumi.getter(name="resourceOperationError")
+    def resource_operation_error(self) -> pulumi.Output['outputs.ResourceOperationErrorResponse']:
+        """
+        Error details of last operation done on lab plan.
+        """
+        return pulumi.get(self, "resource_operation_error")
 
     @property
     @pulumi.getter(name="systemData")

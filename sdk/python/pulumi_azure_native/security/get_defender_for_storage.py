@@ -91,9 +91,9 @@ def get_defender_for_storage(resource_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefenderForStorageResult:
     """
     Gets the Defender for Storage settings for the specified storage account.
-    Azure REST API version: 2022-12-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2024-10-01-preview.
+    Other available API versions: 2022-12-01-preview.
 
 
     :param str resource_id: The identifier of the resource.
@@ -115,9 +115,9 @@ def get_defender_for_storage_output(resource_id: Optional[pulumi.Input[str]] = N
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefenderForStorageResult]:
     """
     Gets the Defender for Storage settings for the specified storage account.
-    Azure REST API version: 2022-12-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2024-10-01-preview.
+    Other available API versions: 2022-12-01-preview.
 
 
     :param str resource_id: The identifier of the resource.

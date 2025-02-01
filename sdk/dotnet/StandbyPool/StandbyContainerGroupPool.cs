@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.StandbyPool
 {
     /// <summary>
     /// A StandbyContainerGroupPoolResource.
-    /// Azure REST API version: 2023-12-01-preview.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-12-01-preview.
     /// 
-    /// Other available API versions: 2024-03-01, 2024-03-01-preview.
+    /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:standbypool:StandbyContainerGroupPool")]
     public partial class StandbyContainerGroupPool : global::Pulumi.CustomResource

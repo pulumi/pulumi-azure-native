@@ -5,10 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
- * Azure REST API version: 2022-09-01.
+ * Gets the primary and secondary admin API keys for the specified search service.
+ * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2022-09-01, 2025-02-01-preview.
  */
 export function listAdminKey(args: ListAdminKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListAdminKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,13 +24,13 @@ export interface ListAdminKeyArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     * The name of the search service associated with the specified resource group.
      */
     searchServiceName: string;
 }
 
 /**
- * Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+ * Response containing the primary and secondary admin API keys for a given search service.
  */
 export interface ListAdminKeyResult {
     /**
@@ -43,10 +43,10 @@ export interface ListAdminKeyResult {
     readonly secondaryKey: string;
 }
 /**
- * Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
- * Azure REST API version: 2022-09-01.
+ * Gets the primary and secondary admin API keys for the specified search service.
+ * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2022-09-01, 2025-02-01-preview.
  */
 export function listAdminKeyOutput(args: ListAdminKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAdminKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,7 +62,7 @@ export interface ListAdminKeyOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     * The name of the search service associated with the specified resource group.
      */
     searchServiceName: pulumi.Input<string>;
 }

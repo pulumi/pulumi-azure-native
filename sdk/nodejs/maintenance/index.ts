@@ -62,13 +62,11 @@ export * from "../types/enums/maintenance";
 // Export sub-modules:
 import * as v20221101preview from "./v20221101preview";
 import * as v20230401 from "./v20230401";
-import * as v20230901preview from "./v20230901preview";
 import * as v20231001preview from "./v20231001preview";
 
 export {
     v20221101preview,
     v20230401,
-    v20230901preview,
     v20231001preview,
 };
 

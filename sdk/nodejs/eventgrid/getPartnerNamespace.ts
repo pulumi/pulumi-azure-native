@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a partner namespace.
- * Azure REST API version: 2022-06-15.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2022-06-15.
  */
 export function getPartnerNamespace(args: GetPartnerNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,6 +57,10 @@ export interface GetPartnerNamespaceResult {
      */
     readonly location: string;
     /**
+     * Minimum TLS version of the publisher allowed to publish to this partner namespace
+     */
+    readonly minimumTlsVersionAllowed?: string;
+    /**
      * Name of the resource.
      */
     readonly name: string;
@@ -70,6 +74,9 @@ export interface GetPartnerNamespaceResult {
      * or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
      */
     readonly partnerTopicRoutingMode?: string;
+    /**
+     * List of private endpoint connections.
+     */
     readonly privateEndpointConnections: outputs.eventgrid.PrivateEndpointConnectionResponse[];
     /**
      * Provisioning state of the partner namespace.
@@ -81,7 +88,7 @@ export interface GetPartnerNamespaceResult {
      */
     readonly publicNetworkAccess?: string;
     /**
-     * The system metadata relating to Partner Namespace resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -95,9 +102,9 @@ export interface GetPartnerNamespaceResult {
 }
 /**
  * Get properties of a partner namespace.
- * Azure REST API version: 2022-06-15.
+ * Azure REST API version: 2024-12-15-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2022-06-15.
  */
 export function getPartnerNamespaceOutput(args: GetPartnerNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -164,9 +164,9 @@ def get_certificate_object_local_rulestack(local_rulestack_name: Optional[str] =
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateObjectLocalRulestackResult:
     """
     Get a CertificateObjectLocalRulestackResource
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-01-19-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2023-09-01, 2024-02-07-preview.
 
 
     :param str local_rulestack_name: LocalRulestack resource name
@@ -197,9 +197,9 @@ def get_certificate_object_local_rulestack_output(local_rulestack_name: Optional
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateObjectLocalRulestackResult]:
     """
     Get a CertificateObjectLocalRulestackResource
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-01-19-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2023-09-01, 2024-02-07-preview.
 
 
     :param str local_rulestack_name: LocalRulestack resource name

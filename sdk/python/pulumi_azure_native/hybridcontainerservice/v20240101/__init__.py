@@ -6,17 +6,17 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .agent_pool import *
-from .get_agent_pool import *
-from .get_hybrid_identity_metadatum import *
+from .cluster_instance_agent_pool import *
+from .cluster_instance_hybrid_identity_metadatum import *
+from .get_cluster_instance_agent_pool import *
+from .get_cluster_instance_hybrid_identity_metadatum import *
 from .get_kubernetes_versions import *
 from .get_provisioned_cluster_instance import *
 from .get_virtual_network_retrieve import *
 from .get_vm_skus import *
-from .hybrid_identity_metadatum import *
 from .kubernetes_versions import *
-from .listprovisioned_cluster_instance_admin_kubeconfig import *
-from .listprovisioned_cluster_instance_user_kubeconfig import *
+from .list_provisioned_cluster_instance_admin_kubeconfig import *
+from .list_provisioned_cluster_instance_user_kubeconfig import *
 from .provisioned_cluster_instance import *
 from .virtual_network_retrieve import *
 from .vm_skus import *

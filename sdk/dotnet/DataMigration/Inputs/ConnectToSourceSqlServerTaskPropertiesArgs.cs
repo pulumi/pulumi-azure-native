@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public Input<Inputs.ConnectToSourceSqlServerTaskInputArgs>? Input { get; set; }
 
         /// <summary>
+        /// Task id 
+        /// </summary>
+        [Input("taskId")]
+        public Input<string>? TaskId { get; set; }
+
+        /// <summary>
         /// Task type.
         /// Expected value is 'ConnectToSource.SqlServer'.
         /// </summary>

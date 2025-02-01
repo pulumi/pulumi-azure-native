@@ -17,7 +17,11 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
     public sealed class EventSubscriptionIdentityResponse
     {
         /// <summary>
-        /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        /// The details of the Federated Identity Credential (FIC) used with the resource delivery.
+        /// </summary>
+        public readonly Outputs.FederatedIdentityCredentialInfoResponse? FederatedIdentityCredentialInfo;
+        /// <summary>
+        /// The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
         /// </summary>
         public readonly string? Type;
         /// <summary>
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
 
         [OutputConstructor]
         private EventSubscriptionIdentityResponse(
+            Outputs.FederatedIdentityCredentialInfoResponse? federatedIdentityCredentialInfo,
+
             string? type,
 
             string? userAssignedIdentity)
         {
+            FederatedIdentityCredentialInfo = federatedIdentityCredentialInfo;
             Type = type;
             UserAssignedIdentity = userAssignedIdentity;
         }

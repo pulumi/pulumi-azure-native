@@ -261,13 +261,13 @@ def get_event_grid_data_connection(cluster_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventGridDataConnectionResult:
     """
     Returns a data connection.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str data_connection_name: The name of the data connection.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -303,13 +303,13 @@ def get_event_grid_data_connection_output(cluster_name: Optional[pulumi.Input[st
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventGridDataConnectionResult]:
     """
     Returns a data connection.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str data_connection_name: The name of the data connection.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// DevOps Configuration resource.
-    /// Azure REST API version: 2023-09-01-preview.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-09-01-preview.
     /// 
-    /// Other available API versions: 2024-04-01, 2024-05-15-preview.
+    /// Other available API versions: 2023-09-01-preview, 2024-05-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:DevOpsConfiguration")]
     public partial class DevOpsConfiguration : global::Pulumi.CustomResource

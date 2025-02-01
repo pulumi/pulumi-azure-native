@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Authorization rule for a namespace by name.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2017-04-01, 2024-01-01.
+ * Other available API versions: 2021-11-01.
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,9 +68,9 @@ export interface GetNamespaceAuthorizationRuleResult {
 }
 /**
  * Authorization rule for a namespace by name.
- * Azure REST API version: 2021-11-01.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2017-04-01, 2024-01-01.
+ * Other available API versions: 2021-11-01.
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

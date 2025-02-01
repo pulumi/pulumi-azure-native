@@ -22,6 +22,8 @@ __all__ = [
     'DeploymentPropertiesArgsDict',
     'GitHubWorkflowProfileOidcCredentialsArgs',
     'GitHubWorkflowProfileOidcCredentialsArgsDict',
+    'GitHubWorkflowProfileArgs',
+    'GitHubWorkflowProfileArgsDict',
     'IacTemplateDetailsArgs',
     'IacTemplateDetailsArgsDict',
     'IacTemplatePropertiesArgs',
@@ -289,6 +291,228 @@ class GitHubWorkflowProfileOidcCredentialsArgs:
     @azure_tenant_id.setter
     def azure_tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "azure_tenant_id", value)
+
+
+if not MYPY:
+    class GitHubWorkflowProfileArgsDict(TypedDict):
+        """
+        GitHub Workflow Profile
+        """
+        acr: NotRequired[pulumi.Input['ACRArgsDict']]
+        """
+        Information on the azure container registry
+        """
+        aks_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Kubernetes Cluster Resource the application will be deployed to.
+        """
+        branch_name: NotRequired[pulumi.Input[str]]
+        """
+        Repository Branch Name
+        """
+        deployment_properties: NotRequired[pulumi.Input['DeploymentPropertiesArgsDict']]
+        docker_build_context: NotRequired[pulumi.Input[str]]
+        """
+        Path to Dockerfile Build Context within the repository.
+        """
+        dockerfile: NotRequired[pulumi.Input[str]]
+        """
+        Path to the Dockerfile within the repository.
+        """
+        last_workflow_run: NotRequired[pulumi.Input['WorkflowRunArgsDict']]
+        namespace: NotRequired[pulumi.Input[str]]
+        """
+        Kubernetes namespace the application is deployed to.
+        """
+        oidc_credentials: NotRequired[pulumi.Input['GitHubWorkflowProfileOidcCredentialsArgsDict']]
+        """
+        The fields needed for OIDC with GitHub.
+        """
+        repository_name: NotRequired[pulumi.Input[str]]
+        """
+        Repository Name
+        """
+        repository_owner: NotRequired[pulumi.Input[str]]
+        """
+        Repository Owner
+        """
+elif False:
+    GitHubWorkflowProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GitHubWorkflowProfileArgs:
+    def __init__(__self__, *,
+                 acr: Optional[pulumi.Input['ACRArgs']] = None,
+                 aks_resource_id: Optional[pulumi.Input[str]] = None,
+                 branch_name: Optional[pulumi.Input[str]] = None,
+                 deployment_properties: Optional[pulumi.Input['DeploymentPropertiesArgs']] = None,
+                 docker_build_context: Optional[pulumi.Input[str]] = None,
+                 dockerfile: Optional[pulumi.Input[str]] = None,
+                 last_workflow_run: Optional[pulumi.Input['WorkflowRunArgs']] = None,
+                 namespace: Optional[pulumi.Input[str]] = None,
+                 oidc_credentials: Optional[pulumi.Input['GitHubWorkflowProfileOidcCredentialsArgs']] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
+                 repository_owner: Optional[pulumi.Input[str]] = None):
+        """
+        GitHub Workflow Profile
+        :param pulumi.Input['ACRArgs'] acr: Information on the azure container registry
+        :param pulumi.Input[str] aks_resource_id: The Azure Kubernetes Cluster Resource the application will be deployed to.
+        :param pulumi.Input[str] branch_name: Repository Branch Name
+        :param pulumi.Input[str] docker_build_context: Path to Dockerfile Build Context within the repository.
+        :param pulumi.Input[str] dockerfile: Path to the Dockerfile within the repository.
+        :param pulumi.Input[str] namespace: Kubernetes namespace the application is deployed to.
+        :param pulumi.Input['GitHubWorkflowProfileOidcCredentialsArgs'] oidc_credentials: The fields needed for OIDC with GitHub.
+        :param pulumi.Input[str] repository_name: Repository Name
+        :param pulumi.Input[str] repository_owner: Repository Owner
+        """
+        if acr is not None:
+            pulumi.set(__self__, "acr", acr)
+        if aks_resource_id is not None:
+            pulumi.set(__self__, "aks_resource_id", aks_resource_id)
+        if branch_name is not None:
+            pulumi.set(__self__, "branch_name", branch_name)
+        if deployment_properties is not None:
+            pulumi.set(__self__, "deployment_properties", deployment_properties)
+        if docker_build_context is not None:
+            pulumi.set(__self__, "docker_build_context", docker_build_context)
+        if dockerfile is not None:
+            pulumi.set(__self__, "dockerfile", dockerfile)
+        if last_workflow_run is not None:
+            pulumi.set(__self__, "last_workflow_run", last_workflow_run)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if oidc_credentials is not None:
+            pulumi.set(__self__, "oidc_credentials", oidc_credentials)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+        if repository_owner is not None:
+            pulumi.set(__self__, "repository_owner", repository_owner)
+
+    @property
+    @pulumi.getter
+    def acr(self) -> Optional[pulumi.Input['ACRArgs']]:
+        """
+        Information on the azure container registry
+        """
+        return pulumi.get(self, "acr")
+
+    @acr.setter
+    def acr(self, value: Optional[pulumi.Input['ACRArgs']]):
+        pulumi.set(self, "acr", value)
+
+    @property
+    @pulumi.getter(name="aksResourceId")
+    def aks_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Kubernetes Cluster Resource the application will be deployed to.
+        """
+        return pulumi.get(self, "aks_resource_id")
+
+    @aks_resource_id.setter
+    def aks_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aks_resource_id", value)
+
+    @property
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository Branch Name
+        """
+        return pulumi.get(self, "branch_name")
+
+    @branch_name.setter
+    def branch_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch_name", value)
+
+    @property
+    @pulumi.getter(name="deploymentProperties")
+    def deployment_properties(self) -> Optional[pulumi.Input['DeploymentPropertiesArgs']]:
+        return pulumi.get(self, "deployment_properties")
+
+    @deployment_properties.setter
+    def deployment_properties(self, value: Optional[pulumi.Input['DeploymentPropertiesArgs']]):
+        pulumi.set(self, "deployment_properties", value)
+
+    @property
+    @pulumi.getter(name="dockerBuildContext")
+    def docker_build_context(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to Dockerfile Build Context within the repository.
+        """
+        return pulumi.get(self, "docker_build_context")
+
+    @docker_build_context.setter
+    def docker_build_context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_build_context", value)
+
+    @property
+    @pulumi.getter
+    def dockerfile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to the Dockerfile within the repository.
+        """
+        return pulumi.get(self, "dockerfile")
+
+    @dockerfile.setter
+    def dockerfile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dockerfile", value)
+
+    @property
+    @pulumi.getter(name="lastWorkflowRun")
+    def last_workflow_run(self) -> Optional[pulumi.Input['WorkflowRunArgs']]:
+        return pulumi.get(self, "last_workflow_run")
+
+    @last_workflow_run.setter
+    def last_workflow_run(self, value: Optional[pulumi.Input['WorkflowRunArgs']]):
+        pulumi.set(self, "last_workflow_run", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        Kubernetes namespace the application is deployed to.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter(name="oidcCredentials")
+    def oidc_credentials(self) -> Optional[pulumi.Input['GitHubWorkflowProfileOidcCredentialsArgs']]:
+        """
+        The fields needed for OIDC with GitHub.
+        """
+        return pulumi.get(self, "oidc_credentials")
+
+    @oidc_credentials.setter
+    def oidc_credentials(self, value: Optional[pulumi.Input['GitHubWorkflowProfileOidcCredentialsArgs']]):
+        pulumi.set(self, "oidc_credentials", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository Name
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter(name="repositoryOwner")
+    def repository_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository Owner
+        """
+        return pulumi.get(self, "repository_owner")
+
+    @repository_owner.setter
+    def repository_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_owner", value)
 
 
 if not MYPY:

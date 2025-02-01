@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Private endpoint connection resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-06-01-preview.
+ * Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+ * Other available API versions: 2023-02-01, 2024-12-01-preview.
  */
 export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
      * Modified whenever there is a change in the state of private endpoint connection.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    public readonly identity!: pulumi.Output<outputs.keyvault.ManagedServiceIdentityResponse | undefined>;
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */
@@ -98,6 +102,7 @@ export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
@@ -112,6 +117,7 @@ export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
@@ -133,6 +139,10 @@ export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a MHSMPrivateEndpointConnection resource.
  */
 export interface MHSMPrivateEndpointConnectionArgs {
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    identity?: pulumi.Input<inputs.keyvault.ManagedServiceIdentityArgs>;
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */

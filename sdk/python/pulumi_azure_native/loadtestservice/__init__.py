@@ -17,14 +17,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.loadtestservice.v20211201preview as __v20211201preview
-    v20211201preview = __v20211201preview
     import pulumi_azure_native.loadtestservice.v20221201 as __v20221201
     v20221201 = __v20221201
     import pulumi_azure_native.loadtestservice.v20231201preview as __v20231201preview
     v20231201preview = __v20231201preview
 else:
-    v20211201preview = _utilities.lazy_import('pulumi_azure_native.loadtestservice.v20211201preview')
     v20221201 = _utilities.lazy_import('pulumi_azure_native.loadtestservice.v20221201')
     v20231201preview = _utilities.lazy_import('pulumi_azure_native.loadtestservice.v20231201preview')
 

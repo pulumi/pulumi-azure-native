@@ -206,7 +206,9 @@ class KustoPool(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a Kusto kusto pool.
-        Azure REST API version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
+
+        Other available API versions: 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,7 +231,9 @@ class KustoPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Kusto kusto pool.
-        Azure REST API version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
+
+        Other available API versions: 2021-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param KustoPoolArgs args: The arguments to use to populate this resource's properties.

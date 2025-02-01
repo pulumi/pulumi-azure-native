@@ -139,9 +139,9 @@ def get_web_app_diagnostic_logs_configuration(name: Optional[str] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppDiagnosticLogsConfigurationResult:
     """
     Description for Gets the logging configuration of an app.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2020-10-01, 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -167,9 +167,9 @@ def get_web_app_diagnostic_logs_configuration_output(name: Optional[pulumi.Input
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppDiagnosticLogsConfigurationResult]:
     """
     Description for Gets the logging configuration of an app.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2020-10-01, 2022-09-01.
 
 
     :param str name: Name of the app.

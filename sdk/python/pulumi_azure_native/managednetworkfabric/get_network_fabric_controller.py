@@ -25,9 +25,9 @@ __all__ = [
 @pulumi.output_type
 class GetNetworkFabricControllerResult:
     """
-    The NetworkFabricController resource definition.
+    The Network Fabric Controller resource definition.
     """
-    def __init__(__self__, annotation=None, id=None, infrastructure_express_route_connections=None, infrastructure_services=None, ipv4_address_space=None, ipv6_address_space=None, location=None, managed_resource_group_configuration=None, name=None, network_fabric_ids=None, operational_state=None, provisioning_state=None, system_data=None, tags=None, type=None, workload_express_route_connections=None, workload_management_network=None, workload_services=None):
+    def __init__(__self__, annotation=None, id=None, infrastructure_express_route_connections=None, infrastructure_services=None, ipv4_address_space=None, ipv6_address_space=None, is_workload_management_network_enabled=None, location=None, managed_resource_group_configuration=None, name=None, network_fabric_ids=None, nfc_sku=None, provisioning_state=None, system_data=None, tags=None, tenant_internet_gateway_ids=None, type=None, workload_express_route_connections=None, workload_management_network=None, workload_services=None):
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
@@ -46,6 +46,9 @@ class GetNetworkFabricControllerResult:
         if ipv6_address_space and not isinstance(ipv6_address_space, str):
             raise TypeError("Expected argument 'ipv6_address_space' to be a str")
         pulumi.set(__self__, "ipv6_address_space", ipv6_address_space)
+        if is_workload_management_network_enabled and not isinstance(is_workload_management_network_enabled, str):
+            raise TypeError("Expected argument 'is_workload_management_network_enabled' to be a str")
+        pulumi.set(__self__, "is_workload_management_network_enabled", is_workload_management_network_enabled)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -58,9 +61,9 @@ class GetNetworkFabricControllerResult:
         if network_fabric_ids and not isinstance(network_fabric_ids, list):
             raise TypeError("Expected argument 'network_fabric_ids' to be a list")
         pulumi.set(__self__, "network_fabric_ids", network_fabric_ids)
-        if operational_state and not isinstance(operational_state, str):
-            raise TypeError("Expected argument 'operational_state' to be a str")
-        pulumi.set(__self__, "operational_state", operational_state)
+        if nfc_sku and not isinstance(nfc_sku, str):
+            raise TypeError("Expected argument 'nfc_sku' to be a str")
+        pulumi.set(__self__, "nfc_sku", nfc_sku)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -70,6 +73,9 @@ class GetNetworkFabricControllerResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tenant_internet_gateway_ids and not isinstance(tenant_internet_gateway_ids, list):
+            raise TypeError("Expected argument 'tenant_internet_gateway_ids' to be a list")
+        pulumi.set(__self__, "tenant_internet_gateway_ids", tenant_internet_gateway_ids)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -95,7 +101,7 @@ class GetNetworkFabricControllerResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -109,7 +115,7 @@ class GetNetworkFabricControllerResult:
 
     @property
     @pulumi.getter(name="infrastructureServices")
-    def infrastructure_services(self) -> 'outputs.InfrastructureServicesResponse':
+    def infrastructure_services(self) -> 'outputs.ControllerServicesResponse':
         """
         InfrastructureServices IP ranges.
         """
@@ -130,6 +136,14 @@ class GetNetworkFabricControllerResult:
         IPv6 Network Fabric Controller Address Space.
         """
         return pulumi.get(self, "ipv6_address_space")
+
+    @property
+    @pulumi.getter(name="isWorkloadManagementNetworkEnabled")
+    def is_workload_management_network_enabled(self) -> Optional[str]:
+        """
+        A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+        """
+        return pulumi.get(self, "is_workload_management_network_enabled")
 
     @property
     @pulumi.getter
@@ -164,12 +178,12 @@ class GetNetworkFabricControllerResult:
         return pulumi.get(self, "network_fabric_ids")
 
     @property
-    @pulumi.getter(name="operationalState")
-    def operational_state(self) -> str:
+    @pulumi.getter(name="nfcSku")
+    def nfc_sku(self) -> Optional[str]:
         """
-        The Operational Status would always be NULL. Look only in to the Provisioning state for the latest status.
+        Network Fabric Controller SKU.
         """
-        return pulumi.get(self, "operational_state")
+        return pulumi.get(self, "nfc_sku")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -196,6 +210,14 @@ class GetNetworkFabricControllerResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="tenantInternetGatewayIds")
+    def tenant_internet_gateway_ids(self) -> Sequence[str]:
+        """
+        List of tenant InternetGateway resource IDs
+        """
+        return pulumi.get(self, "tenant_internet_gateway_ids")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -215,13 +237,13 @@ class GetNetworkFabricControllerResult:
     @pulumi.getter(name="workloadManagementNetwork")
     def workload_management_network(self) -> bool:
         """
-        A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+        A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints. This is used for the backward compatibility.
         """
         return pulumi.get(self, "workload_management_network")
 
     @property
     @pulumi.getter(name="workloadServices")
-    def workload_services(self) -> 'outputs.WorkloadServicesResponse':
+    def workload_services(self) -> 'outputs.ControllerServicesResponse':
         """
         WorkloadServices IP ranges.
         """
@@ -240,14 +262,16 @@ class AwaitableGetNetworkFabricControllerResult(GetNetworkFabricControllerResult
             infrastructure_services=self.infrastructure_services,
             ipv4_address_space=self.ipv4_address_space,
             ipv6_address_space=self.ipv6_address_space,
+            is_workload_management_network_enabled=self.is_workload_management_network_enabled,
             location=self.location,
             managed_resource_group_configuration=self.managed_resource_group_configuration,
             name=self.name,
             network_fabric_ids=self.network_fabric_ids,
-            operational_state=self.operational_state,
+            nfc_sku=self.nfc_sku,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             tags=self.tags,
+            tenant_internet_gateway_ids=self.tenant_internet_gateway_ids,
             type=self.type,
             workload_express_route_connections=self.workload_express_route_connections,
             workload_management_network=self.workload_management_network,
@@ -259,12 +283,12 @@ def get_network_fabric_controller(network_fabric_controller_name: Optional[str] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkFabricControllerResult:
     """
     Shows the provisioning status of Network Fabric Controller.
-    Azure REST API version: 2023-02-01-preview.
+    Azure REST API version: 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview.
 
 
-    :param str network_fabric_controller_name: Name of the Network Fabric Controller
+    :param str network_fabric_controller_name: Name of the Network Fabric Controller.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -280,14 +304,16 @@ def get_network_fabric_controller(network_fabric_controller_name: Optional[str] 
         infrastructure_services=pulumi.get(__ret__, 'infrastructure_services'),
         ipv4_address_space=pulumi.get(__ret__, 'ipv4_address_space'),
         ipv6_address_space=pulumi.get(__ret__, 'ipv6_address_space'),
+        is_workload_management_network_enabled=pulumi.get(__ret__, 'is_workload_management_network_enabled'),
         location=pulumi.get(__ret__, 'location'),
         managed_resource_group_configuration=pulumi.get(__ret__, 'managed_resource_group_configuration'),
         name=pulumi.get(__ret__, 'name'),
         network_fabric_ids=pulumi.get(__ret__, 'network_fabric_ids'),
-        operational_state=pulumi.get(__ret__, 'operational_state'),
+        nfc_sku=pulumi.get(__ret__, 'nfc_sku'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
+        tenant_internet_gateway_ids=pulumi.get(__ret__, 'tenant_internet_gateway_ids'),
         type=pulumi.get(__ret__, 'type'),
         workload_express_route_connections=pulumi.get(__ret__, 'workload_express_route_connections'),
         workload_management_network=pulumi.get(__ret__, 'workload_management_network'),
@@ -297,12 +323,12 @@ def get_network_fabric_controller_output(network_fabric_controller_name: Optiona
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFabricControllerResult]:
     """
     Shows the provisioning status of Network Fabric Controller.
-    Azure REST API version: 2023-02-01-preview.
+    Azure REST API version: 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview.
 
 
-    :param str network_fabric_controller_name: Name of the Network Fabric Controller
+    :param str network_fabric_controller_name: Name of the Network Fabric Controller.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -317,14 +343,16 @@ def get_network_fabric_controller_output(network_fabric_controller_name: Optiona
         infrastructure_services=pulumi.get(__response__, 'infrastructure_services'),
         ipv4_address_space=pulumi.get(__response__, 'ipv4_address_space'),
         ipv6_address_space=pulumi.get(__response__, 'ipv6_address_space'),
+        is_workload_management_network_enabled=pulumi.get(__response__, 'is_workload_management_network_enabled'),
         location=pulumi.get(__response__, 'location'),
         managed_resource_group_configuration=pulumi.get(__response__, 'managed_resource_group_configuration'),
         name=pulumi.get(__response__, 'name'),
         network_fabric_ids=pulumi.get(__response__, 'network_fabric_ids'),
-        operational_state=pulumi.get(__response__, 'operational_state'),
+        nfc_sku=pulumi.get(__response__, 'nfc_sku'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
+        tenant_internet_gateway_ids=pulumi.get(__response__, 'tenant_internet_gateway_ids'),
         type=pulumi.get(__response__, 'type'),
         workload_express_route_connections=pulumi.get(__response__, 'workload_express_route_connections'),
         workload_management_network=pulumi.get(__response__, 'workload_management_network'),

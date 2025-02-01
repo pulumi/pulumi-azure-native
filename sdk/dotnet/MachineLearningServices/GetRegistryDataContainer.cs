@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2024-10-01-preview.
         /// </summary>
         public static Task<GetRegistryDataContainerResult> InvokeAsync(GetRegistryDataContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryDataContainerResult>("azure-native:machinelearningservices:getRegistryDataContainer", args ?? new GetRegistryDataContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetRegistryDataContainerResult> Invoke(GetRegistryDataContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryDataContainerResult>("azure-native:machinelearningservices:getRegistryDataContainer", args ?? new GetRegistryDataContainerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-10-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetRegistryDataContainerResult> Invoke(GetRegistryDataContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryDataContainerResult>("azure-native:machinelearningservices:getRegistryDataContainer", args ?? new GetRegistryDataContainerInvokeArgs(), options.WithDefaults());

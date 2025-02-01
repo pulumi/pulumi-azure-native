@@ -6,13 +6,12 @@ from enum import Enum
 
 __all__ = [
     'AuthenticationMethod',
-    'DataPointsObservabilityMode',
-    'EventsObservabilityMode',
+    'DataPointObservabilityMode',
+    'EventObservabilityMode',
     'Format',
     'SchemaType',
     'SystemAssignedServiceIdentityType',
     'TopicRetainType',
-    'UserAuthenticationMode',
 ]
 
 
@@ -34,41 +33,41 @@ class AuthenticationMethod(str, Enum):
     """
 
 
-class DataPointsObservabilityMode(str, Enum):
+class DataPointObservabilityMode(str, Enum):
     """
     An indication of how the data point should be mapped to OpenTelemetry.
     """
-    NONE = "none"
+    NONE = "None"
     """
     No mapping to OpenTelemetry.
     """
-    COUNTER = "counter"
+    COUNTER = "Counter"
     """
     Map as counter to OpenTelemetry.
     """
-    GAUGE = "gauge"
+    GAUGE = "Gauge"
     """
     Map as gauge to OpenTelemetry.
     """
-    HISTOGRAM = "histogram"
+    HISTOGRAM = "Histogram"
     """
     Map as histogram to OpenTelemetry.
     """
-    LOG = "log"
+    LOG = "Log"
     """
     Map as log to OpenTelemetry.
     """
 
 
-class EventsObservabilityMode(str, Enum):
+class EventObservabilityMode(str, Enum):
     """
     An indication of how the event should be mapped to OpenTelemetry.
     """
-    NONE = "none"
+    NONE = "None"
     """
     No mapping to OpenTelemetry.
     """
-    LOG = "log"
+    LOG = "Log"
     """
     Map as log to OpenTelemetry.
     """
@@ -117,22 +116,4 @@ class TopicRetainType(str, Enum):
     NEVER = "Never"
     """
     Never retain messages.
-    """
-
-
-class UserAuthenticationMode(str, Enum):
-    """
-    Defines the method to authenticate the user of the client at the server.
-    """
-    ANONYMOUS = "Anonymous"
-    """
-    The user authentication method is anonymous.
-    """
-    CERTIFICATE = "Certificate"
-    """
-    The user authentication method is an x509 certificate.
-    """
-    USERNAME_PASSWORD = "UsernamePassword"
-    """
-    The user authentication method is a username and password.
     """

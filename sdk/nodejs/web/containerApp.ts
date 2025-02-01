@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Container App.
- * Azure REST API version: 2023-01-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-01-01.
  *
- * Other available API versions: 2023-12-01, 2024-04-01.
+ * Other available API versions: 2023-01-01.
  */
 export class ContainerApp extends pulumi.CustomResource {
     /**
@@ -45,7 +45,7 @@ export class ContainerApp extends pulumi.CustomResource {
      */
     public readonly configuration!: pulumi.Output<outputs.web.ConfigurationResponse | undefined>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -140,7 +140,7 @@ export interface ContainerAppArgs {
      */
     configuration?: pulumi.Input<inputs.web.ConfigurationArgs>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     kind?: pulumi.Input<string>;
     /**

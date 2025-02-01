@@ -148,7 +148,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:Schema" }, { type: "azure-native:logic/v20180701preview:Schema" }, { type: "azure-native:logic/v20190501:Schema" }, { type: "azure-native:logic:Schema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:IntegrationAccountSchema" }, { type: "azure-native:logic/v20150801preview:Schema" }, { type: "azure-native:logic/v20180701preview:Schema" }, { type: "azure-native:logic/v20190501:IntegrationAccountSchema" }, { type: "azure-native:logic/v20190501:Schema" }, { type: "azure-native:logic:IntegrationAccountSchema" }, { type: "azure-native:logic:Schema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schema.__pulumiType, name, resourceInputs, opts);
     }

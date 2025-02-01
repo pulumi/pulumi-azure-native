@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2020-10-01, 2022-09-01.
         /// </summary>
         public static Task<GetWebAppHybridConnectionSlotResult> InvokeAsync(GetWebAppHybridConnectionSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHybridConnectionSlotResult>("azure-native:web:getWebAppHybridConnectionSlot", args ?? new GetWebAppHybridConnectionSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2020-10-01, 2022-09-01.
         /// </summary>
         public static Output<GetWebAppHybridConnectionSlotResult> Invoke(GetWebAppHybridConnectionSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppHybridConnectionSlotResult>("azure-native:web:getWebAppHybridConnectionSlot", args ?? new GetWebAppHybridConnectionSlotInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2020-10-01, 2022-09-01.
         /// </summary>
         public static Output<GetWebAppHybridConnectionSlotResult> Invoke(GetWebAppHybridConnectionSlotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppHybridConnectionSlotResult>("azure-native:web:getWebAppHybridConnectionSlot", args ?? new GetWebAppHybridConnectionSlotInvokeArgs(), options.WithDefaults());

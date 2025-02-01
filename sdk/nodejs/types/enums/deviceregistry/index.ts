@@ -32,49 +32,49 @@ export const AuthenticationMethod = {
  */
 export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
 
-export const DataPointsObservabilityMode = {
+export const DataPointObservabilityMode = {
     /**
      * No mapping to OpenTelemetry.
      */
-    None: "none",
+    None: "None",
     /**
      * Map as counter to OpenTelemetry.
      */
-    Counter: "counter",
+    Counter: "Counter",
     /**
      * Map as gauge to OpenTelemetry.
      */
-    Gauge: "gauge",
+    Gauge: "Gauge",
     /**
      * Map as histogram to OpenTelemetry.
      */
-    Histogram: "histogram",
+    Histogram: "Histogram",
     /**
      * Map as log to OpenTelemetry.
      */
-    Log: "log",
+    Log: "Log",
 } as const;
 
 /**
  * An indication of how the data point should be mapped to OpenTelemetry.
  */
-export type DataPointsObservabilityMode = (typeof DataPointsObservabilityMode)[keyof typeof DataPointsObservabilityMode];
+export type DataPointObservabilityMode = (typeof DataPointObservabilityMode)[keyof typeof DataPointObservabilityMode];
 
-export const EventsObservabilityMode = {
+export const EventObservabilityMode = {
     /**
      * No mapping to OpenTelemetry.
      */
-    None: "none",
+    None: "None",
     /**
      * Map as log to OpenTelemetry.
      */
-    Log: "log",
+    Log: "Log",
 } as const;
 
 /**
  * An indication of how the event should be mapped to OpenTelemetry.
  */
-export type EventsObservabilityMode = (typeof EventsObservabilityMode)[keyof typeof EventsObservabilityMode];
+export type EventObservabilityMode = (typeof EventObservabilityMode)[keyof typeof EventObservabilityMode];
 
 export const Format = {
     /**
@@ -129,23 +129,3 @@ export const TopicRetainType = {
  * When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
  */
 export type TopicRetainType = (typeof TopicRetainType)[keyof typeof TopicRetainType];
-
-export const UserAuthenticationMode = {
-    /**
-     * The user authentication method is anonymous.
-     */
-    Anonymous: "Anonymous",
-    /**
-     * The user authentication method is an x509 certificate.
-     */
-    Certificate: "Certificate",
-    /**
-     * The user authentication method is a username and password.
-     */
-    UsernamePassword: "UsernamePassword",
-} as const;
-
-/**
- * Defines the method to authenticate the user of the client at the server.
- */
-export type UserAuthenticationMode = (typeof UserAuthenticationMode)[keyof typeof UserAuthenticationMode];

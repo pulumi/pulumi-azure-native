@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get the object replication policy of the storage account by policy ID.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2022-09-01.
  */
 export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectReplicationPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,9 +76,9 @@ export interface GetObjectReplicationPolicyResult {
 }
 /**
  * Get the object replication policy of the storage account by policy ID.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2022-09-01.
  */
 export function getObjectReplicationPolicyOutput(args: GetObjectReplicationPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetObjectReplicationPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

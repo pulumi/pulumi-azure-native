@@ -128,9 +128,9 @@ def get_application(application_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Gets properties of the specified application.
-    Azure REST API version: 2021-06-01.
+    Azure REST API version: 2024-08-01-preview.
 
-    Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
+    Other available API versions: 2021-06-01.
 
 
     :param str application_name: The constant value for the application name.
@@ -158,9 +158,9 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Gets properties of the specified application.
-    Azure REST API version: 2021-06-01.
+    Azure REST API version: 2024-08-01-preview.
 
-    Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
+    Other available API versions: 2021-06-01.
 
 
     :param str application_name: The constant value for the application name.

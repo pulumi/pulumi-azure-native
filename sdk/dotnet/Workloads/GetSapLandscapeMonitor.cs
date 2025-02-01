@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+        /// Other available API versions: 2023-04-01, 2023-10-01-preview.
         /// </summary>
         public static Task<GetSapLandscapeMonitorResult> InvokeAsync(GetSapLandscapeMonitorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSapLandscapeMonitorResult>("azure-native:workloads:getSapLandscapeMonitor", args ?? new GetSapLandscapeMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+        /// Other available API versions: 2023-04-01, 2023-10-01-preview.
         /// </summary>
         public static Output<GetSapLandscapeMonitorResult> Invoke(GetSapLandscapeMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapLandscapeMonitorResult>("azure-native:workloads:getSapLandscapeMonitor", args ?? new GetSapLandscapeMonitorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01-preview.
         /// 
-        /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+        /// Other available API versions: 2023-04-01, 2023-10-01-preview.
         /// </summary>
         public static Output<GetSapLandscapeMonitorResult> Invoke(GetSapLandscapeMonitorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapLandscapeMonitorResult>("azure-native:workloads:getSapLandscapeMonitor", args ?? new GetSapLandscapeMonitorInvokeArgs(), options.WithDefaults());
@@ -87,9 +87,9 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Gets or sets the SID groupings by landscape and Environment.
         /// </summary>
-        public readonly Outputs.SapLandscapeMonitorPropertiesResponseGrouping? Grouping;
+        public readonly Outputs.SapLandscapeMonitorPropertiesGroupingResponse? Grouping;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.Workloads
 
         [OutputConstructor]
         private GetSapLandscapeMonitorResult(
-            Outputs.SapLandscapeMonitorPropertiesResponseGrouping? grouping,
+            Outputs.SapLandscapeMonitorPropertiesGroupingResponse? grouping,
 
             string id,
 

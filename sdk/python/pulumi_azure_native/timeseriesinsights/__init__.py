@@ -15,10 +15,8 @@ from .get_event_hub_event_source import *
 from .get_gen1_environment import *
 from .get_gen2_environment import *
 from .get_io_t_hub_event_source import *
-from .get_private_endpoint_connection import *
 from .get_reference_data_set import *
 from .io_t_hub_event_source import *
-from .private_endpoint_connection import *
 from .reference_data_set import *
 from ._inputs import *
 from . import outputs

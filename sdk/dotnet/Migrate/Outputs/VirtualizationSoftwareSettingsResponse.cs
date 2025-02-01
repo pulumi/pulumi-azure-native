@@ -17,29 +17,14 @@ namespace Pulumi.AzureNative.Migrate.Outputs
     public sealed class VirtualizationSoftwareSettingsResponse
     {
         /// <summary>
-        /// Licence and support list.
+        /// VMware cloud foundation license cost.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VsphereLicenseResponse> LicenseAndSupportList;
-        /// <summary>
-        /// Number of physical cores per licence.
-        /// </summary>
-        public readonly int NumberOfPhysicalCoresPerLicense;
-        /// <summary>
-        /// Software Assurance cost.
-        /// </summary>
-        public readonly double SoftwareAssuranceCost;
+        public readonly double VMwareCloudFoundationLicenseCost;
 
         [OutputConstructor]
-        private VirtualizationSoftwareSettingsResponse(
-            ImmutableArray<Outputs.VsphereLicenseResponse> licenseAndSupportList,
-
-            int numberOfPhysicalCoresPerLicense,
-
-            double softwareAssuranceCost)
+        private VirtualizationSoftwareSettingsResponse(double vMwareCloudFoundationLicenseCost)
         {
-            LicenseAndSupportList = licenseAndSupportList;
-            NumberOfPhysicalCoresPerLicense = numberOfPhysicalCoresPerLicense;
-            SoftwareAssuranceCost = softwareAssuranceCost;
+            VMwareCloudFoundationLicenseCost = vMwareCloudFoundationLicenseCost;
         }
     }
 }

@@ -10,40 +10,20 @@ export type DefaultUserRule = import("./defaultUserRule").DefaultUserRule;
 export const DefaultUserRule: typeof import("./defaultUserRule").DefaultUserRule = null as any;
 utilities.lazyLoad(exports, ["DefaultUserRule"], () => require("./defaultUserRule"));
 
-export { EndpointArgs } from "./endpoint";
-export type Endpoint = import("./endpoint").Endpoint;
-export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
-utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
-
 export { GetDefaultUserRuleArgs, GetDefaultUserRuleResult, GetDefaultUserRuleOutputArgs } from "./getDefaultUserRule";
 export const getDefaultUserRule: typeof import("./getDefaultUserRule").getDefaultUserRule = null as any;
 export const getDefaultUserRuleOutput: typeof import("./getDefaultUserRule").getDefaultUserRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getDefaultUserRule","getDefaultUserRuleOutput"], () => require("./getDefaultUserRule"));
-
-export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
-export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
-export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
-utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
 
 export { GetNetworkGroupArgs, GetNetworkGroupResult, GetNetworkGroupOutputArgs } from "./getNetworkGroup";
 export const getNetworkGroup: typeof import("./getNetworkGroup").getNetworkGroup = null as any;
 export const getNetworkGroupOutput: typeof import("./getNetworkGroup").getNetworkGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkGroup","getNetworkGroupOutput"], () => require("./getNetworkGroup"));
 
-export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
-export const getProfile: typeof import("./getProfile").getProfile = null as any;
-export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
-utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
-
 export { GetSecurityUserConfigurationArgs, GetSecurityUserConfigurationResult, GetSecurityUserConfigurationOutputArgs } from "./getSecurityUserConfiguration";
 export const getSecurityUserConfiguration: typeof import("./getSecurityUserConfiguration").getSecurityUserConfiguration = null as any;
 export const getSecurityUserConfigurationOutput: typeof import("./getSecurityUserConfiguration").getSecurityUserConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityUserConfiguration","getSecurityUserConfigurationOutput"], () => require("./getSecurityUserConfiguration"));
-
-export { GetTrafficManagerUserMetricsKeyArgs, GetTrafficManagerUserMetricsKeyResult } from "./getTrafficManagerUserMetricsKey";
-export const getTrafficManagerUserMetricsKey: typeof import("./getTrafficManagerUserMetricsKey").getTrafficManagerUserMetricsKey = null as any;
-export const getTrafficManagerUserMetricsKeyOutput: typeof import("./getTrafficManagerUserMetricsKey").getTrafficManagerUserMetricsKeyOutput = null as any;
-utilities.lazyLoad(exports, ["getTrafficManagerUserMetricsKey","getTrafficManagerUserMetricsKeyOutput"], () => require("./getTrafficManagerUserMetricsKey"));
 
 export { GetUserRuleArgs, GetUserRuleResult, GetUserRuleOutputArgs } from "./getUserRule";
 export const getUserRule: typeof import("./getUserRule").getUserRule = null as any;
@@ -85,20 +65,10 @@ export type NetworkGroup = import("./networkGroup").NetworkGroup;
 export const NetworkGroup: typeof import("./networkGroup").NetworkGroup = null as any;
 utilities.lazyLoad(exports, ["NetworkGroup"], () => require("./networkGroup"));
 
-export { ProfileArgs } from "./profile";
-export type Profile = import("./profile").Profile;
-export const Profile: typeof import("./profile").Profile = null as any;
-utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
-
 export { SecurityUserConfigurationArgs } from "./securityUserConfiguration";
 export type SecurityUserConfiguration = import("./securityUserConfiguration").SecurityUserConfiguration;
 export const SecurityUserConfiguration: typeof import("./securityUserConfiguration").SecurityUserConfiguration = null as any;
 utilities.lazyLoad(exports, ["SecurityUserConfiguration"], () => require("./securityUserConfiguration"));
-
-export { TrafficManagerUserMetricsKeyArgs } from "./trafficManagerUserMetricsKey";
-export type TrafficManagerUserMetricsKey = import("./trafficManagerUserMetricsKey").TrafficManagerUserMetricsKey;
-export const TrafficManagerUserMetricsKey: typeof import("./trafficManagerUserMetricsKey").TrafficManagerUserMetricsKey = null as any;
-utilities.lazyLoad(exports, ["TrafficManagerUserMetricsKey"], () => require("./trafficManagerUserMetricsKey"));
 
 export { UserRuleArgs } from "./userRule";
 export type UserRule = import("./userRule").UserRule;
@@ -120,16 +90,10 @@ const _module = {
         switch (type) {
             case "azure-native:network/v20220401preview:DefaultUserRule":
                 return new DefaultUserRule(name, <any>undefined, { urn })
-            case "azure-native:network/v20220401preview:Endpoint":
-                return new Endpoint(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:NetworkGroup":
                 return new NetworkGroup(name, <any>undefined, { urn })
-            case "azure-native:network/v20220401preview:Profile":
-                return new Profile(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:SecurityUserConfiguration":
                 return new SecurityUserConfiguration(name, <any>undefined, { urn })
-            case "azure-native:network/v20220401preview:TrafficManagerUserMetricsKey":
-                return new TrafficManagerUserMetricsKey(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:UserRule":
                 return new UserRule(name, <any>undefined, { urn })
             case "azure-native:network/v20220401preview:UserRuleCollection":

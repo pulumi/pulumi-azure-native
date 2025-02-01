@@ -11,18 +11,69 @@ namespace Pulumi.AzureNative.NotificationHubs
 {
     /// <summary>
     /// Notification Hub Resource.
-    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
     /// 
-    /// Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+    /// Other available API versions: 2023-01-01-preview, 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:NotificationHub")]
     public partial class NotificationHub : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Description of a NotificationHub AdmCredential.
+        /// </summary>
+        [Output("admCredential")]
+        public Output<Outputs.AdmCredentialResponse?> AdmCredential { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of a NotificationHub ApnsCredential.
+        /// </summary>
+        [Output("apnsCredential")]
+        public Output<Outputs.ApnsCredentialResponse?> ApnsCredential { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the AuthorizationRules of the created NotificationHub
+        /// </summary>
+        [Output("authorizationRules")]
+        public Output<ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponse>> AuthorizationRules { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of a NotificationHub BaiduCredential.
+        /// </summary>
+        [Output("baiduCredential")]
+        public Output<Outputs.BaiduCredentialResponse?> BaiduCredential { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of a NotificationHub BrowserCredential.
+        /// </summary>
+        [Output("browserCredential")]
+        public Output<Outputs.BrowserCredentialResponse?> BrowserCredential { get; private set; } = null!;
+
+        [Output("dailyMaxActiveDevices")]
+        public Output<double> DailyMaxActiveDevices { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of a NotificationHub FcmV1Credential.
+        /// </summary>
+        [Output("fcmV1Credential")]
+        public Output<Outputs.FcmV1CredentialResponse?> FcmV1Credential { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of a NotificationHub GcmCredential.
+        /// </summary>
+        [Output("gcmCredential")]
+        public Output<Outputs.GcmCredentialResponse?> GcmCredential { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of a NotificationHub MpnsCredential.
+        /// </summary>
+        [Output("mpnsCredential")]
+        public Output<Outputs.MpnsCredentialResponse?> MpnsCredential { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -31,10 +82,10 @@ namespace Pulumi.AzureNative.NotificationHubs
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// NotificationHub properties.
+        /// Gets or sets the RegistrationTtl of the created NotificationHub
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NotificationHubPropertiesResponse> Properties { get; private set; } = null!;
+        [Output("registrationTtl")]
+        public Output<string?> RegistrationTtl { get; private set; } = null!;
 
         /// <summary>
         /// The Sku description for a namespace
@@ -59,6 +110,18 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of a NotificationHub WnsCredential.
+        /// </summary>
+        [Output("wnsCredential")]
+        public Output<Outputs.WnsCredentialResponse?> WnsCredential { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of a NotificationHub XiaomiCredential.
+        /// </summary>
+        [Output("xiaomiCredential")]
+        public Output<Outputs.XiaomiCredentialResponse?> XiaomiCredential { get; private set; } = null!;
 
 
         /// <summary>
@@ -115,10 +178,58 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class NotificationHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Description of a NotificationHub AdmCredential.
+        /// </summary>
+        [Input("admCredential")]
+        public Input<Inputs.AdmCredentialArgs>? AdmCredential { get; set; }
+
+        /// <summary>
+        /// Description of a NotificationHub ApnsCredential.
+        /// </summary>
+        [Input("apnsCredential")]
+        public Input<Inputs.ApnsCredentialArgs>? ApnsCredential { get; set; }
+
+        /// <summary>
+        /// Description of a NotificationHub BaiduCredential.
+        /// </summary>
+        [Input("baiduCredential")]
+        public Input<Inputs.BaiduCredentialArgs>? BaiduCredential { get; set; }
+
+        /// <summary>
+        /// Description of a NotificationHub BrowserCredential.
+        /// </summary>
+        [Input("browserCredential")]
+        public Input<Inputs.BrowserCredentialArgs>? BrowserCredential { get; set; }
+
+        /// <summary>
+        /// Description of a NotificationHub FcmV1Credential.
+        /// </summary>
+        [Input("fcmV1Credential")]
+        public Input<Inputs.FcmV1CredentialArgs>? FcmV1Credential { get; set; }
+
+        /// <summary>
+        /// Description of a NotificationHub GcmCredential.
+        /// </summary>
+        [Input("gcmCredential")]
+        public Input<Inputs.GcmCredentialArgs>? GcmCredential { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Description of a NotificationHub MpnsCredential.
+        /// </summary>
+        [Input("mpnsCredential")]
+        public Input<Inputs.MpnsCredentialArgs>? MpnsCredential { get; set; }
+
+        /// <summary>
+        /// Gets or sets the NotificationHub name.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Namespace name
@@ -133,10 +244,10 @@ namespace Pulumi.AzureNative.NotificationHubs
         public Input<string>? NotificationHubName { get; set; }
 
         /// <summary>
-        /// NotificationHub properties.
+        /// Gets or sets the RegistrationTtl of the created NotificationHub
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NotificationHubPropertiesArgs>? Properties { get; set; }
+        [Input("registrationTtl")]
+        public Input<string>? RegistrationTtl { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -161,6 +272,18 @@ namespace Pulumi.AzureNative.NotificationHubs
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Description of a NotificationHub WnsCredential.
+        /// </summary>
+        [Input("wnsCredential")]
+        public Input<Inputs.WnsCredentialArgs>? WnsCredential { get; set; }
+
+        /// <summary>
+        /// Description of a NotificationHub XiaomiCredential.
+        /// </summary>
+        [Input("xiaomiCredential")]
+        public Input<Inputs.XiaomiCredentialArgs>? XiaomiCredential { get; set; }
 
         public NotificationHubArgs()
         {

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the Diagnostic for an API specified by its identifier.
- * Azure REST API version: 2023-09-01-preview.
+ * Azure REST API version: 2024-06-01-preview.
  *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-09-01-preview.
  */
 export function getWorkspaceApiDiagnostic(args: GetWorkspaceApiDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceApiDiagnosticResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,6 +72,10 @@ export interface GetWorkspaceApiDiagnosticResult {
      */
     readonly id: string;
     /**
+     * Large Language Models diagnostic settings
+     */
+    readonly largeLanguageModel?: outputs.apimanagement.LLMDiagnosticSettingsResponse;
+    /**
      * Log the ClientIP. Default is false.
      */
     readonly logClientIp?: boolean;
@@ -106,9 +110,9 @@ export interface GetWorkspaceApiDiagnosticResult {
 }
 /**
  * Gets the details of the Diagnostic for an API specified by its identifier.
- * Azure REST API version: 2023-09-01-preview.
+ * Azure REST API version: 2024-06-01-preview.
  *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2023-09-01-preview.
  */
 export function getWorkspaceApiDiagnosticOutput(args: GetWorkspaceApiDiagnosticOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceApiDiagnosticResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

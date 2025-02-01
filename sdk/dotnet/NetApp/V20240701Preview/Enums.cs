@@ -45,37 +45,6 @@ namespace Pulumi.AzureNative.NetApp.V20240701Preview
     }
 
     /// <summary>
-    /// Application Type
-    /// </summary>
-    [EnumType]
-    public readonly struct ApplicationType : IEquatable<ApplicationType>
-    {
-        private readonly string _value;
-
-        private ApplicationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ApplicationType SAP_HANA { get; } = new ApplicationType("SAP-HANA");
-        public static ApplicationType ORACLE { get; } = new ApplicationType("ORACLE");
-
-        public static bool operator ==(ApplicationType left, ApplicationType right) => left.Equals(right);
-        public static bool operator !=(ApplicationType left, ApplicationType right) => !left.Equals(right);
-
-        public static explicit operator string(ApplicationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ApplicationType other && Equals(other);
-        public bool Equals(ApplicationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
     /// </summary>
     [EnumType]
@@ -651,51 +620,6 @@ namespace Pulumi.AzureNative.NetApp.V20240701Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SmbNonBrowsable other && Equals(other);
         public bool Equals(SmbNonBrowsable other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Type of quota
-    /// </summary>
-    [EnumType]
-    public readonly struct Type : IEquatable<Type>
-    {
-        private readonly string _value;
-
-        private Type(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Default user quota
-        /// </summary>
-        public static Type DefaultUserQuota { get; } = new Type("DefaultUserQuota");
-        /// <summary>
-        /// Default group quota
-        /// </summary>
-        public static Type DefaultGroupQuota { get; } = new Type("DefaultGroupQuota");
-        /// <summary>
-        /// Individual user quota
-        /// </summary>
-        public static Type IndividualUserQuota { get; } = new Type("IndividualUserQuota");
-        /// <summary>
-        /// Individual group quota
-        /// </summary>
-        public static Type IndividualGroupQuota { get; } = new Type("IndividualGroupQuota");
-
-        public static bool operator ==(Type left, Type right) => left.Equals(right);
-        public static bool operator !=(Type left, Type right) => !left.Equals(right);
-
-        public static explicit operator string(Type value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Type other && Equals(other);
-        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

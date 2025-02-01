@@ -30,9 +30,9 @@ class ServiceArgs:
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the service.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] service_name: Service name
+        :param pulumi.Input[str] service_name: The name of Azure API Center service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -61,7 +61,7 @@ class ServiceArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        The identity of the service.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -85,7 +85,7 @@ class ServiceArgs:
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Service name
+        The name of Azure API Center service.
         """
         return pulumi.get(self, "service_name")
 
@@ -119,16 +119,16 @@ class Service(pulumi.CustomResource):
                  __props__=None):
         """
         The service entity.
-        Azure REST API version: 2023-07-01-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-07-01-preview.
 
-        Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+        Other available API versions: 2023-07-01-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the service.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] service_name: Service name
+        :param pulumi.Input[str] service_name: The name of Azure API Center service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -139,9 +139,9 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The service entity.
-        Azure REST API version: 2023-07-01-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-07-01-preview.
 
-        Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+        Other available API versions: 2023-07-01-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -220,7 +220,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        The identity of the service.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -244,7 +244,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The status of the last operation.
+        Provisioning state of the service.
         """
         return pulumi.get(self, "provisioning_state")
 

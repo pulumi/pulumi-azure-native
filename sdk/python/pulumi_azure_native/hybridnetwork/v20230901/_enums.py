@@ -17,7 +17,6 @@ __all__ = [
     'IdType',
     'ManagedServiceIdentityType',
     'NFVIType',
-    'NetworkFunctionConfigurationType',
     'NetworkFunctionType',
     'PublisherScope',
     'SkuName',
@@ -134,15 +133,6 @@ class NFVIType(str, Enum):
     AZURE_ARC_KUBERNETES = "AzureArcKubernetes"
     AZURE_CORE = "AzureCore"
     AZURE_OPERATOR_NEXUS = "AzureOperatorNexus"
-
-
-class NetworkFunctionConfigurationType(str, Enum):
-    """
-    The value which indicates if NF  values are secrets
-    """
-    UNKNOWN = "Unknown"
-    SECRET = "Secret"
-    OPEN = "Open"
 
 
 class NetworkFunctionType(str, Enum):

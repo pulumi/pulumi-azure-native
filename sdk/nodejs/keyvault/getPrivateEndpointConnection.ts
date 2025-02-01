@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified private endpoint connection associated with the key vault.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+ * Other available API versions: 2023-02-01, 2024-12-01-preview.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,9 +80,9 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * Gets the specified private endpoint connection associated with the key vault.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-11-01.
  *
- * Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+ * Other available API versions: 2023-02-01, 2024-12-01-preview.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

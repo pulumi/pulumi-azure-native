@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the security user rule collection.
- * Azure REST API version: 2024-03-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-03-01.
  *
- * Other available API versions: 2024-05-01.
+ * Other available API versions: 2024-03-01.
  */
 export class SecurityUserRuleCollection extends pulumi.CustomResource {
     /**
@@ -119,7 +119,7 @@ export class SecurityUserRuleCollection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:SecurityUserRuleCollection" }, { type: "azure-native:network/v20210501preview:SecurityUserRuleCollection" }, { type: "azure-native:network/v20220201preview:SecurityUserRuleCollection" }, { type: "azure-native:network/v20220401preview:SecurityUserRuleCollection" }, { type: "azure-native:network/v20240301:SecurityUserRuleCollection" }, { type: "azure-native:network/v20240501:SecurityUserRuleCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:SecurityUserRuleCollection" }, { type: "azure-native:network/v20210201preview:UserRuleCollection" }, { type: "azure-native:network/v20210501preview:SecurityUserRuleCollection" }, { type: "azure-native:network/v20210501preview:UserRuleCollection" }, { type: "azure-native:network/v20220201preview:SecurityUserRuleCollection" }, { type: "azure-native:network/v20220401preview:SecurityUserRuleCollection" }, { type: "azure-native:network/v20220401preview:UserRuleCollection" }, { type: "azure-native:network/v20240301:SecurityUserRuleCollection" }, { type: "azure-native:network/v20240501:SecurityUserRuleCollection" }, { type: "azure-native:network:UserRuleCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityUserRuleCollection.__pulumiType, name, resourceInputs, opts);
     }

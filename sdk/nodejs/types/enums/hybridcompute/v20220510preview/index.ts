@@ -32,14 +32,3 @@ export const ResourceIdentityType = {
  * The identity type.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
-
-export const StatusLevelTypes = {
-    Info: "Info",
-    Warning: "Warning",
-    Error: "Error",
-} as const;
-
-/**
- * The level code.
- */
-export type StatusLevelTypes = (typeof StatusLevelTypes)[keyof typeof StatusLevelTypes];

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a BuilderResource
- * Azure REST API version: 2023-08-01-preview.
+ * Azure REST API version: 2024-10-02-preview.
  *
- * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+ * Other available API versions: 2023-08-01-preview.
  */
 export function getBuilder(args: GetBuilderArgs, opts?: pulumi.InvokeOptions): Promise<GetBuilderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,7 +45,7 @@ export interface GetBuilderResult {
      */
     readonly environmentId: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -79,9 +79,9 @@ export interface GetBuilderResult {
 }
 /**
  * Get a BuilderResource
- * Azure REST API version: 2023-08-01-preview.
+ * Azure REST API version: 2024-10-02-preview.
  *
- * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+ * Other available API versions: 2023-08-01-preview.
  */
 export function getBuilderOutput(args: GetBuilderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBuilderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

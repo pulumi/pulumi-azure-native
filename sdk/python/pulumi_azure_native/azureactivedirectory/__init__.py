@@ -17,17 +17,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.azureactivedirectory.v20190101preview as __v20190101preview
-    v20190101preview = __v20190101preview
     import pulumi_azure_native.azureactivedirectory.v20210401 as __v20210401
     v20210401 = __v20210401
-    import pulumi_azure_native.azureactivedirectory.v20230118preview as __v20230118preview
-    v20230118preview = __v20230118preview
     import pulumi_azure_native.azureactivedirectory.v20230517preview as __v20230517preview
     v20230517preview = __v20230517preview
 else:
-    v20190101preview = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory.v20190101preview')
     v20210401 = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory.v20210401')
-    v20230118preview = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory.v20230118preview')
     v20230517preview = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory.v20230517preview')
 

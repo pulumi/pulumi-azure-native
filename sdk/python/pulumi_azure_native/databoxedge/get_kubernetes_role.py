@@ -184,7 +184,7 @@ def get_kubernetes_role(device_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesRoleResult:
     """
     Gets a specific role by name.
-    Azure REST API version: 2022-03-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -216,7 +216,7 @@ def get_kubernetes_role_output(device_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesRoleResult]:
     """
     Gets a specific role by name.
-    Azure REST API version: 2022-03-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.

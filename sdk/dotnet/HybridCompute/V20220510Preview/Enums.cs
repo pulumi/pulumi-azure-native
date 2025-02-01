@@ -100,36 +100,4 @@ namespace Pulumi.AzureNative.HybridCompute.V20220510Preview
 
         public override string ToString() => _value;
     }
-
-    /// <summary>
-    /// The level code.
-    /// </summary>
-    [EnumType]
-    public readonly struct StatusLevelTypes : IEquatable<StatusLevelTypes>
-    {
-        private readonly string _value;
-
-        private StatusLevelTypes(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static StatusLevelTypes Info { get; } = new StatusLevelTypes("Info");
-        public static StatusLevelTypes Warning { get; } = new StatusLevelTypes("Warning");
-        public static StatusLevelTypes Error { get; } = new StatusLevelTypes("Error");
-
-        public static bool operator ==(StatusLevelTypes left, StatusLevelTypes right) => left.Equals(right);
-        public static bool operator !=(StatusLevelTypes left, StatusLevelTypes right) => !left.Equals(right);
-
-        public static explicit operator string(StatusLevelTypes value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StatusLevelTypes other && Equals(other);
-        public bool Equals(StatusLevelTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
 }

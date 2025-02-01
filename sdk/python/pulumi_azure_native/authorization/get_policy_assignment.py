@@ -27,13 +27,22 @@ class GetPolicyAssignmentResult:
     """
     The policy assignment.
     """
-    def __init__(__self__, description=None, display_name=None, enforcement_mode=None, id=None, identity=None, location=None, metadata=None, name=None, non_compliance_messages=None, not_scopes=None, overrides=None, parameters=None, policy_definition_id=None, resource_selectors=None, scope=None, system_data=None, type=None):
+    def __init__(__self__, assignment_type=None, definition_version=None, description=None, display_name=None, effective_definition_version=None, enforcement_mode=None, id=None, identity=None, latest_definition_version=None, location=None, metadata=None, name=None, non_compliance_messages=None, not_scopes=None, overrides=None, parameters=None, policy_definition_id=None, resource_selectors=None, scope=None, system_data=None, type=None):
+        if assignment_type and not isinstance(assignment_type, str):
+            raise TypeError("Expected argument 'assignment_type' to be a str")
+        pulumi.set(__self__, "assignment_type", assignment_type)
+        if definition_version and not isinstance(definition_version, str):
+            raise TypeError("Expected argument 'definition_version' to be a str")
+        pulumi.set(__self__, "definition_version", definition_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if effective_definition_version and not isinstance(effective_definition_version, str):
+            raise TypeError("Expected argument 'effective_definition_version' to be a str")
+        pulumi.set(__self__, "effective_definition_version", effective_definition_version)
         if enforcement_mode and not isinstance(enforcement_mode, str):
             raise TypeError("Expected argument 'enforcement_mode' to be a str")
         pulumi.set(__self__, "enforcement_mode", enforcement_mode)
@@ -43,6 +52,9 @@ class GetPolicyAssignmentResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if latest_definition_version and not isinstance(latest_definition_version, str):
+            raise TypeError("Expected argument 'latest_definition_version' to be a str")
+        pulumi.set(__self__, "latest_definition_version", latest_definition_version)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -81,6 +93,22 @@ class GetPolicyAssignmentResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="assignmentType")
+    def assignment_type(self) -> Optional[str]:
+        """
+        The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        """
+        return pulumi.get(self, "assignment_type")
+
+    @property
+    @pulumi.getter(name="definitionVersion")
+    def definition_version(self) -> Optional[str]:
+        """
+        The version of the policy definition to use.
+        """
+        return pulumi.get(self, "definition_version")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -95,6 +123,14 @@ class GetPolicyAssignmentResult:
         The display name of the policy assignment.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="effectiveDefinitionVersion")
+    def effective_definition_version(self) -> str:
+        """
+        The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
+        """
+        return pulumi.get(self, "effective_definition_version")
 
     @property
     @pulumi.getter(name="enforcementMode")
@@ -119,6 +155,14 @@ class GetPolicyAssignmentResult:
         The managed identity associated with the policy assignment.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="latestDefinitionVersion")
+    def latest_definition_version(self) -> str:
+        """
+        The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
+        """
+        return pulumi.get(self, "latest_definition_version")
 
     @property
     @pulumi.getter
@@ -223,11 +267,15 @@ class AwaitableGetPolicyAssignmentResult(GetPolicyAssignmentResult):
         if False:
             yield self
         return GetPolicyAssignmentResult(
+            assignment_type=self.assignment_type,
+            definition_version=self.definition_version,
             description=self.description,
             display_name=self.display_name,
+            effective_definition_version=self.effective_definition_version,
             enforcement_mode=self.enforcement_mode,
             id=self.id,
             identity=self.identity,
+            latest_definition_version=self.latest_definition_version,
             location=self.location,
             metadata=self.metadata,
             name=self.name,
@@ -242,31 +290,38 @@ class AwaitableGetPolicyAssignmentResult(GetPolicyAssignmentResult):
             type=self.type)
 
 
-def get_policy_assignment(policy_assignment_name: Optional[str] = None,
+def get_policy_assignment(expand: Optional[str] = None,
+                          policy_assignment_name: Optional[str] = None,
                           scope: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyAssignmentResult:
     """
     This operation retrieves a single policy assignment, given its name and the scope it was created at.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-01-01.
+    Other available API versions: 2022-06-01, 2025-01-01.
 
 
+    :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param str policy_assignment_name: The name of the policy assignment to get.
     :param str scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['policyAssignmentName'] = policy_assignment_name
     __args__['scope'] = scope
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getPolicyAssignment', __args__, opts=opts, typ=GetPolicyAssignmentResult).value
 
     return AwaitableGetPolicyAssignmentResult(
+        assignment_type=pulumi.get(__ret__, 'assignment_type'),
+        definition_version=pulumi.get(__ret__, 'definition_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
+        effective_definition_version=pulumi.get(__ret__, 'effective_definition_version'),
         enforcement_mode=pulumi.get(__ret__, 'enforcement_mode'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
+        latest_definition_version=pulumi.get(__ret__, 'latest_definition_version'),
         location=pulumi.get(__ret__, 'location'),
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
@@ -279,30 +334,37 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
         scope=pulumi.get(__ret__, 'scope'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[str]] = None,
+def get_policy_assignment_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                 policy_assignment_name: Optional[pulumi.Input[str]] = None,
                                  scope: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
     """
     This operation retrieves a single policy assignment, given its name and the scope it was created at.
-    Azure REST API version: 2022-06-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-01-01.
+    Other available API versions: 2022-06-01, 2025-01-01.
 
 
+    :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param str policy_assignment_name: The name of the policy assignment to get.
     :param str scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['policyAssignmentName'] = policy_assignment_name
     __args__['scope'] = scope
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getPolicyAssignment', __args__, opts=opts, typ=GetPolicyAssignmentResult)
     return __ret__.apply(lambda __response__: GetPolicyAssignmentResult(
+        assignment_type=pulumi.get(__response__, 'assignment_type'),
+        definition_version=pulumi.get(__response__, 'definition_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
+        effective_definition_version=pulumi.get(__response__, 'effective_definition_version'),
         enforcement_mode=pulumi.get(__response__, 'enforcement_mode'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
+        latest_definition_version=pulumi.get(__response__, 'latest_definition_version'),
         location=pulumi.get(__response__, 'location'),
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),

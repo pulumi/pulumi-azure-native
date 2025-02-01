@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified publisher.
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01.
  */
 export function getPublisher(args: GetPublisherArgs, opts?: pulumi.InvokeOptions): Promise<GetPublisherResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,9 +71,9 @@ export interface GetPublisherResult {
 }
 /**
  * Gets information about the specified publisher.
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01.
  */
 export function getPublisherOutput(args: GetPublisherOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublisherResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

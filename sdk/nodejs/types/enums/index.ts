@@ -12,6 +12,7 @@ import * as apimanagement from "./apimanagement";
 import * as app from "./app";
 import * as appcomplianceautomation from "./appcomplianceautomation";
 import * as appconfiguration from "./appconfiguration";
+import * as applicationinsights from "./applicationinsights";
 import * as appplatform from "./appplatform";
 import * as attestation from "./attestation";
 import * as authorization from "./authorization";
@@ -33,7 +34,6 @@ import * as batch from "./batch";
 import * as billing from "./billing";
 import * as blueprint from "./blueprint";
 import * as botservice from "./botservice";
-import * as cache from "./cache";
 import * as cdn from "./cdn";
 import * as certificateregistration from "./certificateregistration";
 import * as changeanalysis from "./changeanalysis";
@@ -53,6 +53,7 @@ import * as containerinstance from "./containerinstance";
 import * as containerregistry from "./containerregistry";
 import * as containerservice from "./containerservice";
 import * as containerstorage from "./containerstorage";
+import * as cosmosdb from "./cosmosdb";
 import * as costmanagement from "./costmanagement";
 import * as customerinsights from "./customerinsights";
 import * as customproviders from "./customproviders";
@@ -77,14 +78,15 @@ import * as delegatednetwork from "./delegatednetwork";
 import * as desktopvirtualization from "./desktopvirtualization";
 import * as devcenter from "./devcenter";
 import * as devhub from "./devhub";
+import * as deviceprovisioningservices from "./deviceprovisioningservices";
 import * as deviceregistry from "./deviceregistry";
-import * as devices from "./devices";
 import * as deviceupdate from "./deviceupdate";
 import * as devopsinfrastructure from "./devopsinfrastructure";
 import * as devspaces from "./devspaces";
 import * as devtestlab from "./devtestlab";
 import * as digitaltwins from "./digitaltwins";
-import * as documentdb from "./documentdb";
+import * as dns from "./dns";
+import * as dnsresolver from "./dnsresolver";
 import * as domainregistration from "./domainregistration";
 import * as edgeorder from "./edgeorder";
 import * as education from "./education";
@@ -97,6 +99,7 @@ import * as extendedlocation from "./extendedlocation";
 import * as fabric from "./fabric";
 import * as features from "./features";
 import * as fluidrelay from "./fluidrelay";
+import * as frontdoor from "./frontdoor";
 import * as guestconfiguration from "./guestconfiguration";
 import * as hardwaresecuritymodules from "./hardwaresecuritymodules";
 import * as hdinsight from "./hdinsight";
@@ -111,9 +114,9 @@ import * as hybriddata from "./hybriddata";
 import * as hybridnetwork from "./hybridnetwork";
 import * as impact from "./impact";
 import * as importexport from "./importexport";
-import * as insights from "./insights";
 import * as iotcentral from "./iotcentral";
 import * as iotfirmwaredefense from "./iotfirmwaredefense";
+import * as iothub from "./iothub";
 import * as iotoperations from "./iotoperations";
 import * as iotoperationsmq from "./iotoperationsmq";
 import * as iotoperationsorchestrator from "./iotoperationsorchestrator";
@@ -140,6 +143,7 @@ import * as media from "./media";
 import * as migrate from "./migrate";
 import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
+import * as mongocluster from "./mongocluster";
 import * as monitor from "./monitor";
 import * as netapp from "./netapp";
 import * as network from "./network";
@@ -157,6 +161,7 @@ import * as portal from "./portal";
 import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
+import * as privatedns from "./privatedns";
 import * as programmableconnectivity from "./programmableconnectivity";
 import * as providerhub from "./providerhub";
 import * as purview from "./purview";
@@ -165,6 +170,8 @@ import * as quota from "./quota";
 import * as recommendationsservice from "./recommendationsservice";
 import * as recoveryservices from "./recoveryservices";
 import * as redhatopenshift from "./redhatopenshift";
+import * as redis from "./redis";
+import * as redisenterprise from "./redisenterprise";
 import * as relay from "./relay";
 import * as resourceconnector from "./resourceconnector";
 import * as resources from "./resources";
@@ -200,6 +207,7 @@ import * as subscription from "./subscription";
 import * as synapse from "./synapse";
 import * as testbase from "./testbase";
 import * as timeseriesinsights from "./timeseriesinsights";
+import * as trafficmanager from "./trafficmanager";
 import * as videoanalyzer from "./videoanalyzer";
 import * as videoindexer from "./videoindexer";
 import * as virtualmachineimages from "./virtualmachineimages";
@@ -222,6 +230,7 @@ export {
     app,
     appcomplianceautomation,
     appconfiguration,
+    applicationinsights,
     appplatform,
     attestation,
     authorization,
@@ -243,7 +252,6 @@ export {
     billing,
     blueprint,
     botservice,
-    cache,
     cdn,
     certificateregistration,
     changeanalysis,
@@ -263,6 +271,7 @@ export {
     containerregistry,
     containerservice,
     containerstorage,
+    cosmosdb,
     costmanagement,
     customerinsights,
     customproviders,
@@ -287,14 +296,15 @@ export {
     desktopvirtualization,
     devcenter,
     devhub,
+    deviceprovisioningservices,
     deviceregistry,
-    devices,
     deviceupdate,
     devopsinfrastructure,
     devspaces,
     devtestlab,
     digitaltwins,
-    documentdb,
+    dns,
+    dnsresolver,
     domainregistration,
     edgeorder,
     education,
@@ -307,6 +317,7 @@ export {
     fabric,
     features,
     fluidrelay,
+    frontdoor,
     guestconfiguration,
     hardwaresecuritymodules,
     hdinsight,
@@ -321,9 +332,9 @@ export {
     hybridnetwork,
     impact,
     importexport,
-    insights,
     iotcentral,
     iotfirmwaredefense,
+    iothub,
     iotoperations,
     iotoperationsmq,
     iotoperationsorchestrator,
@@ -350,6 +361,7 @@ export {
     migrate,
     mixedreality,
     mobilenetwork,
+    mongocluster,
     monitor,
     netapp,
     network,
@@ -367,6 +379,7 @@ export {
     powerbi,
     powerbidedicated,
     powerplatform,
+    privatedns,
     programmableconnectivity,
     providerhub,
     purview,
@@ -375,6 +388,8 @@ export {
     recommendationsservice,
     recoveryservices,
     redhatopenshift,
+    redis,
+    redisenterprise,
     relay,
     resourceconnector,
     resources,
@@ -410,6 +425,7 @@ export {
     synapse,
     testbase,
     timeseriesinsights,
+    trafficmanager,
     videoanalyzer,
     videoindexer,
     virtualmachineimages,

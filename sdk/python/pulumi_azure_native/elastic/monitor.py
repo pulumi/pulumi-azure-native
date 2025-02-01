@@ -31,7 +31,7 @@ class MonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Monitor resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the Elastic resource belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['IdentityPropertiesArgs'] identity: Identity properties of the monitor resource.
         :param pulumi.Input[str] location: The location of the monitor resource
         :param pulumi.Input[str] monitor_name: Monitor resource name
@@ -57,7 +57,7 @@ class MonitorArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group to which the Elastic resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -153,9 +153,9 @@ class Monitor(pulumi.CustomResource):
                  __props__=None):
         """
         Monitor resource.
-        Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2020-07-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-06-01.
 
-        Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        Other available API versions: 2023-06-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +163,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the monitor resource
         :param pulumi.Input[str] monitor_name: Monitor resource name
         :param pulumi.Input[Union['MonitorPropertiesArgs', 'MonitorPropertiesArgsDict']] properties: Properties of the monitor resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the Elastic resource belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']] sku: SKU of the monitor resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the monitor resource.
         """
@@ -175,9 +175,9 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Monitor resource.
-        Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2020-07-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-06-01.
 
-        Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        Other available API versions: 2023-06-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.

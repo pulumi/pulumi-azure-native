@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a msixpackage.
- * Azure REST API version: 2022-09-09.
+ * Azure REST API version: 2024-04-03.
  *
- * Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+ * Other available API versions: 2022-09-09, 2024-08-08-preview.
  */
 export function getMSIXPackage(args: GetMSIXPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetMSIXPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,7 +46,7 @@ export interface GetMSIXPackageResult {
      */
     readonly displayName?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -90,7 +90,7 @@ export interface GetMSIXPackageResult {
      */
     readonly packageRelativePath?: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.desktopvirtualization.SystemDataResponse;
     /**
@@ -98,15 +98,15 @@ export interface GetMSIXPackageResult {
      */
     readonly type: string;
     /**
-     * Package Version found in the appxmanifest.xml. 
+     * Package version found in the appxmanifest.xml. 
      */
     readonly version?: string;
 }
 /**
  * Get a msixpackage.
- * Azure REST API version: 2022-09-09.
+ * Azure REST API version: 2024-04-03.
  *
- * Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+ * Other available API versions: 2022-09-09, 2024-08-08-preview.
  */
 export function getMSIXPackageOutput(args: GetMSIXPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMSIXPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -6,11 +6,6 @@ from enum import Enum
 
 __all__ = [
     'ActionType',
-    'AlertDetail',
-    'AlertProperty',
-    'AlertRuleKind',
-    'AlertSeverity',
-    'AttackTactic',
     'AutomationRuleBooleanConditionSupportedOperator',
     'AutomationRulePropertyArrayChangedConditionSupportedArrayType',
     'AutomationRulePropertyArrayChangedConditionSupportedChangeType',
@@ -20,36 +15,24 @@ __all__ = [
     'AutomationRulePropertyChangedConditionSupportedPropertyType',
     'AutomationRulePropertyConditionSupportedOperator',
     'AutomationRulePropertyConditionSupportedProperty',
-    'CcpAuthType',
     'ConditionType',
-    'DataConnectorDefinitionKind',
     'DataConnectorKind',
     'DataTypeState',
-    'EntityMappingType',
-    'EventGroupingAggregationKind',
     'Flag',
-    'HttpMethodVerb',
     'IncidentClassification',
     'IncidentClassificationReason',
     'IncidentSeverity',
     'IncidentStatus',
     'IncidentTaskStatus',
     'Kind',
-    'MatchingMethod',
-    'MicrosoftSecurityProductName',
     'Operator',
     'OwnerType',
     'PackageKind',
-    'ProviderPermissionsScope',
     'RepositoryAccessKind',
-    'RestApiPollerRequestPagingKind',
-    'SecurityMLAnalyticsSettingsKind',
-    'SettingsStatus',
     'SourceKind',
     'SourceType',
     'SupportTier',
     'ThreatIntelligenceResourceInnerKind',
-    'TriggerOperator',
     'TriggersOn',
     'TriggersWhen',
 ]
@@ -71,116 +54,6 @@ class ActionType(str, Enum):
     """
     Add a task to an incident object
     """
-
-
-class AlertDetail(str, Enum):
-    """
-    Alert detail
-    """
-    DISPLAY_NAME = "DisplayName"
-    """
-    Alert display name
-    """
-    SEVERITY = "Severity"
-    """
-    Alert severity
-    """
-
-
-class AlertProperty(str, Enum):
-    """
-    The V3 alert property
-    """
-    ALERT_LINK = "AlertLink"
-    """
-    Alert's link
-    """
-    CONFIDENCE_LEVEL = "ConfidenceLevel"
-    """
-    Confidence level property
-    """
-    CONFIDENCE_SCORE = "ConfidenceScore"
-    """
-    Confidence score
-    """
-    EXTENDED_LINKS = "ExtendedLinks"
-    """
-    Extended links to the alert
-    """
-    PRODUCT_NAME = "ProductName"
-    """
-    Product name alert property
-    """
-    PROVIDER_NAME = "ProviderName"
-    """
-    Provider name alert property
-    """
-    PRODUCT_COMPONENT_NAME = "ProductComponentName"
-    """
-    Product component name alert property
-    """
-    REMEDIATION_STEPS = "RemediationSteps"
-    """
-    Remediation steps alert property
-    """
-    TECHNIQUES = "Techniques"
-    """
-    Techniques alert property
-    """
-
-
-class AlertRuleKind(str, Enum):
-    """
-    The alert rule kind
-    """
-    SCHEDULED = "Scheduled"
-    MICROSOFT_SECURITY_INCIDENT_CREATION = "MicrosoftSecurityIncidentCreation"
-    FUSION = "Fusion"
-
-
-class AlertSeverity(str, Enum):
-    """
-    The severity for alerts created by this alert rule.
-    """
-    HIGH = "High"
-    """
-    High severity
-    """
-    MEDIUM = "Medium"
-    """
-    Medium severity
-    """
-    LOW = "Low"
-    """
-    Low severity
-    """
-    INFORMATIONAL = "Informational"
-    """
-    Informational severity
-    """
-
-
-class AttackTactic(str, Enum):
-    """
-    The severity for alerts created by this alert rule.
-    """
-    RECONNAISSANCE = "Reconnaissance"
-    RESOURCE_DEVELOPMENT = "ResourceDevelopment"
-    INITIAL_ACCESS = "InitialAccess"
-    EXECUTION = "Execution"
-    PERSISTENCE = "Persistence"
-    PRIVILEGE_ESCALATION = "PrivilegeEscalation"
-    DEFENSE_EVASION = "DefenseEvasion"
-    CREDENTIAL_ACCESS = "CredentialAccess"
-    DISCOVERY = "Discovery"
-    LATERAL_MOVEMENT = "LateralMovement"
-    COLLECTION = "Collection"
-    EXFILTRATION = "Exfiltration"
-    COMMAND_AND_CONTROL = "CommandAndControl"
-    IMPACT = "Impact"
-    PRE_ATTACK = "PreAttack"
-    IMPAIR_PROCESS_CONTROL = "ImpairProcessControl"
-    INHIBIT_RESPONSE_FUNCTION = "InhibitResponseFunction"
 
 
 class AutomationRuleBooleanConditionSupportedOperator(str, Enum):
@@ -546,23 +419,6 @@ class AutomationRulePropertyConditionSupportedProperty(str, Enum):
     """
 
 
-class CcpAuthType(str, Enum):
-    """
-    The auth type
-    """
-    BASIC = "Basic"
-    API_KEY = "APIKey"
-    O_AUTH2 = "OAuth2"
-    AWS = "AWS"
-    GCP = "GCP"
-    SESSION = "Session"
-    JWT_TOKEN = "JwtToken"
-    GIT_HUB = "GitHub"
-    SERVICE_BUS = "ServiceBus"
-    ORACLE = "Oracle"
-    NONE = "None"
-
-
 class ConditionType(str, Enum):
     PROPERTY = "Property"
     """
@@ -584,13 +440,6 @@ class ConditionType(str, Enum):
     """
     Apply a boolean operator (e.g AND, OR) to conditions
     """
-
-
-class DataConnectorDefinitionKind(str, Enum):
-    """
-    The data connector kind
-    """
-    CUSTOMIZABLE = "Customizable"
 
 
 class DataConnectorKind(str, Enum):
@@ -618,108 +467,12 @@ class DataTypeState(str, Enum):
     DISABLED = "Disabled"
 
 
-class EntityMappingType(str, Enum):
-    """
-    The V3 type of the mapped entity
-    """
-    ACCOUNT = "Account"
-    """
-    User account entity type
-    """
-    HOST = "Host"
-    """
-    Host entity type
-    """
-    IP = "IP"
-    """
-    IP address entity type
-    """
-    MALWARE = "Malware"
-    """
-    Malware entity type
-    """
-    FILE = "File"
-    """
-    System file entity type
-    """
-    PROCESS = "Process"
-    """
-    Process entity type
-    """
-    CLOUD_APPLICATION = "CloudApplication"
-    """
-    Cloud app entity type
-    """
-    DNS = "DNS"
-    """
-    DNS entity type
-    """
-    AZURE_RESOURCE = "AzureResource"
-    """
-    Azure resource entity type
-    """
-    FILE_HASH = "FileHash"
-    """
-    File-hash entity type
-    """
-    REGISTRY_KEY = "RegistryKey"
-    """
-    Registry key entity type
-    """
-    REGISTRY_VALUE = "RegistryValue"
-    """
-    Registry value entity type
-    """
-    SECURITY_GROUP = "SecurityGroup"
-    """
-    Security group entity type
-    """
-    URL = "URL"
-    """
-    URL entity type
-    """
-    MAILBOX = "Mailbox"
-    """
-    Mailbox entity type
-    """
-    MAIL_CLUSTER = "MailCluster"
-    """
-    Mail cluster entity type
-    """
-    MAIL_MESSAGE = "MailMessage"
-    """
-    Mail message entity type
-    """
-    SUBMISSION_MAIL = "SubmissionMail"
-    """
-    Submission mail entity type
-    """
-
-
-class EventGroupingAggregationKind(str, Enum):
-    """
-    The event grouping aggregation kinds
-    """
-    SINGLE_ALERT = "SingleAlert"
-    ALERT_PER_RESULT = "AlertPerResult"
-
-
 class Flag(str, Enum):
     """
     Flag indicates if this package is in preview.
     """
     TRUE = "true"
     FALSE = "false"
-
-
-class HttpMethodVerb(str, Enum):
-    """
-    The HTTP method, default value GET.
-    """
-    GET = "GET"
-    POST = "POST"
-    PUT = "PUT"
-    DELETE = "DELETE"
 
 
 class IncidentClassification(str, Enum):
@@ -843,35 +596,6 @@ class Kind(str, Enum):
     AUTOMATION_RULE = "AutomationRule"
 
 
-class MatchingMethod(str, Enum):
-    """
-    Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
-    """
-    ALL_ENTITIES = "AllEntities"
-    """
-    Grouping alerts into a single incident if all the entities match
-    """
-    ANY_ALERT = "AnyAlert"
-    """
-    Grouping any alerts triggered by this rule into a single incident
-    """
-    SELECTED = "Selected"
-    """
-    Grouping alerts into a single incident if the selected entities, custom details and alert details match
-    """
-
-
-class MicrosoftSecurityProductName(str, Enum):
-    """
-    The alerts' productName on which the cases will be generated
-    """
-    MICROSOFT_CLOUD_APP_SECURITY = "Microsoft Cloud App Security"
-    AZURE_SECURITY_CENTER = "Azure Security Center"
-    AZURE_ADVANCED_THREAT_PROTECTION = "Azure Advanced Threat Protection"
-    AZURE_ACTIVE_DIRECTORY_IDENTITY_PROTECTION = "Azure Active Directory Identity Protection"
-    AZURE_SECURITY_CENTER_FOR_IO_T = "Azure Security Center for IoT"
-
-
 class Operator(str, Enum):
     """
     Operator used for list of dependencies in criteria array.
@@ -906,15 +630,6 @@ class PackageKind(str, Enum):
     STANDALONE = "Standalone"
 
 
-class ProviderPermissionsScope(str, Enum):
-    """
-    The scope on which the user should have permissions, in order to be able to create connections.
-    """
-    SUBSCRIPTION = "Subscription"
-    RESOURCE_GROUP = "ResourceGroup"
-    WORKSPACE = "Workspace"
-
-
 class RepositoryAccessKind(str, Enum):
     """
     The kind of repository access credentials
@@ -922,40 +637,6 @@ class RepositoryAccessKind(str, Enum):
     O_AUTH = "OAuth"
     PAT = "PAT"
     APP = "App"
-
-
-class RestApiPollerRequestPagingKind(str, Enum):
-    """
-    Type of paging
-    """
-    LINK_HEADER = "LinkHeader"
-    NEXT_PAGE_TOKEN = "NextPageToken"
-    NEXT_PAGE_URL = "NextPageUrl"
-    PERSISTENT_TOKEN = "PersistentToken"
-    PERSISTENT_LINK_HEADER = "PersistentLinkHeader"
-    OFFSET = "Offset"
-    COUNT_BASED_PAGING = "CountBasedPaging"
-
-
-class SecurityMLAnalyticsSettingsKind(str, Enum):
-    """
-    The kind of security ML Analytics Settings
-    """
-    ANOMALY = "Anomaly"
-
-
-class SettingsStatus(str, Enum):
-    """
-    The anomaly SecurityMLAnalyticsSettings status
-    """
-    PRODUCTION = "Production"
-    """
-    Anomaly settings status in Production mode
-    """
-    FLIGHTING = "Flighting"
-    """
-    Anomaly settings status in Flighting mode
-    """
 
 
 class SourceKind(str, Enum):
@@ -999,16 +680,6 @@ class ThreatIntelligenceResourceInnerKind(str, Enum):
     """
     Entity represents threat intelligence indicator in the system.
     """
-
-
-class TriggerOperator(str, Enum):
-    """
-    The operation against the threshold that triggers alert rule.
-    """
-    GREATER_THAN = "GreaterThan"
-    LESS_THAN = "LessThan"
-    EQUAL = "Equal"
-    NOT_EQUAL = "NotEqual"
 
 
 class TriggersOn(str, Enum):

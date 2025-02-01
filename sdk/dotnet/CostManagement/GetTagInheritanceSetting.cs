@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// Get the setting from the given scope by name.
-        /// Azure REST API version: 2022-10-05-preview.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Task<GetTagInheritanceSettingResult> InvokeAsync(GetTagInheritanceSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagInheritanceSettingResult>("azure-native:costmanagement:getTagInheritanceSetting", args ?? new GetTagInheritanceSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the setting from the given scope by name.
-        /// Azure REST API version: 2022-10-05-preview.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Output<GetTagInheritanceSettingResult> Invoke(GetTagInheritanceSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagInheritanceSettingResult>("azure-native:costmanagement:getTagInheritanceSetting", args ?? new GetTagInheritanceSettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the setting from the given scope by name.
-        /// Azure REST API version: 2022-10-05-preview.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Output<GetTagInheritanceSettingResult> Invoke(GetTagInheritanceSettingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagInheritanceSettingResult>("azure-native:costmanagement:getTagInheritanceSetting", args ?? new GetTagInheritanceSettingInvokeArgs(), options.WithDefaults());
@@ -79,11 +79,7 @@ namespace Pulumi.AzureNative.CostManagement
     public sealed class GetTagInheritanceSettingResult
     {
         /// <summary>
-        /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-        /// </summary>
-        public readonly string? ETag;
-        /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -92,7 +88,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -100,14 +96,12 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly Outputs.TagInheritancePropertiesResponse Properties;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetTagInheritanceSettingResult(
-            string? eTag,
-
             string id,
 
             string kind,
@@ -118,7 +112,6 @@ namespace Pulumi.AzureNative.CostManagement
 
             string type)
         {
-            ETag = eTag;
             Id = id;
             Kind = kind;
             Name = name;

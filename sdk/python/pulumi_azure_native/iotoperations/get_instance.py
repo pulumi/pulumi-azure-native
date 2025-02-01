@@ -27,13 +27,16 @@ class GetInstanceResult:
     """
     A Instance resource is a logical container for a set of child resources.
     """
-    def __init__(__self__, extended_location=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, extended_location=None, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -68,6 +71,14 @@ class GetInstanceResult:
         Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The managed service identities assigned to this resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -126,6 +137,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
         return GetInstanceResult(
             extended_location=self.extended_location,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -139,9 +151,9 @@ def get_instance(instance_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
     Get a InstanceResource
-    Azure REST API version: 2024-07-01-preview.
+    Azure REST API version: 2024-11-01.
 
-    Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+    Other available API versions: 2024-07-01-preview.
 
 
     :param str instance_name: Name of instance.
@@ -156,6 +168,7 @@ def get_instance(instance_name: Optional[str] = None,
     return AwaitableGetInstanceResult(
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
@@ -167,9 +180,9 @@ def get_instance_output(instance_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Get a InstanceResource
-    Azure REST API version: 2024-07-01-preview.
+    Azure REST API version: 2024-11-01.
 
-    Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+    Other available API versions: 2024-07-01-preview.
 
 
     :param str instance_name: Name of instance.
@@ -183,6 +196,7 @@ def get_instance_output(instance_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetInstanceResult(
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),

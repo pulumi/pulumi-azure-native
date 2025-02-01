@@ -57,9 +57,9 @@ def list_workspace_notebook_keys(resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceNotebookKeysResult:
     """
     List keys of a notebook.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+    Other available API versions: 2022-01-01-preview, 2023-04-01, 2023-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -79,9 +79,9 @@ def list_workspace_notebook_keys_output(resource_group_name: Optional[pulumi.Inp
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceNotebookKeysResult]:
     """
     List keys of a notebook.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+    Other available API versions: 2022-01-01-preview, 2023-04-01, 2023-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

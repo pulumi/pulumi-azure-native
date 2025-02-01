@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Artifact store properties.
-    /// Azure REST API version: 2023-09-01.
+    /// Azure REST API version: 2024-04-15. Prior API version in Azure Native 2.x: 2023-09-01.
     /// 
-    /// Other available API versions: 2024-04-15.
+    /// Other available API versions: 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:ArtifactStore")]
     public partial class ArtifactStore : global::Pulumi.CustomResource

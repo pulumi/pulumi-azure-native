@@ -30,6 +30,8 @@ __all__ = [
     'ClusterLogAnalyticsApplicationLogsArgsDict',
     'ClusterLogAnalyticsProfileArgs',
     'ClusterLogAnalyticsProfileArgsDict',
+    'ClusterPoolComputeProfileArgs',
+    'ClusterPoolComputeProfileArgsDict',
     'ClusterPoolResourcePropertiesClusterPoolProfileArgs',
     'ClusterPoolResourcePropertiesClusterPoolProfileArgsDict',
     'ClusterPoolResourcePropertiesComputeProfileArgs',
@@ -38,6 +40,8 @@ __all__ = [
     'ClusterPoolResourcePropertiesLogAnalyticsProfileArgsDict',
     'ClusterPoolResourcePropertiesNetworkProfileArgs',
     'ClusterPoolResourcePropertiesNetworkProfileArgsDict',
+    'ClusterPoolSshProfileArgs',
+    'ClusterPoolSshProfileArgsDict',
     'ClusterProfileArgs',
     'ClusterProfileArgsDict',
     'ClusterPrometheusProfileArgs',
@@ -50,8 +54,6 @@ __all__ = [
     'ClusterServiceConfigArgsDict',
     'ComparisonRuleArgs',
     'ComparisonRuleArgsDict',
-    'ComputeProfileArgs',
-    'ComputeProfileArgsDict',
     'ComputeResourceDefinitionArgs',
     'ComputeResourceDefinitionArgsDict',
     'DiskStorageProfileArgs',
@@ -112,8 +114,6 @@ __all__ = [
     'SparkUserPluginsArgsDict',
     'SparkUserPluginArgs',
     'SparkUserPluginArgsDict',
-    'SshProfileArgs',
-    'SshProfileArgsDict',
     'TrinoCoordinatorArgs',
     'TrinoCoordinatorArgsDict',
     'TrinoProfileArgs',
@@ -624,6 +624,61 @@ class ClusterLogAnalyticsProfileArgs:
 
 
 if not MYPY:
+    class ClusterPoolComputeProfileArgsDict(TypedDict):
+        """
+        The compute profile.
+        """
+        nodes: pulumi.Input[Sequence[pulumi.Input['NodeProfileArgsDict']]]
+        """
+        The nodes definitions.
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Availability zones to use for AKS VMSS nodes.
+        """
+elif False:
+    ClusterPoolComputeProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterPoolComputeProfileArgs:
+    def __init__(__self__, *,
+                 nodes: pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]],
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The compute profile.
+        :param pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]] nodes: The nodes definitions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The list of Availability zones to use for AKS VMSS nodes.
+        """
+        pulumi.set(__self__, "nodes", nodes)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]]:
+        """
+        The nodes definitions.
+        """
+        return pulumi.get(self, "nodes")
+
+    @nodes.setter
+    def nodes(self, value: pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]]):
+        pulumi.set(self, "nodes", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of Availability zones to use for AKS VMSS nodes.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+
+if not MYPY:
     class ClusterPoolResourcePropertiesClusterPoolProfileArgsDict(TypedDict):
         """
         CLuster pool profile.
@@ -886,6 +941,61 @@ class ClusterPoolResourcePropertiesNetworkProfileArgs:
 
 
 if not MYPY:
+    class ClusterPoolSshProfileArgsDict(TypedDict):
+        """
+        Ssh profile for the cluster.
+        """
+        count: pulumi.Input[int]
+        """
+        Number of ssh pods per cluster.
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        The virtual machine SKU.
+        """
+elif False:
+    ClusterPoolSshProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterPoolSshProfileArgs:
+    def __init__(__self__, *,
+                 count: pulumi.Input[int],
+                 vm_size: Optional[pulumi.Input[str]] = None):
+        """
+        Ssh profile for the cluster.
+        :param pulumi.Input[int] count: Number of ssh pods per cluster.
+        :param pulumi.Input[str] vm_size: The virtual machine SKU.
+        """
+        pulumi.set(__self__, "count", count)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[int]:
+        """
+        Number of ssh pods per cluster.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The virtual machine SKU.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_size", value)
+
+
+if not MYPY:
     class ClusterProfileArgsDict(TypedDict):
         """
         Cluster profile.
@@ -962,7 +1072,7 @@ if not MYPY:
         """
         The spark cluster profile.
         """
-        ssh_profile: NotRequired[pulumi.Input['SshProfileArgsDict']]
+        ssh_profile: NotRequired[pulumi.Input['ClusterPoolSshProfileArgsDict']]
         """
         Ssh profile for the cluster.
         """
@@ -998,7 +1108,7 @@ class ClusterProfileArgs:
                  secrets_profile: Optional[pulumi.Input['SecretsProfileArgs']] = None,
                  service_configs_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterServiceConfigsProfileArgs']]]] = None,
                  spark_profile: Optional[pulumi.Input['SparkProfileArgs']] = None,
-                 ssh_profile: Optional[pulumi.Input['SshProfileArgs']] = None,
+                 ssh_profile: Optional[pulumi.Input['ClusterPoolSshProfileArgs']] = None,
                  stub_profile: Optional[Any] = None,
                  trino_profile: Optional[pulumi.Input['TrinoProfileArgs']] = None):
         """
@@ -1021,7 +1131,7 @@ class ClusterProfileArgs:
         :param pulumi.Input['SecretsProfileArgs'] secrets_profile: The cluster secret profile.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterServiceConfigsProfileArgs']]] service_configs_profiles: The service configs profiles.
         :param pulumi.Input['SparkProfileArgs'] spark_profile: The spark cluster profile.
-        :param pulumi.Input['SshProfileArgs'] ssh_profile: Ssh profile for the cluster.
+        :param pulumi.Input['ClusterPoolSshProfileArgs'] ssh_profile: Ssh profile for the cluster.
         :param Any stub_profile: Stub cluster profile.
         :param pulumi.Input['TrinoProfileArgs'] trino_profile: Trino Cluster profile.
         """
@@ -1283,14 +1393,14 @@ class ClusterProfileArgs:
 
     @property
     @pulumi.getter(name="sshProfile")
-    def ssh_profile(self) -> Optional[pulumi.Input['SshProfileArgs']]:
+    def ssh_profile(self) -> Optional[pulumi.Input['ClusterPoolSshProfileArgs']]:
         """
         Ssh profile for the cluster.
         """
         return pulumi.get(self, "ssh_profile")
 
     @ssh_profile.setter
-    def ssh_profile(self, value: Optional[pulumi.Input['SshProfileArgs']]):
+    def ssh_profile(self, value: Optional[pulumi.Input['ClusterPoolSshProfileArgs']]):
         pulumi.set(self, "ssh_profile", value)
 
     @property
@@ -1552,61 +1662,6 @@ class ComparisonRuleArgs:
     @threshold.setter
     def threshold(self, value: pulumi.Input[float]):
         pulumi.set(self, "threshold", value)
-
-
-if not MYPY:
-    class ComputeProfileArgsDict(TypedDict):
-        """
-        The compute profile.
-        """
-        nodes: pulumi.Input[Sequence[pulumi.Input['NodeProfileArgsDict']]]
-        """
-        The nodes definitions.
-        """
-        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        The list of Availability zones to use for AKS VMSS nodes.
-        """
-elif False:
-    ComputeProfileArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ComputeProfileArgs:
-    def __init__(__self__, *,
-                 nodes: pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]],
-                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The compute profile.
-        :param pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]] nodes: The nodes definitions.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The list of Availability zones to use for AKS VMSS nodes.
-        """
-        pulumi.set(__self__, "nodes", nodes)
-        if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
-
-    @property
-    @pulumi.getter
-    def nodes(self) -> pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]]:
-        """
-        The nodes definitions.
-        """
-        return pulumi.get(self, "nodes")
-
-    @nodes.setter
-    def nodes(self, value: pulumi.Input[Sequence[pulumi.Input['NodeProfileArgs']]]):
-        pulumi.set(self, "nodes", value)
-
-    @property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of Availability zones to use for AKS VMSS nodes.
-        """
-        return pulumi.get(self, "availability_zones")
-
-    @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "availability_zones", value)
 
 
 if not MYPY:
@@ -4112,61 +4167,6 @@ class SparkUserPluginArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
-
-
-if not MYPY:
-    class SshProfileArgsDict(TypedDict):
-        """
-        Ssh profile for the cluster.
-        """
-        count: pulumi.Input[int]
-        """
-        Number of ssh pods per cluster.
-        """
-        vm_size: NotRequired[pulumi.Input[str]]
-        """
-        The virtual machine SKU.
-        """
-elif False:
-    SshProfileArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class SshProfileArgs:
-    def __init__(__self__, *,
-                 count: pulumi.Input[int],
-                 vm_size: Optional[pulumi.Input[str]] = None):
-        """
-        Ssh profile for the cluster.
-        :param pulumi.Input[int] count: Number of ssh pods per cluster.
-        :param pulumi.Input[str] vm_size: The virtual machine SKU.
-        """
-        pulumi.set(__self__, "count", count)
-        if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
-
-    @property
-    @pulumi.getter
-    def count(self) -> pulumi.Input[int]:
-        """
-        Number of ssh pods per cluster.
-        """
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[str]]:
-        """
-        The virtual machine SKU.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vm_size", value)
 
 
 if not MYPY:

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.App.Inputs
         private InputList<Inputs.EnvironmentVariableArgs>? _environmentVariables;
 
         /// <summary>
-        /// List of environment variables to be passed to the build.
+        /// List of environment variables to be passed to the build, secrets should not be used in environment variable.
         /// </summary>
         public InputList<Inputs.EnvironmentVariableArgs> EnvironmentVariables
         {

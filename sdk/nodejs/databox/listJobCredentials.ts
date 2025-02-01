@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * This method gets the unencrypted secrets related to the job.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-12-01.
  *
- * Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+ * Other available API versions: 2022-12-01, 2024-03-01-preview.
  */
 export function listJobCredentials(args: ListJobCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListJobCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,9 +47,9 @@ export interface ListJobCredentialsResult {
 }
 /**
  * This method gets the unencrypted secrets related to the job.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-12-01.
  *
- * Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+ * Other available API versions: 2022-12-01, 2024-03-01-preview.
  */
 export function listJobCredentialsOutput(args: ListJobCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListJobCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

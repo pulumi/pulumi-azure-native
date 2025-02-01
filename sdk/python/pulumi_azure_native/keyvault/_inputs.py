@@ -46,6 +46,8 @@ __all__ = [
     'ManagedHsmPropertiesArgsDict',
     'ManagedHsmSkuArgs',
     'ManagedHsmSkuArgsDict',
+    'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'NetworkRuleSetArgs',
     'NetworkRuleSetArgsDict',
     'PermissionsArgs',
@@ -167,7 +169,7 @@ if not MYPY:
     class ActionArgsDict(TypedDict):
         type: NotRequired[pulumi.Input['KeyRotationPolicyActionType']]
         """
-        The type of the action. The value should be compared case-insensitively.
+        The type of action.
         """
 elif False:
     ActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -177,7 +179,7 @@ class ActionArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['KeyRotationPolicyActionType']] = None):
         """
-        :param pulumi.Input['KeyRotationPolicyActionType'] type: The type of the action. The value should be compared case-insensitively.
+        :param pulumi.Input['KeyRotationPolicyActionType'] type: The type of action.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -186,7 +188,7 @@ class ActionArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['KeyRotationPolicyActionType']]:
         """
-        The type of the action. The value should be compared case-insensitively.
+        The type of action.
         """
         return pulumi.get(self, "type")
 
@@ -339,12 +341,12 @@ if not MYPY:
         """
         curve_name: NotRequired[pulumi.Input[Union[str, 'JsonWebKeyCurveName']]]
         """
-        The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+        The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
         """
         key_ops: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'JsonWebKeyOperation']]]]]
         key_size: NotRequired[pulumi.Input[int]]
         """
-        The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
         """
         kty: NotRequired[pulumi.Input[Union[str, 'JsonWebKeyType']]]
         """
@@ -374,8 +376,8 @@ class KeyPropertiesArgs:
         """
         The properties of the key.
         :param pulumi.Input['KeyAttributesArgs'] attributes: The attributes of the key.
-        :param pulumi.Input[Union[str, 'JsonWebKeyCurveName']] curve_name: The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-        :param pulumi.Input[int] key_size: The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        :param pulumi.Input[Union[str, 'JsonWebKeyCurveName']] curve_name: The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
+        :param pulumi.Input[int] key_size: The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
         :param pulumi.Input[Union[str, 'JsonWebKeyType']] kty: The type of the key. For valid values, see JsonWebKeyType.
         :param pulumi.Input['KeyReleasePolicyArgs'] release_policy: Key release policy in response. It will be used for both output and input. Omitted if empty
         :param pulumi.Input['RotationPolicyArgs'] rotation_policy: Key rotation policy in response. It will be used for both output and input. Omitted if empty
@@ -411,7 +413,7 @@ class KeyPropertiesArgs:
     @pulumi.getter(name="curveName")
     def curve_name(self) -> Optional[pulumi.Input[Union[str, 'JsonWebKeyCurveName']]]:
         """
-        The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+        The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
         """
         return pulumi.get(self, "curve_name")
 
@@ -432,7 +434,7 @@ class KeyPropertiesArgs:
     @pulumi.getter(name="keySize")
     def key_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
         """
         return pulumi.get(self, "key_size")
 
@@ -1172,6 +1174,61 @@ class ManagedHsmSkuArgs:
 
 
 if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
     class NetworkRuleSetArgsDict(TypedDict):
         """
         A set of rules governing the network accessibility of a vault.
@@ -1871,10 +1928,16 @@ class VaultPropertiesArgs:
             enable_soft_delete = True
         if enable_soft_delete is not None:
             pulumi.set(__self__, "enable_soft_delete", enable_soft_delete)
+        if enabled_for_deployment is None:
+            enabled_for_deployment = False
         if enabled_for_deployment is not None:
             pulumi.set(__self__, "enabled_for_deployment", enabled_for_deployment)
+        if enabled_for_disk_encryption is None:
+            enabled_for_disk_encryption = False
         if enabled_for_disk_encryption is not None:
             pulumi.set(__self__, "enabled_for_disk_encryption", enabled_for_disk_encryption)
+        if enabled_for_template_deployment is None:
+            enabled_for_template_deployment = False
         if enabled_for_template_deployment is not None:
             pulumi.set(__self__, "enabled_for_template_deployment", enabled_for_template_deployment)
         if network_acls is not None:

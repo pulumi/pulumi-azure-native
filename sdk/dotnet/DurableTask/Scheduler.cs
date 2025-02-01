@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DurableTask
 {
     /// <summary>
     /// A Durable Task Scheduler resource
-    /// Azure REST API version: 2024-10-01-preview.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:durabletask:Scheduler")]
     public partial class Scheduler : global::Pulumi.CustomResource

@@ -5,44 +5,21 @@
 from enum import Enum
 
 __all__ = [
-    'Action',
     'ActionsRequired',
     'AuditLogStatus',
-    'AzureADAuthenticationAsArmPolicyStatus',
     'ConnectedRegistryMode',
     'ConnectionStatus',
-    'CredentialName',
-    'DefaultAction',
-    'EncryptionStatus',
-    'ExportPolicyStatus',
     'LogLevel',
-    'MetadataSearch',
-    'NetworkRuleBypassOptions',
     'PackageSourceType',
-    'PipelineOptions',
     'PipelineRunSourceType',
     'PipelineRunTargetType',
-    'PipelineSourceType',
-    'PolicyStatus',
-    'PublicNetworkAccess',
-    'ResourceIdentityType',
-    'SkuName',
     'TokenCertificateName',
     'TokenPasswordName',
     'TokenStatus',
-    'TriggerStatus',
-    'TrustPolicyType',
     'WebhookAction',
     'WebhookStatus',
     'ZoneRedundancy',
 ]
-
-
-class Action(str, Enum):
-    """
-    The action of IP ACL rule.
-    """
-    ALLOW = "Allow"
 
 
 class ActionsRequired(str, Enum):
@@ -59,14 +36,6 @@ class AuditLogStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class AzureADAuthenticationAsArmPolicyStatus(str, Enum):
-    """
-    The value that indicates whether the policy is enabled or not.
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
 
 
 class ConnectedRegistryMode(str, Enum):
@@ -89,37 +58,6 @@ class ConnectionStatus(str, Enum):
     DISCONNECTED = "Disconnected"
 
 
-class CredentialName(str, Enum):
-    """
-    The name of the credential.
-    """
-    CREDENTIAL1 = "Credential1"
-
-
-class DefaultAction(str, Enum):
-    """
-    The default action of allow or deny when no other rules match.
-    """
-    ALLOW = "Allow"
-    DENY = "Deny"
-
-
-class EncryptionStatus(str, Enum):
-    """
-    Indicates whether or not the encryption is enabled for container registry.
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
-
-
-class ExportPolicyStatus(str, Enum):
-    """
-    The value that indicates whether the policy is enabled or not.
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
-
-
 class LogLevel(str, Enum):
     """
     The verbosity of logs persisted on the connected registry.
@@ -131,34 +69,11 @@ class LogLevel(str, Enum):
     NONE = "None"
 
 
-class MetadataSearch(str, Enum):
-    """
-    Determines whether registry artifacts are indexed for metadata search.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class NetworkRuleBypassOptions(str, Enum):
-    """
-    Whether to allow trusted Azure services to access a network restricted registry.
-    """
-    AZURE_SERVICES = "AzureServices"
-    NONE = "None"
-
-
 class PackageSourceType(str, Enum):
     """
     The type of package source for a archive.
     """
     REMOTE = "remote"
-
-
-class PipelineOptions(str, Enum):
-    OVERWRITE_TAGS = "OverwriteTags"
-    OVERWRITE_BLOBS = "OverwriteBlobs"
-    DELETE_SOURCE_BLOB_ON_SUCCESS = "DeleteSourceBlobOnSuccess"
-    CONTINUE_ON_ERRORS = "ContinueOnErrors"
 
 
 class PipelineRunSourceType(str, Enum):
@@ -173,49 +88,6 @@ class PipelineRunTargetType(str, Enum):
     The type of the target.
     """
     AZURE_STORAGE_BLOB = "AzureStorageBlob"
-
-
-class PipelineSourceType(str, Enum):
-    """
-    The type of source for the import pipeline.
-    """
-    AZURE_STORAGE_BLOB_CONTAINER = "AzureStorageBlobContainer"
-
-
-class PolicyStatus(str, Enum):
-    """
-    The value that indicates whether the policy is enabled or not.
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
-
-
-class PublicNetworkAccess(str, Enum):
-    """
-    Whether or not public network access is allowed for the container registry.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
-    NONE = "None"
-
-
-class SkuName(str, Enum):
-    """
-    The SKU name of the container registry. Required for registry creation.
-    """
-    CLASSIC = "Classic"
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
 
 
 class TokenCertificateName(str, Enum):
@@ -237,21 +109,6 @@ class TokenStatus(str, Enum):
     """
     ENABLED = "enabled"
     DISABLED = "disabled"
-
-
-class TriggerStatus(str, Enum):
-    """
-    The current status of the source trigger.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class TrustPolicyType(str, Enum):
-    """
-    The type of trust policy.
-    """
-    NOTARY = "Notary"
 
 
 class WebhookAction(str, Enum):

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Description of queue Resource.
-    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+    /// Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
     /// 
-    /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    /// Other available API versions: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Queue")]
     public partial class Queue : global::Pulumi.CustomResource
@@ -336,7 +336,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<bool>? RequiresSession { get; set; }
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

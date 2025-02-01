@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The virtual network resource definition.
- * Azure REST API version: 2022-12-15-preview.
+ * Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview.
+ * Other available API versions: 2022-12-15-preview.
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**
@@ -132,7 +132,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["vmSwitchName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20230701preview:VirtualNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualNetwork" }, { type: "azure-native:azurestackhci/v20230701preview:VirtualNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetwork.__pulumiType, name, resourceInputs, opts);
     }

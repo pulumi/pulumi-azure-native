@@ -105,9 +105,9 @@ def get_connection_rai_policy(connection_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionRaiPolicyResult:
     """
     Azure OpenAI Content Filters resource.
-    Azure REST API version: 2024-04-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-04-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection
@@ -136,9 +136,9 @@ def get_connection_rai_policy_output(connection_name: Optional[pulumi.Input[str]
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionRaiPolicyResult]:
     """
     Azure OpenAI Content Filters resource.
-    Azure REST API version: 2024-04-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-04-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection

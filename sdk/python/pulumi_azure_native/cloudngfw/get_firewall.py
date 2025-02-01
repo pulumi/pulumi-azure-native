@@ -27,7 +27,7 @@ class GetFirewallResult:
     """
     PaloAltoNetworks Firewall
     """
-    def __init__(__self__, associated_rulestack=None, dns_settings=None, front_end_settings=None, id=None, identity=None, is_panorama_managed=None, location=None, marketplace_details=None, name=None, network_profile=None, pan_etag=None, panorama_config=None, plan_data=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, associated_rulestack=None, dns_settings=None, front_end_settings=None, id=None, identity=None, is_panorama_managed=None, is_strata_cloud_managed=None, location=None, marketplace_details=None, name=None, network_profile=None, pan_etag=None, panorama_config=None, plan_data=None, provisioning_state=None, strata_cloud_manager_config=None, system_data=None, tags=None, type=None):
         if associated_rulestack and not isinstance(associated_rulestack, dict):
             raise TypeError("Expected argument 'associated_rulestack' to be a dict")
         pulumi.set(__self__, "associated_rulestack", associated_rulestack)
@@ -46,6 +46,9 @@ class GetFirewallResult:
         if is_panorama_managed and not isinstance(is_panorama_managed, str):
             raise TypeError("Expected argument 'is_panorama_managed' to be a str")
         pulumi.set(__self__, "is_panorama_managed", is_panorama_managed)
+        if is_strata_cloud_managed and not isinstance(is_strata_cloud_managed, str):
+            raise TypeError("Expected argument 'is_strata_cloud_managed' to be a str")
+        pulumi.set(__self__, "is_strata_cloud_managed", is_strata_cloud_managed)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -70,6 +73,9 @@ class GetFirewallResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if strata_cloud_manager_config and not isinstance(strata_cloud_manager_config, dict):
+            raise TypeError("Expected argument 'strata_cloud_manager_config' to be a dict")
+        pulumi.set(__self__, "strata_cloud_manager_config", strata_cloud_manager_config)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -127,6 +133,14 @@ class GetFirewallResult:
         Panorama Managed: Default is False. Default will be CloudSec managed
         """
         return pulumi.get(self, "is_panorama_managed")
+
+    @property
+    @pulumi.getter(name="isStrataCloudManaged")
+    def is_strata_cloud_managed(self) -> Optional[str]:
+        """
+        Strata Cloud Managed: Default is False. Default will be CloudSec managed
+        """
+        return pulumi.get(self, "is_strata_cloud_managed")
 
     @property
     @pulumi.getter
@@ -193,6 +207,14 @@ class GetFirewallResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="strataCloudManagerConfig")
+    def strata_cloud_manager_config(self) -> Optional['outputs.StrataCloudManagerConfigResponse']:
+        """
+        Strata Cloud Manager Configuration, only applicable if Strata Cloud Manager is selected.
+        """
+        return pulumi.get(self, "strata_cloud_manager_config")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -229,6 +251,7 @@ class AwaitableGetFirewallResult(GetFirewallResult):
             id=self.id,
             identity=self.identity,
             is_panorama_managed=self.is_panorama_managed,
+            is_strata_cloud_managed=self.is_strata_cloud_managed,
             location=self.location,
             marketplace_details=self.marketplace_details,
             name=self.name,
@@ -237,6 +260,7 @@ class AwaitableGetFirewallResult(GetFirewallResult):
             panorama_config=self.panorama_config,
             plan_data=self.plan_data,
             provisioning_state=self.provisioning_state,
+            strata_cloud_manager_config=self.strata_cloud_manager_config,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -247,9 +271,9 @@ def get_firewall(firewall_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallResult:
     """
     Get a FirewallResource
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-01-19-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2023-09-01, 2024-02-07-preview.
 
 
     :param str firewall_name: Firewall resource name
@@ -268,6 +292,7 @@ def get_firewall(firewall_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         is_panorama_managed=pulumi.get(__ret__, 'is_panorama_managed'),
+        is_strata_cloud_managed=pulumi.get(__ret__, 'is_strata_cloud_managed'),
         location=pulumi.get(__ret__, 'location'),
         marketplace_details=pulumi.get(__ret__, 'marketplace_details'),
         name=pulumi.get(__ret__, 'name'),
@@ -276,6 +301,7 @@ def get_firewall(firewall_name: Optional[str] = None,
         panorama_config=pulumi.get(__ret__, 'panorama_config'),
         plan_data=pulumi.get(__ret__, 'plan_data'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        strata_cloud_manager_config=pulumi.get(__ret__, 'strata_cloud_manager_config'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -284,9 +310,9 @@ def get_firewall_output(firewall_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallResult]:
     """
     Get a FirewallResource
-    Azure REST API version: 2023-09-01.
+    Azure REST API version: 2024-01-19-preview.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2023-09-01, 2024-02-07-preview.
 
 
     :param str firewall_name: Firewall resource name
@@ -304,6 +330,7 @@ def get_firewall_output(firewall_name: Optional[pulumi.Input[str]] = None,
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         is_panorama_managed=pulumi.get(__response__, 'is_panorama_managed'),
+        is_strata_cloud_managed=pulumi.get(__response__, 'is_strata_cloud_managed'),
         location=pulumi.get(__response__, 'location'),
         marketplace_details=pulumi.get(__response__, 'marketplace_details'),
         name=pulumi.get(__response__, 'name'),
@@ -312,6 +339,7 @@ def get_firewall_output(firewall_name: Optional[pulumi.Input[str]] = None,
         panorama_config=pulumi.get(__response__, 'panorama_config'),
         plan_data=pulumi.get(__response__, 'plan_data'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        strata_cloud_manager_config=pulumi.get(__response__, 'strata_cloud_manager_config'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

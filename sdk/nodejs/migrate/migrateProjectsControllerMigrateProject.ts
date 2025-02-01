@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Migrate project.
- * Azure REST API version: 2020-05-01.
+ * Azure REST API version: 2020-05-01. Prior API version in Azure Native 2.x: 2020-05-01.
  *
  * Other available API versions: 2023-01-01.
  */
@@ -96,7 +96,7 @@ export class MigrateProjectsControllerMigrateProject extends pulumi.CustomResour
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20180901preview:MigrateProjectsControllerMigrateProject" }, { type: "azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject" }, { type: "azure-native:migrate/v20230101:MigrateProjectsControllerMigrateProject" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20180901preview:MigrateProject" }, { type: "azure-native:migrate/v20180901preview:MigrateProjectsControllerMigrateProject" }, { type: "azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject" }, { type: "azure-native:migrate/v20230101:MigrateProjectsControllerMigrateProject" }, { type: "azure-native:migrate:MigrateProject" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MigrateProjectsControllerMigrateProject.__pulumiType, name, resourceInputs, opts);
     }

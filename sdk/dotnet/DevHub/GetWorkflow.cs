@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DevHub
     {
         /// <summary>
         /// Resource representation of a workflow
-        /// Azure REST API version: 2022-10-11-preview.
+        /// Azure REST API version: 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01, 2024-05-01-preview, 2024-08-01-preview.
+        /// Other available API versions: 2022-10-11-preview, 2024-05-01-preview, 2024-08-01-preview.
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:devhub:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource representation of a workflow
-        /// Azure REST API version: 2022-10-11-preview.
+        /// Azure REST API version: 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01, 2024-05-01-preview, 2024-08-01-preview.
+        /// Other available API versions: 2022-10-11-preview, 2024-05-01-preview, 2024-08-01-preview.
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:devhub:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource representation of a workflow
-        /// Azure REST API version: 2022-10-11-preview.
+        /// Azure REST API version: 2023-08-01.
         /// 
-        /// Other available API versions: 2023-08-01, 2024-05-01-preview, 2024-08-01-preview.
+        /// Other available API versions: 2022-10-11-preview, 2024-05-01-preview, 2024-08-01-preview.
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:devhub:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
@@ -85,38 +85,13 @@ namespace Pulumi.AzureNative.DevHub
     public sealed class GetWorkflowResult
     {
         /// <summary>
-        /// Information on the azure container registry
-        /// </summary>
-        public readonly Outputs.ACRResponse? Acr;
-        /// <summary>
-        /// The Azure Kubernetes Cluster Resource the application will be deployed to.
-        /// </summary>
-        public readonly string? AksResourceId;
-        /// <summary>
         /// The name of the app.
         /// </summary>
         public readonly string? AppName;
         /// <summary>
-        /// Determines the authorization status of requests.
-        /// </summary>
-        public readonly string AuthStatus;
-        /// <summary>
-        /// Repository Branch Name
-        /// </summary>
-        public readonly string? BranchName;
-        /// <summary>
         /// The version of the language image used for building the code in the generated dockerfile.
         /// </summary>
         public readonly string? BuilderVersion;
-        public readonly Outputs.DeploymentPropertiesResponse? DeploymentProperties;
-        /// <summary>
-        /// Path to Dockerfile Build Context within the repository.
-        /// </summary>
-        public readonly string? DockerBuildContext;
-        /// <summary>
-        /// Path to the Dockerfile within the repository.
-        /// </summary>
-        public readonly string? Dockerfile;
         /// <summary>
         /// The mode of generation to be used for generating Dockerfiles.
         /// </summary>
@@ -129,6 +104,10 @@ namespace Pulumi.AzureNative.DevHub
         /// The programming language used.
         /// </summary>
         public readonly string? GenerationLanguage;
+        /// <summary>
+        /// Profile of a github workflow.
+        /// </summary>
+        public readonly Outputs.GitHubWorkflowProfileResponse? GithubWorkflowProfile;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -145,7 +124,6 @@ namespace Pulumi.AzureNative.DevHub
         /// The version of the language image used for execution in the generated dockerfile.
         /// </summary>
         public readonly string? LanguageVersion;
-        public readonly Outputs.WorkflowRunResponse? LastWorkflowRun;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -167,37 +145,13 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Kubernetes namespace the application is deployed to.
+        /// The namespace to deploy the application to.
         /// </summary>
         public readonly string? Namespace;
-        /// <summary>
-        /// The fields needed for OIDC with GitHub.
-        /// </summary>
-        public readonly Outputs.GitHubWorkflowProfileResponseOidcCredentials? OidcCredentials;
         /// <summary>
         /// The port the application is exposed on.
         /// </summary>
         public readonly string? Port;
-        /// <summary>
-        /// The status of the Pull Request submitted against the users repository.
-        /// </summary>
-        public readonly string PrStatus;
-        /// <summary>
-        /// The URL to the Pull Request submitted against the users repository.
-        /// </summary>
-        public readonly string PrURL;
-        /// <summary>
-        /// The number associated with the submitted pull request.
-        /// </summary>
-        public readonly int PullNumber;
-        /// <summary>
-        /// Repository Name
-        /// </summary>
-        public readonly string? RepositoryName;
-        /// <summary>
-        /// Repository Owner
-        /// </summary>
-        public readonly string? RepositoryOwner;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -213,29 +167,17 @@ namespace Pulumi.AzureNative.DevHub
 
         [OutputConstructor]
         private GetWorkflowResult(
-            Outputs.ACRResponse? acr,
-
-            string? aksResourceId,
-
             string? appName,
 
-            string authStatus,
-
-            string? branchName,
-
             string? builderVersion,
-
-            Outputs.DeploymentPropertiesResponse? deploymentProperties,
-
-            string? dockerBuildContext,
-
-            string? dockerfile,
 
             string? dockerfileGenerationMode,
 
             string? dockerfileOutputDirectory,
 
             string? generationLanguage,
+
+            Outputs.GitHubWorkflowProfileResponse? githubWorkflowProfile,
 
             string id,
 
@@ -244,8 +186,6 @@ namespace Pulumi.AzureNative.DevHub
             string? imageTag,
 
             string? languageVersion,
-
-            Outputs.WorkflowRunResponse? lastWorkflowRun,
 
             string location,
 
@@ -259,19 +199,7 @@ namespace Pulumi.AzureNative.DevHub
 
             string? @namespace,
 
-            Outputs.GitHubWorkflowProfileResponseOidcCredentials? oidcCredentials,
-
             string? port,
-
-            string prStatus,
-
-            string prURL,
-
-            int pullNumber,
-
-            string? repositoryName,
-
-            string? repositoryOwner,
 
             Outputs.SystemDataResponse systemData,
 
@@ -279,36 +207,23 @@ namespace Pulumi.AzureNative.DevHub
 
             string type)
         {
-            Acr = acr;
-            AksResourceId = aksResourceId;
             AppName = appName;
-            AuthStatus = authStatus;
-            BranchName = branchName;
             BuilderVersion = builderVersion;
-            DeploymentProperties = deploymentProperties;
-            DockerBuildContext = dockerBuildContext;
-            Dockerfile = dockerfile;
             DockerfileGenerationMode = dockerfileGenerationMode;
             DockerfileOutputDirectory = dockerfileOutputDirectory;
             GenerationLanguage = generationLanguage;
+            GithubWorkflowProfile = githubWorkflowProfile;
             Id = id;
             ImageName = imageName;
             ImageTag = imageTag;
             LanguageVersion = languageVersion;
-            LastWorkflowRun = lastWorkflowRun;
             Location = location;
             ManifestGenerationMode = manifestGenerationMode;
             ManifestOutputDirectory = manifestOutputDirectory;
             ManifestType = manifestType;
             Name = name;
             Namespace = @namespace;
-            OidcCredentials = oidcCredentials;
             Port = port;
-            PrStatus = prStatus;
-            PrURL = prURL;
-            PullNumber = pullNumber;
-            RepositoryName = repositoryName;
-            RepositoryOwner = repositoryOwner;
             SystemData = systemData;
             Tags = tags;
             Type = type;

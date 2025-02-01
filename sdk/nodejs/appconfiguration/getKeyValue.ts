@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01.
  */
 export function getKeyValue(args: GetKeyValueArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,9 +89,9 @@ export interface GetKeyValueResult {
 }
 /**
  * Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Other available API versions: 2023-03-01.
  */
 export function getKeyValueOutput(args: GetKeyValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

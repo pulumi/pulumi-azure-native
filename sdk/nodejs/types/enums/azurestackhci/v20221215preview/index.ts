@@ -220,34 +220,6 @@ export const State = {
  */
 export type State = (typeof State)[keyof typeof State];
 
-export const UpdateRunPropertiesState = {
-    Unknown: "Unknown",
-    Succeeded: "Succeeded",
-    InProgress: "InProgress",
-    Failed: "Failed",
-} as const;
-
-/**
- * State of the update run.
- */
-export type UpdateRunPropertiesState = (typeof UpdateRunPropertiesState)[keyof typeof UpdateRunPropertiesState];
-
-export const UpdateSummariesPropertiesState = {
-    Unknown: "Unknown",
-    AppliedSuccessfully: "AppliedSuccessfully",
-    UpdateAvailable: "UpdateAvailable",
-    UpdateInProgress: "UpdateInProgress",
-    UpdateFailed: "UpdateFailed",
-    NeedsAttention: "NeedsAttention",
-    PreparationInProgress: "PreparationInProgress",
-    PreparationFailed: "PreparationFailed",
-} as const;
-
-/**
- * Overall update state of the stamp.
- */
-export type UpdateSummariesPropertiesState = (typeof UpdateSummariesPropertiesState)[keyof typeof UpdateSummariesPropertiesState];
-
 export const VmSizeEnum = {
     Default: "Default",
     Standard_A2_v2: "Standard_A2_v2",

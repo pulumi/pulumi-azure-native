@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         /// Observability config to deploy AzureStackHCI Cluster.
         /// </summary>
         [Input("cluster")]
-        public Input<Inputs.ClusterArgs>? Cluster { get; set; }
+        public Input<Inputs.DeploymentClusterArgs>? Cluster { get; set; }
 
         /// <summary>
         /// FQDN to deploy cluster
@@ -82,7 +82,25 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         }
 
         /// <summary>
-        /// The URI to the keyvault / secret store.
+        /// SDN Integration config to deploy AzureStackHCI Cluster.
+        /// </summary>
+        [Input("sdnIntegration")]
+        public Input<Inputs.SdnIntegrationArgs>? SdnIntegration { get; set; }
+
+        [Input("secrets")]
+        private InputList<Inputs.EceDeploymentSecretsArgs>? _secrets;
+
+        /// <summary>
+        /// secrets used for cloud deployment.
+        /// </summary>
+        public InputList<Inputs.EceDeploymentSecretsArgs> Secrets
+        {
+            get => _secrets ?? (_secrets = new InputList<Inputs.EceDeploymentSecretsArgs>());
+            set => _secrets = value;
+        }
+
+        /// <summary>
+        /// Azure keyvault endpoint. This property is deprecated from 2023-12-01-preview. Please use secrets property instead.
         /// </summary>
         [Input("secretsLocation")]
         public Input<string>? SecretsLocation { get; set; }
@@ -91,7 +109,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         /// SecuritySettings to deploy AzureStackHCI Cluster.
         /// </summary>
         [Input("securitySettings")]
-        public Input<Inputs.SecuritySettingsArgs>? SecuritySettings { get; set; }
+        public Input<Inputs.DeploymentSecuritySettingsArgs>? SecuritySettings { get; set; }
 
         /// <summary>
         /// Storage config to deploy AzureStackHCI Cluster.

@@ -141,9 +141,9 @@ def get_volume_snapshot(elastic_san_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeSnapshotResult:
     """
     Get a Volume Snapshot.
-    Azure REST API version: 2023-01-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-01-01, 2024-06-01-preview.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -175,9 +175,9 @@ def get_volume_snapshot_output(elastic_san_name: Optional[pulumi.Input[str]] = N
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeSnapshotResult]:
     """
     Get a Volume Snapshot.
-    Azure REST API version: 2023-01-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2023-01-01, 2024-06-01-preview.
 
 
     :param str elastic_san_name: The name of the ElasticSan.

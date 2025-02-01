@@ -8,23 +8,31 @@ __all__ = [
     'AllowedContentLevel',
     'ApplicationSharingPolicy',
     'AuthMode',
-    'AutoDeleteCondition',
     'AutoRebuildSetting',
+    'BatchDeploymentConfigurationType',
     'BatchLoggingLevel',
     'BatchOutputAction',
     'BlockedTransformers',
     'CapabilityHostKind',
+    'CategoricalDataDriftMetric',
+    'CategoricalDataQualityMetric',
+    'CategoricalPredictionDriftMetric',
     'ClassificationModels',
     'ClassificationMultilabelPrimaryMetrics',
     'ClassificationPrimaryMetrics',
     'ClusterPurpose',
     'ComputeInstanceAuthorizationType',
     'ComputePowerAction',
+    'ComputeRecurrenceFrequency',
+    'ComputeTriggerType',
     'ComputeType',
+    'ComputeWeekDay',
     'ConnectionAuthType',
     'ConnectionCategory',
     'ContainerType',
+    'ContentSafetyStatus',
     'CredentialsType',
+    'DataCollectionMode',
     'DataType',
     'DatasetType',
     'DatastoreType',
@@ -40,9 +48,12 @@ __all__ = [
     'EndpointComputeType',
     'EndpointServiceConnectionStatus',
     'EnvironmentVariableType',
+    'FeatureAttributionMetric',
     'FeatureDataType',
+    'FeatureImportanceMode',
     'FeatureLags',
     'FeaturizationMode',
+    'FirewallSku',
     'ForecastHorizonMode',
     'ForecastingModels',
     'ForecastingPrimaryMetrics',
@@ -54,23 +65,38 @@ __all__ = [
     'IncrementalDataRefresh',
     'InputDeliveryMode',
     'InstanceSegmentationPrimaryMetrics',
+    'IsolationMode',
     'JobInputType',
     'JobLimitsType',
     'JobOutputType',
+    'JobTier',
     'JobType',
     'LearningRateScheduler',
     'LinkedServiceLinkType',
     'LoadBalancerType',
     'LogVerbosity',
     'MLAssistConfigurationType',
+    'ManagedNetworkStatus',
     'ManagedServiceIdentityType',
     'MaterializationStoreType',
     'MediaType',
     'ModelSize',
+    'ModelTaskType',
+    'MonitorComputeIdentityType',
+    'MonitorComputeType',
+    'MonitoringFeatureDataType',
+    'MonitoringFeatureFilterType',
+    'MonitoringInputDataType',
+    'MonitoringNotificationType',
+    'MonitoringSignalType',
     'MultiSelect',
     'NCrossValidationsMode',
     'NodesValueType',
+    'NumericalDataDriftMetric',
+    'NumericalDataQualityMetric',
+    'NumericalPredictionDriftMetric',
     'ObjectDetectionPrimaryMetrics',
+    'OneLakeArtifactType',
     'OperatingSystemType',
     'OsType',
     'OutputDeliveryMode',
@@ -88,6 +114,8 @@ __all__ = [
     'RegressionPrimaryMetrics',
     'RemoteLoginPortPublicAccess',
     'ResourceIdentityType',
+    'RollingRateType',
+    'RuleAction',
     'RuleCategory',
     'RuleStatus',
     'RuleType',
@@ -103,6 +131,7 @@ __all__ = [
     'ShortSeriesHandlingConfiguration',
     'SkuTier',
     'SourceType',
+    'SparkJobEntryType',
     'SshPublicAccess',
     'SslConfigStatus',
     'StackMetaLearnerType',
@@ -147,20 +176,20 @@ class AuthMode(str, Enum):
     AAD = "AAD"
 
 
-class AutoDeleteCondition(str, Enum):
-    """
-    When to check if an asset is expired
-    """
-    CREATED_GREATER_THAN = "CreatedGreaterThan"
-    LAST_ACCESSED_GREATER_THAN = "LastAccessedGreaterThan"
-
-
 class AutoRebuildSetting(str, Enum):
     """
     Defines if image needs to be rebuilt based on base image changes.
     """
     DISABLED = "Disabled"
     ON_BASE_IMAGE_UPDATE = "OnBaseImageUpdate"
+
+
+class BatchDeploymentConfigurationType(str, Enum):
+    """
+    [Required] The type of the deployment
+    """
+    MODEL = "Model"
+    PIPELINE_COMPONENT = "PipelineComponent"
 
 
 class BatchLoggingLevel(str, Enum):
@@ -233,6 +262,60 @@ class CapabilityHostKind(str, Enum):
     AGENTS = "Agents"
 
 
+class CategoricalDataDriftMetric(str, Enum):
+    """
+    [Required] The categorical data drift metric to calculate.
+    """
+    JENSEN_SHANNON_DISTANCE = "JensenShannonDistance"
+    """
+    The Jensen Shannon Distance (JSD) metric.
+    """
+    POPULATION_STABILITY_INDEX = "PopulationStabilityIndex"
+    """
+    The Population Stability Index (PSI) metric.
+    """
+    PEARSONS_CHI_SQUARED_TEST = "PearsonsChiSquaredTest"
+    """
+    The Pearsons Chi Squared Test metric.
+    """
+
+
+class CategoricalDataQualityMetric(str, Enum):
+    """
+    [Required] The categorical data quality metric to calculate.
+    """
+    NULL_VALUE_RATE = "NullValueRate"
+    """
+    Calculates the rate of null values.
+    """
+    DATA_TYPE_ERROR_RATE = "DataTypeErrorRate"
+    """
+    Calculates the rate of data type errors.
+    """
+    OUT_OF_BOUNDS_RATE = "OutOfBoundsRate"
+    """
+    Calculates the rate values are out of bounds.
+    """
+
+
+class CategoricalPredictionDriftMetric(str, Enum):
+    """
+    [Required] The categorical prediction drift metric to calculate.
+    """
+    JENSEN_SHANNON_DISTANCE = "JensenShannonDistance"
+    """
+    The Jensen Shannon Distance (JSD) metric.
+    """
+    POPULATION_STABILITY_INDEX = "PopulationStabilityIndex"
+    """
+    The Population Stability Index (PSI) metric.
+    """
+    PEARSONS_CHI_SQUARED_TEST = "PearsonsChiSquaredTest"
+    """
+    The Pearsons Chi Squared Test metric.
+    """
+
+
 class ClassificationModels(str, Enum):
     """
     Enum for all classification models supported by AutoML.
@@ -282,7 +365,7 @@ class ClassificationModels(str, Enum):
     RANDOM_FOREST = "RandomForest"
     """
     Random forest is a supervised learning algorithm.
-    The "forest" it builds, is an ensemble of decision trees, usually trained with the “bagging” method.
+    The "forest" it builds, is an ensemble of decision trees, usually trained with the "bagging" method.
     The general idea of the bagging method is that a combination of learning models increases the overall result.
     """
     EXTREME_RANDOM_TREES = "ExtremeRandomTrees"
@@ -391,6 +474,40 @@ class ComputePowerAction(str, Enum):
     STOP = "Stop"
 
 
+class ComputeRecurrenceFrequency(str, Enum):
+    """
+    [Required] The frequency to trigger schedule.
+    """
+    MINUTE = "Minute"
+    """
+    Minute frequency
+    """
+    HOUR = "Hour"
+    """
+    Hour frequency
+    """
+    DAY = "Day"
+    """
+    Day frequency
+    """
+    WEEK = "Week"
+    """
+    Week frequency
+    """
+    MONTH = "Month"
+    """
+    Month frequency
+    """
+
+
+class ComputeTriggerType(str, Enum):
+    """
+    [Required] The schedule trigger type.
+    """
+    RECURRENCE = "Recurrence"
+    CRON = "Cron"
+
+
 class ComputeType(str, Enum):
     """
     The type of compute
@@ -407,6 +524,40 @@ class ComputeType(str, Enum):
     SYNAPSE_SPARK = "SynapseSpark"
 
 
+class ComputeWeekDay(str, Enum):
+    """
+    Enum of weekday
+    """
+    MONDAY = "Monday"
+    """
+    Monday weekday
+    """
+    TUESDAY = "Tuesday"
+    """
+    Tuesday weekday
+    """
+    WEDNESDAY = "Wednesday"
+    """
+    Wednesday weekday
+    """
+    THURSDAY = "Thursday"
+    """
+    Thursday weekday
+    """
+    FRIDAY = "Friday"
+    """
+    Friday weekday
+    """
+    SATURDAY = "Saturday"
+    """
+    Saturday weekday
+    """
+    SUNDAY = "Sunday"
+    """
+    Sunday weekday
+    """
+
+
 class ConnectionAuthType(str, Enum):
     """
     Authentication type of the connection target
@@ -416,6 +567,13 @@ class ConnectionAuthType(str, Enum):
     USERNAME_PASSWORD = "UsernamePassword"
     NONE = "None"
     SAS = "SAS"
+    ACCOUNT_KEY = "AccountKey"
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+    ACCESS_KEY = "AccessKey"
+    API_KEY = "ApiKey"
+    CUSTOM_KEYS = "CustomKeys"
+    O_AUTH2 = "OAuth2"
+    AAD = "AAD"
 
 
 class ConnectionCategory(str, Enum):
@@ -425,6 +583,108 @@ class ConnectionCategory(str, Enum):
     PYTHON_FEED = "PythonFeed"
     CONTAINER_REGISTRY = "ContainerRegistry"
     GIT = "Git"
+    S3 = "S3"
+    SNOWFLAKE = "Snowflake"
+    AZURE_SQL_DB = "AzureSqlDb"
+    AZURE_SYNAPSE_ANALYTICS = "AzureSynapseAnalytics"
+    AZURE_MY_SQL_DB = "AzureMySqlDb"
+    AZURE_POSTGRES_DB = "AzurePostgresDb"
+    ADLS_GEN2 = "ADLSGen2"
+    REDIS = "Redis"
+    API_KEY = "ApiKey"
+    AZURE_OPEN_AI = "AzureOpenAI"
+    AI_SERVICES = "AIServices"
+    COGNITIVE_SEARCH = "CognitiveSearch"
+    COGNITIVE_SERVICE = "CognitiveService"
+    CUSTOM_KEYS = "CustomKeys"
+    AZURE_BLOB = "AzureBlob"
+    AZURE_ONE_LAKE = "AzureOneLake"
+    COSMOS_DB = "CosmosDb"
+    COSMOS_DB_MONGO_DB_API = "CosmosDbMongoDbApi"
+    AZURE_DATA_EXPLORER = "AzureDataExplorer"
+    AZURE_MARIA_DB = "AzureMariaDb"
+    AZURE_DATABRICKS_DELTA_LAKE = "AzureDatabricksDeltaLake"
+    AZURE_SQL_MI = "AzureSqlMi"
+    AZURE_TABLE_STORAGE = "AzureTableStorage"
+    AMAZON_RDS_FOR_ORACLE = "AmazonRdsForOracle"
+    AMAZON_RDS_FOR_SQL_SERVER = "AmazonRdsForSqlServer"
+    AMAZON_REDSHIFT = "AmazonRedshift"
+    DB2 = "Db2"
+    DRILL = "Drill"
+    GOOGLE_BIG_QUERY = "GoogleBigQuery"
+    GREENPLUM = "Greenplum"
+    HBASE = "Hbase"
+    HIVE = "Hive"
+    IMPALA = "Impala"
+    INFORMIX = "Informix"
+    MARIA_DB = "MariaDb"
+    MICROSOFT_ACCESS = "MicrosoftAccess"
+    MY_SQL = "MySql"
+    NETEZZA = "Netezza"
+    ORACLE = "Oracle"
+    PHOENIX = "Phoenix"
+    POSTGRE_SQL = "PostgreSql"
+    PRESTO = "Presto"
+    SAP_OPEN_HUB = "SapOpenHub"
+    SAP_BW = "SapBw"
+    SAP_HANA = "SapHana"
+    SAP_TABLE = "SapTable"
+    SPARK = "Spark"
+    SQL_SERVER = "SqlServer"
+    SYBASE = "Sybase"
+    TERADATA = "Teradata"
+    VERTICA = "Vertica"
+    PINECONE = "Pinecone"
+    CASSANDRA = "Cassandra"
+    COUCHBASE = "Couchbase"
+    MONGO_DB_V2 = "MongoDbV2"
+    MONGO_DB_ATLAS = "MongoDbAtlas"
+    AMAZON_S3_COMPATIBLE = "AmazonS3Compatible"
+    FILE_SERVER = "FileServer"
+    FTP_SERVER = "FtpServer"
+    GOOGLE_CLOUD_STORAGE = "GoogleCloudStorage"
+    HDFS = "Hdfs"
+    ORACLE_CLOUD_STORAGE = "OracleCloudStorage"
+    SFTP = "Sftp"
+    GENERIC_HTTP = "GenericHttp"
+    O_DATA_REST = "ODataRest"
+    ODBC = "Odbc"
+    GENERIC_REST = "GenericRest"
+    AMAZON_MWS = "AmazonMws"
+    CONCUR = "Concur"
+    DYNAMICS = "Dynamics"
+    DYNAMICS_AX = "DynamicsAx"
+    DYNAMICS_CRM = "DynamicsCrm"
+    GOOGLE_AD_WORDS = "GoogleAdWords"
+    HUBSPOT = "Hubspot"
+    JIRA = "Jira"
+    MAGENTO = "Magento"
+    MARKETO = "Marketo"
+    OFFICE365 = "Office365"
+    ELOQUA = "Eloqua"
+    RESPONSYS = "Responsys"
+    ORACLE_SERVICE_CLOUD = "OracleServiceCloud"
+    PAY_PAL = "PayPal"
+    QUICK_BOOKS = "QuickBooks"
+    SALESFORCE = "Salesforce"
+    SALESFORCE_SERVICE_CLOUD = "SalesforceServiceCloud"
+    SALESFORCE_MARKETING_CLOUD = "SalesforceMarketingCloud"
+    SAP_CLOUD_FOR_CUSTOMER = "SapCloudForCustomer"
+    SAP_ECC = "SapEcc"
+    SERVICE_NOW = "ServiceNow"
+    SHARE_POINT_ONLINE_LIST = "SharePointOnlineList"
+    SHOPIFY = "Shopify"
+    SQUARE = "Square"
+    WEB_TABLE = "WebTable"
+    XERO = "Xero"
+    ZOHO = "Zoho"
+    GENERIC_CONTAINER_REGISTRY = "GenericContainerRegistry"
+    ELASTICSEARCH = "Elasticsearch"
+    OPEN_AI = "OpenAI"
+    SERP = "Serp"
+    BING_LLM_SEARCH = "BingLLMSearch"
+    SERVERLESS = "Serverless"
+    MANAGED_ONLINE_ENDPOINT = "ManagedOnlineEndpoint"
 
 
 class ContainerType(str, Enum):
@@ -433,6 +693,14 @@ class ContainerType(str, Enum):
     """
     STORAGE_INITIALIZER = "StorageInitializer"
     INFERENCE_SERVER = "InferenceServer"
+
+
+class ContentSafetyStatus(str, Enum):
+    """
+    [Required] Specifies the status of content safety.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class CredentialsType(str, Enum):
@@ -444,6 +712,14 @@ class CredentialsType(str, Enum):
     NONE = "None"
     SAS = "Sas"
     SERVICE_PRINCIPAL = "ServicePrincipal"
+
+
+class DataCollectionMode(str, Enum):
+    """
+    Enable or disable data collection.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class DataType(str, Enum):
@@ -471,6 +747,7 @@ class DatastoreType(str, Enum):
     AZURE_DATA_LAKE_GEN1 = "AzureDataLakeGen1"
     AZURE_DATA_LAKE_GEN2 = "AzureDataLakeGen2"
     AZURE_FILE = "AzureFile"
+    ONE_LAKE = "OneLake"
 
 
 class DatastoreTypeArm(str, Enum):
@@ -549,7 +826,7 @@ class EncryptionStatus(str, Enum):
 
 class EndpointAuthMode(str, Enum):
     """
-    [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+    [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
     """
     AML_TOKEN = "AMLToken"
     KEY = "Key"
@@ -582,6 +859,16 @@ class EnvironmentVariableType(str, Enum):
     LOCAL = "local"
 
 
+class FeatureAttributionMetric(str, Enum):
+    """
+    [Required] The feature attribution metric to calculate.
+    """
+    NORMALIZED_DISCOUNTED_CUMULATIVE_GAIN = "NormalizedDiscountedCumulativeGain"
+    """
+    The Normalized Discounted Cumulative Gain metric.
+    """
+
+
 class FeatureDataType(str, Enum):
     """
     Specifies the data type
@@ -594,6 +881,20 @@ class FeatureDataType(str, Enum):
     BINARY = "Binary"
     DATETIME = "Datetime"
     BOOLEAN = "Boolean"
+
+
+class FeatureImportanceMode(str, Enum):
+    """
+    The mode of operation for computing feature importance.
+    """
+    DISABLED = "Disabled"
+    """
+    Disables computing feature importance within a signal.
+    """
+    ENABLED = "Enabled"
+    """
+    Enables computing feature importance within a signal.
+    """
 
 
 class FeatureLags(str, Enum):
@@ -628,6 +929,14 @@ class FeaturizationMode(str, Enum):
     """
     Featurization off. 'Forecasting' task cannot use this value.
     """
+
+
+class FirewallSku(str, Enum):
+    """
+    Firewall Sku used for FQDN Rules
+    """
+    STANDARD = "Standard"
+    BASIC = "Basic"
 
 
 class ForecastHorizonMode(str, Enum):
@@ -718,7 +1027,7 @@ class ForecastingModels(str, Enum):
     RANDOM_FOREST = "RandomForest"
     """
     Random forest is a supervised learning algorithm.
-    The "forest" it builds, is an ensemble of decision trees, usually trained with the “bagging” method.
+    The "forest" it builds, is an ensemble of decision trees, usually trained with the "bagging" method.
     The general idea of the bagging method is that a combination of learning models increases the overall result.
     """
     EXTREME_RANDOM_TREES = "ExtremeRandomTrees"
@@ -832,6 +1141,15 @@ class InstanceSegmentationPrimaryMetrics(str, Enum):
     """
 
 
+class IsolationMode(str, Enum):
+    """
+    Isolation mode for the managed network of a machine learning workspace.
+    """
+    DISABLED = "Disabled"
+    ALLOW_INTERNET_OUTBOUND = "AllowInternetOutbound"
+    ALLOW_ONLY_APPROVED_OUTBOUND = "AllowOnlyApprovedOutbound"
+
+
 class JobInputType(str, Enum):
     """
     [Required] Specifies the type of job.
@@ -865,6 +1183,17 @@ class JobOutputType(str, Enum):
     TRITON_MODEL = "triton_model"
 
 
+class JobTier(str, Enum):
+    """
+    Controls the compute job tier
+    """
+    NULL = "Null"
+    SPOT = "Spot"
+    BASIC = "Basic"
+    STANDARD = "Standard"
+    PREMIUM = "Premium"
+
+
 class JobType(str, Enum):
     """
     [Required] Specifies the type of job.
@@ -873,6 +1202,7 @@ class JobType(str, Enum):
     COMMAND = "Command"
     SWEEP = "Sweep"
     PIPELINE = "Pipeline"
+    SPARK = "Spark"
 
 
 class LearningRateScheduler(str, Enum):
@@ -946,6 +1276,14 @@ class MLAssistConfigurationType(str, Enum):
     DISABLED = "Disabled"
 
 
+class ManagedNetworkStatus(str, Enum):
+    """
+    Status for the managed network of a machine learning workspace.
+    """
+    INACTIVE = "Inactive"
+    ACTIVE = "Active"
+
+
 class ManagedServiceIdentityType(str, Enum):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -1002,6 +1340,121 @@ class ModelSize(str, Enum):
     """
 
 
+class ModelTaskType(str, Enum):
+    """
+    [Required] The machine learning task type of the monitored model.
+    """
+    CLASSIFICATION = "Classification"
+    REGRESSION = "Regression"
+
+
+class MonitorComputeIdentityType(str, Enum):
+    """
+    [Required] Specifies the type of identity to use within the monitoring jobs.
+    """
+    AML_TOKEN = "AmlToken"
+    """
+    Authenticates through user's AML token.
+    """
+    MANAGED_IDENTITY = "ManagedIdentity"
+    """
+    Authenticates through a user-provided managed identity.
+    """
+
+
+class MonitorComputeType(str, Enum):
+    """
+    [Required] Specifies the type of signal to monitor.
+    """
+    SERVERLESS_SPARK = "ServerlessSpark"
+    """
+    Serverless Spark compute.
+    """
+
+
+class MonitoringFeatureDataType(str, Enum):
+    """
+    [Required] Specifies the data type of the metric threshold.
+    """
+    NUMERICAL = "Numerical"
+    """
+    Used for features of numerical data type.
+    """
+    CATEGORICAL = "Categorical"
+    """
+    Used for features of categorical data type.
+    """
+
+
+class MonitoringFeatureFilterType(str, Enum):
+    """
+    [Required] Specifies the feature filter to leverage when selecting features to calculate metrics over.
+    """
+    ALL_FEATURES = "AllFeatures"
+    """
+    Includes all features.
+    """
+    TOP_N_BY_ATTRIBUTION = "TopNByAttribution"
+    """
+    Only includes the top contributing features, measured by feature attribution.
+    """
+    FEATURE_SUBSET = "FeatureSubset"
+    """
+    Includes a user-defined subset of features.
+    """
+
+
+class MonitoringInputDataType(str, Enum):
+    """
+    [Required] Specifies the type of signal to monitor.
+    """
+    STATIC = "Static"
+    """
+    An input data with a fixed window size.
+    """
+    ROLLING = "Rolling"
+    """
+    An input data which rolls relatively to the monitor's current run time.
+    """
+    FIXED = "Fixed"
+    """
+    An input data with tabular format which doesn't require preprocessing.
+    """
+
+
+class MonitoringNotificationType(str, Enum):
+    AML_NOTIFICATION = "AmlNotification"
+    """
+    Enables email notifications through AML notifications.
+    """
+
+
+class MonitoringSignalType(str, Enum):
+    """
+    [Required] Specifies the type of signal to monitor.
+    """
+    DATA_DRIFT = "DataDrift"
+    """
+    Tracks model input data distribution change, comparing against training data or past production data.
+    """
+    PREDICTION_DRIFT = "PredictionDrift"
+    """
+    Tracks prediction result data distribution change, comparing against validation/test label data or past production data.
+    """
+    DATA_QUALITY = "DataQuality"
+    """
+    Tracks model input data integrity.
+    """
+    FEATURE_ATTRIBUTION_DRIFT = "FeatureAttributionDrift"
+    """
+    Tracks feature importance change in production, comparing against feature importance at training time.
+    """
+    CUSTOM = "Custom"
+    """
+    Tracks a custom signal provided by users.
+    """
+
+
 class MultiSelect(str, Enum):
     """
     Indicates whether it is allowed to select multiple classes in this category.
@@ -1031,6 +1484,68 @@ class NodesValueType(str, Enum):
     ALL = "All"
 
 
+class NumericalDataDriftMetric(str, Enum):
+    """
+    [Required] The numerical data drift metric to calculate.
+    """
+    JENSEN_SHANNON_DISTANCE = "JensenShannonDistance"
+    """
+    The Jensen Shannon Distance (JSD) metric.
+    """
+    POPULATION_STABILITY_INDEX = "PopulationStabilityIndex"
+    """
+    The Population Stability Index (PSI) metric.
+    """
+    NORMALIZED_WASSERSTEIN_DISTANCE = "NormalizedWassersteinDistance"
+    """
+    The Normalized Wasserstein Distance metric.
+    """
+    TWO_SAMPLE_KOLMOGOROV_SMIRNOV_TEST = "TwoSampleKolmogorovSmirnovTest"
+    """
+    The Two Sample Kolmogorov-Smirnov Test (two-sample Kâ€“S) metric.
+    """
+
+
+class NumericalDataQualityMetric(str, Enum):
+    """
+    [Required] The numerical data quality metric to calculate.
+    """
+    NULL_VALUE_RATE = "NullValueRate"
+    """
+    Calculates the rate of null values.
+    """
+    DATA_TYPE_ERROR_RATE = "DataTypeErrorRate"
+    """
+    Calculates the rate of data type errors.
+    """
+    OUT_OF_BOUNDS_RATE = "OutOfBoundsRate"
+    """
+    Calculates the rate values are out of bounds.
+    """
+
+
+class NumericalPredictionDriftMetric(str, Enum):
+    """
+    [Required] The numerical prediction drift metric to calculate.
+    """
+    JENSEN_SHANNON_DISTANCE = "JensenShannonDistance"
+    """
+    The Jensen Shannon Distance (JSD) metric.
+    """
+    POPULATION_STABILITY_INDEX = "PopulationStabilityIndex"
+    """
+    The Population Stability Index (PSI) metric.
+    """
+    NORMALIZED_WASSERSTEIN_DISTANCE = "NormalizedWassersteinDistance"
+    """
+    The Normalized Wasserstein Distance metric.
+    """
+    TWO_SAMPLE_KOLMOGOROV_SMIRNOV_TEST = "TwoSampleKolmogorovSmirnovTest"
+    """
+    The Two Sample Kolmogorov-Smirnov Test (two-sample Kâ€“S) metric.
+    """
+
+
 class ObjectDetectionPrimaryMetrics(str, Enum):
     """
     Primary metric to optimize for this task.
@@ -1040,6 +1555,13 @@ class ObjectDetectionPrimaryMetrics(str, Enum):
     Mean Average Precision (MAP) is the average of AP (Average Precision).
     AP is calculated for each class and averaged to get the MAP.
     """
+
+
+class OneLakeArtifactType(str, Enum):
+    """
+    [Required] OneLake artifact type
+    """
+    LAKE_HOUSE = "LakeHouse"
 
 
 class OperatingSystemType(str, Enum):
@@ -1064,6 +1586,7 @@ class OutputDeliveryMode(str, Enum):
     """
     READ_WRITE_MOUNT = "ReadWriteMount"
     UPLOAD = "Upload"
+    DIRECT = "Direct"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):
@@ -1205,7 +1728,7 @@ class RegressionModels(str, Enum):
     RANDOM_FOREST = "RandomForest"
     """
     Random forest is a supervised learning algorithm.
-    The "forest" it builds, is an ensemble of decision trees, usually trained with the “bagging” method.
+    The "forest" it builds, is an ensemble of decision trees, usually trained with the "bagging" method.
     The general idea of the bagging method is that a combination of learning models increases the overall result.
     """
     EXTREME_RANDOM_TREES = "ExtremeRandomTrees"
@@ -1263,6 +1786,28 @@ class ResourceIdentityType(str, Enum):
     NONE = "None"
 
 
+class RollingRateType(str, Enum):
+    """
+    When model data is collected to blob storage, we need to roll the data to different path to avoid logging all of them in a single blob file.
+    If the rolling rate is hour, all data will be collected in the blob path /yyyy/MM/dd/HH/.
+    If it's day, all data will be collected in blob path /yyyy/MM/dd/.
+    The other benefit of rolling path is that model monitoring ui is able to select a time range of data very quickly.
+    """
+    YEAR = "Year"
+    MONTH = "Month"
+    DAY = "Day"
+    HOUR = "Hour"
+    MINUTE = "Minute"
+
+
+class RuleAction(str, Enum):
+    """
+    The action enum for networking rule.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+
+
 class RuleCategory(str, Enum):
     """
     Category of a managed network Outbound Rule of a machine learning workspace.
@@ -1270,11 +1815,12 @@ class RuleCategory(str, Enum):
     REQUIRED = "Required"
     RECOMMENDED = "Recommended"
     USER_DEFINED = "UserDefined"
+    DEPENDENCY = "Dependency"
 
 
 class RuleStatus(str, Enum):
     """
-    Status of a managed network Outbound Rule of a machine learning workspace.
+    Type of a managed network Outbound Rule of a machine learning workspace.
     """
     INACTIVE = "Inactive"
     ACTIVE = "Active"
@@ -1312,6 +1858,7 @@ class ScheduleActionType(str, Enum):
     """
     CREATE_JOB = "CreateJob"
     INVOKE_BATCH_ENDPOINT = "InvokeBatchEndpoint"
+    CREATE_MONITOR = "CreateMonitor"
 
 
 class ScheduleProvisioningState(str, Enum):
@@ -1357,10 +1904,9 @@ class SecretsType(str, Enum):
 
 class ServerlessInferenceEndpointAuthMode(str, Enum):
     """
-    Specifies the authentication mode for the Serverless endpoint.
+    [Required] Specifies the authentication mode for the Serverless endpoint.
     """
     KEY = "Key"
-    AAD = "AAD"
 
 
 class ServiceDataAccessAuthIdentity(str, Enum):
@@ -1420,6 +1966,14 @@ class SourceType(str, Enum):
     DELIMITED_FILES = "delimited_files"
     JSON_LINES_FILES = "json_lines_files"
     PARQUET_FILES = "parquet_files"
+
+
+class SparkJobEntryType(str, Enum):
+    """
+    [Required] Type of the job's entry point.
+    """
+    SPARK_JOB_PYTHON_ENTRY = "SparkJobPythonEntry"
+    SPARK_JOB_SCALA_ENTRY = "SparkJobScalaEntry"
 
 
 class SshPublicAccess(str, Enum):

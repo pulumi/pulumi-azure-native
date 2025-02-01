@@ -47,8 +47,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.networkcloud.v20230701 as __v20230701
-    v20230701 = __v20230701
     import pulumi_azure_native.networkcloud.v20231001preview as __v20231001preview
     v20231001preview = __v20231001preview
     import pulumi_azure_native.networkcloud.v20240601preview as __v20240601preview
@@ -58,7 +56,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.networkcloud.v20241001preview as __v20241001preview
     v20241001preview = __v20241001preview
 else:
-    v20230701 = _utilities.lazy_import('pulumi_azure_native.networkcloud.v20230701')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.networkcloud.v20231001preview')
     v20240601preview = _utilities.lazy_import('pulumi_azure_native.networkcloud.v20240601preview')
     v20240701 = _utilities.lazy_import('pulumi_azure_native.networkcloud.v20240701')

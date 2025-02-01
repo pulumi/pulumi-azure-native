@@ -27,7 +27,10 @@ class GetHostResult:
     """
     Define the host.
     """
-    def __init__(__self__, custom_resource_name=None, datastore_ids=None, extended_location=None, id=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, network_ids=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, v_center_id=None):
+    def __init__(__self__, cpu_mhz=None, custom_resource_name=None, datastore_ids=None, extended_location=None, id=None, inventory_item_id=None, kind=None, location=None, memory_size_gb=None, mo_name=None, mo_ref_id=None, name=None, network_ids=None, overall_cpu_usage_m_hz=None, overall_memory_usage_gb=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, v_center_id=None):
+        if cpu_mhz and not isinstance(cpu_mhz, float):
+            raise TypeError("Expected argument 'cpu_mhz' to be a float")
+        pulumi.set(__self__, "cpu_mhz", cpu_mhz)
         if custom_resource_name and not isinstance(custom_resource_name, str):
             raise TypeError("Expected argument 'custom_resource_name' to be a str")
         pulumi.set(__self__, "custom_resource_name", custom_resource_name)
@@ -49,6 +52,9 @@ class GetHostResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if memory_size_gb and not isinstance(memory_size_gb, float):
+            raise TypeError("Expected argument 'memory_size_gb' to be a float")
+        pulumi.set(__self__, "memory_size_gb", memory_size_gb)
         if mo_name and not isinstance(mo_name, str):
             raise TypeError("Expected argument 'mo_name' to be a str")
         pulumi.set(__self__, "mo_name", mo_name)
@@ -61,6 +67,12 @@ class GetHostResult:
         if network_ids and not isinstance(network_ids, list):
             raise TypeError("Expected argument 'network_ids' to be a list")
         pulumi.set(__self__, "network_ids", network_ids)
+        if overall_cpu_usage_m_hz and not isinstance(overall_cpu_usage_m_hz, float):
+            raise TypeError("Expected argument 'overall_cpu_usage_m_hz' to be a float")
+        pulumi.set(__self__, "overall_cpu_usage_m_hz", overall_cpu_usage_m_hz)
+        if overall_memory_usage_gb and not isinstance(overall_memory_usage_gb, float):
+            raise TypeError("Expected argument 'overall_memory_usage_gb' to be a float")
+        pulumi.set(__self__, "overall_memory_usage_gb", overall_memory_usage_gb)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -84,6 +96,14 @@ class GetHostResult:
         pulumi.set(__self__, "v_center_id", v_center_id)
 
     @property
+    @pulumi.getter(name="cpuMhz")
+    def cpu_mhz(self) -> float:
+        """
+        Gets the max CPU usage across all cores in MHz.
+        """
+        return pulumi.get(self, "cpu_mhz")
+
+    @property
     @pulumi.getter(name="customResourceName")
     def custom_resource_name(self) -> str:
         """
@@ -95,7 +115,7 @@ class GetHostResult:
     @pulumi.getter(name="datastoreIds")
     def datastore_ids(self) -> Sequence[str]:
         """
-        Gets or sets the datastore ARM ids.
+        Gets the datastore ARM ids.
         """
         return pulumi.get(self, "datastore_ids")
 
@@ -140,6 +160,14 @@ class GetHostResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="memorySizeGB")
+    def memory_size_gb(self) -> float:
+        """
+        Gets the total amount of physical memory on the host in GB.
+        """
+        return pulumi.get(self, "memory_size_gb")
+
+    @property
     @pulumi.getter(name="moName")
     def mo_name(self) -> str:
         """
@@ -167,15 +195,31 @@ class GetHostResult:
     @pulumi.getter(name="networkIds")
     def network_ids(self) -> Sequence[str]:
         """
-        Gets or sets the network ARM ids.
+        Gets the network ARM ids.
         """
         return pulumi.get(self, "network_ids")
+
+    @property
+    @pulumi.getter(name="overallCpuUsageMHz")
+    def overall_cpu_usage_m_hz(self) -> float:
+        """
+        Gets the used CPU usage across all cores in MHz.
+        """
+        return pulumi.get(self, "overall_cpu_usage_m_hz")
+
+    @property
+    @pulumi.getter(name="overallMemoryUsageGB")
+    def overall_memory_usage_gb(self) -> float:
+        """
+        Gets the used physical memory on the host in GB.
+        """
+        return pulumi.get(self, "overall_memory_usage_gb")
 
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -234,6 +278,7 @@ class AwaitableGetHostResult(GetHostResult):
         if False:
             yield self
         return GetHostResult(
+            cpu_mhz=self.cpu_mhz,
             custom_resource_name=self.custom_resource_name,
             datastore_ids=self.datastore_ids,
             extended_location=self.extended_location,
@@ -241,10 +286,13 @@ class AwaitableGetHostResult(GetHostResult):
             inventory_item_id=self.inventory_item_id,
             kind=self.kind,
             location=self.location,
+            memory_size_gb=self.memory_size_gb,
             mo_name=self.mo_name,
             mo_ref_id=self.mo_ref_id,
             name=self.name,
             network_ids=self.network_ids,
+            overall_cpu_usage_m_hz=self.overall_cpu_usage_m_hz,
+            overall_memory_usage_gb=self.overall_memory_usage_gb,
             provisioning_state=self.provisioning_state,
             statuses=self.statuses,
             system_data=self.system_data,
@@ -259,9 +307,9 @@ def get_host(host_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostResult:
     """
     Implements host GET method.
-    Azure REST API version: 2022-07-15-preview.
+    Azure REST API version: 2023-12-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Other available API versions: 2022-07-15-preview.
 
 
     :param str host_name: Name of the host.
@@ -274,6 +322,7 @@ def get_host(host_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getHost', __args__, opts=opts, typ=GetHostResult).value
 
     return AwaitableGetHostResult(
+        cpu_mhz=pulumi.get(__ret__, 'cpu_mhz'),
         custom_resource_name=pulumi.get(__ret__, 'custom_resource_name'),
         datastore_ids=pulumi.get(__ret__, 'datastore_ids'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
@@ -281,10 +330,13 @@ def get_host(host_name: Optional[str] = None,
         inventory_item_id=pulumi.get(__ret__, 'inventory_item_id'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
+        memory_size_gb=pulumi.get(__ret__, 'memory_size_gb'),
         mo_name=pulumi.get(__ret__, 'mo_name'),
         mo_ref_id=pulumi.get(__ret__, 'mo_ref_id'),
         name=pulumi.get(__ret__, 'name'),
         network_ids=pulumi.get(__ret__, 'network_ids'),
+        overall_cpu_usage_m_hz=pulumi.get(__ret__, 'overall_cpu_usage_m_hz'),
+        overall_memory_usage_gb=pulumi.get(__ret__, 'overall_memory_usage_gb'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         statuses=pulumi.get(__ret__, 'statuses'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -297,9 +349,9 @@ def get_host_output(host_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostResult]:
     """
     Implements host GET method.
-    Azure REST API version: 2022-07-15-preview.
+    Azure REST API version: 2023-12-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Other available API versions: 2022-07-15-preview.
 
 
     :param str host_name: Name of the host.
@@ -311,6 +363,7 @@ def get_host_output(host_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getHost', __args__, opts=opts, typ=GetHostResult)
     return __ret__.apply(lambda __response__: GetHostResult(
+        cpu_mhz=pulumi.get(__response__, 'cpu_mhz'),
         custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),
         datastore_ids=pulumi.get(__response__, 'datastore_ids'),
         extended_location=pulumi.get(__response__, 'extended_location'),
@@ -318,10 +371,13 @@ def get_host_output(host_name: Optional[pulumi.Input[str]] = None,
         inventory_item_id=pulumi.get(__response__, 'inventory_item_id'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
+        memory_size_gb=pulumi.get(__response__, 'memory_size_gb'),
         mo_name=pulumi.get(__response__, 'mo_name'),
         mo_ref_id=pulumi.get(__response__, 'mo_ref_id'),
         name=pulumi.get(__response__, 'name'),
         network_ids=pulumi.get(__response__, 'network_ids'),
+        overall_cpu_usage_m_hz=pulumi.get(__response__, 'overall_cpu_usage_m_hz'),
+        overall_memory_usage_gb=pulumi.get(__response__, 'overall_memory_usage_gb'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         statuses=pulumi.get(__response__, 'statuses'),
         system_data=pulumi.get(__response__, 'system_data'),

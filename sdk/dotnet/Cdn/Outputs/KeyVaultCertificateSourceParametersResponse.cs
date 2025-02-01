@@ -36,6 +36,10 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Subscription Id of the user's Key Vault containing the SSL certificate
         /// </summary>
         public readonly string SubscriptionId;
+        /// <summary>
+        /// 
+        /// Expected value is 'KeyVaultCertificateSourceParameters'.
+        /// </summary>
         public readonly string TypeName;
         /// <summary>
         /// Describes the action that shall be taken when the certificate is updated in Key Vault.

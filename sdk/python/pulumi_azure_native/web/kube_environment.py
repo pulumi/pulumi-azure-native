@@ -48,7 +48,7 @@ class KubeEnvironmentArgs:
         :param pulumi.Input[str] environment_type: Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Extended Location.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Only visible within Vnet/Subnet
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the Kubernetes Environment.
         :param pulumi.Input[str] static_ip: Static IP of the KubeEnvironment
@@ -181,7 +181,7 @@ class KubeEnvironmentArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -259,9 +259,9 @@ class KubeEnvironment(pulumi.CustomResource):
                  __props__=None):
         """
         A Kubernetes cluster specialized for web workloads by Azure App Service
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
-        Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,7 +275,7 @@ class KubeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] environment_type: Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Extended Location.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Only visible within Vnet/Subnet
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the Kubernetes Environment.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
@@ -290,9 +290,9 @@ class KubeEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Kubernetes cluster specialized for web workloads by Azure App Service
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
-        Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param KubeEnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -469,7 +469,7 @@ class KubeEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 

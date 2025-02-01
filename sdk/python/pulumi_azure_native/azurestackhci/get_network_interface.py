@@ -27,7 +27,7 @@ class GetNetworkInterfaceResult:
     """
     The network interface resource definition.
     """
-    def __init__(__self__, dns_settings=None, extended_location=None, id=None, ip_configurations=None, location=None, mac_address=None, name=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, dns_settings=None, extended_location=None, id=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
         if dns_settings and not isinstance(dns_settings, dict):
             raise TypeError("Expected argument 'dns_settings' to be a dict")
         pulumi.set(__self__, "dns_settings", dns_settings)
@@ -49,6 +49,9 @@ class GetNetworkInterfaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_security_group and not isinstance(network_security_group, dict):
+            raise TypeError("Expected argument 'network_security_group' to be a dict")
+        pulumi.set(__self__, "network_security_group", network_security_group)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -85,7 +88,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -120,6 +123,14 @@ class GetNetworkInterfaceResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupArmReferenceResponse']:
+        """
+        NetworkSecurityGroup - Network Security Group attached to the network interface.
+        """
+        return pulumi.get(self, "network_security_group")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -175,6 +186,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             location=self.location,
             mac_address=self.mac_address,
             name=self.name,
+            network_security_group=self.network_security_group,
             provisioning_state=self.provisioning_state,
             status=self.status,
             system_data=self.system_data,
@@ -187,9 +199,9 @@ def get_network_interface(network_interface_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
     Gets a network interface
-    Azure REST API version: 2022-12-15-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2022-12-15-preview, 2024-07-15-preview.
 
 
     :param str network_interface_name: Name of the network interface
@@ -209,6 +221,7 @@ def get_network_interface(network_interface_name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         mac_address=pulumi.get(__ret__, 'mac_address'),
         name=pulumi.get(__ret__, 'name'),
+        network_security_group=pulumi.get(__ret__, 'network_security_group'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -219,9 +232,9 @@ def get_network_interface_output(network_interface_name: Optional[pulumi.Input[s
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
     Gets a network interface
-    Azure REST API version: 2022-12-15-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2022-12-15-preview, 2024-07-15-preview.
 
 
     :param str network_interface_name: Name of the network interface
@@ -240,6 +253,7 @@ def get_network_interface_output(network_interface_name: Optional[pulumi.Input[s
         location=pulumi.get(__response__, 'location'),
         mac_address=pulumi.get(__response__, 'mac_address'),
         name=pulumi.get(__response__, 'name'),
+        network_security_group=pulumi.get(__response__, 'network_security_group'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         status=pulumi.get(__response__, 'status'),
         system_data=pulumi.get(__response__, 'system_data'),

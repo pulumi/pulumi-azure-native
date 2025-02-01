@@ -116,6 +116,9 @@ namespace Pulumi.AzureNative.KeyVault.Inputs
         {
             EnableRbacAuthorization = false;
             EnableSoftDelete = true;
+            EnabledForDeployment = false;
+            EnabledForDiskEncryption = false;
+            EnabledForTemplateDeployment = false;
             PublicNetworkAccess = "enabled";
             SoftDeleteRetentionInDays = 90;
         }

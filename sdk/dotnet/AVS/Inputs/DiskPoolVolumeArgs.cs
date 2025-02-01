@@ -22,7 +22,8 @@ namespace Pulumi.AzureNative.AVS.Inputs
         public Input<string> LunName { get; set; } = null!;
 
         /// <summary>
-        /// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+        /// Mode that describes whether the LUN has to be mounted as a datastore or
+        /// attached as a LUN
         /// </summary>
         [Input("mountOption")]
         public InputUnion<string, Pulumi.AzureNative.AVS.MountOptionEnum>? MountOption { get; set; }

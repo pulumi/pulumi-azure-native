@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// State of the myscope setting.
-    /// Azure REST API version: 2019-11-01. Prior API version in Azure Native 1.x: 2019-11-01.
+    /// Azure REST API version: 2019-11-01. Prior API version in Azure Native 2.x: 2019-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Setting")]
     public partial class Setting : global::Pulumi.CustomResource

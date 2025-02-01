@@ -50,10 +50,6 @@ export class ScopeAccessReviewHistoryDefinitionById extends pulumi.CustomResourc
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * The DateTime when the review is scheduled to end. Required if type is endDate
-     */
-    public readonly endDate!: pulumi.Output<string | undefined>;
-    /**
      * Set of access review history instances for this history definition.
      */
     public readonly instances!: pulumi.Output<outputs.authorization.v20211201preview.AccessReviewHistoryInstanceResponse[] | undefined>;
@@ -65,10 +61,6 @@ export class ScopeAccessReviewHistoryDefinitionById extends pulumi.CustomResourc
      * The access review history definition unique id.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * The number of times to repeat the access review. Required and must be positive if type is numbered.
-     */
-    public readonly numberOfOccurrences!: pulumi.Output<number | undefined>;
     /**
      * The identity id
      */
@@ -82,6 +74,10 @@ export class ScopeAccessReviewHistoryDefinitionById extends pulumi.CustomResourc
      */
     public /*out*/ readonly principalType!: pulumi.Output<string>;
     /**
+     * Access Review History Definition recurrence settings.
+     */
+    public readonly range!: pulumi.Output<outputs.authorization.v20211201preview.AccessReviewRecurrenceRangeResponse | undefined>;
+    /**
      * Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
      */
     public /*out*/ readonly reviewHistoryPeriodEndDateTime!: pulumi.Output<string>;
@@ -93,10 +89,6 @@ export class ScopeAccessReviewHistoryDefinitionById extends pulumi.CustomResourc
      * A collection of scopes used when selecting review history data
      */
     public readonly scopes!: pulumi.Output<outputs.authorization.v20211201preview.AccessReviewScopeResponse[] | undefined>;
-    /**
-     * The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-     */
-    public readonly startDate!: pulumi.Output<string | undefined>;
     /**
      * This read-only field specifies the of the requested review history data. This is either requested, in-progress, done or error.
      */
@@ -126,14 +118,12 @@ export class ScopeAccessReviewHistoryDefinitionById extends pulumi.CustomResourc
             }
             resourceInputs["decisions"] = args ? args.decisions : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["endDate"] = args ? args.endDate : undefined;
             resourceInputs["historyDefinitionId"] = args ? args.historyDefinitionId : undefined;
             resourceInputs["instances"] = args ? args.instances : undefined;
             resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["numberOfOccurrences"] = args ? args.numberOfOccurrences : undefined;
+            resourceInputs["range"] = args ? args.range : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["startDate"] = args ? args.startDate : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["createdDateTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -148,18 +138,16 @@ export class ScopeAccessReviewHistoryDefinitionById extends pulumi.CustomResourc
             resourceInputs["createdDateTime"] = undefined /*out*/;
             resourceInputs["decisions"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["endDate"] = undefined /*out*/;
             resourceInputs["instances"] = undefined /*out*/;
             resourceInputs["interval"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["numberOfOccurrences"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
             resourceInputs["principalType"] = undefined /*out*/;
+            resourceInputs["range"] = undefined /*out*/;
             resourceInputs["reviewHistoryPeriodEndDateTime"] = undefined /*out*/;
             resourceInputs["reviewHistoryPeriodStartDateTime"] = undefined /*out*/;
             resourceInputs["scopes"] = undefined /*out*/;
-            resourceInputs["startDate"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userPrincipalName"] = undefined /*out*/;
@@ -184,10 +172,6 @@ export interface ScopeAccessReviewHistoryDefinitionByIdArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The DateTime when the review is scheduled to end. Required if type is endDate
-     */
-    endDate?: pulumi.Input<string>;
-    /**
      * The id of the access review history definition.
      */
     historyDefinitionId?: pulumi.Input<string>;
@@ -200,9 +184,9 @@ export interface ScopeAccessReviewHistoryDefinitionByIdArgs {
      */
     interval?: pulumi.Input<number>;
     /**
-     * The number of times to repeat the access review. Required and must be positive if type is numbered.
+     * Access Review History Definition recurrence settings.
      */
-    numberOfOccurrences?: pulumi.Input<number>;
+    range?: pulumi.Input<inputs.authorization.v20211201preview.AccessReviewRecurrenceRangeArgs>;
     /**
      * The scope of the resource.
      */
@@ -212,11 +196,7 @@ export interface ScopeAccessReviewHistoryDefinitionByIdArgs {
      */
     scopes?: pulumi.Input<pulumi.Input<inputs.authorization.v20211201preview.AccessReviewScopeArgs>[]>;
     /**
-     * The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+     * The recurrence type : weekly, monthly, etc.
      */
-    startDate?: pulumi.Input<string>;
-    /**
-     * The recurrence range type. The possible values are: endDate, noEnd, numbered.
-     */
-    type?: pulumi.Input<string | enums.authorization.v20211201preview.AccessReviewRecurrenceRangeType>;
+    type?: pulumi.Input<string | enums.authorization.v20211201preview.AccessReviewRecurrencePatternType>;
 }

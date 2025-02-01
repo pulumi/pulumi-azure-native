@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified contact Profile in a specified resource group.
  * Azure REST API version: 2022-11-01.
- *
- * Other available API versions: 2022-03-01.
  */
 export function getContactProfile(args: GetContactProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetContactProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,8 +90,6 @@ export interface GetContactProfileResult {
 /**
  * Gets the specified contact Profile in a specified resource group.
  * Azure REST API version: 2022-11-01.
- *
- * Other available API versions: 2022-03-01.
  */
 export function getContactProfileOutput(args: GetContactProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContactProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

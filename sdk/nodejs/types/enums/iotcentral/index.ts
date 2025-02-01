@@ -21,6 +21,16 @@ export const AppSku = {
  */
 export type AppSku = (typeof AppSku)[keyof typeof AppSku];
 
+export const NetworkAction = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * The default network action to apply.
+ */
+export type NetworkAction = (typeof NetworkAction)[keyof typeof NetworkAction];
+
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",
@@ -31,6 +41,16 @@ export const PrivateEndpointServiceConnectionStatus = {
  * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether requests from the public network are allowed.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const SystemAssignedServiceIdentityType = {
     None: "None",

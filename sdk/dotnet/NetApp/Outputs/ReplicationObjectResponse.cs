@@ -21,17 +21,21 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? EndpointType;
         /// <summary>
+        /// The full path to a volume that is to be migrated into ANF. Required for Migration volumes
+        /// </summary>
+        public readonly Outputs.RemotePathResponse? RemotePath;
+        /// <summary>
         /// The remote region for the other end of the Volume Replication.
         /// </summary>
         public readonly string? RemoteVolumeRegion;
         /// <summary>
-        /// The resource ID of the remote volume.
+        /// The resource ID of the remote volume. Required for cross region and cross zone replication
         /// </summary>
-        public readonly string RemoteVolumeResourceId;
+        public readonly string? RemoteVolumeResourceId;
         /// <summary>
         /// Id
         /// </summary>
-        public readonly string? ReplicationId;
+        public readonly string ReplicationId;
         /// <summary>
         /// Schedule
         /// </summary>
@@ -41,15 +45,18 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         private ReplicationObjectResponse(
             string? endpointType,
 
+            Outputs.RemotePathResponse? remotePath,
+
             string? remoteVolumeRegion,
 
-            string remoteVolumeResourceId,
+            string? remoteVolumeResourceId,
 
-            string? replicationId,
+            string replicationId,
 
             string? replicationSchedule)
         {
             EndpointType = endpointType;
+            RemotePath = remotePath;
             RemoteVolumeRegion = remoteVolumeRegion;
             RemoteVolumeResourceId = remoteVolumeResourceId;
             ReplicationId = replicationId;

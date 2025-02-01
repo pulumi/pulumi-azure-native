@@ -415,9 +415,9 @@ def get_snapshot(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
     Gets information about a snapshot.
-    Azure REST API version: 2022-07-02.
+    Azure REST API version: 2024-03-02.
 
-    Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+    Other available API versions: 2022-07-02.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -466,9 +466,9 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Gets information about a snapshot.
-    Azure REST API version: 2022-07-02.
+    Azure REST API version: 2024-03-02.
 
-    Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+    Other available API versions: 2022-07-02.
 
 
     :param str resource_group_name: The name of the resource group.

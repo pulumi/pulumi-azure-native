@@ -117,9 +117,9 @@ def get_api_issue_comment(api_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiIssueCommentResult:
     """
     Gets the details of the issue Comment for an API specified by its identifier.
-    Azure REST API version: 2022-08-01.
+    Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2022-08-01, 2024-06-01-preview.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -152,9 +152,9 @@ def get_api_issue_comment_output(api_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiIssueCommentResult]:
     """
     Gets the details of the issue Comment for an API specified by its identifier.
-    Azure REST API version: 2022-08-01.
+    Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2022-08-01, 2024-06-01-preview.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.

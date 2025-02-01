@@ -26,8 +26,6 @@ __all__ = [
     'AddonVrPropertiesArgsDict',
     'AvailabilityPropertiesArgs',
     'AvailabilityPropertiesArgsDict',
-    'DiskPoolVolumeArgs',
-    'DiskPoolVolumeArgsDict',
     'EncryptionKeyVaultPropertiesArgs',
     'EncryptionKeyVaultPropertiesArgsDict',
     'EncryptionArgs',
@@ -36,16 +34,8 @@ __all__ = [
     'IdentitySourceArgsDict',
     'ManagementClusterArgs',
     'ManagementClusterArgsDict',
-    'NetAppVolumeArgs',
-    'NetAppVolumeArgsDict',
-    'PSCredentialExecutionParameterArgs',
-    'PSCredentialExecutionParameterArgsDict',
     'PrivateCloudIdentityArgs',
     'PrivateCloudIdentityArgsDict',
-    'ScriptSecureStringExecutionParameterArgs',
-    'ScriptSecureStringExecutionParameterArgsDict',
-    'ScriptStringExecutionParameterArgs',
-    'ScriptStringExecutionParameterArgsDict',
     'SkuArgs',
     'SkuArgsDict',
     'VmHostPlacementPolicyPropertiesArgs',
@@ -56,8 +46,6 @@ __all__ = [
     'WorkloadNetworkDhcpRelayArgsDict',
     'WorkloadNetworkDhcpServerArgs',
     'WorkloadNetworkDhcpServerArgsDict',
-    'WorkloadNetworkSegmentSubnetArgs',
-    'WorkloadNetworkSegmentSubnetArgsDict',
 ]
 
 MYPY = False
@@ -366,82 +354,6 @@ class AvailabilityPropertiesArgs:
     @zone.setter
     def zone(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "zone", value)
-
-
-if not MYPY:
-    class DiskPoolVolumeArgsDict(TypedDict):
-        """
-        An iSCSI volume from Microsoft.StoragePool provider
-        """
-        lun_name: pulumi.Input[str]
-        """
-        Name of the LUN to be used for datastore
-        """
-        target_id: pulumi.Input[str]
-        """
-        Azure resource ID of the iSCSI target
-        """
-        mount_option: NotRequired[pulumi.Input[Union[str, 'MountOptionEnum']]]
-        """
-        Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-        """
-elif False:
-    DiskPoolVolumeArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DiskPoolVolumeArgs:
-    def __init__(__self__, *,
-                 lun_name: pulumi.Input[str],
-                 target_id: pulumi.Input[str],
-                 mount_option: Optional[pulumi.Input[Union[str, 'MountOptionEnum']]] = None):
-        """
-        An iSCSI volume from Microsoft.StoragePool provider
-        :param pulumi.Input[str] lun_name: Name of the LUN to be used for datastore
-        :param pulumi.Input[str] target_id: Azure resource ID of the iSCSI target
-        :param pulumi.Input[Union[str, 'MountOptionEnum']] mount_option: Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-        """
-        pulumi.set(__self__, "lun_name", lun_name)
-        pulumi.set(__self__, "target_id", target_id)
-        if mount_option is None:
-            mount_option = 'MOUNT'
-        if mount_option is not None:
-            pulumi.set(__self__, "mount_option", mount_option)
-
-    @property
-    @pulumi.getter(name="lunName")
-    def lun_name(self) -> pulumi.Input[str]:
-        """
-        Name of the LUN to be used for datastore
-        """
-        return pulumi.get(self, "lun_name")
-
-    @lun_name.setter
-    def lun_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "lun_name", value)
-
-    @property
-    @pulumi.getter(name="targetId")
-    def target_id(self) -> pulumi.Input[str]:
-        """
-        Azure resource ID of the iSCSI target
-        """
-        return pulumi.get(self, "target_id")
-
-    @target_id.setter
-    def target_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "target_id", value)
-
-    @property
-    @pulumi.getter(name="mountOption")
-    def mount_option(self) -> Optional[pulumi.Input[Union[str, 'MountOptionEnum']]]:
-        """
-        Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
-        """
-        return pulumi.get(self, "mount_option")
-
-    @mount_option.setter
-    def mount_option(self, value: Optional[pulumi.Input[Union[str, 'MountOptionEnum']]]):
-        pulumi.set(self, "mount_option", value)
 
 
 if not MYPY:
@@ -848,138 +760,6 @@ class ManagementClusterArgs:
 
 
 if not MYPY:
-    class NetAppVolumeArgsDict(TypedDict):
-        """
-        An Azure NetApp Files volume from Microsoft.NetApp provider
-        """
-        id: pulumi.Input[str]
-        """
-        Azure resource ID of the NetApp volume
-        """
-elif False:
-    NetAppVolumeArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class NetAppVolumeArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        An Azure NetApp Files volume from Microsoft.NetApp provider
-        :param pulumi.Input[str] id: Azure resource ID of the NetApp volume
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        Azure resource ID of the NetApp volume
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class PSCredentialExecutionParameterArgsDict(TypedDict):
-        """
-        a powershell credential object
-        """
-        name: pulumi.Input[str]
-        """
-        The parameter name
-        """
-        type: pulumi.Input[str]
-        """
-        The type of execution parameter
-        Expected value is 'Credential'.
-        """
-        password: NotRequired[pulumi.Input[str]]
-        """
-        password for login
-        """
-        username: NotRequired[pulumi.Input[str]]
-        """
-        username for login
-        """
-elif False:
-    PSCredentialExecutionParameterArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class PSCredentialExecutionParameterArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 type: pulumi.Input[str],
-                 password: Optional[pulumi.Input[str]] = None,
-                 username: Optional[pulumi.Input[str]] = None):
-        """
-        a powershell credential object
-        :param pulumi.Input[str] name: The parameter name
-        :param pulumi.Input[str] type: The type of execution parameter
-               Expected value is 'Credential'.
-        :param pulumi.Input[str] password: password for login
-        :param pulumi.Input[str] username: username for login
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Credential')
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The parameter name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The type of execution parameter
-        Expected value is 'Credential'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        password for login
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        username for login
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "username", value)
-
-
-if not MYPY:
     class PrivateCloudIdentityArgsDict(TypedDict):
         """
         Identity for the virtual machine.
@@ -1013,160 +793,6 @@ class PrivateCloudIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]):
         pulumi.set(self, "type", value)
-
-
-if not MYPY:
-    class ScriptSecureStringExecutionParameterArgsDict(TypedDict):
-        """
-        a plain text value execution parameter
-        """
-        name: pulumi.Input[str]
-        """
-        The parameter name
-        """
-        type: pulumi.Input[str]
-        """
-        The type of execution parameter
-        Expected value is 'SecureValue'.
-        """
-        secure_value: NotRequired[pulumi.Input[str]]
-        """
-        A secure value for the passed parameter, not to be stored in logs
-        """
-elif False:
-    ScriptSecureStringExecutionParameterArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ScriptSecureStringExecutionParameterArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 type: pulumi.Input[str],
-                 secure_value: Optional[pulumi.Input[str]] = None):
-        """
-        a plain text value execution parameter
-        :param pulumi.Input[str] name: The parameter name
-        :param pulumi.Input[str] type: The type of execution parameter
-               Expected value is 'SecureValue'.
-        :param pulumi.Input[str] secure_value: A secure value for the passed parameter, not to be stored in logs
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'SecureValue')
-        if secure_value is not None:
-            pulumi.set(__self__, "secure_value", secure_value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The parameter name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The type of execution parameter
-        Expected value is 'SecureValue'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="secureValue")
-    def secure_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        A secure value for the passed parameter, not to be stored in logs
-        """
-        return pulumi.get(self, "secure_value")
-
-    @secure_value.setter
-    def secure_value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secure_value", value)
-
-
-if not MYPY:
-    class ScriptStringExecutionParameterArgsDict(TypedDict):
-        """
-        a plain text value execution parameter
-        """
-        name: pulumi.Input[str]
-        """
-        The parameter name
-        """
-        type: pulumi.Input[str]
-        """
-        The type of execution parameter
-        Expected value is 'Value'.
-        """
-        value: NotRequired[pulumi.Input[str]]
-        """
-        The value for the passed parameter
-        """
-elif False:
-    ScriptStringExecutionParameterArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ScriptStringExecutionParameterArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 type: pulumi.Input[str],
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        a plain text value execution parameter
-        :param pulumi.Input[str] name: The parameter name
-        :param pulumi.Input[str] type: The type of execution parameter
-               Expected value is 'Value'.
-        :param pulumi.Input[str] value: The value for the passed parameter
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'Value')
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The parameter name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The type of execution parameter
-        Expected value is 'Value'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value for the passed parameter
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
 
 
 if not MYPY:
@@ -1709,61 +1335,5 @@ class WorkloadNetworkDhcpServerArgs:
     @server_address.setter
     def server_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "server_address", value)
-
-
-if not MYPY:
-    class WorkloadNetworkSegmentSubnetArgsDict(TypedDict):
-        """
-        Subnet configuration for segment
-        """
-        dhcp_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        DHCP Range assigned for subnet.
-        """
-        gateway_address: NotRequired[pulumi.Input[str]]
-        """
-        Gateway address.
-        """
-elif False:
-    WorkloadNetworkSegmentSubnetArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class WorkloadNetworkSegmentSubnetArgs:
-    def __init__(__self__, *,
-                 dhcp_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 gateway_address: Optional[pulumi.Input[str]] = None):
-        """
-        Subnet configuration for segment
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dhcp_ranges: DHCP Range assigned for subnet.
-        :param pulumi.Input[str] gateway_address: Gateway address.
-        """
-        if dhcp_ranges is not None:
-            pulumi.set(__self__, "dhcp_ranges", dhcp_ranges)
-        if gateway_address is not None:
-            pulumi.set(__self__, "gateway_address", gateway_address)
-
-    @property
-    @pulumi.getter(name="dhcpRanges")
-    def dhcp_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        DHCP Range assigned for subnet.
-        """
-        return pulumi.get(self, "dhcp_ranges")
-
-    @dhcp_ranges.setter
-    def dhcp_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "dhcp_ranges", value)
-
-    @property
-    @pulumi.getter(name="gatewayAddress")
-    def gateway_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gateway address.
-        """
-        return pulumi.get(self, "gateway_address")
-
-    @gateway_address.setter
-    def gateway_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "gateway_address", value)
 
 

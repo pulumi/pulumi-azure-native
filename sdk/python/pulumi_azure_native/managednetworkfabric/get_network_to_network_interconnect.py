@@ -25,30 +25,48 @@ __all__ = [
 @pulumi.output_type
 class GetNetworkToNetworkInterconnectResult:
     """
-    The NetworkToNetworkInterconnect resource definition.
+    The Network To Network Interconnect resource definition.
     """
-    def __init__(__self__, administrative_state=None, id=None, is_management_type=None, layer2_configuration=None, layer3_configuration=None, name=None, nni_type=None, provisioning_state=None, system_data=None, type=None, use_option_b=None):
+    def __init__(__self__, administrative_state=None, configuration_state=None, egress_acl_id=None, export_route_policy=None, id=None, import_route_policy=None, ingress_acl_id=None, is_management_type=None, layer2_configuration=None, name=None, nni_type=None, npb_static_route_configuration=None, option_b_layer3_configuration=None, provisioning_state=None, system_data=None, type=None, use_option_b=None):
         if administrative_state and not isinstance(administrative_state, str):
             raise TypeError("Expected argument 'administrative_state' to be a str")
         pulumi.set(__self__, "administrative_state", administrative_state)
+        if configuration_state and not isinstance(configuration_state, str):
+            raise TypeError("Expected argument 'configuration_state' to be a str")
+        pulumi.set(__self__, "configuration_state", configuration_state)
+        if egress_acl_id and not isinstance(egress_acl_id, str):
+            raise TypeError("Expected argument 'egress_acl_id' to be a str")
+        pulumi.set(__self__, "egress_acl_id", egress_acl_id)
+        if export_route_policy and not isinstance(export_route_policy, dict):
+            raise TypeError("Expected argument 'export_route_policy' to be a dict")
+        pulumi.set(__self__, "export_route_policy", export_route_policy)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if import_route_policy and not isinstance(import_route_policy, dict):
+            raise TypeError("Expected argument 'import_route_policy' to be a dict")
+        pulumi.set(__self__, "import_route_policy", import_route_policy)
+        if ingress_acl_id and not isinstance(ingress_acl_id, str):
+            raise TypeError("Expected argument 'ingress_acl_id' to be a str")
+        pulumi.set(__self__, "ingress_acl_id", ingress_acl_id)
         if is_management_type and not isinstance(is_management_type, str):
             raise TypeError("Expected argument 'is_management_type' to be a str")
         pulumi.set(__self__, "is_management_type", is_management_type)
         if layer2_configuration and not isinstance(layer2_configuration, dict):
             raise TypeError("Expected argument 'layer2_configuration' to be a dict")
         pulumi.set(__self__, "layer2_configuration", layer2_configuration)
-        if layer3_configuration and not isinstance(layer3_configuration, dict):
-            raise TypeError("Expected argument 'layer3_configuration' to be a dict")
-        pulumi.set(__self__, "layer3_configuration", layer3_configuration)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if nni_type and not isinstance(nni_type, str):
             raise TypeError("Expected argument 'nni_type' to be a str")
         pulumi.set(__self__, "nni_type", nni_type)
+        if npb_static_route_configuration and not isinstance(npb_static_route_configuration, dict):
+            raise TypeError("Expected argument 'npb_static_route_configuration' to be a dict")
+        pulumi.set(__self__, "npb_static_route_configuration", npb_static_route_configuration)
+        if option_b_layer3_configuration and not isinstance(option_b_layer3_configuration, dict):
+            raise TypeError("Expected argument 'option_b_layer3_configuration' to be a dict")
+        pulumi.set(__self__, "option_b_layer3_configuration", option_b_layer3_configuration)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -66,21 +84,61 @@ class GetNetworkToNetworkInterconnectResult:
     @pulumi.getter(name="administrativeState")
     def administrative_state(self) -> str:
         """
-        Gets the administrativeState of the resource. Example -Enabled/Disabled
+        Administrative state of the resource.
         """
         return pulumi.get(self, "administrative_state")
+
+    @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> str:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @property
+    @pulumi.getter(name="egressAclId")
+    def egress_acl_id(self) -> Optional[str]:
+        """
+        Egress Acl. ARM resource ID of Access Control Lists.
+        """
+        return pulumi.get(self, "egress_acl_id")
+
+    @property
+    @pulumi.getter(name="exportRoutePolicy")
+    def export_route_policy(self) -> Optional['outputs.ExportRoutePolicyInformationResponse']:
+        """
+        Export Route Policy configuration.
+        """
+        return pulumi.get(self, "export_route_policy")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="importRoutePolicy")
+    def import_route_policy(self) -> Optional['outputs.ImportRoutePolicyInformationResponse']:
+        """
+        Import Route Policy configuration.
+        """
+        return pulumi.get(self, "import_route_policy")
+
+    @property
+    @pulumi.getter(name="ingressAclId")
+    def ingress_acl_id(self) -> Optional[str]:
+        """
+        Ingress Acl. ARM resource ID of Access Control Lists.
+        """
+        return pulumi.get(self, "ingress_acl_id")
+
+    @property
     @pulumi.getter(name="isManagementType")
-    def is_management_type(self) -> str:
+    def is_management_type(self) -> Optional[str]:
         """
         Configuration to use NNI for Infrastructure Management. Example: True/False.
         """
@@ -90,17 +148,9 @@ class GetNetworkToNetworkInterconnectResult:
     @pulumi.getter(name="layer2Configuration")
     def layer2_configuration(self) -> Optional['outputs.Layer2ConfigurationResponse']:
         """
-        Common properties for Layer2Configuration.
+        Common properties for Layer2 Configuration.
         """
         return pulumi.get(self, "layer2_configuration")
-
-    @property
-    @pulumi.getter(name="layer3Configuration")
-    def layer3_configuration(self) -> Optional['outputs.Layer3ConfigurationResponse']:
-        """
-        Common properties for Layer3Configuration.
-        """
-        return pulumi.get(self, "layer3_configuration")
 
     @property
     @pulumi.getter
@@ -119,10 +169,26 @@ class GetNetworkToNetworkInterconnectResult:
         return pulumi.get(self, "nni_type")
 
     @property
+    @pulumi.getter(name="npbStaticRouteConfiguration")
+    def npb_static_route_configuration(self) -> Optional['outputs.NpbStaticRouteConfigurationResponse']:
+        """
+        NPB Static Route Configuration properties.
+        """
+        return pulumi.get(self, "npb_static_route_configuration")
+
+    @property
+    @pulumi.getter(name="optionBLayer3Configuration")
+    def option_b_layer3_configuration(self) -> Optional['outputs.NetworkToNetworkInterconnectPropertiesResponseOptionBLayer3Configuration']:
+        """
+        Common properties for Layer3Configuration.
+        """
+        return pulumi.get(self, "option_b_layer3_configuration")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -146,7 +212,7 @@ class GetNetworkToNetworkInterconnectResult:
     @pulumi.getter(name="useOptionB")
     def use_option_b(self) -> str:
         """
-        Based on this parameter the layer2/layer3 is made as mandatory. Example: True/False
+        Based on this option layer3 parameters are mandatory. Example: True/False
         """
         return pulumi.get(self, "use_option_b")
 
@@ -158,12 +224,18 @@ class AwaitableGetNetworkToNetworkInterconnectResult(GetNetworkToNetworkIntercon
             yield self
         return GetNetworkToNetworkInterconnectResult(
             administrative_state=self.administrative_state,
+            configuration_state=self.configuration_state,
+            egress_acl_id=self.egress_acl_id,
+            export_route_policy=self.export_route_policy,
             id=self.id,
+            import_route_policy=self.import_route_policy,
+            ingress_acl_id=self.ingress_acl_id,
             is_management_type=self.is_management_type,
             layer2_configuration=self.layer2_configuration,
-            layer3_configuration=self.layer3_configuration,
             name=self.name,
             nni_type=self.nni_type,
+            npb_static_route_configuration=self.npb_static_route_configuration,
+            option_b_layer3_configuration=self.option_b_layer3_configuration,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             type=self.type,
@@ -176,13 +248,13 @@ def get_network_to_network_interconnect(network_fabric_name: Optional[str] = Non
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkToNetworkInterconnectResult:
     """
     Implements NetworkToNetworkInterconnects GET method.
-    Azure REST API version: 2023-02-01-preview.
+    Azure REST API version: 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview.
 
 
-    :param str network_fabric_name: Name of the NetworkFabric.
-    :param str network_to_network_interconnect_name: Name of the NetworkToNetworkInterconnect
+    :param str network_fabric_name: Name of the Network Fabric.
+    :param str network_to_network_interconnect_name: Name of the Network to Network Interconnect.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -194,12 +266,18 @@ def get_network_to_network_interconnect(network_fabric_name: Optional[str] = Non
 
     return AwaitableGetNetworkToNetworkInterconnectResult(
         administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
+        egress_acl_id=pulumi.get(__ret__, 'egress_acl_id'),
+        export_route_policy=pulumi.get(__ret__, 'export_route_policy'),
         id=pulumi.get(__ret__, 'id'),
+        import_route_policy=pulumi.get(__ret__, 'import_route_policy'),
+        ingress_acl_id=pulumi.get(__ret__, 'ingress_acl_id'),
         is_management_type=pulumi.get(__ret__, 'is_management_type'),
         layer2_configuration=pulumi.get(__ret__, 'layer2_configuration'),
-        layer3_configuration=pulumi.get(__ret__, 'layer3_configuration'),
         name=pulumi.get(__ret__, 'name'),
         nni_type=pulumi.get(__ret__, 'nni_type'),
+        npb_static_route_configuration=pulumi.get(__ret__, 'npb_static_route_configuration'),
+        option_b_layer3_configuration=pulumi.get(__ret__, 'option_b_layer3_configuration'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
@@ -210,13 +288,13 @@ def get_network_to_network_interconnect_output(network_fabric_name: Optional[pul
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkToNetworkInterconnectResult]:
     """
     Implements NetworkToNetworkInterconnects GET method.
-    Azure REST API version: 2023-02-01-preview.
+    Azure REST API version: 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview.
 
 
-    :param str network_fabric_name: Name of the NetworkFabric.
-    :param str network_to_network_interconnect_name: Name of the NetworkToNetworkInterconnect
+    :param str network_fabric_name: Name of the Network Fabric.
+    :param str network_to_network_interconnect_name: Name of the Network to Network Interconnect.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -227,12 +305,18 @@ def get_network_to_network_interconnect_output(network_fabric_name: Optional[pul
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getNetworkToNetworkInterconnect', __args__, opts=opts, typ=GetNetworkToNetworkInterconnectResult)
     return __ret__.apply(lambda __response__: GetNetworkToNetworkInterconnectResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
+        egress_acl_id=pulumi.get(__response__, 'egress_acl_id'),
+        export_route_policy=pulumi.get(__response__, 'export_route_policy'),
         id=pulumi.get(__response__, 'id'),
+        import_route_policy=pulumi.get(__response__, 'import_route_policy'),
+        ingress_acl_id=pulumi.get(__response__, 'ingress_acl_id'),
         is_management_type=pulumi.get(__response__, 'is_management_type'),
         layer2_configuration=pulumi.get(__response__, 'layer2_configuration'),
-        layer3_configuration=pulumi.get(__response__, 'layer3_configuration'),
         name=pulumi.get(__response__, 'name'),
         nni_type=pulumi.get(__response__, 'nni_type'),
+        npb_static_route_configuration=pulumi.get(__response__, 'npb_static_route_configuration'),
+        option_b_layer3_configuration=pulumi.get(__response__, 'option_b_layer3_configuration'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),

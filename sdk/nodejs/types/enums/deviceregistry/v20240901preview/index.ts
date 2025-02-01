@@ -22,50 +22,6 @@ export const AuthenticationMethod = {
  */
 export type AuthenticationMethod = (typeof AuthenticationMethod)[keyof typeof AuthenticationMethod];
 
-export const DataPointObservabilityMode = {
-    /**
-     * No mapping to OpenTelemetry.
-     */
-    None: "None",
-    /**
-     * Map as counter to OpenTelemetry.
-     */
-    Counter: "Counter",
-    /**
-     * Map as gauge to OpenTelemetry.
-     */
-    Gauge: "Gauge",
-    /**
-     * Map as histogram to OpenTelemetry.
-     */
-    Histogram: "Histogram",
-    /**
-     * Map as log to OpenTelemetry.
-     */
-    Log: "Log",
-} as const;
-
-/**
- * An indication of how the data point should be mapped to OpenTelemetry.
- */
-export type DataPointObservabilityMode = (typeof DataPointObservabilityMode)[keyof typeof DataPointObservabilityMode];
-
-export const EventObservabilityMode = {
-    /**
-     * No mapping to OpenTelemetry.
-     */
-    None: "None",
-    /**
-     * Map as log to OpenTelemetry.
-     */
-    Log: "Log",
-} as const;
-
-/**
- * An indication of how the event should be mapped to OpenTelemetry.
- */
-export type EventObservabilityMode = (typeof EventObservabilityMode)[keyof typeof EventObservabilityMode];
-
 export const Format = {
     /**
      * JSON Schema version draft 7 format

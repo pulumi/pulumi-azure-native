@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Lists a Channel registration for a Bot Service including secrets
- * Azure REST API version: 2022-09-15.
+ * Azure REST API version: 2023-09-15-preview.
  *
- * Other available API versions: 2023-09-15-preview.
+ * Other available API versions: 2022-09-15.
  */
 export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListChannelWithKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -104,9 +104,9 @@ export interface ListChannelWithKeysResult {
 }
 /**
  * Lists a Channel registration for a Bot Service including secrets
- * Azure REST API version: 2022-09-15.
+ * Azure REST API version: 2023-09-15-preview.
  *
- * Other available API versions: 2023-09-15-preview.
+ * Other available API versions: 2022-09-15.
  */
 export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListChannelWithKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

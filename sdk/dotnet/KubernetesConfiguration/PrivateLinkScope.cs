@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 {
     /// <summary>
     /// An Azure Arc PrivateLinkScope definition.
-    /// Azure REST API version: 2022-04-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview.
+    /// Azure REST API version: 2022-04-02-preview. Prior API version in Azure Native 2.x: 2022-04-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration:PrivateLinkScope")]
     public partial class PrivateLinkScope : global::Pulumi.CustomResource

@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? HyperVGeneration;
         /// <summary>
+        /// [Preview Feature] Specifies whether the VM is currently in or out of the Standby Pool.
+        /// </summary>
+        public readonly bool IsVMInStandbyPool;
+        /// <summary>
         /// The Maintenance Operation status on the virtual machine.
         /// </summary>
         public readonly Outputs.MaintenanceRedeployStatusResponse? MaintenanceRedeployStatus;
@@ -95,6 +99,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string? hyperVGeneration,
 
+            bool isVMInStandbyPool,
+
             Outputs.MaintenanceRedeployStatusResponse? maintenanceRedeployStatus,
 
             string? osName,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
             Disks = disks;
             Extensions = extensions;
             HyperVGeneration = hyperVGeneration;
+            IsVMInStandbyPool = isVMInStandbyPool;
             MaintenanceRedeployStatus = maintenanceRedeployStatus;
             OsName = osName;
             OsVersion = osVersion;

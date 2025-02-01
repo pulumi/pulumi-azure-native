@@ -220,9 +220,9 @@ class AwaitableListPaloAltoNetworksCloudngfwSupportInfoResult(ListPaloAltoNetwor
 def list_palo_alto_networks_cloudngfw_support_info(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPaloAltoNetworksCloudngfwSupportInfoResult:
     """
     Support information for the service
-    Azure REST API version: 2024-02-07-preview.
+    Azure REST API version: 2024-01-19-preview.
 
-    Other available API versions: 2024-01-19-preview.
+    Other available API versions: 2024-02-07-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -247,9 +247,9 @@ def list_palo_alto_networks_cloudngfw_support_info(opts: Optional[pulumi.InvokeO
 def list_palo_alto_networks_cloudngfw_support_info_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPaloAltoNetworksCloudngfwSupportInfoResult]:
     """
     Support information for the service
-    Azure REST API version: 2024-02-07-preview.
+    Azure REST API version: 2024-01-19-preview.
 
-    Other available API versions: 2024-01-19-preview.
+    Other available API versions: 2024-02-07-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

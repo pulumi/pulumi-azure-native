@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         /// Alternative authentication name sources related to client authentication settings for namespace resource.
         /// </summary>
         public readonly ImmutableArray<string> AlternativeAuthenticationNameSources;
+        /// <summary>
+        /// Custom JWT authentication settings for namespace resource.
+        /// </summary>
+        public readonly Outputs.CustomJwtAuthenticationSettingsResponse? CustomJwtAuthentication;
 
         [OutputConstructor]
-        private ClientAuthenticationSettingsResponse(ImmutableArray<string> alternativeAuthenticationNameSources)
+        private ClientAuthenticationSettingsResponse(
+            ImmutableArray<string> alternativeAuthenticationNameSources,
+
+            Outputs.CustomJwtAuthenticationSettingsResponse? customJwtAuthentication)
         {
             AlternativeAuthenticationNameSources = alternativeAuthenticationNameSources;
+            CustomJwtAuthentication = customJwtAuthentication;
         }
     }
 }

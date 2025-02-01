@@ -3,14 +3,10 @@
 
 // Export sub-modules:
 import * as v20230406 from "./v20230406";
-import * as v20230804preview from "./v20230804preview";
-import * as v20231101preview from "./v20231101preview";
 import * as v20240801preview from "./v20240801preview";
 
 export {
     v20230406,
-    v20230804preview,
-    v20231101preview,
     v20240801preview,
 };
 
@@ -106,3 +102,13 @@ export const ProvisioningState = {
  * State of provisioning of the AzureBareMetalStorageInstance
  */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
+
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

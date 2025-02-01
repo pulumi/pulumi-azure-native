@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.StoragePool
 {
     /// <summary>
     /// Response for iSCSI Target requests.
-    /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-03-15-preview.
-    /// 
-    /// Other available API versions: 2020-03-15-preview.
+    /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagepool:IscsiTarget")]
     public partial class IscsiTarget : global::Pulumi.CustomResource

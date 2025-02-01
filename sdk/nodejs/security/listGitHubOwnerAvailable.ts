@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * List of RP resources which supports pagination.
- * Azure REST API version: 2023-09-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2024-04-01, 2024-05-15-preview.
+ * Other available API versions: 2023-09-01-preview, 2024-05-15-preview.
  */
 export function listGitHubOwnerAvailable(args: ListGitHubOwnerAvailableArgs, opts?: pulumi.InvokeOptions): Promise<ListGitHubOwnerAvailableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,9 +47,9 @@ export interface ListGitHubOwnerAvailableResult {
 }
 /**
  * List of RP resources which supports pagination.
- * Azure REST API version: 2023-09-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2024-04-01, 2024-05-15-preview.
+ * Other available API versions: 2023-09-01-preview, 2024-05-15-preview.
  */
 export function listGitHubOwnerAvailableOutput(args: ListGitHubOwnerAvailableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGitHubOwnerAvailableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Details of an Update run
-    /// Azure REST API version: 2023-03-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
     /// 
-    /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    /// Other available API versions: 2023-03-01, 2024-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:UpdateRun")]
     public partial class UpdateRun : global::Pulumi.CustomResource
@@ -41,6 +41,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("errorMessage")]
         public Output<string?> ErrorMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
+        /// </summary>
+        [Output("expectedExecutionTime")]
+        public Output<string?> ExpectedExecutionTime { get; private set; } = null!;
 
         /// <summary>
         /// Timestamp of the most recently completed step in the update run.
@@ -204,6 +210,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("errorMessage")]
         public Input<string>? ErrorMessage { get; set; }
+
+        /// <summary>
+        /// Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
+        /// </summary>
+        [Input("expectedExecutionTime")]
+        public Input<string>? ExpectedExecutionTime { get; set; }
 
         /// <summary>
         /// Timestamp of the most recently completed step in the update run.

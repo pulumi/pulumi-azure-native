@@ -132,7 +132,7 @@ export class AKSService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:AKSService" }, { type: "azure-native:machinelearningservices/v20200515preview:AKSService" }, { type: "azure-native:machinelearningservices/v20200901preview:AKSService" }, { type: "azure-native:machinelearningservices/v20210101:AKSService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:AKSService" }, { type: "azure-native:machinelearningservices/v20200515preview:AKSService" }, { type: "azure-native:machinelearningservices/v20200901preview:AKSService" }, { type: "azure-native:machinelearningservices/v20210101:AKSService" }, { type: "azure-native:machinelearningservices/v20210401:ACIService" }, { type: "azure-native:machinelearningservices/v20210401:EndpointVariant" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AKSService.__pulumiType, name, resourceInputs, opts);
     }

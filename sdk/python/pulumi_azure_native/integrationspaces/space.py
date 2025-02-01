@@ -117,7 +117,7 @@ class Space(pulumi.CustomResource):
                  __props__=None):
         """
         An integration space.
-        Azure REST API version: 2023-11-14-preview.
+        Azure REST API version: 2023-11-14-preview. Prior API version in Azure Native 2.x: 2023-11-14-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +135,7 @@ class Space(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An integration space.
-        Azure REST API version: 2023-11-14-preview.
+        Azure REST API version: 2023-11-14-preview. Prior API version in Azure Native 2.x: 2023-11-14-preview.
 
         :param str resource_name: The name of the resource.
         :param SpaceArgs args: The arguments to use to populate this resource's properties.

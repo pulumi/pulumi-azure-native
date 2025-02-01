@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ConfidentialLedger
     {
         /// <summary>
         /// Retrieves the properties of a Managed CCF app.
-        /// Azure REST API version: 2023-01-26-preview.
+        /// Azure REST API version: 2023-06-28-preview.
         /// 
-        /// Other available API versions: 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+        /// Other available API versions: 2023-01-26-preview, 2024-09-19-preview.
         /// </summary>
         public static Task<GetManagedCCFResult> InvokeAsync(GetManagedCCFArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedCCFResult>("azure-native:confidentialledger:getManagedCCF", args ?? new GetManagedCCFArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of a Managed CCF app.
-        /// Azure REST API version: 2023-01-26-preview.
+        /// Azure REST API version: 2023-06-28-preview.
         /// 
-        /// Other available API versions: 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+        /// Other available API versions: 2023-01-26-preview, 2024-09-19-preview.
         /// </summary>
         public static Output<GetManagedCCFResult> Invoke(GetManagedCCFInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedCCFResult>("azure-native:confidentialledger:getManagedCCF", args ?? new GetManagedCCFInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the properties of a Managed CCF app.
-        /// Azure REST API version: 2023-01-26-preview.
+        /// Azure REST API version: 2023-06-28-preview.
         /// 
-        /// Other available API versions: 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+        /// Other available API versions: 2023-01-26-preview, 2024-09-19-preview.
         /// </summary>
         public static Output<GetManagedCCFResult> Invoke(GetManagedCCFInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedCCFResult>("azure-native:confidentialledger:getManagedCCF", args ?? new GetManagedCCFInvokeArgs(), options.WithDefaults());

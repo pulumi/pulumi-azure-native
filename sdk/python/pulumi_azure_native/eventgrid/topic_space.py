@@ -33,9 +33,9 @@ class TopicSpaceArgs:
         :param pulumi.Input[str] topic_space_name: The topic space name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topic_templates: The topic filters in the topic space.
                Example: "topicTemplates": [ 
-                             "devices/foo/bar",
-                             "devices/topic1/+",
-                             "devices/${principal.name}/${principal.attributes.keyName}" ].
+                       "devices/foo/bar",
+                       "devices/topic1/+",
+                       "devices/${principal.name}/${principal.attributes.keyName}" ].
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -100,9 +100,9 @@ class TopicSpaceArgs:
         """
         The topic filters in the topic space.
         Example: "topicTemplates": [ 
-                      "devices/foo/bar",
-                      "devices/topic1/+",
-                      "devices/${principal.name}/${principal.attributes.keyName}" ].
+                "devices/foo/bar",
+                "devices/topic1/+",
+                "devices/${principal.name}/${principal.attributes.keyName}" ].
         """
         return pulumi.get(self, "topic_templates")
 
@@ -124,9 +124,9 @@ class TopicSpace(pulumi.CustomResource):
                  __props__=None):
         """
         The Topic space resource.
-        Azure REST API version: 2023-06-01-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,9 +136,9 @@ class TopicSpace(pulumi.CustomResource):
         :param pulumi.Input[str] topic_space_name: The topic space name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topic_templates: The topic filters in the topic space.
                Example: "topicTemplates": [ 
-                             "devices/foo/bar",
-                             "devices/topic1/+",
-                             "devices/${principal.name}/${principal.attributes.keyName}" ].
+                       "devices/foo/bar",
+                       "devices/topic1/+",
+                       "devices/${principal.name}/${principal.attributes.keyName}" ].
         """
         ...
     @overload
@@ -148,9 +148,9 @@ class TopicSpace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Topic space resource.
-        Azure REST API version: 2023-06-01-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TopicSpaceArgs args: The arguments to use to populate this resource's properties.
@@ -254,7 +254,7 @@ class TopicSpace(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to the TopicSpace resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -264,9 +264,9 @@ class TopicSpace(pulumi.CustomResource):
         """
         The topic filters in the topic space.
         Example: "topicTemplates": [ 
-                      "devices/foo/bar",
-                      "devices/topic1/+",
-                      "devices/${principal.name}/${principal.attributes.keyName}" ].
+                "devices/foo/bar",
+                "devices/topic1/+",
+                "devices/${principal.name}/${principal.attributes.keyName}" ].
         """
         return pulumi.get(self, "topic_templates")
 

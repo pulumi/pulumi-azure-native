@@ -11,23 +11,23 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
 {
 
     /// <summary>
-    /// Configuration for infrastructure vpn.
+    /// Network and credential configuration currently applied on terminal server.
     /// </summary>
     [OutputType]
     public sealed class VpnConfigurationPropertiesResponse
     {
         /// <summary>
-        /// Indicates configuration state. Example: Enabled | Disabled.
+        /// Administrative state of the resource.
         /// </summary>
         public readonly string AdministrativeState;
         /// <summary>
-        /// Gets the networkToNetworkInterconnectId of the resource.
+        /// ARM Resource ID of the Network To Network Interconnect.
         /// </summary>
-        public readonly string NetworkToNetworkInterconnectId;
+        public readonly string? NetworkToNetworkInterconnectId;
         /// <summary>
         /// option A properties
         /// </summary>
-        public readonly Outputs.OptionAPropertiesResponse? OptionAProperties;
+        public readonly Outputs.VpnConfigurationPropertiesResponseOptionAProperties? OptionAProperties;
         /// <summary>
         /// option B properties
         /// </summary>
@@ -41,9 +41,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
         private VpnConfigurationPropertiesResponse(
             string administrativeState,
 
-            string networkToNetworkInterconnectId,
+            string? networkToNetworkInterconnectId,
 
-            Outputs.OptionAPropertiesResponse? optionAProperties,
+            Outputs.VpnConfigurationPropertiesResponseOptionAProperties? optionAProperties,
 
             Outputs.FabricOptionBPropertiesResponse? optionBProperties,
 

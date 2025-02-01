@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Datadog
 {
     /// <summary>
-    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
+    /// Azure REST API version: 2023-10-20. Prior API version in Azure Native 2.x: 2022-06-01.
     /// 
-    /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+    /// Other available API versions: 2022-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datadog:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource

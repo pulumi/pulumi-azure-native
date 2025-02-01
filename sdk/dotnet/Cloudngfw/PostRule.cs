@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Cloudngfw
 {
     /// <summary>
     /// PostRulestack rule list
-    /// Azure REST API version: 2023-09-01.
+    /// Azure REST API version: 2024-01-19-preview. Prior API version in Azure Native 2.x: 2023-09-01.
     /// 
-    /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    /// Other available API versions: 2023-09-01, 2024-02-07-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cloudngfw:PostRule")]
     public partial class PostRule : global::Pulumi.CustomResource

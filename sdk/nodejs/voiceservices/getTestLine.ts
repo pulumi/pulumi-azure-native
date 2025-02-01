@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a TestLine
- * Azure REST API version: 2023-04-03.
+ * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2022-12-01-preview, 2023-09-01.
+ * Other available API versions: 2022-12-01-preview, 2023-04-03.
  */
 export function getTestLine(args: GetTestLineArgs, opts?: pulumi.InvokeOptions): Promise<GetTestLineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,9 +80,9 @@ export interface GetTestLineResult {
 }
 /**
  * Get a TestLine
- * Azure REST API version: 2023-04-03.
+ * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2022-12-01-preview, 2023-09-01.
+ * Other available API versions: 2022-12-01-preview, 2023-04-03.
  */
 export function getTestLineOutput(args: GetTestLineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestLineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

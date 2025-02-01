@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// The Defender for Storage resource.
-    /// Azure REST API version: 2022-12-01-preview.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2022-12-01-preview.
     /// 
-    /// Other available API versions: 2024-10-01-preview.
+    /// Other available API versions: 2022-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:DefenderForStorage")]
     public partial class DefenderForStorage : global::Pulumi.CustomResource

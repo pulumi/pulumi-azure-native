@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Insight resource
- * Azure REST API version: 2024-05-01-preview.
+ * Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
  */
 export class Insight extends pulumi.CustomResource {
     /**

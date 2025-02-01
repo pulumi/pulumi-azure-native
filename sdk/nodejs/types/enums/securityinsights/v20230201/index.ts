@@ -364,32 +364,6 @@ export const ConditionType = {
 
 export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
 
-export const DataConnectorKind = {
-    AzureActiveDirectory: "AzureActiveDirectory",
-    AzureSecurityCenter: "AzureSecurityCenter",
-    MicrosoftCloudAppSecurity: "MicrosoftCloudAppSecurity",
-    ThreatIntelligence: "ThreatIntelligence",
-    Office365: "Office365",
-    AmazonWebServicesCloudTrail: "AmazonWebServicesCloudTrail",
-    AzureAdvancedThreatProtection: "AzureAdvancedThreatProtection",
-    MicrosoftDefenderAdvancedThreatProtection: "MicrosoftDefenderAdvancedThreatProtection",
-} as const;
-
-/**
- * The data connector kind
- */
-export type DataConnectorKind = (typeof DataConnectorKind)[keyof typeof DataConnectorKind];
-
-export const DataTypeState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Describe whether this data type connection is enabled or not.
- */
-export type DataTypeState = (typeof DataTypeState)[keyof typeof DataTypeState];
-
 export const IncidentClassification = {
     /**
      * Incident classification was undetermined

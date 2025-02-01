@@ -19,7 +19,6 @@ from ._enums import *
 __all__ = [
     'AmbrResponse',
     'AsyncOperationIdResponse',
-    'AttachedDataNetworkResourceIdResponse',
     'AzureStackEdgeDeviceResourceIdResponse',
     'AzureStackHCIClusterResourceIdResponse',
     'CertificateProvisioningResponse',
@@ -46,9 +45,6 @@ __all__ = [
     'QosPolicyResponse',
     'ServiceDataFlowTemplateResponse',
     'ServiceResourceIdResponse',
-    'SimPolicyResourceIdResponse',
-    'SimStaticIpPropertiesResponse',
-    'SimStaticIpPropertiesResponseStaticIp',
     'SiteResourceIdResponse',
     'SliceConfigurationResponse',
     'SliceResourceIdResponse',
@@ -109,28 +105,6 @@ class AsyncOperationIdResponse(dict):
     def id(self) -> str:
         """
         Azure Async Operation ID.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class AttachedDataNetworkResourceIdResponse(dict):
-    """
-    Reference to an attached data network resource.
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        Reference to an attached data network resource.
-        :param str id: Attached data network resource ID.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Attached data network resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -1690,134 +1664,6 @@ class ServiceResourceIdResponse(dict):
         Service resource ID.
         """
         return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class SimPolicyResourceIdResponse(dict):
-    """
-    Reference to a SIM policy resource.
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        Reference to a SIM policy resource.
-        :param str id: SIM policy resource ID.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        SIM policy resource ID.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class SimStaticIpPropertiesResponse(dict):
-    """
-    Static IP configuration for a SIM, scoped to a particular attached data network and slice.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "attachedDataNetwork":
-            suggest = "attached_data_network"
-        elif key == "staticIp":
-            suggest = "static_ip"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SimStaticIpPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SimStaticIpPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SimStaticIpPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 attached_data_network: Optional['outputs.AttachedDataNetworkResourceIdResponse'] = None,
-                 slice: Optional['outputs.SliceResourceIdResponse'] = None,
-                 static_ip: Optional['outputs.SimStaticIpPropertiesResponseStaticIp'] = None):
-        """
-        Static IP configuration for a SIM, scoped to a particular attached data network and slice.
-        :param 'AttachedDataNetworkResourceIdResponse' attached_data_network: The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The attached data network must be in the same location as the SIM.
-        :param 'SliceResourceIdResponse' slice: The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
-        :param 'SimStaticIpPropertiesResponseStaticIp' static_ip: The static IP configuration for the SIM to use at the defined network scope.
-        """
-        if attached_data_network is not None:
-            pulumi.set(__self__, "attached_data_network", attached_data_network)
-        if slice is not None:
-            pulumi.set(__self__, "slice", slice)
-        if static_ip is not None:
-            pulumi.set(__self__, "static_ip", static_ip)
-
-    @property
-    @pulumi.getter(name="attachedDataNetwork")
-    def attached_data_network(self) -> Optional['outputs.AttachedDataNetworkResourceIdResponse']:
-        """
-        The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The attached data network must be in the same location as the SIM.
-        """
-        return pulumi.get(self, "attached_data_network")
-
-    @property
-    @pulumi.getter
-    def slice(self) -> Optional['outputs.SliceResourceIdResponse']:
-        """
-        The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
-        """
-        return pulumi.get(self, "slice")
-
-    @property
-    @pulumi.getter(name="staticIp")
-    def static_ip(self) -> Optional['outputs.SimStaticIpPropertiesResponseStaticIp']:
-        """
-        The static IP configuration for the SIM to use at the defined network scope.
-        """
-        return pulumi.get(self, "static_ip")
-
-
-@pulumi.output_type
-class SimStaticIpPropertiesResponseStaticIp(dict):
-    """
-    The static IP configuration for the SIM to use at the defined network scope.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ipv4Address":
-            suggest = "ipv4_address"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SimStaticIpPropertiesResponseStaticIp. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SimStaticIpPropertiesResponseStaticIp.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SimStaticIpPropertiesResponseStaticIp.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 ipv4_address: Optional[str] = None):
-        """
-        The static IP configuration for the SIM to use at the defined network scope.
-        :param str ipv4_address: The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
-        """
-        if ipv4_address is not None:
-            pulumi.set(__self__, "ipv4_address", ipv4_address)
-
-    @property
-    @pulumi.getter(name="ipv4Address")
-    def ipv4_address(self) -> Optional[str]:
-        """
-        The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
-        """
-        return pulumi.get(self, "ipv4_address")
 
 
 @pulumi.output_type

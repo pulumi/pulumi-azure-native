@@ -84,6 +84,26 @@ export const NotificationEvent = {
  */
 export type NotificationEvent = (typeof NotificationEvent)[keyof typeof NotificationEvent];
 
+export const ResourceOrigin = {
+    /**
+     * The resource is from Azure.
+     */
+    Azure: "Azure",
+    /**
+     * The resource is from AWS.
+     */
+    AWS: "AWS",
+    /**
+     * The resource is from GCP.
+     */
+    GCP: "GCP",
+} as const;
+
+/**
+ * Resource Origin.
+ */
+export type ResourceOrigin = (typeof ResourceOrigin)[keyof typeof ResourceOrigin];
+
 export const SendAllEvents = {
     /**
      * Need send notification under any event.

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     {
         /// <summary>
         /// Gets information about a virtual endpoint.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Task<GetVirtualEndpointResult> InvokeAsync(GetVirtualEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualEndpointResult>("azure-native:dbforpostgresql:getVirtualEndpoint", args ?? new GetVirtualEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a virtual endpoint.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetVirtualEndpointResult> Invoke(GetVirtualEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualEndpointResult>("azure-native:dbforpostgresql:getVirtualEndpoint", args ?? new GetVirtualEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a virtual endpoint.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetVirtualEndpointResult> Invoke(GetVirtualEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualEndpointResult>("azure-native:dbforpostgresql:getVirtualEndpoint", args ?? new GetVirtualEndpointInvokeArgs(), options.WithDefaults());

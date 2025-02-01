@@ -27,7 +27,7 @@ class GetLabPlanResult:
     """
     Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
     """
-    def __init__(__self__, allowed_regions=None, default_auto_shutdown_profile=None, default_connection_profile=None, default_network_profile=None, id=None, identity=None, linked_lms_instance=None, location=None, name=None, provisioning_state=None, shared_gallery_id=None, support_info=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, allowed_regions=None, default_auto_shutdown_profile=None, default_connection_profile=None, default_network_profile=None, id=None, identity=None, linked_lms_instance=None, location=None, name=None, provisioning_state=None, resource_operation_error=None, shared_gallery_id=None, support_info=None, system_data=None, tags=None, type=None):
         if allowed_regions and not isinstance(allowed_regions, list):
             raise TypeError("Expected argument 'allowed_regions' to be a list")
         pulumi.set(__self__, "allowed_regions", allowed_regions)
@@ -58,6 +58,9 @@ class GetLabPlanResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_operation_error and not isinstance(resource_operation_error, dict):
+            raise TypeError("Expected argument 'resource_operation_error' to be a dict")
+        pulumi.set(__self__, "resource_operation_error", resource_operation_error)
         if shared_gallery_id and not isinstance(shared_gallery_id, str):
             raise TypeError("Expected argument 'shared_gallery_id' to be a str")
         pulumi.set(__self__, "shared_gallery_id", shared_gallery_id)
@@ -155,6 +158,14 @@ class GetLabPlanResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceOperationError")
+    def resource_operation_error(self) -> 'outputs.ResourceOperationErrorResponse':
+        """
+        Error details of last operation done on lab plan.
+        """
+        return pulumi.get(self, "resource_operation_error")
+
+    @property
     @pulumi.getter(name="sharedGalleryId")
     def shared_gallery_id(self) -> Optional[str]:
         """
@@ -211,6 +222,7 @@ class AwaitableGetLabPlanResult(GetLabPlanResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            resource_operation_error=self.resource_operation_error,
             shared_gallery_id=self.shared_gallery_id,
             support_info=self.support_info,
             system_data=self.system_data,
@@ -223,9 +235,9 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabPlanResult:
     """
     Retrieves the properties of a Lab Plan.
-    Azure REST API version: 2022-08-01.
+    Azure REST API version: 2023-06-07.
 
-    Other available API versions: 2023-06-07.
+    Other available API versions: 2022-08-01.
 
 
     :param str lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
@@ -248,6 +260,7 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_operation_error=pulumi.get(__ret__, 'resource_operation_error'),
         shared_gallery_id=pulumi.get(__ret__, 'shared_gallery_id'),
         support_info=pulumi.get(__ret__, 'support_info'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -258,9 +271,9 @@ def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabPlanResult]:
     """
     Retrieves the properties of a Lab Plan.
-    Azure REST API version: 2022-08-01.
+    Azure REST API version: 2023-06-07.
 
-    Other available API versions: 2023-06-07.
+    Other available API versions: 2022-08-01.
 
 
     :param str lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
@@ -282,6 +295,7 @@ def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_operation_error=pulumi.get(__response__, 'resource_operation_error'),
         shared_gallery_id=pulumi.get(__response__, 'shared_gallery_id'),
         support_info=pulumi.get(__response__, 'support_info'),
         system_data=pulumi.get(__response__, 'system_data'),

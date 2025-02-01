@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.VoiceServices
     {
         /// <summary>
         /// Get a TestLine
-        /// Azure REST API version: 2023-04-03.
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-09-01.
+        /// Other available API versions: 2022-12-01-preview, 2023-04-03.
         /// </summary>
         public static Task<GetTestLineResult> InvokeAsync(GetTestLineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestLineResult>("azure-native:voiceservices:getTestLine", args ?? new GetTestLineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a TestLine
-        /// Azure REST API version: 2023-04-03.
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-09-01.
+        /// Other available API versions: 2022-12-01-preview, 2023-04-03.
         /// </summary>
         public static Output<GetTestLineResult> Invoke(GetTestLineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestLineResult>("azure-native:voiceservices:getTestLine", args ?? new GetTestLineInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a TestLine
-        /// Azure REST API version: 2023-04-03.
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-09-01.
+        /// Other available API versions: 2022-12-01-preview, 2023-04-03.
         /// </summary>
         public static Output<GetTestLineResult> Invoke(GetTestLineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestLineResult>("azure-native:voiceservices:getTestLine", args ?? new GetTestLineInvokeArgs(), options.WithDefaults());

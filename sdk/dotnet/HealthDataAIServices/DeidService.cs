@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.HealthDataAIServices
 {
     /// <summary>
     /// A HealthDataAIServicesProviderHub resource
-    /// Azure REST API version: 2024-02-28-preview.
+    /// Azure REST API version: 2024-09-20. Prior API version in Azure Native 2.x: 2024-02-28-preview.
     /// 
-    /// Other available API versions: 2024-09-20.
+    /// Other available API versions: 2024-02-28-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthdataaiservices:DeidService")]
     public partial class DeidService : global::Pulumi.CustomResource

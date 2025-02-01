@@ -20,6 +20,8 @@ __all__ = [
     'AccessReviewHistoryInstanceArgsDict',
     'AccessReviewInstanceArgs',
     'AccessReviewInstanceArgsDict',
+    'AccessReviewRecurrenceRangeArgs',
+    'AccessReviewRecurrenceRangeArgsDict',
     'AccessReviewReviewerArgs',
     'AccessReviewReviewerArgsDict',
     'AccessReviewScopeArgs',
@@ -288,6 +290,102 @@ class AccessReviewInstanceArgs:
     @start_date_time.setter
     def start_date_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_date_time", value)
+
+
+if not MYPY:
+    class AccessReviewRecurrenceRangeArgsDict(TypedDict):
+        """
+        Recurrence Range of an Access Review Schedule Definition.
+        """
+        end_date: NotRequired[pulumi.Input[str]]
+        """
+        The DateTime when the review is scheduled to end. Required if type is endDate
+        """
+        number_of_occurrences: NotRequired[pulumi.Input[int]]
+        """
+        The number of times to repeat the access review. Required and must be positive if type is numbered.
+        """
+        start_date: NotRequired[pulumi.Input[str]]
+        """
+        The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]]
+        """
+        The recurrence range type. The possible values are: endDate, noEnd, numbered.
+        """
+elif False:
+    AccessReviewRecurrenceRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessReviewRecurrenceRangeArgs:
+    def __init__(__self__, *,
+                 end_date: Optional[pulumi.Input[str]] = None,
+                 number_of_occurrences: Optional[pulumi.Input[int]] = None,
+                 start_date: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]] = None):
+        """
+        Recurrence Range of an Access Review Schedule Definition.
+        :param pulumi.Input[str] end_date: The DateTime when the review is scheduled to end. Required if type is endDate
+        :param pulumi.Input[int] number_of_occurrences: The number of times to repeat the access review. Required and must be positive if type is numbered.
+        :param pulumi.Input[str] start_date: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+        :param pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']] type: The recurrence range type. The possible values are: endDate, noEnd, numbered.
+        """
+        if end_date is not None:
+            pulumi.set(__self__, "end_date", end_date)
+        if number_of_occurrences is not None:
+            pulumi.set(__self__, "number_of_occurrences", number_of_occurrences)
+        if start_date is not None:
+            pulumi.set(__self__, "start_date", start_date)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DateTime when the review is scheduled to end. Required if type is endDate
+        """
+        return pulumi.get(self, "end_date")
+
+    @end_date.setter
+    def end_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_date", value)
+
+    @property
+    @pulumi.getter(name="numberOfOccurrences")
+    def number_of_occurrences(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of times to repeat the access review. Required and must be positive if type is numbered.
+        """
+        return pulumi.get(self, "number_of_occurrences")
+
+    @number_of_occurrences.setter
+    def number_of_occurrences(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_occurrences", value)
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+        """
+        return pulumi.get(self, "start_date")
+
+    @start_date.setter
+    def start_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_date", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]]:
+        """
+        The recurrence range type. The possible values are: endDate, noEnd, numbered.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

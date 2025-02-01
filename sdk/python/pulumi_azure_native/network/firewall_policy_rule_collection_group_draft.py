@@ -151,9 +151,9 @@ class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
                  __props__=None):
         """
         Rule Collection Group resource.
-        Azure REST API version: 2023-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-11-01.
 
-        Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,9 +173,9 @@ class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Rule Collection Group resource.
-        Azure REST API version: 2023-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-11-01.
 
-        Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyRuleCollectionGroupDraftArgs args: The arguments to use to populate this resource's properties.

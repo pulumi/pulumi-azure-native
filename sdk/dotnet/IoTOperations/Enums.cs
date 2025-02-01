@@ -8,55 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.IoTOperations
 {
     /// <summary>
-    /// Mode of Authentication.
-    /// </summary>
-    [EnumType]
-    public readonly struct AuthenticationMethod : IEquatable<AuthenticationMethod>
-    {
-        private readonly string _value;
-
-        private AuthenticationMethod(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// SystemAssignedManagedIdentity Option
-        /// </summary>
-        public static AuthenticationMethod SystemAssignedManagedIdentity { get; } = new AuthenticationMethod("SystemAssignedManagedIdentity");
-        /// <summary>
-        /// UserAssignedManagedIdentity Option
-        /// </summary>
-        public static AuthenticationMethod UserAssignedManagedIdentity { get; } = new AuthenticationMethod("UserAssignedManagedIdentity");
-        /// <summary>
-        /// AccessToken Option
-        /// </summary>
-        public static AuthenticationMethod AccessToken { get; } = new AuthenticationMethod("AccessToken");
-        /// <summary>
-        /// Sasl Option
-        /// </summary>
-        public static AuthenticationMethod Sasl { get; } = new AuthenticationMethod("Sasl");
-        /// <summary>
-        /// X509Credentials Option
-        /// </summary>
-        public static AuthenticationMethod X509Credentials { get; } = new AuthenticationMethod("X509Credentials");
-
-        public static bool operator ==(AuthenticationMethod left, AuthenticationMethod right) => left.Equals(right);
-        public static bool operator !=(AuthenticationMethod left, AuthenticationMethod right) => !left.Equals(right);
-
-        public static explicit operator string(AuthenticationMethod value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AuthenticationMethod other && Equals(other);
-        public bool Equals(AuthenticationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Custom authentication configuration.
     /// </summary>
     [EnumType]
@@ -80,7 +31,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// X.509 authentication configuration.
         /// </summary>
-        public static BrokerAuthenticationMethod X509Credentials { get; } = new BrokerAuthenticationMethod("X509Credentials");
+        public static BrokerAuthenticationMethod X509 { get; } = new BrokerAuthenticationMethod("X509");
 
         public static bool operator ==(BrokerAuthenticationMethod left, BrokerAuthenticationMethod right) => left.Equals(right);
         public static bool operator !=(BrokerAuthenticationMethod left, BrokerAuthenticationMethod right) => !left.Equals(right);
@@ -258,14 +209,92 @@ namespace Pulumi.AzureNative.IoTOperations
     }
 
     /// <summary>
-    /// Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
+    /// Cloud event mapping config.
     /// </summary>
     [EnumType]
-    public readonly struct DataFlowEndpointAuthenticationSaslType : IEquatable<DataFlowEndpointAuthenticationSaslType>
+    public readonly struct CloudEventAttributeType : IEquatable<CloudEventAttributeType>
     {
         private readonly string _value;
 
-        private DataFlowEndpointAuthenticationSaslType(string value)
+        private CloudEventAttributeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Propagate type
+        /// </summary>
+        public static CloudEventAttributeType Propagate { get; } = new CloudEventAttributeType("Propagate");
+        /// <summary>
+        /// CreateOrRemap type
+        /// </summary>
+        public static CloudEventAttributeType CreateOrRemap { get; } = new CloudEventAttributeType("CreateOrRemap");
+
+        public static bool operator ==(CloudEventAttributeType left, CloudEventAttributeType right) => left.Equals(right);
+        public static bool operator !=(CloudEventAttributeType left, CloudEventAttributeType right) => !left.Equals(right);
+
+        public static explicit operator string(CloudEventAttributeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CloudEventAttributeType other && Equals(other);
+        public bool Equals(CloudEventAttributeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Mode of Authentication.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataLakeStorageAuthMethod : IEquatable<DataLakeStorageAuthMethod>
+    {
+        private readonly string _value;
+
+        private DataLakeStorageAuthMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// SystemAssignedManagedIdentity type
+        /// </summary>
+        public static DataLakeStorageAuthMethod SystemAssignedManagedIdentity { get; } = new DataLakeStorageAuthMethod("SystemAssignedManagedIdentity");
+        /// <summary>
+        /// UserAssignedManagedIdentity type
+        /// </summary>
+        public static DataLakeStorageAuthMethod UserAssignedManagedIdentity { get; } = new DataLakeStorageAuthMethod("UserAssignedManagedIdentity");
+        /// <summary>
+        /// AccessToken Option
+        /// </summary>
+        public static DataLakeStorageAuthMethod AccessToken { get; } = new DataLakeStorageAuthMethod("AccessToken");
+
+        public static bool operator ==(DataLakeStorageAuthMethod left, DataLakeStorageAuthMethod right) => left.Equals(right);
+        public static bool operator !=(DataLakeStorageAuthMethod left, DataLakeStorageAuthMethod right) => !left.Equals(right);
+
+        public static explicit operator string(DataLakeStorageAuthMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataLakeStorageAuthMethod other && Equals(other);
+        public bool Equals(DataLakeStorageAuthMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataflowEndpointAuthenticationSaslType : IEquatable<DataflowEndpointAuthenticationSaslType>
+    {
+        private readonly string _value;
+
+        private DataflowEndpointAuthenticationSaslType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
@@ -273,24 +302,24 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// PLAIN Type
         /// </summary>
-        public static DataFlowEndpointAuthenticationSaslType Plain { get; } = new DataFlowEndpointAuthenticationSaslType("Plain");
+        public static DataflowEndpointAuthenticationSaslType Plain { get; } = new DataflowEndpointAuthenticationSaslType("Plain");
         /// <summary>
         /// SCRAM_SHA_256 Type
         /// </summary>
-        public static DataFlowEndpointAuthenticationSaslType ScramSha256 { get; } = new DataFlowEndpointAuthenticationSaslType("ScramSha256");
+        public static DataflowEndpointAuthenticationSaslType ScramSha256 { get; } = new DataflowEndpointAuthenticationSaslType("ScramSha256");
         /// <summary>
         /// SCRAM_SHA_512 Type
         /// </summary>
-        public static DataFlowEndpointAuthenticationSaslType ScramSha512 { get; } = new DataFlowEndpointAuthenticationSaslType("ScramSha512");
+        public static DataflowEndpointAuthenticationSaslType ScramSha512 { get; } = new DataflowEndpointAuthenticationSaslType("ScramSha512");
 
-        public static bool operator ==(DataFlowEndpointAuthenticationSaslType left, DataFlowEndpointAuthenticationSaslType right) => left.Equals(right);
-        public static bool operator !=(DataFlowEndpointAuthenticationSaslType left, DataFlowEndpointAuthenticationSaslType right) => !left.Equals(right);
+        public static bool operator ==(DataflowEndpointAuthenticationSaslType left, DataflowEndpointAuthenticationSaslType right) => left.Equals(right);
+        public static bool operator !=(DataflowEndpointAuthenticationSaslType left, DataflowEndpointAuthenticationSaslType right) => !left.Equals(right);
 
-        public static explicit operator string(DataFlowEndpointAuthenticationSaslType value) => value._value;
+        public static explicit operator string(DataflowEndpointAuthenticationSaslType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataFlowEndpointAuthenticationSaslType other && Equals(other);
-        public bool Equals(DataFlowEndpointAuthenticationSaslType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DataflowEndpointAuthenticationSaslType other && Equals(other);
+        public bool Equals(DataflowEndpointAuthenticationSaslType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -302,11 +331,11 @@ namespace Pulumi.AzureNative.IoTOperations
     /// Type of location of the data in the workspace. Can be either tables or files.
     /// </summary>
     [EnumType]
-    public readonly struct DataFlowEndpointFabricPathType : IEquatable<DataFlowEndpointFabricPathType>
+    public readonly struct DataflowEndpointFabricPathType : IEquatable<DataflowEndpointFabricPathType>
     {
         private readonly string _value;
 
-        private DataFlowEndpointFabricPathType(string value)
+        private DataflowEndpointFabricPathType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
@@ -314,20 +343,20 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// FILES Type
         /// </summary>
-        public static DataFlowEndpointFabricPathType Files { get; } = new DataFlowEndpointFabricPathType("Files");
+        public static DataflowEndpointFabricPathType Files { get; } = new DataflowEndpointFabricPathType("Files");
         /// <summary>
         /// TABLES Type
         /// </summary>
-        public static DataFlowEndpointFabricPathType Tables { get; } = new DataFlowEndpointFabricPathType("Tables");
+        public static DataflowEndpointFabricPathType Tables { get; } = new DataflowEndpointFabricPathType("Tables");
 
-        public static bool operator ==(DataFlowEndpointFabricPathType left, DataFlowEndpointFabricPathType right) => left.Equals(right);
-        public static bool operator !=(DataFlowEndpointFabricPathType left, DataFlowEndpointFabricPathType right) => !left.Equals(right);
+        public static bool operator ==(DataflowEndpointFabricPathType left, DataflowEndpointFabricPathType right) => left.Equals(right);
+        public static bool operator !=(DataflowEndpointFabricPathType left, DataflowEndpointFabricPathType right) => !left.Equals(right);
 
-        public static explicit operator string(DataFlowEndpointFabricPathType value) => value._value;
+        public static explicit operator string(DataflowEndpointFabricPathType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataFlowEndpointFabricPathType other && Equals(other);
-        public bool Equals(DataFlowEndpointFabricPathType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DataflowEndpointFabricPathType other && Equals(other);
+        public bool Equals(DataflowEndpointFabricPathType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -339,11 +368,11 @@ namespace Pulumi.AzureNative.IoTOperations
     /// Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
     /// </summary>
     [EnumType]
-    public readonly struct DataFlowEndpointKafkaAcks : IEquatable<DataFlowEndpointKafkaAcks>
+    public readonly struct DataflowEndpointKafkaAcks : IEquatable<DataflowEndpointKafkaAcks>
     {
         private readonly string _value;
 
-        private DataFlowEndpointKafkaAcks(string value)
+        private DataflowEndpointKafkaAcks(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
@@ -351,24 +380,24 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// ZERO Option
         /// </summary>
-        public static DataFlowEndpointKafkaAcks Zero { get; } = new DataFlowEndpointKafkaAcks("Zero");
+        public static DataflowEndpointKafkaAcks Zero { get; } = new DataflowEndpointKafkaAcks("Zero");
         /// <summary>
         /// ONE Option
         /// </summary>
-        public static DataFlowEndpointKafkaAcks One { get; } = new DataFlowEndpointKafkaAcks("One");
+        public static DataflowEndpointKafkaAcks One { get; } = new DataflowEndpointKafkaAcks("One");
         /// <summary>
         /// ALL Option
         /// </summary>
-        public static DataFlowEndpointKafkaAcks All { get; } = new DataFlowEndpointKafkaAcks("All");
+        public static DataflowEndpointKafkaAcks All { get; } = new DataflowEndpointKafkaAcks("All");
 
-        public static bool operator ==(DataFlowEndpointKafkaAcks left, DataFlowEndpointKafkaAcks right) => left.Equals(right);
-        public static bool operator !=(DataFlowEndpointKafkaAcks left, DataFlowEndpointKafkaAcks right) => !left.Equals(right);
+        public static bool operator ==(DataflowEndpointKafkaAcks left, DataflowEndpointKafkaAcks right) => left.Equals(right);
+        public static bool operator !=(DataflowEndpointKafkaAcks left, DataflowEndpointKafkaAcks right) => !left.Equals(right);
 
-        public static explicit operator string(DataFlowEndpointKafkaAcks value) => value._value;
+        public static explicit operator string(DataflowEndpointKafkaAcks value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataFlowEndpointKafkaAcks other && Equals(other);
-        public bool Equals(DataFlowEndpointKafkaAcks other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DataflowEndpointKafkaAcks other && Equals(other);
+        public bool Equals(DataflowEndpointKafkaAcks other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -380,11 +409,11 @@ namespace Pulumi.AzureNative.IoTOperations
     /// Compression. Can be none, gzip, lz4, or snappy. No effect if the endpoint is used as a source.
     /// </summary>
     [EnumType]
-    public readonly struct DataFlowEndpointKafkaCompression : IEquatable<DataFlowEndpointKafkaCompression>
+    public readonly struct DataflowEndpointKafkaCompression : IEquatable<DataflowEndpointKafkaCompression>
     {
         private readonly string _value;
 
-        private DataFlowEndpointKafkaCompression(string value)
+        private DataflowEndpointKafkaCompression(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
@@ -392,28 +421,28 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// NONE Option
         /// </summary>
-        public static DataFlowEndpointKafkaCompression None { get; } = new DataFlowEndpointKafkaCompression("None");
+        public static DataflowEndpointKafkaCompression None { get; } = new DataflowEndpointKafkaCompression("None");
         /// <summary>
         /// Gzip Option
         /// </summary>
-        public static DataFlowEndpointKafkaCompression Gzip { get; } = new DataFlowEndpointKafkaCompression("Gzip");
+        public static DataflowEndpointKafkaCompression Gzip { get; } = new DataflowEndpointKafkaCompression("Gzip");
         /// <summary>
         /// SNAPPY Option
         /// </summary>
-        public static DataFlowEndpointKafkaCompression Snappy { get; } = new DataFlowEndpointKafkaCompression("Snappy");
+        public static DataflowEndpointKafkaCompression Snappy { get; } = new DataflowEndpointKafkaCompression("Snappy");
         /// <summary>
         /// LZ4 Option
         /// </summary>
-        public static DataFlowEndpointKafkaCompression Lz4 { get; } = new DataFlowEndpointKafkaCompression("Lz4");
+        public static DataflowEndpointKafkaCompression Lz4 { get; } = new DataflowEndpointKafkaCompression("Lz4");
 
-        public static bool operator ==(DataFlowEndpointKafkaCompression left, DataFlowEndpointKafkaCompression right) => left.Equals(right);
-        public static bool operator !=(DataFlowEndpointKafkaCompression left, DataFlowEndpointKafkaCompression right) => !left.Equals(right);
+        public static bool operator ==(DataflowEndpointKafkaCompression left, DataflowEndpointKafkaCompression right) => left.Equals(right);
+        public static bool operator !=(DataflowEndpointKafkaCompression left, DataflowEndpointKafkaCompression right) => !left.Equals(right);
 
-        public static explicit operator string(DataFlowEndpointKafkaCompression value) => value._value;
+        public static explicit operator string(DataflowEndpointKafkaCompression value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataFlowEndpointKafkaCompression other && Equals(other);
-        public bool Equals(DataFlowEndpointKafkaCompression other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DataflowEndpointKafkaCompression other && Equals(other);
+        public bool Equals(DataflowEndpointKafkaCompression other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -425,11 +454,11 @@ namespace Pulumi.AzureNative.IoTOperations
     /// Partition handling strategy. Can be default or static. No effect if the endpoint is used as a source.
     /// </summary>
     [EnumType]
-    public readonly struct DataFlowEndpointKafkaPartitionStrategy : IEquatable<DataFlowEndpointKafkaPartitionStrategy>
+    public readonly struct DataflowEndpointKafkaPartitionStrategy : IEquatable<DataflowEndpointKafkaPartitionStrategy>
     {
         private readonly string _value;
 
-        private DataFlowEndpointKafkaPartitionStrategy(string value)
+        private DataflowEndpointKafkaPartitionStrategy(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
@@ -437,28 +466,28 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Default: Assigns messages to random partitions, using a round-robin algorithm.
         /// </summary>
-        public static DataFlowEndpointKafkaPartitionStrategy Default { get; } = new DataFlowEndpointKafkaPartitionStrategy("Default");
+        public static DataflowEndpointKafkaPartitionStrategy Default { get; } = new DataflowEndpointKafkaPartitionStrategy("Default");
         /// <summary>
         /// Static: Assigns messages to a fixed partition number that's derived from the instance ID of the dataflow.
         /// </summary>
-        public static DataFlowEndpointKafkaPartitionStrategy Static { get; } = new DataFlowEndpointKafkaPartitionStrategy("Static");
+        public static DataflowEndpointKafkaPartitionStrategy Static { get; } = new DataflowEndpointKafkaPartitionStrategy("Static");
         /// <summary>
         /// TOPIC Option
         /// </summary>
-        public static DataFlowEndpointKafkaPartitionStrategy Topic { get; } = new DataFlowEndpointKafkaPartitionStrategy("Topic");
+        public static DataflowEndpointKafkaPartitionStrategy Topic { get; } = new DataflowEndpointKafkaPartitionStrategy("Topic");
         /// <summary>
         /// PROPERTY Option
         /// </summary>
-        public static DataFlowEndpointKafkaPartitionStrategy Property { get; } = new DataFlowEndpointKafkaPartitionStrategy("Property");
+        public static DataflowEndpointKafkaPartitionStrategy Property { get; } = new DataflowEndpointKafkaPartitionStrategy("Property");
 
-        public static bool operator ==(DataFlowEndpointKafkaPartitionStrategy left, DataFlowEndpointKafkaPartitionStrategy right) => left.Equals(right);
-        public static bool operator !=(DataFlowEndpointKafkaPartitionStrategy left, DataFlowEndpointKafkaPartitionStrategy right) => !left.Equals(right);
+        public static bool operator ==(DataflowEndpointKafkaPartitionStrategy left, DataflowEndpointKafkaPartitionStrategy right) => left.Equals(right);
+        public static bool operator !=(DataflowEndpointKafkaPartitionStrategy left, DataflowEndpointKafkaPartitionStrategy right) => !left.Equals(right);
 
-        public static explicit operator string(DataFlowEndpointKafkaPartitionStrategy value) => value._value;
+        public static explicit operator string(DataflowEndpointKafkaPartitionStrategy value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataFlowEndpointKafkaPartitionStrategy other && Equals(other);
-        public bool Equals(DataFlowEndpointKafkaPartitionStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DataflowEndpointKafkaPartitionStrategy other && Equals(other);
+        public bool Equals(DataflowEndpointKafkaPartitionStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -470,11 +499,11 @@ namespace Pulumi.AzureNative.IoTOperations
     /// Type of transformation.
     /// </summary>
     [EnumType]
-    public readonly struct DataFlowMappingType : IEquatable<DataFlowMappingType>
+    public readonly struct DataflowMappingType : IEquatable<DataflowMappingType>
     {
         private readonly string _value;
 
-        private DataFlowMappingType(string value)
+        private DataflowMappingType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
@@ -482,32 +511,32 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// New Properties type
         /// </summary>
-        public static DataFlowMappingType NewProperties { get; } = new DataFlowMappingType("NewProperties");
+        public static DataflowMappingType NewProperties { get; } = new DataflowMappingType("NewProperties");
         /// <summary>
         /// Rename type
         /// </summary>
-        public static DataFlowMappingType Rename { get; } = new DataFlowMappingType("Rename");
+        public static DataflowMappingType Rename { get; } = new DataflowMappingType("Rename");
         /// <summary>
         /// Compute type
         /// </summary>
-        public static DataFlowMappingType Compute { get; } = new DataFlowMappingType("Compute");
+        public static DataflowMappingType Compute { get; } = new DataflowMappingType("Compute");
         /// <summary>
         /// Pass-through type
         /// </summary>
-        public static DataFlowMappingType PassThrough { get; } = new DataFlowMappingType("PassThrough");
+        public static DataflowMappingType PassThrough { get; } = new DataflowMappingType("PassThrough");
         /// <summary>
         /// Built in function type
         /// </summary>
-        public static DataFlowMappingType BuiltInFunction { get; } = new DataFlowMappingType("BuiltInFunction");
+        public static DataflowMappingType BuiltInFunction { get; } = new DataflowMappingType("BuiltInFunction");
 
-        public static bool operator ==(DataFlowMappingType left, DataFlowMappingType right) => left.Equals(right);
-        public static bool operator !=(DataFlowMappingType left, DataFlowMappingType right) => !left.Equals(right);
+        public static bool operator ==(DataflowMappingType left, DataflowMappingType right) => left.Equals(right);
+        public static bool operator !=(DataflowMappingType left, DataflowMappingType right) => !left.Equals(right);
 
-        public static explicit operator string(DataFlowMappingType value) => value._value;
+        public static explicit operator string(DataflowMappingType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataFlowMappingType other && Equals(other);
-        public bool Equals(DataFlowMappingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DataflowMappingType other && Equals(other);
+        public bool Equals(DataflowMappingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -635,6 +664,137 @@ namespace Pulumi.AzureNative.IoTOperations
     }
 
     /// <summary>
+    /// Mode of Authentication.
+    /// </summary>
+    [EnumType]
+    public readonly struct KafkaAuthMethod : IEquatable<KafkaAuthMethod>
+    {
+        private readonly string _value;
+
+        private KafkaAuthMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// SystemAssignedManagedIdentity type
+        /// </summary>
+        public static KafkaAuthMethod SystemAssignedManagedIdentity { get; } = new KafkaAuthMethod("SystemAssignedManagedIdentity");
+        /// <summary>
+        /// UserAssignedManagedIdentity type
+        /// </summary>
+        public static KafkaAuthMethod UserAssignedManagedIdentity { get; } = new KafkaAuthMethod("UserAssignedManagedIdentity");
+        /// <summary>
+        /// Sasl Option
+        /// </summary>
+        public static KafkaAuthMethod Sasl { get; } = new KafkaAuthMethod("Sasl");
+        /// <summary>
+        /// x509Certificate Option
+        /// </summary>
+        public static KafkaAuthMethod X509Certificate { get; } = new KafkaAuthMethod("X509Certificate");
+        /// <summary>
+        /// Anonymous Option
+        /// </summary>
+        public static KafkaAuthMethod Anonymous { get; } = new KafkaAuthMethod("Anonymous");
+
+        public static bool operator ==(KafkaAuthMethod left, KafkaAuthMethod right) => left.Equals(right);
+        public static bool operator !=(KafkaAuthMethod left, KafkaAuthMethod right) => !left.Equals(right);
+
+        public static explicit operator string(KafkaAuthMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KafkaAuthMethod other && Equals(other);
+        public bool Equals(KafkaAuthMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Mode of Authentication.
+    /// </summary>
+    [EnumType]
+    public readonly struct MqttAuthMethod : IEquatable<MqttAuthMethod>
+    {
+        private readonly string _value;
+
+        private MqttAuthMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// SystemAssignedManagedIdentity type
+        /// </summary>
+        public static MqttAuthMethod SystemAssignedManagedIdentity { get; } = new MqttAuthMethod("SystemAssignedManagedIdentity");
+        /// <summary>
+        /// UserAssignedManagedIdentity type
+        /// </summary>
+        public static MqttAuthMethod UserAssignedManagedIdentity { get; } = new MqttAuthMethod("UserAssignedManagedIdentity");
+        /// <summary>
+        /// ServiceAccountToken Option
+        /// </summary>
+        public static MqttAuthMethod ServiceAccountToken { get; } = new MqttAuthMethod("ServiceAccountToken");
+        /// <summary>
+        /// x509Certificate Option
+        /// </summary>
+        public static MqttAuthMethod X509Certificate { get; } = new MqttAuthMethod("X509Certificate");
+        /// <summary>
+        /// Anonymous Option
+        /// </summary>
+        public static MqttAuthMethod Anonymous { get; } = new MqttAuthMethod("Anonymous");
+
+        public static bool operator ==(MqttAuthMethod left, MqttAuthMethod right) => left.Equals(right);
+        public static bool operator !=(MqttAuthMethod left, MqttAuthMethod right) => !left.Equals(right);
+
+        public static explicit operator string(MqttAuthMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MqttAuthMethod other && Equals(other);
+        public bool Equals(MqttAuthMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether or not to keep the retain setting.
     /// </summary>
     [EnumType]
@@ -685,15 +845,15 @@ namespace Pulumi.AzureNative.IoTOperations
         }
 
         /// <summary>
-        /// DataFlow Source Operation
+        /// Dataflow Source Operation
         /// </summary>
         public static OperationType Source { get; } = new OperationType("Source");
         /// <summary>
-        /// DataFlow Destination Operation
+        /// Dataflow Destination Operation
         /// </summary>
         public static OperationType Destination { get; } = new OperationType("Destination");
         /// <summary>
-        /// DataFlow BuiltIn Transformation Operation
+        /// Dataflow BuiltIn Transformation Operation
         /// </summary>
         public static OperationType BuiltInTransformation { get; } = new OperationType("BuiltInTransformation");
 

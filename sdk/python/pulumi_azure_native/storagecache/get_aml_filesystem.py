@@ -27,7 +27,7 @@ class GetAmlFilesystemResult:
     """
     An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     """
-    def __init__(__self__, client_info=None, encryption_settings=None, filesystem_subnet=None, health=None, hsm=None, id=None, identity=None, location=None, maintenance_window=None, name=None, provisioning_state=None, sku=None, storage_capacity_ti_b=None, system_data=None, tags=None, throughput_provisioned_m_bps=None, type=None, zones=None):
+    def __init__(__self__, client_info=None, encryption_settings=None, filesystem_subnet=None, health=None, hsm=None, id=None, identity=None, location=None, maintenance_window=None, name=None, provisioning_state=None, root_squash_settings=None, sku=None, storage_capacity_ti_b=None, system_data=None, tags=None, throughput_provisioned_m_bps=None, type=None, zones=None):
         if client_info and not isinstance(client_info, dict):
             raise TypeError("Expected argument 'client_info' to be a dict")
         pulumi.set(__self__, "client_info", client_info)
@@ -61,6 +61,9 @@ class GetAmlFilesystemResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if root_squash_settings and not isinstance(root_squash_settings, dict):
+            raise TypeError("Expected argument 'root_squash_settings' to be a dict")
+        pulumi.set(__self__, "root_squash_settings", root_squash_settings)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -172,6 +175,14 @@ class GetAmlFilesystemResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="rootSquashSettings")
+    def root_squash_settings(self) -> Optional['outputs.AmlFilesystemRootSquashSettingsResponse']:
+        """
+        Specifies root squash settings of the AML file system.
+        """
+        return pulumi.get(self, "root_squash_settings")
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuNameResponse']:
         """
@@ -245,6 +256,7 @@ class AwaitableGetAmlFilesystemResult(GetAmlFilesystemResult):
             maintenance_window=self.maintenance_window,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            root_squash_settings=self.root_squash_settings,
             sku=self.sku,
             storage_capacity_ti_b=self.storage_capacity_ti_b,
             system_data=self.system_data,
@@ -259,7 +271,7 @@ def get_aml_filesystem(aml_filesystem_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmlFilesystemResult:
     """
     Returns an AML file system.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-03-01.
 
 
     :param str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
@@ -283,6 +295,7 @@ def get_aml_filesystem(aml_filesystem_name: Optional[str] = None,
         maintenance_window=pulumi.get(__ret__, 'maintenance_window'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        root_squash_settings=pulumi.get(__ret__, 'root_squash_settings'),
         sku=pulumi.get(__ret__, 'sku'),
         storage_capacity_ti_b=pulumi.get(__ret__, 'storage_capacity_ti_b'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -295,7 +308,7 @@ def get_aml_filesystem_output(aml_filesystem_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAmlFilesystemResult]:
     """
     Returns an AML file system.
-    Azure REST API version: 2023-05-01.
+    Azure REST API version: 2024-03-01.
 
 
     :param str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
@@ -318,6 +331,7 @@ def get_aml_filesystem_output(aml_filesystem_name: Optional[pulumi.Input[str]] =
         maintenance_window=pulumi.get(__response__, 'maintenance_window'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        root_squash_settings=pulumi.get(__response__, 'root_squash_settings'),
         sku=pulumi.get(__response__, 'sku'),
         storage_capacity_ti_b=pulumi.get(__response__, 'storage_capacity_ti_b'),
         system_data=pulumi.get(__response__, 'system_data'),

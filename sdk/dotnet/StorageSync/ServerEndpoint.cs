@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Server Endpoint object.
-    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
     /// 
-    /// Other available API versions: 2022-09-01.
+    /// Other available API versions: 2022-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:ServerEndpoint")]
     public partial class ServerEndpoint : global::Pulumi.CustomResource
@@ -107,6 +107,12 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         [Output("recallStatus")]
         public Output<Outputs.ServerEndpointRecallStatusResponse> RecallStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Server Endpoint provisioning status
+        /// </summary>
+        [Output("serverEndpointProvisioningStatus")]
+        public Output<Outputs.ServerEndpointProvisioningStatusResponse?> ServerEndpointProvisioningStatus { get; private set; } = null!;
 
         /// <summary>
         /// Server Local path.
@@ -308,9 +314,6 @@ namespace Pulumi.AzureNative.StorageSync
 
         public ServerEndpointArgs()
         {
-            InitialDownloadPolicy = "NamespaceThenModifiedFiles";
-            InitialUploadPolicy = "Merge";
-            LocalCacheMode = "UpdateLocallyCachedFiles";
             TierFilesOlderThanDays = 0;
             VolumeFreeSpacePercent = 20;
         }

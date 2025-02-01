@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
-    /// Event Subscription
-    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-04-01-preview.
+    /// Event Subscription.
+    /// Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2022-06-15.
     /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    /// Other available API versions: 2022-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:SystemTopicEventSubscription")]
     public partial class SystemTopicEventSubscription : global::Pulumi.CustomResource
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<Outputs.RetryPolicyResponse?> RetryPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to Event Subscription resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.AzureNative.EventGrid
         public InputUnion<string, Pulumi.AzureNative.EventGrid.EventDeliverySchema>? EventDeliverySchema { get; set; }
 
         /// <summary>
-        /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        /// Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
         /// </summary>
         [Input("eventSubscriptionName")]
         public Input<string>? EventSubscriptionName { get; set; }

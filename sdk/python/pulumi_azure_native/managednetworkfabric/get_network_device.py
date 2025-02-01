@@ -25,12 +25,18 @@ __all__ = [
 @pulumi.output_type
 class GetNetworkDeviceResult:
     """
-    The NetworkDevice resource definition.
+    The Network Device resource definition.
     """
-    def __init__(__self__, annotation=None, host_name=None, id=None, location=None, name=None, network_device_role=None, network_device_sku=None, network_rack_id=None, provisioning_state=None, serial_number=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrative_state=None, annotation=None, configuration_state=None, host_name=None, id=None, location=None, management_ipv4_address=None, management_ipv6_address=None, name=None, network_device_role=None, network_device_sku=None, network_rack_id=None, provisioning_state=None, serial_number=None, system_data=None, tags=None, type=None, version=None):
+        if administrative_state and not isinstance(administrative_state, str):
+            raise TypeError("Expected argument 'administrative_state' to be a str")
+        pulumi.set(__self__, "administrative_state", administrative_state)
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
+        if configuration_state and not isinstance(configuration_state, str):
+            raise TypeError("Expected argument 'configuration_state' to be a str")
+        pulumi.set(__self__, "configuration_state", configuration_state)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
@@ -40,6 +46,12 @@ class GetNetworkDeviceResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if management_ipv4_address and not isinstance(management_ipv4_address, str):
+            raise TypeError("Expected argument 'management_ipv4_address' to be a str")
+        pulumi.set(__self__, "management_ipv4_address", management_ipv4_address)
+        if management_ipv6_address and not isinstance(management_ipv6_address, str):
+            raise TypeError("Expected argument 'management_ipv6_address' to be a str")
+        pulumi.set(__self__, "management_ipv6_address", management_ipv6_address)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -72,6 +84,14 @@ class GetNetworkDeviceResult:
         pulumi.set(__self__, "version", version)
 
     @property
+    @pulumi.getter(name="administrativeState")
+    def administrative_state(self) -> str:
+        """
+        Administrative state of the resource.
+        """
+        return pulumi.get(self, "administrative_state")
+
+    @property
     @pulumi.getter
     def annotation(self) -> Optional[str]:
         """
@@ -80,10 +100,18 @@ class GetNetworkDeviceResult:
         return pulumi.get(self, "annotation")
 
     @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> str:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @property
     @pulumi.getter(name="hostName")
     def host_name(self) -> Optional[str]:
         """
-        The host Name of the device.
+        The host name of the device.
         """
         return pulumi.get(self, "host_name")
 
@@ -91,7 +119,7 @@ class GetNetworkDeviceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -102,6 +130,22 @@ class GetNetworkDeviceResult:
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managementIpv4Address")
+    def management_ipv4_address(self) -> str:
+        """
+        Management IPv4 Address.
+        """
+        return pulumi.get(self, "management_ipv4_address")
+
+    @property
+    @pulumi.getter(name="managementIpv6Address")
+    def management_ipv6_address(self) -> str:
+        """
+        Management IPv6 Address.
+        """
+        return pulumi.get(self, "management_ipv6_address")
 
     @property
     @pulumi.getter
@@ -115,13 +159,13 @@ class GetNetworkDeviceResult:
     @pulumi.getter(name="networkDeviceRole")
     def network_device_role(self) -> str:
         """
-        networkDeviceRole is the device role: Example: CE | ToR.
+        NetworkDeviceRole is the device role: Example: CE | ToR.
         """
         return pulumi.get(self, "network_device_role")
 
     @property
     @pulumi.getter(name="networkDeviceSku")
-    def network_device_sku(self) -> str:
+    def network_device_sku(self) -> Optional[str]:
         """
         Network Device SKU name.
         """
@@ -139,7 +183,7 @@ class GetNetworkDeviceResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -147,7 +191,7 @@ class GetNetworkDeviceResult:
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> str:
         """
-        serialNumber of the format Make;Model;HardwareRevisionId;SerialNumber. Example: Arista;DCS-7280DR3-24;12.05;JPE21116969
+        Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
         """
         return pulumi.get(self, "serial_number")
 
@@ -190,10 +234,14 @@ class AwaitableGetNetworkDeviceResult(GetNetworkDeviceResult):
         if False:
             yield self
         return GetNetworkDeviceResult(
+            administrative_state=self.administrative_state,
             annotation=self.annotation,
+            configuration_state=self.configuration_state,
             host_name=self.host_name,
             id=self.id,
             location=self.location,
+            management_ipv4_address=self.management_ipv4_address,
+            management_ipv6_address=self.management_ipv6_address,
             name=self.name,
             network_device_role=self.network_device_role,
             network_device_sku=self.network_device_sku,
@@ -210,13 +258,13 @@ def get_network_device(network_device_name: Optional[str] = None,
                        resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkDeviceResult:
     """
-    Get the Network Device resource details.
-    Azure REST API version: 2023-02-01-preview.
+    Gets the Network Device resource details.
+    Azure REST API version: 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview.
 
 
-    :param str network_device_name: Name of the Network Device
+    :param str network_device_name: Name of the Network Device.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -226,10 +274,14 @@ def get_network_device(network_device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric:getNetworkDevice', __args__, opts=opts, typ=GetNetworkDeviceResult).value
 
     return AwaitableGetNetworkDeviceResult(
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
         annotation=pulumi.get(__ret__, 'annotation'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
         host_name=pulumi.get(__ret__, 'host_name'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
+        management_ipv4_address=pulumi.get(__ret__, 'management_ipv4_address'),
+        management_ipv6_address=pulumi.get(__ret__, 'management_ipv6_address'),
         name=pulumi.get(__ret__, 'name'),
         network_device_role=pulumi.get(__ret__, 'network_device_role'),
         network_device_sku=pulumi.get(__ret__, 'network_device_sku'),
@@ -244,13 +296,13 @@ def get_network_device_output(network_device_name: Optional[pulumi.Input[str]] =
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkDeviceResult]:
     """
-    Get the Network Device resource details.
-    Azure REST API version: 2023-02-01-preview.
+    Gets the Network Device resource details.
+    Azure REST API version: 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview.
 
 
-    :param str network_device_name: Name of the Network Device
+    :param str network_device_name: Name of the Network Device.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -259,10 +311,14 @@ def get_network_device_output(network_device_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getNetworkDevice', __args__, opts=opts, typ=GetNetworkDeviceResult)
     return __ret__.apply(lambda __response__: GetNetworkDeviceResult(
+        administrative_state=pulumi.get(__response__, 'administrative_state'),
         annotation=pulumi.get(__response__, 'annotation'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
         host_name=pulumi.get(__response__, 'host_name'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
+        management_ipv4_address=pulumi.get(__response__, 'management_ipv4_address'),
+        management_ipv6_address=pulumi.get(__response__, 'management_ipv6_address'),
         name=pulumi.get(__response__, 'name'),
         network_device_role=pulumi.get(__response__, 'network_device_role'),
         network_device_sku=pulumi.get(__response__, 'network_device_sku'),

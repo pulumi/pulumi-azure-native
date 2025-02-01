@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Dedicated cloud node model
- * Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01.
+ * Azure REST API version: 2019-04-01. Prior API version in Azure Native 2.x: 2019-04-01.
  */
 export class DedicatedCloudNode extends pulumi.CustomResource {
     /**
@@ -39,65 +39,21 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
     }
 
     /**
-     * Availability Zone id, e.g. "az1"
-     */
-    public readonly availabilityZoneId!: pulumi.Output<string>;
-    /**
-     * Availability Zone name, e.g. "Availability Zone 1"
-     */
-    public /*out*/ readonly availabilityZoneName!: pulumi.Output<string>;
-    /**
-     * VMWare Cloud Rack Name
-     */
-    public /*out*/ readonly cloudRackName!: pulumi.Output<string>;
-    /**
-     * date time the resource was created
-     */
-    public /*out*/ readonly created!: pulumi.Output<string>;
-    /**
      * Azure region
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * SKU's name
+     * {dedicatedCloudNodeName}
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * count of nodes to create
+     * Dedicated Cloud Nodes properties
      */
-    public readonly nodesCount!: pulumi.Output<number>;
-    /**
-     * Placement Group id, e.g. "n1"
-     */
-    public readonly placementGroupId!: pulumi.Output<string>;
-    /**
-     * Placement Name, e.g. "Placement Group 1"
-     */
-    public /*out*/ readonly placementGroupName!: pulumi.Output<string>;
-    /**
-     * Private Cloud Id
-     */
-    public /*out*/ readonly privateCloudId!: pulumi.Output<string>;
-    /**
-     * Resource Pool Name
-     */
-    public /*out*/ readonly privateCloudName!: pulumi.Output<string>;
-    /**
-     * The provisioning status of the resource
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * purchase id
-     */
-    public readonly purchaseId!: pulumi.Output<string>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.vmwarecloudsimple.DedicatedCloudNodePropertiesResponse>;
     /**
      * Dedicated Cloud Nodes SKU
      */
     public readonly sku!: pulumi.Output<outputs.vmwarecloudsimple.SkuResponse | undefined>;
-    /**
-     * Node status, indicates is private cloud set up on this node or not
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Dedicated Cloud Nodes tags
      */
@@ -106,10 +62,6 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
      * {resourceProviderNamespace}/{resourceType}
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * VMWare Cluster Name
-     */
-    public /*out*/ readonly vmwareClusterName!: pulumi.Output<string>;
 
     /**
      * Create a DedicatedCloudNode resource with the given unique name, arguments, and options.
@@ -154,35 +106,15 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["availabilityZoneName"] = undefined /*out*/;
-            resourceInputs["cloudRackName"] = undefined /*out*/;
-            resourceInputs["created"] = undefined /*out*/;
-            resourceInputs["placementGroupName"] = undefined /*out*/;
-            resourceInputs["privateCloudId"] = undefined /*out*/;
-            resourceInputs["privateCloudName"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vmwareClusterName"] = undefined /*out*/;
         } else {
-            resourceInputs["availabilityZoneId"] = undefined /*out*/;
-            resourceInputs["availabilityZoneName"] = undefined /*out*/;
-            resourceInputs["cloudRackName"] = undefined /*out*/;
-            resourceInputs["created"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["nodesCount"] = undefined /*out*/;
-            resourceInputs["placementGroupId"] = undefined /*out*/;
-            resourceInputs["placementGroupName"] = undefined /*out*/;
-            resourceInputs["privateCloudId"] = undefined /*out*/;
-            resourceInputs["privateCloudName"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["purchaseId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["vmwareClusterName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode" }] };

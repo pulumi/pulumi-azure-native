@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents Storage Task.
- * Azure REST API version: 2023-01-01.
+ * Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
  */
 export class StorageTask extends pulumi.CustomResource {
     /**

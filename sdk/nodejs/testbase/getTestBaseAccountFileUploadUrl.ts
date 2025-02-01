@@ -2,19 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets the file upload URL of a Test Base Account.
- * Azure REST API version: 2022-04-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export function getTestBaseAccountFileUploadUrl(args: GetTestBaseAccountFileUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountFileUploadUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:testbase:getTestBaseAccountFileUploadUrl", {
         "blobName": args.blobName,
         "resourceGroupName": args.resourceGroupName,
+        "resourceType": args.resourceType,
         "testBaseAccountName": args.testBaseAccountName,
     }, opts);
 }
@@ -25,9 +29,13 @@ export interface GetTestBaseAccountFileUploadUrlArgs {
      */
     blobName?: string;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
+    /**
+     * Resource type for file uploading.
+     */
+    resourceType?: string | enums.testbase.FileUploadResourceType;
     /**
      * The resource name of the Test Base Account.
      */
@@ -49,15 +57,16 @@ export interface GetTestBaseAccountFileUploadUrlResult {
 }
 /**
  * Gets the file upload URL of a Test Base Account.
- * Azure REST API version: 2022-04-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export function getTestBaseAccountFileUploadUrlOutput(args: GetTestBaseAccountFileUploadUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestBaseAccountFileUploadUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase:getTestBaseAccountFileUploadUrl", {
         "blobName": args.blobName,
         "resourceGroupName": args.resourceGroupName,
+        "resourceType": args.resourceType,
         "testBaseAccountName": args.testBaseAccountName,
     }, opts);
 }
@@ -68,9 +77,13 @@ export interface GetTestBaseAccountFileUploadUrlOutputArgs {
      */
     blobName?: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource type for file uploading.
+     */
+    resourceType?: pulumi.Input<string | enums.testbase.FileUploadResourceType>;
     /**
      * The resource name of the Test Base Account.
      */

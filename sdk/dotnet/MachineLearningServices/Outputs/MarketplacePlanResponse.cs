@@ -14,15 +14,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class MarketplacePlanResponse
     {
         /// <summary>
-        /// The Offer ID of the Marketplace Plan.
+        /// The identifying name of the Offer of the Marketplace Plan.
         /// </summary>
         public readonly string OfferId;
         /// <summary>
-        /// The Plan ID of the Marketplace Plan.
+        /// The identifying name of the Plan of the Marketplace Plan.
         /// </summary>
         public readonly string PlanId;
         /// <summary>
-        /// The Publisher ID of the Marketplace Plan.
+        /// The identifying name of the Publisher of the Marketplace Plan.
         /// </summary>
         public readonly string PublisherId;
 

@@ -36,6 +36,11 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// Gets or sets the Backup Instance friendly name.
         /// </summary>
         public readonly string? FriendlyName;
+        /// <summary>
+        /// Contains information of the Identity Details for the BI.
+        /// If it is null, default will be considered as System Assigned.
+        /// </summary>
+        public readonly Outputs.IdentityDetailsResponse? IdentityDetails;
         public readonly string ObjectType;
         /// <summary>
         /// Gets or sets the policy information.
@@ -54,6 +59,10 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// ResourceGuardOperationRequests on which LAC check will be performed
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGuardOperationRequests;
+        /// <summary>
         /// Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
         /// </summary>
         public readonly string? ValidationType;
@@ -70,6 +79,8 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
             string? friendlyName,
 
+            Outputs.IdentityDetailsResponse? identityDetails,
+
             string objectType,
 
             Outputs.PolicyInfoResponse policyInfo,
@@ -80,6 +91,8 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
             string provisioningState,
 
+            ImmutableArray<string> resourceGuardOperationRequests,
+
             string? validationType)
         {
             CurrentProtectionState = currentProtectionState;
@@ -87,11 +100,13 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
             DataSourceSetInfo = dataSourceSetInfo;
             DatasourceAuthCredentials = datasourceAuthCredentials;
             FriendlyName = friendlyName;
+            IdentityDetails = identityDetails;
             ObjectType = objectType;
             PolicyInfo = policyInfo;
             ProtectionErrorDetails = protectionErrorDetails;
             ProtectionStatus = protectionStatus;
             ProvisioningState = provisioningState;
+            ResourceGuardOperationRequests = resourceGuardOperationRequests;
             ValidationType = validationType;
         }
     }

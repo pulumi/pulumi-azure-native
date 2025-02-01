@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a security user rule.
- * Azure REST API version: 2024-03-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2024-05-01.
+ * Other available API versions: 2024-03-01.
  */
 export function getSecurityUserRule(args: GetSecurityUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityUserRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -110,9 +110,9 @@ export interface GetSecurityUserRuleResult {
 }
 /**
  * Gets a security user rule.
- * Azure REST API version: 2024-03-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2024-05-01.
+ * Other available API versions: 2024-03-01.
  */
 export function getSecurityUserRuleOutput(args: GetSecurityUserRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityUserRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

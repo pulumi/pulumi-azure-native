@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Datadog.Inputs
     public sealed class ResourceSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the SKU.
+        /// Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

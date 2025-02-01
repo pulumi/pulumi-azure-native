@@ -96,7 +96,7 @@ class GetFirmwareResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -134,7 +134,7 @@ class GetFirmwareResult:
 
     @property
     @pulumi.getter(name="statusMessages")
-    def status_messages(self) -> Optional[Sequence[Any]]:
+    def status_messages(self) -> Optional[Sequence['outputs.StatusMessageResponse']]:
         """
         A list of errors or other messages generated during firmware analysis
         """
@@ -200,9 +200,9 @@ def get_firmware(firmware_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirmwareResult:
     """
     Get firmware.
-    Azure REST API version: 2023-02-08-preview.
+    Azure REST API version: 2024-01-10.
 
-    Other available API versions: 2024-01-10.
+    Other available API versions: 2023-02-08-preview.
 
 
     :param str firmware_id: The id of the firmware.
@@ -236,9 +236,9 @@ def get_firmware_output(firmware_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirmwareResult]:
     """
     Get firmware.
-    Azure REST API version: 2023-02-08-preview.
+    Azure REST API version: 2024-01-10.
 
-    Other available API versions: 2024-01-10.
+    Other available API versions: 2023-02-08-preview.
 
 
     :param str firmware_id: The id of the firmware.

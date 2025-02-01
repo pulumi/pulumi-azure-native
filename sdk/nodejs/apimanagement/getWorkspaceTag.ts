@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Gets the details of the tag specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2024-06-01-preview.
  */
 export function getWorkspaceTag(args: GetWorkspaceTagArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceTagResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,7 +64,7 @@ export interface GetWorkspaceTagResult {
  * Gets the details of the tag specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Other available API versions: 2024-06-01-preview.
  */
 export function getWorkspaceTagOutput(args: GetWorkspaceTagOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceTagResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -15,6 +15,7 @@ __all__ = [
     'KeyRotationPolicyActionType',
     'ManagedHsmSkuFamily',
     'ManagedHsmSkuName',
+    'ManagedServiceIdentityType',
     'NetworkRuleAction',
     'NetworkRuleBypassOptions',
     'PrivateEndpointServiceConnectionStatus',
@@ -64,7 +65,7 @@ class CreateMode(str, Enum):
 
 class JsonWebKeyCurveName(str, Enum):
     """
-    The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+    The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
     """
     P_256 = "P-256"
     P_384 = "P-384"
@@ -122,16 +123,10 @@ class KeyPermissions(str, Enum):
 
 class KeyRotationPolicyActionType(str, Enum):
     """
-    The type of the action. The value should be compared case-insensitively.
+    The type of action.
     """
-    ROTATE = "Rotate"
-    """
-    Rotate the key based on the key policy.
-    """
-    NOTIFY = "Notify"
-    """
-    Trigger Event Grid events. Defaults to 30 days before expiry. Key Vault only.
-    """
+    ROTATE = "rotate"
+    NOTIFY = "notify"
 
 
 class ManagedHsmSkuFamily(str, Enum):
@@ -139,6 +134,7 @@ class ManagedHsmSkuFamily(str, Enum):
     SKU Family of the managed HSM Pool
     """
     B = "B"
+    C = "C"
 
 
 class ManagedHsmSkuName(str, Enum):
@@ -148,6 +144,18 @@ class ManagedHsmSkuName(str, Enum):
     STANDARD_B1 = "Standard_B1"
     CUSTOM_B32 = "Custom_B32"
     CUSTOM_B6 = "Custom_B6"
+    CUSTOM_C42 = "Custom_C42"
+    CUSTOM_C10 = "Custom_C10"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class NetworkRuleAction(str, Enum):

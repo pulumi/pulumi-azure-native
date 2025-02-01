@@ -24,10 +24,6 @@ __all__ = [
     'ExperimentationPropertiesArgsDict',
     'KeyVaultPropertiesArgs',
     'KeyVaultPropertiesArgsDict',
-    'PrivateEndpointArgs',
-    'PrivateEndpointArgsDict',
-    'PrivateLinkServiceConnectionStateArgs',
-    'PrivateLinkServiceConnectionStateArgsDict',
     'ResourceIdentityArgs',
     'ResourceIdentityArgsDict',
     'SkuArgs',
@@ -240,98 +236,6 @@ class KeyVaultPropertiesArgs:
     @key_identifier.setter
     def key_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_identifier", value)
-
-
-if not MYPY:
-    class PrivateEndpointArgsDict(TypedDict):
-        """
-        Private endpoint which a connection belongs to.
-        """
-        id: NotRequired[pulumi.Input[str]]
-        """
-        The resource Id for private endpoint
-        """
-elif False:
-    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Private endpoint which a connection belongs to.
-        :param pulumi.Input[str] id: The resource Id for private endpoint
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource Id for private endpoint
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        The state of a private link service connection.
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        The private link service connection description.
-        """
-        status: NotRequired[pulumi.Input[Union[str, 'ConnectionStatus']]]
-        """
-        The private link service connection status.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class PrivateLinkServiceConnectionStateArgs:
-    def __init__(__self__, *,
-                 description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'ConnectionStatus']]] = None):
-        """
-        The state of a private link service connection.
-        :param pulumi.Input[str] description: The private link service connection description.
-        :param pulumi.Input[Union[str, 'ConnectionStatus']] status: The private link service connection status.
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private link service connection description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'ConnectionStatus']]]:
-        """
-        The private link service connection status.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'ConnectionStatus']]]):
-        pulumi.set(self, "status", value)
 
 
 if not MYPY:

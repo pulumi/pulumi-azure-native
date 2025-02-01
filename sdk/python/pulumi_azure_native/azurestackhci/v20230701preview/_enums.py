@@ -5,10 +5,7 @@
 from enum import Enum
 
 __all__ = [
-    'CloudInitDataSource',
-    'DiskFileFormat',
     'ExtendedLocationTypes',
-    'HyperVGeneration',
     'IpAllocationMethodEnum',
     'NetworkTypeEnum',
     'OperatingSystemTypes',
@@ -19,35 +16,11 @@ __all__ = [
 ]
 
 
-class CloudInitDataSource(str, Enum):
-    """
-    Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
-    """
-    NO_CLOUD = "NoCloud"
-    AZURE = "Azure"
-
-
-class DiskFileFormat(str, Enum):
-    """
-    The format of the actual VHD file [vhd, vhdx]
-    """
-    VHDX = "vhdx"
-    VHD = "vhd"
-
-
 class ExtendedLocationTypes(str, Enum):
     """
     The type of the extended location.
     """
     CUSTOM_LOCATION = "CustomLocation"
-
-
-class HyperVGeneration(str, Enum):
-    """
-    The hypervisor generation of the Virtual Machine [V1, V2]
-    """
-    V1 = "V1"
-    V2 = "V2"
 
 
 class IpAllocationMethodEnum(str, Enum):

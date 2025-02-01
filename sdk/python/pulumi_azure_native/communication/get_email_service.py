@@ -139,9 +139,9 @@ def get_email_service(email_service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailServiceResult:
     """
     Get the EmailService and its properties.
-    Azure REST API version: 2023-03-31.
+    Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+    Other available API versions: 2023-03-31.
 
 
     :param str email_service_name: The name of the EmailService resource.
@@ -167,9 +167,9 @@ def get_email_service_output(email_service_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailServiceResult]:
     """
     Get the EmailService and its properties.
-    Azure REST API version: 2023-03-31.
+    Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+    Other available API versions: 2023-03-31.
 
 
     :param str email_service_name: The name of the EmailService resource.

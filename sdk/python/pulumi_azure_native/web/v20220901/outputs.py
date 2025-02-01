@@ -39,6 +39,7 @@ __all__ = [
     'CapabilityResponse',
     'ConnStringInfoResponse',
     'ConnStringValueTypePairResponse',
+    'ContainerAppSecretResponse',
     'ContainerAppsConfigurationResponse',
     'CorsSettingsResponse',
     'CustomDnsSuffixConfigurationResponse',
@@ -1641,6 +1642,39 @@ class ConnStringValueTypePairResponse(dict):
     def value(self) -> str:
         """
         Value of pair.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ContainerAppSecretResponse(dict):
+    """
+    Container App Secret.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        Container App Secret.
+        :param str name: Secret Name.
+        :param str value: Secret Value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Secret Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Secret Value.
         """
         return pulumi.get(self, "value")
 

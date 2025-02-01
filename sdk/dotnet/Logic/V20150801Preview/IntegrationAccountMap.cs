@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.Logic.V20150801Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountMap" },
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:Map" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountMap" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountMap" },
                     new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationAccountMap" },

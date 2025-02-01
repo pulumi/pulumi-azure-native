@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The private endpoint connection resource.
- * Azure REST API version: 2022-08-31-preview.
+ * Azure REST API version: 2024-06-30-preview. Prior API version in Azure Native 2.x: 2022-08-31-preview.
  *
- * Other available API versions: 2023-12-10-preview, 2024-06-30-preview.
+ * Other available API versions: 2022-08-31-preview.
  */
 export class CloudHsmClusterPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -126,7 +126,7 @@ export class CloudHsmClusterPrivateEndpointConnection extends pulumi.CustomResou
  */
 export interface CloudHsmClusterPrivateEndpointConnectionArgs {
     /**
-     * The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 24 characters in length.
+     * The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
      */
     cloudHsmClusterName: pulumi.Input<string>;
     /**

@@ -27,7 +27,7 @@ class GetManagedClusterResult:
     """
     The managed cluster resource
     """
-    def __init__(__self__, addon_features=None, admin_password=None, admin_user_name=None, allow_rdp_access=None, application_type_versions_cleanup_policy=None, auxiliary_subnets=None, azure_active_directory=None, client_connection_port=None, clients=None, cluster_certificate_thumbprints=None, cluster_code_version=None, cluster_id=None, cluster_state=None, cluster_upgrade_cadence=None, cluster_upgrade_mode=None, dns_name=None, enable_auto_os_upgrade=None, enable_ipv6=None, enable_service_public_ip=None, etag=None, fabric_settings=None, fqdn=None, http_gateway_connection_port=None, id=None, ip_tags=None, ipv4_address=None, ipv6_address=None, load_balancing_rules=None, location=None, name=None, network_security_rules=None, provisioning_state=None, public_ip_prefix_id=None, service_endpoints=None, sku=None, subnet_id=None, system_data=None, tags=None, type=None, use_custom_vnet=None, zonal_resiliency=None, zonal_update_mode=None):
+    def __init__(__self__, addon_features=None, admin_password=None, admin_user_name=None, allow_rdp_access=None, application_type_versions_cleanup_policy=None, auxiliary_subnets=None, azure_active_directory=None, client_connection_port=None, clients=None, cluster_certificate_thumbprints=None, cluster_code_version=None, cluster_id=None, cluster_state=None, cluster_upgrade_cadence=None, cluster_upgrade_mode=None, ddos_protection_plan_id=None, dns_name=None, enable_auto_os_upgrade=None, enable_http_gateway_exclusive_auth_mode=None, enable_ipv6=None, enable_service_public_ip=None, etag=None, fabric_settings=None, fqdn=None, http_gateway_connection_port=None, http_gateway_token_auth_connection_port=None, id=None, ip_tags=None, ipv4_address=None, ipv6_address=None, load_balancing_rules=None, location=None, name=None, network_security_rules=None, provisioning_state=None, public_ip_prefix_id=None, public_i_pv6_prefix_id=None, service_endpoints=None, sku=None, subnet_id=None, system_data=None, tags=None, type=None, upgrade_description=None, use_custom_vnet=None, zonal_resiliency=None, zonal_update_mode=None):
         if addon_features and not isinstance(addon_features, list):
             raise TypeError("Expected argument 'addon_features' to be a list")
         pulumi.set(__self__, "addon_features", addon_features)
@@ -73,12 +73,18 @@ class GetManagedClusterResult:
         if cluster_upgrade_mode and not isinstance(cluster_upgrade_mode, str):
             raise TypeError("Expected argument 'cluster_upgrade_mode' to be a str")
         pulumi.set(__self__, "cluster_upgrade_mode", cluster_upgrade_mode)
+        if ddos_protection_plan_id and not isinstance(ddos_protection_plan_id, str):
+            raise TypeError("Expected argument 'ddos_protection_plan_id' to be a str")
+        pulumi.set(__self__, "ddos_protection_plan_id", ddos_protection_plan_id)
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
         if enable_auto_os_upgrade and not isinstance(enable_auto_os_upgrade, bool):
             raise TypeError("Expected argument 'enable_auto_os_upgrade' to be a bool")
         pulumi.set(__self__, "enable_auto_os_upgrade", enable_auto_os_upgrade)
+        if enable_http_gateway_exclusive_auth_mode and not isinstance(enable_http_gateway_exclusive_auth_mode, bool):
+            raise TypeError("Expected argument 'enable_http_gateway_exclusive_auth_mode' to be a bool")
+        pulumi.set(__self__, "enable_http_gateway_exclusive_auth_mode", enable_http_gateway_exclusive_auth_mode)
         if enable_ipv6 and not isinstance(enable_ipv6, bool):
             raise TypeError("Expected argument 'enable_ipv6' to be a bool")
         pulumi.set(__self__, "enable_ipv6", enable_ipv6)
@@ -97,6 +103,9 @@ class GetManagedClusterResult:
         if http_gateway_connection_port and not isinstance(http_gateway_connection_port, int):
             raise TypeError("Expected argument 'http_gateway_connection_port' to be a int")
         pulumi.set(__self__, "http_gateway_connection_port", http_gateway_connection_port)
+        if http_gateway_token_auth_connection_port and not isinstance(http_gateway_token_auth_connection_port, int):
+            raise TypeError("Expected argument 'http_gateway_token_auth_connection_port' to be a int")
+        pulumi.set(__self__, "http_gateway_token_auth_connection_port", http_gateway_token_auth_connection_port)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -127,6 +136,9 @@ class GetManagedClusterResult:
         if public_ip_prefix_id and not isinstance(public_ip_prefix_id, str):
             raise TypeError("Expected argument 'public_ip_prefix_id' to be a str")
         pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
+        if public_i_pv6_prefix_id and not isinstance(public_i_pv6_prefix_id, str):
+            raise TypeError("Expected argument 'public_i_pv6_prefix_id' to be a str")
+        pulumi.set(__self__, "public_i_pv6_prefix_id", public_i_pv6_prefix_id)
         if service_endpoints and not isinstance(service_endpoints, list):
             raise TypeError("Expected argument 'service_endpoints' to be a list")
         pulumi.set(__self__, "service_endpoints", service_endpoints)
@@ -145,6 +157,9 @@ class GetManagedClusterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if upgrade_description and not isinstance(upgrade_description, dict):
+            raise TypeError("Expected argument 'upgrade_description' to be a dict")
+        pulumi.set(__self__, "upgrade_description", upgrade_description)
         if use_custom_vnet and not isinstance(use_custom_vnet, bool):
             raise TypeError("Expected argument 'use_custom_vnet' to be a bool")
         pulumi.set(__self__, "use_custom_vnet", use_custom_vnet)
@@ -276,6 +291,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "cluster_upgrade_mode")
 
     @property
+    @pulumi.getter(name="ddosProtectionPlanId")
+    def ddos_protection_plan_id(self) -> Optional[str]:
+        """
+        Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
+        """
+        return pulumi.get(self, "ddos_protection_plan_id")
+
+    @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> str:
         """
@@ -290,6 +313,14 @@ class GetManagedClusterResult:
         Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
         """
         return pulumi.get(self, "enable_auto_os_upgrade")
+
+    @property
+    @pulumi.getter(name="enableHttpGatewayExclusiveAuthMode")
+    def enable_http_gateway_exclusive_auth_mode(self) -> Optional[bool]:
+        """
+        If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
+        """
+        return pulumi.get(self, "enable_http_gateway_exclusive_auth_mode")
 
     @property
     @pulumi.getter(name="enableIpv6")
@@ -340,6 +371,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "http_gateway_connection_port")
 
     @property
+    @pulumi.getter(name="httpGatewayTokenAuthConnectionPort")
+    def http_gateway_token_auth_connection_port(self) -> Optional[int]:
+        """
+        The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
+        """
+        return pulumi.get(self, "http_gateway_token_auth_connection_port")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -349,7 +388,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[Sequence['outputs.IPTagResponse']]:
+    def ip_tags(self) -> Optional[Sequence['outputs.IpTagResponse']]:
         """
         The list of IP tags associated with the default public IP address of the cluster.
         """
@@ -415,9 +454,17 @@ class GetManagedClusterResult:
     @pulumi.getter(name="publicIPPrefixId")
     def public_ip_prefix_id(self) -> Optional[str]:
         """
-        Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
         """
         return pulumi.get(self, "public_ip_prefix_id")
+
+    @property
+    @pulumi.getter(name="publicIPv6PrefixId")
+    def public_i_pv6_prefix_id(self) -> Optional[str]:
+        """
+        Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
+        """
+        return pulumi.get(self, "public_i_pv6_prefix_id")
 
     @property
     @pulumi.getter(name="serviceEndpoints")
@@ -468,6 +515,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="upgradeDescription")
+    def upgrade_description(self) -> Optional['outputs.ClusterUpgradePolicyResponse']:
+        """
+        The policy to use when upgrading the cluster.
+        """
+        return pulumi.get(self, "upgrade_description")
+
+    @property
     @pulumi.getter(name="useCustomVnet")
     def use_custom_vnet(self) -> Optional[bool]:
         """
@@ -513,14 +568,17 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             cluster_state=self.cluster_state,
             cluster_upgrade_cadence=self.cluster_upgrade_cadence,
             cluster_upgrade_mode=self.cluster_upgrade_mode,
+            ddos_protection_plan_id=self.ddos_protection_plan_id,
             dns_name=self.dns_name,
             enable_auto_os_upgrade=self.enable_auto_os_upgrade,
+            enable_http_gateway_exclusive_auth_mode=self.enable_http_gateway_exclusive_auth_mode,
             enable_ipv6=self.enable_ipv6,
             enable_service_public_ip=self.enable_service_public_ip,
             etag=self.etag,
             fabric_settings=self.fabric_settings,
             fqdn=self.fqdn,
             http_gateway_connection_port=self.http_gateway_connection_port,
+            http_gateway_token_auth_connection_port=self.http_gateway_token_auth_connection_port,
             id=self.id,
             ip_tags=self.ip_tags,
             ipv4_address=self.ipv4_address,
@@ -531,12 +589,14 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             network_security_rules=self.network_security_rules,
             provisioning_state=self.provisioning_state,
             public_ip_prefix_id=self.public_ip_prefix_id,
+            public_i_pv6_prefix_id=self.public_i_pv6_prefix_id,
             service_endpoints=self.service_endpoints,
             sku=self.sku,
             subnet_id=self.subnet_id,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
+            upgrade_description=self.upgrade_description,
             use_custom_vnet=self.use_custom_vnet,
             zonal_resiliency=self.zonal_resiliency,
             zonal_update_mode=self.zonal_update_mode)
@@ -547,9 +607,9 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterResult:
     """
     Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
-    Azure REST API version: 2023-03-01-preview.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -577,14 +637,17 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
         cluster_state=pulumi.get(__ret__, 'cluster_state'),
         cluster_upgrade_cadence=pulumi.get(__ret__, 'cluster_upgrade_cadence'),
         cluster_upgrade_mode=pulumi.get(__ret__, 'cluster_upgrade_mode'),
+        ddos_protection_plan_id=pulumi.get(__ret__, 'ddos_protection_plan_id'),
         dns_name=pulumi.get(__ret__, 'dns_name'),
         enable_auto_os_upgrade=pulumi.get(__ret__, 'enable_auto_os_upgrade'),
+        enable_http_gateway_exclusive_auth_mode=pulumi.get(__ret__, 'enable_http_gateway_exclusive_auth_mode'),
         enable_ipv6=pulumi.get(__ret__, 'enable_ipv6'),
         enable_service_public_ip=pulumi.get(__ret__, 'enable_service_public_ip'),
         etag=pulumi.get(__ret__, 'etag'),
         fabric_settings=pulumi.get(__ret__, 'fabric_settings'),
         fqdn=pulumi.get(__ret__, 'fqdn'),
         http_gateway_connection_port=pulumi.get(__ret__, 'http_gateway_connection_port'),
+        http_gateway_token_auth_connection_port=pulumi.get(__ret__, 'http_gateway_token_auth_connection_port'),
         id=pulumi.get(__ret__, 'id'),
         ip_tags=pulumi.get(__ret__, 'ip_tags'),
         ipv4_address=pulumi.get(__ret__, 'ipv4_address'),
@@ -595,12 +658,14 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
         network_security_rules=pulumi.get(__ret__, 'network_security_rules'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         public_ip_prefix_id=pulumi.get(__ret__, 'public_ip_prefix_id'),
+        public_i_pv6_prefix_id=pulumi.get(__ret__, 'public_i_pv6_prefix_id'),
         service_endpoints=pulumi.get(__ret__, 'service_endpoints'),
         sku=pulumi.get(__ret__, 'sku'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
+        upgrade_description=pulumi.get(__ret__, 'upgrade_description'),
         use_custom_vnet=pulumi.get(__ret__, 'use_custom_vnet'),
         zonal_resiliency=pulumi.get(__ret__, 'zonal_resiliency'),
         zonal_update_mode=pulumi.get(__ret__, 'zonal_update_mode'))
@@ -609,9 +674,9 @@ def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterResult]:
     """
     Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
-    Azure REST API version: 2023-03-01-preview.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -638,14 +703,17 @@ def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         cluster_state=pulumi.get(__response__, 'cluster_state'),
         cluster_upgrade_cadence=pulumi.get(__response__, 'cluster_upgrade_cadence'),
         cluster_upgrade_mode=pulumi.get(__response__, 'cluster_upgrade_mode'),
+        ddos_protection_plan_id=pulumi.get(__response__, 'ddos_protection_plan_id'),
         dns_name=pulumi.get(__response__, 'dns_name'),
         enable_auto_os_upgrade=pulumi.get(__response__, 'enable_auto_os_upgrade'),
+        enable_http_gateway_exclusive_auth_mode=pulumi.get(__response__, 'enable_http_gateway_exclusive_auth_mode'),
         enable_ipv6=pulumi.get(__response__, 'enable_ipv6'),
         enable_service_public_ip=pulumi.get(__response__, 'enable_service_public_ip'),
         etag=pulumi.get(__response__, 'etag'),
         fabric_settings=pulumi.get(__response__, 'fabric_settings'),
         fqdn=pulumi.get(__response__, 'fqdn'),
         http_gateway_connection_port=pulumi.get(__response__, 'http_gateway_connection_port'),
+        http_gateway_token_auth_connection_port=pulumi.get(__response__, 'http_gateway_token_auth_connection_port'),
         id=pulumi.get(__response__, 'id'),
         ip_tags=pulumi.get(__response__, 'ip_tags'),
         ipv4_address=pulumi.get(__response__, 'ipv4_address'),
@@ -656,12 +724,14 @@ def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         network_security_rules=pulumi.get(__response__, 'network_security_rules'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         public_ip_prefix_id=pulumi.get(__response__, 'public_ip_prefix_id'),
+        public_i_pv6_prefix_id=pulumi.get(__response__, 'public_i_pv6_prefix_id'),
         service_endpoints=pulumi.get(__response__, 'service_endpoints'),
         sku=pulumi.get(__response__, 'sku'),
         subnet_id=pulumi.get(__response__, 'subnet_id'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
+        upgrade_description=pulumi.get(__response__, 'upgrade_description'),
         use_custom_vnet=pulumi.get(__response__, 'use_custom_vnet'),
         zonal_resiliency=pulumi.get(__response__, 'zonal_resiliency'),
         zonal_update_mode=pulumi.get(__response__, 'zonal_update_mode')))

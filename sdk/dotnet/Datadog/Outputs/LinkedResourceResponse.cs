@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.Datadog.Outputs
         /// The ARM id of the linked resource.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The location of the linked resource.
+        /// </summary>
+        public readonly string? Location;
 
         [OutputConstructor]
-        private LinkedResourceResponse(string? id)
+        private LinkedResourceResponse(
+            string? id,
+
+            string? location)
         {
             Id = id;
+            Location = location;
         }
     }
 }

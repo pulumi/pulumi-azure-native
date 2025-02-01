@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2024-04-01-preview.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
  *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-04-01-preview.
  */
 export class ConnectionDeployment extends pulumi.CustomResource {
     /**
@@ -43,8 +43,7 @@ export class ConnectionDeployment extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.EndpointDeploymentResourcePropertiesResponse>;
-    public readonly sku!: pulumi.Output<outputs.machinelearningservices.CognitiveServicesSkuResponse | undefined>;
+    public readonly properties!: pulumi.Output<outputs.machinelearningservices.ContentSafetyEndpointDeploymentResourcePropertiesResponse | outputs.machinelearningservices.ManagedOnlineEndpointDeploymentResourcePropertiesResponse | outputs.machinelearningservices.OpenAIEndpointDeploymentResourcePropertiesResponse | outputs.machinelearningservices.SpeechEndpointDeploymentResourcePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -80,8 +79,8 @@ export class ConnectionDeployment extends pulumi.CustomResource {
             resourceInputs["connectionName"] = args ? args.connectionName : undefined;
             resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["proxyApiVersion"] = args ? args.proxyApiVersion : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -89,7 +88,6 @@ export class ConnectionDeployment extends pulumi.CustomResource {
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
-            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -112,12 +110,15 @@ export interface ConnectionDeploymentArgs {
      * Name of the deployment resource
      */
     deploymentName?: pulumi.Input<string>;
-    properties: pulumi.Input<inputs.machinelearningservices.EndpointDeploymentResourcePropertiesArgs>;
+    properties: pulumi.Input<inputs.machinelearningservices.ContentSafetyEndpointDeploymentResourcePropertiesArgs | inputs.machinelearningservices.ManagedOnlineEndpointDeploymentResourcePropertiesArgs | inputs.machinelearningservices.OpenAIEndpointDeploymentResourcePropertiesArgs | inputs.machinelearningservices.SpeechEndpointDeploymentResourcePropertiesArgs>;
+    /**
+     * Api version used by proxy call
+     */
+    proxyApiVersion?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    sku?: pulumi.Input<inputs.machinelearningservices.CognitiveServicesSkuArgs>;
     /**
      * Azure Machine Learning Workspace Name
      */

@@ -27,13 +27,19 @@ class GetDicomServiceResult:
     """
     The description of Dicom Service
     """
-    def __init__(__self__, authentication_configuration=None, cors_configuration=None, etag=None, event_state=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_url=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, authentication_configuration=None, cors_configuration=None, enable_data_partitions=None, encryption=None, etag=None, event_state=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_url=None, storage_configuration=None, system_data=None, tags=None, type=None):
         if authentication_configuration and not isinstance(authentication_configuration, dict):
             raise TypeError("Expected argument 'authentication_configuration' to be a dict")
         pulumi.set(__self__, "authentication_configuration", authentication_configuration)
         if cors_configuration and not isinstance(cors_configuration, dict):
             raise TypeError("Expected argument 'cors_configuration' to be a dict")
         pulumi.set(__self__, "cors_configuration", cors_configuration)
+        if enable_data_partitions and not isinstance(enable_data_partitions, bool):
+            raise TypeError("Expected argument 'enable_data_partitions' to be a bool")
+        pulumi.set(__self__, "enable_data_partitions", enable_data_partitions)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -64,6 +70,9 @@ class GetDicomServiceResult:
         if service_url and not isinstance(service_url, str):
             raise TypeError("Expected argument 'service_url' to be a str")
         pulumi.set(__self__, "service_url", service_url)
+        if storage_configuration and not isinstance(storage_configuration, dict):
+            raise TypeError("Expected argument 'storage_configuration' to be a dict")
+        pulumi.set(__self__, "storage_configuration", storage_configuration)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -89,6 +98,22 @@ class GetDicomServiceResult:
         Dicom Service Cors configuration.
         """
         return pulumi.get(self, "cors_configuration")
+
+    @property
+    @pulumi.getter(name="enableDataPartitions")
+    def enable_data_partitions(self) -> Optional[bool]:
+        """
+        If data partitions is enabled or not.
+        """
+        return pulumi.get(self, "enable_data_partitions")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+        """
+        The encryption settings of the DICOM service
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter
@@ -171,6 +196,14 @@ class GetDicomServiceResult:
         return pulumi.get(self, "service_url")
 
     @property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> Optional['outputs.StorageConfigurationResponse']:
+        """
+        The configuration of external storage account
+        """
+        return pulumi.get(self, "storage_configuration")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -203,6 +236,8 @@ class AwaitableGetDicomServiceResult(GetDicomServiceResult):
         return GetDicomServiceResult(
             authentication_configuration=self.authentication_configuration,
             cors_configuration=self.cors_configuration,
+            enable_data_partitions=self.enable_data_partitions,
+            encryption=self.encryption,
             etag=self.etag,
             event_state=self.event_state,
             id=self.id,
@@ -213,6 +248,7 @@ class AwaitableGetDicomServiceResult(GetDicomServiceResult):
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
             service_url=self.service_url,
+            storage_configuration=self.storage_configuration,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -224,9 +260,9 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDicomServiceResult:
     """
     Gets the properties of the specified DICOM Service.
-    Azure REST API version: 2023-02-28.
+    Azure REST API version: 2024-03-31.
 
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+    Other available API versions: 2023-02-28.
 
 
     :param str dicom_service_name: The name of DICOM Service resource.
@@ -243,6 +279,8 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
     return AwaitableGetDicomServiceResult(
         authentication_configuration=pulumi.get(__ret__, 'authentication_configuration'),
         cors_configuration=pulumi.get(__ret__, 'cors_configuration'),
+        enable_data_partitions=pulumi.get(__ret__, 'enable_data_partitions'),
+        encryption=pulumi.get(__ret__, 'encryption'),
         etag=pulumi.get(__ret__, 'etag'),
         event_state=pulumi.get(__ret__, 'event_state'),
         id=pulumi.get(__ret__, 'id'),
@@ -253,6 +291,7 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
         service_url=pulumi.get(__ret__, 'service_url'),
+        storage_configuration=pulumi.get(__ret__, 'storage_configuration'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -262,9 +301,9 @@ def get_dicom_service_output(dicom_service_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDicomServiceResult]:
     """
     Gets the properties of the specified DICOM Service.
-    Azure REST API version: 2023-02-28.
+    Azure REST API version: 2024-03-31.
 
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+    Other available API versions: 2023-02-28.
 
 
     :param str dicom_service_name: The name of DICOM Service resource.
@@ -280,6 +319,8 @@ def get_dicom_service_output(dicom_service_name: Optional[pulumi.Input[str]] = N
     return __ret__.apply(lambda __response__: GetDicomServiceResult(
         authentication_configuration=pulumi.get(__response__, 'authentication_configuration'),
         cors_configuration=pulumi.get(__response__, 'cors_configuration'),
+        enable_data_partitions=pulumi.get(__response__, 'enable_data_partitions'),
+        encryption=pulumi.get(__response__, 'encryption'),
         etag=pulumi.get(__response__, 'etag'),
         event_state=pulumi.get(__response__, 'event_state'),
         id=pulumi.get(__response__, 'id'),
@@ -290,6 +331,7 @@ def get_dicom_service_output(dicom_service_name: Optional[pulumi.Input[str]] = N
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         public_network_access=pulumi.get(__response__, 'public_network_access'),
         service_url=pulumi.get(__response__, 'service_url'),
+        storage_configuration=pulumi.get(__response__, 'storage_configuration'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

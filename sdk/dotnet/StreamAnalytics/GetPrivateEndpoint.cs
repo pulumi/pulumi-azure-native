@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// Gets information about the specified Private Endpoint.
         /// Azure REST API version: 2020-03-01.
-        /// 
-        /// Other available API versions: 2020-03-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:streamanalytics:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// Gets information about the specified Private Endpoint.
         /// Azure REST API version: 2020-03-01.
-        /// 
-        /// Other available API versions: 2020-03-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointResult> Invoke(GetPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointResult>("azure-native:streamanalytics:getPrivateEndpoint", args ?? new GetPrivateEndpointInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// Gets information about the specified Private Endpoint.
         /// Azure REST API version: 2020-03-01.
-        /// 
-        /// Other available API versions: 2020-03-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointResult> Invoke(GetPrivateEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointResult>("azure-native:streamanalytics:getPrivateEndpoint", args ?? new GetPrivateEndpointInvokeArgs(), options.WithDefaults());

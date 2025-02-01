@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A budget resource.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2019-10-01.
+ * Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-05-01.
  *
- * Other available API versions: 2023-11-01, 2024-08-01.
+ * Other available API versions: 2023-05-01.
  */
 export class Budget extends pulumi.CustomResource {
     /**

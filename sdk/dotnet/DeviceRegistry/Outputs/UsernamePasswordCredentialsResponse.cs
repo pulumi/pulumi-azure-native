@@ -17,22 +17,22 @@ namespace Pulumi.AzureNative.DeviceRegistry.Outputs
     public sealed class UsernamePasswordCredentialsResponse
     {
         /// <summary>
-        /// A reference to secret containing the password.
+        /// The name of the secret containing the password.
         /// </summary>
-        public readonly string PasswordReference;
+        public readonly string PasswordSecretName;
         /// <summary>
-        /// A reference to secret containing the username.
+        /// The name of the secret containing the username.
         /// </summary>
-        public readonly string UsernameReference;
+        public readonly string UsernameSecretName;
 
         [OutputConstructor]
         private UsernamePasswordCredentialsResponse(
-            string passwordReference,
+            string passwordSecretName,
 
-            string usernameReference)
+            string usernameSecretName)
         {
-            PasswordReference = passwordReference;
-            UsernameReference = usernameReference;
+            PasswordSecretName = passwordSecretName;
+            UsernameSecretName = usernameSecretName;
         }
     }
 }

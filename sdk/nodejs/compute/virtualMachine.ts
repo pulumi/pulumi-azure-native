@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Other available API versions: 2023-03-01.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -65,6 +65,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly diagnosticsProfile!: pulumi.Output<outputs.compute.DiagnosticsProfileResponse | undefined>;
     /**
+     * Etag is property returned in Create/Update/Get response of the VM, so that customer can supply it in the header to ensure optimistic updates.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
@@ -105,6 +109,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * ManagedBy is set to Virtual Machine Scale Set(VMSS) flex ARM resourceID, if the VM is part of the VMSS. This property is used by platform for internal resource group delete optimization.
+     */
+    public /*out*/ readonly managedBy!: pulumi.Output<string>;
+    /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -140,6 +148,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      * The virtual machine child extension resources.
      */
     public /*out*/ readonly resources!: pulumi.Output<outputs.compute.VirtualMachineExtensionResponse[]>;
+    /**
+     * Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+     */
+    public readonly scheduledEventsPolicy!: pulumi.Output<outputs.compute.ScheduledEventsPolicyResponse | undefined>;
     /**
      * Specifies Scheduled Event related configurations.
      */
@@ -217,6 +229,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scheduledEventsPolicy"] = args ? args.scheduledEventsPolicy : undefined;
             resourceInputs["scheduledEventsProfile"] = args ? args.scheduledEventsProfile : undefined;
             resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
@@ -225,7 +238,9 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["virtualMachineScaleSet"] = args ? args.virtualMachineScaleSet : undefined;
             resourceInputs["vmName"] = args ? args.vmName : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
@@ -239,6 +254,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["billingProfile"] = undefined /*out*/;
             resourceInputs["capacityReservation"] = undefined /*out*/;
             resourceInputs["diagnosticsProfile"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["evictionPolicy"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["extensionsTimeBudget"] = undefined /*out*/;
@@ -249,6 +265,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["licenseType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkProfile"] = undefined /*out*/;
             resourceInputs["osProfile"] = undefined /*out*/;
@@ -258,6 +275,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["proximityPlacementGroup"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
+            resourceInputs["scheduledEventsPolicy"] = undefined /*out*/;
             resourceInputs["scheduledEventsProfile"] = undefined /*out*/;
             resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["storageProfile"] = undefined /*out*/;
@@ -368,6 +386,10 @@ export interface VirtualMachineArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+     */
+    scheduledEventsPolicy?: pulumi.Input<inputs.compute.ScheduledEventsPolicyArgs>;
     /**
      * Specifies Scheduled Event related configurations.
      */

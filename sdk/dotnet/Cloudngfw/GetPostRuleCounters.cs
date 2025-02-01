@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// Get counters
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2023-09-01, 2024-02-07-preview.
         /// </summary>
         public static Task<GetPostRuleCountersResult> InvokeAsync(GetPostRuleCountersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPostRuleCountersResult>("azure-native:cloudngfw:getPostRuleCounters", args ?? new GetPostRuleCountersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get counters
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2023-09-01, 2024-02-07-preview.
         /// </summary>
         public static Output<GetPostRuleCountersResult> Invoke(GetPostRuleCountersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPostRuleCountersResult>("azure-native:cloudngfw:getPostRuleCounters", args ?? new GetPostRuleCountersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get counters
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2023-09-01, 2024-02-07-preview.
         /// </summary>
         public static Output<GetPostRuleCountersResult> Invoke(GetPostRuleCountersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPostRuleCountersResult>("azure-native:cloudngfw:getPostRuleCounters", args ?? new GetPostRuleCountersInvokeArgs(), options.WithDefaults());

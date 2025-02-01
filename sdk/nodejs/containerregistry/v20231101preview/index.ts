@@ -25,16 +25,6 @@ export type ConnectedRegistry = import("./connectedRegistry").ConnectedRegistry;
 export const ConnectedRegistry: typeof import("./connectedRegistry").ConnectedRegistry = null as any;
 utilities.lazyLoad(exports, ["ConnectedRegistry"], () => require("./connectedRegistry"));
 
-export { CredentialSetArgs } from "./credentialSet";
-export type CredentialSet = import("./credentialSet").CredentialSet;
-export const CredentialSet: typeof import("./credentialSet").CredentialSet = null as any;
-utilities.lazyLoad(exports, ["CredentialSet"], () => require("./credentialSet"));
-
-export { ExportPipelineArgs } from "./exportPipeline";
-export type ExportPipeline = import("./exportPipeline").ExportPipeline;
-export const ExportPipeline: typeof import("./exportPipeline").ExportPipeline = null as any;
-utilities.lazyLoad(exports, ["ExportPipeline"], () => require("./exportPipeline"));
-
 export { GetArchifeArgs, GetArchifeResult, GetArchifeOutputArgs } from "./getArchife";
 export const getArchife: typeof import("./getArchife").getArchife = null as any;
 export const getArchifeOutput: typeof import("./getArchife").getArchifeOutput = null as any;
@@ -55,21 +45,6 @@ export const getConnectedRegistry: typeof import("./getConnectedRegistry").getCo
 export const getConnectedRegistryOutput: typeof import("./getConnectedRegistry").getConnectedRegistryOutput = null as any;
 utilities.lazyLoad(exports, ["getConnectedRegistry","getConnectedRegistryOutput"], () => require("./getConnectedRegistry"));
 
-export { GetCredentialSetArgs, GetCredentialSetResult, GetCredentialSetOutputArgs } from "./getCredentialSet";
-export const getCredentialSet: typeof import("./getCredentialSet").getCredentialSet = null as any;
-export const getCredentialSetOutput: typeof import("./getCredentialSet").getCredentialSetOutput = null as any;
-utilities.lazyLoad(exports, ["getCredentialSet","getCredentialSetOutput"], () => require("./getCredentialSet"));
-
-export { GetExportPipelineArgs, GetExportPipelineResult, GetExportPipelineOutputArgs } from "./getExportPipeline";
-export const getExportPipeline: typeof import("./getExportPipeline").getExportPipeline = null as any;
-export const getExportPipelineOutput: typeof import("./getExportPipeline").getExportPipelineOutput = null as any;
-utilities.lazyLoad(exports, ["getExportPipeline","getExportPipelineOutput"], () => require("./getExportPipeline"));
-
-export { GetImportPipelineArgs, GetImportPipelineResult, GetImportPipelineOutputArgs } from "./getImportPipeline";
-export const getImportPipeline: typeof import("./getImportPipeline").getImportPipeline = null as any;
-export const getImportPipelineOutput: typeof import("./getImportPipeline").getImportPipelineOutput = null as any;
-utilities.lazyLoad(exports, ["getImportPipeline","getImportPipelineOutput"], () => require("./getImportPipeline"));
-
 export { GetPipelineRunArgs, GetPipelineRunResult, GetPipelineRunOutputArgs } from "./getPipelineRun";
 export const getPipelineRun: typeof import("./getPipelineRun").getPipelineRun = null as any;
 export const getPipelineRunOutput: typeof import("./getPipelineRun").getPipelineRunOutput = null as any;
@@ -79,11 +54,6 @@ export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, G
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
-export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
-export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
-export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
-utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
 
 export { GetReplicationArgs, GetReplicationResult, GetReplicationOutputArgs } from "./getReplication";
 export const getReplication: typeof import("./getReplication").getReplication = null as any;
@@ -110,11 +80,6 @@ export const getWebhookCallbackConfig: typeof import("./getWebhookCallbackConfig
 export const getWebhookCallbackConfigOutput: typeof import("./getWebhookCallbackConfig").getWebhookCallbackConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getWebhookCallbackConfig","getWebhookCallbackConfigOutput"], () => require("./getWebhookCallbackConfig"));
 
-export { ImportPipelineArgs } from "./importPipeline";
-export type ImportPipeline = import("./importPipeline").ImportPipeline;
-export const ImportPipeline: typeof import("./importPipeline").ImportPipeline = null as any;
-utilities.lazyLoad(exports, ["ImportPipeline"], () => require("./importPipeline"));
-
 export { ListRegistryCredentialsArgs, ListRegistryCredentialsResult, ListRegistryCredentialsOutputArgs } from "./listRegistryCredentials";
 export const listRegistryCredentials: typeof import("./listRegistryCredentials").listRegistryCredentials = null as any;
 export const listRegistryCredentialsOutput: typeof import("./listRegistryCredentials").listRegistryCredentialsOutput = null as any;
@@ -134,11 +99,6 @@ export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
-export { RegistryArgs } from "./registry";
-export type Registry = import("./registry").Registry;
-export const Registry: typeof import("./registry").Registry = null as any;
-utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
 
 export { ReplicationArgs } from "./replication";
 export type Replication = import("./replication").Replication;
@@ -176,18 +136,10 @@ const _module = {
                 return new CacheRule(name, <any>undefined, { urn })
             case "azure-native:containerregistry/v20231101preview:ConnectedRegistry":
                 return new ConnectedRegistry(name, <any>undefined, { urn })
-            case "azure-native:containerregistry/v20231101preview:CredentialSet":
-                return new CredentialSet(name, <any>undefined, { urn })
-            case "azure-native:containerregistry/v20231101preview:ExportPipeline":
-                return new ExportPipeline(name, <any>undefined, { urn })
-            case "azure-native:containerregistry/v20231101preview:ImportPipeline":
-                return new ImportPipeline(name, <any>undefined, { urn })
             case "azure-native:containerregistry/v20231101preview:PipelineRun":
                 return new PipelineRun(name, <any>undefined, { urn })
             case "azure-native:containerregistry/v20231101preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:containerregistry/v20231101preview:Registry":
-                return new Registry(name, <any>undefined, { urn })
             case "azure-native:containerregistry/v20231101preview:Replication":
                 return new Replication(name, <any>undefined, { urn })
             case "azure-native:containerregistry/v20231101preview:ScopeMap":

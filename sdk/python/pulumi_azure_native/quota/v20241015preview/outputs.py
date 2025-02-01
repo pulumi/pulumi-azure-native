@@ -18,7 +18,6 @@ from ._enums import *
 
 __all__ = [
     'AdditionalAttributesResponse',
-    'GroupQuotaSubscriptionIdResponseProperties',
     'GroupQuotasEntityBaseResponse',
     'GroupingIdResponse',
     'SystemDataResponse',
@@ -69,54 +68,6 @@ class AdditionalAttributesResponse(dict):
     @pulumi.getter
     def environment(self) -> Optional[Any]:
         return pulumi.get(self, "environment")
-
-
-@pulumi.output_type
-class GroupQuotaSubscriptionIdResponseProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "subscriptionId":
-            suggest = "subscription_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GroupQuotaSubscriptionIdResponseProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GroupQuotaSubscriptionIdResponseProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GroupQuotaSubscriptionIdResponseProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: str,
-                 subscription_id: str):
-        """
-        :param str provisioning_state: Status of this subscriptionId being associated with the GroupQuotasEntity.
-        :param str subscription_id: An Azure subscriptionId.
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Status of this subscriptionId being associated with the GroupQuotasEntity.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> str:
-        """
-        An Azure subscriptionId.
-        """
-        return pulumi.get(self, "subscription_id")
 
 
 @pulumi.output_type

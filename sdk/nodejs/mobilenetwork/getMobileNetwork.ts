@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified mobile network.
- * Azure REST API version: 2023-06-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+ * Other available API versions: 2022-04-01-preview, 2023-06-01.
  */
 export function getMobileNetwork(args: GetMobileNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetMobileNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +41,10 @@ export interface GetMobileNetworkResult {
      */
     readonly id: string;
     /**
+     * The identity used to retrieve any private keys used for SUPI concealment from Azure key vault.
+     */
+    readonly identity?: outputs.mobilenetwork.ManagedServiceIdentityResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -53,9 +57,13 @@ export interface GetMobileNetworkResult {
      */
     readonly provisioningState: string;
     /**
-     * The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+     * The unique public land mobile network identifier for the network. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
      */
     readonly publicLandMobileNetworkIdentifier: outputs.mobilenetwork.PlmnIdResponse;
+    /**
+     * A list of public land mobile networks including their identifiers. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
+     */
+    readonly publicLandMobileNetworks?: outputs.mobilenetwork.PublicLandMobileNetworkResponse[];
     /**
      * The mobile network resource identifier
      */
@@ -75,9 +83,9 @@ export interface GetMobileNetworkResult {
 }
 /**
  * Gets information about the specified mobile network.
- * Azure REST API version: 2023-06-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+ * Other available API versions: 2022-04-01-preview, 2023-06-01.
  */
 export function getMobileNetworkOutput(args: GetMobileNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMobileNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

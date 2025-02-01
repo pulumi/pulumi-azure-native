@@ -11,35 +11,11 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
 {
     /// <summary>
     /// Dedicated cloud node model
-    /// Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01.
+    /// Azure REST API version: 2019-04-01. Prior API version in Azure Native 2.x: 2019-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:vmwarecloudsimple:DedicatedCloudNode")]
     public partial class DedicatedCloudNode : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Availability Zone id, e.g. "az1"
-        /// </summary>
-        [Output("availabilityZoneId")]
-        public Output<string> AvailabilityZoneId { get; private set; } = null!;
-
-        /// <summary>
-        /// Availability Zone name, e.g. "Availability Zone 1"
-        /// </summary>
-        [Output("availabilityZoneName")]
-        public Output<string> AvailabilityZoneName { get; private set; } = null!;
-
-        /// <summary>
-        /// VMWare Cloud Rack Name
-        /// </summary>
-        [Output("cloudRackName")]
-        public Output<string> CloudRackName { get; private set; } = null!;
-
-        /// <summary>
-        /// date time the resource was created
-        /// </summary>
-        [Output("created")]
-        public Output<string> Created { get; private set; } = null!;
-
         /// <summary>
         /// Azure region
         /// </summary>
@@ -47,64 +23,22 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// SKU's name
+        /// {dedicatedCloudNodeName}
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// count of nodes to create
+        /// Dedicated Cloud Nodes properties
         /// </summary>
-        [Output("nodesCount")]
-        public Output<int> NodesCount { get; private set; } = null!;
-
-        /// <summary>
-        /// Placement Group id, e.g. "n1"
-        /// </summary>
-        [Output("placementGroupId")]
-        public Output<string> PlacementGroupId { get; private set; } = null!;
-
-        /// <summary>
-        /// Placement Name, e.g. "Placement Group 1"
-        /// </summary>
-        [Output("placementGroupName")]
-        public Output<string> PlacementGroupName { get; private set; } = null!;
-
-        /// <summary>
-        /// Private Cloud Id
-        /// </summary>
-        [Output("privateCloudId")]
-        public Output<string> PrivateCloudId { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource Pool Name
-        /// </summary>
-        [Output("privateCloudName")]
-        public Output<string> PrivateCloudName { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning status of the resource
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// purchase id
-        /// </summary>
-        [Output("purchaseId")]
-        public Output<string> PurchaseId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.DedicatedCloudNodePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Dedicated Cloud Nodes SKU
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// Node status, indicates is private cloud set up on this node or not
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// Dedicated Cloud Nodes tags
@@ -117,12 +51,6 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// VMWare Cluster Name
-        /// </summary>
-        [Output("vmwareClusterName")]
-        public Output<string> VmwareClusterName { get; private set; } = null!;
 
 
         /// <summary>

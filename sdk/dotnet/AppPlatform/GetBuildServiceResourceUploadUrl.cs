@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get an resource upload URL for build service, which may be artifacts or source archive.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetBuildServiceResourceUploadUrlResult> InvokeAsync(GetBuildServiceResourceUploadUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceResourceUploadUrlResult>("azure-native:appplatform:getBuildServiceResourceUploadUrl", args ?? new GetBuildServiceResourceUploadUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an resource upload URL for build service, which may be artifacts or source archive.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetBuildServiceResourceUploadUrlResult> Invoke(GetBuildServiceResourceUploadUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceResourceUploadUrlResult>("azure-native:appplatform:getBuildServiceResourceUploadUrl", args ?? new GetBuildServiceResourceUploadUrlInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an resource upload URL for build service, which may be artifacts or source archive.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetBuildServiceResourceUploadUrlResult> Invoke(GetBuildServiceResourceUploadUrlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceResourceUploadUrlResult>("azure-native:appplatform:getBuildServiceResourceUploadUrl", args ?? new GetBuildServiceResourceUploadUrlInvokeArgs(), options.WithDefaults());

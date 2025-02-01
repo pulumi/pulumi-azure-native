@@ -14,12 +14,10 @@ from .get_arc_setting import *
 from .get_cluster import *
 from .get_deployment_setting import *
 from .get_extension import *
-from .get_hci_edge_device import *
 from .get_security_setting import *
 from .get_update import *
 from .get_update_run import *
 from .get_update_summary import *
-from .hci_edge_device import *
 from .security_setting import *
 from .update import *
 from .update_run import *

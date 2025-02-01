@@ -84,7 +84,7 @@ class Insight(pulumi.CustomResource):
                  __props__=None):
         """
         Insight resource
-        Azure REST API version: 2024-05-01-preview.
+        Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,7 +100,7 @@ class Insight(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Insight resource
-        Azure REST API version: 2024-05-01-preview.
+        Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param InsightArgs args: The arguments to use to populate this resource's properties.

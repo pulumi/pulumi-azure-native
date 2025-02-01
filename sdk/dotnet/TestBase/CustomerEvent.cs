@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.TestBase
 {
     /// <summary>
     /// The Customer Notification Event resource.
-    /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+    /// Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
     /// 
-    /// Other available API versions: 2023-11-01-preview.
+    /// Other available API versions: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:CustomerEvent")]
     public partial class CustomerEvent : global::Pulumi.CustomResource
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.TestBase
         public Output<string> EventName { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -37,13 +37,13 @@ namespace Pulumi.AzureNative.TestBase
         public Output<ImmutableArray<Outputs.NotificationEventReceiverResponse>> Receivers { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.TestBase
         }
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

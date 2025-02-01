@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'LoadBalancingMode',
-    'LogLevel',
 ]
 
 
@@ -18,14 +17,3 @@ class LoadBalancingMode(str, Enum):
     WEB = "Web"
     PUBLISHING = "Publishing"
     WEB_PUBLISHING = "Web, Publishing"
-
-
-class LogLevel(str, Enum):
-    """
-    Log level.
-    """
-    OFF = "Off"
-    VERBOSE = "Verbose"
-    INFORMATION = "Information"
-    WARNING = "Warning"
-    ERROR = "Error"

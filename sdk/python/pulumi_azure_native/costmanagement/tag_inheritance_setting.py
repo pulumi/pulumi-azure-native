@@ -23,7 +23,6 @@ class TagInheritanceSettingArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
                  scope: pulumi.Input[str],
-                 e_tag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['TagInheritancePropertiesArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -31,14 +30,11 @@ class TagInheritanceSettingArgs:
         :param pulumi.Input[str] kind: Specifies the kind of settings.
                Expected value is 'taginheritance'.
         :param pulumi.Input[str] scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
-        :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input['TagInheritancePropertiesArgs'] properties: The properties of the tag inheritance setting.
         :param pulumi.Input[str] type: Setting type.
         """
         pulumi.set(__self__, "kind", 'taginheritance')
         pulumi.set(__self__, "scope", scope)
-        if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if type is not None:
@@ -70,18 +66,6 @@ class TagInheritanceSettingArgs:
         pulumi.set(self, "scope", value)
 
     @property
-    @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[pulumi.Input[str]]:
-        """
-        eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-        """
-        return pulumi.get(self, "e_tag")
-
-    @e_tag.setter
-    def e_tag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "e_tag", value)
-
-    @property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['TagInheritancePropertiesArgs']]:
         """
@@ -111,7 +95,6 @@ class TagInheritanceSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 e_tag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['TagInheritancePropertiesArgs', 'TagInheritancePropertiesArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -119,11 +102,10 @@ class TagInheritanceSetting(pulumi.CustomResource):
                  __props__=None):
         """
         Tag Inheritance Setting definition.
-        Azure REST API version: 2022-10-05-preview.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2022-10-05-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[str] kind: Specifies the kind of settings.
                Expected value is 'taginheritance'.
         :param pulumi.Input[Union['TagInheritancePropertiesArgs', 'TagInheritancePropertiesArgsDict']] properties: The properties of the tag inheritance setting.
@@ -138,7 +120,7 @@ class TagInheritanceSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Tag Inheritance Setting definition.
-        Azure REST API version: 2022-10-05-preview.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2022-10-05-preview.
 
         :param str resource_name: The name of the resource.
         :param TagInheritanceSettingArgs args: The arguments to use to populate this resource's properties.
@@ -155,7 +137,6 @@ class TagInheritanceSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 e_tag: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['TagInheritancePropertiesArgs', 'TagInheritancePropertiesArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -169,7 +150,6 @@ class TagInheritanceSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TagInheritanceSettingArgs.__new__(TagInheritanceSettingArgs)
 
-            __props__.__dict__["e_tag"] = e_tag
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'taginheritance'
@@ -203,20 +183,11 @@ class TagInheritanceSetting(pulumi.CustomResource):
 
         __props__ = TagInheritanceSettingArgs.__new__(TagInheritanceSettingArgs)
 
-        __props__.__dict__["e_tag"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return TagInheritanceSetting(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="eTag")
-    def e_tag(self) -> pulumi.Output[Optional[str]]:
-        """
-        eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-        """
-        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
@@ -231,7 +202,7 @@ class TagInheritanceSetting(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -247,7 +218,7 @@ class TagInheritanceSetting(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

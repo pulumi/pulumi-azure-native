@@ -8,7 +8,6 @@ __all__ = [
     'AppServicePlanTier',
     'ManagedServiceIdentityType',
     'RoutingPreference',
-    'SslPreference',
 ]
 
 
@@ -47,22 +46,4 @@ class RoutingPreference(str, Enum):
     ROUTE_ALL = "RouteAll"
     """
     Route all traffic to the customer VNET.
-    """
-
-
-class SslPreference(str, Enum):
-    """
-    Gets or sets certificate preference if secure communication is enabled.
-    """
-    DISABLED = "Disabled"
-    """
-    Secure communication is disabled.
-    """
-    ROOT_CERTIFICATE = "RootCertificate"
-    """
-    Secure communication is enabled with root certificate.
-    """
-    SERVER_CERTIFICATE = "ServerCertificate"
-    """
-    Secure communication is enabled with server certificate.
     """

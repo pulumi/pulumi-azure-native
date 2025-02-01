@@ -16,8 +16,6 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'AbsoluteMonthlyScheduleArgs',
-    'AbsoluteMonthlyScheduleArgsDict',
     'AgentPoolArtifactStreamingProfileArgs',
     'AgentPoolArtifactStreamingProfileArgsDict',
     'AgentPoolGPUProfileArgs',
@@ -48,10 +46,6 @@ __all__ = [
     'ContainerServiceSshPublicKeyArgsDict',
     'CreationDataArgs',
     'CreationDataArgsDict',
-    'DailyScheduleArgs',
-    'DailyScheduleArgsDict',
-    'DateSpanArgs',
-    'DateSpanArgsDict',
     'DelegatedResourceArgs',
     'DelegatedResourceArgsDict',
     'ExtendedLocationArgs',
@@ -76,8 +70,6 @@ __all__ = [
     'KubeletConfigArgsDict',
     'LinuxOSConfigArgs',
     'LinuxOSConfigArgsDict',
-    'MaintenanceWindowArgs',
-    'MaintenanceWindowArgsDict',
     'ManagedClusterAADProfileArgs',
     'ManagedClusterAADProfileArgsDict',
     'ManagedClusterAIToolchainOperatorProfileArgs',
@@ -188,28 +180,16 @@ __all__ = [
     'PortRangeArgsDict',
     'PowerStateArgs',
     'PowerStateArgsDict',
-    'PrivateEndpointArgs',
-    'PrivateEndpointArgsDict',
     'PrivateLinkResourceArgs',
     'PrivateLinkResourceArgsDict',
-    'PrivateLinkServiceConnectionStateArgs',
-    'PrivateLinkServiceConnectionStateArgsDict',
-    'RelativeMonthlyScheduleArgs',
-    'RelativeMonthlyScheduleArgsDict',
     'ResourceReferenceArgs',
     'ResourceReferenceArgsDict',
     'ScaleProfileArgs',
     'ScaleProfileArgsDict',
-    'ScheduleArgs',
-    'ScheduleArgsDict',
     'ServiceMeshProfileArgs',
     'ServiceMeshProfileArgsDict',
     'SysctlConfigArgs',
     'SysctlConfigArgsDict',
-    'TimeInWeekArgs',
-    'TimeInWeekArgsDict',
-    'TimeSpanArgs',
-    'TimeSpanArgsDict',
     'UpgradeOverrideSettingsArgs',
     'UpgradeOverrideSettingsArgsDict',
     'UserAssignedIdentityArgs',
@@ -218,67 +198,11 @@ __all__ = [
     'VirtualMachineNodesArgsDict',
     'VirtualMachinesProfileArgs',
     'VirtualMachinesProfileArgsDict',
-    'WeeklyScheduleArgs',
-    'WeeklyScheduleArgsDict',
     'WindowsGmsaProfileArgs',
     'WindowsGmsaProfileArgsDict',
 ]
 
 MYPY = False
-
-if not MYPY:
-    class AbsoluteMonthlyScheduleArgsDict(TypedDict):
-        """
-        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
-        """
-        day_of_month: pulumi.Input[int]
-        """
-        The date of the month.
-        """
-        interval_months: pulumi.Input[int]
-        """
-        Specifies the number of months between each set of occurrences.
-        """
-elif False:
-    AbsoluteMonthlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AbsoluteMonthlyScheduleArgs:
-    def __init__(__self__, *,
-                 day_of_month: pulumi.Input[int],
-                 interval_months: pulumi.Input[int]):
-        """
-        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
-        :param pulumi.Input[int] day_of_month: The date of the month.
-        :param pulumi.Input[int] interval_months: Specifies the number of months between each set of occurrences.
-        """
-        pulumi.set(__self__, "day_of_month", day_of_month)
-        pulumi.set(__self__, "interval_months", interval_months)
-
-    @property
-    @pulumi.getter(name="dayOfMonth")
-    def day_of_month(self) -> pulumi.Input[int]:
-        """
-        The date of the month.
-        """
-        return pulumi.get(self, "day_of_month")
-
-    @day_of_month.setter
-    def day_of_month(self, value: pulumi.Input[int]):
-        pulumi.set(self, "day_of_month", value)
-
-    @property
-    @pulumi.getter(name="intervalMonths")
-    def interval_months(self) -> pulumi.Input[int]:
-        """
-        Specifies the number of months between each set of occurrences.
-        """
-        return pulumi.get(self, "interval_months")
-
-    @interval_months.setter
-    def interval_months(self, value: pulumi.Input[int]):
-        pulumi.set(self, "interval_months", value)
-
 
 if not MYPY:
     class AgentPoolArtifactStreamingProfileArgsDict(TypedDict):
@@ -1399,95 +1323,6 @@ class CreationDataArgs:
 
 
 if not MYPY:
-    class DailyScheduleArgsDict(TypedDict):
-        """
-        For schedules like: 'recur every day' or 'recur every 3 days'.
-        """
-        interval_days: pulumi.Input[int]
-        """
-        Specifies the number of days between each set of occurrences.
-        """
-elif False:
-    DailyScheduleArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DailyScheduleArgs:
-    def __init__(__self__, *,
-                 interval_days: pulumi.Input[int]):
-        """
-        For schedules like: 'recur every day' or 'recur every 3 days'.
-        :param pulumi.Input[int] interval_days: Specifies the number of days between each set of occurrences.
-        """
-        pulumi.set(__self__, "interval_days", interval_days)
-
-    @property
-    @pulumi.getter(name="intervalDays")
-    def interval_days(self) -> pulumi.Input[int]:
-        """
-        Specifies the number of days between each set of occurrences.
-        """
-        return pulumi.get(self, "interval_days")
-
-    @interval_days.setter
-    def interval_days(self, value: pulumi.Input[int]):
-        pulumi.set(self, "interval_days", value)
-
-
-if not MYPY:
-    class DateSpanArgsDict(TypedDict):
-        """
-        For example, between '2022-12-23' and '2023-01-05'.
-        """
-        end: pulumi.Input[str]
-        """
-        The end date of the date span.
-        """
-        start: pulumi.Input[str]
-        """
-        The start date of the date span.
-        """
-elif False:
-    DateSpanArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DateSpanArgs:
-    def __init__(__self__, *,
-                 end: pulumi.Input[str],
-                 start: pulumi.Input[str]):
-        """
-        For example, between '2022-12-23' and '2023-01-05'.
-        :param pulumi.Input[str] end: The end date of the date span.
-        :param pulumi.Input[str] start: The start date of the date span.
-        """
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
-
-    @property
-    @pulumi.getter
-    def end(self) -> pulumi.Input[str]:
-        """
-        The end date of the date span.
-        """
-        return pulumi.get(self, "end")
-
-    @end.setter
-    def end(self, value: pulumi.Input[str]):
-        pulumi.set(self, "end", value)
-
-    @property
-    @pulumi.getter
-    def start(self) -> pulumi.Input[str]:
-        """
-        The start date of the date span.
-        """
-        return pulumi.get(self, "start")
-
-    @start.setter
-    def start(self, value: pulumi.Input[str]):
-        pulumi.set(self, "start", value)
-
-
-if not MYPY:
     class DelegatedResourceArgsDict(TypedDict):
         """
         Delegated resource properties - internal use only.
@@ -2493,141 +2328,6 @@ class LinuxOSConfigArgs:
     @transparent_huge_page_enabled.setter
     def transparent_huge_page_enabled(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transparent_huge_page_enabled", value)
-
-
-if not MYPY:
-    class MaintenanceWindowArgsDict(TypedDict):
-        """
-        Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
-        """
-        duration_hours: pulumi.Input[int]
-        """
-        Length of maintenance window range from 4 to 24 hours.
-        """
-        schedule: pulumi.Input['ScheduleArgsDict']
-        """
-        Recurrence schedule for the maintenance window.
-        """
-        start_time: pulumi.Input[str]
-        """
-        The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
-        """
-        not_allowed_dates: NotRequired[pulumi.Input[Sequence[pulumi.Input['DateSpanArgsDict']]]]
-        """
-        Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
-        """
-        start_date: NotRequired[pulumi.Input[str]]
-        """
-        The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
-        """
-        utc_offset: NotRequired[pulumi.Input[str]]
-        """
-        The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
-        """
-elif False:
-    MaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class MaintenanceWindowArgs:
-    def __init__(__self__, *,
-                 duration_hours: Optional[pulumi.Input[int]] = None,
-                 schedule: pulumi.Input['ScheduleArgs'],
-                 start_time: pulumi.Input[str],
-                 not_allowed_dates: Optional[pulumi.Input[Sequence[pulumi.Input['DateSpanArgs']]]] = None,
-                 start_date: Optional[pulumi.Input[str]] = None,
-                 utc_offset: Optional[pulumi.Input[str]] = None):
-        """
-        Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
-        :param pulumi.Input[int] duration_hours: Length of maintenance window range from 4 to 24 hours.
-        :param pulumi.Input['ScheduleArgs'] schedule: Recurrence schedule for the maintenance window.
-        :param pulumi.Input[str] start_time: The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
-        :param pulumi.Input[Sequence[pulumi.Input['DateSpanArgs']]] not_allowed_dates: Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
-        :param pulumi.Input[str] start_date: The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
-        :param pulumi.Input[str] utc_offset: The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
-        """
-        if duration_hours is None:
-            duration_hours = 24
-        pulumi.set(__self__, "duration_hours", duration_hours)
-        pulumi.set(__self__, "schedule", schedule)
-        pulumi.set(__self__, "start_time", start_time)
-        if not_allowed_dates is not None:
-            pulumi.set(__self__, "not_allowed_dates", not_allowed_dates)
-        if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
-        if utc_offset is not None:
-            pulumi.set(__self__, "utc_offset", utc_offset)
-
-    @property
-    @pulumi.getter(name="durationHours")
-    def duration_hours(self) -> pulumi.Input[int]:
-        """
-        Length of maintenance window range from 4 to 24 hours.
-        """
-        return pulumi.get(self, "duration_hours")
-
-    @duration_hours.setter
-    def duration_hours(self, value: pulumi.Input[int]):
-        pulumi.set(self, "duration_hours", value)
-
-    @property
-    @pulumi.getter
-    def schedule(self) -> pulumi.Input['ScheduleArgs']:
-        """
-        Recurrence schedule for the maintenance window.
-        """
-        return pulumi.get(self, "schedule")
-
-    @schedule.setter
-    def schedule(self, value: pulumi.Input['ScheduleArgs']):
-        pulumi.set(self, "schedule", value)
-
-    @property
-    @pulumi.getter(name="startTime")
-    def start_time(self) -> pulumi.Input[str]:
-        """
-        The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
-        """
-        return pulumi.get(self, "start_time")
-
-    @start_time.setter
-    def start_time(self, value: pulumi.Input[str]):
-        pulumi.set(self, "start_time", value)
-
-    @property
-    @pulumi.getter(name="notAllowedDates")
-    def not_allowed_dates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DateSpanArgs']]]]:
-        """
-        Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
-        """
-        return pulumi.get(self, "not_allowed_dates")
-
-    @not_allowed_dates.setter
-    def not_allowed_dates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DateSpanArgs']]]]):
-        pulumi.set(self, "not_allowed_dates", value)
-
-    @property
-    @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
-        """
-        return pulumi.get(self, "start_date")
-
-    @start_date.setter
-    def start_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "start_date", value)
-
-    @property
-    @pulumi.getter(name="utcOffset")
-    def utc_offset(self) -> Optional[pulumi.Input[str]]:
-        """
-        The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
-        """
-        return pulumi.get(self, "utc_offset")
-
-    @utc_offset.setter
-    def utc_offset(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "utc_offset", value)
 
 
 if not MYPY:
@@ -7321,42 +7021,6 @@ class PowerStateArgs:
 
 
 if not MYPY:
-    class PrivateEndpointArgsDict(TypedDict):
-        """
-        Private endpoint which a connection belongs to.
-        """
-        id: NotRequired[pulumi.Input[str]]
-        """
-        The resource ID of the private endpoint
-        """
-elif False:
-    PrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Private endpoint which a connection belongs to.
-        :param pulumi.Input[str] id: The resource ID of the private endpoint
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource ID of the private endpoint
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
     class PrivateLinkResourceArgsDict(TypedDict):
         """
         A private link resource
@@ -7473,135 +7137,6 @@ class PrivateLinkResourceArgs:
 
 
 if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        The state of a private link service connection.
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        The private link service connection description.
-        """
-        status: NotRequired[pulumi.Input[Union[str, 'ConnectionStatus']]]
-        """
-        The private link service connection status.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class PrivateLinkServiceConnectionStateArgs:
-    def __init__(__self__, *,
-                 description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'ConnectionStatus']]] = None):
-        """
-        The state of a private link service connection.
-        :param pulumi.Input[str] description: The private link service connection description.
-        :param pulumi.Input[Union[str, 'ConnectionStatus']] status: The private link service connection status.
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private link service connection description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'ConnectionStatus']]]:
-        """
-        The private link service connection status.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'ConnectionStatus']]]):
-        pulumi.set(self, "status", value)
-
-
-if not MYPY:
-    class RelativeMonthlyScheduleArgsDict(TypedDict):
-        """
-        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
-        """
-        day_of_week: pulumi.Input[Union[str, 'WeekDay']]
-        """
-        Specifies on which day of the week the maintenance occurs.
-        """
-        interval_months: pulumi.Input[int]
-        """
-        Specifies the number of months between each set of occurrences.
-        """
-        week_index: pulumi.Input[Union[str, 'Type']]
-        """
-        Specifies on which instance of the allowed days specified in daysOfWeek the maintenance occurs.
-        """
-elif False:
-    RelativeMonthlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class RelativeMonthlyScheduleArgs:
-    def __init__(__self__, *,
-                 day_of_week: pulumi.Input[Union[str, 'WeekDay']],
-                 interval_months: pulumi.Input[int],
-                 week_index: pulumi.Input[Union[str, 'Type']]):
-        """
-        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
-        :param pulumi.Input[Union[str, 'WeekDay']] day_of_week: Specifies on which day of the week the maintenance occurs.
-        :param pulumi.Input[int] interval_months: Specifies the number of months between each set of occurrences.
-        :param pulumi.Input[Union[str, 'Type']] week_index: Specifies on which instance of the allowed days specified in daysOfWeek the maintenance occurs.
-        """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "interval_months", interval_months)
-        pulumi.set(__self__, "week_index", week_index)
-
-    @property
-    @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> pulumi.Input[Union[str, 'WeekDay']]:
-        """
-        Specifies on which day of the week the maintenance occurs.
-        """
-        return pulumi.get(self, "day_of_week")
-
-    @day_of_week.setter
-    def day_of_week(self, value: pulumi.Input[Union[str, 'WeekDay']]):
-        pulumi.set(self, "day_of_week", value)
-
-    @property
-    @pulumi.getter(name="intervalMonths")
-    def interval_months(self) -> pulumi.Input[int]:
-        """
-        Specifies the number of months between each set of occurrences.
-        """
-        return pulumi.get(self, "interval_months")
-
-    @interval_months.setter
-    def interval_months(self, value: pulumi.Input[int]):
-        pulumi.set(self, "interval_months", value)
-
-    @property
-    @pulumi.getter(name="weekIndex")
-    def week_index(self) -> pulumi.Input[Union[str, 'Type']]:
-        """
-        Specifies on which instance of the allowed days specified in daysOfWeek the maintenance occurs.
-        """
-        return pulumi.get(self, "week_index")
-
-    @week_index.setter
-    def week_index(self, value: pulumi.Input[Union[str, 'Type']]):
-        pulumi.set(self, "week_index", value)
-
-
-if not MYPY:
     class ResourceReferenceArgsDict(TypedDict):
         """
         A reference to an Azure resource.
@@ -7671,102 +7206,6 @@ class ScaleProfileArgs:
     @manual.setter
     def manual(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManualScaleProfileArgs']]]]):
         pulumi.set(self, "manual", value)
-
-
-if not MYPY:
-    class ScheduleArgsDict(TypedDict):
-        """
-        One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule.
-        """
-        absolute_monthly: NotRequired[pulumi.Input['AbsoluteMonthlyScheduleArgsDict']]
-        """
-        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
-        """
-        daily: NotRequired[pulumi.Input['DailyScheduleArgsDict']]
-        """
-        For schedules like: 'recur every day' or 'recur every 3 days'.
-        """
-        relative_monthly: NotRequired[pulumi.Input['RelativeMonthlyScheduleArgsDict']]
-        """
-        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
-        """
-        weekly: NotRequired[pulumi.Input['WeeklyScheduleArgsDict']]
-        """
-        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
-        """
-elif False:
-    ScheduleArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ScheduleArgs:
-    def __init__(__self__, *,
-                 absolute_monthly: Optional[pulumi.Input['AbsoluteMonthlyScheduleArgs']] = None,
-                 daily: Optional[pulumi.Input['DailyScheduleArgs']] = None,
-                 relative_monthly: Optional[pulumi.Input['RelativeMonthlyScheduleArgs']] = None,
-                 weekly: Optional[pulumi.Input['WeeklyScheduleArgs']] = None):
-        """
-        One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule.
-        :param pulumi.Input['AbsoluteMonthlyScheduleArgs'] absolute_monthly: For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
-        :param pulumi.Input['DailyScheduleArgs'] daily: For schedules like: 'recur every day' or 'recur every 3 days'.
-        :param pulumi.Input['RelativeMonthlyScheduleArgs'] relative_monthly: For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
-        :param pulumi.Input['WeeklyScheduleArgs'] weekly: For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
-        """
-        if absolute_monthly is not None:
-            pulumi.set(__self__, "absolute_monthly", absolute_monthly)
-        if daily is not None:
-            pulumi.set(__self__, "daily", daily)
-        if relative_monthly is not None:
-            pulumi.set(__self__, "relative_monthly", relative_monthly)
-        if weekly is not None:
-            pulumi.set(__self__, "weekly", weekly)
-
-    @property
-    @pulumi.getter(name="absoluteMonthly")
-    def absolute_monthly(self) -> Optional[pulumi.Input['AbsoluteMonthlyScheduleArgs']]:
-        """
-        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
-        """
-        return pulumi.get(self, "absolute_monthly")
-
-    @absolute_monthly.setter
-    def absolute_monthly(self, value: Optional[pulumi.Input['AbsoluteMonthlyScheduleArgs']]):
-        pulumi.set(self, "absolute_monthly", value)
-
-    @property
-    @pulumi.getter
-    def daily(self) -> Optional[pulumi.Input['DailyScheduleArgs']]:
-        """
-        For schedules like: 'recur every day' or 'recur every 3 days'.
-        """
-        return pulumi.get(self, "daily")
-
-    @daily.setter
-    def daily(self, value: Optional[pulumi.Input['DailyScheduleArgs']]):
-        pulumi.set(self, "daily", value)
-
-    @property
-    @pulumi.getter(name="relativeMonthly")
-    def relative_monthly(self) -> Optional[pulumi.Input['RelativeMonthlyScheduleArgs']]:
-        """
-        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
-        """
-        return pulumi.get(self, "relative_monthly")
-
-    @relative_monthly.setter
-    def relative_monthly(self, value: Optional[pulumi.Input['RelativeMonthlyScheduleArgs']]):
-        pulumi.set(self, "relative_monthly", value)
-
-    @property
-    @pulumi.getter
-    def weekly(self) -> Optional[pulumi.Input['WeeklyScheduleArgs']]:
-        """
-        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
-        """
-        return pulumi.get(self, "weekly")
-
-    @weekly.setter
-    def weekly(self, value: Optional[pulumi.Input['WeeklyScheduleArgs']]):
-        pulumi.set(self, "weekly", value)
 
 
 if not MYPY:
@@ -8401,118 +7840,6 @@ class SysctlConfigArgs:
 
 
 if not MYPY:
-    class TimeInWeekArgsDict(TypedDict):
-        """
-        Time in a week.
-        """
-        day: NotRequired[pulumi.Input[Union[str, 'WeekDay']]]
-        """
-        The day of the week.
-        """
-        hour_slots: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
-        """
-        Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
-        """
-elif False:
-    TimeInWeekArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class TimeInWeekArgs:
-    def __init__(__self__, *,
-                 day: Optional[pulumi.Input[Union[str, 'WeekDay']]] = None,
-                 hour_slots: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
-        """
-        Time in a week.
-        :param pulumi.Input[Union[str, 'WeekDay']] day: The day of the week.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] hour_slots: Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
-        """
-        if day is not None:
-            pulumi.set(__self__, "day", day)
-        if hour_slots is not None:
-            pulumi.set(__self__, "hour_slots", hour_slots)
-
-    @property
-    @pulumi.getter
-    def day(self) -> Optional[pulumi.Input[Union[str, 'WeekDay']]]:
-        """
-        The day of the week.
-        """
-        return pulumi.get(self, "day")
-
-    @day.setter
-    def day(self, value: Optional[pulumi.Input[Union[str, 'WeekDay']]]):
-        pulumi.set(self, "day", value)
-
-    @property
-    @pulumi.getter(name="hourSlots")
-    def hour_slots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
-        """
-        Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
-        """
-        return pulumi.get(self, "hour_slots")
-
-    @hour_slots.setter
-    def hour_slots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
-        pulumi.set(self, "hour_slots", value)
-
-
-if not MYPY:
-    class TimeSpanArgsDict(TypedDict):
-        """
-        For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
-        """
-        end: NotRequired[pulumi.Input[str]]
-        """
-        The end of a time span
-        """
-        start: NotRequired[pulumi.Input[str]]
-        """
-        The start of a time span
-        """
-elif False:
-    TimeSpanArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class TimeSpanArgs:
-    def __init__(__self__, *,
-                 end: Optional[pulumi.Input[str]] = None,
-                 start: Optional[pulumi.Input[str]] = None):
-        """
-        For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
-        :param pulumi.Input[str] end: The end of a time span
-        :param pulumi.Input[str] start: The start of a time span
-        """
-        if end is not None:
-            pulumi.set(__self__, "end", end)
-        if start is not None:
-            pulumi.set(__self__, "start", start)
-
-    @property
-    @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[str]]:
-        """
-        The end of a time span
-        """
-        return pulumi.get(self, "end")
-
-    @end.setter
-    def end(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "end", value)
-
-    @property
-    @pulumi.getter
-    def start(self) -> Optional[pulumi.Input[str]]:
-        """
-        The start of a time span
-        """
-        return pulumi.get(self, "start")
-
-    @start.setter
-    def start(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "start", value)
-
-
-if not MYPY:
     class UpgradeOverrideSettingsArgsDict(TypedDict):
         """
         Settings for overrides when upgrading a cluster.
@@ -8734,60 +8061,6 @@ class VirtualMachinesProfileArgs:
     @scale.setter
     def scale(self, value: Optional[pulumi.Input['ScaleProfileArgs']]):
         pulumi.set(self, "scale", value)
-
-
-if not MYPY:
-    class WeeklyScheduleArgsDict(TypedDict):
-        """
-        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
-        """
-        day_of_week: pulumi.Input[Union[str, 'WeekDay']]
-        """
-        Specifies on which day of the week the maintenance occurs.
-        """
-        interval_weeks: pulumi.Input[int]
-        """
-        Specifies the number of weeks between each set of occurrences.
-        """
-elif False:
-    WeeklyScheduleArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class WeeklyScheduleArgs:
-    def __init__(__self__, *,
-                 day_of_week: pulumi.Input[Union[str, 'WeekDay']],
-                 interval_weeks: pulumi.Input[int]):
-        """
-        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
-        :param pulumi.Input[Union[str, 'WeekDay']] day_of_week: Specifies on which day of the week the maintenance occurs.
-        :param pulumi.Input[int] interval_weeks: Specifies the number of weeks between each set of occurrences.
-        """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "interval_weeks", interval_weeks)
-
-    @property
-    @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> pulumi.Input[Union[str, 'WeekDay']]:
-        """
-        Specifies on which day of the week the maintenance occurs.
-        """
-        return pulumi.get(self, "day_of_week")
-
-    @day_of_week.setter
-    def day_of_week(self, value: pulumi.Input[Union[str, 'WeekDay']]):
-        pulumi.set(self, "day_of_week", value)
-
-    @property
-    @pulumi.getter(name="intervalWeeks")
-    def interval_weeks(self) -> pulumi.Input[int]:
-        """
-        Specifies the number of weeks between each set of occurrences.
-        """
-        return pulumi.get(self, "interval_weeks")
-
-    @interval_weeks.setter
-    def interval_weeks(self, value: pulumi.Input[int]):
-        pulumi.set(self, "interval_weeks", value)
 
 
 if not MYPY:

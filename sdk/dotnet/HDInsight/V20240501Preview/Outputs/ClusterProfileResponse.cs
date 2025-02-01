@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.HDInsight.V20240501Preview.Outputs
         /// <summary>
         /// Ssh profile for the cluster.
         /// </summary>
-        public readonly Outputs.SshProfileResponse? SshProfile;
+        public readonly Outputs.ClusterPoolSshProfileResponse? SshProfile;
         /// <summary>
         /// Stub cluster profile.
         /// </summary>
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNative.HDInsight.V20240501Preview.Outputs
 
             Outputs.SparkProfileResponse? sparkProfile,
 
-            Outputs.SshProfileResponse? sshProfile,
+            Outputs.ClusterPoolSshProfileResponse? sshProfile,
 
             object? stubProfile,
 

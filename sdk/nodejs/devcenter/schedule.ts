@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Schedule to execute a task.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+ * Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-04-01, 2024-10-01-preview.
  */
 export class Schedule extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly frequency!: pulumi.Output<string>;
     /**
+     * The geo-location where the resource lives
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -60,6 +64,10 @@ export class Schedule extends pulumi.CustomResource {
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.devcenter.SystemDataResponse>;
+    /**
+     * Resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The target time to trigger the action. The format is HH:MM.
      */
@@ -106,11 +114,13 @@ export class Schedule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scheduleName"] = args ? args.scheduleName : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["time"] = args ? args.time : undefined;
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
             resourceInputs["top"] = args ? args.top : undefined;
@@ -120,10 +130,12 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
         } else {
             resourceInputs["frequency"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["time"] = undefined /*out*/;
             resourceInputs["timeZone"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -144,6 +156,10 @@ export interface ScheduleArgs {
      */
     frequency: pulumi.Input<string | enums.devcenter.ScheduledFrequency>;
     /**
+     * The geo-location where the resource lives
+     */
+    location?: pulumi.Input<string>;
+    /**
      * Name of the pool.
      */
     poolName: pulumi.Input<string>;
@@ -163,6 +179,10 @@ export interface ScheduleArgs {
      * Indicates whether or not this scheduled task is enabled.
      */
     state?: pulumi.Input<string | enums.devcenter.ScheduleEnableStatus>;
+    /**
+     * Resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The target time to trigger the action. The format is HH:MM.
      */

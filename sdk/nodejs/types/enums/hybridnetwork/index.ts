@@ -89,6 +89,16 @@ export const AzureOperatorNexusArtifactType = {
  */
 export type AzureOperatorNexusArtifactType = (typeof AzureOperatorNexusArtifactType)[keyof typeof AzureOperatorNexusArtifactType];
 
+export const BackingResourcePublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The artifact store backing resource network access type
+ */
+export type BackingResourcePublicNetworkAccess = (typeof BackingResourcePublicNetworkAccess)[keyof typeof BackingResourcePublicNetworkAccess];
+
 export const ConfigurationGroupValueConfigurationType = {
     Unknown: "Unknown",
     Secret: "Secret",
@@ -185,6 +195,17 @@ export const NFVIType = {
  * The NFVI type.
  */
 export type NFVIType = (typeof NFVIType)[keyof typeof NFVIType];
+
+export const NetworkFunctionConfigurationType = {
+    Unknown: "Unknown",
+    Secret: "Secret",
+    Open: "Open",
+} as const;
+
+/**
+ * The value which indicates if NF  values are secrets
+ */
+export type NetworkFunctionConfigurationType = (typeof NetworkFunctionConfigurationType)[keyof typeof NetworkFunctionConfigurationType];
 
 export const NetworkFunctionRoleConfigurationType = {
     Unknown: "Unknown",

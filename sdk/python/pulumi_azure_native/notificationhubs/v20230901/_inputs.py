@@ -50,12 +50,8 @@ __all__ = [
     'NotificationHubPropertiesArgsDict',
     'PnsCredentialsArgs',
     'PnsCredentialsArgsDict',
-    'PrivateEndpointConnectionPropertiesArgs',
-    'PrivateEndpointConnectionPropertiesArgsDict',
     'PublicInternetAuthorizationRuleArgs',
     'PublicInternetAuthorizationRuleArgsDict',
-    'RemotePrivateLinkServiceConnectionStateArgs',
-    'RemotePrivateLinkServiceConnectionStateArgsDict',
     'SharedAccessAuthorizationRulePropertiesArgs',
     'SharedAccessAuthorizationRulePropertiesArgsDict',
     'SkuArgs',
@@ -1532,62 +1528,6 @@ class PnsCredentialsArgs:
 
 
 if not MYPY:
-    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
-        """
-        Private Endpoint Connection properties.
-        """
-        private_link_service_connection_state: NotRequired[pulumi.Input['RemotePrivateLinkServiceConnectionStateArgsDict']]
-        """
-        State of the Private Link Service connection.
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointConnectionProvisioningState']]]
-        """
-        State of Private Endpoint Connection.
-        """
-elif False:
-    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class PrivateEndpointConnectionPropertiesArgs:
-    def __init__(__self__, *,
-                 private_link_service_connection_state: Optional[pulumi.Input['RemotePrivateLinkServiceConnectionStateArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionProvisioningState']]] = None):
-        """
-        Private Endpoint Connection properties.
-        :param pulumi.Input['RemotePrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: State of the Private Link Service connection.
-        :param pulumi.Input[Union[str, 'PrivateEndpointConnectionProvisioningState']] provisioning_state: State of Private Endpoint Connection.
-        """
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['RemotePrivateLinkServiceConnectionStateArgs']]:
-        """
-        State of the Private Link Service connection.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['RemotePrivateLinkServiceConnectionStateArgs']]):
-        pulumi.set(self, "private_link_service_connection_state", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionProvisioningState']]]:
-        """
-        State of Private Endpoint Connection.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionProvisioningState']]]):
-        pulumi.set(self, "provisioning_state", value)
-
-
-if not MYPY:
     class PublicInternetAuthorizationRuleArgsDict(TypedDict):
         """
         A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
@@ -1620,42 +1560,6 @@ class PublicInternetAuthorizationRuleArgs:
     @rights.setter
     def rights(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]):
         pulumi.set(self, "rights", value)
-
-
-if not MYPY:
-    class RemotePrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        State of the Private Link Service connection.
-        """
-        status: NotRequired[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]]
-        """
-        State of Private Link Connection.
-        """
-elif False:
-    RemotePrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class RemotePrivateLinkServiceConnectionStateArgs:
-    def __init__(__self__, *,
-                 status: Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]] = None):
-        """
-        State of the Private Link Service connection.
-        :param pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']] status: State of Private Link Connection.
-        """
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]]:
-        """
-        State of Private Link Connection.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]]):
-        pulumi.set(self, "status", value)
 
 
 if not MYPY:

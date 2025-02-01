@@ -90,11 +90,6 @@ export type DevOpsConfiguration = import("./devOpsConfiguration").DevOpsConfigur
 export const DevOpsConfiguration: typeof import("./devOpsConfiguration").DevOpsConfiguration = null as any;
 utilities.lazyLoad(exports, ["DevOpsConfiguration"], () => require("./devOpsConfiguration"));
 
-export { DevOpsPolicyAssignmentArgs } from "./devOpsPolicyAssignment";
-export type DevOpsPolicyAssignment = import("./devOpsPolicyAssignment").DevOpsPolicyAssignment;
-export const DevOpsPolicyAssignment: typeof import("./devOpsPolicyAssignment").DevOpsPolicyAssignment = null as any;
-utilities.lazyLoad(exports, ["DevOpsPolicyAssignment"], () => require("./devOpsPolicyAssignment"));
-
 export { DeviceSecurityGroupArgs } from "./deviceSecurityGroup";
 export type DeviceSecurityGroup = import("./deviceSecurityGroup").DeviceSecurityGroup;
 export const DeviceSecurityGroup: typeof import("./deviceSecurityGroup").DeviceSecurityGroup = null as any;
@@ -184,11 +179,6 @@ export { GetDevOpsConfigurationArgs, GetDevOpsConfigurationResult, GetDevOpsConf
 export const getDevOpsConfiguration: typeof import("./getDevOpsConfiguration").getDevOpsConfiguration = null as any;
 export const getDevOpsConfigurationOutput: typeof import("./getDevOpsConfiguration").getDevOpsConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getDevOpsConfiguration","getDevOpsConfigurationOutput"], () => require("./getDevOpsConfiguration"));
-
-export { GetDevOpsPolicyAssignmentArgs, GetDevOpsPolicyAssignmentResult, GetDevOpsPolicyAssignmentOutputArgs } from "./getDevOpsPolicyAssignment";
-export const getDevOpsPolicyAssignment: typeof import("./getDevOpsPolicyAssignment").getDevOpsPolicyAssignment = null as any;
-export const getDevOpsPolicyAssignmentOutput: typeof import("./getDevOpsPolicyAssignment").getDevOpsPolicyAssignmentOutput = null as any;
-utilities.lazyLoad(exports, ["getDevOpsPolicyAssignment","getDevOpsPolicyAssignmentOutput"], () => require("./getDevOpsPolicyAssignment"));
 
 export { GetDeviceSecurityGroupArgs, GetDeviceSecurityGroupResult, GetDeviceSecurityGroupOutputArgs } from "./getDeviceSecurityGroup";
 export const getDeviceSecurityGroup: typeof import("./getDeviceSecurityGroup").getDeviceSecurityGroup = null as any;
@@ -388,14 +378,11 @@ import * as v20230201preview from "./v20230201preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501 from "./v20230501";
 import * as v20230901preview from "./v20230901preview";
-import * as v20231001preview from "./v20231001preview";
 import * as v20231115 from "./v20231115";
 import * as v20231201preview from "./v20231201preview";
 import * as v20240101 from "./v20240101";
-import * as v20240301preview from "./v20240301preview";
 import * as v20240401 from "./v20240401";
 import * as v20240515preview from "./v20240515preview";
-import * as v20240701preview from "./v20240701preview";
 import * as v20240801 from "./v20240801";
 import * as v20240801preview from "./v20240801preview";
 import * as v20241001preview from "./v20241001preview";
@@ -419,14 +406,11 @@ export {
     v20230301preview,
     v20230501,
     v20230901preview,
-    v20231001preview,
     v20231115,
     v20231201preview,
     v20240101,
-    v20240301preview,
     v20240401,
     v20240515preview,
-    v20240701preview,
     v20240801,
     v20240801preview,
     v20241001preview,
@@ -470,8 +454,6 @@ const _module = {
                 return new DefenderForStorage(name, <any>undefined, { urn })
             case "azure-native:security:DevOpsConfiguration":
                 return new DevOpsConfiguration(name, <any>undefined, { urn })
-            case "azure-native:security:DevOpsPolicyAssignment":
-                return new DevOpsPolicyAssignment(name, <any>undefined, { urn })
             case "azure-native:security:DeviceSecurityGroup":
                 return new DeviceSecurityGroup(name, <any>undefined, { urn })
             case "azure-native:security:GovernanceAssignment":

@@ -19,7 +19,6 @@ from .connectivity_configuration import *
 from .custom_ip_prefix import *
 from .ddos_custom_policy import *
 from .ddos_protection_plan import *
-from .default_admin_rule import *
 from .dscp_configuration import *
 from .express_route_circuit import *
 from .express_route_circuit_authorization import *
@@ -49,7 +48,6 @@ from .get_connectivity_configuration import *
 from .get_custom_ip_prefix import *
 from .get_ddos_custom_policy import *
 from .get_ddos_protection_plan import *
-from .get_default_admin_rule import *
 from .get_dscp_configuration import *
 from .get_express_route_circuit import *
 from .get_express_route_circuit_authorization import *

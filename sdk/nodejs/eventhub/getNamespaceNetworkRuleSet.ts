@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets NetworkRuleSet for a Namespace.
- * Azure REST API version: 2022-10-01-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Other available API versions: 2022-10-01-preview, 2024-05-01-preview.
  */
 export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceNetworkRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,9 +79,9 @@ export interface GetNamespaceNetworkRuleSetResult {
 }
 /**
  * Gets NetworkRuleSet for a Namespace.
- * Azure REST API version: 2022-10-01-preview.
+ * Azure REST API version: 2024-01-01.
  *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Other available API versions: 2022-10-01-preview, 2024-05-01-preview.
  */
 export function getNamespaceNetworkRuleSetOutput(args: GetNamespaceNetworkRuleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceNetworkRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

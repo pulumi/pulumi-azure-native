@@ -141,7 +141,7 @@ def get_office_data_connector(data_connector_id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOfficeDataConnectorResult:
     """
     Gets a data connector.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str data_connector_id: Connector ID
@@ -170,7 +170,7 @@ def get_office_data_connector_output(data_connector_id: Optional[pulumi.Input[st
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOfficeDataConnectorResult]:
     """
     Gets a data connector.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str data_connector_id: Connector ID

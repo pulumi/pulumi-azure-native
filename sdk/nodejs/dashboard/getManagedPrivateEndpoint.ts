@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The managed private endpoint resource type.
- * Azure REST API version: 2022-10-01-preview.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
+ * Other available API versions: 2022-10-01-preview.
  */
 export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrivateEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -100,9 +100,9 @@ export interface GetManagedPrivateEndpointResult {
 }
 /**
  * The managed private endpoint resource type.
- * Azure REST API version: 2022-10-01-preview.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
+ * Other available API versions: 2022-10-01-preview.
  */
 export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

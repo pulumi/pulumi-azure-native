@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Peering Service
- * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01.
+ * Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2022-10-01.
  */
 export class PeeringService extends pulumi.CustomResource {
     /**

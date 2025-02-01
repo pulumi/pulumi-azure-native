@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get a LoadBalancer
  * Azure REST API version: 2024-03-01.
- *
- * Other available API versions: 2023-10-01-preview.
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,8 +74,6 @@ export interface GetLoadBalancerResult {
 /**
  * Get a LoadBalancer
  * Azure REST API version: 2024-03-01.
- *
- * Other available API versions: 2023-10-01-preview.
  */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadBalancerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

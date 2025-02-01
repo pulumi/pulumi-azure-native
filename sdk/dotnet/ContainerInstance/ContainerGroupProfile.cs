@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerInstance
 {
     /// <summary>
     /// A container group profile.
-    /// Azure REST API version: 2024-05-01-preview.
+    /// Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:ContainerGroupProfile")]
     public partial class ContainerGroupProfile : global::Pulumi.CustomResource
@@ -159,7 +159,9 @@ namespace Pulumi.AzureNative.ContainerInstance
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20240501preview:ContainerGroupProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20241101preview:CGProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20241101preview:ContainerGroupProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance:CGProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

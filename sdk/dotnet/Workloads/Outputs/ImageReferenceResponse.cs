@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Workloads.Outputs
     public sealed class ImageReferenceResponse
     {
         /// <summary>
+        /// Specifies the ARM resource ID of the Azure Compute Gallery image version used for creating ACSS VMs. You will need to provide this input when you choose to deploy virtual machines in ACSS with OS image from the Azure Compute gallery.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Specifies the offer of the platform image or marketplace image used to create the virtual machine.
         /// </summary>
         public readonly string? Offer;
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
         [OutputConstructor]
         private ImageReferenceResponse(
+            string? id,
+
             string? offer,
 
             string? publisher,
@@ -43,6 +49,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
             string? version)
         {
+            Id = id;
             Offer = offer;
             Publisher = publisher;
             Sku = sku;

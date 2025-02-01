@@ -3,7 +3,6 @@
 
 // Export sub-modules:
 import * as v20220904 from "./v20220904";
-import * as v20230401 from "./v20230401";
 import * as v20230701preview from "./v20230701preview";
 import * as v20230904 from "./v20230904";
 import * as v20231122 from "./v20231122";
@@ -11,7 +10,6 @@ import * as v20240812preview from "./v20240812preview";
 
 export {
     v20220904,
-    v20230401,
     v20230701preview,
     v20230904,
     v20231122,
@@ -37,6 +35,41 @@ export const FipsValidatedModules = {
  * If FIPS validated crypto modules are used
  */
 export type FipsValidatedModules = (typeof FipsValidatedModules)[keyof typeof FipsValidatedModules];
+
+export const OutboundType = {
+    Loadbalancer: "Loadbalancer",
+    UserDefinedRouting: "UserDefinedRouting",
+} as const;
+
+/**
+ * The OutboundType used for egress traffic.
+ */
+export type OutboundType = (typeof OutboundType)[keyof typeof OutboundType];
+
+export const PreconfiguredNSG = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Specifies whether subnets are pre-attached with an NSG
+ */
+export type PreconfiguredNSG = (typeof PreconfiguredNSG)[keyof typeof PreconfiguredNSG];
+
+export const ProvisioningState = {
+    AdminUpdating: "AdminUpdating",
+    Canceled: "Canceled",
+    Creating: "Creating",
+    Deleting: "Deleting",
+    Failed: "Failed",
+    Succeeded: "Succeeded",
+    Updating: "Updating",
+} as const;
+
+/**
+ * The cluster provisioning state.
+ */
+export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
 export const Visibility = {
     Private: "Private",

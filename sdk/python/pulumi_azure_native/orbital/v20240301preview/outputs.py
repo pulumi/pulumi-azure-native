@@ -20,6 +20,7 @@ __all__ = [
     'GroundStationsPropertiesResponseGlobalCommunicationsSite',
     'L2ConnectionsPropertiesResponseEdgeSite',
     'L2ConnectionsPropertiesResponseGroundStation',
+    'L2ConnectionsPropertiesResponseGroundStationPartnerRouter',
     'ResourceIdListResultResponseValue',
     'SystemDataResponse',
 ]
@@ -110,6 +111,28 @@ class L2ConnectionsPropertiesResponseGroundStation(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class L2ConnectionsPropertiesResponseGroundStationPartnerRouter(dict):
+    """
+    The name of the partner router to establish a connection to within the ground station.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        The name of the partner router to establish a connection to within the ground station.
+        :param str name: The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

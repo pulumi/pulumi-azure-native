@@ -125,7 +125,7 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20160601:IntegrationAccountMap" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountMap" }, { type: "azure-native:logic/v20190501:IntegrationAccountMap" }, { type: "azure-native:logic:IntegrationAccountMap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20160601:IntegrationAccountMap" }, { type: "azure-native:logic/v20160601:Map" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountMap" }, { type: "azure-native:logic/v20190501:IntegrationAccountMap" }, { type: "azure-native:logic:IntegrationAccountMap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountMap.__pulumiType, name, resourceInputs, opts);
     }

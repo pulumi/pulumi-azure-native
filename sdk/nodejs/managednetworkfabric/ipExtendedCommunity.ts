@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The IpExtendedCommunity resource definition.
- * Azure REST API version: 2023-02-01-preview.
+ * The IP Extended Community resource definition.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview.
  */
 export class IpExtendedCommunity extends pulumi.CustomResource {
     /**
@@ -41,13 +41,21 @@ export class IpExtendedCommunity extends pulumi.CustomResource {
     }
 
     /**
-     * Action to be taken on the configuration. Example: Permit | Deny.
+     * Administrative state of the resource.
      */
-    public readonly action!: pulumi.Output<string>;
+    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
     /**
      * Switch configuration description.
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration state of the resource.
+     */
+    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    /**
+     * List of IP Extended Community Rules.
+     */
+    public readonly ipExtendedCommunityRules!: pulumi.Output<outputs.managednetworkfabric.IpExtendedCommunityRuleResponse[]>;
     /**
      * The geo-location where the resource lives
      */
@@ -57,13 +65,9 @@ export class IpExtendedCommunity extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Route Target List.The expected formats are ASN(plain):NN >> example 4294967294:50, ASN.ASN:NN >> example 65533.65333:40, IP-address:NN >> example 10.10.10.10:65535. The possible values of ASN,NN are in range of 0-65535, ASN(plain) is in range of 0-4294967295.
-     */
-    public readonly routeTargets!: pulumi.Output<string[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -88,33 +92,32 @@ export class IpExtendedCommunity extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'action'");
+            if ((!args || args.ipExtendedCommunityRules === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'ipExtendedCommunityRules'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routeTargets === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'routeTargets'");
-            }
-            resourceInputs["action"] = args ? args.action : undefined;
             resourceInputs["annotation"] = args ? args.annotation : undefined;
             resourceInputs["ipExtendedCommunityName"] = args ? args.ipExtendedCommunityName : undefined;
+            resourceInputs["ipExtendedCommunityRules"] = args ? args.ipExtendedCommunityRules : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeTargets"] = args ? args.routeTargets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["administrativeState"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["annotation"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
+            resourceInputs["ipExtendedCommunityRules"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["routeTargets"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -131,17 +134,17 @@ export class IpExtendedCommunity extends pulumi.CustomResource {
  */
 export interface IpExtendedCommunityArgs {
     /**
-     * Action to be taken on the configuration. Example: Permit | Deny.
-     */
-    action: pulumi.Input<string | enums.managednetworkfabric.CommunityActionTypes>;
-    /**
      * Switch configuration description.
      */
     annotation?: pulumi.Input<string>;
     /**
-     * Name of the IP Extended Community
+     * Name of the IP Extended Community.
      */
     ipExtendedCommunityName?: pulumi.Input<string>;
+    /**
+     * List of IP Extended Community Rules.
+     */
+    ipExtendedCommunityRules: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.IpExtendedCommunityRuleArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
@@ -150,10 +153,6 @@ export interface IpExtendedCommunityArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Route Target List.The expected formats are ASN(plain):NN >> example 4294967294:50, ASN.ASN:NN >> example 65533.65333:40, IP-address:NN >> example 10.10.10.10:65535. The possible values of ASN,NN are in range of 0-65535, ASN(plain) is in range of 0-4294967295.
-     */
-    routeTargets: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource tags.
      */

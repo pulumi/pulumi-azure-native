@@ -11,21 +11,15 @@ namespace Pulumi.AzureNative.Monitor
 {
     /// <summary>
     /// A pipeline group definition.
-    /// Azure REST API version: 2023-10-01-preview.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-10-01-preview.
     /// 
-    /// Other available API versions: 2024-10-01-preview.
+    /// Other available API versions: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:PipelineGroup")]
     public partial class PipelineGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The exporters specified for a pipeline group instance.
-        /// </summary>
-        [Output("exporters")]
-        public Output<ImmutableArray<Outputs.ExporterResponse>> Exporters { get; private set; } = null!;
-
-        /// <summary>
-        /// The extended location for given pipeline group.
+        /// The complex type of the extended location.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
@@ -43,40 +37,10 @@ namespace Pulumi.AzureNative.Monitor
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Networking configurations for the pipeline group instance.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        [Output("networkingConfigurations")]
-        public Output<ImmutableArray<Outputs.NetworkingConfigurationResponse>> NetworkingConfigurations { get; private set; } = null!;
-
-        /// <summary>
-        /// The processors specified for a pipeline group instance.
-        /// </summary>
-        [Output("processors")]
-        public Output<ImmutableArray<Outputs.ProcessorResponse>> Processors { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of a pipeline group instance. Set to Succeeded if everything is healthy.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The receivers specified for a pipeline group instance.
-        /// </summary>
-        [Output("receivers")]
-        public Output<ImmutableArray<Outputs.ReceiverResponse>> Receivers { get; private set; } = null!;
-
-        /// <summary>
-        /// Defines the amount of replicas of the pipeline group instance.
-        /// </summary>
-        [Output("replicas")]
-        public Output<int?> Replicas { get; private set; } = null!;
-
-        /// <summary>
-        /// The service section for a given pipeline group instance.
-        /// </summary>
-        [Output("service")]
-        public Output<Outputs.ServiceResponse> Service { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PipelineGroupPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -146,20 +110,8 @@ namespace Pulumi.AzureNative.Monitor
 
     public sealed class PipelineGroupArgs : global::Pulumi.ResourceArgs
     {
-        [Input("exporters", required: true)]
-        private InputList<Inputs.ExporterArgs>? _exporters;
-
         /// <summary>
-        /// The exporters specified for a pipeline group instance.
-        /// </summary>
-        public InputList<Inputs.ExporterArgs> Exporters
-        {
-            get => _exporters ?? (_exporters = new InputList<Inputs.ExporterArgs>());
-            set => _exporters = value;
-        }
-
-        /// <summary>
-        /// The extended location for given pipeline group.
+        /// The complex type of the extended location.
         /// </summary>
         [Input("extendedLocation")]
         public Input<Inputs.AzureResourceManagerCommonTypesExtendedLocationArgs>? ExtendedLocation { get; set; }
@@ -170,65 +122,23 @@ namespace Pulumi.AzureNative.Monitor
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("networkingConfigurations")]
-        private InputList<Inputs.NetworkingConfigurationArgs>? _networkingConfigurations;
-
-        /// <summary>
-        /// Networking configurations for the pipeline group instance.
-        /// </summary>
-        public InputList<Inputs.NetworkingConfigurationArgs> NetworkingConfigurations
-        {
-            get => _networkingConfigurations ?? (_networkingConfigurations = new InputList<Inputs.NetworkingConfigurationArgs>());
-            set => _networkingConfigurations = value;
-        }
-
         /// <summary>
         /// The name of pipeline group. The name is case insensitive.
         /// </summary>
         [Input("pipelineGroupName")]
         public Input<string>? PipelineGroupName { get; set; }
 
-        [Input("processors", required: true)]
-        private InputList<Inputs.ProcessorArgs>? _processors;
-
         /// <summary>
-        /// The processors specified for a pipeline group instance.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        public InputList<Inputs.ProcessorArgs> Processors
-        {
-            get => _processors ?? (_processors = new InputList<Inputs.ProcessorArgs>());
-            set => _processors = value;
-        }
-
-        [Input("receivers", required: true)]
-        private InputList<Inputs.ReceiverArgs>? _receivers;
-
-        /// <summary>
-        /// The receivers specified for a pipeline group instance.
-        /// </summary>
-        public InputList<Inputs.ReceiverArgs> Receivers
-        {
-            get => _receivers ?? (_receivers = new InputList<Inputs.ReceiverArgs>());
-            set => _receivers = value;
-        }
-
-        /// <summary>
-        /// Defines the amount of replicas of the pipeline group instance.
-        /// </summary>
-        [Input("replicas")]
-        public Input<int>? Replicas { get; set; }
+        [Input("properties")]
+        public Input<Inputs.PipelineGroupPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The service section for a given pipeline group instance.
-        /// </summary>
-        [Input("service", required: true)]
-        public Input<Inputs.ServiceArgs> Service { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

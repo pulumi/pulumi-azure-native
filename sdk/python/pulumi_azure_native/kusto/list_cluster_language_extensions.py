@@ -55,13 +55,13 @@ def list_cluster_language_extensions(cluster_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterLanguageExtensionsResult:
     """
     Returns a list of language extensions that can run within KQL queries.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
-    Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+    Other available API versions: 2022-07-07, 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -76,13 +76,13 @@ def list_cluster_language_extensions_output(cluster_name: Optional[pulumi.Input[
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClusterLanguageExtensionsResult]:
     """
     Returns a list of language extensions that can run within KQL queries.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
-    Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+    Other available API versions: 2022-07-07, 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name

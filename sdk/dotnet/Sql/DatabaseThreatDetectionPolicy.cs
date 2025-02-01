@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Contains information about a database Threat Detection policy.
-    /// Azure REST API version: 2014-04-01.
+    /// Azure REST API version: 2014-04-01. Prior API version in Azure Native 2.x: 2014-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DatabaseThreatDetectionPolicy")]
     public partial class DatabaseThreatDetectionPolicy : global::Pulumi.CustomResource
@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy" },
@@ -115,16 +116,23 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:DatabaseThreatDetectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DatabaseThreatDetectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DatabaseThreatDetectionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DatabaseThreatDetectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DatabaseThreatDetectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DatabaseThreatDetectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:DatabaseThreatDetectionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:DatabaseThreatDetectionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DatabaseThreatDetectionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:DatabaseThreatDetectionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:DatabaseThreatDetectionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:DatabaseThreatDetectionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:DatabaseSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:DatabaseThreatDetectionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:DatabaseSecurityAlertPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

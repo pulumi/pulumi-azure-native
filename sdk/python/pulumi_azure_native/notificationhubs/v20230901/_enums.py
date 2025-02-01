@@ -9,8 +9,6 @@ __all__ = [
     'NamespaceStatus',
     'NamespaceType',
     'OperationProvisioningState',
-    'PrivateEndpointConnectionProvisioningState',
-    'PrivateLinkConnectionStatus',
     'PublicNetworkAccess',
     'ReplicationRegion',
     'SkuName',
@@ -56,30 +54,6 @@ class OperationProvisioningState(str, Enum):
     CANCELED = "Canceled"
     PENDING = "Pending"
     DISABLED = "Disabled"
-
-
-class PrivateEndpointConnectionProvisioningState(str, Enum):
-    """
-    State of Private Endpoint Connection.
-    """
-    UNKNOWN = "Unknown"
-    SUCCEEDED = "Succeeded"
-    CREATING = "Creating"
-    UPDATING = "Updating"
-    UPDATING_BY_PROXY = "UpdatingByProxy"
-    DELETING = "Deleting"
-    DELETING_BY_PROXY = "DeletingByProxy"
-    DELETED = "Deleted"
-
-
-class PrivateLinkConnectionStatus(str, Enum):
-    """
-    State of Private Link Connection.
-    """
-    DISCONNECTED = "Disconnected"
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 class PublicNetworkAccess(str, Enum):

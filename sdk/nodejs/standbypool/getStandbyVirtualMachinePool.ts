@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a StandbyVirtualMachinePoolResource
- * Azure REST API version: 2023-12-01-preview.
+ * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-03-01, 2024-03-01-preview.
+ * Other available API versions: 2023-12-01-preview, 2024-03-01-preview.
  */
 export function getStandbyVirtualMachinePool(args: GetStandbyVirtualMachinePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetStandbyVirtualMachinePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,9 +79,9 @@ export interface GetStandbyVirtualMachinePoolResult {
 }
 /**
  * Get a StandbyVirtualMachinePoolResource
- * Azure REST API version: 2023-12-01-preview.
+ * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-03-01, 2024-03-01-preview.
+ * Other available API versions: 2023-12-01-preview, 2024-03-01-preview.
  */
 export function getStandbyVirtualMachinePoolOutput(args: GetStandbyVirtualMachinePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandbyVirtualMachinePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ElasticSan
     {
         /// <summary>
         /// Get an Volume.
-        /// Azure REST API version: 2021-11-20-preview.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-11-20-preview, 2024-06-01-preview.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:elasticsan:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an Volume.
-        /// Azure REST API version: 2021-11-20-preview.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-11-20-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:elasticsan:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an Volume.
-        /// Azure REST API version: 2021-11-20-preview.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2021-11-20-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:elasticsan:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
@@ -113,31 +113,35 @@ namespace Pulumi.AzureNative.ElasticSan
         /// </summary>
         public readonly Outputs.SourceCreationDataResponse? CreationData;
         /// <summary>
-        /// Azure resource identifier.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Azure resource name.
+        /// Parent resource information.
+        /// </summary>
+        public readonly Outputs.ManagedByInfoResponse? ManagedBy;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// State of the operation on the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
         /// Volume size.
         /// </summary>
-        public readonly double? SizeGiB;
+        public readonly double SizeGiB;
         /// <summary>
         /// Storage target information
         /// </summary>
         public readonly Outputs.IscsiTargetInfoResponse StorageTarget;
         /// <summary>
-        /// Resource metadata required by ARM RPC
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Azure resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// Azure resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -151,15 +155,17 @@ namespace Pulumi.AzureNative.ElasticSan
 
             string id,
 
+            Outputs.ManagedByInfoResponse? managedBy,
+
             string name,
 
-            double? sizeGiB,
+            string provisioningState,
+
+            double sizeGiB,
 
             Outputs.IscsiTargetInfoResponse storageTarget,
 
             Outputs.SystemDataResponse systemData,
-
-            ImmutableDictionary<string, string>? tags,
 
             string type,
 
@@ -167,11 +173,12 @@ namespace Pulumi.AzureNative.ElasticSan
         {
             CreationData = creationData;
             Id = id;
+            ManagedBy = managedBy;
             Name = name;
+            ProvisioningState = provisioningState;
             SizeGiB = sizeGiB;
             StorageTarget = storageTarget;
             SystemData = systemData;
-            Tags = tags;
             Type = type;
             VolumeId = volumeId;
         }

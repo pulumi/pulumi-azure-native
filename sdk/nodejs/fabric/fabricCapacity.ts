@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Fabric Capacity resource
- * Azure REST API version: 2023-11-01.
+ * Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2023-11-01.
  *
  * Other available API versions: 2025-01-15-preview.
  */

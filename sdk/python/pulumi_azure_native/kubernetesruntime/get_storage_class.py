@@ -237,8 +237,6 @@ def get_storage_class(resource_uri: Optional[str] = None,
     Get a StorageClassResource
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-10-01-preview.
-
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param str storage_class_name: The name of the the storage class
@@ -272,8 +270,6 @@ def get_storage_class_output(resource_uri: Optional[pulumi.Input[str]] = None,
     """
     Get a StorageClassResource
     Azure REST API version: 2024-03-01.
-
-    Other available API versions: 2023-10-01-preview.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.

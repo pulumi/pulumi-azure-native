@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AssetArgs } from "./asset";
-export type Asset = import("./asset").Asset;
-export const Asset: typeof import("./asset").Asset = null as any;
-utilities.lazyLoad(exports, ["Asset"], () => require("./asset"));
-
-export { AssetEndpointProfileArgs } from "./assetEndpointProfile";
-export type AssetEndpointProfile = import("./assetEndpointProfile").AssetEndpointProfile;
-export const AssetEndpointProfile: typeof import("./assetEndpointProfile").AssetEndpointProfile = null as any;
-utilities.lazyLoad(exports, ["AssetEndpointProfile"], () => require("./assetEndpointProfile"));
-
 export { DiscoveredAssetArgs } from "./discoveredAsset";
 export type DiscoveredAsset = import("./discoveredAsset").DiscoveredAsset;
 export const DiscoveredAsset: typeof import("./discoveredAsset").DiscoveredAsset = null as any;
@@ -24,16 +14,6 @@ export { DiscoveredAssetEndpointProfileArgs } from "./discoveredAssetEndpointPro
 export type DiscoveredAssetEndpointProfile = import("./discoveredAssetEndpointProfile").DiscoveredAssetEndpointProfile;
 export const DiscoveredAssetEndpointProfile: typeof import("./discoveredAssetEndpointProfile").DiscoveredAssetEndpointProfile = null as any;
 utilities.lazyLoad(exports, ["DiscoveredAssetEndpointProfile"], () => require("./discoveredAssetEndpointProfile"));
-
-export { GetAssetArgs, GetAssetResult, GetAssetOutputArgs } from "./getAsset";
-export const getAsset: typeof import("./getAsset").getAsset = null as any;
-export const getAssetOutput: typeof import("./getAsset").getAssetOutput = null as any;
-utilities.lazyLoad(exports, ["getAsset","getAssetOutput"], () => require("./getAsset"));
-
-export { GetAssetEndpointProfileArgs, GetAssetEndpointProfileResult, GetAssetEndpointProfileOutputArgs } from "./getAssetEndpointProfile";
-export const getAssetEndpointProfile: typeof import("./getAssetEndpointProfile").getAssetEndpointProfile = null as any;
-export const getAssetEndpointProfileOutput: typeof import("./getAssetEndpointProfile").getAssetEndpointProfileOutput = null as any;
-utilities.lazyLoad(exports, ["getAssetEndpointProfile","getAssetEndpointProfileOutput"], () => require("./getAssetEndpointProfile"));
 
 export { GetDiscoveredAssetArgs, GetDiscoveredAssetResult, GetDiscoveredAssetOutputArgs } from "./getDiscoveredAsset";
 export const getDiscoveredAsset: typeof import("./getDiscoveredAsset").getDiscoveredAsset = null as any;
@@ -83,10 +63,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:deviceregistry/v20240901preview:Asset":
-                return new Asset(name, <any>undefined, { urn })
-            case "azure-native:deviceregistry/v20240901preview:AssetEndpointProfile":
-                return new AssetEndpointProfile(name, <any>undefined, { urn })
             case "azure-native:deviceregistry/v20240901preview:DiscoveredAsset":
                 return new DiscoveredAsset(name, <any>undefined, { urn })
             case "azure-native:deviceregistry/v20240901preview:DiscoveredAssetEndpointProfile":

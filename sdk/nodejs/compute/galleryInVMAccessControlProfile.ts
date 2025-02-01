@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the gallery inVMAccessControlProfile that you want to create or update.
- * Azure REST API version: 2024-03-03.
+ * Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2024-03-03.
  */
 export class GalleryInVMAccessControlProfile extends pulumi.CustomResource {
     /**

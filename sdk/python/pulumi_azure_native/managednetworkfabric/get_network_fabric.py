@@ -25,15 +25,24 @@ __all__ = [
 @pulumi.output_type
 class GetNetworkFabricResult:
     """
-    The NetworkFabric resource definition.
+    The Network Fabric resource definition.
     """
-    def __init__(__self__, annotation=None, fabric_asn=None, id=None, ipv4_prefix=None, ipv6_prefix=None, l2_isolation_domains=None, l3_isolation_domains=None, location=None, management_network_configuration=None, name=None, network_fabric_controller_id=None, network_fabric_sku=None, operational_state=None, provisioning_state=None, rack_count=None, racks=None, router_id=None, server_count_per_rack=None, system_data=None, tags=None, terminal_server_configuration=None, type=None):
+    def __init__(__self__, administrative_state=None, annotation=None, configuration_state=None, fabric_asn=None, fabric_version=None, id=None, ipv4_prefix=None, ipv6_prefix=None, l2_isolation_domains=None, l3_isolation_domains=None, location=None, management_network_configuration=None, name=None, network_fabric_controller_id=None, network_fabric_sku=None, provisioning_state=None, rack_count=None, racks=None, router_ids=None, server_count_per_rack=None, system_data=None, tags=None, terminal_server_configuration=None, type=None):
+        if administrative_state and not isinstance(administrative_state, str):
+            raise TypeError("Expected argument 'administrative_state' to be a str")
+        pulumi.set(__self__, "administrative_state", administrative_state)
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
-        if fabric_asn and not isinstance(fabric_asn, int):
-            raise TypeError("Expected argument 'fabric_asn' to be a int")
+        if configuration_state and not isinstance(configuration_state, str):
+            raise TypeError("Expected argument 'configuration_state' to be a str")
+        pulumi.set(__self__, "configuration_state", configuration_state)
+        if fabric_asn and not isinstance(fabric_asn, float):
+            raise TypeError("Expected argument 'fabric_asn' to be a float")
         pulumi.set(__self__, "fabric_asn", fabric_asn)
+        if fabric_version and not isinstance(fabric_version, str):
+            raise TypeError("Expected argument 'fabric_version' to be a str")
+        pulumi.set(__self__, "fabric_version", fabric_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -64,9 +73,6 @@ class GetNetworkFabricResult:
         if network_fabric_sku and not isinstance(network_fabric_sku, str):
             raise TypeError("Expected argument 'network_fabric_sku' to be a str")
         pulumi.set(__self__, "network_fabric_sku", network_fabric_sku)
-        if operational_state and not isinstance(operational_state, str):
-            raise TypeError("Expected argument 'operational_state' to be a str")
-        pulumi.set(__self__, "operational_state", operational_state)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -76,9 +82,9 @@ class GetNetworkFabricResult:
         if racks and not isinstance(racks, list):
             raise TypeError("Expected argument 'racks' to be a list")
         pulumi.set(__self__, "racks", racks)
-        if router_id and not isinstance(router_id, str):
-            raise TypeError("Expected argument 'router_id' to be a str")
-        pulumi.set(__self__, "router_id", router_id)
+        if router_ids and not isinstance(router_ids, list):
+            raise TypeError("Expected argument 'router_ids' to be a list")
+        pulumi.set(__self__, "router_ids", router_ids)
         if server_count_per_rack and not isinstance(server_count_per_rack, int):
             raise TypeError("Expected argument 'server_count_per_rack' to be a int")
         pulumi.set(__self__, "server_count_per_rack", server_count_per_rack)
@@ -96,6 +102,14 @@ class GetNetworkFabricResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="administrativeState")
+    def administrative_state(self) -> str:
+        """
+        Administrative state of the resource.
+        """
+        return pulumi.get(self, "administrative_state")
+
+    @property
     @pulumi.getter
     def annotation(self) -> Optional[str]:
         """
@@ -104,24 +118,40 @@ class GetNetworkFabricResult:
         return pulumi.get(self, "annotation")
 
     @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> str:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @property
     @pulumi.getter(name="fabricASN")
-    def fabric_asn(self) -> int:
+    def fabric_asn(self) -> float:
         """
         ASN of CE devices for CE/PE connectivity.
         """
         return pulumi.get(self, "fabric_asn")
 
     @property
+    @pulumi.getter(name="fabricVersion")
+    def fabric_version(self) -> Optional[str]:
+        """
+        The version of Network Fabric.
+        """
+        return pulumi.get(self, "fabric_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipv4Prefix")
-    def ipv4_prefix(self) -> Optional[str]:
+    def ipv4_prefix(self) -> str:
         """
         IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         """
@@ -131,7 +161,7 @@ class GetNetworkFabricResult:
     @pulumi.getter(name="ipv6Prefix")
     def ipv6_prefix(self) -> Optional[str]:
         """
-        IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
+        IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
         """
         return pulumi.get(self, "ipv6_prefix")
 
@@ -139,7 +169,7 @@ class GetNetworkFabricResult:
     @pulumi.getter(name="l2IsolationDomains")
     def l2_isolation_domains(self) -> Sequence[str]:
         """
-        List of L2IsolationDomain resource IDs under the Network Fabric.
+        List of L2 Isolation Domain resource IDs under the Network Fabric.
         """
         return pulumi.get(self, "l2_isolation_domains")
 
@@ -147,7 +177,7 @@ class GetNetworkFabricResult:
     @pulumi.getter(name="l3IsolationDomains")
     def l3_isolation_domains(self) -> Sequence[str]:
         """
-        List of L3IsolationDomain resource IDs under the Network Fabric.
+        List of L3 Isolation Domain resource IDs under the Network Fabric.
         """
         return pulumi.get(self, "l3_isolation_domains")
 
@@ -161,7 +191,7 @@ class GetNetworkFabricResult:
 
     @property
     @pulumi.getter(name="managementNetworkConfiguration")
-    def management_network_configuration(self) -> 'outputs.ManagementNetworkConfigurationResponse':
+    def management_network_configuration(self) -> 'outputs.ManagementNetworkConfigurationPropertiesResponse':
         """
         Configuration to be used to setup the management network.
         """
@@ -192,26 +222,18 @@ class GetNetworkFabricResult:
         return pulumi.get(self, "network_fabric_sku")
 
     @property
-    @pulumi.getter(name="operationalState")
-    def operational_state(self) -> str:
-        """
-        Gets the operational state of the resource.
-        """
-        return pulumi.get(self, "operational_state")
-
-    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets the provisioning state of the resource.
+        Provides you the latest status of the NFC service, whether it is Accepted, updating, Succeeded or Failed. During this process, the states keep changing based on the status of NFC provisioning.
         """
         return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="rackCount")
-    def rack_count(self) -> int:
+    def rack_count(self) -> Optional[int]:
         """
-        Number of racks associated to Network Fabric.Possible values are from 2-8.
+        Number of compute racks associated to Network Fabric.
         """
         return pulumi.get(self, "rack_count")
 
@@ -224,12 +246,12 @@ class GetNetworkFabricResult:
         return pulumi.get(self, "racks")
 
     @property
-    @pulumi.getter(name="routerId")
-    def router_id(self) -> str:
+    @pulumi.getter(name="routerIds")
+    def router_ids(self) -> Sequence[str]:
         """
-        Router Id of CE to be used for MP-BGP between PE and CE
+        Array of router IDs.
         """
-        return pulumi.get(self, "router_id")
+        return pulumi.get(self, "router_ids")
 
     @property
     @pulumi.getter(name="serverCountPerRack")
@@ -278,8 +300,11 @@ class AwaitableGetNetworkFabricResult(GetNetworkFabricResult):
         if False:
             yield self
         return GetNetworkFabricResult(
+            administrative_state=self.administrative_state,
             annotation=self.annotation,
+            configuration_state=self.configuration_state,
             fabric_asn=self.fabric_asn,
+            fabric_version=self.fabric_version,
             id=self.id,
             ipv4_prefix=self.ipv4_prefix,
             ipv6_prefix=self.ipv6_prefix,
@@ -290,11 +315,10 @@ class AwaitableGetNetworkFabricResult(GetNetworkFabricResult):
             name=self.name,
             network_fabric_controller_id=self.network_fabric_controller_id,
             network_fabric_sku=self.network_fabric_sku,
-            operational_state=self.operational_state,
             provisioning_state=self.provisioning_state,
             rack_count=self.rack_count,
             racks=self.racks,
-            router_id=self.router_id,
+            router_ids=self.router_ids,
             server_count_per_rack=self.server_count_per_rack,
             system_data=self.system_data,
             tags=self.tags,
@@ -307,12 +331,12 @@ def get_network_fabric(network_fabric_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkFabricResult:
     """
     Get Network Fabric resource details.
-    Azure REST API version: 2023-02-01-preview.
+    Azure REST API version: 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview.
 
 
-    :param str network_fabric_name: Name of the Network Fabric
+    :param str network_fabric_name: Name of the Network Fabric.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -322,8 +346,11 @@ def get_network_fabric(network_fabric_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric:getNetworkFabric', __args__, opts=opts, typ=GetNetworkFabricResult).value
 
     return AwaitableGetNetworkFabricResult(
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
         annotation=pulumi.get(__ret__, 'annotation'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
         fabric_asn=pulumi.get(__ret__, 'fabric_asn'),
+        fabric_version=pulumi.get(__ret__, 'fabric_version'),
         id=pulumi.get(__ret__, 'id'),
         ipv4_prefix=pulumi.get(__ret__, 'ipv4_prefix'),
         ipv6_prefix=pulumi.get(__ret__, 'ipv6_prefix'),
@@ -334,11 +361,10 @@ def get_network_fabric(network_fabric_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         network_fabric_controller_id=pulumi.get(__ret__, 'network_fabric_controller_id'),
         network_fabric_sku=pulumi.get(__ret__, 'network_fabric_sku'),
-        operational_state=pulumi.get(__ret__, 'operational_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         rack_count=pulumi.get(__ret__, 'rack_count'),
         racks=pulumi.get(__ret__, 'racks'),
-        router_id=pulumi.get(__ret__, 'router_id'),
+        router_ids=pulumi.get(__ret__, 'router_ids'),
         server_count_per_rack=pulumi.get(__ret__, 'server_count_per_rack'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -349,12 +375,12 @@ def get_network_fabric_output(network_fabric_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFabricResult]:
     """
     Get Network Fabric resource details.
-    Azure REST API version: 2023-02-01-preview.
+    Azure REST API version: 2023-06-15.
 
-    Other available API versions: 2023-06-15.
+    Other available API versions: 2023-02-01-preview.
 
 
-    :param str network_fabric_name: Name of the Network Fabric
+    :param str network_fabric_name: Name of the Network Fabric.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -363,8 +389,11 @@ def get_network_fabric_output(network_fabric_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getNetworkFabric', __args__, opts=opts, typ=GetNetworkFabricResult)
     return __ret__.apply(lambda __response__: GetNetworkFabricResult(
+        administrative_state=pulumi.get(__response__, 'administrative_state'),
         annotation=pulumi.get(__response__, 'annotation'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
         fabric_asn=pulumi.get(__response__, 'fabric_asn'),
+        fabric_version=pulumi.get(__response__, 'fabric_version'),
         id=pulumi.get(__response__, 'id'),
         ipv4_prefix=pulumi.get(__response__, 'ipv4_prefix'),
         ipv6_prefix=pulumi.get(__response__, 'ipv6_prefix'),
@@ -375,11 +404,10 @@ def get_network_fabric_output(network_fabric_name: Optional[pulumi.Input[str]] =
         name=pulumi.get(__response__, 'name'),
         network_fabric_controller_id=pulumi.get(__response__, 'network_fabric_controller_id'),
         network_fabric_sku=pulumi.get(__response__, 'network_fabric_sku'),
-        operational_state=pulumi.get(__response__, 'operational_state'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         rack_count=pulumi.get(__response__, 'rack_count'),
         racks=pulumi.get(__response__, 'racks'),
-        router_id=pulumi.get(__response__, 'router_id'),
+        router_ids=pulumi.get(__response__, 'router_ids'),
         server_count_per_rack=pulumi.get(__response__, 'server_count_per_rack'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

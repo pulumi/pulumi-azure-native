@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AlwaysLog',
+    'ApiGatewaySkuType',
     'ApiType',
     'ApimIdentityType',
     'AppType',
@@ -28,6 +29,8 @@ __all__ = [
     'HttpCorrelationProtocol',
     'IdentityProviderType',
     'KeyType',
+    'LlmDiagnosticSettings',
+    'LlmMessageLogTypes',
     'LoggerType',
     'NatGatewayState',
     'OAuth2GrantType',
@@ -61,6 +64,24 @@ class AlwaysLog(str, Enum):
     ALL_ERRORS = "allErrors"
     """
     Always log all erroneous request regardless of sampling settings.
+    """
+
+
+class ApiGatewaySkuType(str, Enum):
+    """
+    Name of the Sku.
+    """
+    STANDARD = "Standard"
+    """
+    Standard SKU of the API gateway.
+    """
+    WORKSPACE_GATEWAY_STANDARD = "WorkspaceGatewayStandard"
+    """
+    Standard SKU of the API gateway to be used in Workspaces.
+    """
+    WORKSPACE_GATEWAY_PREMIUM = "WorkspaceGatewayPremium"
+    """
+    Premium SKU of the API gateway to be used in Workspaces.
     """
 
 
@@ -377,6 +398,30 @@ class KeyType(str, Enum):
     """
     PRIMARY = "primary"
     SECONDARY = "secondary"
+
+
+class LlmDiagnosticSettings(str, Enum):
+    """
+    Specifies whether default diagnostic should be enabled for Large Language Models or not.
+    """
+    ENABLED = "enabled"
+    """
+    Default LLM logs are enabled.
+    """
+    DISABLED = "disabled"
+    """
+    Default LLM logs are disabled.
+    """
+
+
+class LlmMessageLogTypes(str, Enum):
+    """
+    Specifies which message should be logged. Currently there is only 'all' option.
+    """
+    ALL = "all"
+    """
+    Log all messages.
+    """
 
 
 class LoggerType(str, Enum):

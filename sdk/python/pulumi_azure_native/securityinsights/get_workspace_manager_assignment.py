@@ -68,7 +68,7 @@ class GetWorkspaceManagerAssignmentResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -152,9 +152,9 @@ def get_workspace_manager_assignment(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceManagerAssignmentResult:
     """
     Gets a workspace manager assignment
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -184,9 +184,9 @@ def get_workspace_manager_assignment_output(resource_group_name: Optional[pulumi
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceManagerAssignmentResult]:
     """
     Gets a workspace manager assignment
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

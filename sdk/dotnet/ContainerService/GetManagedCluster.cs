@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Managed cluster.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2019-06-01, 2021-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview.
+        /// Other available API versions: 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
         /// </summary>
         public static Task<GetManagedClusterResult> InvokeAsync(GetManagedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterResult>("azure-native:containerservice:getManagedCluster", args ?? new GetManagedClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Managed cluster.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2019-06-01, 2021-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview.
+        /// Other available API versions: 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:containerservice:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Managed cluster.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2019-06-01, 2021-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview.
+        /// Other available API versions: 2021-05-01, 2023-04-01, 2023-10-02-preview, 2024-09-02-preview.
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:containerservice:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
@@ -133,6 +133,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly string? DnsPrefix;
         /// <summary>
+        /// Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
+        /// </summary>
+        public readonly string ETag;
+        /// <summary>
         /// (DEPRECATED) Whether to enable Kubernetes pod security policy (preview). PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25. Learn more at https://aka.ms/k8s/psp and https://aka.ms/aks/psp.
         /// </summary>
         public readonly bool? EnablePodSecurityPolicy;
@@ -157,7 +161,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly Outputs.ManagedClusterHTTPProxyConfigResponse? HttpProxyConfig;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -165,9 +169,13 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly Outputs.ManagedClusterIdentityResponse? Identity;
         /// <summary>
-        /// Identities associated with the cluster.
+        /// The user identity associated with the managed cluster. This identity will be used by the kubelet. Only one user assigned identity is allowed. The only accepted key is "kubeletidentity", with value of "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}".
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? IdentityProfile;
+        /// <summary>
+        /// Ingress profile for the managed cluster.
+        /// </summary>
+        public readonly Outputs.ManagedClusterIngressProfileResponse? IngressProfile;
         /// <summary>
         /// Both patch version &lt;major.minor.patch&gt; (e.g. 1.20.13) and &lt;major.minor&gt; (e.g. 1.20) are supported. When &lt;major.minor&gt; is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same &lt;major.minor&gt; once it has been created (e.g. 1.14.x -&gt; 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -&gt; 1.15.x or 1.15.x -&gt; 1.16.x are allowed, however 1.14.x -&gt; 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
         /// </summary>
@@ -185,6 +193,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly int MaxAgentPools;
         /// <summary>
+        /// Optional cluster metrics configuration.
+        /// </summary>
+        public readonly Outputs.ManagedClusterMetricsProfileResponse? MetricsProfile;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -196,6 +208,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// The name of the resource group containing agent pool nodes.
         /// </summary>
         public readonly string? NodeResourceGroup;
+        /// <summary>
+        /// Profile of the node resource group configuration.
+        /// </summary>
+        public readonly Outputs.ManagedClusterNodeResourceGroupProfileResponse? NodeResourceGroupProfile;
         /// <summary>
         /// The OIDC issuer profile of the Managed Cluster.
         /// </summary>
@@ -225,9 +241,17 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
+        /// The resourceUID uniquely identifies ManagedClusters that reuse ARM ResourceIds (i.e: create, delete, create sequence)
+        /// </summary>
+        public readonly string ResourceUID;
+        /// <summary>
         /// Security profile for the managed cluster.
         /// </summary>
         public readonly Outputs.ManagedClusterSecurityProfileResponse? SecurityProfile;
+        /// <summary>
+        /// Service mesh profile for a managed cluster.
+        /// </summary>
+        public readonly Outputs.ServiceMeshProfileResponse? ServiceMeshProfile;
         /// <summary>
         /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         /// </summary>
@@ -256,6 +280,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Settings for upgrading a cluster.
+        /// </summary>
+        public readonly Outputs.ClusterUpgradeSettingsResponse? UpgradeSettings;
         /// <summary>
         /// The profile for Windows VMs in the Managed Cluster.
         /// </summary>
@@ -291,6 +319,8 @@ namespace Pulumi.AzureNative.ContainerService
 
             string? dnsPrefix,
 
+            string eTag,
+
             bool? enablePodSecurityPolicy,
 
             bool? enableRBAC,
@@ -309,6 +339,8 @@ namespace Pulumi.AzureNative.ContainerService
 
             ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? identityProfile,
 
+            Outputs.ManagedClusterIngressProfileResponse? ingressProfile,
+
             string? kubernetesVersion,
 
             Outputs.ContainerServiceLinuxProfileResponse? linuxProfile,
@@ -317,11 +349,15 @@ namespace Pulumi.AzureNative.ContainerService
 
             int maxAgentPools,
 
+            Outputs.ManagedClusterMetricsProfileResponse? metricsProfile,
+
             string name,
 
             Outputs.ContainerServiceNetworkProfileResponse? networkProfile,
 
             string? nodeResourceGroup,
+
+            Outputs.ManagedClusterNodeResourceGroupProfileResponse? nodeResourceGroupProfile,
 
             Outputs.ManagedClusterOIDCIssuerProfileResponse? oidcIssuerProfile,
 
@@ -337,7 +373,11 @@ namespace Pulumi.AzureNative.ContainerService
 
             string? publicNetworkAccess,
 
+            string resourceUID,
+
             Outputs.ManagedClusterSecurityProfileResponse? securityProfile,
+
+            Outputs.ServiceMeshProfileResponse? serviceMeshProfile,
 
             Outputs.ManagedClusterServicePrincipalProfileResponse? servicePrincipalProfile,
 
@@ -352,6 +392,8 @@ namespace Pulumi.AzureNative.ContainerService
             ImmutableDictionary<string, string>? tags,
 
             string type,
+
+            Outputs.ClusterUpgradeSettingsResponse? upgradeSettings,
 
             Outputs.ManagedClusterWindowsProfileResponse? windowsProfile,
 
@@ -369,6 +411,7 @@ namespace Pulumi.AzureNative.ContainerService
             DisableLocalAccounts = disableLocalAccounts;
             DiskEncryptionSetID = diskEncryptionSetID;
             DnsPrefix = dnsPrefix;
+            ETag = eTag;
             EnablePodSecurityPolicy = enablePodSecurityPolicy;
             EnableRBAC = enableRBAC;
             ExtendedLocation = extendedLocation;
@@ -378,13 +421,16 @@ namespace Pulumi.AzureNative.ContainerService
             Id = id;
             Identity = identity;
             IdentityProfile = identityProfile;
+            IngressProfile = ingressProfile;
             KubernetesVersion = kubernetesVersion;
             LinuxProfile = linuxProfile;
             Location = location;
             MaxAgentPools = maxAgentPools;
+            MetricsProfile = metricsProfile;
             Name = name;
             NetworkProfile = networkProfile;
             NodeResourceGroup = nodeResourceGroup;
+            NodeResourceGroupProfile = nodeResourceGroupProfile;
             OidcIssuerProfile = oidcIssuerProfile;
             PodIdentityProfile = podIdentityProfile;
             PowerState = powerState;
@@ -392,7 +438,9 @@ namespace Pulumi.AzureNative.ContainerService
             PrivateLinkResources = privateLinkResources;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            ResourceUID = resourceUID;
             SecurityProfile = securityProfile;
+            ServiceMeshProfile = serviceMeshProfile;
             ServicePrincipalProfile = servicePrincipalProfile;
             Sku = sku;
             StorageProfile = storageProfile;
@@ -400,6 +448,7 @@ namespace Pulumi.AzureNative.ContainerService
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            UpgradeSettings = upgradeSettings;
             WindowsProfile = windowsProfile;
             WorkloadAutoScalerProfile = workloadAutoScalerProfile;
         }

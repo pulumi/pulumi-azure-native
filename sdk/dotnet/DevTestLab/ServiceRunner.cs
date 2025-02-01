@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevTestLab
 {
     /// <summary>
     /// A container for a managed identity to execute DevTest lab services.
-    /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+    /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:ServiceRunner")]
     public partial class ServiceRunner : global::Pulumi.CustomResource

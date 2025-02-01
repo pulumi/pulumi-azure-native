@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+    /// Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-10-14-preview.
     /// 
-    /// Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+    /// Other available API versions: 2022-10-14-preview, 2024-08-08-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:PrivateEndpointConnectionByHostPool")]
     public partial class PrivateEndpointConnectionByHostPool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The group ids for the private endpoint resource.
+        /// </summary>
+        [Output("groupIds")]
+        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -25,7 +31,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource of private end point.
+        /// The private endpoint resource.
         /// </summary>
         [Output("privateEndpoint")]
         public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
@@ -43,7 +49,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -123,7 +129,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Input<string> HostPoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the private endpoint connection associated with the Azure resource
+        /// The name of the private endpoint connection associated with the Azure resource.
         /// </summary>
         [Input("privateEndpointConnectionName")]
         public Input<string>? PrivateEndpointConnectionName { get; set; }

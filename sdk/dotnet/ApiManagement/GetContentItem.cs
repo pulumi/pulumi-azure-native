@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Returns the developer portal's content item specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetContentItemResult> InvokeAsync(GetContentItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContentItemResult>("azure-native:apimanagement:getContentItem", args ?? new GetContentItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the developer portal's content item specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetContentItemResult> Invoke(GetContentItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentItemResult>("azure-native:apimanagement:getContentItem", args ?? new GetContentItemInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the developer portal's content item specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetContentItemResult> Invoke(GetContentItemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentItemResult>("azure-native:apimanagement:getContentItem", args ?? new GetContentItemInvokeArgs(), options.WithDefaults());

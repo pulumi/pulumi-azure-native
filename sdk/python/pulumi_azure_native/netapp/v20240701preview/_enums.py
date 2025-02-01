@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'AcceptGrowCapacityPoolForShortTermCloneSplit',
-    'ApplicationType',
     'AvsDataStore',
     'ChownMode',
     'CoolAccessRetrievalPolicy',
@@ -23,7 +22,6 @@ __all__ = [
     'ServiceLevel',
     'SmbAccessBasedEnumeration',
     'SmbNonBrowsable',
-    'Type',
     'VolumeLanguage',
 ]
 
@@ -40,14 +38,6 @@ class AcceptGrowCapacityPoolForShortTermCloneSplit(str, Enum):
     """
     Auto grow capacity pool for short term clone split is declined. Short term clone volume creation will not be allowed, to create short term clone volume accept auto grow capacity pool.
     """
-
-
-class ApplicationType(str, Enum):
-    """
-    Application Type
-    """
-    SA_P_HANA = "SAP-HANA"
-    ORACLE = "ORACLE"
 
 
 class AvsDataStore(str, Enum):
@@ -262,28 +252,6 @@ class SmbNonBrowsable(str, Enum):
     ENABLED = "Enabled"
     """
     smbNonBrowsable share setting is enabled
-    """
-
-
-class Type(str, Enum):
-    """
-    Type of quota
-    """
-    DEFAULT_USER_QUOTA = "DefaultUserQuota"
-    """
-    Default user quota
-    """
-    DEFAULT_GROUP_QUOTA = "DefaultGroupQuota"
-    """
-    Default group quota
-    """
-    INDIVIDUAL_USER_QUOTA = "IndividualUserQuota"
-    """
-    Individual user quota
-    """
-    INDIVIDUAL_GROUP_QUOTA = "IndividualGroupQuota"
-    """
-    Individual group quota
     """
 
 

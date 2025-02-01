@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     {
         /// <summary>
         /// Gets details of a migration.
-        /// Azure REST API version: 2023-03-01-preview.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Task<GetMigrationResult> InvokeAsync(GetMigrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMigrationResult>("azure-native:dbforpostgresql:getMigration", args ?? new GetMigrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets details of a migration.
-        /// Azure REST API version: 2023-03-01-preview.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetMigrationResult> Invoke(GetMigrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrationResult>("azure-native:dbforpostgresql:getMigration", args ?? new GetMigrationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets details of a migration.
-        /// Azure REST API version: 2023-03-01-preview.
+        /// Azure REST API version: 2024-08-01.
         /// 
-        /// Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetMigrationResult> Invoke(GetMigrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrationResult>("azure-native:dbforpostgresql:getMigration", args ?? new GetMigrationInvokeArgs(), options.WithDefaults());
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly ImmutableArray<string> DbsToTriggerCutoverOn;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -137,13 +137,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// To migrate roles and permissions we need to send this flag as True
+        /// </summary>
+        public readonly string? MigrateRoles;
+        /// <summary>
         /// ID for migration, a GUID.
         /// </summary>
         public readonly string MigrationId;
         /// <summary>
+        /// ResourceId of the private endpoint migration instance
+        /// </summary>
+        public readonly string? MigrationInstanceResourceId;
+        /// <summary>
         /// There are two types of migration modes Online and Offline
         /// </summary>
         public readonly string? MigrationMode;
+        /// <summary>
+        /// This indicates the supported Migration option for the migration
+        /// </summary>
+        public readonly string? MigrationOption;
         /// <summary>
         /// End time in UTC for migration window
         /// </summary>
@@ -165,7 +177,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string? SetupLogicalReplicationOnSourceDbIfNeeded;
         /// <summary>
-        /// Source server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+        /// Source server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
         /// </summary>
         public readonly string? SourceDbServerFullyQualifiedDomainName;
         /// <summary>
@@ -173,9 +185,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly Outputs.DbServerMetadataResponse SourceDbServerMetadata;
         /// <summary>
-        /// ResourceId of the source database server
+        /// ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username
         /// </summary>
         public readonly string? SourceDbServerResourceId;
+        /// <summary>
+        /// migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+        /// </summary>
+        public readonly string? SourceType;
+        /// <summary>
+        /// SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+        /// </summary>
+        public readonly string? SslMode;
         /// <summary>
         /// Indicates whether the data migration should start right away
         /// </summary>
@@ -189,7 +209,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Target server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+        /// Target server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
         /// </summary>
         public readonly string? TargetDbServerFullyQualifiedDomainName;
         /// <summary>
@@ -225,9 +245,15 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string location,
 
+            string? migrateRoles,
+
             string migrationId,
 
+            string? migrationInstanceResourceId,
+
             string? migrationMode,
+
+            string? migrationOption,
 
             string? migrationWindowEndTimeInUtc,
 
@@ -244,6 +270,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             Outputs.DbServerMetadataResponse sourceDbServerMetadata,
 
             string? sourceDbServerResourceId,
+
+            string? sourceType,
+
+            string? sslMode,
 
             string? startDataMigration,
 
@@ -268,8 +298,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             DbsToTriggerCutoverOn = dbsToTriggerCutoverOn;
             Id = id;
             Location = location;
+            MigrateRoles = migrateRoles;
             MigrationId = migrationId;
+            MigrationInstanceResourceId = migrationInstanceResourceId;
             MigrationMode = migrationMode;
+            MigrationOption = migrationOption;
             MigrationWindowEndTimeInUtc = migrationWindowEndTimeInUtc;
             MigrationWindowStartTimeInUtc = migrationWindowStartTimeInUtc;
             Name = name;
@@ -278,6 +311,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             SourceDbServerFullyQualifiedDomainName = sourceDbServerFullyQualifiedDomainName;
             SourceDbServerMetadata = sourceDbServerMetadata;
             SourceDbServerResourceId = sourceDbServerResourceId;
+            SourceType = sourceType;
+            SslMode = sslMode;
             StartDataMigration = startDataMigration;
             SystemData = systemData;
             Tags = tags;

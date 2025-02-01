@@ -20,7 +20,6 @@ __all__ = [
     'AdvancedSettingsResponse',
     'AuthorizationConfigResponse',
     'AuthorizationRuleResponse',
-    'AutomaticCertMethodResponse',
     'BackendChainResponse',
     'BatchingConfigurationResponse',
     'BrokerAuthenticationPropertiesResponse',
@@ -37,33 +36,39 @@ __all__ = [
     'BrokerResourceRuleResponse',
     'CardinalityResponse',
     'CertManagerCertOptionsResponse',
+    'CertManagerCertificateSpecResponse',
     'CertManagerIssuerRefResponse',
     'CertManagerPrivateKeyResponse',
     'ClientConfigResponse',
-    'DataFlowBuiltInTransformationDatasetResponse',
-    'DataFlowBuiltInTransformationFilterResponse',
-    'DataFlowBuiltInTransformationMapResponse',
-    'DataFlowBuiltInTransformationResponse',
-    'DataFlowDestinationOperationResponse',
-    'DataFlowEndpointAuthenticationResponse',
-    'DataFlowEndpointAuthenticationSaslResponse',
-    'DataFlowEndpointAuthenticationServiceAccountTokenResponse',
-    'DataFlowEndpointAuthenticationSystemAssignedManagedIdentityResponse',
-    'DataFlowEndpointAuthenticationUserAssignedManagedIdentityResponse',
-    'DataFlowEndpointAuthenticationX509Response',
-    'DataFlowEndpointDataExplorerResponse',
-    'DataFlowEndpointDataLakeStorageResponse',
-    'DataFlowEndpointFabricOneLakeNamesResponse',
-    'DataFlowEndpointFabricOneLakeResponse',
-    'DataFlowEndpointKafkaBatchingResponse',
-    'DataFlowEndpointKafkaResponse',
-    'DataFlowEndpointLocalStorageResponse',
-    'DataFlowEndpointMqttResponse',
-    'DataFlowEndpointPropertiesResponse',
-    'DataFlowOperationResponse',
-    'DataFlowProfilePropertiesResponse',
-    'DataFlowPropertiesResponse',
-    'DataFlowSourceOperationResponse',
+    'DataflowBuiltInTransformationDatasetResponse',
+    'DataflowBuiltInTransformationFilterResponse',
+    'DataflowBuiltInTransformationMapResponse',
+    'DataflowBuiltInTransformationSettingsResponse',
+    'DataflowDestinationOperationSettingsResponse',
+    'DataflowEndpointAuthenticationAccessTokenResponse',
+    'DataflowEndpointAuthenticationSaslResponse',
+    'DataflowEndpointAuthenticationServiceAccountTokenResponse',
+    'DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse',
+    'DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse',
+    'DataflowEndpointAuthenticationX509Response',
+    'DataflowEndpointDataExplorerAuthenticationResponse',
+    'DataflowEndpointDataExplorerResponse',
+    'DataflowEndpointDataLakeStorageAuthenticationResponse',
+    'DataflowEndpointDataLakeStorageResponse',
+    'DataflowEndpointFabricOneLakeAuthenticationResponse',
+    'DataflowEndpointFabricOneLakeNamesResponse',
+    'DataflowEndpointFabricOneLakeResponse',
+    'DataflowEndpointKafkaAuthenticationResponse',
+    'DataflowEndpointKafkaBatchingResponse',
+    'DataflowEndpointKafkaResponse',
+    'DataflowEndpointLocalStorageResponse',
+    'DataflowEndpointMqttAuthenticationResponse',
+    'DataflowEndpointMqttResponse',
+    'DataflowEndpointPropertiesResponse',
+    'DataflowOperationResponse',
+    'DataflowProfilePropertiesResponse',
+    'DataflowPropertiesResponse',
+    'DataflowSourceOperationSettingsResponse',
     'DiagnosticsLogsResponse',
     'DiskBackedMessageBufferResponse',
     'ExtendedLocationResponse',
@@ -73,12 +78,12 @@ __all__ = [
     'KubernetesReferenceResponse',
     'ListenerPortResponse',
     'LocalKubernetesReferenceResponse',
+    'ManagedServiceIdentityResponse',
     'MetricsResponse',
-    'OpenTelemetryExportConfigResponse',
-    'OpenTelemetryLogExportConfigResponse',
     'PrincipalDefinitionResponse',
     'ProfileDiagnosticsResponse',
     'SanForCertResponse',
+    'SchemaRegistryRefResponse',
     'SelfCheckResponse',
     'SelfTracingResponse',
     'StateStoreResourceRuleResponse',
@@ -87,6 +92,7 @@ __all__ = [
     'TlsCertMethodResponse',
     'TlsPropertiesResponse',
     'TracesResponse',
+    'UserAssignedIdentityResponse',
     'VolumeClaimResourceRequirementsResponse',
     'VolumeClaimSpecResponse',
     'VolumeClaimSpecSelectorMatchExpressionsResponse',
@@ -261,111 +267,6 @@ class AuthorizationRuleResponse(dict):
         Give access to state store resources.
         """
         return pulumi.get(self, "state_store_resources")
-
-
-@pulumi.output_type
-class AutomaticCertMethodResponse(dict):
-    """
-    Automatic TLS server certificate management with cert-manager
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "issuerRef":
-            suggest = "issuer_ref"
-        elif key == "privateKey":
-            suggest = "private_key"
-        elif key == "renewBefore":
-            suggest = "renew_before"
-        elif key == "secretRef":
-            suggest = "secret_ref"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AutomaticCertMethodResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AutomaticCertMethodResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AutomaticCertMethodResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 issuer_ref: 'outputs.CertManagerIssuerRefResponse',
-                 duration: Optional[str] = None,
-                 private_key: Optional['outputs.CertManagerPrivateKeyResponse'] = None,
-                 renew_before: Optional[str] = None,
-                 san: Optional['outputs.SanForCertResponse'] = None,
-                 secret_ref: Optional[str] = None):
-        """
-        Automatic TLS server certificate management with cert-manager
-        :param 'CertManagerIssuerRefResponse' issuer_ref: cert-manager issuerRef.
-        :param str duration: Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
-        :param 'CertManagerPrivateKeyResponse' private_key: Type of certificate private key.
-        :param str renew_before: When to begin renewing certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
-        :param 'SanForCertResponse' san: Additional Subject Alternative Names (SANs) to include in the certificate.
-        :param str secret_ref: Secret for storing server certificate. Any existing data will be overwritten. This is a reference to the secret through an identifying name, not the secret itself.
-        """
-        pulumi.set(__self__, "issuer_ref", issuer_ref)
-        if duration is not None:
-            pulumi.set(__self__, "duration", duration)
-        if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
-        if renew_before is not None:
-            pulumi.set(__self__, "renew_before", renew_before)
-        if san is not None:
-            pulumi.set(__self__, "san", san)
-        if secret_ref is not None:
-            pulumi.set(__self__, "secret_ref", secret_ref)
-
-    @property
-    @pulumi.getter(name="issuerRef")
-    def issuer_ref(self) -> 'outputs.CertManagerIssuerRefResponse':
-        """
-        cert-manager issuerRef.
-        """
-        return pulumi.get(self, "issuer_ref")
-
-    @property
-    @pulumi.getter
-    def duration(self) -> Optional[str]:
-        """
-        Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
-        """
-        return pulumi.get(self, "duration")
-
-    @property
-    @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional['outputs.CertManagerPrivateKeyResponse']:
-        """
-        Type of certificate private key.
-        """
-        return pulumi.get(self, "private_key")
-
-    @property
-    @pulumi.getter(name="renewBefore")
-    def renew_before(self) -> Optional[str]:
-        """
-        When to begin renewing certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
-        """
-        return pulumi.get(self, "renew_before")
-
-    @property
-    @pulumi.getter
-    def san(self) -> Optional['outputs.SanForCertResponse']:
-        """
-        Additional Subject Alternative Names (SANs) to include in the certificate.
-        """
-        return pulumi.get(self, "san")
-
-    @property
-    @pulumi.getter(name="secretRef")
-    def secret_ref(self) -> Optional[str]:
-        """
-        Secret for storing server certificate. Any existing data will be overwritten. This is a reference to the secret through an identifying name, not the secret itself.
-        """
-        return pulumi.get(self, "secret_ref")
 
 
 @pulumi.output_type
@@ -758,10 +659,12 @@ class BrokerAuthenticatorMethodsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "serviceAccountToken":
-            suggest = "service_account_token"
-        elif key == "x509Credentials":
-            suggest = "x509_credentials"
+        if key == "customSettings":
+            suggest = "custom_settings"
+        elif key == "serviceAccountTokenSettings":
+            suggest = "service_account_token_settings"
+        elif key == "x509Settings":
+            suggest = "x509_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BrokerAuthenticatorMethodsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -776,23 +679,23 @@ class BrokerAuthenticatorMethodsResponse(dict):
 
     def __init__(__self__, *,
                  method: str,
-                 custom: Optional['outputs.BrokerAuthenticatorMethodCustomResponse'] = None,
-                 service_account_token: Optional['outputs.BrokerAuthenticatorMethodSatResponse'] = None,
-                 x509_credentials: Optional['outputs.BrokerAuthenticatorMethodX509Response'] = None):
+                 custom_settings: Optional['outputs.BrokerAuthenticatorMethodCustomResponse'] = None,
+                 service_account_token_settings: Optional['outputs.BrokerAuthenticatorMethodSatResponse'] = None,
+                 x509_settings: Optional['outputs.BrokerAuthenticatorMethodX509Response'] = None):
         """
         Set of broker authentication policies. Only one method is supported for each entry.
         :param str method: Custom authentication configuration.
-        :param 'BrokerAuthenticatorMethodCustomResponse' custom: Custom authentication configuration.
-        :param 'BrokerAuthenticatorMethodSatResponse' service_account_token: ServiceAccountToken authentication configuration.
-        :param 'BrokerAuthenticatorMethodX509Response' x509_credentials: X.509 authentication configuration.
+        :param 'BrokerAuthenticatorMethodCustomResponse' custom_settings: Custom authentication configuration.
+        :param 'BrokerAuthenticatorMethodSatResponse' service_account_token_settings: ServiceAccountToken authentication configuration.
+        :param 'BrokerAuthenticatorMethodX509Response' x509_settings: X.509 authentication configuration.
         """
         pulumi.set(__self__, "method", method)
-        if custom is not None:
-            pulumi.set(__self__, "custom", custom)
-        if service_account_token is not None:
-            pulumi.set(__self__, "service_account_token", service_account_token)
-        if x509_credentials is not None:
-            pulumi.set(__self__, "x509_credentials", x509_credentials)
+        if custom_settings is not None:
+            pulumi.set(__self__, "custom_settings", custom_settings)
+        if service_account_token_settings is not None:
+            pulumi.set(__self__, "service_account_token_settings", service_account_token_settings)
+        if x509_settings is not None:
+            pulumi.set(__self__, "x509_settings", x509_settings)
 
     @property
     @pulumi.getter
@@ -803,28 +706,28 @@ class BrokerAuthenticatorMethodsResponse(dict):
         return pulumi.get(self, "method")
 
     @property
-    @pulumi.getter
-    def custom(self) -> Optional['outputs.BrokerAuthenticatorMethodCustomResponse']:
+    @pulumi.getter(name="customSettings")
+    def custom_settings(self) -> Optional['outputs.BrokerAuthenticatorMethodCustomResponse']:
         """
         Custom authentication configuration.
         """
-        return pulumi.get(self, "custom")
+        return pulumi.get(self, "custom_settings")
 
     @property
-    @pulumi.getter(name="serviceAccountToken")
-    def service_account_token(self) -> Optional['outputs.BrokerAuthenticatorMethodSatResponse']:
+    @pulumi.getter(name="serviceAccountTokenSettings")
+    def service_account_token_settings(self) -> Optional['outputs.BrokerAuthenticatorMethodSatResponse']:
         """
         ServiceAccountToken authentication configuration.
         """
-        return pulumi.get(self, "service_account_token")
+        return pulumi.get(self, "service_account_token_settings")
 
     @property
-    @pulumi.getter(name="x509Credentials")
-    def x509_credentials(self) -> Optional['outputs.BrokerAuthenticatorMethodX509Response']:
+    @pulumi.getter(name="x509Settings")
+    def x509_settings(self) -> Optional['outputs.BrokerAuthenticatorMethodX509Response']:
         """
         X.509 authentication configuration.
         """
-        return pulumi.get(self, "x509_credentials")
+        return pulumi.get(self, "x509_settings")
 
 
 @pulumi.output_type
@@ -963,9 +866,7 @@ class BrokerListenerPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "brokerRef":
-            suggest = "broker_ref"
-        elif key == "provisioningState":
+        if key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "serviceName":
             suggest = "service_name"
@@ -984,38 +885,25 @@ class BrokerListenerPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 broker_ref: str,
                  ports: Sequence['outputs.ListenerPortResponse'],
                  provisioning_state: str,
                  service_name: Optional[str] = None,
                  service_type: Optional[str] = None):
         """
         Defines a Broker listener. A listener is a collection of ports on which the broker accepts connections from clients.
-        :param str broker_ref: Broker associated with this listener.
         :param Sequence['ListenerPortResponse'] ports: Ports on which this listener accepts client connections.
         :param str provisioning_state: The status of the last operation.
         :param str service_name: Kubernetes Service name of this listener.
         :param str service_type: Kubernetes Service type of this listener.
         """
-        pulumi.set(__self__, "broker_ref", broker_ref)
         pulumi.set(__self__, "ports", ports)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if service_name is None:
-            service_name = 'aio-mq-dmqtt-frontend'
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if service_type is None:
             service_type = 'ClusterIp'
         if service_type is not None:
             pulumi.set(__self__, "service_type", service_type)
-
-    @property
-    @pulumi.getter(name="brokerRef")
-    def broker_ref(self) -> str:
-        """
-        Broker associated with this listener.
-        """
-        return pulumi.get(self, "broker_ref")
 
     @property
     @pulumi.getter
@@ -1174,15 +1062,36 @@ class BrokerResourceRuleResponse(dict):
     """
     Broker Resource Rule properties. This defines the objects that represent the actions or topics, such as - method.Connect, method.Publish, etc.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientIds":
+            suggest = "client_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BrokerResourceRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BrokerResourceRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BrokerResourceRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  method: str,
+                 client_ids: Optional[Sequence[str]] = None,
                  topics: Optional[Sequence[str]] = None):
         """
         Broker Resource Rule properties. This defines the objects that represent the actions or topics, such as - method.Connect, method.Publish, etc.
         :param str method: Give access for a Broker method (i.e., Connect, Subscribe, or Publish).
+        :param Sequence[str] client_ids: A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection. This subfield may be set if the method is Connect.
         :param Sequence[str] topics: A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Publish or Subscribe.
         """
         pulumi.set(__self__, "method", method)
+        if client_ids is not None:
+            pulumi.set(__self__, "client_ids", client_ids)
         if topics is not None:
             pulumi.set(__self__, "topics", topics)
 
@@ -1193,6 +1102,14 @@ class BrokerResourceRuleResponse(dict):
         Give access for a Broker method (i.e., Connect, Subscribe, or Publish).
         """
         return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter(name="clientIds")
+    def client_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection. This subfield may be set if the method is Connect.
+        """
+        return pulumi.get(self, "client_ids")
 
     @property
     @pulumi.getter
@@ -1317,50 +1234,138 @@ class CertManagerCertOptionsResponse(dict):
 
 
 @pulumi.output_type
-class CertManagerIssuerRefResponse(dict):
+class CertManagerCertificateSpecResponse(dict):
     """
-    Cert-Manager issuerRef properties
+    Automatic TLS server certificate management with cert-manager
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "apiGroup":
-            suggest = "api_group"
+        if key == "issuerRef":
+            suggest = "issuer_ref"
+        elif key == "privateKey":
+            suggest = "private_key"
+        elif key == "renewBefore":
+            suggest = "renew_before"
+        elif key == "secretName":
+            suggest = "secret_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CertManagerIssuerRefResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in CertManagerCertificateSpecResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CertManagerIssuerRefResponse.__key_warning(key)
+        CertManagerCertificateSpecResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CertManagerIssuerRefResponse.__key_warning(key)
+        CertManagerCertificateSpecResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 api_group: Optional[str] = None,
+                 issuer_ref: 'outputs.CertManagerIssuerRefResponse',
+                 duration: Optional[str] = None,
+                 private_key: Optional['outputs.CertManagerPrivateKeyResponse'] = None,
+                 renew_before: Optional[str] = None,
+                 san: Optional['outputs.SanForCertResponse'] = None,
+                 secret_name: Optional[str] = None):
+        """
+        Automatic TLS server certificate management with cert-manager
+        :param 'CertManagerIssuerRefResponse' issuer_ref: cert-manager issuerRef.
+        :param str duration: Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
+        :param 'CertManagerPrivateKeyResponse' private_key: Type of certificate private key.
+        :param str renew_before: When to begin renewing certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
+        :param 'SanForCertResponse' san: Additional Subject Alternative Names (SANs) to include in the certificate.
+        :param str secret_name: Secret for storing server certificate. Any existing data will be overwritten. This is a reference to the secret through an identifying name, not the secret itself.
+        """
+        pulumi.set(__self__, "issuer_ref", issuer_ref)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if renew_before is not None:
+            pulumi.set(__self__, "renew_before", renew_before)
+        if san is not None:
+            pulumi.set(__self__, "san", san)
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="issuerRef")
+    def issuer_ref(self) -> 'outputs.CertManagerIssuerRefResponse':
+        """
+        cert-manager issuerRef.
+        """
+        return pulumi.get(self, "issuer_ref")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[str]:
+        """
+        Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional['outputs.CertManagerPrivateKeyResponse']:
+        """
+        Type of certificate private key.
+        """
+        return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="renewBefore")
+    def renew_before(self) -> Optional[str]:
+        """
+        When to begin renewing certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
+        """
+        return pulumi.get(self, "renew_before")
+
+    @property
+    @pulumi.getter
+    def san(self) -> Optional['outputs.SanForCertResponse']:
+        """
+        Additional Subject Alternative Names (SANs) to include in the certificate.
+        """
+        return pulumi.get(self, "san")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> Optional[str]:
+        """
+        Secret for storing server certificate. Any existing data will be overwritten. This is a reference to the secret through an identifying name, not the secret itself.
+        """
+        return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
+class CertManagerIssuerRefResponse(dict):
+    """
+    Cert-Manager issuerRef properties
+    """
+    def __init__(__self__, *,
+                 group: Optional[str] = None,
                  kind: str,
                  name: str):
         """
         Cert-Manager issuerRef properties
-        :param str api_group: group of issuer.
+        :param str group: group of issuer.
         :param str kind: kind of issuer (Issuer or ClusterIssuer).
         :param str name: name of issuer.
         """
-        if api_group is None:
-            api_group = 'cert-manager.io'
-        pulumi.set(__self__, "api_group", api_group)
+        if group is None:
+            group = 'cert-manager.io'
+        pulumi.set(__self__, "group", group)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter(name="apiGroup")
-    def api_group(self) -> str:
+    @pulumi.getter
+    def group(self) -> str:
         """
         group of issuer.
         """
-        return pulumi.get(self, "api_group")
+        return pulumi.get(self, "group")
 
     @property
     @pulumi.getter
@@ -1540,9 +1545,9 @@ class ClientConfigResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowBuiltInTransformationDatasetResponse(dict):
+class DataflowBuiltInTransformationDatasetResponse(dict):
     """
-    DataFlow BuiltIn Transformation dataset properties
+    Dataflow BuiltIn Transformation dataset properties
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1551,14 +1556,14 @@ class DataFlowBuiltInTransformationDatasetResponse(dict):
             suggest = "schema_ref"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowBuiltInTransformationDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowBuiltInTransformationDatasetResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowBuiltInTransformationDatasetResponse.__key_warning(key)
+        DataflowBuiltInTransformationDatasetResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowBuiltInTransformationDatasetResponse.__key_warning(key)
+        DataflowBuiltInTransformationDatasetResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1568,7 +1573,7 @@ class DataFlowBuiltInTransformationDatasetResponse(dict):
                  expression: Optional[str] = None,
                  schema_ref: Optional[str] = None):
         """
-        DataFlow BuiltIn Transformation dataset properties
+        Dataflow BuiltIn Transformation dataset properties
         :param Sequence[str] inputs: List of fields for enriching from the Broker State Store.
         :param str key: The key of the dataset.
         :param str description: A user provided optional description of the dataset.
@@ -1626,9 +1631,9 @@ class DataFlowBuiltInTransformationDatasetResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowBuiltInTransformationFilterResponse(dict):
+class DataflowBuiltInTransformationFilterResponse(dict):
     """
-    DataFlow BuiltIn Transformation filter properties
+    Dataflow BuiltIn Transformation filter properties
     """
     def __init__(__self__, *,
                  expression: str,
@@ -1636,7 +1641,7 @@ class DataFlowBuiltInTransformationFilterResponse(dict):
                  description: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        DataFlow BuiltIn Transformation filter properties
+        Dataflow BuiltIn Transformation filter properties
         :param str expression: Condition to filter data. Can reference input fields with {n} where n is the index of the input field starting from 1. Example: $1 < 0 || $1 > $2 (Assuming inputs section $1 and $2 are provided)
         :param Sequence[str] inputs: List of fields for filtering in JSON path expression.
         :param str description: A user provided optional description of the filter.
@@ -1685,9 +1690,9 @@ class DataFlowBuiltInTransformationFilterResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowBuiltInTransformationMapResponse(dict):
+class DataflowBuiltInTransformationMapResponse(dict):
     """
-    DataFlow BuiltIn Transformation map properties
+    Dataflow BuiltIn Transformation map properties
     """
     def __init__(__self__, *,
                  inputs: Sequence[str],
@@ -1696,7 +1701,7 @@ class DataFlowBuiltInTransformationMapResponse(dict):
                  expression: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        DataFlow BuiltIn Transformation map properties
+        Dataflow BuiltIn Transformation map properties
         :param Sequence[str] inputs: List of fields for mapping in JSON path expression.
         :param str output: Where and how the input fields to be organized in the output record.
         :param str description: A user provided optional description of the mapping function.
@@ -1754,9 +1759,9 @@ class DataFlowBuiltInTransformationMapResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowBuiltInTransformationResponse(dict):
+class DataflowBuiltInTransformationSettingsResponse(dict):
     """
-    DataFlow BuiltIn Transformation properties
+    Dataflow BuiltIn Transformation properties
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1767,27 +1772,27 @@ class DataFlowBuiltInTransformationResponse(dict):
             suggest = "serialization_format"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowBuiltInTransformationResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowBuiltInTransformationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowBuiltInTransformationResponse.__key_warning(key)
+        DataflowBuiltInTransformationSettingsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowBuiltInTransformationResponse.__key_warning(key)
+        DataflowBuiltInTransformationSettingsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 datasets: Optional[Sequence['outputs.DataFlowBuiltInTransformationDatasetResponse']] = None,
-                 filter: Optional[Sequence['outputs.DataFlowBuiltInTransformationFilterResponse']] = None,
-                 map: Optional[Sequence['outputs.DataFlowBuiltInTransformationMapResponse']] = None,
+                 datasets: Optional[Sequence['outputs.DataflowBuiltInTransformationDatasetResponse']] = None,
+                 filter: Optional[Sequence['outputs.DataflowBuiltInTransformationFilterResponse']] = None,
+                 map: Optional[Sequence['outputs.DataflowBuiltInTransformationMapResponse']] = None,
                  schema_ref: Optional[str] = None,
                  serialization_format: Optional[str] = None):
         """
-        DataFlow BuiltIn Transformation properties
-        :param Sequence['DataFlowBuiltInTransformationDatasetResponse'] datasets: Enrich data from Broker State Store. Dataset references a key in Broker State Store.
-        :param Sequence['DataFlowBuiltInTransformationFilterResponse'] filter: Filters input record or datapoints based on condition.
-        :param Sequence['DataFlowBuiltInTransformationMapResponse'] map: Maps input to output message.
+        Dataflow BuiltIn Transformation properties
+        :param Sequence['DataflowBuiltInTransformationDatasetResponse'] datasets: Enrich data from Broker State Store. Dataset references a key in Broker State Store.
+        :param Sequence['DataflowBuiltInTransformationFilterResponse'] filter: Filters input record or datapoints based on condition.
+        :param Sequence['DataflowBuiltInTransformationMapResponse'] map: Maps input to output message.
         :param str schema_ref: Reference to the schema that describes the output of the transformation.
         :param str serialization_format: Serialization format. Optional; defaults to JSON. Allowed value JSON Schema/draft-7, Parquet. Default: Json
         """
@@ -1806,7 +1811,7 @@ class DataFlowBuiltInTransformationResponse(dict):
 
     @property
     @pulumi.getter
-    def datasets(self) -> Optional[Sequence['outputs.DataFlowBuiltInTransformationDatasetResponse']]:
+    def datasets(self) -> Optional[Sequence['outputs.DataflowBuiltInTransformationDatasetResponse']]:
         """
         Enrich data from Broker State Store. Dataset references a key in Broker State Store.
         """
@@ -1814,7 +1819,7 @@ class DataFlowBuiltInTransformationResponse(dict):
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional[Sequence['outputs.DataFlowBuiltInTransformationFilterResponse']]:
+    def filter(self) -> Optional[Sequence['outputs.DataflowBuiltInTransformationFilterResponse']]:
         """
         Filters input record or datapoints based on condition.
         """
@@ -1822,7 +1827,7 @@ class DataFlowBuiltInTransformationResponse(dict):
 
     @property
     @pulumi.getter
-    def map(self) -> Optional[Sequence['outputs.DataFlowBuiltInTransformationMapResponse']]:
+    def map(self) -> Optional[Sequence['outputs.DataflowBuiltInTransformationMapResponse']]:
         """
         Maps input to output message.
         """
@@ -1846,9 +1851,9 @@ class DataFlowBuiltInTransformationResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowDestinationOperationResponse(dict):
+class DataflowDestinationOperationSettingsResponse(dict):
     """
-    DataFlow Destination Operation properties
+    Dataflow Destination Operation properties
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1859,21 +1864,21 @@ class DataFlowDestinationOperationResponse(dict):
             suggest = "endpoint_ref"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowDestinationOperationResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowDestinationOperationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowDestinationOperationResponse.__key_warning(key)
+        DataflowDestinationOperationSettingsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowDestinationOperationResponse.__key_warning(key)
+        DataflowDestinationOperationSettingsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  data_destination: str,
                  endpoint_ref: str):
         """
-        DataFlow Destination Operation properties
+        Dataflow Destination Operation properties
         :param str data_destination: Destination location, can be a topic or table name. Supports dynamic values with $topic, $systemProperties, $userProperties, $payload, $context, and $subscription.
         :param str endpoint_ref: Reference to the Endpoint CR. Can be of Broker, Kafka, Fabric, ADLS, ADX type.
         """
@@ -1898,160 +1903,78 @@ class DataFlowDestinationOperationResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowEndpointAuthenticationResponse(dict):
+class DataflowEndpointAuthenticationAccessTokenResponse(dict):
     """
-    Azure Data Explorer Authentication properties. NOTE - only authentication property is allowed per entry.
+    DataflowEndpoint Authentication Access Token properties
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "accessTokenSecretRef":
-            suggest = "access_token_secret_ref"
-        elif key == "saslSettings":
-            suggest = "sasl_settings"
-        elif key == "serviceAccountTokenSettings":
-            suggest = "service_account_token_settings"
-        elif key == "systemAssignedManagedIdentitySettings":
-            suggest = "system_assigned_managed_identity_settings"
-        elif key == "userAssignedManagedIdentitySettings":
-            suggest = "user_assigned_managed_identity_settings"
-        elif key == "x509CredentialsSettings":
-            suggest = "x509_credentials_settings"
+        if key == "secretRef":
+            suggest = "secret_ref"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowEndpointAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointAuthenticationAccessTokenResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowEndpointAuthenticationResponse.__key_warning(key)
+        DataflowEndpointAuthenticationAccessTokenResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowEndpointAuthenticationResponse.__key_warning(key)
+        DataflowEndpointAuthenticationAccessTokenResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 method: str,
-                 access_token_secret_ref: Optional[str] = None,
-                 sasl_settings: Optional['outputs.DataFlowEndpointAuthenticationSaslResponse'] = None,
-                 service_account_token_settings: Optional['outputs.DataFlowEndpointAuthenticationServiceAccountTokenResponse'] = None,
-                 system_assigned_managed_identity_settings: Optional['outputs.DataFlowEndpointAuthenticationSystemAssignedManagedIdentityResponse'] = None,
-                 user_assigned_managed_identity_settings: Optional['outputs.DataFlowEndpointAuthenticationUserAssignedManagedIdentityResponse'] = None,
-                 x509_credentials_settings: Optional['outputs.DataFlowEndpointAuthenticationX509Response'] = None):
+                 secret_ref: str):
         """
-        Azure Data Explorer Authentication properties. NOTE - only authentication property is allowed per entry.
-        :param str method: Mode of Authentication.
-        :param str access_token_secret_ref: SAS token authentication.
-        :param 'DataFlowEndpointAuthenticationSaslResponse' sasl_settings: SASL authentication.
-        :param 'DataFlowEndpointAuthenticationServiceAccountTokenResponse' service_account_token_settings: Service Account Token authentication.
-        :param 'DataFlowEndpointAuthenticationSystemAssignedManagedIdentityResponse' system_assigned_managed_identity_settings: System-assigned managed identity authentication.
-        :param 'DataFlowEndpointAuthenticationUserAssignedManagedIdentityResponse' user_assigned_managed_identity_settings: User-assigned managed identity authentication.
-        :param 'DataFlowEndpointAuthenticationX509Response' x509_credentials_settings: X.509 certificate authentication.
+        DataflowEndpoint Authentication Access Token properties
+        :param str secret_ref: Token secret name.
         """
-        pulumi.set(__self__, "method", method)
-        if access_token_secret_ref is not None:
-            pulumi.set(__self__, "access_token_secret_ref", access_token_secret_ref)
-        if sasl_settings is not None:
-            pulumi.set(__self__, "sasl_settings", sasl_settings)
-        if service_account_token_settings is not None:
-            pulumi.set(__self__, "service_account_token_settings", service_account_token_settings)
-        if system_assigned_managed_identity_settings is not None:
-            pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
-        if user_assigned_managed_identity_settings is not None:
-            pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
-        if x509_credentials_settings is not None:
-            pulumi.set(__self__, "x509_credentials_settings", x509_credentials_settings)
+        pulumi.set(__self__, "secret_ref", secret_ref)
 
     @property
-    @pulumi.getter
-    def method(self) -> str:
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> str:
         """
-        Mode of Authentication.
+        Token secret name.
         """
-        return pulumi.get(self, "method")
-
-    @property
-    @pulumi.getter(name="accessTokenSecretRef")
-    def access_token_secret_ref(self) -> Optional[str]:
-        """
-        SAS token authentication.
-        """
-        return pulumi.get(self, "access_token_secret_ref")
-
-    @property
-    @pulumi.getter(name="saslSettings")
-    def sasl_settings(self) -> Optional['outputs.DataFlowEndpointAuthenticationSaslResponse']:
-        """
-        SASL authentication.
-        """
-        return pulumi.get(self, "sasl_settings")
-
-    @property
-    @pulumi.getter(name="serviceAccountTokenSettings")
-    def service_account_token_settings(self) -> Optional['outputs.DataFlowEndpointAuthenticationServiceAccountTokenResponse']:
-        """
-        Service Account Token authentication.
-        """
-        return pulumi.get(self, "service_account_token_settings")
-
-    @property
-    @pulumi.getter(name="systemAssignedManagedIdentitySettings")
-    def system_assigned_managed_identity_settings(self) -> Optional['outputs.DataFlowEndpointAuthenticationSystemAssignedManagedIdentityResponse']:
-        """
-        System-assigned managed identity authentication.
-        """
-        return pulumi.get(self, "system_assigned_managed_identity_settings")
-
-    @property
-    @pulumi.getter(name="userAssignedManagedIdentitySettings")
-    def user_assigned_managed_identity_settings(self) -> Optional['outputs.DataFlowEndpointAuthenticationUserAssignedManagedIdentityResponse']:
-        """
-        User-assigned managed identity authentication.
-        """
-        return pulumi.get(self, "user_assigned_managed_identity_settings")
-
-    @property
-    @pulumi.getter(name="x509CredentialsSettings")
-    def x509_credentials_settings(self) -> Optional['outputs.DataFlowEndpointAuthenticationX509Response']:
-        """
-        X.509 certificate authentication.
-        """
-        return pulumi.get(self, "x509_credentials_settings")
+        return pulumi.get(self, "secret_ref")
 
 
 @pulumi.output_type
-class DataFlowEndpointAuthenticationSaslResponse(dict):
+class DataflowEndpointAuthenticationSaslResponse(dict):
     """
-    DataFlowEndpoint Authentication Sasl properties
+    DataflowEndpoint Authentication Sasl properties
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "saslType":
             suggest = "sasl_type"
-        elif key == "tokenSecretRef":
-            suggest = "token_secret_ref"
+        elif key == "secretRef":
+            suggest = "secret_ref"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowEndpointAuthenticationSaslResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointAuthenticationSaslResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowEndpointAuthenticationSaslResponse.__key_warning(key)
+        DataflowEndpointAuthenticationSaslResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowEndpointAuthenticationSaslResponse.__key_warning(key)
+        DataflowEndpointAuthenticationSaslResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  sasl_type: str,
-                 token_secret_ref: str):
+                 secret_ref: str):
         """
-        DataFlowEndpoint Authentication Sasl properties
+        DataflowEndpoint Authentication Sasl properties
         :param str sasl_type: Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
-        :param str token_secret_ref: Token secret name.
+        :param str secret_ref: Token secret name.
         """
         pulumi.set(__self__, "sasl_type", sasl_type)
-        pulumi.set(__self__, "token_secret_ref", token_secret_ref)
+        pulumi.set(__self__, "secret_ref", secret_ref)
 
     @property
     @pulumi.getter(name="saslType")
@@ -2062,16 +1985,16 @@ class DataFlowEndpointAuthenticationSaslResponse(dict):
         return pulumi.get(self, "sasl_type")
 
     @property
-    @pulumi.getter(name="tokenSecretRef")
-    def token_secret_ref(self) -> str:
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> str:
         """
         Token secret name.
         """
-        return pulumi.get(self, "token_secret_ref")
+        return pulumi.get(self, "secret_ref")
 
 
 @pulumi.output_type
-class DataFlowEndpointAuthenticationServiceAccountTokenResponse(dict):
+class DataflowEndpointAuthenticationServiceAccountTokenResponse(dict):
     """
     Service Account Token for BrokerAuthentication
     """
@@ -2093,21 +2016,22 @@ class DataFlowEndpointAuthenticationServiceAccountTokenResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowEndpointAuthenticationSystemAssignedManagedIdentityResponse(dict):
+class DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse(dict):
     """
-    DataFlowEndpoint Authentication SystemAssignedManagedIdentity properties
+    DataflowEndpoint Authentication SystemAssignedManagedIdentity properties
     """
     def __init__(__self__, *,
-                 audience: str):
+                 audience: Optional[str] = None):
         """
-        DataFlowEndpoint Authentication SystemAssignedManagedIdentity properties
+        DataflowEndpoint Authentication SystemAssignedManagedIdentity properties
         :param str audience: Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
         """
-        pulumi.set(__self__, "audience", audience)
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
 
     @property
     @pulumi.getter
-    def audience(self) -> str:
+    def audience(self) -> Optional[str]:
         """
         Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
         """
@@ -2115,9 +2039,9 @@ class DataFlowEndpointAuthenticationSystemAssignedManagedIdentityResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowEndpointAuthenticationUserAssignedManagedIdentityResponse(dict):
+class DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse(dict):
     """
-    DataFlowEndpoint Authentication UserAssignedManagedIdentity properties
+    DataflowEndpoint Authentication UserAssignedManagedIdentity properties
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2128,37 +2052,30 @@ class DataFlowEndpointAuthenticationUserAssignedManagedIdentityResponse(dict):
             suggest = "tenant_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowEndpointAuthenticationUserAssignedManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowEndpointAuthenticationUserAssignedManagedIdentityResponse.__key_warning(key)
+        DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowEndpointAuthenticationUserAssignedManagedIdentityResponse.__key_warning(key)
+        DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 audience: str,
                  client_id: str,
-                 tenant_id: str):
+                 tenant_id: str,
+                 scope: Optional[str] = None):
         """
-        DataFlowEndpoint Authentication UserAssignedManagedIdentity properties
-        :param str audience: Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
+        DataflowEndpoint Authentication UserAssignedManagedIdentity properties
         :param str client_id: Client ID for the user-assigned managed identity.
         :param str tenant_id: Tenant ID.
+        :param str scope: Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
         """
-        pulumi.set(__self__, "audience", audience)
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter
-    def audience(self) -> str:
-        """
-        Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
-        """
-        return pulumi.get(self, "audience")
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter(name="clientId")
@@ -2176,11 +2093,19 @@ class DataFlowEndpointAuthenticationUserAssignedManagedIdentityResponse(dict):
         """
         return pulumi.get(self, "tenant_id")
 
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
+        """
+        return pulumi.get(self, "scope")
+
 
 @pulumi.output_type
-class DataFlowEndpointAuthenticationX509Response(dict):
+class DataflowEndpointAuthenticationX509Response(dict):
     """
-    DataFlowEndpoint Authentication X509 properties
+    DataflowEndpoint Authentication X509 properties
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2189,20 +2114,20 @@ class DataFlowEndpointAuthenticationX509Response(dict):
             suggest = "secret_ref"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowEndpointAuthenticationX509Response. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointAuthenticationX509Response. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowEndpointAuthenticationX509Response.__key_warning(key)
+        DataflowEndpointAuthenticationX509Response.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowEndpointAuthenticationX509Response.__key_warning(key)
+        DataflowEndpointAuthenticationX509Response.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  secret_ref: str):
         """
-        DataFlowEndpoint Authentication X509 properties
+        DataflowEndpoint Authentication X509 properties
         :param str secret_ref: Secret reference of the X.509 certificate.
         """
         pulumi.set(__self__, "secret_ref", secret_ref)
@@ -2217,24 +2142,100 @@ class DataFlowEndpointAuthenticationX509Response(dict):
 
 
 @pulumi.output_type
-class DataFlowEndpointDataExplorerResponse(dict):
+class DataflowEndpointDataExplorerAuthenticationResponse(dict):
+    """
+    Azure Data Explorer Authentication properties. NOTE - only authentication property is allowed per entry.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemAssignedManagedIdentitySettings":
+            suggest = "system_assigned_managed_identity_settings"
+        elif key == "userAssignedManagedIdentitySettings":
+            suggest = "user_assigned_managed_identity_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointDataExplorerAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointDataExplorerAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointDataExplorerAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 method: Any,
+                 system_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse'] = None,
+                 user_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse'] = None):
+        """
+        Azure Data Explorer Authentication properties. NOTE - only authentication property is allowed per entry.
+        :param Any method: Mode of Authentication.
+        :param 'DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse' system_assigned_managed_identity_settings: System-assigned managed identity authentication.
+        :param 'DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse' user_assigned_managed_identity_settings: User-assigned managed identity authentication.
+        """
+        pulumi.set(__self__, "method", method)
+        if system_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
+        if user_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Any:
+        """
+        Mode of Authentication.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter(name="systemAssignedManagedIdentitySettings")
+    def system_assigned_managed_identity_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse']:
+        """
+        System-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "system_assigned_managed_identity_settings")
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentitySettings")
+    def user_assigned_managed_identity_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse']:
+        """
+        User-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_settings")
+
+
+@pulumi.output_type
+class DataflowEndpointDataExplorerResponse(dict):
     """
     Azure Data Explorer endpoint properties
     """
     def __init__(__self__, *,
+                 authentication: 'outputs.DataflowEndpointDataExplorerAuthenticationResponse',
                  database: str,
                  host: str,
                  batching: Optional['outputs.BatchingConfigurationResponse'] = None):
         """
         Azure Data Explorer endpoint properties
+        :param 'DataflowEndpointDataExplorerAuthenticationResponse' authentication: Authentication configuration. NOTE - only authentication property is allowed per entry.
         :param str database: Database name.
         :param str host: Host of the Azure Data Explorer in the form of <cluster>.<region>.kusto.windows.net .
         :param 'BatchingConfigurationResponse' batching: Azure Data Explorer endpoint batching configuration.
         """
+        pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         if batching is not None:
             pulumi.set(__self__, "batching", batching)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> 'outputs.DataflowEndpointDataExplorerAuthenticationResponse':
+        """
+        Authentication configuration. NOTE - only authentication property is allowed per entry.
+        """
+        return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter
@@ -2262,21 +2263,111 @@ class DataFlowEndpointDataExplorerResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowEndpointDataLakeStorageResponse(dict):
+class DataflowEndpointDataLakeStorageAuthenticationResponse(dict):
+    """
+    Azure Data Lake endpoint Authentication properties.  NOTE Enum - Only one method is supported for one entry
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessTokenSettings":
+            suggest = "access_token_settings"
+        elif key == "systemAssignedManagedIdentitySettings":
+            suggest = "system_assigned_managed_identity_settings"
+        elif key == "userAssignedManagedIdentitySettings":
+            suggest = "user_assigned_managed_identity_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointDataLakeStorageAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointDataLakeStorageAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointDataLakeStorageAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 method: str,
+                 access_token_settings: Optional['outputs.DataflowEndpointAuthenticationAccessTokenResponse'] = None,
+                 system_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse'] = None,
+                 user_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse'] = None):
+        """
+        Azure Data Lake endpoint Authentication properties.  NOTE Enum - Only one method is supported for one entry
+        :param str method: Mode of Authentication.
+        :param 'DataflowEndpointAuthenticationAccessTokenResponse' access_token_settings: SAS token authentication.
+        :param 'DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse' system_assigned_managed_identity_settings: System-assigned managed identity authentication.
+        :param 'DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse' user_assigned_managed_identity_settings: User-assigned managed identity authentication.
+        """
+        pulumi.set(__self__, "method", method)
+        if access_token_settings is not None:
+            pulumi.set(__self__, "access_token_settings", access_token_settings)
+        if system_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
+        if user_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
+        """
+        Mode of Authentication.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter(name="accessTokenSettings")
+    def access_token_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationAccessTokenResponse']:
+        """
+        SAS token authentication.
+        """
+        return pulumi.get(self, "access_token_settings")
+
+    @property
+    @pulumi.getter(name="systemAssignedManagedIdentitySettings")
+    def system_assigned_managed_identity_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse']:
+        """
+        System-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "system_assigned_managed_identity_settings")
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentitySettings")
+    def user_assigned_managed_identity_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse']:
+        """
+        User-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_settings")
+
+
+@pulumi.output_type
+class DataflowEndpointDataLakeStorageResponse(dict):
     """
     Azure Data Lake endpoint properties
     """
     def __init__(__self__, *,
+                 authentication: 'outputs.DataflowEndpointDataLakeStorageAuthenticationResponse',
                  host: str,
                  batching: Optional['outputs.BatchingConfigurationResponse'] = None):
         """
         Azure Data Lake endpoint properties
+        :param 'DataflowEndpointDataLakeStorageAuthenticationResponse' authentication: Authentication configuration. NOTE - only authentication property is allowed per entry.
         :param str host: Host of the Azure Data Lake in the form of <account>.blob.core.windows.net .
         :param 'BatchingConfigurationResponse' batching: Azure Data Lake endpoint batching configuration.
         """
+        pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "host", host)
         if batching is not None:
             pulumi.set(__self__, "batching", batching)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> 'outputs.DataflowEndpointDataLakeStorageAuthenticationResponse':
+        """
+        Authentication configuration. NOTE - only authentication property is allowed per entry.
+        """
+        return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter
@@ -2296,7 +2387,72 @@ class DataFlowEndpointDataLakeStorageResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowEndpointFabricOneLakeNamesResponse(dict):
+class DataflowEndpointFabricOneLakeAuthenticationResponse(dict):
+    """
+    Microsoft Fabric endpoint. Authentication properties. NOTE - Only one method is supported for one entry
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemAssignedManagedIdentitySettings":
+            suggest = "system_assigned_managed_identity_settings"
+        elif key == "userAssignedManagedIdentitySettings":
+            suggest = "user_assigned_managed_identity_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointFabricOneLakeAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointFabricOneLakeAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointFabricOneLakeAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 method: Any,
+                 system_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse'] = None,
+                 user_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse'] = None):
+        """
+        Microsoft Fabric endpoint. Authentication properties. NOTE - Only one method is supported for one entry
+        :param Any method: Mode of Authentication.
+        :param 'DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse' system_assigned_managed_identity_settings: System-assigned managed identity authentication.
+        :param 'DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse' user_assigned_managed_identity_settings: User-assigned managed identity authentication.
+        """
+        pulumi.set(__self__, "method", method)
+        if system_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
+        if user_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Any:
+        """
+        Mode of Authentication.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter(name="systemAssignedManagedIdentitySettings")
+    def system_assigned_managed_identity_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse']:
+        """
+        System-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "system_assigned_managed_identity_settings")
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentitySettings")
+    def user_assigned_managed_identity_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse']:
+        """
+        User-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_settings")
+
+
+@pulumi.output_type
+class DataflowEndpointFabricOneLakeNamesResponse(dict):
     """
     Microsoft Fabric endpoint Names properties
     """
@@ -2309,14 +2465,14 @@ class DataFlowEndpointFabricOneLakeNamesResponse(dict):
             suggest = "workspace_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowEndpointFabricOneLakeNamesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointFabricOneLakeNamesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowEndpointFabricOneLakeNamesResponse.__key_warning(key)
+        DataflowEndpointFabricOneLakeNamesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowEndpointFabricOneLakeNamesResponse.__key_warning(key)
+        DataflowEndpointFabricOneLakeNamesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2348,7 +2504,7 @@ class DataFlowEndpointFabricOneLakeNamesResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowEndpointFabricOneLakeResponse(dict):
+class DataflowEndpointFabricOneLakeResponse(dict):
     """
     Microsoft Fabric endpoint properties
     """
@@ -2359,33 +2515,44 @@ class DataFlowEndpointFabricOneLakeResponse(dict):
             suggest = "one_lake_path_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowEndpointFabricOneLakeResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointFabricOneLakeResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowEndpointFabricOneLakeResponse.__key_warning(key)
+        DataflowEndpointFabricOneLakeResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowEndpointFabricOneLakeResponse.__key_warning(key)
+        DataflowEndpointFabricOneLakeResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 authentication: 'outputs.DataflowEndpointFabricOneLakeAuthenticationResponse',
                  host: str,
-                 names: 'outputs.DataFlowEndpointFabricOneLakeNamesResponse',
+                 names: 'outputs.DataflowEndpointFabricOneLakeNamesResponse',
                  one_lake_path_type: str,
                  batching: Optional['outputs.BatchingConfigurationResponse'] = None):
         """
         Microsoft Fabric endpoint properties
+        :param 'DataflowEndpointFabricOneLakeAuthenticationResponse' authentication: Authentication configuration. NOTE - only one authentication property is allowed per entry.
         :param str host: Host of the Microsoft Fabric in the form of https://<host>.fabric.microsoft.com.
-        :param 'DataFlowEndpointFabricOneLakeNamesResponse' names: Names of the workspace and lakehouse.
+        :param 'DataflowEndpointFabricOneLakeNamesResponse' names: Names of the workspace and lakehouse.
         :param str one_lake_path_type: Type of location of the data in the workspace. Can be either tables or files.
         :param 'BatchingConfigurationResponse' batching: Batching configuration.
         """
+        pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "names", names)
         pulumi.set(__self__, "one_lake_path_type", one_lake_path_type)
         if batching is not None:
             pulumi.set(__self__, "batching", batching)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> 'outputs.DataflowEndpointFabricOneLakeAuthenticationResponse':
+        """
+        Authentication configuration. NOTE - only one authentication property is allowed per entry.
+        """
+        return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter
@@ -2397,7 +2564,7 @@ class DataFlowEndpointFabricOneLakeResponse(dict):
 
     @property
     @pulumi.getter
-    def names(self) -> 'outputs.DataFlowEndpointFabricOneLakeNamesResponse':
+    def names(self) -> 'outputs.DataflowEndpointFabricOneLakeNamesResponse':
         """
         Names of the workspace and lakehouse.
         """
@@ -2421,7 +2588,100 @@ class DataFlowEndpointFabricOneLakeResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowEndpointKafkaBatchingResponse(dict):
+class DataflowEndpointKafkaAuthenticationResponse(dict):
+    """
+    Kafka endpoint Authentication properties. NOTE - only authentication property is allowed per entry
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "saslSettings":
+            suggest = "sasl_settings"
+        elif key == "systemAssignedManagedIdentitySettings":
+            suggest = "system_assigned_managed_identity_settings"
+        elif key == "userAssignedManagedIdentitySettings":
+            suggest = "user_assigned_managed_identity_settings"
+        elif key == "x509CertificateSettings":
+            suggest = "x509_certificate_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointKafkaAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointKafkaAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointKafkaAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 method: str,
+                 sasl_settings: Optional['outputs.DataflowEndpointAuthenticationSaslResponse'] = None,
+                 system_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse'] = None,
+                 user_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse'] = None,
+                 x509_certificate_settings: Optional['outputs.DataflowEndpointAuthenticationX509Response'] = None):
+        """
+        Kafka endpoint Authentication properties. NOTE - only authentication property is allowed per entry
+        :param str method: Mode of Authentication.
+        :param 'DataflowEndpointAuthenticationSaslResponse' sasl_settings: SASL authentication.
+        :param 'DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse' system_assigned_managed_identity_settings: System-assigned managed identity authentication.
+        :param 'DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse' user_assigned_managed_identity_settings: User-assigned managed identity authentication.
+        :param 'DataflowEndpointAuthenticationX509Response' x509_certificate_settings: X.509 certificate authentication.
+        """
+        pulumi.set(__self__, "method", method)
+        if sasl_settings is not None:
+            pulumi.set(__self__, "sasl_settings", sasl_settings)
+        if system_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
+        if user_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
+        if x509_certificate_settings is not None:
+            pulumi.set(__self__, "x509_certificate_settings", x509_certificate_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
+        """
+        Mode of Authentication.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter(name="saslSettings")
+    def sasl_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationSaslResponse']:
+        """
+        SASL authentication.
+        """
+        return pulumi.get(self, "sasl_settings")
+
+    @property
+    @pulumi.getter(name="systemAssignedManagedIdentitySettings")
+    def system_assigned_managed_identity_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse']:
+        """
+        System-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "system_assigned_managed_identity_settings")
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentitySettings")
+    def user_assigned_managed_identity_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse']:
+        """
+        User-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_settings")
+
+    @property
+    @pulumi.getter(name="x509CertificateSettings")
+    def x509_certificate_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationX509Response']:
+        """
+        X.509 certificate authentication.
+        """
+        return pulumi.get(self, "x509_certificate_settings")
+
+
+@pulumi.output_type
+class DataflowEndpointKafkaBatchingResponse(dict):
     """
     Kafka endpoint Batching properties
     """
@@ -2436,14 +2696,14 @@ class DataFlowEndpointKafkaBatchingResponse(dict):
             suggest = "max_messages"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowEndpointKafkaBatchingResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointKafkaBatchingResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowEndpointKafkaBatchingResponse.__key_warning(key)
+        DataflowEndpointKafkaBatchingResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowEndpointKafkaBatchingResponse.__key_warning(key)
+        DataflowEndpointKafkaBatchingResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2509,14 +2769,16 @@ class DataFlowEndpointKafkaBatchingResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowEndpointKafkaResponse(dict):
+class DataflowEndpointKafkaResponse(dict):
     """
     Kafka endpoint properties
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "consumerGroupId":
+        if key == "cloudEventAttributes":
+            suggest = "cloud_event_attributes"
+        elif key == "consumerGroupId":
             suggest = "consumer_group_id"
         elif key == "copyMqttProperties":
             suggest = "copy_mqtt_properties"
@@ -2526,39 +2788,46 @@ class DataFlowEndpointKafkaResponse(dict):
             suggest = "partition_strategy"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowEndpointKafkaResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointKafkaResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowEndpointKafkaResponse.__key_warning(key)
+        DataflowEndpointKafkaResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowEndpointKafkaResponse.__key_warning(key)
+        DataflowEndpointKafkaResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 tls: 'outputs.TlsPropertiesResponse',
-                 batching: Optional['outputs.DataFlowEndpointKafkaBatchingResponse'] = None,
+                 authentication: 'outputs.DataflowEndpointKafkaAuthenticationResponse',
+                 host: str,
+                 batching: Optional['outputs.DataflowEndpointKafkaBatchingResponse'] = None,
+                 cloud_event_attributes: Optional[str] = None,
                  compression: Optional[str] = None,
                  consumer_group_id: Optional[str] = None,
                  copy_mqtt_properties: Optional[str] = None,
-                 host: Optional[str] = None,
                  kafka_acks: Optional[str] = None,
-                 partition_strategy: Optional[str] = None):
+                 partition_strategy: Optional[str] = None,
+                 tls: Optional['outputs.TlsPropertiesResponse'] = None):
         """
         Kafka endpoint properties
-        :param 'TlsPropertiesResponse' tls: TLS configuration.
-        :param 'DataFlowEndpointKafkaBatchingResponse' batching: Batching configuration.
+        :param 'DataflowEndpointKafkaAuthenticationResponse' authentication: Authentication configuration. NOTE - only authentication property is allowed per entry.
+        :param str host: Kafka endpoint host.
+        :param 'DataflowEndpointKafkaBatchingResponse' batching: Batching configuration.
+        :param str cloud_event_attributes: Cloud event mapping config.
         :param str compression: Compression. Can be none, gzip, lz4, or snappy. No effect if the endpoint is used as a source.
         :param str consumer_group_id: Consumer group ID.
         :param str copy_mqtt_properties: Copy Broker properties. No effect if the endpoint is used as a source or if the dataflow doesn't have an Broker source.
-        :param str host: Kafka endpoint host.
         :param str kafka_acks: Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
         :param str partition_strategy: Partition handling strategy. Can be default or static. No effect if the endpoint is used as a source.
+        :param 'TlsPropertiesResponse' tls: TLS configuration.
         """
-        pulumi.set(__self__, "tls", tls)
+        pulumi.set(__self__, "authentication", authentication)
+        pulumi.set(__self__, "host", host)
         if batching is not None:
             pulumi.set(__self__, "batching", batching)
+        if cloud_event_attributes is not None:
+            pulumi.set(__self__, "cloud_event_attributes", cloud_event_attributes)
         if compression is None:
             compression = 'None'
         if compression is not None:
@@ -2566,11 +2835,9 @@ class DataFlowEndpointKafkaResponse(dict):
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
         if copy_mqtt_properties is None:
-            copy_mqtt_properties = 'Disabled'
+            copy_mqtt_properties = 'Enabled'
         if copy_mqtt_properties is not None:
             pulumi.set(__self__, "copy_mqtt_properties", copy_mqtt_properties)
-        if host is not None:
-            pulumi.set(__self__, "host", host)
         if kafka_acks is None:
             kafka_acks = 'All'
         if kafka_acks is not None:
@@ -2579,22 +2846,40 @@ class DataFlowEndpointKafkaResponse(dict):
             partition_strategy = 'Default'
         if partition_strategy is not None:
             pulumi.set(__self__, "partition_strategy", partition_strategy)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter
-    def tls(self) -> 'outputs.TlsPropertiesResponse':
+    def authentication(self) -> 'outputs.DataflowEndpointKafkaAuthenticationResponse':
         """
-        TLS configuration.
+        Authentication configuration. NOTE - only authentication property is allowed per entry.
         """
-        return pulumi.get(self, "tls")
+        return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter
-    def batching(self) -> Optional['outputs.DataFlowEndpointKafkaBatchingResponse']:
+    def host(self) -> str:
+        """
+        Kafka endpoint host.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def batching(self) -> Optional['outputs.DataflowEndpointKafkaBatchingResponse']:
         """
         Batching configuration.
         """
         return pulumi.get(self, "batching")
+
+    @property
+    @pulumi.getter(name="cloudEventAttributes")
+    def cloud_event_attributes(self) -> Optional[str]:
+        """
+        Cloud event mapping config.
+        """
+        return pulumi.get(self, "cloud_event_attributes")
 
     @property
     @pulumi.getter
@@ -2621,14 +2906,6 @@ class DataFlowEndpointKafkaResponse(dict):
         return pulumi.get(self, "copy_mqtt_properties")
 
     @property
-    @pulumi.getter
-    def host(self) -> Optional[str]:
-        """
-        Kafka endpoint host.
-        """
-        return pulumi.get(self, "host")
-
-    @property
     @pulumi.getter(name="kafkaAcks")
     def kafka_acks(self) -> Optional[str]:
         """
@@ -2644,9 +2921,17 @@ class DataFlowEndpointKafkaResponse(dict):
         """
         return pulumi.get(self, "partition_strategy")
 
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.TlsPropertiesResponse']:
+        """
+        TLS configuration.
+        """
+        return pulumi.get(self, "tls")
+
 
 @pulumi.output_type
-class DataFlowEndpointLocalStorageResponse(dict):
+class DataflowEndpointLocalStorageResponse(dict):
     """
     Local persistent volume endpoint properties
     """
@@ -2657,14 +2942,14 @@ class DataFlowEndpointLocalStorageResponse(dict):
             suggest = "persistent_volume_claim_ref"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowEndpointLocalStorageResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointLocalStorageResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowEndpointLocalStorageResponse.__key_warning(key)
+        DataflowEndpointLocalStorageResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowEndpointLocalStorageResponse.__key_warning(key)
+        DataflowEndpointLocalStorageResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2685,7 +2970,100 @@ class DataFlowEndpointLocalStorageResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowEndpointMqttResponse(dict):
+class DataflowEndpointMqttAuthenticationResponse(dict):
+    """
+    Mqtt endpoint Authentication properties. NOTE - only authentication property is allowed per entry.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceAccountTokenSettings":
+            suggest = "service_account_token_settings"
+        elif key == "systemAssignedManagedIdentitySettings":
+            suggest = "system_assigned_managed_identity_settings"
+        elif key == "userAssignedManagedIdentitySettings":
+            suggest = "user_assigned_managed_identity_settings"
+        elif key == "x509CertificateSettings":
+            suggest = "x509_certificate_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointMqttAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointMqttAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointMqttAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 method: str,
+                 service_account_token_settings: Optional['outputs.DataflowEndpointAuthenticationServiceAccountTokenResponse'] = None,
+                 system_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse'] = None,
+                 user_assigned_managed_identity_settings: Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse'] = None,
+                 x509_certificate_settings: Optional['outputs.DataflowEndpointAuthenticationX509Response'] = None):
+        """
+        Mqtt endpoint Authentication properties. NOTE - only authentication property is allowed per entry.
+        :param str method: Mode of Authentication.
+        :param 'DataflowEndpointAuthenticationServiceAccountTokenResponse' service_account_token_settings: Kubernetes service account token authentication. Default audience if not set is aio-internal
+        :param 'DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse' system_assigned_managed_identity_settings: System-assigned managed identity authentication.
+        :param 'DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse' user_assigned_managed_identity_settings: User-assigned managed identity authentication.
+        :param 'DataflowEndpointAuthenticationX509Response' x509_certificate_settings: X.509 certificate authentication.
+        """
+        pulumi.set(__self__, "method", method)
+        if service_account_token_settings is not None:
+            pulumi.set(__self__, "service_account_token_settings", service_account_token_settings)
+        if system_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
+        if user_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
+        if x509_certificate_settings is not None:
+            pulumi.set(__self__, "x509_certificate_settings", x509_certificate_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
+        """
+        Mode of Authentication.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter(name="serviceAccountTokenSettings")
+    def service_account_token_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationServiceAccountTokenResponse']:
+        """
+        Kubernetes service account token authentication. Default audience if not set is aio-internal
+        """
+        return pulumi.get(self, "service_account_token_settings")
+
+    @property
+    @pulumi.getter(name="systemAssignedManagedIdentitySettings")
+    def system_assigned_managed_identity_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationSystemAssignedManagedIdentityResponse']:
+        """
+        System-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "system_assigned_managed_identity_settings")
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentitySettings")
+    def user_assigned_managed_identity_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse']:
+        """
+        User-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_settings")
+
+    @property
+    @pulumi.getter(name="x509CertificateSettings")
+    def x509_certificate_settings(self) -> Optional['outputs.DataflowEndpointAuthenticationX509Response']:
+        """
+        X.509 certificate authentication.
+        """
+        return pulumi.get(self, "x509_certificate_settings")
+
+
+@pulumi.output_type
+class DataflowEndpointMqttResponse(dict):
     """
     Broker endpoint properties
     """
@@ -2694,6 +3072,8 @@ class DataFlowEndpointMqttResponse(dict):
         suggest = None
         if key == "clientIdPrefix":
             suggest = "client_id_prefix"
+        elif key == "cloudEventAttributes":
+            suggest = "cloud_event_attributes"
         elif key == "keepAliveSeconds":
             suggest = "keep_alive_seconds"
         elif key == "maxInflightMessages":
@@ -2702,18 +3082,20 @@ class DataFlowEndpointMqttResponse(dict):
             suggest = "session_expiry_seconds"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowEndpointMqttResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointMqttResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowEndpointMqttResponse.__key_warning(key)
+        DataflowEndpointMqttResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowEndpointMqttResponse.__key_warning(key)
+        DataflowEndpointMqttResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 authentication: 'outputs.DataflowEndpointMqttAuthenticationResponse',
                  client_id_prefix: Optional[str] = None,
+                 cloud_event_attributes: Optional[str] = None,
                  host: Optional[str] = None,
                  keep_alive_seconds: Optional[int] = None,
                  max_inflight_messages: Optional[int] = None,
@@ -2724,7 +3106,9 @@ class DataFlowEndpointMqttResponse(dict):
                  tls: Optional['outputs.TlsPropertiesResponse'] = None):
         """
         Broker endpoint properties
+        :param 'DataflowEndpointMqttAuthenticationResponse' authentication: authentication properties. DEFAULT: kubernetes.audience=aio-internal. NOTE - Enum field only property is allowed
         :param str client_id_prefix: Client ID prefix. Client ID generated by the dataflow is <prefix>-TBD. Optional; no prefix if omitted.
+        :param str cloud_event_attributes: Cloud event mapping config.
         :param str host: Host of the Broker in the form of <hostname>:<port>. Optional; connects to Broker if omitted.
         :param int keep_alive_seconds: Broker KeepAlive for connection in seconds.
         :param int max_inflight_messages: The max number of messages to keep in flight. For subscribe, this is the receive maximum. For publish, this is the maximum number of messages to send before waiting for an ack.
@@ -2734,10 +3118,11 @@ class DataFlowEndpointMqttResponse(dict):
         :param int session_expiry_seconds: Session expiry in seconds.
         :param 'TlsPropertiesResponse' tls: TLS configuration.
         """
+        pulumi.set(__self__, "authentication", authentication)
         if client_id_prefix is not None:
             pulumi.set(__self__, "client_id_prefix", client_id_prefix)
-        if host is None:
-            host = 'aio-mq-dmqtt-frontend:1883'
+        if cloud_event_attributes is not None:
+            pulumi.set(__self__, "cloud_event_attributes", cloud_event_attributes)
         if host is not None:
             pulumi.set(__self__, "host", host)
         if keep_alive_seconds is None:
@@ -2760,12 +3145,18 @@ class DataFlowEndpointMqttResponse(dict):
             retain = 'Keep'
         if retain is not None:
             pulumi.set(__self__, "retain", retain)
-        if session_expiry_seconds is None:
-            session_expiry_seconds = 3600
         if session_expiry_seconds is not None:
             pulumi.set(__self__, "session_expiry_seconds", session_expiry_seconds)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> 'outputs.DataflowEndpointMqttAuthenticationResponse':
+        """
+        authentication properties. DEFAULT: kubernetes.audience=aio-internal. NOTE - Enum field only property is allowed
+        """
+        return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter(name="clientIdPrefix")
@@ -2774,6 +3165,14 @@ class DataFlowEndpointMqttResponse(dict):
         Client ID prefix. Client ID generated by the dataflow is <prefix>-TBD. Optional; no prefix if omitted.
         """
         return pulumi.get(self, "client_id_prefix")
+
+    @property
+    @pulumi.getter(name="cloudEventAttributes")
+    def cloud_event_attributes(self) -> Optional[str]:
+        """
+        Cloud event mapping config.
+        """
+        return pulumi.get(self, "cloud_event_attributes")
 
     @property
     @pulumi.getter
@@ -2841,9 +3240,9 @@ class DataFlowEndpointMqttResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowEndpointPropertiesResponse(dict):
+class DataflowEndpointPropertiesResponse(dict):
     """
-    DataFlowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
+    DataflowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2866,39 +3265,36 @@ class DataFlowEndpointPropertiesResponse(dict):
             suggest = "mqtt_settings"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowEndpointPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowEndpointPropertiesResponse.__key_warning(key)
+        DataflowEndpointPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowEndpointPropertiesResponse.__key_warning(key)
+        DataflowEndpointPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 authentication: 'outputs.DataFlowEndpointAuthenticationResponse',
                  endpoint_type: str,
                  provisioning_state: str,
-                 data_explorer_settings: Optional['outputs.DataFlowEndpointDataExplorerResponse'] = None,
-                 data_lake_storage_settings: Optional['outputs.DataFlowEndpointDataLakeStorageResponse'] = None,
-                 fabric_one_lake_settings: Optional['outputs.DataFlowEndpointFabricOneLakeResponse'] = None,
-                 kafka_settings: Optional['outputs.DataFlowEndpointKafkaResponse'] = None,
-                 local_storage_settings: Optional['outputs.DataFlowEndpointLocalStorageResponse'] = None,
-                 mqtt_settings: Optional['outputs.DataFlowEndpointMqttResponse'] = None):
+                 data_explorer_settings: Optional['outputs.DataflowEndpointDataExplorerResponse'] = None,
+                 data_lake_storage_settings: Optional['outputs.DataflowEndpointDataLakeStorageResponse'] = None,
+                 fabric_one_lake_settings: Optional['outputs.DataflowEndpointFabricOneLakeResponse'] = None,
+                 kafka_settings: Optional['outputs.DataflowEndpointKafkaResponse'] = None,
+                 local_storage_settings: Optional['outputs.DataflowEndpointLocalStorageResponse'] = None,
+                 mqtt_settings: Optional['outputs.DataflowEndpointMqttResponse'] = None):
         """
-        DataFlowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
-        :param 'DataFlowEndpointAuthenticationResponse' authentication: Authentication configuration.
+        DataflowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
         :param str endpoint_type: Endpoint Type.
         :param str provisioning_state: The status of the last operation.
-        :param 'DataFlowEndpointDataExplorerResponse' data_explorer_settings: Azure Data Explorer endpoint.
-        :param 'DataFlowEndpointDataLakeStorageResponse' data_lake_storage_settings: Azure Data Lake endpoint.
-        :param 'DataFlowEndpointFabricOneLakeResponse' fabric_one_lake_settings: Microsoft Fabric endpoint.
-        :param 'DataFlowEndpointKafkaResponse' kafka_settings: Kafka endpoint.
-        :param 'DataFlowEndpointLocalStorageResponse' local_storage_settings: Local persistent volume endpoint.
-        :param 'DataFlowEndpointMqttResponse' mqtt_settings: Broker endpoint.
+        :param 'DataflowEndpointDataExplorerResponse' data_explorer_settings: Azure Data Explorer endpoint.
+        :param 'DataflowEndpointDataLakeStorageResponse' data_lake_storage_settings: Azure Data Lake endpoint.
+        :param 'DataflowEndpointFabricOneLakeResponse' fabric_one_lake_settings: Microsoft Fabric endpoint.
+        :param 'DataflowEndpointKafkaResponse' kafka_settings: Kafka endpoint.
+        :param 'DataflowEndpointLocalStorageResponse' local_storage_settings: Local persistent volume endpoint.
+        :param 'DataflowEndpointMqttResponse' mqtt_settings: Broker endpoint.
         """
-        pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if data_explorer_settings is not None:
@@ -2913,14 +3309,6 @@ class DataFlowEndpointPropertiesResponse(dict):
             pulumi.set(__self__, "local_storage_settings", local_storage_settings)
         if mqtt_settings is not None:
             pulumi.set(__self__, "mqtt_settings", mqtt_settings)
-
-    @property
-    @pulumi.getter
-    def authentication(self) -> 'outputs.DataFlowEndpointAuthenticationResponse':
-        """
-        Authentication configuration.
-        """
-        return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter(name="endpointType")
@@ -2940,7 +3328,7 @@ class DataFlowEndpointPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="dataExplorerSettings")
-    def data_explorer_settings(self) -> Optional['outputs.DataFlowEndpointDataExplorerResponse']:
+    def data_explorer_settings(self) -> Optional['outputs.DataflowEndpointDataExplorerResponse']:
         """
         Azure Data Explorer endpoint.
         """
@@ -2948,7 +3336,7 @@ class DataFlowEndpointPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="dataLakeStorageSettings")
-    def data_lake_storage_settings(self) -> Optional['outputs.DataFlowEndpointDataLakeStorageResponse']:
+    def data_lake_storage_settings(self) -> Optional['outputs.DataflowEndpointDataLakeStorageResponse']:
         """
         Azure Data Lake endpoint.
         """
@@ -2956,7 +3344,7 @@ class DataFlowEndpointPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="fabricOneLakeSettings")
-    def fabric_one_lake_settings(self) -> Optional['outputs.DataFlowEndpointFabricOneLakeResponse']:
+    def fabric_one_lake_settings(self) -> Optional['outputs.DataflowEndpointFabricOneLakeResponse']:
         """
         Microsoft Fabric endpoint.
         """
@@ -2964,7 +3352,7 @@ class DataFlowEndpointPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="kafkaSettings")
-    def kafka_settings(self) -> Optional['outputs.DataFlowEndpointKafkaResponse']:
+    def kafka_settings(self) -> Optional['outputs.DataflowEndpointKafkaResponse']:
         """
         Kafka endpoint.
         """
@@ -2972,7 +3360,7 @@ class DataFlowEndpointPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="localStorageSettings")
-    def local_storage_settings(self) -> Optional['outputs.DataFlowEndpointLocalStorageResponse']:
+    def local_storage_settings(self) -> Optional['outputs.DataflowEndpointLocalStorageResponse']:
         """
         Local persistent volume endpoint.
         """
@@ -2980,7 +3368,7 @@ class DataFlowEndpointPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="mqttSettings")
-    def mqtt_settings(self) -> Optional['outputs.DataFlowEndpointMqttResponse']:
+    def mqtt_settings(self) -> Optional['outputs.DataflowEndpointMqttResponse']:
         """
         Broker endpoint.
         """
@@ -2988,62 +3376,56 @@ class DataFlowEndpointPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowOperationResponse(dict):
+class DataflowOperationResponse(dict):
     """
-    DataFlow Operation properties. NOTE - One only method is allowed to be used for one entry.
+    Dataflow Operation properties. NOTE - One only method is allowed to be used for one entry.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "destinationSettings":
-            suggest = "destination_settings"
-        elif key == "operationType":
+        if key == "operationType":
             suggest = "operation_type"
-        elif key == "sourceSettings":
-            suggest = "source_settings"
         elif key == "builtInTransformationSettings":
             suggest = "built_in_transformation_settings"
+        elif key == "destinationSettings":
+            suggest = "destination_settings"
+        elif key == "sourceSettings":
+            suggest = "source_settings"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowOperationResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowOperationResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowOperationResponse.__key_warning(key)
+        DataflowOperationResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowOperationResponse.__key_warning(key)
+        DataflowOperationResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 destination_settings: 'outputs.DataFlowDestinationOperationResponse',
                  operation_type: str,
-                 source_settings: 'outputs.DataFlowSourceOperationResponse',
-                 built_in_transformation_settings: Optional['outputs.DataFlowBuiltInTransformationResponse'] = None,
-                 name: Optional[str] = None):
+                 built_in_transformation_settings: Optional['outputs.DataflowBuiltInTransformationSettingsResponse'] = None,
+                 destination_settings: Optional['outputs.DataflowDestinationOperationSettingsResponse'] = None,
+                 name: Optional[str] = None,
+                 source_settings: Optional['outputs.DataflowSourceOperationSettingsResponse'] = None):
         """
-        DataFlow Operation properties. NOTE - One only method is allowed to be used for one entry.
-        :param 'DataFlowDestinationOperationResponse' destination_settings: Destination configuration.
+        Dataflow Operation properties. NOTE - One only method is allowed to be used for one entry.
         :param str operation_type: Type of operation.
-        :param 'DataFlowSourceOperationResponse' source_settings: Source configuration.
-        :param 'DataFlowBuiltInTransformationResponse' built_in_transformation_settings: Transformation configuration.
+        :param 'DataflowBuiltInTransformationSettingsResponse' built_in_transformation_settings: Built In Transformation configuration.
+        :param 'DataflowDestinationOperationSettingsResponse' destination_settings: Destination configuration.
         :param str name: Optional user provided name of the transformation.
+        :param 'DataflowSourceOperationSettingsResponse' source_settings: Source configuration.
         """
-        pulumi.set(__self__, "destination_settings", destination_settings)
         pulumi.set(__self__, "operation_type", operation_type)
-        pulumi.set(__self__, "source_settings", source_settings)
         if built_in_transformation_settings is not None:
             pulumi.set(__self__, "built_in_transformation_settings", built_in_transformation_settings)
+        if destination_settings is not None:
+            pulumi.set(__self__, "destination_settings", destination_settings)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="destinationSettings")
-    def destination_settings(self) -> 'outputs.DataFlowDestinationOperationResponse':
-        """
-        Destination configuration.
-        """
-        return pulumi.get(self, "destination_settings")
+        if source_settings is not None:
+            pulumi.set(__self__, "source_settings", source_settings)
 
     @property
     @pulumi.getter(name="operationType")
@@ -3054,20 +3436,20 @@ class DataFlowOperationResponse(dict):
         return pulumi.get(self, "operation_type")
 
     @property
-    @pulumi.getter(name="sourceSettings")
-    def source_settings(self) -> 'outputs.DataFlowSourceOperationResponse':
-        """
-        Source configuration.
-        """
-        return pulumi.get(self, "source_settings")
-
-    @property
     @pulumi.getter(name="builtInTransformationSettings")
-    def built_in_transformation_settings(self) -> Optional['outputs.DataFlowBuiltInTransformationResponse']:
+    def built_in_transformation_settings(self) -> Optional['outputs.DataflowBuiltInTransformationSettingsResponse']:
         """
-        Transformation configuration.
+        Built In Transformation configuration.
         """
         return pulumi.get(self, "built_in_transformation_settings")
+
+    @property
+    @pulumi.getter(name="destinationSettings")
+    def destination_settings(self) -> Optional['outputs.DataflowDestinationOperationSettingsResponse']:
+        """
+        Destination configuration.
+        """
+        return pulumi.get(self, "destination_settings")
 
     @property
     @pulumi.getter
@@ -3077,11 +3459,19 @@ class DataFlowOperationResponse(dict):
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter(name="sourceSettings")
+    def source_settings(self) -> Optional['outputs.DataflowSourceOperationSettingsResponse']:
+        """
+        Source configuration.
+        """
+        return pulumi.get(self, "source_settings")
+
 
 @pulumi.output_type
-class DataFlowProfilePropertiesResponse(dict):
+class DataflowProfilePropertiesResponse(dict):
     """
-    DataFlowProfile Resource properties
+    DataflowProfile Resource properties
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3092,14 +3482,14 @@ class DataFlowProfilePropertiesResponse(dict):
             suggest = "instance_count"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowProfilePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowProfilePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowProfilePropertiesResponse.__key_warning(key)
+        DataflowProfilePropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowProfilePropertiesResponse.__key_warning(key)
+        DataflowProfilePropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3107,7 +3497,7 @@ class DataFlowProfilePropertiesResponse(dict):
                  diagnostics: Optional['outputs.ProfileDiagnosticsResponse'] = None,
                  instance_count: Optional[int] = None):
         """
-        DataFlowProfile Resource properties
+        DataflowProfile Resource properties
         :param str provisioning_state: The status of the last operation.
         :param 'ProfileDiagnosticsResponse' diagnostics: Spec defines the desired identities of NBC diagnostics settings.
         :param int instance_count: To manually scale the dataflow profile, specify the maximum number of instances you want to run.
@@ -3115,6 +3505,8 @@ class DataFlowProfilePropertiesResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if diagnostics is not None:
             pulumi.set(__self__, "diagnostics", diagnostics)
+        if instance_count is None:
+            instance_count = 1
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
 
@@ -3144,43 +3536,38 @@ class DataFlowProfilePropertiesResponse(dict):
 
 
 @pulumi.output_type
-class DataFlowPropertiesResponse(dict):
+class DataflowPropertiesResponse(dict):
     """
-    DataFlow Resource properties
+    Dataflow Resource properties
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "profileRef":
-            suggest = "profile_ref"
-        elif key == "provisioningState":
+        if key == "provisioningState":
             suggest = "provisioning_state"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowPropertiesResponse.__key_warning(key)
+        DataflowPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowPropertiesResponse.__key_warning(key)
+        DataflowPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 operations: Sequence['outputs.DataFlowOperationResponse'],
-                 profile_ref: str,
+                 operations: Sequence['outputs.DataflowOperationResponse'],
                  provisioning_state: str,
                  mode: Optional[str] = None):
         """
-        DataFlow Resource properties
-        :param Sequence['DataFlowOperationResponse'] operations: List of operations including source and destination references as well as transformation.
-        :param str profile_ref: Reference to the DataflowProfile CR.
+        Dataflow Resource properties
+        :param Sequence['DataflowOperationResponse'] operations: List of operations including source and destination references as well as transformation.
         :param str provisioning_state: The status of the last operation.
-        :param str mode: Mode for DataFlow. Optional; defaults to Enabled.
+        :param str mode: Mode for Dataflow. Optional; defaults to Enabled.
         """
         pulumi.set(__self__, "operations", operations)
-        pulumi.set(__self__, "profile_ref", profile_ref)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if mode is None:
             mode = 'Enabled'
@@ -3189,19 +3576,11 @@ class DataFlowPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def operations(self) -> Sequence['outputs.DataFlowOperationResponse']:
+    def operations(self) -> Sequence['outputs.DataflowOperationResponse']:
         """
         List of operations including source and destination references as well as transformation.
         """
         return pulumi.get(self, "operations")
-
-    @property
-    @pulumi.getter(name="profileRef")
-    def profile_ref(self) -> str:
-        """
-        Reference to the DataflowProfile CR.
-        """
-        return pulumi.get(self, "profile_ref")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -3215,15 +3594,15 @@ class DataFlowPropertiesResponse(dict):
     @pulumi.getter
     def mode(self) -> Optional[str]:
         """
-        Mode for DataFlow. Optional; defaults to Enabled.
+        Mode for Dataflow. Optional; defaults to Enabled.
         """
         return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
-class DataFlowSourceOperationResponse(dict):
+class DataflowSourceOperationSettingsResponse(dict):
     """
-    DataFlow Source Operation properties
+    Dataflow Source Operation properties
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3240,14 +3619,14 @@ class DataFlowSourceOperationResponse(dict):
             suggest = "serialization_format"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DataFlowSourceOperationResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DataflowSourceOperationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DataFlowSourceOperationResponse.__key_warning(key)
+        DataflowSourceOperationSettingsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DataFlowSourceOperationResponse.__key_warning(key)
+        DataflowSourceOperationSettingsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3257,7 +3636,7 @@ class DataFlowSourceOperationResponse(dict):
                  schema_ref: Optional[str] = None,
                  serialization_format: Optional[str] = None):
         """
-        DataFlow Source Operation properties
+        Dataflow Source Operation properties
         :param Sequence[str] data_sources: List of source locations. Can be Broker or Kafka topics. Supports wildcards # and +.
         :param str endpoint_ref: Reference to the Dataflow Endpoint resource. Can only be of Broker and Kafka type.
         :param str asset_ref: Reference to the resource in Azure Device Registry where the data in the endpoint originates from.
@@ -3321,37 +3700,16 @@ class DiagnosticsLogsResponse(dict):
     """
     Diagnostic Log properties
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "opentelemetryExportConfig":
-            suggest = "opentelemetry_export_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DiagnosticsLogsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DiagnosticsLogsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DiagnosticsLogsResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 level: Optional[str] = None,
-                 opentelemetry_export_config: Optional['outputs.OpenTelemetryLogExportConfigResponse'] = None):
+                 level: Optional[str] = None):
         """
         Diagnostic Log properties
         :param str level: The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
-        :param 'OpenTelemetryLogExportConfigResponse' opentelemetry_export_config: The open telemetry export configuration.
         """
         if level is None:
             level = 'info'
         if level is not None:
             pulumi.set(__self__, "level", level)
-        if opentelemetry_export_config is not None:
-            pulumi.set(__self__, "opentelemetry_export_config", opentelemetry_export_config)
 
     @property
     @pulumi.getter
@@ -3360,14 +3718,6 @@ class DiagnosticsLogsResponse(dict):
         The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
         """
         return pulumi.get(self, "level")
-
-    @property
-    @pulumi.getter(name="opentelemetryExportConfig")
-    def opentelemetry_export_config(self) -> Optional['outputs.OpenTelemetryLogExportConfigResponse']:
-        """
-        The open telemetry export configuration.
-        """
-        return pulumi.get(self, "opentelemetry_export_config")
 
 
 @pulumi.output_type
@@ -3534,13 +3884,15 @@ class GenerateResourceLimitsResponse(dict):
 @pulumi.output_type
 class InstancePropertiesResponse(dict):
     """
-    The properties of a Instance resource.
+    The properties of the Instance resource.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "schemaRegistryRef":
+            suggest = "schema_registry_ref"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InstancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3555,15 +3907,18 @@ class InstancePropertiesResponse(dict):
 
     def __init__(__self__, *,
                  provisioning_state: str,
+                 schema_registry_ref: 'outputs.SchemaRegistryRefResponse',
                  version: str,
                  description: Optional[str] = None):
         """
-        The properties of a Instance resource.
+        The properties of the Instance resource.
         :param str provisioning_state: The status of the last operation.
+        :param 'SchemaRegistryRefResponse' schema_registry_ref: The reference to the Schema Registry for this AIO Instance.
         :param str version: The Azure IoT Operations version.
         :param str description: Detailed description of the Instance.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "schema_registry_ref", schema_registry_ref)
         pulumi.set(__self__, "version", version)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -3575,6 +3930,14 @@ class InstancePropertiesResponse(dict):
         The status of the last operation.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="schemaRegistryRef")
+    def schema_registry_ref(self) -> 'outputs.SchemaRegistryRefResponse':
+        """
+        The reference to the Schema Registry for this AIO Instance.
+        """
+        return pulumi.get(self, "schema_registry_ref")
 
     @property
     @pulumi.getter
@@ -3835,6 +4198,83 @@ class LocalKubernetesReferenceResponse(dict):
 
 
 @pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
 class MetricsResponse(dict):
     """
     Diagnostic Metrics properties
@@ -3842,9 +4282,7 @@ class MetricsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "opentelemetryExportConfig":
-            suggest = "opentelemetry_export_config"
-        elif key == "prometheusPort":
+        if key == "prometheusPort":
             suggest = "prometheus_port"
 
         if suggest:
@@ -3859,27 +4297,15 @@ class MetricsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 opentelemetry_export_config: Optional['outputs.OpenTelemetryExportConfigResponse'] = None,
                  prometheus_port: Optional[int] = None):
         """
         Diagnostic Metrics properties
-        :param 'OpenTelemetryExportConfigResponse' opentelemetry_export_config: The open telemetry export configuration.
         :param int prometheus_port: The prometheus port to expose the metrics.
         """
-        if opentelemetry_export_config is not None:
-            pulumi.set(__self__, "opentelemetry_export_config", opentelemetry_export_config)
         if prometheus_port is None:
             prometheus_port = 9600
         if prometheus_port is not None:
             pulumi.set(__self__, "prometheus_port", prometheus_port)
-
-    @property
-    @pulumi.getter(name="opentelemetryExportConfig")
-    def opentelemetry_export_config(self) -> Optional['outputs.OpenTelemetryExportConfigResponse']:
-        """
-        The open telemetry export configuration.
-        """
-        return pulumi.get(self, "opentelemetry_export_config")
 
     @property
     @pulumi.getter(name="prometheusPort")
@@ -3888,130 +4314,6 @@ class MetricsResponse(dict):
         The prometheus port to expose the metrics.
         """
         return pulumi.get(self, "prometheus_port")
-
-
-@pulumi.output_type
-class OpenTelemetryExportConfigResponse(dict):
-    """
-    OpenTelemetry Export Configuration properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "otlpGrpcEndpoint":
-            suggest = "otlp_grpc_endpoint"
-        elif key == "intervalSeconds":
-            suggest = "interval_seconds"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OpenTelemetryExportConfigResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        OpenTelemetryExportConfigResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        OpenTelemetryExportConfigResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 otlp_grpc_endpoint: str,
-                 interval_seconds: Optional[int] = None):
-        """
-        OpenTelemetry Export Configuration properties
-        :param str otlp_grpc_endpoint: The open telemetry collector endpoint to export to.
-        :param int interval_seconds: How often to export the metrics to the open telemetry collector.
-        """
-        pulumi.set(__self__, "otlp_grpc_endpoint", otlp_grpc_endpoint)
-        if interval_seconds is None:
-            interval_seconds = 30
-        if interval_seconds is not None:
-            pulumi.set(__self__, "interval_seconds", interval_seconds)
-
-    @property
-    @pulumi.getter(name="otlpGrpcEndpoint")
-    def otlp_grpc_endpoint(self) -> str:
-        """
-        The open telemetry collector endpoint to export to.
-        """
-        return pulumi.get(self, "otlp_grpc_endpoint")
-
-    @property
-    @pulumi.getter(name="intervalSeconds")
-    def interval_seconds(self) -> Optional[int]:
-        """
-        How often to export the metrics to the open telemetry collector.
-        """
-        return pulumi.get(self, "interval_seconds")
-
-
-@pulumi.output_type
-class OpenTelemetryLogExportConfigResponse(dict):
-    """
-    OpenTelemetry Log Export Configuration properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "otlpGrpcEndpoint":
-            suggest = "otlp_grpc_endpoint"
-        elif key == "intervalSeconds":
-            suggest = "interval_seconds"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OpenTelemetryLogExportConfigResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        OpenTelemetryLogExportConfigResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        OpenTelemetryLogExportConfigResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 otlp_grpc_endpoint: str,
-                 interval_seconds: Optional[int] = None,
-                 level: Optional[str] = None):
-        """
-        OpenTelemetry Log Export Configuration properties
-        :param str otlp_grpc_endpoint: The open telemetry collector endpoint to export to.
-        :param int interval_seconds: How often to export the metrics to the open telemetry collector.
-        :param str level: The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
-        """
-        pulumi.set(__self__, "otlp_grpc_endpoint", otlp_grpc_endpoint)
-        if interval_seconds is None:
-            interval_seconds = 30
-        if interval_seconds is not None:
-            pulumi.set(__self__, "interval_seconds", interval_seconds)
-        if level is None:
-            level = 'error'
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-
-    @property
-    @pulumi.getter(name="otlpGrpcEndpoint")
-    def otlp_grpc_endpoint(self) -> str:
-        """
-        The open telemetry collector endpoint to export to.
-        """
-        return pulumi.get(self, "otlp_grpc_endpoint")
-
-    @property
-    @pulumi.getter(name="intervalSeconds")
-    def interval_seconds(self) -> Optional[int]:
-        """
-        How often to export the metrics to the open telemetry collector.
-        """
-        return pulumi.get(self, "interval_seconds")
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[str]:
-        """
-        The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
-        """
-        return pulumi.get(self, "level")
 
 
 @pulumi.output_type
@@ -4081,13 +4383,13 @@ class PrincipalDefinitionResponse(dict):
 @pulumi.output_type
 class ProfileDiagnosticsResponse(dict):
     """
-    DataFlowProfile Diagnostics properties
+    DataflowProfile Diagnostics properties
     """
     def __init__(__self__, *,
                  logs: Optional['outputs.DiagnosticsLogsResponse'] = None,
                  metrics: Optional['outputs.MetricsResponse'] = None):
         """
-        DataFlowProfile Diagnostics properties
+        DataflowProfile Diagnostics properties
         :param 'DiagnosticsLogsResponse' logs: Diagnostic log settings for the resource.
         :param 'MetricsResponse' metrics: The metrics settings for the resource.
         """
@@ -4144,6 +4446,45 @@ class SanForCertResponse(dict):
         IP address SANs.
         """
         return pulumi.get(self, "ip")
+
+
+@pulumi.output_type
+class SchemaRegistryRefResponse(dict):
+    """
+    The reference to the Schema Registry for this AIO Instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchemaRegistryRefResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchemaRegistryRefResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchemaRegistryRefResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: str):
+        """
+        The reference to the Schema Registry for this AIO Instance.
+        :param str resource_id: The resource ID of the Schema Registry.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The resource ID of the Schema Registry.
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -4487,19 +4828,36 @@ class TlsCertMethodResponse(dict):
     """
     Collection of different TLS types, NOTE- Enum at a time only one of them needs to be supported
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certManagerCertificateSpec":
+            suggest = "cert_manager_certificate_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsCertMethodResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsCertMethodResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsCertMethodResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mode: str,
-                 automatic: Optional['outputs.AutomaticCertMethodResponse'] = None,
+                 cert_manager_certificate_spec: Optional['outputs.CertManagerCertificateSpecResponse'] = None,
                  manual: Optional['outputs.X509ManualCertificateResponse'] = None):
         """
         Collection of different TLS types, NOTE- Enum at a time only one of them needs to be supported
         :param str mode: Mode of TLS server certificate management.
-        :param 'AutomaticCertMethodResponse' automatic: Option 1 - Automatic TLS server certificate management with cert-manager.
+        :param 'CertManagerCertificateSpecResponse' cert_manager_certificate_spec: Option 1 - Automatic TLS server certificate management with cert-manager.
         :param 'X509ManualCertificateResponse' manual: Option 2 - Manual TLS server certificate management through a defined secret.
         """
         pulumi.set(__self__, "mode", mode)
-        if automatic is not None:
-            pulumi.set(__self__, "automatic", automatic)
+        if cert_manager_certificate_spec is not None:
+            pulumi.set(__self__, "cert_manager_certificate_spec", cert_manager_certificate_spec)
         if manual is not None:
             pulumi.set(__self__, "manual", manual)
 
@@ -4512,12 +4870,12 @@ class TlsCertMethodResponse(dict):
         return pulumi.get(self, "mode")
 
     @property
-    @pulumi.getter
-    def automatic(self) -> Optional['outputs.AutomaticCertMethodResponse']:
+    @pulumi.getter(name="certManagerCertificateSpec")
+    def cert_manager_certificate_spec(self) -> Optional['outputs.CertManagerCertificateSpecResponse']:
         """
         Option 1 - Automatic TLS server certificate management with cert-manager.
         """
-        return pulumi.get(self, "automatic")
+        return pulumi.get(self, "cert_manager_certificate_spec")
 
     @property
     @pulumi.getter
@@ -4592,8 +4950,6 @@ class TracesResponse(dict):
         suggest = None
         if key == "cacheSizeMegabytes":
             suggest = "cache_size_megabytes"
-        elif key == "opentelemetryExportConfig":
-            suggest = "opentelemetry_export_config"
         elif key == "selfTracing":
             suggest = "self_tracing"
         elif key == "spanChannelCapacity":
@@ -4613,14 +4969,12 @@ class TracesResponse(dict):
     def __init__(__self__, *,
                  cache_size_megabytes: Optional[int] = None,
                  mode: Optional[str] = None,
-                 opentelemetry_export_config: Optional['outputs.OpenTelemetryExportConfigResponse'] = None,
                  self_tracing: Optional['outputs.SelfTracingResponse'] = None,
                  span_channel_capacity: Optional[int] = None):
         """
         Broker Diagnostic Trace properties
         :param int cache_size_megabytes: The cache size in megabytes.
         :param str mode: The toggle to enable/disable traces.
-        :param 'OpenTelemetryExportConfigResponse' opentelemetry_export_config: The open telemetry export configuration.
         :param 'SelfTracingResponse' self_tracing: The self tracing properties.
         :param int span_channel_capacity: The span channel capacity.
         """
@@ -4632,8 +4986,6 @@ class TracesResponse(dict):
             mode = 'Enabled'
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
-        if opentelemetry_export_config is not None:
-            pulumi.set(__self__, "opentelemetry_export_config", opentelemetry_export_config)
         if self_tracing is not None:
             pulumi.set(__self__, "self_tracing", self_tracing)
         if span_channel_capacity is None:
@@ -4658,14 +5010,6 @@ class TracesResponse(dict):
         return pulumi.get(self, "mode")
 
     @property
-    @pulumi.getter(name="opentelemetryExportConfig")
-    def opentelemetry_export_config(self) -> Optional['outputs.OpenTelemetryExportConfigResponse']:
-        """
-        The open telemetry export configuration.
-        """
-        return pulumi.get(self, "opentelemetry_export_config")
-
-    @property
     @pulumi.getter(name="selfTracing")
     def self_tracing(self) -> Optional['outputs.SelfTracingResponse']:
         """
@@ -4680,6 +5024,58 @@ class TracesResponse(dict):
         The span channel capacity.
         """
         return pulumi.get(self, "span_channel_capacity")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

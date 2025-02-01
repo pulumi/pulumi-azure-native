@@ -13,8 +13,6 @@ __all__ = [
     'AutomationRulePropertyConditionSupportedOperator',
     'AutomationRulePropertyConditionSupportedProperty',
     'ConditionType',
-    'DataConnectorKind',
-    'DataTypeState',
     'IncidentClassification',
     'IncidentClassificationReason',
     'IncidentSeverity',
@@ -374,28 +372,6 @@ class ConditionType(str, Enum):
     """
     Evaluate an object array property changed value
     """
-
-
-class DataConnectorKind(str, Enum):
-    """
-    The data connector kind
-    """
-    AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
-    AZURE_SECURITY_CENTER = "AzureSecurityCenter"
-    MICROSOFT_CLOUD_APP_SECURITY = "MicrosoftCloudAppSecurity"
-    THREAT_INTELLIGENCE = "ThreatIntelligence"
-    OFFICE365 = "Office365"
-    AMAZON_WEB_SERVICES_CLOUD_TRAIL = "AmazonWebServicesCloudTrail"
-    AZURE_ADVANCED_THREAT_PROTECTION = "AzureAdvancedThreatProtection"
-    MICROSOFT_DEFENDER_ADVANCED_THREAT_PROTECTION = "MicrosoftDefenderAdvancedThreatProtection"
-
-
-class DataTypeState(str, Enum):
-    """
-    Describe whether this data type connection is enabled or not.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class IncidentClassification(str, Enum):

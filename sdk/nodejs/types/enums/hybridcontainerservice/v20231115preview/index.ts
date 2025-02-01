@@ -2,17 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AzureHybridBenefit = {
-    True: "True",
-    False: "False",
-    NotApplicable: "NotApplicable",
-} as const;
-
-/**
- * Indicates whether Azure Hybrid Benefit is opted in
- */
-export type AzureHybridBenefit = (typeof AzureHybridBenefit)[keyof typeof AzureHybridBenefit];
-
 export const ExtendedLocationTypes = {
     CustomLocation: "CustomLocation",
 } as const;
@@ -21,16 +10,6 @@ export const ExtendedLocationTypes = {
  * The extended location type.
  */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
-
-export const NetworkPolicy = {
-    Calico: "calico",
-    Flannel: "flannel",
-} as const;
-
-/**
- * NetworkPolicy - Network policy used for building Kubernetes network. Possible values include: 'calico', 'flannel'. Default is 'calico'
- */
-export type NetworkPolicy = (typeof NetworkPolicy)[keyof typeof NetworkPolicy];
 
 export const OSSKU = {
     /**

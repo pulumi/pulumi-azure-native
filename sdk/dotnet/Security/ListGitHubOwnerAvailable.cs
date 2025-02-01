@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// List of RP resources which supports pagination.
-        /// Azure REST API version: 2023-09-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01, 2024-05-15-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-05-15-preview.
         /// </summary>
         public static Task<ListGitHubOwnerAvailableResult> InvokeAsync(ListGitHubOwnerAvailableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListGitHubOwnerAvailableResult>("azure-native:security:listGitHubOwnerAvailable", args ?? new ListGitHubOwnerAvailableArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of RP resources which supports pagination.
-        /// Azure REST API version: 2023-09-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01, 2024-05-15-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-05-15-preview.
         /// </summary>
         public static Output<ListGitHubOwnerAvailableResult> Invoke(ListGitHubOwnerAvailableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGitHubOwnerAvailableResult>("azure-native:security:listGitHubOwnerAvailable", args ?? new ListGitHubOwnerAvailableInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of RP resources which supports pagination.
-        /// Azure REST API version: 2023-09-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01, 2024-05-15-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-05-15-preview.
         /// </summary>
         public static Output<ListGitHubOwnerAvailableResult> Invoke(ListGitHubOwnerAvailableInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListGitHubOwnerAvailableResult>("azure-native:security:listGitHubOwnerAvailable", args ?? new ListGitHubOwnerAvailableInvokeArgs(), options.WithDefaults());

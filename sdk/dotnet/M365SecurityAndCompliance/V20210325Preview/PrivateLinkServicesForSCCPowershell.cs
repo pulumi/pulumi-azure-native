@@ -94,9 +94,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForSCCPowershell" },
                     new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:PrivateLinkServicesForSCCPowershell" },
-                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:privateLinkServicesForSCCPowershell" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

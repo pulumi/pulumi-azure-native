@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The Test Base Package resource.
- * Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+ * Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export class Package extends pulumi.CustomResource {
     /**
@@ -47,15 +47,31 @@ export class Package extends pulumi.CustomResource {
     /**
      * The file path of the package.
      */
-    public readonly blobPath!: pulumi.Output<string>;
+    public readonly blobPath!: pulumi.Output<string | undefined>;
     /**
-     * Resource Etag.
+     * The id of draft package. Used to create or update this package from a draft package.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public readonly draftPackageId!: pulumi.Output<string | undefined>;
+    /**
+     * The list of first party applications to test along with user application.
+     */
+    public readonly firstPartyApps!: pulumi.Output<outputs.testbase.FirstPartyAppDefinitionResponse[] | undefined>;
     /**
      * The flighting ring for feature update.
      */
-    public readonly flightingRing!: pulumi.Output<string>;
+    public readonly flightingRing!: pulumi.Output<string | undefined>;
+    /**
+     * The list of gallery apps to test along with user application.
+     */
+    public /*out*/ readonly galleryApps!: pulumi.Output<outputs.testbase.GalleryAppDefinitionResponse[]>;
+    /**
+     * Specifies the baseline os and target os for inplace upgrade.
+     */
+    public readonly inplaceUpgradeOSPair!: pulumi.Output<outputs.testbase.InplaceUpgradeOSInfoResponse | undefined>;
+    /**
+     * The metadata of Intune enrollment.
+     */
+    public readonly intuneEnrollmentMetadata!: pulumi.Output<outputs.testbase.IntuneEnrollmentMetadataResponse | undefined>;
     /**
      * Flag showing that whether the package is enabled. It doesn't schedule test for package which is not enabled.
      */
@@ -69,7 +85,7 @@ export class Package extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -81,27 +97,27 @@ export class Package extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.testbase.SystemDataResponse>;
     /**
-     * The tags of the resource.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the target OSs of specific OS Update types.
      */
-    public readonly targetOSList!: pulumi.Output<outputs.testbase.TargetOSInfoResponse[]>;
+    public readonly targetOSList!: pulumi.Output<outputs.testbase.TargetOSInfoResponse[] | undefined>;
     /**
-     * OOB, functional or both. Mapped to the data in 'tests' property.
+     * OOB, functional or flow driven. Mapped to the data in 'tests' property.
      */
     public /*out*/ readonly testTypes!: pulumi.Output<string[]>;
     /**
      * The detailed test information.
      */
-    public readonly tests!: pulumi.Output<outputs.testbase.TestResponse[]>;
+    public readonly tests!: pulumi.Output<outputs.testbase.TestResponse[] | undefined>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -127,30 +143,22 @@ export class Package extends pulumi.CustomResource {
             if ((!args || args.applicationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if ((!args || args.blobPath === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'blobPath'");
-            }
-            if ((!args || args.flightingRing === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'flightingRing'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetOSList === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'targetOSList'");
-            }
             if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
-            }
-            if ((!args || args.tests === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'tests'");
             }
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
             resourceInputs["blobPath"] = args ? args.blobPath : undefined;
+            resourceInputs["draftPackageId"] = args ? args.draftPackageId : undefined;
+            resourceInputs["firstPartyApps"] = args ? args.firstPartyApps : undefined;
             resourceInputs["flightingRing"] = args ? args.flightingRing : undefined;
+            resourceInputs["inplaceUpgradeOSPair"] = args ? args.inplaceUpgradeOSPair : undefined;
+            resourceInputs["intuneEnrollmentMetadata"] = args ? args.intuneEnrollmentMetadata : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["packageName"] = args ? args.packageName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -159,7 +167,7 @@ export class Package extends pulumi.CustomResource {
             resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
             resourceInputs["tests"] = args ? args.tests : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["galleryApps"] = undefined /*out*/;
             resourceInputs["isEnabled"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -172,8 +180,12 @@ export class Package extends pulumi.CustomResource {
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;
             resourceInputs["blobPath"] = undefined /*out*/;
-            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["draftPackageId"] = undefined /*out*/;
+            resourceInputs["firstPartyApps"] = undefined /*out*/;
             resourceInputs["flightingRing"] = undefined /*out*/;
+            resourceInputs["galleryApps"] = undefined /*out*/;
+            resourceInputs["inplaceUpgradeOSPair"] = undefined /*out*/;
+            resourceInputs["intuneEnrollmentMetadata"] = undefined /*out*/;
             resourceInputs["isEnabled"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -207,11 +219,27 @@ export interface PackageArgs {
     /**
      * The file path of the package.
      */
-    blobPath: pulumi.Input<string>;
+    blobPath?: pulumi.Input<string>;
+    /**
+     * The id of draft package. Used to create or update this package from a draft package.
+     */
+    draftPackageId?: pulumi.Input<string>;
+    /**
+     * The list of first party applications to test along with user application.
+     */
+    firstPartyApps?: pulumi.Input<pulumi.Input<inputs.testbase.FirstPartyAppDefinitionArgs>[]>;
     /**
      * The flighting ring for feature update.
      */
-    flightingRing: pulumi.Input<string>;
+    flightingRing?: pulumi.Input<string>;
+    /**
+     * Specifies the baseline os and target os for inplace upgrade.
+     */
+    inplaceUpgradeOSPair?: pulumi.Input<inputs.testbase.InplaceUpgradeOSInfoArgs>;
+    /**
+     * The metadata of Intune enrollment.
+     */
+    intuneEnrollmentMetadata?: pulumi.Input<inputs.testbase.IntuneEnrollmentMetadataArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -221,17 +249,17 @@ export interface PackageArgs {
      */
     packageName?: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The tags of the resource.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the target OSs of specific OS Update types.
      */
-    targetOSList: pulumi.Input<pulumi.Input<inputs.testbase.TargetOSInfoArgs>[]>;
+    targetOSList?: pulumi.Input<pulumi.Input<inputs.testbase.TargetOSInfoArgs>[]>;
     /**
      * The resource name of the Test Base Account.
      */
@@ -239,7 +267,7 @@ export interface PackageArgs {
     /**
      * The detailed test information.
      */
-    tests: pulumi.Input<pulumi.Input<inputs.testbase.TestArgs>[]>;
+    tests?: pulumi.Input<pulumi.Input<inputs.testbase.TestArgs>[]>;
     /**
      * Application version
      */

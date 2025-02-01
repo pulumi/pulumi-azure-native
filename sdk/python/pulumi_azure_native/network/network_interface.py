@@ -340,9 +340,9 @@ class NetworkInterface(pulumi.CustomResource):
                  __props__=None):
         """
         A network interface in a resource group.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2018-07-01, 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-07-01, 2019-02-01, 2019-06-01, 2019-08-01, 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -373,9 +373,9 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A network interface in a resource group.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2018-07-01, 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2018-07-01, 2019-02-01, 2019-06-01, 2019-08-01, 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -439,6 +439,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workload_type"] = workload_type
+            __props__.__dict__["default_outbound_connectivity_enabled"] = None
             __props__.__dict__["dscp_configuration"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["hosted_workloads"] = None
@@ -478,6 +479,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         __props__.__dict__["auxiliary_mode"] = None
         __props__.__dict__["auxiliary_sku"] = None
+        __props__.__dict__["default_outbound_connectivity_enabled"] = None
         __props__.__dict__["disable_tcp_state_tracking"] = None
         __props__.__dict__["dns_settings"] = None
         __props__.__dict__["dscp_configuration"] = None
@@ -521,6 +523,14 @@ class NetworkInterface(pulumi.CustomResource):
         Auxiliary sku of Network Interface resource.
         """
         return pulumi.get(self, "auxiliary_sku")
+
+    @property
+    @pulumi.getter(name="defaultOutboundConnectivityEnabled")
+    def default_outbound_connectivity_enabled(self) -> pulumi.Output[bool]:
+        """
+        Whether default outbound connectivity for nic was configured or not.
+        """
+        return pulumi.get(self, "default_outbound_connectivity_enabled")
 
     @property
     @pulumi.getter(name="disableTcpStateTracking")

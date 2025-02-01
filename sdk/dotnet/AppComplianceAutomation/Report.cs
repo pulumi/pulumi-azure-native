@@ -11,13 +11,37 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
 {
     /// <summary>
     /// A class represent an AppComplianceAutomation report resource.
-    /// Azure REST API version: 2022-11-16-preview. Prior API version in Azure Native 1.x: 2022-11-16-preview.
+    /// Azure REST API version: 2024-06-27. Prior API version in Azure Native 2.x: 2022-11-16-preview.
     /// 
-    /// Other available API versions: 2024-06-27.
+    /// Other available API versions: 2022-11-16-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:appcomplianceautomation:Report")]
     public partial class Report : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of synchronized certification records.
+        /// </summary>
+        [Output("certRecords")]
+        public Output<ImmutableArray<Outputs.CertSyncRecordResponse>> CertRecords { get; private set; } = null!;
+
+        /// <summary>
+        /// Report compliance status.
+        /// </summary>
+        [Output("complianceStatus")]
+        public Output<Outputs.ReportComplianceStatusResponse> ComplianceStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// List of report error codes.
+        /// </summary>
+        [Output("errors")]
+        public Output<ImmutableArray<string>> Errors { get; private set; } = null!;
+
+        /// <summary>
+        /// Report last collection trigger time.
+        /// </summary>
+        [Output("lastTriggerTime")]
+        public Output<string> LastTriggerTime { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -25,16 +49,71 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Report property.
+        /// Report next collection trigger time.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ReportPropertiesResponse> Properties { get; private set; } = null!;
+        [Output("nextTriggerTime")]
+        public Output<string> NextTriggerTime { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
+        /// </summary>
+        [Output("offerGuid")]
+        public Output<string?> OfferGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure lifecycle management
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// List of resource data.
+        /// </summary>
+        [Output("resources")]
+        public Output<ImmutableArray<Outputs.ResourceMetadataResponse>> Resources { get; private set; } = null!;
+
+        /// <summary>
+        /// Report status.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The information of 'bring your own storage' binding to the report
+        /// </summary>
+        [Output("storageInfo")]
+        public Output<Outputs.StorageInfoResponse?> StorageInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// List of subscription Ids.
+        /// </summary>
+        [Output("subscriptions")]
+        public Output<ImmutableArray<string>> Subscriptions { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Report's tenant id.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
+        /// An example of valid timezone id is "Pacific Standard Time".
+        /// </summary>
+        [Output("timeZone")]
+        public Output<string> TimeZone { get; private set; } = null!;
+
+        /// <summary>
+        /// Report collection trigger time.
+        /// </summary>
+        [Output("triggerTime")]
+        public Output<string> TriggerTime { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -93,16 +172,47 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     public sealed class ReportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Report property.
+        /// A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ReportPropertiesArgs> Properties { get; set; } = null!;
+        [Input("offerGuid")]
+        public Input<string>? OfferGuid { get; set; }
 
         /// <summary>
         /// Report Name.
         /// </summary>
         [Input("reportName")]
         public Input<string>? ReportName { get; set; }
+
+        [Input("resources", required: true)]
+        private InputList<Inputs.ResourceMetadataArgs>? _resources;
+
+        /// <summary>
+        /// List of resource data.
+        /// </summary>
+        public InputList<Inputs.ResourceMetadataArgs> Resources
+        {
+            get => _resources ?? (_resources = new InputList<Inputs.ResourceMetadataArgs>());
+            set => _resources = value;
+        }
+
+        /// <summary>
+        /// The information of 'bring your own storage' binding to the report
+        /// </summary>
+        [Input("storageInfo")]
+        public Input<Inputs.StorageInfoArgs>? StorageInfo { get; set; }
+
+        /// <summary>
+        /// Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
+        /// An example of valid timezone id is "Pacific Standard Time".
+        /// </summary>
+        [Input("timeZone", required: true)]
+        public Input<string> TimeZone { get; set; } = null!;
+
+        /// <summary>
+        /// Report collection trigger time.
+        /// </summary>
+        [Input("triggerTime", required: true)]
+        public Input<string> TriggerTime { get; set; } = null!;
 
         public ReportArgs()
         {

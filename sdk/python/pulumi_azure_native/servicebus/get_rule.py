@@ -154,13 +154,13 @@ def get_rule(namespace_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
     Retrieves the description for the specified rule.
-    Azure REST API version: 2022-01-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2022-01-01-preview.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The rule name.
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
@@ -192,13 +192,13 @@ def get_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
     Retrieves the description for the specified rule.
-    Azure REST API version: 2022-01-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2022-01-01-preview.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The rule name.
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.

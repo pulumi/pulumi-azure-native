@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// Get an alert processing rule by name.
         /// Azure REST API version: 2021-08-08.
+        /// 
+        /// Other available API versions: 2021-08-08-preview.
         /// </summary>
         public static Task<GetAlertProcessingRuleByNameResult> InvokeAsync(GetAlertProcessingRuleByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertProcessingRuleByNameResult>("azure-native:alertsmanagement:getAlertProcessingRuleByName", args ?? new GetAlertProcessingRuleByNameArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// Get an alert processing rule by name.
         /// Azure REST API version: 2021-08-08.
+        /// 
+        /// Other available API versions: 2021-08-08-preview.
         /// </summary>
         public static Output<GetAlertProcessingRuleByNameResult> Invoke(GetAlertProcessingRuleByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertProcessingRuleByNameResult>("azure-native:alertsmanagement:getAlertProcessingRuleByName", args ?? new GetAlertProcessingRuleByNameInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// Get an alert processing rule by name.
         /// Azure REST API version: 2021-08-08.
+        /// 
+        /// Other available API versions: 2021-08-08-preview.
         /// </summary>
         public static Output<GetAlertProcessingRuleByNameResult> Invoke(GetAlertProcessingRuleByNameInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertProcessingRuleByNameResult>("azure-native:alertsmanagement:getAlertProcessingRuleByName", args ?? new GetAlertProcessingRuleByNameInvokeArgs(), options.WithDefaults());

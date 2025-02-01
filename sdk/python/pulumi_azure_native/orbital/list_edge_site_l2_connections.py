@@ -69,8 +69,6 @@ def list_edge_site_l2_connections(edge_site_name: Optional[str] = None,
     Returns a list of L2 Connections attached to an edge site.
     Azure REST API version: 2024-03-01-preview.
 
-    Other available API versions: 2024-03-01.
-
 
     :param str edge_site_name: Edge site name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -90,8 +88,6 @@ def list_edge_site_l2_connections_output(edge_site_name: Optional[pulumi.Input[s
     """
     Returns a list of L2 Connections attached to an edge site.
     Azure REST API version: 2024-03-01-preview.
-
-    Other available API versions: 2024-03-01.
 
 
     :param str edge_site_name: Edge site name.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an event hub connection.
- * Azure REST API version: 2018-09-07-preview. Prior API version in Azure Native 1.x: 2018-09-07-preview.
+ * Azure REST API version: 2018-09-07-preview. Prior API version in Azure Native 2.x: 2018-09-07-preview.
  */
 export class EventHubConnection extends pulumi.CustomResource {
     /**

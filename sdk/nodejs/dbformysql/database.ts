@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Database.
- * Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
+ * Azure REST API version: 2023-12-30. Prior API version in Azure Native 2.x: 2022-01-01.
  *
- * Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+ * Other available API versions: 2022-01-01.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -53,7 +53,7 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.dbformysql.SystemDataResponse>;
     /**
@@ -94,7 +94,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200701preview:Database" }, { type: "azure-native:dbformysql/v20200701privatepreview:Database" }, { type: "azure-native:dbformysql/v20210501:Database" }, { type: "azure-native:dbformysql/v20210501preview:Database" }, { type: "azure-native:dbformysql/v20211201preview:Database" }, { type: "azure-native:dbformysql/v20220101:Database" }, { type: "azure-native:dbformysql/v20230601preview:Database" }, { type: "azure-native:dbformysql/v20230630:Database" }, { type: "azure-native:dbformysql/v20231230:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:Database" }, { type: "azure-native:dbformysql/v20200701preview:Database" }, { type: "azure-native:dbformysql/v20200701privatepreview:Database" }, { type: "azure-native:dbformysql/v20210501:Database" }, { type: "azure-native:dbformysql/v20210501preview:Database" }, { type: "azure-native:dbformysql/v20211201preview:Database" }, { type: "azure-native:dbformysql/v20220101:Database" }, { type: "azure-native:dbformysql/v20230601preview:Database" }, { type: "azure-native:dbformysql/v20230630:Database" }, { type: "azure-native:dbformysql/v20231230:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, resourceInputs, opts);
     }

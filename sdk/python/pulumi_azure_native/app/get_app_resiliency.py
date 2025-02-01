@@ -87,7 +87,7 @@ class GetAppResiliencyResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -164,9 +164,9 @@ def get_app_resiliency(app_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResiliencyResult:
     """
     Get container app resiliency policy.
-    Azure REST API version: 2023-08-01-preview.
+    Azure REST API version: 2024-10-02-preview.
 
-    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2023-08-01-preview.
 
 
     :param str app_name: Name of the Container App.
@@ -197,9 +197,9 @@ def get_app_resiliency_output(app_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResiliencyResult]:
     """
     Get container app resiliency policy.
-    Azure REST API version: 2023-08-01-preview.
+    Azure REST API version: 2024-10-02-preview.
 
-    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Other available API versions: 2023-08-01-preview.
 
 
     :param str app_name: Name of the Container App.

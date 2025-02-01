@@ -18,8 +18,6 @@ from ._enums import *
 __all__ = [
     'AmbrArgs',
     'AmbrArgsDict',
-    'AttachedDataNetworkResourceIdArgs',
-    'AttachedDataNetworkResourceIdArgsDict',
     'AzureStackEdgeDeviceResourceIdArgs',
     'AzureStackEdgeDeviceResourceIdArgsDict',
     'AzureStackHCIClusterResourceIdArgs',
@@ -70,12 +68,6 @@ __all__ = [
     'ServiceDataFlowTemplateArgsDict',
     'ServiceResourceIdArgs',
     'ServiceResourceIdArgsDict',
-    'SimPolicyResourceIdArgs',
-    'SimPolicyResourceIdArgsDict',
-    'SimStaticIpPropertiesStaticIpArgs',
-    'SimStaticIpPropertiesStaticIpArgsDict',
-    'SimStaticIpPropertiesArgs',
-    'SimStaticIpPropertiesArgsDict',
     'SiteResourceIdArgs',
     'SiteResourceIdArgsDict',
     'SliceConfigurationArgs',
@@ -140,41 +132,6 @@ class AmbrArgs:
     @uplink.setter
     def uplink(self, value: pulumi.Input[str]):
         pulumi.set(self, "uplink", value)
-
-
-if not MYPY:
-    class AttachedDataNetworkResourceIdArgsDict(TypedDict):
-        """
-        Reference to an attached data network resource.
-        """
-        id: pulumi.Input[str]
-        """
-        Attached data network resource ID.
-        """
-elif False:
-    AttachedDataNetworkResourceIdArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AttachedDataNetworkResourceIdArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        Reference to an attached data network resource.
-        :param pulumi.Input[str] id: Attached data network resource ID.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        Attached data network resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
 
 
 if not MYPY:
@@ -1987,153 +1944,6 @@ class ServiceResourceIdArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class SimPolicyResourceIdArgsDict(TypedDict):
-        """
-        Reference to a SIM policy resource.
-        """
-        id: pulumi.Input[str]
-        """
-        SIM policy resource ID.
-        """
-elif False:
-    SimPolicyResourceIdArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class SimPolicyResourceIdArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        Reference to a SIM policy resource.
-        :param pulumi.Input[str] id: SIM policy resource ID.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        SIM policy resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class SimStaticIpPropertiesStaticIpArgsDict(TypedDict):
-        """
-        The static IP configuration for the SIM to use at the defined network scope.
-        """
-        ipv4_address: NotRequired[pulumi.Input[str]]
-        """
-        The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
-        """
-elif False:
-    SimStaticIpPropertiesStaticIpArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class SimStaticIpPropertiesStaticIpArgs:
-    def __init__(__self__, *,
-                 ipv4_address: Optional[pulumi.Input[str]] = None):
-        """
-        The static IP configuration for the SIM to use at the defined network scope.
-        :param pulumi.Input[str] ipv4_address: The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
-        """
-        if ipv4_address is not None:
-            pulumi.set(__self__, "ipv4_address", ipv4_address)
-
-    @property
-    @pulumi.getter(name="ipv4Address")
-    def ipv4_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
-        """
-        return pulumi.get(self, "ipv4_address")
-
-    @ipv4_address.setter
-    def ipv4_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ipv4_address", value)
-
-
-if not MYPY:
-    class SimStaticIpPropertiesArgsDict(TypedDict):
-        """
-        Static IP configuration for a SIM, scoped to a particular attached data network and slice.
-        """
-        attached_data_network: NotRequired[pulumi.Input['AttachedDataNetworkResourceIdArgsDict']]
-        """
-        The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The attached data network must be in the same location as the SIM.
-        """
-        slice: NotRequired[pulumi.Input['SliceResourceIdArgsDict']]
-        """
-        The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
-        """
-        static_ip: NotRequired[pulumi.Input['SimStaticIpPropertiesStaticIpArgsDict']]
-        """
-        The static IP configuration for the SIM to use at the defined network scope.
-        """
-elif False:
-    SimStaticIpPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class SimStaticIpPropertiesArgs:
-    def __init__(__self__, *,
-                 attached_data_network: Optional[pulumi.Input['AttachedDataNetworkResourceIdArgs']] = None,
-                 slice: Optional[pulumi.Input['SliceResourceIdArgs']] = None,
-                 static_ip: Optional[pulumi.Input['SimStaticIpPropertiesStaticIpArgs']] = None):
-        """
-        Static IP configuration for a SIM, scoped to a particular attached data network and slice.
-        :param pulumi.Input['AttachedDataNetworkResourceIdArgs'] attached_data_network: The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The attached data network must be in the same location as the SIM.
-        :param pulumi.Input['SliceResourceIdArgs'] slice: The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
-        :param pulumi.Input['SimStaticIpPropertiesStaticIpArgs'] static_ip: The static IP configuration for the SIM to use at the defined network scope.
-        """
-        if attached_data_network is not None:
-            pulumi.set(__self__, "attached_data_network", attached_data_network)
-        if slice is not None:
-            pulumi.set(__self__, "slice", slice)
-        if static_ip is not None:
-            pulumi.set(__self__, "static_ip", static_ip)
-
-    @property
-    @pulumi.getter(name="attachedDataNetwork")
-    def attached_data_network(self) -> Optional[pulumi.Input['AttachedDataNetworkResourceIdArgs']]:
-        """
-        The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The attached data network must be in the same location as the SIM.
-        """
-        return pulumi.get(self, "attached_data_network")
-
-    @attached_data_network.setter
-    def attached_data_network(self, value: Optional[pulumi.Input['AttachedDataNetworkResourceIdArgs']]):
-        pulumi.set(self, "attached_data_network", value)
-
-    @property
-    @pulumi.getter
-    def slice(self) -> Optional[pulumi.Input['SliceResourceIdArgs']]:
-        """
-        The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
-        """
-        return pulumi.get(self, "slice")
-
-    @slice.setter
-    def slice(self, value: Optional[pulumi.Input['SliceResourceIdArgs']]):
-        pulumi.set(self, "slice", value)
-
-    @property
-    @pulumi.getter(name="staticIp")
-    def static_ip(self) -> Optional[pulumi.Input['SimStaticIpPropertiesStaticIpArgs']]:
-        """
-        The static IP configuration for the SIM to use at the defined network scope.
-        """
-        return pulumi.get(self, "static_ip")
-
-    @static_ip.setter
-    def static_ip(self, value: Optional[pulumi.Input['SimStaticIpPropertiesStaticIpArgs']]):
-        pulumi.set(self, "static_ip", value)
 
 
 if not MYPY:

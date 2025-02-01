@@ -41,38 +41,23 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.resources.v20190601preview as __v20190601preview
-    v20190601preview = __v20190601preview
-    import pulumi_azure_native.resources.v20191001preview as __v20191001preview
-    v20191001preview = __v20191001preview
-    import pulumi_azure_native.resources.v20201001 as __v20201001
-    v20201001 = __v20201001
     import pulumi_azure_native.resources.v20220201 as __v20220201
     v20220201 = __v20220201
     import pulumi_azure_native.resources.v20220801preview as __v20220801preview
     v20220801preview = __v20220801preview
     import pulumi_azure_native.resources.v20220901 as __v20220901
     v20220901 = __v20220901
-    import pulumi_azure_native.resources.v20230701 as __v20230701
-    v20230701 = __v20230701
     import pulumi_azure_native.resources.v20230801 as __v20230801
     v20230801 = __v20230801
     import pulumi_azure_native.resources.v20240301 as __v20240301
     v20240301 = __v20240301
-    import pulumi_azure_native.resources.v20240701 as __v20240701
-    v20240701 = __v20240701
     import pulumi_azure_native.resources.v20241101 as __v20241101
     v20241101 = __v20241101
 else:
-    v20190601preview = _utilities.lazy_import('pulumi_azure_native.resources.v20190601preview')
-    v20191001preview = _utilities.lazy_import('pulumi_azure_native.resources.v20191001preview')
-    v20201001 = _utilities.lazy_import('pulumi_azure_native.resources.v20201001')
     v20220201 = _utilities.lazy_import('pulumi_azure_native.resources.v20220201')
     v20220801preview = _utilities.lazy_import('pulumi_azure_native.resources.v20220801preview')
     v20220901 = _utilities.lazy_import('pulumi_azure_native.resources.v20220901')
-    v20230701 = _utilities.lazy_import('pulumi_azure_native.resources.v20230701')
     v20230801 = _utilities.lazy_import('pulumi_azure_native.resources.v20230801')
     v20240301 = _utilities.lazy_import('pulumi_azure_native.resources.v20240301')
-    v20240701 = _utilities.lazy_import('pulumi_azure_native.resources.v20240701')
     v20241101 = _utilities.lazy_import('pulumi_azure_native.resources.v20241101')
 

@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ArcSettingArgs', 'ArcSetting']
@@ -185,9 +186,9 @@ class ArcSetting(pulumi.CustomResource):
                  __props__=None):
         """
         ArcSetting details.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
-        Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Other available API versions: 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,9 +210,9 @@ class ArcSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ArcSetting details.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
-        Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Other available API versions: 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ArcSettingArgs args: The arguments to use to populate this resource's properties.

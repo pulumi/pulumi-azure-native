@@ -18,18 +18,6 @@ export const AuthenticationMode = {
  */
 export type AuthenticationMode = (typeof AuthenticationMode)[keyof typeof AuthenticationMode];
 
-export const ConnectionStatus = {
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-    Disconnected: "Disconnected",
-} as const;
-
-/**
- * The private link service connection status.
- */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
-
 export const CreateMode = {
     Recover: "Recover",
     Default: "Default",

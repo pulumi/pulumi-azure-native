@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20221215Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:StoragecontainerRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:StorageContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:StorageContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:StorageContainer" },

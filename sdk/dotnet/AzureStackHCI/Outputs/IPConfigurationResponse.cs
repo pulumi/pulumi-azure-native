@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// InterfaceIPConfiguration iPConfiguration in a network interface.
+    /// InterfaceIPConfiguration IPConfiguration in a network interface.
     /// </summary>
     [OutputType]
     public sealed class IPConfigurationResponse
@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
         /// </summary>
-        public readonly Outputs.IPConfigurationResponseProperties? Properties;
+        public readonly Outputs.IPConfigurationPropertiesResponse? Properties;
 
         [OutputConstructor]
         private IPConfigurationResponse(
             string? name,
 
-            Outputs.IPConfigurationResponseProperties? properties)
+            Outputs.IPConfigurationPropertiesResponse? properties)
         {
             Name = name;
             Properties = properties;

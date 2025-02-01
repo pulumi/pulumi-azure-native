@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified network security group.
- * Azure REST API version: 2024-02-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  *
- * Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-02-01-preview.
  */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,9 +83,9 @@ export interface GetNetworkSecurityGroupResult {
 }
 /**
  * Gets the specified network security group.
- * Azure REST API version: 2024-02-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  *
- * Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-02-01-preview.
  */
 export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSecurityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

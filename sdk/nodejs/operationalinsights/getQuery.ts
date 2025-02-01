@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
- * Azure REST API version: 2019-09-01.
+ * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2019-09-01-preview, 2023-09-01.
+ * Other available API versions: 2019-09-01.
  */
 export function getQuery(args: GetQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,11 +58,11 @@ export interface GetQueryResult {
      */
     readonly displayName: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -74,7 +74,7 @@ export interface GetQueryResult {
      */
     readonly related?: outputs.operationalinsights.LogAnalyticsQueryPackQueryPropertiesResponseRelated;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.operationalinsights.SystemDataResponse;
     /**
@@ -90,15 +90,15 @@ export interface GetQueryResult {
      */
     readonly timeModified: string;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
- * Azure REST API version: 2019-09-01.
+ * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2019-09-01-preview, 2023-09-01.
+ * Other available API versions: 2019-09-01.
  */
 export function getQueryOutput(args: GetQueryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

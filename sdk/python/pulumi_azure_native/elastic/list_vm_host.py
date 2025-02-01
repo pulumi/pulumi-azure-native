@@ -67,13 +67,13 @@ def list_vm_host(monitor_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVMHostResult:
     """
     Response of a list operation.
-    Azure REST API version: 2023-06-01.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+    Other available API versions: 2023-06-01, 2024-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name
-    :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['monitorName'] = monitor_name
@@ -89,13 +89,13 @@ def list_vm_host_output(monitor_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVMHostResult]:
     """
     Response of a list operation.
-    Azure REST API version: 2023-06-01.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+    Other available API versions: 2023-06-01, 2024-10-01-preview.
 
 
     :param str monitor_name: Monitor resource name
-    :param str resource_group_name: The name of the resource group to which the Elastic resource belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['monitorName'] = monitor_name

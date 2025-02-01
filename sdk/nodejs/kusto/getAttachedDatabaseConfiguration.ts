@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns an attached database configuration.
- * Azure REST API version: 2022-12-29.
+ * Azure REST API version: 2024-04-13.
  *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Other available API versions: 2022-12-29.
  */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +32,7 @@ export interface GetAttachedDatabaseConfigurationArgs {
      */
     clusterName: string;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -92,9 +92,9 @@ export interface GetAttachedDatabaseConfigurationResult {
 }
 /**
  * Returns an attached database configuration.
- * Azure REST API version: 2022-12-29.
+ * Azure REST API version: 2024-04-13.
  *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Other available API versions: 2022-12-29.
  */
 export function getAttachedDatabaseConfigurationOutput(args: GetAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttachedDatabaseConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -115,7 +115,7 @@ export interface GetAttachedDatabaseConfigurationOutputArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

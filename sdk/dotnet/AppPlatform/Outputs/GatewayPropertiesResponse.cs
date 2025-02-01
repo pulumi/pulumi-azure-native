@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ApmTypes;
         /// <summary>
+        /// Collection of ApmReferences in service level
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApmReferenceResponse> Apms;
+        /// <summary>
         /// Client-Certification Authentication.
         /// </summary>
         public readonly Outputs.GatewayPropertiesResponseClientAuth? ClientAuth;
@@ -65,6 +69,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly Outputs.GatewayResourceRequestsResponse? ResourceRequests;
         /// <summary>
+        /// The properties to configure different types of response cache for Spring Cloud Gateway.
+        /// </summary>
+        public readonly Union<Outputs.GatewayLocalResponseCachePerInstancePropertiesResponse, Outputs.GatewayLocalResponseCachePerRoutePropertiesResponse>? ResponseCacheProperties;
+        /// <summary>
         /// Single sign-on related configuration
         /// </summary>
         public readonly Outputs.SsoPropertiesResponse? SsoProperties;
@@ -80,6 +88,8 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
             Outputs.GatewayApiMetadataPropertiesResponse? apiMetadataProperties,
 
             ImmutableArray<string> apmTypes,
+
+            ImmutableArray<Outputs.ApmReferenceResponse> apms,
 
             Outputs.GatewayPropertiesResponseClientAuth? clientAuth,
 
@@ -99,6 +109,8 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             Outputs.GatewayResourceRequestsResponse? resourceRequests,
 
+            Union<Outputs.GatewayLocalResponseCachePerInstancePropertiesResponse, Outputs.GatewayLocalResponseCachePerRoutePropertiesResponse>? responseCacheProperties,
+
             Outputs.SsoPropertiesResponse? ssoProperties,
 
             string url)
@@ -106,6 +118,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
             AddonConfigs = addonConfigs;
             ApiMetadataProperties = apiMetadataProperties;
             ApmTypes = apmTypes;
+            Apms = apms;
             ClientAuth = clientAuth;
             CorsProperties = corsProperties;
             EnvironmentVariables = environmentVariables;
@@ -115,6 +128,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
             ProvisioningState = provisioningState;
             Public = @public;
             ResourceRequests = resourceRequests;
+            ResponseCacheProperties = responseCacheProperties;
             SsoProperties = ssoProperties;
             Url = url;
         }

@@ -29,7 +29,9 @@ class PolicySetDefinitionArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]] = None,
                  policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionGroupArgs']]]] = None,
                  policy_set_definition_name: Optional[pulumi.Input[str]] = None,
-                 policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None):
+                 policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PolicySetDefinition resource.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionReferenceArgs']]] policy_definitions: An array of policy definition references.
@@ -39,7 +41,9 @@ class PolicySetDefinitionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]] parameters: The policy set definition parameters that can be used in policy definition references.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionGroupArgs']]] policy_definition_groups: The metadata describing groups of policy definition references within the policy set definition.
         :param pulumi.Input[str] policy_set_definition_name: The name of the policy set definition to create.
-        :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        :param pulumi.Input[str] version: The policy set definition version in #.#.# format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] versions: A list of available versions for this policy set definition.
         """
         pulumi.set(__self__, "policy_definitions", policy_definitions)
         if description is not None:
@@ -56,6 +60,10 @@ class PolicySetDefinitionArgs:
             pulumi.set(__self__, "policy_set_definition_name", policy_set_definition_name)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+        if versions is not None:
+            pulumi.set(__self__, "versions", versions)
 
     @property
     @pulumi.getter(name="policyDefinitions")
@@ -145,13 +153,37 @@ class PolicySetDefinitionArgs:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional[pulumi.Input[Union[str, 'PolicyType']]]:
         """
-        The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
     def policy_type(self, value: Optional[pulumi.Input[Union[str, 'PolicyType']]]):
         pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy set definition version in #.#.# format.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter
+    def versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of available versions for this policy set definition.
+        """
+        return pulumi.get(self, "versions")
+
+    @versions.setter
+    def versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "versions", value)
 
 
 class PolicySetDefinition(pulumi.CustomResource):
@@ -167,12 +199,14 @@ class PolicySetDefinition(pulumi.CustomResource):
                  policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyDefinitionReferenceArgs', 'PolicyDefinitionReferenceArgsDict']]]]] = None,
                  policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The policy set definition.
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
-        Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+        Other available API versions: 2021-06-01, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,7 +217,9 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyDefinitionGroupArgs', 'PolicyDefinitionGroupArgsDict']]]] policy_definition_groups: The metadata describing groups of policy definition references within the policy set definition.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyDefinitionReferenceArgs', 'PolicyDefinitionReferenceArgsDict']]]] policy_definitions: An array of policy definition references.
         :param pulumi.Input[str] policy_set_definition_name: The name of the policy set definition to create.
-        :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        :param pulumi.Input[str] version: The policy set definition version in #.#.# format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] versions: A list of available versions for this policy set definition.
         """
         ...
     @overload
@@ -193,9 +229,9 @@ class PolicySetDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy set definition.
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
-        Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+        Other available API versions: 2021-06-01, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param PolicySetDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -220,6 +256,8 @@ class PolicySetDefinition(pulumi.CustomResource):
                  policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyDefinitionReferenceArgs', 'PolicyDefinitionReferenceArgsDict']]]]] = None,
                  policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -239,6 +277,8 @@ class PolicySetDefinition(pulumi.CustomResource):
             __props__.__dict__["policy_definitions"] = policy_definitions
             __props__.__dict__["policy_set_definition_name"] = policy_set_definition_name
             __props__.__dict__["policy_type"] = policy_type
+            __props__.__dict__["version"] = version
+            __props__.__dict__["versions"] = versions
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -276,6 +316,8 @@ class PolicySetDefinition(pulumi.CustomResource):
         __props__.__dict__["policy_type"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
+        __props__.__dict__["versions"] = None
         return PolicySetDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -338,7 +380,7 @@ class PolicySetDefinition(pulumi.CustomResource):
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
         return pulumi.get(self, "policy_type")
 
@@ -357,4 +399,20 @@ class PolicySetDefinition(pulumi.CustomResource):
         The type of the resource (Microsoft.Authorization/policySetDefinitions).
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The policy set definition version in #.#.# format.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter
+    def versions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of available versions for this policy set definition.
+        """
+        return pulumi.get(self, "versions")
 

@@ -16,18 +16,21 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetSAPApplicationServerInstanceResult',
-    'AwaitableGetSAPApplicationServerInstanceResult',
+    'GetSapApplicationServerInstanceResult',
+    'AwaitableGetSapApplicationServerInstanceResult',
     'get_sap_application_server_instance',
     'get_sap_application_server_instance_output',
 ]
 
 @pulumi.output_type
-class GetSAPApplicationServerInstanceResult:
+class GetSapApplicationServerInstanceResult:
     """
     Define the SAP Application Server Instance resource.
     """
-    def __init__(__self__, errors=None, gateway_port=None, health=None, hostname=None, icm_http_port=None, icm_https_port=None, id=None, instance_no=None, ip_address=None, kernel_patch=None, kernel_version=None, load_balancer_details=None, location=None, name=None, provisioning_state=None, status=None, subnet=None, system_data=None, tags=None, type=None, vm_details=None):
+    def __init__(__self__, dispatcher_status=None, errors=None, gateway_port=None, health=None, hostname=None, icm_http_port=None, icm_https_port=None, id=None, instance_no=None, ip_address=None, kernel_patch=None, kernel_version=None, load_balancer_details=None, location=None, name=None, provisioning_state=None, status=None, subnet=None, system_data=None, tags=None, type=None, vm_details=None):
+        if dispatcher_status and not isinstance(dispatcher_status, str):
+            raise TypeError("Expected argument 'dispatcher_status' to be a str")
+        pulumi.set(__self__, "dispatcher_status", dispatcher_status)
         if errors and not isinstance(errors, dict):
             raise TypeError("Expected argument 'errors' to be a dict")
         pulumi.set(__self__, "errors", errors)
@@ -93,6 +96,14 @@ class GetSAPApplicationServerInstanceResult:
         pulumi.set(__self__, "vm_details", vm_details)
 
     @property
+    @pulumi.getter(name="dispatcherStatus")
+    def dispatcher_status(self) -> str:
+        """
+        Application server instance dispatcher status.
+        """
+        return pulumi.get(self, "dispatcher_status")
+
+    @property
     @pulumi.getter
     def errors(self) -> 'outputs.SAPVirtualInstanceErrorResponse':
         """
@@ -144,7 +155,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -160,7 +171,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
         """
-         Application server instance SAP IP Address.
+        Application server instance SAP IP Address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -176,7 +187,7 @@ class GetSAPApplicationServerInstanceResult:
     @pulumi.getter(name="kernelVersion")
     def kernel_version(self) -> str:
         """
-         Application server instance SAP Kernel Version.
+        Application server instance SAP Kernel Version.
         """
         return pulumi.get(self, "kernel_version")
 
@@ -261,12 +272,13 @@ class GetSAPApplicationServerInstanceResult:
         return pulumi.get(self, "vm_details")
 
 
-class AwaitableGetSAPApplicationServerInstanceResult(GetSAPApplicationServerInstanceResult):
+class AwaitableGetSapApplicationServerInstanceResult(GetSapApplicationServerInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetSAPApplicationServerInstanceResult(
+        return GetSapApplicationServerInstanceResult(
+            dispatcher_status=self.dispatcher_status,
             errors=self.errors,
             gateway_port=self.gateway_port,
             health=self.health,
@@ -293,12 +305,10 @@ class AwaitableGetSAPApplicationServerInstanceResult(GetSAPApplicationServerInst
 def get_sap_application_server_instance(application_instance_name: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         sap_virtual_instance_name: Optional[str] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPApplicationServerInstanceResult:
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapApplicationServerInstanceResult:
     """
     Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str application_instance_name: The name of SAP Application Server instance resource.
@@ -310,9 +320,10 @@ def get_sap_application_server_instance(application_instance_name: Optional[str]
     __args__['resourceGroupName'] = resource_group_name
     __args__['sapVirtualInstanceName'] = sap_virtual_instance_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('azure-native:workloads:getSAPApplicationServerInstance', __args__, opts=opts, typ=GetSAPApplicationServerInstanceResult).value
+    __ret__ = pulumi.runtime.invoke('azure-native:workloads:getSapApplicationServerInstance', __args__, opts=opts, typ=GetSapApplicationServerInstanceResult).value
 
-    return AwaitableGetSAPApplicationServerInstanceResult(
+    return AwaitableGetSapApplicationServerInstanceResult(
+        dispatcher_status=pulumi.get(__ret__, 'dispatcher_status'),
         errors=pulumi.get(__ret__, 'errors'),
         gateway_port=pulumi.get(__ret__, 'gateway_port'),
         health=pulumi.get(__ret__, 'health'),
@@ -337,12 +348,10 @@ def get_sap_application_server_instance(application_instance_name: Optional[str]
 def get_sap_application_server_instance_output(application_instance_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPApplicationServerInstanceResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapApplicationServerInstanceResult]:
     """
     Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str application_instance_name: The name of SAP Application Server instance resource.
@@ -354,8 +363,9 @@ def get_sap_application_server_instance_output(application_instance_name: Option
     __args__['resourceGroupName'] = resource_group_name
     __args__['sapVirtualInstanceName'] = sap_virtual_instance_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getSAPApplicationServerInstance', __args__, opts=opts, typ=GetSAPApplicationServerInstanceResult)
-    return __ret__.apply(lambda __response__: GetSAPApplicationServerInstanceResult(
+    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getSapApplicationServerInstance', __args__, opts=opts, typ=GetSapApplicationServerInstanceResult)
+    return __ret__.apply(lambda __response__: GetSapApplicationServerInstanceResult(
+        dispatcher_status=pulumi.get(__response__, 'dispatcher_status'),
         errors=pulumi.get(__response__, 'errors'),
         gateway_port=pulumi.get(__response__, 'gateway_port'),
         health=pulumi.get(__response__, 'health'),

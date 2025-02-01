@@ -27,6 +27,10 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         [Input("queryStringBehavior", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Cdn.QueryStringBehavior> QueryStringBehavior { get; set; } = null!;
 
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'.
+        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

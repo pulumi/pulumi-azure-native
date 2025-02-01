@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an event hub data connection.
- * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+ * Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
  */
 export class EventHubDataConnection extends pulumi.CustomResource {
     /**
@@ -172,7 +172,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190121:EventHubDataConnection" }, { type: "azure-native:kusto/v20190515:EventHubDataConnection" }, { type: "azure-native:kusto/v20190907:EventHubDataConnection" }, { type: "azure-native:kusto/v20191109:EventHubDataConnection" }, { type: "azure-native:kusto/v20200215:EventHubDataConnection" }, { type: "azure-native:kusto/v20200614:EventHubDataConnection" }, { type: "azure-native:kusto/v20200918:EventHubDataConnection" }, { type: "azure-native:kusto/v20210101:EventHubDataConnection" }, { type: "azure-native:kusto/v20210827:EventHubDataConnection" }, { type: "azure-native:kusto/v20220201:EventHubDataConnection" }, { type: "azure-native:kusto/v20220707:EventHubDataConnection" }, { type: "azure-native:kusto/v20221111:EventHubDataConnection" }, { type: "azure-native:kusto/v20221229:EventHubDataConnection" }, { type: "azure-native:kusto/v20230502:EventHubDataConnection" }, { type: "azure-native:kusto/v20230815:EventHubDataConnection" }, { type: "azure-native:kusto/v20240413:EventHubDataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190121:EventHubDataConnection" }, { type: "azure-native:kusto/v20190515:EventHubDataConnection" }, { type: "azure-native:kusto/v20190907:EventHubDataConnection" }, { type: "azure-native:kusto/v20191109:EventHubDataConnection" }, { type: "azure-native:kusto/v20200215:EventGridDataConnection" }, { type: "azure-native:kusto/v20200215:EventHubDataConnection" }, { type: "azure-native:kusto/v20200614:EventHubDataConnection" }, { type: "azure-native:kusto/v20200918:EventHubDataConnection" }, { type: "azure-native:kusto/v20210101:EventHubDataConnection" }, { type: "azure-native:kusto/v20210827:EventHubDataConnection" }, { type: "azure-native:kusto/v20220201:EventHubDataConnection" }, { type: "azure-native:kusto/v20220707:EventHubDataConnection" }, { type: "azure-native:kusto/v20221111:EventHubDataConnection" }, { type: "azure-native:kusto/v20221229:CosmosDbDataConnection" }, { type: "azure-native:kusto/v20221229:EventGridDataConnection" }, { type: "azure-native:kusto/v20221229:EventHubDataConnection" }, { type: "azure-native:kusto/v20221229:IotHubDataConnection" }, { type: "azure-native:kusto/v20230502:CosmosDbDataConnection" }, { type: "azure-native:kusto/v20230502:EventGridDataConnection" }, { type: "azure-native:kusto/v20230502:EventHubDataConnection" }, { type: "azure-native:kusto/v20230502:IotHubDataConnection" }, { type: "azure-native:kusto/v20230815:CosmosDbDataConnection" }, { type: "azure-native:kusto/v20230815:EventGridDataConnection" }, { type: "azure-native:kusto/v20230815:EventHubDataConnection" }, { type: "azure-native:kusto/v20230815:IotHubDataConnection" }, { type: "azure-native:kusto/v20240413:CosmosDbDataConnection" }, { type: "azure-native:kusto/v20240413:EventGridDataConnection" }, { type: "azure-native:kusto/v20240413:EventHubDataConnection" }, { type: "azure-native:kusto/v20240413:IotHubDataConnection" }, { type: "azure-native:kusto:CosmosDbDataConnection" }, { type: "azure-native:kusto:EventGridDataConnection" }, { type: "azure-native:kusto:IotHubDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubDataConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -236,7 +236,7 @@ export interface EventHubDataConnectionArgs {
      */
     mappingRuleName?: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

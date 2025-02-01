@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified token.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2022-12-01, 2024-11-01-preview.
  */
 export function getToken(args: GetTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,9 +80,9 @@ export interface GetTokenResult {
 }
 /**
  * Gets the properties of the specified token.
- * Azure REST API version: 2022-12-01.
+ * Azure REST API version: 2023-11-01-preview.
  *
- * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Other available API versions: 2022-12-01, 2024-11-01-preview.
  */
 export function getTokenOutput(args: GetTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

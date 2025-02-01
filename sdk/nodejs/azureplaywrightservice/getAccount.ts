@@ -9,23 +9,23 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Account
- * Azure REST API version: 2023-10-01-preview.
+ * Azure REST API version: 2024-12-01.
  *
- * Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azureplaywrightservice:getAccount", {
-        "name": args.name,
+        "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetAccountArgs {
     /**
-     * Name of account
+     * Name of account.
      */
-    name: string;
+    accountName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -33,7 +33,7 @@ export interface GetAccountArgs {
 }
 
 /**
- * An account resource
+ * A Playwright service account resource.
  */
 export interface GetAccountResult {
     /**
@@ -41,9 +41,13 @@ export interface GetAccountResult {
      */
     readonly dashboardUri: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+     */
+    readonly localAuth?: string;
     /**
      * The geo-location where the resource lives
      */
@@ -83,23 +87,23 @@ export interface GetAccountResult {
 }
 /**
  * Get a Account
- * Azure REST API version: 2023-10-01-preview.
+ * Azure REST API version: 2024-12-01.
  *
- * Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azureplaywrightservice:getAccount", {
-        "name": args.name,
+        "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetAccountOutputArgs {
     /**
-     * Name of account
+     * Name of account.
      */
-    name: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

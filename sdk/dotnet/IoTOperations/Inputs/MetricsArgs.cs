@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
     public sealed class MetricsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The open telemetry export configuration.
-        /// </summary>
-        [Input("opentelemetryExportConfig")]
-        public Input<Inputs.OpenTelemetryExportConfigArgs>? OpentelemetryExportConfig { get; set; }
-
-        /// <summary>
         /// The prometheus port to expose the metrics.
         /// </summary>
         [Input("prometheusPort")]

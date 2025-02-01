@@ -7,13 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .default_user_rule import *
-from .endpoint import *
 from .get_default_user_rule import *
-from .get_endpoint import *
 from .get_network_group import *
-from .get_profile import *
 from .get_security_user_configuration import *
-from .get_traffic_manager_user_metrics_key import *
 from .get_user_rule import *
 from .get_user_rule_collection import *
 from .list_active_security_user_rules import *
@@ -22,9 +18,7 @@ from .list_list_effective_virtual_network_by_network_group import *
 from .list_network_manager_effective_connectivity_configurations import *
 from .list_network_manager_effective_security_admin_rules import *
 from .network_group import *
-from .profile import *
 from .security_user_configuration import *
-from .traffic_manager_user_metrics_key import *
 from .user_rule import *
 from .user_rule_collection import *
 from ._inputs import *

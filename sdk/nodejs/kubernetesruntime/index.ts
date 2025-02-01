@@ -50,11 +50,9 @@ utilities.lazyLoad(exports, ["StorageClass"], () => require("./storageClass"));
 export * from "../types/enums/kubernetesruntime";
 
 // Export sub-modules:
-import * as v20231001preview from "./v20231001preview";
 import * as v20240301 from "./v20240301";
 
 export {
-    v20231001preview,
     v20240301,
 };
 

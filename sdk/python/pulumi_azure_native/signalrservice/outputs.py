@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'IPRuleResponse',
     'LiveTraceCategoryResponse',
     'LiveTraceConfigurationResponse',
     'ManagedIdentityResponse',
@@ -42,6 +43,41 @@ __all__ = [
     'UpstreamTemplateResponse',
     'UserAssignedIdentityPropertyResponse',
 ]
+
+@pulumi.output_type
+class IPRuleResponse(dict):
+    """
+    An IP rule
+    """
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        An IP rule
+        :param str action: Azure Networking ACL Action.
+        :param str value: An IP or CIDR or ServiceTag
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Azure Networking ACL Action.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        An IP or CIDR or ServiceTag
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class LiveTraceCategoryResponse(dict):
@@ -361,11 +397,11 @@ class PrivateEndpointConnectionResponse(dict):
         """
         A private endpoint connection to an azure resource
         :param Sequence[str] group_ids: Group IDs
-        :param str id: Fully qualified resource Id for the resource.
-        :param str name: The name of the resource.
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param str name: The name of the resource
         :param str provisioning_state: Provisioning state of the resource.
-        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
-        :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: Private endpoint
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state of the private endpoint connection
         """
@@ -392,7 +428,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -400,7 +436,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -416,7 +452,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -424,7 +460,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -637,14 +673,16 @@ class ResourceSkuResponse(dict):
         :param str family: Not used. Retained for future use.
         :param str name: The name of the SKU. Required.
                
-               Allowed values: Standard_S1, Free_F1, Premium_P1
+               Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
         :param str size: Not used. Retained for future use.
-        :param int capacity: Optional, integer. The unit count of the resource. 1 by default.
+        :param int capacity: Optional, integer. The unit count of the resource.
+               1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
                
                If present, following values are allowed:
-                   Free: 1;
-                   Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
-                   Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Free_F1: 1;
+                   Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
         :param str tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
                
                `Basic` is deprecated, use `Standard` instead.
@@ -671,7 +709,7 @@ class ResourceSkuResponse(dict):
         """
         The name of the SKU. Required.
         
-        Allowed values: Standard_S1, Free_F1, Premium_P1
+        Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
         """
         return pulumi.get(self, "name")
 
@@ -687,12 +725,14 @@ class ResourceSkuResponse(dict):
     @pulumi.getter
     def capacity(self) -> Optional[int]:
         """
-        Optional, integer. The unit count of the resource. 1 by default.
+        Optional, integer. The unit count of the resource.
+        1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
         
         If present, following values are allowed:
-            Free: 1;
-            Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
-            Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Free_F1: 1;
+            Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
         """
         return pulumi.get(self, "capacity")
 
@@ -829,13 +869,13 @@ class SharedPrivateLinkResourceResponse(dict):
         """
         Describes a Shared Private Link Resource
         :param str group_id: The group id from the provider of resource the shared private link resource is for
-        :param str id: Fully qualified resource Id for the resource.
-        :param str name: The name of the resource.
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param str name: The name of the resource
         :param str private_link_resource_id: The resource id of the resource the shared private link resource is for
         :param str provisioning_state: Provisioning state of the resource.
         :param str status: Status of the shared private link resource
-        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
-        :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param str request_message: The request message for requesting approval of the shared private link resource
         """
         pulumi.set(__self__, "group_id", group_id)
@@ -861,7 +901,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -869,7 +909,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -901,7 +941,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -909,7 +949,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -1025,6 +1065,8 @@ class SignalRNetworkACLsResponse(dict):
         suggest = None
         if key == "defaultAction":
             suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
         elif key == "privateEndpoints":
             suggest = "private_endpoints"
         elif key == "publicNetwork":
@@ -1043,16 +1085,20 @@ class SignalRNetworkACLsResponse(dict):
 
     def __init__(__self__, *,
                  default_action: Optional[str] = None,
+                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
                  private_endpoints: Optional[Sequence['outputs.PrivateEndpointACLResponse']] = None,
                  public_network: Optional['outputs.NetworkACLResponse'] = None):
         """
         Network ACLs for the resource
         :param str default_action: Azure Networking ACL Action.
+        :param Sequence['IPRuleResponse'] ip_rules: IP rules for filtering public traffic
         :param Sequence['PrivateEndpointACLResponse'] private_endpoints: ACLs for requests from private endpoints
         :param 'NetworkACLResponse' public_network: Network ACL
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
         if private_endpoints is not None:
             pulumi.set(__self__, "private_endpoints", private_endpoints)
         if public_network is not None:
@@ -1065,6 +1111,14 @@ class SignalRNetworkACLsResponse(dict):
         Azure Networking ACL Action.
         """
         return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleResponse']]:
+        """
+        IP rules for filtering public traffic
+        """
+        return pulumi.get(self, "ip_rules")
 
     @property
     @pulumi.getter(name="privateEndpoints")
@@ -1109,10 +1163,10 @@ class SignalRTlsSettingsResponse(dict):
                  client_cert_enabled: Optional[bool] = None):
         """
         TLS settings for the resource
-        :param bool client_cert_enabled: Request client certificate during TLS handshake if enabled
+        :param bool client_cert_enabled: Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
         if client_cert_enabled is None:
-            client_cert_enabled = True
+            client_cert_enabled = False
         if client_cert_enabled is not None:
             pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
 
@@ -1120,7 +1174,7 @@ class SignalRTlsSettingsResponse(dict):
     @pulumi.getter(name="clientCertEnabled")
     def client_cert_enabled(self) -> Optional[bool]:
         """
-        Request client certificate during TLS handshake if enabled
+        Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
         return pulumi.get(self, "client_cert_enabled")
 

@@ -27,7 +27,7 @@ class GetBastionHostResult:
     """
     Bastion Host resource.
     """
-    def __init__(__self__, disable_copy_paste=None, dns_name=None, enable_file_copy=None, enable_ip_connect=None, enable_kerberos=None, enable_shareable_link=None, enable_tunneling=None, etag=None, id=None, ip_configurations=None, location=None, name=None, provisioning_state=None, scale_units=None, sku=None, tags=None, type=None):
+    def __init__(__self__, disable_copy_paste=None, dns_name=None, enable_file_copy=None, enable_ip_connect=None, enable_kerberos=None, enable_private_only_bastion=None, enable_session_recording=None, enable_shareable_link=None, enable_tunneling=None, etag=None, id=None, ip_configurations=None, location=None, name=None, network_acls=None, provisioning_state=None, scale_units=None, sku=None, tags=None, type=None, virtual_network=None, zones=None):
         if disable_copy_paste and not isinstance(disable_copy_paste, bool):
             raise TypeError("Expected argument 'disable_copy_paste' to be a bool")
         pulumi.set(__self__, "disable_copy_paste", disable_copy_paste)
@@ -43,6 +43,12 @@ class GetBastionHostResult:
         if enable_kerberos and not isinstance(enable_kerberos, bool):
             raise TypeError("Expected argument 'enable_kerberos' to be a bool")
         pulumi.set(__self__, "enable_kerberos", enable_kerberos)
+        if enable_private_only_bastion and not isinstance(enable_private_only_bastion, bool):
+            raise TypeError("Expected argument 'enable_private_only_bastion' to be a bool")
+        pulumi.set(__self__, "enable_private_only_bastion", enable_private_only_bastion)
+        if enable_session_recording and not isinstance(enable_session_recording, bool):
+            raise TypeError("Expected argument 'enable_session_recording' to be a bool")
+        pulumi.set(__self__, "enable_session_recording", enable_session_recording)
         if enable_shareable_link and not isinstance(enable_shareable_link, bool):
             raise TypeError("Expected argument 'enable_shareable_link' to be a bool")
         pulumi.set(__self__, "enable_shareable_link", enable_shareable_link)
@@ -64,6 +70,9 @@ class GetBastionHostResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_acls and not isinstance(network_acls, dict):
+            raise TypeError("Expected argument 'network_acls' to be a dict")
+        pulumi.set(__self__, "network_acls", network_acls)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -79,6 +88,12 @@ class GetBastionHostResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if virtual_network and not isinstance(virtual_network, dict):
+            raise TypeError("Expected argument 'virtual_network' to be a dict")
+        pulumi.set(__self__, "virtual_network", virtual_network)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="disableCopyPaste")
@@ -119,6 +134,22 @@ class GetBastionHostResult:
         Enable/Disable Kerberos feature of the Bastion Host resource.
         """
         return pulumi.get(self, "enable_kerberos")
+
+    @property
+    @pulumi.getter(name="enablePrivateOnlyBastion")
+    def enable_private_only_bastion(self) -> Optional[bool]:
+        """
+        Enable/Disable Private Only feature of the Bastion Host resource.
+        """
+        return pulumi.get(self, "enable_private_only_bastion")
+
+    @property
+    @pulumi.getter(name="enableSessionRecording")
+    def enable_session_recording(self) -> Optional[bool]:
+        """
+        Enable/Disable Session Recording feature of the Bastion Host resource.
+        """
+        return pulumi.get(self, "enable_session_recording")
 
     @property
     @pulumi.getter(name="enableShareableLink")
@@ -177,6 +208,11 @@ class GetBastionHostResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> Optional['outputs.BastionHostPropertiesFormatResponseNetworkAcls']:
+        return pulumi.get(self, "network_acls")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -216,6 +252,22 @@ class GetBastionHostResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to an existing virtual network required for Developer Bastion Host only.
+        """
+        return pulumi.get(self, "virtual_network")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        A list of availability zones denoting where the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
+
 
 class AwaitableGetBastionHostResult(GetBastionHostResult):
     # pylint: disable=using-constant-test
@@ -228,6 +280,8 @@ class AwaitableGetBastionHostResult(GetBastionHostResult):
             enable_file_copy=self.enable_file_copy,
             enable_ip_connect=self.enable_ip_connect,
             enable_kerberos=self.enable_kerberos,
+            enable_private_only_bastion=self.enable_private_only_bastion,
+            enable_session_recording=self.enable_session_recording,
             enable_shareable_link=self.enable_shareable_link,
             enable_tunneling=self.enable_tunneling,
             etag=self.etag,
@@ -235,11 +289,14 @@ class AwaitableGetBastionHostResult(GetBastionHostResult):
             ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
+            network_acls=self.network_acls,
             provisioning_state=self.provisioning_state,
             scale_units=self.scale_units,
             sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_network=self.virtual_network,
+            zones=self.zones)
 
 
 def get_bastion_host(bastion_host_name: Optional[str] = None,
@@ -247,9 +304,9 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBastionHostResult:
     """
     Gets the specified Bastion Host.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2023-02-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.
@@ -267,6 +324,8 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
         enable_file_copy=pulumi.get(__ret__, 'enable_file_copy'),
         enable_ip_connect=pulumi.get(__ret__, 'enable_ip_connect'),
         enable_kerberos=pulumi.get(__ret__, 'enable_kerberos'),
+        enable_private_only_bastion=pulumi.get(__ret__, 'enable_private_only_bastion'),
+        enable_session_recording=pulumi.get(__ret__, 'enable_session_recording'),
         enable_shareable_link=pulumi.get(__ret__, 'enable_shareable_link'),
         enable_tunneling=pulumi.get(__ret__, 'enable_tunneling'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -274,19 +333,22 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
         ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        network_acls=pulumi.get(__ret__, 'network_acls'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         scale_units=pulumi.get(__ret__, 'scale_units'),
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        virtual_network=pulumi.get(__ret__, 'virtual_network'),
+        zones=pulumi.get(__ret__, 'zones'))
 def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBastionHostResult]:
     """
     Gets the specified Bastion Host.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2023-02-01.
 
 
     :param str bastion_host_name: The name of the Bastion Host.
@@ -303,6 +365,8 @@ def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = Non
         enable_file_copy=pulumi.get(__response__, 'enable_file_copy'),
         enable_ip_connect=pulumi.get(__response__, 'enable_ip_connect'),
         enable_kerberos=pulumi.get(__response__, 'enable_kerberos'),
+        enable_private_only_bastion=pulumi.get(__response__, 'enable_private_only_bastion'),
+        enable_session_recording=pulumi.get(__response__, 'enable_session_recording'),
         enable_shareable_link=pulumi.get(__response__, 'enable_shareable_link'),
         enable_tunneling=pulumi.get(__response__, 'enable_tunneling'),
         etag=pulumi.get(__response__, 'etag'),
@@ -310,8 +374,11 @@ def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = Non
         ip_configurations=pulumi.get(__response__, 'ip_configurations'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        network_acls=pulumi.get(__response__, 'network_acls'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         scale_units=pulumi.get(__response__, 'scale_units'),
         sku=pulumi.get(__response__, 'sku'),
         tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        virtual_network=pulumi.get(__response__, 'virtual_network'),
+        zones=pulumi.get(__response__, 'zones')))

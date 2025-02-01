@@ -72,7 +72,7 @@ class GetDedicatedHsmResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The Azure Resource Manager resource ID for the dedicated HSM.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -80,7 +80,7 @@ class GetDedicatedHsmResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The supported Azure location where the dedicated HSM should be created.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -96,7 +96,7 @@ class GetDedicatedHsmResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the dedicated HSM.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -144,7 +144,7 @@ class GetDedicatedHsmResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -152,7 +152,7 @@ class GetDedicatedHsmResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -160,7 +160,7 @@ class GetDedicatedHsmResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The resource type of the dedicated HSM.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -199,13 +199,13 @@ def get_dedicated_hsm(name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHsmResult:
     """
     Gets the specified Azure dedicated HSM.
-    Azure REST API version: 2021-11-30.
+    Azure REST API version: 2024-06-30-preview.
 
-    Other available API versions: 2024-06-30-preview.
+    Other available API versions: 2021-11-30.
 
 
-    :param str name: The name of the dedicated HSM.
-    :param str resource_group_name: The name of the Resource Group to which the dedicated hsm belongs.
+    :param str name: Name of the dedicated Hsm
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -232,13 +232,13 @@ def get_dedicated_hsm_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHsmResult]:
     """
     Gets the specified Azure dedicated HSM.
-    Azure REST API version: 2021-11-30.
+    Azure REST API version: 2024-06-30-preview.
 
-    Other available API versions: 2024-06-30-preview.
+    Other available API versions: 2021-11-30.
 
 
-    :param str name: The name of the dedicated HSM.
-    :param str resource_group_name: The name of the Resource Group to which the dedicated hsm belongs.
+    :param str name: Name of the dedicated Hsm
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['name'] = name

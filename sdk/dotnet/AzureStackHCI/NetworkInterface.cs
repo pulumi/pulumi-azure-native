@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// The network interface resource definition.
-    /// Azure REST API version: 2022-12-15-preview.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Other available API versions: 2022-12-15-preview, 2024-07-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// NetworkSecurityGroup - Network Security Group attached to the network interface.
+        /// </summary>
+        [Output("networkSecurityGroup")]
+        public Output<Outputs.NetworkSecurityGroupArmReferenceResponse?> NetworkSecurityGroup { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the network interface.
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:NetworkInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:NetworkInterface" },
@@ -184,6 +191,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("networkInterfaceName")]
         public Input<string>? NetworkInterfaceName { get; set; }
+
+        /// <summary>
+        /// NetworkSecurityGroup - Network Security Group attached to the network interface.
+        /// </summary>
+        [Input("networkSecurityGroup")]
+        public Input<Inputs.NetworkSecurityGroupArmReferenceArgs>? NetworkSecurityGroup { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

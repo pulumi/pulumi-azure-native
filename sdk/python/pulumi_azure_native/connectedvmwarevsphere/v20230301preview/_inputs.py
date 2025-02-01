@@ -52,8 +52,6 @@ __all__ = [
     'StorageProfileArgsDict',
     'UefiSettingsArgs',
     'UefiSettingsArgsDict',
-    'VICredentialArgs',
-    'VICredentialArgsDict',
     'VirtualDiskArgs',
     'VirtualDiskArgsDict',
 ]
@@ -1345,62 +1343,6 @@ class UefiSettingsArgs:
     @secure_boot_enabled.setter
     def secure_boot_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "secure_boot_enabled", value)
-
-
-if not MYPY:
-    class VICredentialArgsDict(TypedDict):
-        """
-        Username / Password Credentials to connect to vcenter.
-        """
-        password: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets the password to connect with the vCenter.
-        """
-        username: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets username to connect with the vCenter.
-        """
-elif False:
-    VICredentialArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class VICredentialArgs:
-    def __init__(__self__, *,
-                 password: Optional[pulumi.Input[str]] = None,
-                 username: Optional[pulumi.Input[str]] = None):
-        """
-        Username / Password Credentials to connect to vcenter.
-        :param pulumi.Input[str] password: Gets or sets the password to connect with the vCenter.
-        :param pulumi.Input[str] username: Gets or sets username to connect with the vCenter.
-        """
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the password to connect with the vCenter.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets username to connect with the vCenter.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "username", value)
 
 
 if not MYPY:

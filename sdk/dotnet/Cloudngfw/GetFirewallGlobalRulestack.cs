@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// Get Global Rulestack associated with the Firewall
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2023-09-01, 2024-02-07-preview.
         /// </summary>
         public static Task<GetFirewallGlobalRulestackResult> InvokeAsync(GetFirewallGlobalRulestackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallGlobalRulestackResult>("azure-native:cloudngfw:getFirewallGlobalRulestack", args ?? new GetFirewallGlobalRulestackArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Global Rulestack associated with the Firewall
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2023-09-01, 2024-02-07-preview.
         /// </summary>
         public static Output<GetFirewallGlobalRulestackResult> Invoke(GetFirewallGlobalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallGlobalRulestackResult>("azure-native:cloudngfw:getFirewallGlobalRulestack", args ?? new GetFirewallGlobalRulestackInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Global Rulestack associated with the Firewall
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-01-19-preview.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2023-09-01, 2024-02-07-preview.
         /// </summary>
         public static Output<GetFirewallGlobalRulestackResult> Invoke(GetFirewallGlobalRulestackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallGlobalRulestackResult>("azure-native:cloudngfw:getFirewallGlobalRulestack", args ?? new GetFirewallGlobalRulestackInvokeArgs(), options.WithDefaults());

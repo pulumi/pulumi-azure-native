@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Returns details of the environment.
  * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2024-06-01-preview.
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,7 +91,7 @@ export interface GetEnvironmentResult {
  * Returns details of the environment.
  * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2024-06-01-preview.
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

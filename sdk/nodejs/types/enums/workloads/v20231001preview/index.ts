@@ -75,11 +75,10 @@ export type ManagedResourcesNetworkAccessType = (typeof ManagedResourcesNetworkA
 export const ManagedServiceIdentityType = {
     None: "None",
     UserAssigned: "UserAssigned",
-    SystemAssigned: "SystemAssigned",
 } as const;
 
 /**
- * The managed service identity for all identities.
+ * Type of manage identity
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 

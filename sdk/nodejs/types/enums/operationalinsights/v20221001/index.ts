@@ -2,25 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const BillingType = {
-    Cluster: "Cluster",
-    Workspaces: "Workspaces",
-} as const;
-
-/**
- * The cluster's billing type.
- */
-export type BillingType = (typeof BillingType)[keyof typeof BillingType];
-
-export const ClusterSkuNameEnum = {
-    CapacityReservation: "CapacityReservation",
-} as const;
-
-/**
- * The SKU (tier) of a cluster.
- */
-export type ClusterSkuNameEnum = (typeof ClusterSkuNameEnum)[keyof typeof ClusterSkuNameEnum];
-
 export const ColumnDataTypeHintEnum = {
     /**
      * A string that matches the pattern of a URI, for example, scheme://username:password@host:1234/this/is/a/path?k1=v1&k2=v2#fragment
@@ -71,18 +52,6 @@ export const IdentityType = {
  * Type of managed service identity.
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
-
-export const ManagedServiceIdentityType = {
-    None: "None",
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
-} as const;
-
-/**
- * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
- */
-export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const PublicNetworkAccessType = {
     /**

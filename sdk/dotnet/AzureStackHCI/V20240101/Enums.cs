@@ -8,38 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.AzureStackHCI.V20240101
 {
     /// <summary>
-    /// Indicates the way the update content can be downloaded.
-    /// </summary>
-    [EnumType]
-    public readonly struct AvailabilityType : IEquatable<AvailabilityType>
-    {
-        private readonly string _value;
-
-        private AvailabilityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AvailabilityType Local { get; } = new AvailabilityType("Local");
-        public static AvailabilityType Online { get; } = new AvailabilityType("Online");
-        public static AvailabilityType Notify { get; } = new AvailabilityType("Notify");
-
-        public static bool operator ==(AvailabilityType left, AvailabilityType right) => left.Equals(right);
-        public static bool operator !=(AvailabilityType left, AvailabilityType right) => !left.Equals(right);
-
-        public static explicit operator string(AvailabilityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AvailabilityType other && Equals(other);
-        public bool Equals(AvailabilityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
     /// </summary>
     [EnumType]
@@ -63,43 +31,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CloudInitDataSource other && Equals(other);
         public bool Equals(CloudInitDataSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Secured Core Compliance Assignment
-    /// </summary>
-    [EnumType]
-    public readonly struct ComplianceAssignmentType : IEquatable<ComplianceAssignmentType>
-    {
-        private readonly string _value;
-
-        private ComplianceAssignmentType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Report on the state of the machine, but don't make changes.
-        /// </summary>
-        public static ComplianceAssignmentType Audit { get; } = new ComplianceAssignmentType("Audit");
-        /// <summary>
-        /// Applied to the machine. If it drifts, the local service inside the machine makes a correction at the next evaluation.
-        /// </summary>
-        public static ComplianceAssignmentType ApplyAndAutoCorrect { get; } = new ComplianceAssignmentType("ApplyAndAutoCorrect");
-
-        public static bool operator ==(ComplianceAssignmentType left, ComplianceAssignmentType right) => left.Equals(right);
-        public static bool operator !=(ComplianceAssignmentType left, ComplianceAssignmentType right) => !left.Equals(right);
-
-        public static explicit operator string(ComplianceAssignmentType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ComplianceAssignmentType other && Equals(other);
-        public bool Equals(ComplianceAssignmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -137,69 +68,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DeploymentMode other && Equals(other);
         public bool Equals(DeploymentMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Desired level of diagnostic data emitted by the cluster.
-    /// </summary>
-    [EnumType]
-    public readonly struct DiagnosticLevel : IEquatable<DiagnosticLevel>
-    {
-        private readonly string _value;
-
-        private DiagnosticLevel(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DiagnosticLevel Off { get; } = new DiagnosticLevel("Off");
-        public static DiagnosticLevel Basic { get; } = new DiagnosticLevel("Basic");
-        public static DiagnosticLevel Enhanced { get; } = new DiagnosticLevel("Enhanced");
-
-        public static bool operator ==(DiagnosticLevel left, DiagnosticLevel right) => left.Equals(right);
-        public static bool operator !=(DiagnosticLevel left, DiagnosticLevel right) => !left.Equals(right);
-
-        public static explicit operator string(DiagnosticLevel value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DiagnosticLevel other && Equals(other);
-        public bool Equals(DiagnosticLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The format of the actual VHD file [vhd, vhdx]
-    /// </summary>
-    [EnumType]
-    public readonly struct DiskFileFormat : IEquatable<DiskFileFormat>
-    {
-        private readonly string _value;
-
-        private DiskFileFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DiskFileFormat Vhdx { get; } = new DiskFileFormat("vhdx");
-        public static DiskFileFormat Vhd { get; } = new DiskFileFormat("vhd");
-
-        public static bool operator ==(DiskFileFormat left, DiskFileFormat right) => left.Equals(right);
-        public static bool operator !=(DiskFileFormat left, DiskFileFormat right) => !left.Equals(right);
-
-        public static explicit operator string(DiskFileFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DiskFileFormat other && Equals(other);
-        public bool Equals(DiskFileFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -331,39 +199,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240101
     }
 
     /// <summary>
-    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    /// </summary>
-    [EnumType]
-    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
-    {
-        private readonly string _value;
-
-        private ManagedServiceIdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
-        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
-        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
-        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned, UserAssigned");
-
-        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
-        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
-        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
     /// </summary>
     [EnumType]
@@ -387,38 +222,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OperatingSystemTypes other && Equals(other);
         public bool Equals(OperatingSystemTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The guest agent provisioning action.
-    /// </summary>
-    [EnumType]
-    public readonly struct ProvisioningAction : IEquatable<ProvisioningAction>
-    {
-        private readonly string _value;
-
-        private ProvisioningAction(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ProvisioningAction Install { get; } = new ProvisioningAction("install");
-        public static ProvisioningAction Uninstall { get; } = new ProvisioningAction("uninstall");
-        public static ProvisioningAction Repair { get; } = new ProvisioningAction("repair");
-
-        public static bool operator ==(ProvisioningAction left, ProvisioningAction right) => left.Equals(right);
-        public static bool operator !=(ProvisioningAction left, ProvisioningAction right) => !left.Equals(right);
-
-        public static explicit operator string(ProvisioningAction value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProvisioningAction other && Equals(other);
-        public bool Equals(ProvisioningAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -487,185 +290,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240101
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// Name of the service.
-    /// </summary>
-    [EnumType]
-    public readonly struct ServiceName : IEquatable<ServiceName>
-    {
-        private readonly string _value;
-
-        private ServiceName(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ServiceName WAC { get; } = new ServiceName("WAC");
-
-        public static bool operator ==(ServiceName left, ServiceName right) => left.Equals(right);
-        public static bool operator !=(ServiceName left, ServiceName right) => !left.Equals(right);
-
-        public static explicit operator string(ServiceName value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServiceName other && Equals(other);
-        public bool Equals(ServiceName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Customer Intent for Software Assurance Benefit.
-    /// </summary>
-    [EnumType]
-    public readonly struct SoftwareAssuranceIntent : IEquatable<SoftwareAssuranceIntent>
-    {
-        private readonly string _value;
-
-        private SoftwareAssuranceIntent(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SoftwareAssuranceIntent Enable { get; } = new SoftwareAssuranceIntent("Enable");
-        public static SoftwareAssuranceIntent Disable { get; } = new SoftwareAssuranceIntent("Disable");
-
-        public static bool operator ==(SoftwareAssuranceIntent left, SoftwareAssuranceIntent right) => left.Equals(right);
-        public static bool operator !=(SoftwareAssuranceIntent left, SoftwareAssuranceIntent right) => !left.Equals(right);
-
-        public static explicit operator string(SoftwareAssuranceIntent value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SoftwareAssuranceIntent other && Equals(other);
-        public bool Equals(SoftwareAssuranceIntent other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// State of the update as it relates to this stamp.
-    /// </summary>
-    [EnumType]
-    public readonly struct State : IEquatable<State>
-    {
-        private readonly string _value;
-
-        private State(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static State HasPrerequisite { get; } = new State("HasPrerequisite");
-        public static State Obsolete { get; } = new State("Obsolete");
-        public static State Ready { get; } = new State("Ready");
-        public static State NotApplicableBecauseAnotherUpdateIsInProgress { get; } = new State("NotApplicableBecauseAnotherUpdateIsInProgress");
-        public static State Preparing { get; } = new State("Preparing");
-        public static State Installing { get; } = new State("Installing");
-        public static State Installed { get; } = new State("Installed");
-        public static State PreparationFailed { get; } = new State("PreparationFailed");
-        public static State InstallationFailed { get; } = new State("InstallationFailed");
-        public static State Invalid { get; } = new State("Invalid");
-        public static State Recalled { get; } = new State("Recalled");
-        public static State Downloading { get; } = new State("Downloading");
-        public static State DownloadFailed { get; } = new State("DownloadFailed");
-        public static State HealthChecking { get; } = new State("HealthChecking");
-        public static State HealthCheckFailed { get; } = new State("HealthCheckFailed");
-        public static State ReadyToInstall { get; } = new State("ReadyToInstall");
-        public static State ScanInProgress { get; } = new State("ScanInProgress");
-        public static State ScanFailed { get; } = new State("ScanFailed");
-        public static State AdditionalContentRequired { get; } = new State("AdditionalContentRequired");
-
-        public static bool operator ==(State left, State right) => left.Equals(right);
-        public static bool operator !=(State left, State right) => !left.Equals(right);
-
-        public static explicit operator string(State value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is State other && Equals(other);
-        public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// State of the update run.
-    /// </summary>
-    [EnumType]
-    public readonly struct UpdateRunPropertiesState : IEquatable<UpdateRunPropertiesState>
-    {
-        private readonly string _value;
-
-        private UpdateRunPropertiesState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static UpdateRunPropertiesState Unknown { get; } = new UpdateRunPropertiesState("Unknown");
-        public static UpdateRunPropertiesState Succeeded { get; } = new UpdateRunPropertiesState("Succeeded");
-        public static UpdateRunPropertiesState InProgress { get; } = new UpdateRunPropertiesState("InProgress");
-        public static UpdateRunPropertiesState Failed { get; } = new UpdateRunPropertiesState("Failed");
-
-        public static bool operator ==(UpdateRunPropertiesState left, UpdateRunPropertiesState right) => left.Equals(right);
-        public static bool operator !=(UpdateRunPropertiesState left, UpdateRunPropertiesState right) => !left.Equals(right);
-
-        public static explicit operator string(UpdateRunPropertiesState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is UpdateRunPropertiesState other && Equals(other);
-        public bool Equals(UpdateRunPropertiesState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Overall update state of the stamp.
-    /// </summary>
-    [EnumType]
-    public readonly struct UpdateSummariesPropertiesState : IEquatable<UpdateSummariesPropertiesState>
-    {
-        private readonly string _value;
-
-        private UpdateSummariesPropertiesState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static UpdateSummariesPropertiesState Unknown { get; } = new UpdateSummariesPropertiesState("Unknown");
-        public static UpdateSummariesPropertiesState AppliedSuccessfully { get; } = new UpdateSummariesPropertiesState("AppliedSuccessfully");
-        public static UpdateSummariesPropertiesState UpdateAvailable { get; } = new UpdateSummariesPropertiesState("UpdateAvailable");
-        public static UpdateSummariesPropertiesState UpdateInProgress { get; } = new UpdateSummariesPropertiesState("UpdateInProgress");
-        public static UpdateSummariesPropertiesState UpdateFailed { get; } = new UpdateSummariesPropertiesState("UpdateFailed");
-        public static UpdateSummariesPropertiesState NeedsAttention { get; } = new UpdateSummariesPropertiesState("NeedsAttention");
-        public static UpdateSummariesPropertiesState PreparationInProgress { get; } = new UpdateSummariesPropertiesState("PreparationInProgress");
-        public static UpdateSummariesPropertiesState PreparationFailed { get; } = new UpdateSummariesPropertiesState("PreparationFailed");
-
-        public static bool operator ==(UpdateSummariesPropertiesState left, UpdateSummariesPropertiesState right) => left.Equals(right);
-        public static bool operator !=(UpdateSummariesPropertiesState left, UpdateSummariesPropertiesState right) => !left.Equals(right);
-
-        public static explicit operator string(UpdateSummariesPropertiesState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is UpdateSummariesPropertiesState other && Equals(other);
-        public bool Equals(UpdateSummariesPropertiesState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     [EnumType]
     public readonly struct VmSizeEnum : IEquatable<VmSizeEnum>
     {
@@ -708,37 +332,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VmSizeEnum other && Equals(other);
         public bool Equals(VmSizeEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Desired state of Windows Server Subscription.
-    /// </summary>
-    [EnumType]
-    public readonly struct WindowsServerSubscription : IEquatable<WindowsServerSubscription>
-    {
-        private readonly string _value;
-
-        private WindowsServerSubscription(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WindowsServerSubscription Disabled { get; } = new WindowsServerSubscription("Disabled");
-        public static WindowsServerSubscription Enabled { get; } = new WindowsServerSubscription("Enabled");
-
-        public static bool operator ==(WindowsServerSubscription left, WindowsServerSubscription right) => left.Equals(right);
-        public static bool operator !=(WindowsServerSubscription left, WindowsServerSubscription right) => !left.Equals(right);
-
-        public static explicit operator string(WindowsServerSubscription value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WindowsServerSubscription other && Equals(other);
-        public bool Equals(WindowsServerSubscription other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

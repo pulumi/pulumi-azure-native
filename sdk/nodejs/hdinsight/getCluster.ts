@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified cluster.
- * Azure REST API version: 2021-06-01.
+ * Azure REST API version: 2024-08-01-preview.
  *
- * Other available API versions: 2023-04-15-preview, 2023-06-01-preview, 2023-08-15-preview, 2023-11-01-preview, 2024-05-01-preview, 2024-08-01-preview.
+ * Other available API versions: 2021-06-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,9 +79,9 @@ export interface GetClusterResult {
 }
 /**
  * Gets the specified cluster.
- * Azure REST API version: 2021-06-01.
+ * Azure REST API version: 2024-08-01-preview.
  *
- * Other available API versions: 2023-04-15-preview, 2023-06-01-preview, 2023-08-15-preview, 2023-11-01-preview, 2024-05-01-preview, 2024-08-01-preview.
+ * Other available API versions: 2021-06-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -14,9 +14,6 @@ import * as v20221005preview from "./v20221005preview";
 import * as v20230301 from "./v20230301";
 import * as v20230401preview from "./v20230401preview";
 import * as v20230701preview from "./v20230701preview";
-import * as v20230801 from "./v20230801";
-import * as v20230901 from "./v20230901";
-import * as v20231101 from "./v20231101";
 import * as v20240801 from "./v20240801";
 
 export {
@@ -32,9 +29,6 @@ export {
     v20230301,
     v20230401preview,
     v20230701preview,
-    v20230801,
-    v20230901,
-    v20231101,
     v20240801,
 };
 
@@ -507,6 +501,16 @@ export const StatusType = {
  * The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
  */
 export type StatusType = (typeof StatusType)[keyof typeof StatusType];
+
+export const SystemAssignedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (either system assigned, or none).
+ */
+export type SystemAssignedServiceIdentityType = (typeof SystemAssignedServiceIdentityType)[keyof typeof SystemAssignedServiceIdentityType];
 
 export const ThresholdType = {
     /**

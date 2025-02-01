@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Contoso
 {
     /// <summary>
     /// Employee resource
-    /// Azure REST API version: 2021-10-01-preview.
+    /// Azure REST API version: 2021-10-01-preview. Prior API version in Azure Native 2.x: 2021-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:contoso:Employee")]
     public partial class Employee : global::Pulumi.CustomResource

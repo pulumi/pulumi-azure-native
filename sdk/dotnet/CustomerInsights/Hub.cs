@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CustomerInsights
 {
     /// <summary>
     /// Hub resource.
-    /// Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26.
+    /// Azure REST API version: 2017-04-26. Prior API version in Azure Native 2.x: 2017-04-26.
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:Hub")]
     public partial class Hub : global::Pulumi.CustomResource

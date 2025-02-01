@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Export logs that show total throttled Api requests for this subscription in the given time window.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01.
  */
 export function getLogAnalyticExportThrottledRequests(args: GetLogAnalyticExportThrottledRequestsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportThrottledRequestsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,9 +78,9 @@ export interface GetLogAnalyticExportThrottledRequestsResult {
 }
 /**
  * Export logs that show total throttled Api requests for this subscription in the given time window.
- * Azure REST API version: 2023-03-01.
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2020-12-01, 2021-03-01, 2021-04-01, 2021-07-01, 2021-11-01, 2022-03-01, 2022-08-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01.
  */
 export function getLogAnalyticExportThrottledRequestsOutput(args: GetLogAnalyticExportThrottledRequestsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogAnalyticExportThrottledRequestsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

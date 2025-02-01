@@ -30,12 +30,8 @@ __all__ = [
     'DeploymentDataArgsDict',
     'DeploymentSecuritySettingsArgs',
     'DeploymentSecuritySettingsArgsDict',
-    'DeviceConfigurationArgs',
-    'DeviceConfigurationArgsDict',
     'EceDeploymentSecretsArgs',
     'EceDeploymentSecretsArgsDict',
-    'HciEdgeDevicePropertiesArgs',
-    'HciEdgeDevicePropertiesArgsDict',
     'HostNetworkArgs',
     'HostNetworkArgsDict',
     'InfrastructureNetworkArgs',
@@ -46,8 +42,6 @@ __all__ = [
     'IpPoolsArgsDict',
     'NetworkControllerArgs',
     'NetworkControllerArgsDict',
-    'NicDetailArgs',
-    'NicDetailArgsDict',
     'ObservabilityArgs',
     'ObservabilityArgsDict',
     'OptionalServicesArgs',
@@ -980,62 +974,6 @@ class DeploymentSecuritySettingsArgs:
 
 
 if not MYPY:
-    class DeviceConfigurationArgsDict(TypedDict):
-        """
-        The device Configuration for edge device.
-        """
-        device_metadata: NotRequired[pulumi.Input[str]]
-        """
-        Device metadata details.
-        """
-        nic_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['NicDetailArgsDict']]]]
-        """
-        NIC Details of device
-        """
-elif False:
-    DeviceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DeviceConfigurationArgs:
-    def __init__(__self__, *,
-                 device_metadata: Optional[pulumi.Input[str]] = None,
-                 nic_details: Optional[pulumi.Input[Sequence[pulumi.Input['NicDetailArgs']]]] = None):
-        """
-        The device Configuration for edge device.
-        :param pulumi.Input[str] device_metadata: Device metadata details.
-        :param pulumi.Input[Sequence[pulumi.Input['NicDetailArgs']]] nic_details: NIC Details of device
-        """
-        if device_metadata is not None:
-            pulumi.set(__self__, "device_metadata", device_metadata)
-        if nic_details is not None:
-            pulumi.set(__self__, "nic_details", nic_details)
-
-    @property
-    @pulumi.getter(name="deviceMetadata")
-    def device_metadata(self) -> Optional[pulumi.Input[str]]:
-        """
-        Device metadata details.
-        """
-        return pulumi.get(self, "device_metadata")
-
-    @device_metadata.setter
-    def device_metadata(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "device_metadata", value)
-
-    @property
-    @pulumi.getter(name="nicDetails")
-    def nic_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NicDetailArgs']]]]:
-        """
-        NIC Details of device
-        """
-        return pulumi.get(self, "nic_details")
-
-    @nic_details.setter
-    def nic_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NicDetailArgs']]]]):
-        pulumi.set(self, "nic_details", value)
-
-
-if not MYPY:
     class EceDeploymentSecretsArgsDict(TypedDict):
         """
         Protected parameters list stored in keyvault.
@@ -1109,42 +1047,6 @@ class EceDeploymentSecretsArgs:
     @secret_name.setter
     def secret_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_name", value)
-
-
-if not MYPY:
-    class HciEdgeDevicePropertiesArgsDict(TypedDict):
-        """
-        properties for Arc-enabled edge device with HCI OS.
-        """
-        device_configuration: NotRequired[pulumi.Input['DeviceConfigurationArgsDict']]
-        """
-        Device Configuration
-        """
-elif False:
-    HciEdgeDevicePropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class HciEdgeDevicePropertiesArgs:
-    def __init__(__self__, *,
-                 device_configuration: Optional[pulumi.Input['DeviceConfigurationArgs']] = None):
-        """
-        properties for Arc-enabled edge device with HCI OS.
-        :param pulumi.Input['DeviceConfigurationArgs'] device_configuration: Device Configuration
-        """
-        if device_configuration is not None:
-            pulumi.set(__self__, "device_configuration", device_configuration)
-
-    @property
-    @pulumi.getter(name="deviceConfiguration")
-    def device_configuration(self) -> Optional[pulumi.Input['DeviceConfigurationArgs']]:
-        """
-        Device Configuration
-        """
-        return pulumi.get(self, "device_configuration")
-
-    @device_configuration.setter
-    def device_configuration(self, value: Optional[pulumi.Input['DeviceConfigurationArgs']]):
-        pulumi.set(self, "device_configuration", value)
 
 
 if not MYPY:
@@ -1695,202 +1597,6 @@ class NetworkControllerArgs:
     @network_virtualization_enabled.setter
     def network_virtualization_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "network_virtualization_enabled", value)
-
-
-if not MYPY:
-    class NicDetailArgsDict(TypedDict):
-        """
-        The NIC Detail of a device.
-        """
-        adapter_name: NotRequired[pulumi.Input[str]]
-        """
-        Adapter Name of NIC
-        """
-        component_id: NotRequired[pulumi.Input[str]]
-        """
-        Component Id of NIC
-        """
-        default_gateway: NotRequired[pulumi.Input[str]]
-        """
-        Default Gateway of NIC
-        """
-        default_isolation_id: NotRequired[pulumi.Input[str]]
-        """
-        Default Isolation of Management NIC
-        """
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        DNS Servers for NIC
-        """
-        driver_version: NotRequired[pulumi.Input[str]]
-        """
-        Driver Version of NIC
-        """
-        interface_description: NotRequired[pulumi.Input[str]]
-        """
-        Interface Description of NIC
-        """
-        ip4_address: NotRequired[pulumi.Input[str]]
-        """
-        Subnet Mask of NIC
-        """
-        subnet_mask: NotRequired[pulumi.Input[str]]
-        """
-        Subnet Mask of NIC
-        """
-elif False:
-    NicDetailArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class NicDetailArgs:
-    def __init__(__self__, *,
-                 adapter_name: Optional[pulumi.Input[str]] = None,
-                 component_id: Optional[pulumi.Input[str]] = None,
-                 default_gateway: Optional[pulumi.Input[str]] = None,
-                 default_isolation_id: Optional[pulumi.Input[str]] = None,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 driver_version: Optional[pulumi.Input[str]] = None,
-                 interface_description: Optional[pulumi.Input[str]] = None,
-                 ip4_address: Optional[pulumi.Input[str]] = None,
-                 subnet_mask: Optional[pulumi.Input[str]] = None):
-        """
-        The NIC Detail of a device.
-        :param pulumi.Input[str] adapter_name: Adapter Name of NIC
-        :param pulumi.Input[str] component_id: Component Id of NIC
-        :param pulumi.Input[str] default_gateway: Default Gateway of NIC
-        :param pulumi.Input[str] default_isolation_id: Default Isolation of Management NIC
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: DNS Servers for NIC
-        :param pulumi.Input[str] driver_version: Driver Version of NIC
-        :param pulumi.Input[str] interface_description: Interface Description of NIC
-        :param pulumi.Input[str] ip4_address: Subnet Mask of NIC
-        :param pulumi.Input[str] subnet_mask: Subnet Mask of NIC
-        """
-        if adapter_name is not None:
-            pulumi.set(__self__, "adapter_name", adapter_name)
-        if component_id is not None:
-            pulumi.set(__self__, "component_id", component_id)
-        if default_gateway is not None:
-            pulumi.set(__self__, "default_gateway", default_gateway)
-        if default_isolation_id is not None:
-            pulumi.set(__self__, "default_isolation_id", default_isolation_id)
-        if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
-        if driver_version is not None:
-            pulumi.set(__self__, "driver_version", driver_version)
-        if interface_description is not None:
-            pulumi.set(__self__, "interface_description", interface_description)
-        if ip4_address is not None:
-            pulumi.set(__self__, "ip4_address", ip4_address)
-        if subnet_mask is not None:
-            pulumi.set(__self__, "subnet_mask", subnet_mask)
-
-    @property
-    @pulumi.getter(name="adapterName")
-    def adapter_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Adapter Name of NIC
-        """
-        return pulumi.get(self, "adapter_name")
-
-    @adapter_name.setter
-    def adapter_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "adapter_name", value)
-
-    @property
-    @pulumi.getter(name="componentId")
-    def component_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Component Id of NIC
-        """
-        return pulumi.get(self, "component_id")
-
-    @component_id.setter
-    def component_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "component_id", value)
-
-    @property
-    @pulumi.getter(name="defaultGateway")
-    def default_gateway(self) -> Optional[pulumi.Input[str]]:
-        """
-        Default Gateway of NIC
-        """
-        return pulumi.get(self, "default_gateway")
-
-    @default_gateway.setter
-    def default_gateway(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "default_gateway", value)
-
-    @property
-    @pulumi.getter(name="defaultIsolationId")
-    def default_isolation_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Default Isolation of Management NIC
-        """
-        return pulumi.get(self, "default_isolation_id")
-
-    @default_isolation_id.setter
-    def default_isolation_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "default_isolation_id", value)
-
-    @property
-    @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        DNS Servers for NIC
-        """
-        return pulumi.get(self, "dns_servers")
-
-    @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "dns_servers", value)
-
-    @property
-    @pulumi.getter(name="driverVersion")
-    def driver_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Driver Version of NIC
-        """
-        return pulumi.get(self, "driver_version")
-
-    @driver_version.setter
-    def driver_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "driver_version", value)
-
-    @property
-    @pulumi.getter(name="interfaceDescription")
-    def interface_description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Interface Description of NIC
-        """
-        return pulumi.get(self, "interface_description")
-
-    @interface_description.setter
-    def interface_description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "interface_description", value)
-
-    @property
-    @pulumi.getter(name="ip4Address")
-    def ip4_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        Subnet Mask of NIC
-        """
-        return pulumi.get(self, "ip4_address")
-
-    @ip4_address.setter
-    def ip4_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ip4_address", value)
-
-    @property
-    @pulumi.getter(name="subnetMask")
-    def subnet_mask(self) -> Optional[pulumi.Input[str]]:
-        """
-        Subnet Mask of NIC
-        """
-        return pulumi.get(self, "subnet_mask")
-
-    @subnet_mask.setter
-    def subnet_mask(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_mask", value)
 
 
 if not MYPY:

@@ -18,8 +18,6 @@ __all__ = [
     'Categories',
     'CloudName',
     'DataSource',
-    'DescendantBehavior',
-    'DevOpsPolicyType',
     'DevOpsProvisioningState',
     'Effect',
     'Enforce',
@@ -32,6 +30,7 @@ __all__ = [
     'GovernanceRuleType',
     'ImplementationEffort',
     'IsEnabled',
+    'MinimalRiskLevel',
     'MinimalSeverity',
     'OfferingType',
     'Operator',
@@ -42,9 +41,9 @@ __all__ = [
     'RecommendationConfigStatus',
     'RecommendationSupportedClouds',
     'RecommendationType',
-    'Roles',
     'RuleState',
     'ScanningMode',
+    'SecurityContactRole',
     'SecurityIssue',
     'SecuritySolutionStatus',
     'ServerVulnerabilityAssessmentsAzureSettingSelectedProvider',
@@ -52,6 +51,7 @@ __all__ = [
     'Severity',
     'SeverityEnum',
     'Source',
+    'SourceType',
     'StandardSupportedCloud',
     'StandardSupportedClouds',
     'State',
@@ -149,20 +149,9 @@ class AttestationComplianceState(str, Enum):
 
 class AuthenticationType(str, Enum):
     """
-    Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+    The authentication type
     """
-    AWS_CREDS = "awsCreds"
-    """
-    AWS cloud account connector user credentials authentication
-    """
-    AWS_ASSUME_ROLE = "awsAssumeRole"
-    """
-    AWS account connector assume role authentication
-    """
-    GCP_CREDENTIALS = "gcpCredentials"
-    """
-    GCP account connector service to service authentication
-    """
+    ACCESS_TOKEN = "AccessToken"
 
 
 class AutoDiscovery(str, Enum):
@@ -209,6 +198,8 @@ class CloudName(str, Enum):
     GITHUB = "Github"
     AZURE_DEV_OPS = "AzureDevOps"
     GIT_LAB = "GitLab"
+    DOCKER_HUB = "DockerHub"
+    J_FROG = "JFrog"
 
 
 class DataSource(str, Enum):
@@ -216,23 +207,6 @@ class DataSource(str, Enum):
     """
     Devices twin data
     """
-
-
-class DescendantBehavior(str, Enum):
-    """
-    The behavior of a policy on descendant resources.
-    """
-    UNKNOWN = "Unknown"
-    OVERRIDE = "Override"
-    FALL_BACK = "FallBack"
-
-
-class DevOpsPolicyType(str, Enum):
-    """
-    DevOps Policy resource types.
-    """
-    UNKNOWN = "Unknown"
-    PIPELINE = "Pipeline"
 
 
 class DevOpsProvisioningState(str, Enum):
@@ -288,6 +262,8 @@ class EnvironmentType(str, Enum):
     GITHUB_SCOPE = "GithubScope"
     AZURE_DEV_OPS_SCOPE = "AzureDevOpsScope"
     GITLAB_SCOPE = "GitlabScope"
+    DOCKER_HUB_ORGANIZATION = "DockerHubOrganization"
+    J_FROG_ARTIFACTORY = "JFrogArtifactory"
 
 
 class EventSource(str, Enum):
@@ -305,6 +281,8 @@ class EventSource(str, Enum):
     SECURE_SCORE_CONTROLS_SNAPSHOT = "SecureScoreControlsSnapshot"
     REGULATORY_COMPLIANCE_ASSESSMENT = "RegulatoryComplianceAssessment"
     REGULATORY_COMPLIANCE_ASSESSMENT_SNAPSHOT = "RegulatoryComplianceAssessmentSnapshot"
+    ATTACK_PATHS = "AttackPaths"
+    ATTACK_PATHS_SNAPSHOT = "AttackPathsSnapshot"
 
 
 class ExemptionCategory(str, Enum):
@@ -383,6 +361,28 @@ class IsEnabled(str, Enum):
     """
 
 
+class MinimalRiskLevel(str, Enum):
+    """
+    Defines the minimal attach path risk level which will be sent as email notifications
+    """
+    CRITICAL = "Critical"
+    """
+    Get notifications on new attack paths with Critical risk level
+    """
+    HIGH = "High"
+    """
+    Get notifications on new attack paths with High or Critical risk level
+    """
+    MEDIUM = "Medium"
+    """
+    Get notifications on new attach paths with Medium, High or Critical risk level
+    """
+    LOW = "Low"
+    """
+    Get notifications on new attach paths with Low, Medium, High or Critical risk level
+    """
+
+
 class MinimalSeverity(str, Enum):
     """
     Defines the minimal alert severity which will be sent as email notifications
@@ -393,11 +393,11 @@ class MinimalSeverity(str, Enum):
     """
     MEDIUM = "Medium"
     """
-    Get notifications on new alerts with medium or high severity
+    Get notifications on new alerts with Medium or High severity
     """
     LOW = "Low"
     """
-    Don't get notifications on new alerts with low, medium or high severity
+    Get notifications on new alerts with Low, Medium or High severity
     """
 
 
@@ -409,7 +409,6 @@ class OfferingType(str, Enum):
     DEFENDER_FOR_CONTAINERS_AWS = "DefenderForContainersAws"
     DEFENDER_FOR_SERVERS_AWS = "DefenderForServersAws"
     DEFENDER_FOR_DATABASES_AWS = "DefenderForDatabasesAws"
-    INFORMATION_PROTECTION_AWS = "InformationProtectionAws"
     CSPM_MONITOR_GCP = "CspmMonitorGcp"
     CSPM_MONITOR_GITHUB = "CspmMonitorGithub"
     CSPM_MONITOR_AZURE_DEV_OPS = "CspmMonitorAzureDevOps"
@@ -418,10 +417,13 @@ class OfferingType(str, Enum):
     DEFENDER_FOR_DATABASES_GCP = "DefenderForDatabasesGcp"
     DEFENDER_CSPM_AWS = "DefenderCspmAws"
     DEFENDER_CSPM_GCP = "DefenderCspmGcp"
-    DEFENDER_FOR_DEV_OPS_GITHUB = "DefenderForDevOpsGithub"
-    DEFENDER_FOR_DEV_OPS_AZURE_DEV_OPS = "DefenderForDevOpsAzureDevOps"
     CSPM_MONITOR_GIT_LAB = "CspmMonitorGitLab"
-    DEFENDER_FOR_DEV_OPS_GIT_LAB = "DefenderForDevOpsGitLab"
+    CSPM_MONITOR_DOCKER_HUB = "CspmMonitorDockerHub"
+    DEFENDER_FOR_CONTAINERS_DOCKER_HUB = "DefenderForContainersDockerHub"
+    DEFENDER_CSPM_DOCKER_HUB = "DefenderCspmDockerHub"
+    CSPM_MONITOR_J_FROG = "CspmMonitorJFrog"
+    DEFENDER_FOR_CONTAINERS_J_FROG = "DefenderForContainersJFrog"
+    DEFENDER_CSPM_J_FROG = "DefenderCspmJFrog"
 
 
 class Operator(str, Enum):
@@ -591,7 +593,23 @@ class RecommendationType(str, Enum):
     """
 
 
-class Roles(str, Enum):
+class RuleState(str, Enum):
+    """
+    Possible states of the rule
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    EXPIRED = "Expired"
+
+
+class ScanningMode(str, Enum):
+    """
+    The scanning mode for the VM scan.
+    """
+    DEFAULT = "Default"
+
+
+class SecurityContactRole(str, Enum):
     """
     A possible role to configure sending security notification alerts to
     """
@@ -611,22 +629,6 @@ class Roles(str, Enum):
     """
     If enabled, send notification on new alerts to the subscription contributors
     """
-
-
-class RuleState(str, Enum):
-    """
-    Possible states of the rule
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-    EXPIRED = "Expired"
-
-
-class ScanningMode(str, Enum):
-    """
-    The scanning mode for the VM scan.
-    """
-    DEFAULT = "Default"
 
 
 class SecurityIssue(str, Enum):
@@ -700,6 +702,14 @@ class Source(str, Enum):
     """
     SQL Resource in an on premise machine connected to Azure cloud
     """
+
+
+class SourceType(str, Enum):
+    """
+    The source type that will trigger the notification
+    """
+    ALERT = "Alert"
+    ATTACK_PATH = "AttackPath"
 
 
 class StandardSupportedCloud(str, Enum):

@@ -27,7 +27,7 @@ class GetContentPackageResult:
     """
     Represents a Package in Azure Security Insights.
     """
-    def __init__(__self__, author=None, categories=None, content_id=None, content_kind=None, content_schema_version=None, dependencies=None, description=None, display_name=None, etag=None, first_publish_date=None, icon=None, id=None, is_featured=None, is_new=None, is_preview=None, last_publish_date=None, name=None, providers=None, publisher_display_name=None, source=None, support=None, system_data=None, threat_analysis_tactics=None, threat_analysis_techniques=None, type=None, version=None):
+    def __init__(__self__, author=None, categories=None, content_id=None, content_kind=None, content_product_id=None, content_schema_version=None, dependencies=None, description=None, display_name=None, etag=None, first_publish_date=None, icon=None, id=None, is_deprecated=None, is_featured=None, is_new=None, is_preview=None, last_publish_date=None, name=None, providers=None, publisher_display_name=None, source=None, support=None, system_data=None, threat_analysis_tactics=None, threat_analysis_techniques=None, type=None, version=None):
         if author and not isinstance(author, dict):
             raise TypeError("Expected argument 'author' to be a dict")
         pulumi.set(__self__, "author", author)
@@ -40,6 +40,9 @@ class GetContentPackageResult:
         if content_kind and not isinstance(content_kind, str):
             raise TypeError("Expected argument 'content_kind' to be a str")
         pulumi.set(__self__, "content_kind", content_kind)
+        if content_product_id and not isinstance(content_product_id, str):
+            raise TypeError("Expected argument 'content_product_id' to be a str")
+        pulumi.set(__self__, "content_product_id", content_product_id)
         if content_schema_version and not isinstance(content_schema_version, str):
             raise TypeError("Expected argument 'content_schema_version' to be a str")
         pulumi.set(__self__, "content_schema_version", content_schema_version)
@@ -64,6 +67,9 @@ class GetContentPackageResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_deprecated and not isinstance(is_deprecated, str):
+            raise TypeError("Expected argument 'is_deprecated' to be a str")
+        pulumi.set(__self__, "is_deprecated", is_deprecated)
         if is_featured and not isinstance(is_featured, str):
             raise TypeError("Expected argument 'is_featured' to be a str")
         pulumi.set(__self__, "is_featured", is_featured)
@@ -127,7 +133,7 @@ class GetContentPackageResult:
     @pulumi.getter(name="contentId")
     def content_id(self) -> str:
         """
-        The package id
+        The content id of the package
         """
         return pulumi.get(self, "content_id")
 
@@ -138,6 +144,14 @@ class GetContentPackageResult:
         The package kind
         """
         return pulumi.get(self, "content_kind")
+
+    @property
+    @pulumi.getter(name="contentProductId")
+    def content_product_id(self) -> str:
+        """
+        Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
+        """
+        return pulumi.get(self, "content_product_id")
 
     @property
     @pulumi.getter(name="contentSchemaVersion")
@@ -202,6 +216,14 @@ class GetContentPackageResult:
         Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> Optional[str]:
+        """
+        Flag indicates if this template is deprecated
+        """
+        return pulumi.get(self, "is_deprecated")
 
     @property
     @pulumi.getter(name="isFeatured")
@@ -326,6 +348,7 @@ class AwaitableGetContentPackageResult(GetContentPackageResult):
             categories=self.categories,
             content_id=self.content_id,
             content_kind=self.content_kind,
+            content_product_id=self.content_product_id,
             content_schema_version=self.content_schema_version,
             dependencies=self.dependencies,
             description=self.description,
@@ -334,6 +357,7 @@ class AwaitableGetContentPackageResult(GetContentPackageResult):
             first_publish_date=self.first_publish_date,
             icon=self.icon,
             id=self.id,
+            is_deprecated=self.is_deprecated,
             is_featured=self.is_featured,
             is_new=self.is_new,
             is_preview=self.is_preview,
@@ -356,9 +380,9 @@ def get_content_package(package_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContentPackageResult:
     """
     Gets an installed packages by its id.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+    Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
 
 
     :param str package_id: package Id
@@ -377,6 +401,7 @@ def get_content_package(package_id: Optional[str] = None,
         categories=pulumi.get(__ret__, 'categories'),
         content_id=pulumi.get(__ret__, 'content_id'),
         content_kind=pulumi.get(__ret__, 'content_kind'),
+        content_product_id=pulumi.get(__ret__, 'content_product_id'),
         content_schema_version=pulumi.get(__ret__, 'content_schema_version'),
         dependencies=pulumi.get(__ret__, 'dependencies'),
         description=pulumi.get(__ret__, 'description'),
@@ -385,6 +410,7 @@ def get_content_package(package_id: Optional[str] = None,
         first_publish_date=pulumi.get(__ret__, 'first_publish_date'),
         icon=pulumi.get(__ret__, 'icon'),
         id=pulumi.get(__ret__, 'id'),
+        is_deprecated=pulumi.get(__ret__, 'is_deprecated'),
         is_featured=pulumi.get(__ret__, 'is_featured'),
         is_new=pulumi.get(__ret__, 'is_new'),
         is_preview=pulumi.get(__ret__, 'is_preview'),
@@ -405,9 +431,9 @@ def get_content_package_output(package_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContentPackageResult]:
     """
     Gets an installed packages by its id.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+    Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
 
 
     :param str package_id: package Id
@@ -425,6 +451,7 @@ def get_content_package_output(package_id: Optional[pulumi.Input[str]] = None,
         categories=pulumi.get(__response__, 'categories'),
         content_id=pulumi.get(__response__, 'content_id'),
         content_kind=pulumi.get(__response__, 'content_kind'),
+        content_product_id=pulumi.get(__response__, 'content_product_id'),
         content_schema_version=pulumi.get(__response__, 'content_schema_version'),
         dependencies=pulumi.get(__response__, 'dependencies'),
         description=pulumi.get(__response__, 'description'),
@@ -433,6 +460,7 @@ def get_content_package_output(package_id: Optional[pulumi.Input[str]] = None,
         first_publish_date=pulumi.get(__response__, 'first_publish_date'),
         icon=pulumi.get(__response__, 'icon'),
         id=pulumi.get(__response__, 'id'),
+        is_deprecated=pulumi.get(__response__, 'is_deprecated'),
         is_featured=pulumi.get(__response__, 'is_featured'),
         is_new=pulumi.get(__response__, 'is_new'),
         is_preview=pulumi.get(__response__, 'is_preview'),

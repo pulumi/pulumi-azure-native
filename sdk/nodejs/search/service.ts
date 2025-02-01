@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes an Azure Cognitive Search service and its current state.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
+ * Describes a search service and its current state.
+ * Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2022-09-01.
  *
- * Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2022-09-01, 2025-02-01-preview.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -69,7 +69,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Network specific rules that determine how the Azure Cognitive Search service may be reached.
+     * Network-specific rules that determine how the search service may be reached.
      */
     public readonly networkRuleSet!: pulumi.Output<outputs.search.NetworkRuleSetResponse | undefined>;
     /**
@@ -77,7 +77,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly partitionCount!: pulumi.Output<number | undefined>;
     /**
-     * The list of private endpoint connections to the Azure Cognitive Search service.
+     * The list of private endpoint connections to the search service.
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.search.PrivateEndpointConnectionResponse[]>;
     /**
@@ -93,15 +93,19 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly replicaCount!: pulumi.Output<number | undefined>;
     /**
-     * The list of shared private link resources managed by the Azure Cognitive Search service.
+     * Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+     */
+    public readonly semanticSearch!: pulumi.Output<string | undefined>;
+    /**
+     * The list of shared private link resources managed by the search service.
      */
     public /*out*/ readonly sharedPrivateLinkResources!: pulumi.Output<outputs.search.SharedPrivateLinkResourceResponse[]>;
     /**
-     * The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+     * The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
      */
     public readonly sku!: pulumi.Output<outputs.search.SkuResponse | undefined>;
     /**
-     * The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, it means the Azure Cognitive Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
+     * The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, Microsoft is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -143,6 +147,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["replicaCount"] = (args ? args.replicaCount : undefined) ?? 1;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["searchServiceName"] = args ? args.searchServiceName : undefined;
+            resourceInputs["semanticSearch"] = args ? args.semanticSearch : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -166,6 +171,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["replicaCount"] = undefined /*out*/;
+            resourceInputs["semanticSearch"] = undefined /*out*/;
             resourceInputs["sharedPrivateLinkResources"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -209,7 +215,7 @@ export interface ServiceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Network specific rules that determine how the Azure Cognitive Search service may be reached.
+     * Network-specific rules that determine how the search service may be reached.
      */
     networkRuleSet?: pulumi.Input<inputs.search.NetworkRuleSetArgs>;
     /**
@@ -229,11 +235,15 @@ export interface ServiceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+     * The name of the search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
      */
     searchServiceName?: pulumi.Input<string>;
     /**
-     * The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
+     * Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+     */
+    semanticSearch?: pulumi.Input<string | enums.search.SearchSemanticSearch>;
+    /**
+     * The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
      */
     sku?: pulumi.Input<inputs.search.SkuArgs>;
     /**

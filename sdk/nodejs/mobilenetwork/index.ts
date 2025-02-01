@@ -60,15 +60,15 @@ export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
 
-export { GetSimArgs, GetSimResult, GetSimOutputArgs } from "./getSim";
-export const getSim: typeof import("./getSim").getSim = null as any;
-export const getSimOutput: typeof import("./getSim").getSimOutput = null as any;
-utilities.lazyLoad(exports, ["getSim","getSimOutput"], () => require("./getSim"));
-
 export { GetSimGroupArgs, GetSimGroupResult, GetSimGroupOutputArgs } from "./getSimGroup";
 export const getSimGroup: typeof import("./getSimGroup").getSimGroup = null as any;
 export const getSimGroupOutput: typeof import("./getSimGroup").getSimGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getSimGroup","getSimGroupOutput"], () => require("./getSimGroup"));
+
+export { GetSimGroupSimArgs, GetSimGroupSimResult, GetSimGroupSimOutputArgs } from "./getSimGroupSim";
+export const getSimGroupSim: typeof import("./getSimGroupSim").getSimGroupSim = null as any;
+export const getSimGroupSimOutput: typeof import("./getSimGroupSim").getSimGroupSimOutput = null as any;
+utilities.lazyLoad(exports, ["getSimGroupSim","getSimGroupSimOutput"], () => require("./getSimGroupSim"));
 
 export { GetSimPolicyArgs, GetSimPolicyResult, GetSimPolicyOutputArgs } from "./getSimPolicy";
 export const getSimPolicy: typeof import("./getSimPolicy").getSimPolicy = null as any;
@@ -120,15 +120,15 @@ export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
 utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
-export { SimArgs } from "./sim";
-export type Sim = import("./sim").Sim;
-export const Sim: typeof import("./sim").Sim = null as any;
-utilities.lazyLoad(exports, ["Sim"], () => require("./sim"));
-
 export { SimGroupArgs } from "./simGroup";
 export type SimGroup = import("./simGroup").SimGroup;
 export const SimGroup: typeof import("./simGroup").SimGroup = null as any;
 utilities.lazyLoad(exports, ["SimGroup"], () => require("./simGroup"));
+
+export { SimGroupSimArgs } from "./simGroupSim";
+export type SimGroupSim = import("./simGroupSim").SimGroupSim;
+export const SimGroupSim: typeof import("./simGroupSim").SimGroupSim = null as any;
+utilities.lazyLoad(exports, ["SimGroupSim"], () => require("./simGroupSim"));
 
 export { SimPolicyArgs } from "./simPolicy";
 export type SimPolicy = import("./simPolicy").SimPolicy;
@@ -150,21 +150,15 @@ utilities.lazyLoad(exports, ["Slice"], () => require("./slice"));
 export * from "../types/enums/mobilenetwork";
 
 // Export sub-modules:
-import * as v20220301preview from "./v20220301preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20221101 from "./v20221101";
 import * as v20230601 from "./v20230601";
-import * as v20230901 from "./v20230901";
-import * as v20240201 from "./v20240201";
 import * as v20240401 from "./v20240401";
 
 export {
-    v20220301preview,
     v20220401preview,
     v20221101,
     v20230601,
-    v20230901,
-    v20240201,
     v20240401,
 };
 
@@ -188,10 +182,10 @@ const _module = {
                 return new PacketCoreDataPlane(name, <any>undefined, { urn })
             case "azure-native:mobilenetwork:Service":
                 return new Service(name, <any>undefined, { urn })
-            case "azure-native:mobilenetwork:Sim":
-                return new Sim(name, <any>undefined, { urn })
             case "azure-native:mobilenetwork:SimGroup":
                 return new SimGroup(name, <any>undefined, { urn })
+            case "azure-native:mobilenetwork:SimGroupSim":
+                return new SimGroupSim(name, <any>undefined, { urn })
             case "azure-native:mobilenetwork:SimPolicy":
                 return new SimPolicy(name, <any>undefined, { urn })
             case "azure-native:mobilenetwork:Site":

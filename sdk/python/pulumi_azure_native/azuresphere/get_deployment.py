@@ -142,9 +142,9 @@ def get_deployment(catalog_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
     Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
-    Azure REST API version: 2022-09-01-preview.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog
@@ -179,9 +179,9 @@ def get_deployment_output(catalog_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
-    Azure REST API version: 2022-09-01-preview.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2024-04-01.
+    Other available API versions: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog

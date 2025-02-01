@@ -26,6 +26,7 @@ class ProjectArgs:
                  service_name: pulumi.Input[str],
                  source_platform: pulumi.Input[Union[str, 'ProjectSourcePlatform']],
                  target_platform: pulumi.Input[Union[str, 'ProjectTargetPlatform']],
+                 azure_authentication_info: Optional[pulumi.Input['AzureActiveDirectoryAppArgs']] = None,
                  databases_info: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseInfoArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
@@ -38,17 +39,18 @@ class ProjectArgs:
         :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input[Union[str, 'ProjectSourcePlatform']] source_platform: Source platform for the project
         :param pulumi.Input[Union[str, 'ProjectTargetPlatform']] target_platform: Target platform for the project
+        :param pulumi.Input['AzureActiveDirectoryAppArgs'] azure_authentication_info: Field that defines the Azure active directory application info, used to connect to the target Azure resource
         :param pulumi.Input[Sequence[pulumi.Input['DatabaseInfoArgs']]] databases_info: List of DatabaseInfo
-        :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] project_name: Name of the project
         :param pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']] source_connection_info: Information for connecting to source
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']] target_connection_info: Information for connecting to target
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "source_platform", source_platform)
         pulumi.set(__self__, "target_platform", target_platform)
+        if azure_authentication_info is not None:
+            pulumi.set(__self__, "azure_authentication_info", azure_authentication_info)
         if databases_info is not None:
             pulumi.set(__self__, "databases_info", databases_info)
         if location is not None:
@@ -111,6 +113,18 @@ class ProjectArgs:
         pulumi.set(self, "target_platform", value)
 
     @property
+    @pulumi.getter(name="azureAuthenticationInfo")
+    def azure_authentication_info(self) -> Optional[pulumi.Input['AzureActiveDirectoryAppArgs']]:
+        """
+        Field that defines the Azure active directory application info, used to connect to the target Azure resource
+        """
+        return pulumi.get(self, "azure_authentication_info")
+
+    @azure_authentication_info.setter
+    def azure_authentication_info(self, value: Optional[pulumi.Input['AzureActiveDirectoryAppArgs']]):
+        pulumi.set(self, "azure_authentication_info", value)
+
+    @property
     @pulumi.getter(name="databasesInfo")
     def databases_info(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseInfoArgs']]]]:
         """
@@ -125,9 +139,6 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource location.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -161,9 +172,6 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -188,6 +196,7 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_authentication_info: Optional[pulumi.Input[Union['AzureActiveDirectoryAppArgs', 'AzureActiveDirectoryAppArgsDict']]] = None,
                  databases_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatabaseInfoArgs', 'DatabaseInfoArgsDict']]]]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -201,20 +210,19 @@ class Project(pulumi.CustomResource):
                  __props__=None):
         """
         A project resource
-        Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
+        Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2021-06-30.
 
-        Other available API versions: 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
+        Other available API versions: 2021-06-30, 2021-10-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['AzureActiveDirectoryAppArgs', 'AzureActiveDirectoryAppArgsDict']] azure_authentication_info: Field that defines the Azure active directory application info, used to connect to the target Azure resource
         :param pulumi.Input[Sequence[pulumi.Input[Union['DatabaseInfoArgs', 'DatabaseInfoArgsDict']]]] databases_info: List of DatabaseInfo
         :param pulumi.Input[str] group_name: Name of the resource group
-        :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] project_name: Name of the project
         :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input[Union[Union['MiSqlConnectionInfoArgs', 'MiSqlConnectionInfoArgsDict'], Union['MongoDbConnectionInfoArgs', 'MongoDbConnectionInfoArgsDict'], Union['MySqlConnectionInfoArgs', 'MySqlConnectionInfoArgsDict'], Union['OracleConnectionInfoArgs', 'OracleConnectionInfoArgsDict'], Union['PostgreSqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgsDict'], Union['SqlConnectionInfoArgs', 'SqlConnectionInfoArgsDict']]] source_connection_info: Information for connecting to source
         :param pulumi.Input[Union[str, 'ProjectSourcePlatform']] source_platform: Source platform for the project
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[Union['MiSqlConnectionInfoArgs', 'MiSqlConnectionInfoArgsDict'], Union['MongoDbConnectionInfoArgs', 'MongoDbConnectionInfoArgsDict'], Union['MySqlConnectionInfoArgs', 'MySqlConnectionInfoArgsDict'], Union['OracleConnectionInfoArgs', 'OracleConnectionInfoArgsDict'], Union['PostgreSqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgsDict'], Union['SqlConnectionInfoArgs', 'SqlConnectionInfoArgsDict']]] target_connection_info: Information for connecting to target
         :param pulumi.Input[Union[str, 'ProjectTargetPlatform']] target_platform: Target platform for the project
         """
@@ -226,9 +234,9 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A project resource
-        Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
+        Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2021-06-30.
 
-        Other available API versions: 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
+        Other available API versions: 2021-06-30, 2021-10-30-preview.
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
@@ -245,6 +253,7 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_authentication_info: Optional[pulumi.Input[Union['AzureActiveDirectoryAppArgs', 'AzureActiveDirectoryAppArgsDict']]] = None,
                  databases_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatabaseInfoArgs', 'DatabaseInfoArgsDict']]]]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -264,6 +273,7 @@ class Project(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
+            __props__.__dict__["azure_authentication_info"] = azure_authentication_info
             __props__.__dict__["databases_info"] = databases_info
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
@@ -283,6 +293,7 @@ class Project(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_platform'")
             __props__.__dict__["target_platform"] = target_platform
             __props__.__dict__["creation_time"] = None
+            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -311,8 +322,10 @@ class Project(pulumi.CustomResource):
 
         __props__ = ProjectArgs.__new__(ProjectArgs)
 
+        __props__.__dict__["azure_authentication_info"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["databases_info"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -324,6 +337,14 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["target_platform"] = None
         __props__.__dict__["type"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureAuthenticationInfo")
+    def azure_authentication_info(self) -> pulumi.Output[Optional['outputs.AzureActiveDirectoryAppResponse']]:
+        """
+        Field that defines the Azure active directory application info, used to connect to the target Azure resource
+        """
+        return pulumi.get(self, "azure_authentication_info")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -343,18 +364,20 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
+    def etag(self) -> pulumi.Output[Optional[str]]:
         """
-        Resource location.
+        HTTP strong entity tag value. This is ignored if submitted.
         """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Resource name.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -384,17 +407,11 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
         return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -416,8 +433,5 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        Resource type.
-        """
         return pulumi.get(self, "type")
 

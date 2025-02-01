@@ -27,6 +27,7 @@ class GalleryImageArgs:
                  os_state: pulumi.Input['OperatingSystemStateTypes'],
                  os_type: pulumi.Input['OperatingSystemTypes'],
                  resource_group_name: pulumi.Input[str],
+                 allow_update_image: Optional[pulumi.Input[bool]] = None,
                  architecture: Optional[pulumi.Input[Union[str, 'Architecture']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disallowed: Optional[pulumi.Input['DisallowedArgs']] = None,
@@ -46,8 +47,9 @@ class GalleryImageArgs:
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Image Definition is to be created.
         :param pulumi.Input['GalleryImageIdentifierArgs'] identifier: This is the gallery image definition identifier.
         :param pulumi.Input['OperatingSystemStateTypes'] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-        :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[bool] allow_update_image: Optional. Must be set to true if the gallery image features are being updated.
         :param pulumi.Input[Union[str, 'Architecture']] architecture: The architecture of the image. Applicable to OS disks only.
         :param pulumi.Input[str] description: The description of this gallery image definition resource. This property is updatable.
         :param pulumi.Input['DisallowedArgs'] disallowed: Describes the disallowed disk types.
@@ -68,6 +70,8 @@ class GalleryImageArgs:
         pulumi.set(__self__, "os_state", os_state)
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if allow_update_image is not None:
+            pulumi.set(__self__, "allow_update_image", allow_update_image)
         if architecture is not None:
             pulumi.set(__self__, "architecture", architecture)
         if description is not None:
@@ -137,7 +141,7 @@ class GalleryImageArgs:
     @pulumi.getter(name="osType")
     def os_type(self) -> pulumi.Input['OperatingSystemTypes']:
         """
-        This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
         """
         return pulumi.get(self, "os_type")
 
@@ -156,6 +160,18 @@ class GalleryImageArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="allowUpdateImage")
+    def allow_update_image(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Optional. Must be set to true if the gallery image features are being updated.
+        """
+        return pulumi.get(self, "allow_update_image")
+
+    @allow_update_image.setter
+    def allow_update_image(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_update_image", value)
 
     @property
     @pulumi.getter
@@ -331,6 +347,7 @@ class GalleryImage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_update_image: Optional[pulumi.Input[bool]] = None,
                  architecture: Optional[pulumi.Input[Union[str, 'Architecture']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disallowed: Optional[pulumi.Input[Union['DisallowedArgs', 'DisallowedArgsDict']]] = None,
@@ -353,12 +370,13 @@ class GalleryImage(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the gallery image definition that you want to create or update.
-        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
+        Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
 
-        Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        Other available API versions: 2022-03-03.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_update_image: Optional. Must be set to true if the gallery image features are being updated.
         :param pulumi.Input[Union[str, 'Architecture']] architecture: The architecture of the image. Applicable to OS disks only.
         :param pulumi.Input[str] description: The description of this gallery image definition resource. This property is updatable.
         :param pulumi.Input[Union['DisallowedArgs', 'DisallowedArgsDict']] disallowed: Describes the disallowed disk types.
@@ -371,7 +389,7 @@ class GalleryImage(pulumi.CustomResource):
         :param pulumi.Input[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']] identifier: This is the gallery image definition identifier.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input['OperatingSystemStateTypes'] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-        :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
         :param pulumi.Input[str] privacy_statement_uri: The privacy statement uri.
         :param pulumi.Input[Union['ImagePurchasePlanArgs', 'ImagePurchasePlanArgsDict']] purchase_plan: Describes the gallery image definition purchase plan. This is used by marketplace images.
         :param pulumi.Input[Union['RecommendedMachineConfigurationArgs', 'RecommendedMachineConfigurationArgsDict']] recommended: The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
@@ -387,9 +405,9 @@ class GalleryImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the gallery image definition that you want to create or update.
-        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
+        Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
 
-        Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        Other available API versions: 2022-03-03.
 
         :param str resource_name: The name of the resource.
         :param GalleryImageArgs args: The arguments to use to populate this resource's properties.
@@ -406,6 +424,7 @@ class GalleryImage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_update_image: Optional[pulumi.Input[bool]] = None,
                  architecture: Optional[pulumi.Input[Union[str, 'Architecture']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disallowed: Optional[pulumi.Input[Union['DisallowedArgs', 'DisallowedArgsDict']]] = None,
@@ -434,6 +453,7 @@ class GalleryImage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GalleryImageArgs.__new__(GalleryImageArgs)
 
+            __props__.__dict__["allow_update_image"] = allow_update_image
             __props__.__dict__["architecture"] = architecture
             __props__.__dict__["description"] = description
             __props__.__dict__["disallowed"] = disallowed
@@ -490,6 +510,7 @@ class GalleryImage(pulumi.CustomResource):
 
         __props__ = GalleryImageArgs.__new__(GalleryImageArgs)
 
+        __props__.__dict__["allow_update_image"] = None
         __props__.__dict__["architecture"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["disallowed"] = None
@@ -510,6 +531,14 @@ class GalleryImage(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return GalleryImage(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowUpdateImage")
+    def allow_update_image(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Optional. Must be set to true if the gallery image features are being updated.
+        """
+        return pulumi.get(self, "allow_update_image")
 
     @property
     @pulumi.getter
@@ -603,7 +632,7 @@ class GalleryImage(pulumi.CustomResource):
     @pulumi.getter(name="osType")
     def os_type(self) -> pulumi.Output[str]:
         """
-        This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
         """
         return pulumi.get(self, "os_type")
 

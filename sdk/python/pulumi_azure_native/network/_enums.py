@@ -9,10 +9,9 @@ __all__ = [
     'AccessRuleDirection',
     'ActionType',
     'AddressPrefixType',
+    'AddressSpaceAggregationOption',
     'AdminRuleKind',
     'AdminState',
-    'AllowedEndpointRecordType',
-    'AlwaysServe',
     'ApplicationGatewayClientRevocationOptions',
     'ApplicationGatewayCookieBasedAffinity',
     'ApplicationGatewayCustomErrorStatusCode',
@@ -23,6 +22,7 @@ __all__ = [
     'ApplicationGatewayProtocol',
     'ApplicationGatewayRedirectType',
     'ApplicationGatewayRequestRoutingRuleType',
+    'ApplicationGatewaySkuFamily',
     'ApplicationGatewaySkuName',
     'ApplicationGatewaySslCipherSuite',
     'ApplicationGatewaySslPolicyName',
@@ -39,9 +39,7 @@ __all__ = [
     'AzureFirewallSkuName',
     'AzureFirewallSkuTier',
     'AzureFirewallThreatIntelMode',
-    'BackendEnabledState',
     'BastionHostSkuName',
-    'BlockResponseCode',
     'CommissionedState',
     'ConfigurationType',
     'ConnectionMonitorEndpointFilterItemType',
@@ -50,20 +48,16 @@ __all__ = [
     'ConnectivityTopology',
     'CoverageLevel',
     'CustomIpPrefixType',
-    'CustomRuleEnabledState',
     'DdosSettingsProtectionMode',
-    'DeleteExistingNSGs',
     'DeleteExistingPeering',
     'DeleteOptions',
     'DestinationPortBehavior',
     'DhGroup',
     'DisableBgpRoutePropagation',
-    'DnsSecurityRuleState',
-    'DynamicCompressionEnabled',
-    'EndpointMonitorStatus',
-    'EndpointStatus',
     'EndpointType',
-    'EnforceCertificateNameCheckEnabledState',
+    'ExceptionEntryMatchVariable',
+    'ExceptionEntrySelectorMatchOperator',
+    'ExceptionEntryValueMatchOperator',
     'ExpressRouteCircuitPeeringState',
     'ExpressRouteCircuitSkuFamily',
     'ExpressRouteCircuitSkuTier',
@@ -92,28 +86,17 @@ __all__ = [
     'FirewallPolicyRuleType',
     'FirewallPolicySkuTier',
     'FlowLogFormatType',
-    'ForwardingRuleState',
-    'FrontDoorEnabledState',
-    'FrontDoorForwardingProtocol',
-    'FrontDoorHealthProbeMethod',
-    'FrontDoorMatchVariable',
-    'FrontDoorProtocol',
-    'FrontDoorQuery',
-    'FrontDoorRedirectProtocol',
-    'FrontDoorRedirectType',
     'GatewayLoadBalancerTunnelInterfaceType',
     'GatewayLoadBalancerTunnelProtocol',
     'Geo',
     'GroupConnectivity',
+    'GroupMemberType',
     'HTTPConfigurationMethod',
-    'HeaderActionType',
-    'HealthProbeEnabled',
     'HubRoutingPreference',
     'IPAllocationMethod',
     'IPVersion',
     'IkeEncryption',
     'IkeIntegrity',
-    'IpAllocationMethod',
     'IpAllocationType',
     'IpsecEncryption',
     'IpsecIntegrity',
@@ -124,11 +107,6 @@ __all__ = [
     'LoadBalancerSkuTier',
     'LoadDistribution',
     'ManagedRuleEnabledState',
-    'ManagedRuleExclusionMatchVariable',
-    'ManagedRuleExclusionSelectorMatchOperator',
-    'ManagedRuleSetActionType',
-    'MatchProcessingBehavior',
-    'MonitorProtocol',
     'NatGatewaySkuName',
     'NetworkIntentPolicyBasedService',
     'NetworkInterfaceAuxiliaryMode',
@@ -137,21 +115,18 @@ __all__ = [
     'NetworkInterfaceNicType',
     'NetworkProtocol',
     'NextStep',
-    'Operator',
+    'NicTypeInRequest',
     'OutputType',
     'OwaspCrsExclusionEntryMatchVariable',
     'OwaspCrsExclusionEntrySelectorMatchOperator',
     'PacketCaptureTargetType',
     'PcProtocol',
     'PfsGroup',
-    'PolicyEnabledState',
-    'PolicyMode',
-    'PolicyRequestBodyCheck',
     'PreferredIPVersion',
     'PreferredRoutingGateway',
+    'PrivateEndpointVNetPolicies',
+    'ProbeNoHealthyBackendsBehavior',
     'ProbeProtocol',
-    'ProfileMonitorStatus',
-    'ProfileStatus',
     'ProtocolType',
     'PublicIPAddressMigrationPhase',
     'PublicIPAddressSkuName',
@@ -159,17 +134,14 @@ __all__ = [
     'PublicIPPrefixSkuName',
     'PublicIPPrefixSkuTier',
     'PublicIpAddressDnsSettingsDomainNameLabelScope',
+    'ResiliencyModel',
     'ResourceIdentityType',
     'RouteFilterRuleType',
     'RouteMapActionType',
     'RouteMapMatchCondition',
     'RouteNextHopType',
     'RoutingRuleDestinationType',
-    'RoutingRuleEnabledState',
     'RoutingRuleNextHopType',
-    'RuleType',
-    'RulesEngineMatchVariable',
-    'RulesEngineOperator',
     'ScrubbingRuleEntryMatchOperator',
     'ScrubbingRuleEntryMatchVariable',
     'ScrubbingRuleEntryState',
@@ -180,14 +152,10 @@ __all__ = [
     'SecurityRuleAccess',
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
+    'SensitivityType',
     'ServiceProviderProvisioningState',
-    'SessionAffinityEnabledState',
-    'SkuName',
-    'State',
-    'TrafficRoutingMethod',
-    'TrafficViewEnrollmentStatus',
-    'Transform',
-    'TransformType',
+    'SharingScope',
+    'SyncMode',
     'TransportProtocol',
     'UseHubGateway',
     'UserRuleKind',
@@ -221,7 +189,6 @@ __all__ = [
     'WebApplicationFirewallScrubbingState',
     'WebApplicationFirewallState',
     'WebApplicationFirewallTransform',
-    'ZoneType',
 ]
 
 
@@ -249,6 +216,7 @@ class ActionType(str, Enum):
     ALLOW = "Allow"
     BLOCK = "Block"
     LOG = "Log"
+    JS_CHALLENGE = "JSChallenge"
 
 
 class AddressPrefixType(str, Enum):
@@ -257,6 +225,14 @@ class AddressPrefixType(str, Enum):
     """
     IP_PREFIX = "IPPrefix"
     SERVICE_TAG = "ServiceTag"
+
+
+class AddressSpaceAggregationOption(str, Enum):
+    """
+    Determine update behavior for changes to network groups referenced within the rules in this configuration.
+    """
+    NONE = "None"
+    MANUAL = "Manual"
 
 
 class AdminRuleKind(str, Enum):
@@ -270,24 +246,6 @@ class AdminRuleKind(str, Enum):
 class AdminState(str, Enum):
     """
     Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class AllowedEndpointRecordType(str, Enum):
-    """
-    The allowed type DNS record types for this profile.
-    """
-    DOMAIN_NAME = "DomainName"
-    I_PV4_ADDRESS = "IPv4Address"
-    I_PV6_ADDRESS = "IPv6Address"
-    ANY = "Any"
-
-
-class AlwaysServe(str, Enum):
-    """
-    If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
@@ -363,9 +321,21 @@ class ApplicationGatewayProtocol(str, Enum):
     The protocol used for the probe.
     """
     HTTP = "Http"
+    """
+    Supported for httpListeners and  backendHttpSettingsCollection properties.
+    """
     HTTPS = "Https"
+    """
+    Supported for httpListeners and  backendHttpSettingsCollection properties.
+    """
     TCP = "Tcp"
+    """
+    Supported for listeners and backendSettingsCollection properties.
+    """
     TLS = "Tls"
+    """
+    Supported for listeners and backendSettingsCollection properties.
+    """
 
 
 class ApplicationGatewayRedirectType(str, Enum):
@@ -386,6 +356,14 @@ class ApplicationGatewayRequestRoutingRuleType(str, Enum):
     PATH_BASED_ROUTING = "PathBasedRouting"
 
 
+class ApplicationGatewaySkuFamily(str, Enum):
+    """
+    Family of an application gateway SKU.
+    """
+    GENERATION_1 = "Generation_1"
+    GENERATION_2 = "Generation_2"
+
+
 class ApplicationGatewaySkuName(str, Enum):
     """
     Name of an application gateway SKU.
@@ -397,6 +375,7 @@ class ApplicationGatewaySkuName(str, Enum):
     WA_F_LARGE = "WAF_Large"
     STANDARD_V2 = "Standard_v2"
     WA_F_V2 = "WAF_v2"
+    BASIC = "Basic"
 
 
 class ApplicationGatewaySslCipherSuite(str, Enum):
@@ -471,6 +450,7 @@ class ApplicationGatewayTier(str, Enum):
     WAF = "WAF"
     STANDARD_V2 = "Standard_v2"
     WA_F_V2 = "WAF_v2"
+    BASIC = "Basic"
 
 
 class AssociationAccessMode(str, Enum):
@@ -559,27 +539,14 @@ class AzureFirewallThreatIntelMode(str, Enum):
     OFF = "Off"
 
 
-class BackendEnabledState(str, Enum):
-    """
-    Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class BastionHostSkuName(str, Enum):
     """
-    The name of this Bastion Host.
+    The name of the sku of this Bastion Host.
     """
     BASIC = "Basic"
     STANDARD = "Standard"
-
-
-class BlockResponseCode(str, Enum):
-    """
-    The response code for block actions.
-    """
-    SERVFAIL = "SERVFAIL"
+    DEVELOPER = "Developer"
+    PREMIUM = "Premium"
 
 
 class CommissionedState(str, Enum):
@@ -602,6 +569,8 @@ class ConfigurationType(str, Enum):
     """
     SECURITY_ADMIN = "SecurityAdmin"
     CONNECTIVITY = "Connectivity"
+    SECURITY_USER = "SecurityUser"
+    ROUTING = "Routing"
 
 
 class ConnectionMonitorEndpointFilterItemType(str, Enum):
@@ -656,14 +625,6 @@ class CustomIpPrefixType(str, Enum):
     CHILD = "Child"
 
 
-class CustomRuleEnabledState(str, Enum):
-    """
-    Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-    """
-    DISABLED = "Disabled"
-    ENABLED = "Enabled"
-
-
 class DdosSettingsProtectionMode(str, Enum):
     """
     The DDoS protection mode of the public IP
@@ -671,14 +632,6 @@ class DdosSettingsProtectionMode(str, Enum):
     VIRTUAL_NETWORK_INHERITED = "VirtualNetworkInherited"
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class DeleteExistingNSGs(str, Enum):
-    """
-    Flag if need to delete existing network security groups.
-    """
-    FALSE = "False"
-    TRUE = "True"
 
 
 class DeleteExistingPeering(str, Enum):
@@ -727,43 +680,6 @@ class DisableBgpRoutePropagation(str, Enum):
     TRUE = "True"
 
 
-class DnsSecurityRuleState(str, Enum):
-    """
-    The state of DNS security rule.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class DynamicCompressionEnabled(str, Enum):
-    """
-    Whether to use dynamic compression for cached content
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class EndpointMonitorStatus(str, Enum):
-    """
-    The monitoring status of the endpoint.
-    """
-    CHECKING_ENDPOINT = "CheckingEndpoint"
-    ONLINE = "Online"
-    DEGRADED = "Degraded"
-    DISABLED = "Disabled"
-    INACTIVE = "Inactive"
-    STOPPED = "Stopped"
-    UNMONITORED = "Unmonitored"
-
-
-class EndpointStatus(str, Enum):
-    """
-    The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class EndpointType(str, Enum):
     """
     The endpoint type.
@@ -776,14 +692,37 @@ class EndpointType(str, Enum):
     MMA_WORKSPACE_NETWORK = "MMAWorkspaceNetwork"
     AZURE_ARC_VM = "AzureArcVM"
     AZURE_VMSS = "AzureVMSS"
+    AZURE_ARC_NETWORK = "AzureArcNetwork"
 
 
-class EnforceCertificateNameCheckEnabledState(str, Enum):
+class ExceptionEntryMatchVariable(str, Enum):
     """
-    Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
+    The variable on which we evaluate the exception condition
     """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
+    REQUEST_URI = "RequestURI"
+    REMOTE_ADDR = "RemoteAddr"
+    REQUEST_HEADER = "RequestHeader"
+
+
+class ExceptionEntrySelectorMatchOperator(str, Enum):
+    """
+    When the matchVariable points to a key-value pair (e.g, RequestHeader), this operates on the selector
+    """
+    EQUALS = "Equals"
+    CONTAINS = "Contains"
+    STARTS_WITH = "StartsWith"
+    ENDS_WITH = "EndsWith"
+
+
+class ExceptionEntryValueMatchOperator(str, Enum):
+    """
+    Operates on the allowed values for the matchVariable
+    """
+    EQUALS = "Equals"
+    CONTAINS = "Contains"
+    STARTS_WITH = "StartsWith"
+    ENDS_WITH = "EndsWith"
+    IP_MATCH = "IPMatch"
 
 
 class ExpressRouteCircuitPeeringState(str, Enum):
@@ -1022,91 +961,6 @@ class FlowLogFormatType(str, Enum):
     JSON = "JSON"
 
 
-class ForwardingRuleState(str, Enum):
-    """
-    The state of forwarding rule.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class FrontDoorEnabledState(str, Enum):
-    """
-    Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class FrontDoorForwardingProtocol(str, Enum):
-    """
-    Protocol this rule will use when forwarding traffic to backends.
-    """
-    HTTP_ONLY = "HttpOnly"
-    HTTPS_ONLY = "HttpsOnly"
-    MATCH_REQUEST = "MatchRequest"
-
-
-class FrontDoorHealthProbeMethod(str, Enum):
-    """
-    Configures which HTTP method to use to probe the backends defined under backendPools.
-    """
-    GET = "GET"
-    HEAD = "HEAD"
-
-
-class FrontDoorMatchVariable(str, Enum):
-    """
-    Request variable to compare with.
-    """
-    REMOTE_ADDR = "RemoteAddr"
-    REQUEST_METHOD = "RequestMethod"
-    QUERY_STRING = "QueryString"
-    POST_ARGS = "PostArgs"
-    REQUEST_URI = "RequestUri"
-    REQUEST_HEADER = "RequestHeader"
-    REQUEST_BODY = "RequestBody"
-    COOKIES = "Cookies"
-    SOCKET_ADDR = "SocketAddr"
-
-
-class FrontDoorProtocol(str, Enum):
-    """
-    Accepted protocol schemes.
-    """
-    HTTP = "Http"
-    HTTPS = "Https"
-
-
-class FrontDoorQuery(str, Enum):
-    """
-    Treatment of URL query terms when forming the cache key.
-    """
-    STRIP_NONE = "StripNone"
-    STRIP_ALL = "StripAll"
-    STRIP_ONLY = "StripOnly"
-    STRIP_ALL_EXCEPT = "StripAllExcept"
-
-
-class FrontDoorRedirectProtocol(str, Enum):
-    """
-    The protocol of the destination to where the traffic is redirected
-    """
-    HTTP_ONLY = "HttpOnly"
-    HTTPS_ONLY = "HttpsOnly"
-    MATCH_REQUEST = "MatchRequest"
-
-
-class FrontDoorRedirectType(str, Enum):
-    """
-    The redirect type the rule will use when redirecting traffic.
-    """
-    MOVED = "Moved"
-    FOUND = "Found"
-    TEMPORARY_REDIRECT = "TemporaryRedirect"
-    PERMANENT_REDIRECT = "PermanentRedirect"
-
-
 class GatewayLoadBalancerTunnelInterfaceType(str, Enum):
     """
     Traffic type of gateway load balancer tunnel interface.
@@ -1148,29 +1002,20 @@ class GroupConnectivity(str, Enum):
     DIRECTLY_CONNECTED = "DirectlyConnected"
 
 
+class GroupMemberType(str, Enum):
+    """
+    The type of the group member.
+    """
+    VIRTUAL_NETWORK = "VirtualNetwork"
+    SUBNET = "Subnet"
+
+
 class HTTPConfigurationMethod(str, Enum):
     """
     The HTTP method to use.
     """
     GET = "Get"
     POST = "Post"
-
-
-class HeaderActionType(str, Enum):
-    """
-    Which type of manipulation to apply to the header.
-    """
-    APPEND = "Append"
-    DELETE = "Delete"
-    OVERWRITE = "Overwrite"
-
-
-class HealthProbeEnabled(str, Enum):
-    """
-    Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class HubRoutingPreference(str, Enum):
@@ -1221,14 +1066,6 @@ class IkeIntegrity(str, Enum):
     SHA384 = "SHA384"
     GCMAES256 = "GCMAES256"
     GCMAES128 = "GCMAES128"
-
-
-class IpAllocationMethod(str, Enum):
-    """
-    Private IP address allocation method.
-    """
-    STATIC = "Static"
-    DYNAMIC = "Dynamic"
 
 
 class IpAllocationType(str, Enum):
@@ -1326,54 +1163,6 @@ class ManagedRuleEnabledState(str, Enum):
     ENABLED = "Enabled"
 
 
-class ManagedRuleExclusionMatchVariable(str, Enum):
-    """
-    The variable type to be excluded.
-    """
-    REQUEST_HEADER_NAMES = "RequestHeaderNames"
-    REQUEST_COOKIE_NAMES = "RequestCookieNames"
-    QUERY_STRING_ARG_NAMES = "QueryStringArgNames"
-    REQUEST_BODY_POST_ARG_NAMES = "RequestBodyPostArgNames"
-    REQUEST_BODY_JSON_ARG_NAMES = "RequestBodyJsonArgNames"
-
-
-class ManagedRuleExclusionSelectorMatchOperator(str, Enum):
-    """
-    Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
-    """
-    EQUALS = "Equals"
-    CONTAINS = "Contains"
-    STARTS_WITH = "StartsWith"
-    ENDS_WITH = "EndsWith"
-    EQUALS_ANY = "EqualsAny"
-
-
-class ManagedRuleSetActionType(str, Enum):
-    """
-    Defines the rule set action.
-    """
-    BLOCK = "Block"
-    LOG = "Log"
-    REDIRECT = "Redirect"
-
-
-class MatchProcessingBehavior(str, Enum):
-    """
-    If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
-    """
-    CONTINUE_ = "Continue"
-    STOP = "Stop"
-
-
-class MonitorProtocol(str, Enum):
-    """
-    The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
-    """
-    HTTP = "HTTP"
-    HTTPS = "HTTPS"
-    TCP = "TCP"
-
-
 class NatGatewaySkuName(str, Enum):
     """
     Name of Nat Gateway SKU.
@@ -1449,22 +1238,12 @@ class NextStep(str, Enum):
     TERMINATE = "Terminate"
 
 
-class Operator(str, Enum):
+class NicTypeInRequest(str, Enum):
     """
-    Comparison type to use for matching with the variable value.
+    NIC type. This should be either PublicNic or PrivateNic.
     """
-    ANY = "Any"
-    IP_MATCH = "IPMatch"
-    GEO_MATCH = "GeoMatch"
-    EQUAL = "Equal"
-    CONTAINS = "Contains"
-    LESS_THAN = "LessThan"
-    GREATER_THAN = "GreaterThan"
-    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
-    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
-    BEGINS_WITH = "BeginsWith"
-    ENDS_WITH = "EndsWith"
-    REG_EX = "RegEx"
+    PUBLIC_NIC = "PublicNic"
+    PRIVATE_NIC = "PrivateNic"
 
 
 class OutputType(str, Enum):
@@ -1532,30 +1311,6 @@ class PfsGroup(str, Enum):
     PFSMM = "PFSMM"
 
 
-class PolicyEnabledState(str, Enum):
-    """
-    Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
-    """
-    DISABLED = "Disabled"
-    ENABLED = "Enabled"
-
-
-class PolicyMode(str, Enum):
-    """
-    Describes if it is in detection mode or prevention mode at policy level.
-    """
-    PREVENTION = "Prevention"
-    DETECTION = "Detection"
-
-
-class PolicyRequestBodyCheck(str, Enum):
-    """
-    Describes if policy managed rules will inspect the request body content.
-    """
-    DISABLED = "Disabled"
-    ENABLED = "Enabled"
-
-
 class PreferredIPVersion(str, Enum):
     """
     The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
@@ -1573,6 +1328,28 @@ class PreferredRoutingGateway(str, Enum):
     NONE = "None"
 
 
+class PrivateEndpointVNetPolicies(str, Enum):
+    """
+    Private Endpoint VNet Policies.
+    """
+    DISABLED = "Disabled"
+    BASIC = "Basic"
+
+
+class ProbeNoHealthyBackendsBehavior(str, Enum):
+    """
+    Determines how new connections are handled by the load balancer when all backend instances are probed down.
+    """
+    ALL_PROBED_DOWN = "AllProbedDown"
+    """
+    No new flows will be sent to the backend pool.
+    """
+    ALL_PROBED_UP = "AllProbedUp"
+    """
+    When all backend instances are probed down, incoming packets will be sent to all instances.
+    """
+
+
 class ProbeProtocol(str, Enum):
     """
     The protocol of the end point. If 'Tcp' is specified, a received ACK is required for the probe to be successful. If 'Http' or 'Https' is specified, a 200 OK response from the specifies URI is required for the probe to be successful.
@@ -1580,25 +1357,6 @@ class ProbeProtocol(str, Enum):
     HTTP = "Http"
     TCP = "Tcp"
     HTTPS = "Https"
-
-
-class ProfileMonitorStatus(str, Enum):
-    """
-    The profile-level monitoring status of the Traffic Manager profile.
-    """
-    CHECKING_ENDPOINTS = "CheckingEndpoints"
-    ONLINE = "Online"
-    DEGRADED = "Degraded"
-    DISABLED = "Disabled"
-    INACTIVE = "Inactive"
-
-
-class ProfileStatus(str, Enum):
-    """
-    The status of the Traffic Manager profile.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class ProtocolType(str, Enum):
@@ -1668,6 +1426,14 @@ class PublicIpAddressDnsSettingsDomainNameLabelScope(str, Enum):
     NO_REUSE = "NoReuse"
 
 
+class ResiliencyModel(str, Enum):
+    """
+    Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
+    """
+    SINGLE_HOMED = "SingleHomed"
+    MULTI_HOMED = "MultiHomed"
+
+
 class ResourceIdentityType(str, Enum):
     """
     The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
@@ -1726,14 +1492,6 @@ class RoutingRuleDestinationType(str, Enum):
     SERVICE_TAG = "ServiceTag"
 
 
-class RoutingRuleEnabledState(str, Enum):
-    """
-    Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class RoutingRuleNextHopType(str, Enum):
     """
     Next hop type.
@@ -1743,49 +1501,6 @@ class RoutingRuleNextHopType(str, Enum):
     VIRTUAL_APPLIANCE = "VirtualAppliance"
     VIRTUAL_NETWORK_GATEWAY = "VirtualNetworkGateway"
     VNET_LOCAL = "VnetLocal"
-
-
-class RuleType(str, Enum):
-    """
-    Describes type of rule.
-    """
-    MATCH_RULE = "MatchRule"
-    RATE_LIMIT_RULE = "RateLimitRule"
-
-
-class RulesEngineMatchVariable(str, Enum):
-    """
-    Match Variable
-    """
-    IS_MOBILE = "IsMobile"
-    REMOTE_ADDR = "RemoteAddr"
-    REQUEST_METHOD = "RequestMethod"
-    QUERY_STRING = "QueryString"
-    POST_ARGS = "PostArgs"
-    REQUEST_URI = "RequestUri"
-    REQUEST_PATH = "RequestPath"
-    REQUEST_FILENAME = "RequestFilename"
-    REQUEST_FILENAME_EXTENSION = "RequestFilenameExtension"
-    REQUEST_HEADER = "RequestHeader"
-    REQUEST_BODY = "RequestBody"
-    REQUEST_SCHEME = "RequestScheme"
-
-
-class RulesEngineOperator(str, Enum):
-    """
-    Describes operator to apply to the match condition.
-    """
-    ANY = "Any"
-    IP_MATCH = "IPMatch"
-    GEO_MATCH = "GeoMatch"
-    EQUAL = "Equal"
-    CONTAINS = "Contains"
-    LESS_THAN = "LessThan"
-    GREATER_THAN = "GreaterThan"
-    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
-    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
-    BEGINS_WITH = "BeginsWith"
-    ENDS_WITH = "EndsWith"
 
 
 class ScrubbingRuleEntryMatchOperator(str, Enum):
@@ -1882,6 +1597,16 @@ class SecurityRuleProtocol(str, Enum):
     AH = "Ah"
 
 
+class SensitivityType(str, Enum):
+    """
+    Describes the override sensitivity to be applied when rule matches.
+    """
+    NONE = "None"
+    LOW = "Low"
+    MEDIUM = "Medium"
+    HIGH = "High"
+
+
 class ServiceProviderProvisioningState(str, Enum):
     """
     The ServiceProviderProvisioningState state of the resource.
@@ -1892,73 +1617,20 @@ class ServiceProviderProvisioningState(str, Enum):
     DEPROVISIONING = "Deprovisioning"
 
 
-class SessionAffinityEnabledState(str, Enum):
+class SharingScope(str, Enum):
     """
-    Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+    Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
     """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
+    TENANT = "Tenant"
+    DELEGATED_SERVICES = "DelegatedServices"
 
 
-class SkuName(str, Enum):
+class SyncMode(str, Enum):
     """
-    Name of the pricing tier.
+    Backend address synchronous mode for the backend pool
     """
-    CLASSIC_AZURE_FRONT_DOOR = "Classic_AzureFrontDoor"
-    STANDARD_AZURE_FRONT_DOOR = "Standard_AzureFrontDoor"
-    PREMIUM_AZURE_FRONT_DOOR = "Premium_AzureFrontDoor"
-
-
-class State(str, Enum):
-    """
-    The state of the Experiment
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class TrafficRoutingMethod(str, Enum):
-    """
-    The traffic routing method of the Traffic Manager profile.
-    """
-    PERFORMANCE = "Performance"
-    PRIORITY = "Priority"
-    WEIGHTED = "Weighted"
-    GEOGRAPHIC = "Geographic"
-    MULTI_VALUE = "MultiValue"
-    SUBNET = "Subnet"
-
-
-class TrafficViewEnrollmentStatus(str, Enum):
-    """
-    Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class Transform(str, Enum):
-    """
-    Describes what transforms are applied before matching
-    """
-    LOWERCASE = "Lowercase"
-    UPPERCASE = "Uppercase"
-    TRIM = "Trim"
-    URL_DECODE = "UrlDecode"
-    URL_ENCODE = "UrlEncode"
-    REMOVE_NULLS = "RemoveNulls"
-
-
-class TransformType(str, Enum):
-    """
-    Describes what transforms applied before matching.
-    """
-    LOWERCASE = "Lowercase"
-    UPPERCASE = "Uppercase"
-    TRIM = "Trim"
-    URL_DECODE = "UrlDecode"
-    URL_ENCODE = "UrlEncode"
-    REMOVE_NULLS = "RemoveNulls"
+    AUTOMATIC = "Automatic"
+    MANUAL = "Manual"
 
 
 class TransportProtocol(str, Enum):
@@ -1988,7 +1660,7 @@ class UserRuleKind(str, Enum):
 
 class VirtualNetworkEncryptionEnforcement(str, Enum):
     """
-    If the encrypted VNet allows VM that does not support encryption
+    If the encrypted VNet allows VM that does not support encryption. This field is for future support, AllowUnencrypted is the only supported value at general availability.
     """
     DROP_UNENCRYPTED = "DropUnencrypted"
     ALLOW_UNENCRYPTED = "AllowUnencrypted"
@@ -2042,6 +1714,7 @@ class VirtualNetworkGatewaySkuName(str, Enum):
     ER_GW1_AZ = "ErGw1AZ"
     ER_GW2_AZ = "ErGw2AZ"
     ER_GW3_AZ = "ErGw3AZ"
+    ER_GW_SCALE = "ErGwScale"
 
 
 class VirtualNetworkGatewaySkuTier(str, Enum):
@@ -2065,6 +1738,7 @@ class VirtualNetworkGatewaySkuTier(str, Enum):
     ER_GW1_AZ = "ErGw1AZ"
     ER_GW2_AZ = "ErGw2AZ"
     ER_GW3_AZ = "ErGw3AZ"
+    ER_GW_SCALE = "ErGwScale"
 
 
 class VirtualNetworkGatewayType(str, Enum):
@@ -2101,6 +1775,8 @@ class VirtualNetworkPrivateEndpointNetworkPolicies(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+    NETWORK_SECURITY_GROUP_ENABLED = "NetworkSecurityGroupEnabled"
+    ROUTE_TABLE_ENABLED = "RouteTableEnabled"
 
 
 class VirtualNetworkPrivateLinkServiceNetworkPolicies(str, Enum):
@@ -2203,6 +1879,7 @@ class WebApplicationFirewallAction(str, Enum):
     ALLOW = "Allow"
     BLOCK = "Block"
     LOG = "Log"
+    JS_CHALLENGE = "JSChallenge"
 
 
 class WebApplicationFirewallEnabledState(str, Enum):
@@ -2289,11 +1966,3 @@ class WebApplicationFirewallTransform(str, Enum):
     URL_ENCODE = "UrlEncode"
     REMOVE_NULLS = "RemoveNulls"
     HTML_ENTITY_DECODE = "HtmlEntityDecode"
-
-
-class ZoneType(str, Enum):
-    """
-    The type of this DNS zone (Public or Private).
-    """
-    PUBLIC = "Public"
-    PRIVATE = "Private"

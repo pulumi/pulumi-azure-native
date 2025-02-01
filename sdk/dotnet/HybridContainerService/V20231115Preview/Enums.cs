@@ -8,38 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview
 {
     /// <summary>
-    /// Indicates whether Azure Hybrid Benefit is opted in
-    /// </summary>
-    [EnumType]
-    public readonly struct AzureHybridBenefit : IEquatable<AzureHybridBenefit>
-    {
-        private readonly string _value;
-
-        private AzureHybridBenefit(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AzureHybridBenefit True { get; } = new AzureHybridBenefit("True");
-        public static AzureHybridBenefit False { get; } = new AzureHybridBenefit("False");
-        public static AzureHybridBenefit NotApplicable { get; } = new AzureHybridBenefit("NotApplicable");
-
-        public static bool operator ==(AzureHybridBenefit left, AzureHybridBenefit right) => left.Equals(right);
-        public static bool operator !=(AzureHybridBenefit left, AzureHybridBenefit right) => !left.Equals(right);
-
-        public static explicit operator string(AzureHybridBenefit value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AzureHybridBenefit other && Equals(other);
-        public bool Equals(AzureHybridBenefit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The extended location type.
     /// </summary>
     [EnumType]
@@ -62,37 +30,6 @@ namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
         public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// NetworkPolicy - Network policy used for building Kubernetes network. Possible values include: 'calico', 'flannel'. Default is 'calico'
-    /// </summary>
-    [EnumType]
-    public readonly struct NetworkPolicy : IEquatable<NetworkPolicy>
-    {
-        private readonly string _value;
-
-        private NetworkPolicy(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static NetworkPolicy Calico { get; } = new NetworkPolicy("calico");
-        public static NetworkPolicy Flannel { get; } = new NetworkPolicy("flannel");
-
-        public static bool operator ==(NetworkPolicy left, NetworkPolicy right) => left.Equals(right);
-        public static bool operator !=(NetworkPolicy left, NetworkPolicy right) => !left.Equals(right);
-
-        public static explicit operator string(NetworkPolicy value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is NetworkPolicy other && Equals(other);
-        public bool Equals(NetworkPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

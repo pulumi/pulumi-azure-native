@@ -10,16 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// The L2IsolationDomain resource definition.
-    /// Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+    /// The L2 Isolation Domain resource definition.
+    /// Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
     /// 
-    /// Other available API versions: 2023-06-15.
+    /// Other available API versions: 2023-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:L2IsolationDomain")]
     public partial class L2IsolationDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// state. Example: Enabled | Disabled. It indicates administrative state of the isolationDomain, whether it is enabled or disabled. If enabled, the configuration is applied on the devices. If disabled, the configuration is removed from the devices
+        /// Administrative state of the resource.
         /// </summary>
         [Output("administrativeState")]
         public Output<string> AdministrativeState { get; private set; } = null!;
@@ -31,10 +31,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string?> Annotation { get; private set; } = null!;
 
         /// <summary>
-        /// List of resources the L2 Isolation Domain is disabled on. Can be either entire NetworkFabric or NetworkRack.
+        /// Configuration state of the resource.
         /// </summary>
-        [Output("disabledOnResources")]
-        public Output<ImmutableArray<string>> DisabledOnResources { get; private set; } = null!;
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// maximum transmission unit. Default value is 1500.
+        /// Maximum transmission unit. Default value is 1500.
         /// </summary>
         [Output("mtu")]
         public Output<int?> Mtu { get; private set; } = null!;
@@ -55,13 +55,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network Fabric ARM resource id.
+        /// ARM Resource ID of the Network Fabric.
         /// </summary>
         [Output("networkFabricId")]
         public Output<string> NetworkFabricId { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// vlanId. Example: 501.
+        /// Vlan Identifier of the Network Fabric. Example: 501.
         /// </summary>
         [Output("vlanId")]
         public Output<int> VlanId { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string>? Annotation { get; set; }
 
         /// <summary>
-        /// Name of the L2 Isolation Domain
+        /// Name of the L2 Isolation Domain.
         /// </summary>
         [Input("l2IsolationDomainName")]
         public Input<string>? L2IsolationDomainName { get; set; }
@@ -159,13 +159,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// maximum transmission unit. Default value is 1500.
+        /// Maximum transmission unit. Default value is 1500.
         /// </summary>
         [Input("mtu")]
         public Input<int>? Mtu { get; set; }
 
         /// <summary>
-        /// Network Fabric ARM resource id.
+        /// ARM Resource ID of the Network Fabric.
         /// </summary>
         [Input("networkFabricId", required: true)]
         public Input<string> NetworkFabricId { get; set; } = null!;
@@ -189,13 +189,14 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         }
 
         /// <summary>
-        /// vlanId. Example: 501.
+        /// Vlan Identifier of the Network Fabric. Example: 501.
         /// </summary>
         [Input("vlanId", required: true)]
         public Input<int> VlanId { get; set; } = null!;
 
         public L2IsolationDomainArgs()
         {
+            Mtu = 1500;
         }
         public static new L2IsolationDomainArgs Empty => new L2IsolationDomainArgs();
     }

@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Run a playbook on an object
         /// </summary>
         public static ActionType RunPlaybook { get; } = new ActionType("RunPlaybook");
+        /// <summary>
+        /// Add a task to an incident object
+        /// </summary>
+        public static ActionType AddIncidentTask { get; } = new ActionType("AddIncidentTask");
 
         public static bool operator ==(ActionType left, ActionType right) => left.Equals(right);
         public static bool operator !=(ActionType left, ActionType right) => !left.Equals(right);
@@ -299,6 +303,43 @@ namespace Pulumi.AzureNative.SecurityInsights
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Describes a boolean condition operator.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRuleBooleanConditionSupportedOperator : IEquatable<AutomationRuleBooleanConditionSupportedOperator>
+    {
+        private readonly string _value;
+
+        private AutomationRuleBooleanConditionSupportedOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Evaluates as true if all the item conditions are evaluated as true
+        /// </summary>
+        public static AutomationRuleBooleanConditionSupportedOperator And { get; } = new AutomationRuleBooleanConditionSupportedOperator("And");
+        /// <summary>
+        /// Evaluates as true if at least one of the item conditions are evaluated as true
+        /// </summary>
+        public static AutomationRuleBooleanConditionSupportedOperator Or { get; } = new AutomationRuleBooleanConditionSupportedOperator("Or");
+
+        public static bool operator ==(AutomationRuleBooleanConditionSupportedOperator left, AutomationRuleBooleanConditionSupportedOperator right) => left.Equals(right);
+        public static bool operator !=(AutomationRuleBooleanConditionSupportedOperator left, AutomationRuleBooleanConditionSupportedOperator right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRuleBooleanConditionSupportedOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRuleBooleanConditionSupportedOperator other && Equals(other);
+        public bool Equals(AutomationRuleBooleanConditionSupportedOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct AutomationRulePropertyArrayChangedConditionSupportedArrayType : IEquatable<AutomationRulePropertyArrayChangedConditionSupportedArrayType>
     {
@@ -364,6 +405,76 @@ namespace Pulumi.AzureNative.SecurityInsights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AutomationRulePropertyArrayChangedConditionSupportedChangeType other && Equals(other);
         public bool Equals(AutomationRulePropertyArrayChangedConditionSupportedChangeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes an array condition evaluation type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRulePropertyArrayConditionSupportedArrayConditionType : IEquatable<AutomationRulePropertyArrayConditionSupportedArrayConditionType>
+    {
+        private readonly string _value;
+
+        private AutomationRulePropertyArrayConditionSupportedArrayConditionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Evaluate the condition as true if any item fulfills it
+        /// </summary>
+        public static AutomationRulePropertyArrayConditionSupportedArrayConditionType AnyItem { get; } = new AutomationRulePropertyArrayConditionSupportedArrayConditionType("AnyItem");
+
+        public static bool operator ==(AutomationRulePropertyArrayConditionSupportedArrayConditionType left, AutomationRulePropertyArrayConditionSupportedArrayConditionType right) => left.Equals(right);
+        public static bool operator !=(AutomationRulePropertyArrayConditionSupportedArrayConditionType left, AutomationRulePropertyArrayConditionSupportedArrayConditionType right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRulePropertyArrayConditionSupportedArrayConditionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRulePropertyArrayConditionSupportedArrayConditionType other && Equals(other);
+        public bool Equals(AutomationRulePropertyArrayConditionSupportedArrayConditionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes an array condition evaluated array type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutomationRulePropertyArrayConditionSupportedArrayType : IEquatable<AutomationRulePropertyArrayConditionSupportedArrayType>
+    {
+        private readonly string _value;
+
+        private AutomationRulePropertyArrayConditionSupportedArrayType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Evaluate the condition on the custom detail keys
+        /// </summary>
+        public static AutomationRulePropertyArrayConditionSupportedArrayType CustomDetails { get; } = new AutomationRulePropertyArrayConditionSupportedArrayType("CustomDetails");
+        /// <summary>
+        /// Evaluate the condition on a custom detail's values
+        /// </summary>
+        public static AutomationRulePropertyArrayConditionSupportedArrayType CustomDetailValues { get; } = new AutomationRulePropertyArrayConditionSupportedArrayType("CustomDetailValues");
+
+        public static bool operator ==(AutomationRulePropertyArrayConditionSupportedArrayType left, AutomationRulePropertyArrayConditionSupportedArrayType right) => left.Equals(right);
+        public static bool operator !=(AutomationRulePropertyArrayConditionSupportedArrayType left, AutomationRulePropertyArrayConditionSupportedArrayType right) => !left.Equals(right);
+
+        public static explicit operator string(AutomationRulePropertyArrayConditionSupportedArrayType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutomationRulePropertyArrayConditionSupportedArrayType other && Equals(other);
+        public bool Equals(AutomationRulePropertyArrayConditionSupportedArrayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -550,6 +661,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The update source of the incident
         /// </summary>
         public static AutomationRulePropertyConditionSupportedProperty IncidentUpdatedBySource { get; } = new AutomationRulePropertyConditionSupportedProperty("IncidentUpdatedBySource");
+        /// <summary>
+        /// The incident custom detail key
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty IncidentCustomDetailsKey { get; } = new AutomationRulePropertyConditionSupportedProperty("IncidentCustomDetailsKey");
+        /// <summary>
+        /// The incident custom detail value
+        /// </summary>
+        public static AutomationRulePropertyConditionSupportedProperty IncidentCustomDetailsValue { get; } = new AutomationRulePropertyConditionSupportedProperty("IncidentCustomDetailsValue");
         /// <summary>
         /// The account Azure Active Directory tenant id
         /// </summary>
@@ -754,6 +873,46 @@ namespace Pulumi.AzureNative.SecurityInsights
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The auth type
+    /// </summary>
+    [EnumType]
+    public readonly struct CcpAuthType : IEquatable<CcpAuthType>
+    {
+        private readonly string _value;
+
+        private CcpAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CcpAuthType Basic { get; } = new CcpAuthType("Basic");
+        public static CcpAuthType APIKey { get; } = new CcpAuthType("APIKey");
+        public static CcpAuthType OAuth2 { get; } = new CcpAuthType("OAuth2");
+        public static CcpAuthType AWS { get; } = new CcpAuthType("AWS");
+        public static CcpAuthType GCP { get; } = new CcpAuthType("GCP");
+        public static CcpAuthType Session { get; } = new CcpAuthType("Session");
+        public static CcpAuthType JwtToken { get; } = new CcpAuthType("JwtToken");
+        public static CcpAuthType GitHub { get; } = new CcpAuthType("GitHub");
+        public static CcpAuthType ServiceBus { get; } = new CcpAuthType("ServiceBus");
+        public static CcpAuthType Oracle { get; } = new CcpAuthType("Oracle");
+        public static CcpAuthType None { get; } = new CcpAuthType("None");
+
+        public static bool operator ==(CcpAuthType left, CcpAuthType right) => left.Equals(right);
+        public static bool operator !=(CcpAuthType left, CcpAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(CcpAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CcpAuthType other && Equals(other);
+        public bool Equals(CcpAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct ConditionType : IEquatable<ConditionType>
     {
@@ -769,6 +928,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static ConditionType Property { get; } = new ConditionType("Property");
         /// <summary>
+        /// Evaluate an object array property value
+        /// </summary>
+        public static ConditionType PropertyArray { get; } = new ConditionType("PropertyArray");
+        /// <summary>
         /// Evaluate an object property changed value
         /// </summary>
         public static ConditionType PropertyChanged { get; } = new ConditionType("PropertyChanged");
@@ -776,6 +939,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Evaluate an object array property changed value
         /// </summary>
         public static ConditionType PropertyArrayChanged { get; } = new ConditionType("PropertyArrayChanged");
+        /// <summary>
+        /// Apply a boolean operator (e.g AND, OR) to conditions
+        /// </summary>
+        public static ConditionType Boolean { get; } = new ConditionType("Boolean");
 
         public static bool operator ==(ConditionType left, ConditionType right) => left.Equals(right);
         public static bool operator !=(ConditionType left, ConditionType right) => !left.Equals(right);
@@ -930,10 +1097,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         public static DataConnectorKind AzureSecurityCenter { get; } = new DataConnectorKind("AzureSecurityCenter");
         public static DataConnectorKind MicrosoftCloudAppSecurity { get; } = new DataConnectorKind("MicrosoftCloudAppSecurity");
         public static DataConnectorKind ThreatIntelligence { get; } = new DataConnectorKind("ThreatIntelligence");
+        public static DataConnectorKind MicrosoftThreatIntelligence { get; } = new DataConnectorKind("MicrosoftThreatIntelligence");
+        public static DataConnectorKind PremiumMicrosoftDefenderForThreatIntelligence { get; } = new DataConnectorKind("PremiumMicrosoftDefenderForThreatIntelligence");
         public static DataConnectorKind Office365 { get; } = new DataConnectorKind("Office365");
         public static DataConnectorKind AmazonWebServicesCloudTrail { get; } = new DataConnectorKind("AmazonWebServicesCloudTrail");
         public static DataConnectorKind AzureAdvancedThreatProtection { get; } = new DataConnectorKind("AzureAdvancedThreatProtection");
         public static DataConnectorKind MicrosoftDefenderAdvancedThreatProtection { get; } = new DataConnectorKind("MicrosoftDefenderAdvancedThreatProtection");
+        public static DataConnectorKind RestApiPoller { get; } = new DataConnectorKind("RestApiPoller");
 
         public static bool operator ==(DataConnectorKind left, DataConnectorKind right) => left.Equals(right);
         public static bool operator !=(DataConnectorKind left, DataConnectorKind right) => !left.Equals(right);
@@ -1517,6 +1687,39 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
+    /// The HTTP method, default value GET.
+    /// </summary>
+    [EnumType]
+    public readonly struct HttpMethodVerb : IEquatable<HttpMethodVerb>
+    {
+        private readonly string _value;
+
+        private HttpMethodVerb(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HttpMethodVerb GET { get; } = new HttpMethodVerb("GET");
+        public static HttpMethodVerb POST { get; } = new HttpMethodVerb("POST");
+        public static HttpMethodVerb PUT { get; } = new HttpMethodVerb("PUT");
+        public static HttpMethodVerb DELETE { get; } = new HttpMethodVerb("DELETE");
+
+        public static bool operator ==(HttpMethodVerb left, HttpMethodVerb right) => left.Equals(right);
+        public static bool operator !=(HttpMethodVerb left, HttpMethodVerb right) => !left.Equals(right);
+
+        public static explicit operator string(HttpMethodVerb value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HttpMethodVerb other && Equals(other);
+        public bool Equals(HttpMethodVerb other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Represents the types of HTTPS configuration to connect to the SapControl service.
     /// </summary>
     [EnumType]
@@ -1756,6 +1959,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The status of the task
+    /// </summary>
     [EnumType]
     public readonly struct IncidentTaskStatus : IEquatable<IncidentTaskStatus>
     {
@@ -2311,6 +2517,74 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
+    /// The kind of repository access credentials
+    /// </summary>
+    [EnumType]
+    public readonly struct RepositoryAccessKind : IEquatable<RepositoryAccessKind>
+    {
+        private readonly string _value;
+
+        private RepositoryAccessKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RepositoryAccessKind OAuth { get; } = new RepositoryAccessKind("OAuth");
+        public static RepositoryAccessKind PAT { get; } = new RepositoryAccessKind("PAT");
+        public static RepositoryAccessKind App { get; } = new RepositoryAccessKind("App");
+
+        public static bool operator ==(RepositoryAccessKind left, RepositoryAccessKind right) => left.Equals(right);
+        public static bool operator !=(RepositoryAccessKind left, RepositoryAccessKind right) => !left.Equals(right);
+
+        public static explicit operator string(RepositoryAccessKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RepositoryAccessKind other && Equals(other);
+        public bool Equals(RepositoryAccessKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of paging
+    /// </summary>
+    [EnumType]
+    public readonly struct RestApiPollerRequestPagingKind : IEquatable<RestApiPollerRequestPagingKind>
+    {
+        private readonly string _value;
+
+        private RestApiPollerRequestPagingKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RestApiPollerRequestPagingKind LinkHeader { get; } = new RestApiPollerRequestPagingKind("LinkHeader");
+        public static RestApiPollerRequestPagingKind NextPageToken { get; } = new RestApiPollerRequestPagingKind("NextPageToken");
+        public static RestApiPollerRequestPagingKind NextPageUrl { get; } = new RestApiPollerRequestPagingKind("NextPageUrl");
+        public static RestApiPollerRequestPagingKind PersistentToken { get; } = new RestApiPollerRequestPagingKind("PersistentToken");
+        public static RestApiPollerRequestPagingKind PersistentLinkHeader { get; } = new RestApiPollerRequestPagingKind("PersistentLinkHeader");
+        public static RestApiPollerRequestPagingKind Offset { get; } = new RestApiPollerRequestPagingKind("Offset");
+        public static RestApiPollerRequestPagingKind CountBasedPaging { get; } = new RestApiPollerRequestPagingKind("CountBasedPaging");
+
+        public static bool operator ==(RestApiPollerRequestPagingKind left, RestApiPollerRequestPagingKind right) => left.Equals(right);
+        public static bool operator !=(RestApiPollerRequestPagingKind left, RestApiPollerRequestPagingKind right) => !left.Equals(right);
+
+        public static explicit operator string(RestApiPollerRequestPagingKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RestApiPollerRequestPagingKind other && Equals(other);
+        public bool Equals(RestApiPollerRequestPagingKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The authentication type to SAP.
     /// </summary>
     [EnumType]
@@ -2474,37 +2748,6 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
-    /// The source of the watchlist
-    /// </summary>
-    [EnumType]
-    public readonly struct Source : IEquatable<Source>
-    {
-        private readonly string _value;
-
-        private Source(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Source Local_file { get; } = new Source("Local file");
-        public static Source Remote_storage { get; } = new Source("Remote storage");
-
-        public static bool operator ==(Source left, Source right) => left.Equals(right);
-        public static bool operator !=(Source left, Source right) => !left.Equals(right);
-
-        public static explicit operator string(Source value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Source other && Equals(other);
-        public bool Equals(Source other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Source type of the content
     /// </summary>
     [EnumType]
@@ -2538,6 +2781,43 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
+    /// The sourceType of the watchlist
+    /// </summary>
+    [EnumType]
+    public readonly struct SourceType : IEquatable<SourceType>
+    {
+        private readonly string _value;
+
+        private SourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The source from local file.
+        /// </summary>
+        public static SourceType Local_file { get; } = new SourceType("Local file");
+        /// <summary>
+        /// The source from remote storage.
+        /// </summary>
+        public static SourceType Remote_storage { get; } = new SourceType("Remote storage");
+
+        public static bool operator ==(SourceType left, SourceType right) => left.Equals(right);
+        public static bool operator !=(SourceType left, SourceType right) => !left.Equals(right);
+
+        public static explicit operator string(SourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceType other && Equals(other);
+        public bool Equals(SourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the hunt.
     /// </summary>
     [EnumType]
@@ -2553,6 +2833,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         public static Status New { get; } = new Status("New");
         public static Status Active { get; } = new Status("Active");
         public static Status Closed { get; } = new Status("Closed");
+        public static Status Backlog { get; } = new Status("Backlog");
+        public static Status Approved { get; } = new Status("Approved");
 
         public static bool operator ==(Status left, Status right) => left.Equals(right);
         public static bool operator !=(Status left, Status right) => !left.Equals(right);

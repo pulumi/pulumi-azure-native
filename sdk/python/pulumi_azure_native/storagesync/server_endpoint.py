@@ -61,16 +61,10 @@ class ServerEndpointArgs:
             pulumi.set(__self__, "cloud_tiering", cloud_tiering)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
-        if initial_download_policy is None:
-            initial_download_policy = 'NamespaceThenModifiedFiles'
         if initial_download_policy is not None:
             pulumi.set(__self__, "initial_download_policy", initial_download_policy)
-        if initial_upload_policy is None:
-            initial_upload_policy = 'Merge'
         if initial_upload_policy is not None:
             pulumi.set(__self__, "initial_upload_policy", initial_upload_policy)
-        if local_cache_mode is None:
-            local_cache_mode = 'UpdateLocallyCachedFiles'
         if local_cache_mode is not None:
             pulumi.set(__self__, "local_cache_mode", local_cache_mode)
         if offline_data_transfer is not None:
@@ -296,9 +290,9 @@ class ServerEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Server Endpoint object.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
-        Other available API versions: 2022-09-01.
+        Other available API versions: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -326,9 +320,9 @@ class ServerEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Server Endpoint object.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
-        Other available API versions: 2022-09-01.
+        Other available API versions: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param ServerEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -371,14 +365,8 @@ class ServerEndpoint(pulumi.CustomResource):
 
             __props__.__dict__["cloud_tiering"] = cloud_tiering
             __props__.__dict__["friendly_name"] = friendly_name
-            if initial_download_policy is None:
-                initial_download_policy = 'NamespaceThenModifiedFiles'
             __props__.__dict__["initial_download_policy"] = initial_download_policy
-            if initial_upload_policy is None:
-                initial_upload_policy = 'Merge'
             __props__.__dict__["initial_upload_policy"] = initial_upload_policy
-            if local_cache_mode is None:
-                local_cache_mode = 'UpdateLocallyCachedFiles'
             __props__.__dict__["local_cache_mode"] = local_cache_mode
             __props__.__dict__["offline_data_transfer"] = offline_data_transfer
             __props__.__dict__["offline_data_transfer_share_name"] = offline_data_transfer_share_name
@@ -408,6 +396,7 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__.__dict__["offline_data_transfer_storage_account_tenant_id"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["recall_status"] = None
+            __props__.__dict__["server_endpoint_provisioning_status"] = None
             __props__.__dict__["server_name"] = None
             __props__.__dict__["sync_status"] = None
             __props__.__dict__["system_data"] = None
@@ -451,6 +440,7 @@ class ServerEndpoint(pulumi.CustomResource):
         __props__.__dict__["offline_data_transfer_storage_account_tenant_id"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["recall_status"] = None
+        __props__.__dict__["server_endpoint_provisioning_status"] = None
         __props__.__dict__["server_local_path"] = None
         __props__.__dict__["server_name"] = None
         __props__.__dict__["server_resource_id"] = None
@@ -580,6 +570,14 @@ class ServerEndpoint(pulumi.CustomResource):
         Recall status. Only populated if cloud tiering is enabled.
         """
         return pulumi.get(self, "recall_status")
+
+    @property
+    @pulumi.getter(name="serverEndpointProvisioningStatus")
+    def server_endpoint_provisioning_status(self) -> pulumi.Output[Optional['outputs.ServerEndpointProvisioningStatusResponse']]:
+        """
+        Server Endpoint provisioning status
+        """
+        return pulumi.get(self, "server_endpoint_provisioning_status")
 
     @property
     @pulumi.getter(name="serverLocalPath")

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the details of a static site.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2020-10-01, 2021-02-01, 2022-09-01.
  */
 export function getStaticSite(args: GetStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,7 +81,7 @@ export interface GetStaticSiteResult {
      */
     readonly keyVaultReferenceIdentity: string;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     readonly kind?: string;
     /**
@@ -143,9 +143,9 @@ export interface GetStaticSiteResult {
 }
 /**
  * Description for Gets the details of a static site.
- * Azure REST API version: 2022-09-01.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Other available API versions: 2020-10-01, 2021-02-01, 2022-09-01.
  */
 export function getStaticSiteOutput(args: GetStaticSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

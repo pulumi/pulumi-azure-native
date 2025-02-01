@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Gets information about a network function definition version.
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-04-15.
         /// 
-        /// Other available API versions: 2024-04-15.
+        /// Other available API versions: 2023-09-01.
         /// </summary>
         public static Task<GetNetworkFunctionDefinitionVersionResult> InvokeAsync(GetNetworkFunctionDefinitionVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFunctionDefinitionVersionResult>("azure-native:hybridnetwork:getNetworkFunctionDefinitionVersion", args ?? new GetNetworkFunctionDefinitionVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a network function definition version.
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-04-15.
         /// 
-        /// Other available API versions: 2024-04-15.
+        /// Other available API versions: 2023-09-01.
         /// </summary>
         public static Output<GetNetworkFunctionDefinitionVersionResult> Invoke(GetNetworkFunctionDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionDefinitionVersionResult>("azure-native:hybridnetwork:getNetworkFunctionDefinitionVersion", args ?? new GetNetworkFunctionDefinitionVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a network function definition version.
-        /// Azure REST API version: 2023-09-01.
+        /// Azure REST API version: 2024-04-15.
         /// 
-        /// Other available API versions: 2024-04-15.
+        /// Other available API versions: 2023-09-01.
         /// </summary>
         public static Output<GetNetworkFunctionDefinitionVersionResult> Invoke(GetNetworkFunctionDefinitionVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionDefinitionVersionResult>("azure-native:hybridnetwork:getNetworkFunctionDefinitionVersion", args ?? new GetNetworkFunctionDefinitionVersionInvokeArgs(), options.WithDefaults());

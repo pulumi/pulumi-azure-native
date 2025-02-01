@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20241001Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:NetworkInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:NetworkInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:NetworkInterface" },

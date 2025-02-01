@@ -27,19 +27,25 @@ class GetPrivateCloudResult:
     """
     A private cloud resource
     """
-    def __init__(__self__, availability=None, circuit=None, encryption=None, endpoints=None, external_cloud_links=None, id=None, identity=None, identity_sources=None, internet=None, location=None, management_cluster=None, management_network=None, name=None, network_block=None, nsx_public_ip_quota_raised=None, nsxt_certificate_thumbprint=None, nsxt_password=None, provisioning_network=None, provisioning_state=None, secondary_circuit=None, sku=None, tags=None, type=None, vcenter_certificate_thumbprint=None, vcenter_password=None, vmotion_network=None):
+    def __init__(__self__, availability=None, circuit=None, dns_zone_type=None, encryption=None, endpoints=None, extended_network_blocks=None, external_cloud_links=None, id=None, identity=None, identity_sources=None, internet=None, location=None, management_cluster=None, management_network=None, name=None, network_block=None, nsx_public_ip_quota_raised=None, nsxt_certificate_thumbprint=None, nsxt_password=None, provisioning_network=None, provisioning_state=None, secondary_circuit=None, sku=None, system_data=None, tags=None, type=None, vcenter_certificate_thumbprint=None, vcenter_password=None, virtual_network_id=None, vmotion_network=None):
         if availability and not isinstance(availability, dict):
             raise TypeError("Expected argument 'availability' to be a dict")
         pulumi.set(__self__, "availability", availability)
         if circuit and not isinstance(circuit, dict):
             raise TypeError("Expected argument 'circuit' to be a dict")
         pulumi.set(__self__, "circuit", circuit)
+        if dns_zone_type and not isinstance(dns_zone_type, str):
+            raise TypeError("Expected argument 'dns_zone_type' to be a str")
+        pulumi.set(__self__, "dns_zone_type", dns_zone_type)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
         if endpoints and not isinstance(endpoints, dict):
             raise TypeError("Expected argument 'endpoints' to be a dict")
         pulumi.set(__self__, "endpoints", endpoints)
+        if extended_network_blocks and not isinstance(extended_network_blocks, list):
+            raise TypeError("Expected argument 'extended_network_blocks' to be a list")
+        pulumi.set(__self__, "extended_network_blocks", extended_network_blocks)
         if external_cloud_links and not isinstance(external_cloud_links, list):
             raise TypeError("Expected argument 'external_cloud_links' to be a list")
         pulumi.set(__self__, "external_cloud_links", external_cloud_links)
@@ -91,6 +97,9 @@ class GetPrivateCloudResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -103,6 +112,9 @@ class GetPrivateCloudResult:
         if vcenter_password and not isinstance(vcenter_password, str):
             raise TypeError("Expected argument 'vcenter_password' to be a str")
         pulumi.set(__self__, "vcenter_password", vcenter_password)
+        if virtual_network_id and not isinstance(virtual_network_id, str):
+            raise TypeError("Expected argument 'virtual_network_id' to be a str")
+        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
         if vmotion_network and not isinstance(vmotion_network, str):
             raise TypeError("Expected argument 'vmotion_network' to be a str")
         pulumi.set(__self__, "vmotion_network", vmotion_network)
@@ -124,6 +136,14 @@ class GetPrivateCloudResult:
         return pulumi.get(self, "circuit")
 
     @property
+    @pulumi.getter(name="dnsZoneType")
+    def dns_zone_type(self) -> Optional[str]:
+        """
+        The type of DNS zone to use.
+        """
+        return pulumi.get(self, "dns_zone_type")
+
+    @property
     @pulumi.getter
     def encryption(self) -> Optional['outputs.EncryptionResponse']:
         """
@@ -140,6 +160,17 @@ class GetPrivateCloudResult:
         return pulumi.get(self, "endpoints")
 
     @property
+    @pulumi.getter(name="extendedNetworkBlocks")
+    def extended_network_blocks(self) -> Optional[Sequence[str]]:
+        """
+        Array of additional networks noncontiguous with networkBlock. Networks must be
+        unique and non-overlapping across VNet in your subscription, on-premise, and
+        this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
+        (A.B.C.D/X).
+        """
+        return pulumi.get(self, "extended_network_blocks")
+
+    @property
     @pulumi.getter(name="externalCloudLinks")
     def external_cloud_links(self) -> Sequence[str]:
         """
@@ -151,15 +182,15 @@ class GetPrivateCloudResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.PrivateCloudIdentityResponse']:
+    def identity(self) -> Optional['outputs.SystemAssignedServiceIdentityResponse']:
         """
-        The identity of the private cloud, if configured.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -183,7 +214,7 @@ class GetPrivateCloudResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -207,7 +238,7 @@ class GetPrivateCloudResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -215,7 +246,9 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="networkBlock")
     def network_block(self) -> str:
         """
-        The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        The block of addresses should be unique across VNet in your subscription as
+        well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
+        A,B,C,D are between 0 and 255, and X is between 0 and 22
         """
         return pulumi.get(self, "network_block")
 
@@ -223,7 +256,8 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="nsxPublicIpQuotaRaised")
     def nsx_public_ip_quota_raised(self) -> str:
         """
-        Flag to indicate whether the private cloud has the quota for provisioned NSX Public IP count raised from 64 to 1024
+        Flag to indicate whether the private cloud has the quota for provisioned NSX
+        Public IP count raised from 64 to 1024
         """
         return pulumi.get(self, "nsx_public_ip_quota_raised")
 
@@ -263,7 +297,8 @@ class GetPrivateCloudResult:
     @pulumi.getter(name="secondaryCircuit")
     def secondary_circuit(self) -> Optional['outputs.CircuitResponse']:
         """
-        A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+        A secondary expressRoute circuit from a separate AZ. Only present in a
+        stretched private cloud
         """
         return pulumi.get(self, "secondary_circuit")
 
@@ -271,15 +306,23 @@ class GetPrivateCloudResult:
     @pulumi.getter
     def sku(self) -> 'outputs.SkuResponse':
         """
-        The private cloud SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -287,7 +330,7 @@ class GetPrivateCloudResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -308,6 +351,14 @@ class GetPrivateCloudResult:
         return pulumi.get(self, "vcenter_password")
 
     @property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> Optional[str]:
+        """
+        Azure resource ID of the virtual network
+        """
+        return pulumi.get(self, "virtual_network_id")
+
+    @property
     @pulumi.getter(name="vmotionNetwork")
     def vmotion_network(self) -> str:
         """
@@ -324,8 +375,10 @@ class AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
         return GetPrivateCloudResult(
             availability=self.availability,
             circuit=self.circuit,
+            dns_zone_type=self.dns_zone_type,
             encryption=self.encryption,
             endpoints=self.endpoints,
+            extended_network_blocks=self.extended_network_blocks,
             external_cloud_links=self.external_cloud_links,
             id=self.id,
             identity=self.identity,
@@ -343,10 +396,12 @@ class AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
             provisioning_state=self.provisioning_state,
             secondary_circuit=self.secondary_circuit,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             vcenter_certificate_thumbprint=self.vcenter_certificate_thumbprint,
             vcenter_password=self.vcenter_password,
+            virtual_network_id=self.virtual_network_id,
             vmotion_network=self.vmotion_network)
 
 
@@ -354,10 +409,10 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateCloudResult:
     """
-    A private cloud resource
-    Azure REST API version: 2022-05-01.
+    Get a PrivateCloud
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2022-05-01, 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -372,8 +427,10 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
     return AwaitableGetPrivateCloudResult(
         availability=pulumi.get(__ret__, 'availability'),
         circuit=pulumi.get(__ret__, 'circuit'),
+        dns_zone_type=pulumi.get(__ret__, 'dns_zone_type'),
         encryption=pulumi.get(__ret__, 'encryption'),
         endpoints=pulumi.get(__ret__, 'endpoints'),
+        extended_network_blocks=pulumi.get(__ret__, 'extended_network_blocks'),
         external_cloud_links=pulumi.get(__ret__, 'external_cloud_links'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -391,19 +448,21 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         secondary_circuit=pulumi.get(__ret__, 'secondary_circuit'),
         sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vcenter_certificate_thumbprint=pulumi.get(__ret__, 'vcenter_certificate_thumbprint'),
         vcenter_password=pulumi.get(__ret__, 'vcenter_password'),
+        virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'),
         vmotion_network=pulumi.get(__ret__, 'vmotion_network'))
 def get_private_cloud_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateCloudResult]:
     """
-    A private cloud resource
-    Azure REST API version: 2022-05-01.
+    Get a PrivateCloud
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Other available API versions: 2022-05-01, 2023-03-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -417,8 +476,10 @@ def get_private_cloud_output(private_cloud_name: Optional[pulumi.Input[str]] = N
     return __ret__.apply(lambda __response__: GetPrivateCloudResult(
         availability=pulumi.get(__response__, 'availability'),
         circuit=pulumi.get(__response__, 'circuit'),
+        dns_zone_type=pulumi.get(__response__, 'dns_zone_type'),
         encryption=pulumi.get(__response__, 'encryption'),
         endpoints=pulumi.get(__response__, 'endpoints'),
+        extended_network_blocks=pulumi.get(__response__, 'extended_network_blocks'),
         external_cloud_links=pulumi.get(__response__, 'external_cloud_links'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
@@ -436,8 +497,10 @@ def get_private_cloud_output(private_cloud_name: Optional[pulumi.Input[str]] = N
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         secondary_circuit=pulumi.get(__response__, 'secondary_circuit'),
         sku=pulumi.get(__response__, 'sku'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         vcenter_certificate_thumbprint=pulumi.get(__response__, 'vcenter_certificate_thumbprint'),
         vcenter_password=pulumi.get(__response__, 'vcenter_password'),
+        virtual_network_id=pulumi.get(__response__, 'virtual_network_id'),
         vmotion_network=pulumi.get(__response__, 'vmotion_network')))

@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     Define the cluster.
     """
-    def __init__(__self__, custom_resource_name=None, datastore_ids=None, extended_location=None, id=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, network_ids=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, v_center_id=None):
+    def __init__(__self__, custom_resource_name=None, datastore_ids=None, extended_location=None, id=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, network_ids=None, provisioning_state=None, statuses=None, system_data=None, tags=None, total_cpu_m_hz=None, total_memory_gb=None, type=None, used_cpu_m_hz=None, used_memory_gb=None, uuid=None, v_center_id=None):
         if custom_resource_name and not isinstance(custom_resource_name, str):
             raise TypeError("Expected argument 'custom_resource_name' to be a str")
         pulumi.set(__self__, "custom_resource_name", custom_resource_name)
@@ -73,9 +73,21 @@ class GetClusterResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if total_cpu_m_hz and not isinstance(total_cpu_m_hz, float):
+            raise TypeError("Expected argument 'total_cpu_m_hz' to be a float")
+        pulumi.set(__self__, "total_cpu_m_hz", total_cpu_m_hz)
+        if total_memory_gb and not isinstance(total_memory_gb, float):
+            raise TypeError("Expected argument 'total_memory_gb' to be a float")
+        pulumi.set(__self__, "total_memory_gb", total_memory_gb)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if used_cpu_m_hz and not isinstance(used_cpu_m_hz, float):
+            raise TypeError("Expected argument 'used_cpu_m_hz' to be a float")
+        pulumi.set(__self__, "used_cpu_m_hz", used_cpu_m_hz)
+        if used_memory_gb and not isinstance(used_memory_gb, float):
+            raise TypeError("Expected argument 'used_memory_gb' to be a float")
+        pulumi.set(__self__, "used_memory_gb", used_memory_gb)
         if uuid and not isinstance(uuid, str):
             raise TypeError("Expected argument 'uuid' to be a str")
         pulumi.set(__self__, "uuid", uuid)
@@ -95,7 +107,7 @@ class GetClusterResult:
     @pulumi.getter(name="datastoreIds")
     def datastore_ids(self) -> Sequence[str]:
         """
-        Gets or sets the datastore ARM ids.
+        Gets the datastore ARM ids.
         """
         return pulumi.get(self, "datastore_ids")
 
@@ -167,7 +179,7 @@ class GetClusterResult:
     @pulumi.getter(name="networkIds")
     def network_ids(self) -> Sequence[str]:
         """
-        Gets or sets the network ARM ids.
+        Gets the network ARM ids.
         """
         return pulumi.get(self, "network_ids")
 
@@ -175,7 +187,7 @@ class GetClusterResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -204,12 +216,44 @@ class GetClusterResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="totalCpuMHz")
+    def total_cpu_m_hz(self) -> float:
+        """
+        Gets the max CPU usage across all cores on the cluster in MHz.
+        """
+        return pulumi.get(self, "total_cpu_m_hz")
+
+    @property
+    @pulumi.getter(name="totalMemoryGB")
+    def total_memory_gb(self) -> float:
+        """
+        Gets the total amount of physical memory on the cluster in GB.
+        """
+        return pulumi.get(self, "total_memory_gb")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
         Gets or sets the type of the resource.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="usedCpuMHz")
+    def used_cpu_m_hz(self) -> float:
+        """
+        Gets the used CPU usage across all cores on the cluster in MHz.
+        """
+        return pulumi.get(self, "used_cpu_m_hz")
+
+    @property
+    @pulumi.getter(name="usedMemoryGB")
+    def used_memory_gb(self) -> float:
+        """
+        Gets the used physical memory on the cluster in GB.
+        """
+        return pulumi.get(self, "used_memory_gb")
 
     @property
     @pulumi.getter
@@ -249,7 +293,11 @@ class AwaitableGetClusterResult(GetClusterResult):
             statuses=self.statuses,
             system_data=self.system_data,
             tags=self.tags,
+            total_cpu_m_hz=self.total_cpu_m_hz,
+            total_memory_gb=self.total_memory_gb,
             type=self.type,
+            used_cpu_m_hz=self.used_cpu_m_hz,
+            used_memory_gb=self.used_memory_gb,
             uuid=self.uuid,
             v_center_id=self.v_center_id)
 
@@ -259,9 +307,9 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Implements cluster GET method.
-    Azure REST API version: 2022-07-15-preview.
+    Azure REST API version: 2023-12-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Other available API versions: 2022-07-15-preview.
 
 
     :param str cluster_name: Name of the cluster.
@@ -289,7 +337,11 @@ def get_cluster(cluster_name: Optional[str] = None,
         statuses=pulumi.get(__ret__, 'statuses'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
+        total_cpu_m_hz=pulumi.get(__ret__, 'total_cpu_m_hz'),
+        total_memory_gb=pulumi.get(__ret__, 'total_memory_gb'),
         type=pulumi.get(__ret__, 'type'),
+        used_cpu_m_hz=pulumi.get(__ret__, 'used_cpu_m_hz'),
+        used_memory_gb=pulumi.get(__ret__, 'used_memory_gb'),
         uuid=pulumi.get(__ret__, 'uuid'),
         v_center_id=pulumi.get(__ret__, 'v_center_id'))
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
@@ -297,9 +349,9 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Implements cluster GET method.
-    Azure REST API version: 2022-07-15-preview.
+    Azure REST API version: 2023-12-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Other available API versions: 2022-07-15-preview.
 
 
     :param str cluster_name: Name of the cluster.
@@ -326,6 +378,10 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         statuses=pulumi.get(__response__, 'statuses'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
+        total_cpu_m_hz=pulumi.get(__response__, 'total_cpu_m_hz'),
+        total_memory_gb=pulumi.get(__response__, 'total_memory_gb'),
         type=pulumi.get(__response__, 'type'),
+        used_cpu_m_hz=pulumi.get(__response__, 'used_cpu_m_hz'),
+        used_memory_gb=pulumi.get(__response__, 'used_memory_gb'),
         uuid=pulumi.get(__response__, 'uuid'),
         v_center_id=pulumi.get(__response__, 'v_center_id')))

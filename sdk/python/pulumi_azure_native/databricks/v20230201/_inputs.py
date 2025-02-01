@@ -16,8 +16,6 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'AddressSpaceArgs',
-    'AddressSpaceArgsDict',
     'EncryptionEntitiesDefinitionArgs',
     'EncryptionEntitiesDefinitionArgsDict',
     'EncryptionV2KeyVaultPropertiesArgs',
@@ -36,10 +34,6 @@ __all__ = [
     'PrivateLinkServiceConnectionStateArgsDict',
     'SkuArgs',
     'SkuArgsDict',
-    'VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs',
-    'VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgsDict',
-    'VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs',
-    'VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgsDict',
     'WorkspaceCustomBooleanParameterArgs',
     'WorkspaceCustomBooleanParameterArgsDict',
     'WorkspaceCustomParametersArgs',
@@ -55,42 +49,6 @@ __all__ = [
 ]
 
 MYPY = False
-
-if not MYPY:
-    class AddressSpaceArgsDict(TypedDict):
-        """
-        AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
-        """
-        address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        A list of address blocks reserved for this virtual network in CIDR notation.
-        """
-elif False:
-    AddressSpaceArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AddressSpaceArgs:
-    def __init__(__self__, *,
-                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
-        """
-        if address_prefixes is not None:
-            pulumi.set(__self__, "address_prefixes", address_prefixes)
-
-    @property
-    @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of address blocks reserved for this virtual network in CIDR notation.
-        """
-        return pulumi.get(self, "address_prefixes")
-
-    @address_prefixes.setter
-    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "address_prefixes", value)
-
 
 if not MYPY:
     class EncryptionEntitiesDefinitionArgsDict(TypedDict):
@@ -704,78 +662,6 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
-
-
-if not MYPY:
-    class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgsDict(TypedDict):
-        """
-         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-        """
-        id: NotRequired[pulumi.Input[str]]
-        """
-        The Id of the databricks virtual network.
-        """
-elif False:
-    VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-        :param pulumi.Input[str] id: The Id of the databricks virtual network.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Id of the databricks virtual network.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgsDict(TypedDict):
-        """
-         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-        """
-        id: NotRequired[pulumi.Input[str]]
-        """
-        The Id of the remote virtual network.
-        """
-elif False:
-    VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-        :param pulumi.Input[str] id: The Id of the remote virtual network.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Id of the remote virtual network.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
 
 if not MYPY:

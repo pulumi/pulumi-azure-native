@@ -8,30 +8,61 @@ using Pulumi;
 namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
-    /// Level at which content is filtered.
+    /// Setting for trusted services.
     /// </summary>
     [EnumType]
-    public readonly struct AllowedContentLevel : IEquatable<AllowedContentLevel>
+    public readonly struct ByPassSelection : IEquatable<ByPassSelection>
     {
         private readonly string _value;
 
-        private AllowedContentLevel(string value)
+        private ByPassSelection(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static AllowedContentLevel Low { get; } = new AllowedContentLevel("Low");
-        public static AllowedContentLevel Medium { get; } = new AllowedContentLevel("Medium");
-        public static AllowedContentLevel High { get; } = new AllowedContentLevel("High");
+        public static ByPassSelection None { get; } = new ByPassSelection("None");
+        public static ByPassSelection AzureServices { get; } = new ByPassSelection("AzureServices");
 
-        public static bool operator ==(AllowedContentLevel left, AllowedContentLevel right) => left.Equals(right);
-        public static bool operator !=(AllowedContentLevel left, AllowedContentLevel right) => !left.Equals(right);
+        public static bool operator ==(ByPassSelection left, ByPassSelection right) => left.Equals(right);
+        public static bool operator !=(ByPassSelection left, ByPassSelection right) => !left.Equals(right);
 
-        public static explicit operator string(AllowedContentLevel value) => value._value;
+        public static explicit operator string(ByPassSelection value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AllowedContentLevel other && Equals(other);
-        public bool Equals(AllowedContentLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ByPassSelection other && Equals(other);
+        public bool Equals(ByPassSelection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Level at which content is filtered.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContentLevel : IEquatable<ContentLevel>
+    {
+        private readonly string _value;
+
+        private ContentLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContentLevel Low { get; } = new ContentLevel("Low");
+        public static ContentLevel Medium { get; } = new ContentLevel("Medium");
+        public static ContentLevel High { get; } = new ContentLevel("High");
+
+        public static bool operator ==(ContentLevel left, ContentLevel right) => left.Equals(right);
+        public static bool operator !=(ContentLevel left, ContentLevel right) => !left.Equals(right);
+
+        public static explicit operator string(ContentLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContentLevel other && Equals(other);
+        public bool Equals(ContentLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -323,7 +354,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     }
 
     /// <summary>
-    /// Content Filters mode.
+    /// Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
     /// </summary>
     [EnumType]
     public readonly struct RaiPolicyMode : IEquatable<RaiPolicyMode>
@@ -338,6 +369,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         public static RaiPolicyMode Default { get; } = new RaiPolicyMode("Default");
         public static RaiPolicyMode Deferred { get; } = new RaiPolicyMode("Deferred");
         public static RaiPolicyMode Blocking { get; } = new RaiPolicyMode("Blocking");
+        public static RaiPolicyMode Asynchronous_filter { get; } = new RaiPolicyMode("Asynchronous_filter");
 
         public static bool operator ==(RaiPolicyMode left, RaiPolicyMode right) => left.Equals(right);
         public static bool operator !=(RaiPolicyMode left, RaiPolicyMode right) => !left.Equals(right);

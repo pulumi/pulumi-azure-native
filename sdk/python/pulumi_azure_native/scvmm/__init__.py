@@ -39,13 +39,10 @@ if typing.TYPE_CHECKING:
     v20220521preview = __v20220521preview
     import pulumi_azure_native.scvmm.v20230401preview as __v20230401preview
     v20230401preview = __v20230401preview
-    import pulumi_azure_native.scvmm.v20231007 as __v20231007
-    v20231007 = __v20231007
     import pulumi_azure_native.scvmm.v20240601 as __v20240601
     v20240601 = __v20240601
 else:
     v20220521preview = _utilities.lazy_import('pulumi_azure_native.scvmm.v20220521preview')
     v20230401preview = _utilities.lazy_import('pulumi_azure_native.scvmm.v20230401preview')
-    v20231007 = _utilities.lazy_import('pulumi_azure_native.scvmm.v20231007')
     v20240601 = _utilities.lazy_import('pulumi_azure_native.scvmm.v20240601')
 

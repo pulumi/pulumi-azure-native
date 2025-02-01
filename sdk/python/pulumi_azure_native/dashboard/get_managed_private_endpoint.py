@@ -212,9 +212,9 @@ def get_managed_private_endpoint(managed_private_endpoint_name: Optional[str] = 
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrivateEndpointResult:
     """
     The managed private endpoint resource type.
-    Azure REST API version: 2022-10-01-preview.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
+    Other available API versions: 2022-10-01-preview.
 
 
     :param str managed_private_endpoint_name: The managed private endpoint name of Azure Managed Grafana.
@@ -249,9 +249,9 @@ def get_managed_private_endpoint_output(managed_private_endpoint_name: Optional[
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPrivateEndpointResult]:
     """
     The managed private endpoint resource type.
-    Azure REST API version: 2022-10-01-preview.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
+    Other available API versions: 2022-10-01-preview.
 
 
     :param str managed_private_endpoint_name: The managed private endpoint name of Azure Managed Grafana.

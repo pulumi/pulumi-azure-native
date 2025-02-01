@@ -33,8 +33,10 @@ class SignalRArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input['SignalRNetworkACLsArgs']] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[str]] = None,
                  resource_log_configuration: Optional[pulumi.Input['ResourceLogConfigurationArgs']] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
+                 resource_stopped: Optional[pulumi.Input[str]] = None,
                  serverless: Optional[pulumi.Input['ServerlessSettingsArgs']] = None,
                  sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -42,7 +44,7 @@ class SignalRArgs:
                  upstream: Optional[pulumi.Input['ServerlessUpstreamSettingsArgs']] = None):
         """
         The set of arguments for constructing a SignalR resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SignalRCorsSettingsArgs'] cors: Cross-Origin Resource Sharing (CORS) settings.
         :param pulumi.Input[bool] disable_aad_auth: DisableLocalAuth
                Enable or disable aad auth
@@ -57,18 +59,24 @@ class SignalRArgs:
                When a featureFlag is not explicitly set, its globally default value will be used
                But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         :param pulumi.Input['ManagedIdentityArgs'] identity: A class represent managed identities used for request and response
-        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service, it can be SignalR or RawWebSockets
+        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service
         :param pulumi.Input['LiveTraceConfigurationArgs'] live_trace_configuration: Live trace configuration of a Microsoft.SignalRService resource.
-        :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['SignalRNetworkACLsArgs'] network_acls: Network ACLs for the resource
         :param pulumi.Input[str] public_network_access: Enable or disable public network access. Default to "Enabled".
                When it's Enabled, network ACLs still apply.
                When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
+        :param pulumi.Input[str] region_endpoint_enabled: Enable or disable the regional endpoint. Default to "Enabled".
+               When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+               This property is replica specific. Disable the regional endpoint without replica is not allowed.
         :param pulumi.Input['ResourceLogConfigurationArgs'] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] resource_name: The name of the resource.
+        :param pulumi.Input[str] resource_stopped: Stop or start the resource.  Default to "False".
+               When it's true, the data plane of the resource is shutdown.
+               When it's false, the data plane of the resource is started.
         :param pulumi.Input['ServerlessSettingsArgs'] serverless: Serverless settings.
         :param pulumi.Input['ResourceSkuArgs'] sku: The billing information of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['SignalRTlsSettingsArgs'] tls: TLS settings for the resource
         :param pulumi.Input['ServerlessUpstreamSettingsArgs'] upstream: The settings for the Upstream when the service is in server-less mode.
         """
@@ -99,10 +107,18 @@ class SignalRArgs:
             public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if region_endpoint_enabled is None:
+            region_endpoint_enabled = 'Enabled'
+        if region_endpoint_enabled is not None:
+            pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
         if resource_log_configuration is not None:
             pulumi.set(__self__, "resource_log_configuration", resource_log_configuration)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
+        if resource_stopped is None:
+            resource_stopped = 'false'
+        if resource_stopped is not None:
+            pulumi.set(__self__, "resource_stopped", resource_stopped)
         if serverless is not None:
             pulumi.set(__self__, "serverless", serverless)
         if sku is not None:
@@ -118,7 +134,7 @@ class SignalRArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -199,7 +215,7 @@ class SignalRArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[Union[str, 'ServiceKind']]]:
         """
-        The kind of the service, it can be SignalR or RawWebSockets
+        The kind of the service
         """
         return pulumi.get(self, "kind")
 
@@ -223,7 +239,7 @@ class SignalRArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -258,6 +274,20 @@ class SignalRArgs:
         pulumi.set(self, "public_network_access", value)
 
     @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or disable the regional endpoint. Default to "Enabled".
+        When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
+
+    @region_endpoint_enabled.setter
+    def region_endpoint_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region_endpoint_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceLogConfiguration")
     def resource_log_configuration(self) -> Optional[pulumi.Input['ResourceLogConfigurationArgs']]:
         """
@@ -280,6 +310,20 @@ class SignalRArgs:
     @resource_name.setter
     def resource_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="resourceStopped")
+    def resource_stopped(self) -> Optional[pulumi.Input[str]]:
+        """
+        Stop or start the resource.  Default to "False".
+        When it's true, the data plane of the resource is shutdown.
+        When it's false, the data plane of the resource is started.
+        """
+        return pulumi.get(self, "resource_stopped")
+
+    @resource_stopped.setter
+    def resource_stopped(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_stopped", value)
 
     @property
     @pulumi.getter
@@ -309,7 +353,7 @@ class SignalRArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags of the service which is a list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -357,9 +401,11 @@ class SignalR(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[Union['SignalRNetworkACLsArgs', 'SignalRNetworkACLsArgsDict']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_log_configuration: Optional[pulumi.Input[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 resource_stopped: Optional[pulumi.Input[str]] = None,
                  serverless: Optional[pulumi.Input[Union['ServerlessSettingsArgs', 'ServerlessSettingsArgsDict']]] = None,
                  sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -368,9 +414,9 @@ class SignalR(pulumi.CustomResource):
                  __props__=None):
         """
         A class represent a resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-05-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-02-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -388,19 +434,25 @@ class SignalR(pulumi.CustomResource):
                When a featureFlag is not explicitly set, its globally default value will be used
                But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         :param pulumi.Input[Union['ManagedIdentityArgs', 'ManagedIdentityArgsDict']] identity: A class represent managed identities used for request and response
-        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service, it can be SignalR or RawWebSockets
+        :param pulumi.Input[Union[str, 'ServiceKind']] kind: The kind of the service
         :param pulumi.Input[Union['LiveTraceConfigurationArgs', 'LiveTraceConfigurationArgsDict']] live_trace_configuration: Live trace configuration of a Microsoft.SignalRService resource.
-        :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['SignalRNetworkACLsArgs', 'SignalRNetworkACLsArgsDict']] network_acls: Network ACLs for the resource
         :param pulumi.Input[str] public_network_access: Enable or disable public network access. Default to "Enabled".
                When it's Enabled, network ACLs still apply.
                When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] region_endpoint_enabled: Enable or disable the regional endpoint. Default to "Enabled".
+               When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+               This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] resource_name_: The name of the resource.
+        :param pulumi.Input[str] resource_stopped: Stop or start the resource.  Default to "False".
+               When it's true, the data plane of the resource is shutdown.
+               When it's false, the data plane of the resource is started.
         :param pulumi.Input[Union['ServerlessSettingsArgs', 'ServerlessSettingsArgsDict']] serverless: Serverless settings.
         :param pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']] sku: The billing information of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union['SignalRTlsSettingsArgs', 'SignalRTlsSettingsArgsDict']] tls: TLS settings for the resource
         :param pulumi.Input[Union['ServerlessUpstreamSettingsArgs', 'ServerlessUpstreamSettingsArgsDict']] upstream: The settings for the Upstream when the service is in server-less mode.
         """
@@ -412,9 +464,9 @@ class SignalR(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent a resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-05-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-02-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SignalRArgs args: The arguments to use to populate this resource's properties.
@@ -441,9 +493,11 @@ class SignalR(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[Union['SignalRNetworkACLsArgs', 'SignalRNetworkACLsArgsDict']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_log_configuration: Optional[pulumi.Input[Union['ResourceLogConfigurationArgs', 'ResourceLogConfigurationArgsDict']]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 resource_stopped: Optional[pulumi.Input[str]] = None,
                  serverless: Optional[pulumi.Input[Union['ServerlessSettingsArgs', 'ServerlessSettingsArgsDict']]] = None,
                  sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -474,11 +528,17 @@ class SignalR(pulumi.CustomResource):
             if public_network_access is None:
                 public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
+            if region_endpoint_enabled is None:
+                region_endpoint_enabled = 'Enabled'
+            __props__.__dict__["region_endpoint_enabled"] = region_endpoint_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_log_configuration"] = resource_log_configuration
             __props__.__dict__["resource_name"] = resource_name_
+            if resource_stopped is None:
+                resource_stopped = 'false'
+            __props__.__dict__["resource_stopped"] = resource_stopped
             __props__.__dict__["serverless"] = serverless
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
@@ -537,7 +597,9 @@ class SignalR(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
         __props__.__dict__["public_port"] = None
+        __props__.__dict__["region_endpoint_enabled"] = None
         __props__.__dict__["resource_log_configuration"] = None
+        __props__.__dict__["resource_stopped"] = None
         __props__.__dict__["server_port"] = None
         __props__.__dict__["serverless"] = None
         __props__.__dict__["shared_private_link_resources"] = None
@@ -627,7 +689,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        The kind of the service, it can be SignalR or RawWebSockets
+        The kind of the service
         """
         return pulumi.get(self, "kind")
 
@@ -641,9 +703,9 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
-        The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -651,7 +713,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -698,12 +760,32 @@ class SignalR(pulumi.CustomResource):
         return pulumi.get(self, "public_port")
 
     @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enable or disable the regional endpoint. Default to "Enabled".
+        When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
+
+    @property
     @pulumi.getter(name="resourceLogConfiguration")
     def resource_log_configuration(self) -> pulumi.Output[Optional['outputs.ResourceLogConfigurationResponse']]:
         """
         Resource log configuration of a Microsoft.SignalRService resource.
         """
         return pulumi.get(self, "resource_log_configuration")
+
+    @property
+    @pulumi.getter(name="resourceStopped")
+    def resource_stopped(self) -> pulumi.Output[Optional[str]]:
+        """
+        Stop or start the resource.  Default to "False".
+        When it's true, the data plane of the resource is shutdown.
+        When it's false, the data plane of the resource is started.
+        """
+        return pulumi.get(self, "resource_stopped")
 
     @property
     @pulumi.getter(name="serverPort")
@@ -741,7 +823,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -749,7 +831,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Tags of the service which is a list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -765,7 +847,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

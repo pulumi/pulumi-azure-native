@@ -17,7 +17,6 @@ from .get_packet_capture import *
 from .get_packet_core_control_plane import *
 from .get_packet_core_data_plane import *
 from .get_service import *
-from .get_sim import *
 from .get_sim_group import *
 from .get_sim_policy import *
 from .get_site import *
@@ -27,7 +26,6 @@ from .packet_capture import *
 from .packet_core_control_plane import *
 from .packet_core_data_plane import *
 from .service import *
-from .sim import *
 from .sim_group import *
 from .sim_policy import *
 from .site import *

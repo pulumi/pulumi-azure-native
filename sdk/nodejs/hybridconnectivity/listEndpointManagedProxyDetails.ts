@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Fetches the managed proxy details
- * Azure REST API version: 2023-03-15.
+ * Azure REST API version: 2024-12-01.
  *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Other available API versions: 2023-03-15.
  */
 export function listEndpointManagedProxyDetails(args: ListEndpointManagedProxyDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointManagedProxyDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,9 +62,9 @@ export interface ListEndpointManagedProxyDetailsResult {
 }
 /**
  * Fetches the managed proxy details
- * Azure REST API version: 2023-03-15.
+ * Azure REST API version: 2024-12-01.
  *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Other available API versions: 2023-03-15.
  */
 export function listEndpointManagedProxyDetailsOutput(args: ListEndpointManagedProxyDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEndpointManagedProxyDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

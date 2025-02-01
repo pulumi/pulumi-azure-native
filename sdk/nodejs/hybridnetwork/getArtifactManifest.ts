@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a artifact manifest resource.
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01.
  */
 export function getArtifactManifest(args: GetArtifactManifestArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactManifestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,9 +77,9 @@ export interface GetArtifactManifestResult {
 }
 /**
  * Gets information about a artifact manifest resource.
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2024-04-15.
  *
- * Other available API versions: 2024-04-15.
+ * Other available API versions: 2023-09-01.
  */
 export function getArtifactManifestOutput(args: GetArtifactManifestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArtifactManifestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -20,10 +20,12 @@ __all__ = [
     'APIServerProfileArgsDict',
     'ClusterProfileArgs',
     'ClusterProfileArgsDict',
-    'ConsoleProfileArgs',
-    'ConsoleProfileArgsDict',
     'IngressProfileArgs',
     'IngressProfileArgsDict',
+    'LoadBalancerProfileArgs',
+    'LoadBalancerProfileArgsDict',
+    'ManagedOutboundIPsArgs',
+    'ManagedOutboundIPsArgsDict',
     'MasterProfileArgs',
     'MasterProfileArgsDict',
     'NetworkProfileArgs',
@@ -41,14 +43,6 @@ if not MYPY:
         """
         APIServerProfile represents an API server profile.
         """
-        ip: NotRequired[pulumi.Input[str]]
-        """
-        The IP of the cluster API server.
-        """
-        url: NotRequired[pulumi.Input[str]]
-        """
-        The URL to access the cluster API server.
-        """
         visibility: NotRequired[pulumi.Input[Union[str, 'Visibility']]]
         """
         API server visibility.
@@ -59,45 +53,13 @@ elif False:
 @pulumi.input_type
 class APIServerProfileArgs:
     def __init__(__self__, *,
-                 ip: Optional[pulumi.Input[str]] = None,
-                 url: Optional[pulumi.Input[str]] = None,
                  visibility: Optional[pulumi.Input[Union[str, 'Visibility']]] = None):
         """
         APIServerProfile represents an API server profile.
-        :param pulumi.Input[str] ip: The IP of the cluster API server.
-        :param pulumi.Input[str] url: The URL to access the cluster API server.
         :param pulumi.Input[Union[str, 'Visibility']] visibility: API server visibility.
         """
-        if ip is not None:
-            pulumi.set(__self__, "ip", ip)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
-
-    @property
-    @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IP of the cluster API server.
-        """
-        return pulumi.get(self, "ip")
-
-    @ip.setter
-    def ip(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ip", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL to access the cluster API server.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter
@@ -229,49 +191,9 @@ class ClusterProfileArgs:
 
 
 if not MYPY:
-    class ConsoleProfileArgsDict(TypedDict):
-        """
-        ConsoleProfile represents a console profile.
-        """
-        url: NotRequired[pulumi.Input[str]]
-        """
-        The URL to access the cluster console.
-        """
-elif False:
-    ConsoleProfileArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ConsoleProfileArgs:
-    def __init__(__self__, *,
-                 url: Optional[pulumi.Input[str]] = None):
-        """
-        ConsoleProfile represents a console profile.
-        :param pulumi.Input[str] url: The URL to access the cluster console.
-        """
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL to access the cluster console.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "url", value)
-
-
-if not MYPY:
     class IngressProfileArgsDict(TypedDict):
         """
         IngressProfile represents an ingress profile.
-        """
-        ip: NotRequired[pulumi.Input[str]]
-        """
-        The IP of the ingress.
         """
         name: NotRequired[pulumi.Input[str]]
         """
@@ -287,33 +209,17 @@ elif False:
 @pulumi.input_type
 class IngressProfileArgs:
     def __init__(__self__, *,
-                 ip: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  visibility: Optional[pulumi.Input[Union[str, 'Visibility']]] = None):
         """
         IngressProfile represents an ingress profile.
-        :param pulumi.Input[str] ip: The IP of the ingress.
         :param pulumi.Input[str] name: The ingress profile name.
         :param pulumi.Input[Union[str, 'Visibility']] visibility: Ingress visibility.
         """
-        if ip is not None:
-            pulumi.set(__self__, "ip", ip)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
-
-    @property
-    @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IP of the ingress.
-        """
-        return pulumi.get(self, "ip")
-
-    @ip.setter
-    def ip(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ip", value)
 
     @property
     @pulumi.getter
@@ -338,6 +244,78 @@ class IngressProfileArgs:
     @visibility.setter
     def visibility(self, value: Optional[pulumi.Input[Union[str, 'Visibility']]]):
         pulumi.set(self, "visibility", value)
+
+
+if not MYPY:
+    class LoadBalancerProfileArgsDict(TypedDict):
+        """
+        LoadBalancerProfile represents the profile of the cluster public load balancer.
+        """
+        managed_outbound_ips: NotRequired[pulumi.Input['ManagedOutboundIPsArgsDict']]
+        """
+        The desired managed outbound IPs for the cluster public load balancer.
+        """
+elif False:
+    LoadBalancerProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerProfileArgs:
+    def __init__(__self__, *,
+                 managed_outbound_ips: Optional[pulumi.Input['ManagedOutboundIPsArgs']] = None):
+        """
+        LoadBalancerProfile represents the profile of the cluster public load balancer.
+        :param pulumi.Input['ManagedOutboundIPsArgs'] managed_outbound_ips: The desired managed outbound IPs for the cluster public load balancer.
+        """
+        if managed_outbound_ips is not None:
+            pulumi.set(__self__, "managed_outbound_ips", managed_outbound_ips)
+
+    @property
+    @pulumi.getter(name="managedOutboundIps")
+    def managed_outbound_ips(self) -> Optional[pulumi.Input['ManagedOutboundIPsArgs']]:
+        """
+        The desired managed outbound IPs for the cluster public load balancer.
+        """
+        return pulumi.get(self, "managed_outbound_ips")
+
+    @managed_outbound_ips.setter
+    def managed_outbound_ips(self, value: Optional[pulumi.Input['ManagedOutboundIPsArgs']]):
+        pulumi.set(self, "managed_outbound_ips", value)
+
+
+if not MYPY:
+    class ManagedOutboundIPsArgsDict(TypedDict):
+        """
+        ManagedOutboundIPs represents the desired managed outbound IPs for the cluster public load balancer.
+        """
+        count: NotRequired[pulumi.Input[int]]
+        """
+        Count represents the desired number of IPv4 outbound IPs created and managed by Azure for the cluster public load balancer.  Allowed values are in the range of 1 - 20.  The default value is 1.
+        """
+elif False:
+    ManagedOutboundIPsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedOutboundIPsArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None):
+        """
+        ManagedOutboundIPs represents the desired managed outbound IPs for the cluster public load balancer.
+        :param pulumi.Input[int] count: Count represents the desired number of IPv4 outbound IPs created and managed by Azure for the cluster public load balancer.  Allowed values are in the range of 1 - 20.  The default value is 1.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Count represents the desired number of IPv4 outbound IPs created and managed by Azure for the cluster public load balancer.  Allowed values are in the range of 1 - 20.  The default value is 1.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
 
 
 if not MYPY:
@@ -441,9 +419,21 @@ if not MYPY:
         """
         NetworkProfile represents a network profile.
         """
+        load_balancer_profile: NotRequired[pulumi.Input['LoadBalancerProfileArgsDict']]
+        """
+        The cluster load balancer profile.
+        """
+        outbound_type: NotRequired[pulumi.Input[Union[str, 'OutboundType']]]
+        """
+        The OutboundType used for egress traffic.
+        """
         pod_cidr: NotRequired[pulumi.Input[str]]
         """
         The CIDR used for OpenShift/Kubernetes Pods.
+        """
+        preconfigured_nsg: NotRequired[pulumi.Input[Union[str, 'PreconfiguredNSG']]]
+        """
+        Specifies whether subnets are pre-attached with an NSG
         """
         service_cidr: NotRequired[pulumi.Input[str]]
         """
@@ -455,17 +445,53 @@ elif False:
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
+                 load_balancer_profile: Optional[pulumi.Input['LoadBalancerProfileArgs']] = None,
+                 outbound_type: Optional[pulumi.Input[Union[str, 'OutboundType']]] = None,
                  pod_cidr: Optional[pulumi.Input[str]] = None,
+                 preconfigured_nsg: Optional[pulumi.Input[Union[str, 'PreconfiguredNSG']]] = None,
                  service_cidr: Optional[pulumi.Input[str]] = None):
         """
         NetworkProfile represents a network profile.
+        :param pulumi.Input['LoadBalancerProfileArgs'] load_balancer_profile: The cluster load balancer profile.
+        :param pulumi.Input[Union[str, 'OutboundType']] outbound_type: The OutboundType used for egress traffic.
         :param pulumi.Input[str] pod_cidr: The CIDR used for OpenShift/Kubernetes Pods.
+        :param pulumi.Input[Union[str, 'PreconfiguredNSG']] preconfigured_nsg: Specifies whether subnets are pre-attached with an NSG
         :param pulumi.Input[str] service_cidr: The CIDR used for OpenShift/Kubernetes Services.
         """
+        if load_balancer_profile is not None:
+            pulumi.set(__self__, "load_balancer_profile", load_balancer_profile)
+        if outbound_type is not None:
+            pulumi.set(__self__, "outbound_type", outbound_type)
         if pod_cidr is not None:
             pulumi.set(__self__, "pod_cidr", pod_cidr)
+        if preconfigured_nsg is not None:
+            pulumi.set(__self__, "preconfigured_nsg", preconfigured_nsg)
         if service_cidr is not None:
             pulumi.set(__self__, "service_cidr", service_cidr)
+
+    @property
+    @pulumi.getter(name="loadBalancerProfile")
+    def load_balancer_profile(self) -> Optional[pulumi.Input['LoadBalancerProfileArgs']]:
+        """
+        The cluster load balancer profile.
+        """
+        return pulumi.get(self, "load_balancer_profile")
+
+    @load_balancer_profile.setter
+    def load_balancer_profile(self, value: Optional[pulumi.Input['LoadBalancerProfileArgs']]):
+        pulumi.set(self, "load_balancer_profile", value)
+
+    @property
+    @pulumi.getter(name="outboundType")
+    def outbound_type(self) -> Optional[pulumi.Input[Union[str, 'OutboundType']]]:
+        """
+        The OutboundType used for egress traffic.
+        """
+        return pulumi.get(self, "outbound_type")
+
+    @outbound_type.setter
+    def outbound_type(self, value: Optional[pulumi.Input[Union[str, 'OutboundType']]]):
+        pulumi.set(self, "outbound_type", value)
 
     @property
     @pulumi.getter(name="podCidr")
@@ -478,6 +504,18 @@ class NetworkProfileArgs:
     @pod_cidr.setter
     def pod_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pod_cidr", value)
+
+    @property
+    @pulumi.getter(name="preconfiguredNSG")
+    def preconfigured_nsg(self) -> Optional[pulumi.Input[Union[str, 'PreconfiguredNSG']]]:
+        """
+        Specifies whether subnets are pre-attached with an NSG
+        """
+        return pulumi.get(self, "preconfigured_nsg")
+
+    @preconfigured_nsg.setter
+    def preconfigured_nsg(self, value: Optional[pulumi.Input[Union[str, 'PreconfiguredNSG']]]):
+        pulumi.set(self, "preconfigured_nsg", value)
 
     @property
     @pulumi.getter(name="serviceCidr")

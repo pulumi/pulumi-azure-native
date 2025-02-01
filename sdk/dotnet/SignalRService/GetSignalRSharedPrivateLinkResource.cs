@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.SignalRService
     {
         /// <summary>
         /// Get the specified shared private link resource
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Task<GetSignalRSharedPrivateLinkResourceResult> InvokeAsync(GetSignalRSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalRSharedPrivateLinkResourceResult>("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", args ?? new GetSignalRSharedPrivateLinkResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the specified shared private link resource
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetSignalRSharedPrivateLinkResourceResult> Invoke(GetSignalRSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRSharedPrivateLinkResourceResult>("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", args ?? new GetSignalRSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the specified shared private link resource
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-03-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetSignalRSharedPrivateLinkResourceResult> Invoke(GetSignalRSharedPrivateLinkResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRSharedPrivateLinkResourceResult>("azure-native:signalrservice:getSignalRSharedPrivateLinkResource", args ?? new GetSignalRSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.SignalRService
     public sealed class GetSignalRSharedPrivateLinkResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.SignalRService
         public string ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the shared private link resource
+        /// The name of the shared private link resource.
         /// </summary>
         [Input("sharedPrivateLinkResourceName", required: true)]
         public string SharedPrivateLinkResourceName { get; set; } = null!;
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.SignalRService
     public sealed class GetSignalRSharedPrivateLinkResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.SignalRService
         public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the shared private link resource
+        /// The name of the shared private link resource.
         /// </summary>
         [Input("sharedPrivateLinkResourceName", required: true)]
         public Input<string> SharedPrivateLinkResourceName { get; set; } = null!;
@@ -101,11 +101,11 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly string GroupId;
         /// <summary>
-        /// Fully qualified resource Id for the resource.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -125,11 +125,11 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

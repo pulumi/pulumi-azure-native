@@ -46,6 +46,15 @@ export const ExternalNetworkingMode = {
  */
 export type ExternalNetworkingMode = (typeof ExternalNetworkingMode)[keyof typeof ExternalNetworkingMode];
 
+export const IncidentManagementService = {
+    Icm: "Icm",
+} as const;
+
+/**
+ * The incident management service type
+ */
+export type IncidentManagementService = (typeof IncidentManagementService)[keyof typeof IncidentManagementService];
+
 export const JsonMapperElement = {
     /**
      * Read or write the json array from or to the body of the message.
@@ -61,6 +70,18 @@ export const JsonMapperElement = {
  * Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
  */
 export type JsonMapperElement = (typeof JsonMapperElement)[keyof typeof JsonMapperElement];
+
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const PipelineType = {
     /**

@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20231230
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:FirewallRule" },

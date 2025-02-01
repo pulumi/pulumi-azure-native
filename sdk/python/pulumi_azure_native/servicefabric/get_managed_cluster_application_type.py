@@ -128,9 +128,9 @@ def get_managed_cluster_application_type(application_type_name: Optional[str] = 
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterApplicationTypeResult:
     """
     Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
-    Azure REST API version: 2023-03-01-preview.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2023-03-01-preview, 2024-09-01-preview.
 
 
     :param str application_type_name: The name of the application type name resource.
@@ -158,9 +158,9 @@ def get_managed_cluster_application_type_output(application_type_name: Optional[
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterApplicationTypeResult]:
     """
     Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
-    Azure REST API version: 2023-03-01-preview.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+    Other available API versions: 2023-03-01-preview, 2024-09-01-preview.
 
 
     :param str application_type_name: The name of the application type name resource.

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a devcenter.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2024-10-01-preview.
         /// </summary>
         public static Task<GetDevCenterResult> InvokeAsync(GetDevCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a devcenter.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetDevCenterResult> Invoke(GetDevCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a devcenter.
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2024-02-01.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-04-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetDevCenterResult> Invoke(GetDevCenterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevCenterResult>("azure-native:devcenter:getDevCenter", args ?? new GetDevCenterInvokeArgs(), options.WithDefaults());
@@ -89,7 +89,15 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly string DevCenterUri;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The display name of the devcenter.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
+        /// </summary>
+        public readonly Outputs.EncryptionResponse? Encryption;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -104,6 +112,10 @@ namespace Pulumi.AzureNative.DevCenter
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Dev Center settings to be used when associating a project with a catalog.
+        /// </summary>
+        public readonly Outputs.DevCenterProjectCatalogSettingsResponse? ProjectCatalogSettings;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -125,6 +137,10 @@ namespace Pulumi.AzureNative.DevCenter
         private GetDevCenterResult(
             string devCenterUri,
 
+            string? displayName,
+
+            Outputs.EncryptionResponse? encryption,
+
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
@@ -132,6 +148,8 @@ namespace Pulumi.AzureNative.DevCenter
             string location,
 
             string name,
+
+            Outputs.DevCenterProjectCatalogSettingsResponse? projectCatalogSettings,
 
             string provisioningState,
 
@@ -142,10 +160,13 @@ namespace Pulumi.AzureNative.DevCenter
             string type)
         {
             DevCenterUri = devCenterUri;
+            DisplayName = displayName;
+            Encryption = encryption;
             Id = id;
             Identity = identity;
             Location = location;
             Name = name;
+            ProjectCatalogSettings = projectCatalogSettings;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;

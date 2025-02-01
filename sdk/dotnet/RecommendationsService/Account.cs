@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.RecommendationsService
 {
     /// <summary>
     /// Account resource details.
-    /// Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
+    /// Azure REST API version: 2022-03-01-preview. Prior API version in Azure Native 2.x: 2022-02-01.
     /// 
-    /// Other available API versions: 2022-03-01-preview.
+    /// Other available API versions: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recommendationsservice:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identity used for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -109,6 +115,12 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
+
+        /// <summary>
+        /// The identity used for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

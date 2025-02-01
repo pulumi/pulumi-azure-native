@@ -80,16 +80,6 @@ export const getUpdate: typeof import("./getUpdate").getUpdate = null as any;
 export const getUpdateOutput: typeof import("./getUpdate").getUpdateOutput = null as any;
 utilities.lazyLoad(exports, ["getUpdate","getUpdateOutput"], () => require("./getUpdate"));
 
-export { GetUpdateRunArgs, GetUpdateRunResult, GetUpdateRunOutputArgs } from "./getUpdateRun";
-export const getUpdateRun: typeof import("./getUpdateRun").getUpdateRun = null as any;
-export const getUpdateRunOutput: typeof import("./getUpdateRun").getUpdateRunOutput = null as any;
-utilities.lazyLoad(exports, ["getUpdateRun","getUpdateRunOutput"], () => require("./getUpdateRun"));
-
-export { GetUpdateSummaryArgs, GetUpdateSummaryResult, GetUpdateSummaryOutputArgs } from "./getUpdateSummary";
-export const getUpdateSummary: typeof import("./getUpdateSummary").getUpdateSummary = null as any;
-export const getUpdateSummaryOutput: typeof import("./getUpdateSummary").getUpdateSummaryOutput = null as any;
-utilities.lazyLoad(exports, ["getUpdateSummary","getUpdateSummaryOutput"], () => require("./getUpdateSummary"));
-
 export { GetVirtualHardDiskArgs, GetVirtualHardDiskResult, GetVirtualHardDiskOutputArgs } from "./getVirtualHardDisk";
 export const getVirtualHardDisk: typeof import("./getVirtualHardDisk").getVirtualHardDisk = null as any;
 export const getVirtualHardDiskOutput: typeof import("./getVirtualHardDisk").getVirtualHardDiskOutput = null as any;
@@ -140,16 +130,6 @@ export type Update = import("./update").Update;
 export const Update: typeof import("./update").Update = null as any;
 utilities.lazyLoad(exports, ["Update"], () => require("./update"));
 
-export { UpdateRunArgs } from "./updateRun";
-export type UpdateRun = import("./updateRun").UpdateRun;
-export const UpdateRun: typeof import("./updateRun").UpdateRun = null as any;
-utilities.lazyLoad(exports, ["UpdateRun"], () => require("./updateRun"));
-
-export { UpdateSummaryArgs } from "./updateSummary";
-export type UpdateSummary = import("./updateSummary").UpdateSummary;
-export const UpdateSummary: typeof import("./updateSummary").UpdateSummary = null as any;
-utilities.lazyLoad(exports, ["UpdateSummary"], () => require("./updateSummary"));
-
 export { VirtualHardDiskArgs } from "./virtualHardDisk";
 export type VirtualHardDisk = import("./virtualHardDisk").VirtualHardDisk;
 export const VirtualHardDisk: typeof import("./virtualHardDisk").VirtualHardDisk = null as any;
@@ -195,10 +175,6 @@ const _module = {
                 return new StorageContainer(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20221215preview:Update":
                 return new Update(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci/v20221215preview:UpdateRun":
-                return new UpdateRun(name, <any>undefined, { urn })
-            case "azure-native:azurestackhci/v20221215preview:UpdateSummary":
-                return new UpdateSummary(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20221215preview:VirtualHardDisk":
                 return new VirtualHardDisk(name, <any>undefined, { urn })
             case "azure-native:azurestackhci/v20221215preview:VirtualMachine":
