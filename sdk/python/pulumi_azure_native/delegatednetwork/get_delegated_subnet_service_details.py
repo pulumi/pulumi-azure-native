@@ -27,7 +27,10 @@ class GetDelegatedSubnetServiceDetailsResult:
     """
     Represents an instance of a orchestrator.
     """
-    def __init__(__self__, controller_details=None, id=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnet_details=None, tags=None, type=None):
+    def __init__(__self__, allocation_block_prefix_size=None, controller_details=None, id=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnet_details=None, tags=None, type=None):
+        if allocation_block_prefix_size and not isinstance(allocation_block_prefix_size, int):
+            raise TypeError("Expected argument 'allocation_block_prefix_size' to be a int")
+        pulumi.set(__self__, "allocation_block_prefix_size", allocation_block_prefix_size)
         if controller_details and not isinstance(controller_details, dict):
             raise TypeError("Expected argument 'controller_details' to be a dict")
         pulumi.set(__self__, "controller_details", controller_details)
@@ -55,6 +58,15 @@ class GetDelegatedSubnetServiceDetailsResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="allocationBlockPrefixSize")
+    def allocation_block_prefix_size(self) -> Optional[int]:
+        """
+        Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
+        Delegated subnet's prefix size should be smaller than this by a minimum of 3.
+        """
+        return pulumi.get(self, "allocation_block_prefix_size")
 
     @property
     @pulumi.getter(name="controllerDetails")
@@ -135,6 +147,7 @@ class AwaitableGetDelegatedSubnetServiceDetailsResult(GetDelegatedSubnetServiceD
         if False:
             yield self
         return GetDelegatedSubnetServiceDetailsResult(
+            allocation_block_prefix_size=self.allocation_block_prefix_size,
             controller_details=self.controller_details,
             id=self.id,
             location=self.location,
@@ -151,9 +164,9 @@ def get_delegated_subnet_service_details(resource_group_name: Optional[str] = No
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDelegatedSubnetServiceDetailsResult:
     """
     Gets details about the specified dnc DelegatedSubnet Link.
-    Azure REST API version: 2021-03-15.
+    Azure REST API version: 2023-06-27-preview.
 
-    Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+    Other available API versions: 2021-03-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -166,6 +179,7 @@ def get_delegated_subnet_service_details(resource_group_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:delegatednetwork:getDelegatedSubnetServiceDetails', __args__, opts=opts, typ=GetDelegatedSubnetServiceDetailsResult).value
 
     return AwaitableGetDelegatedSubnetServiceDetailsResult(
+        allocation_block_prefix_size=pulumi.get(__ret__, 'allocation_block_prefix_size'),
         controller_details=pulumi.get(__ret__, 'controller_details'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -180,9 +194,9 @@ def get_delegated_subnet_service_details_output(resource_group_name: Optional[pu
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDelegatedSubnetServiceDetailsResult]:
     """
     Gets details about the specified dnc DelegatedSubnet Link.
-    Azure REST API version: 2021-03-15.
+    Azure REST API version: 2023-06-27-preview.
 
-    Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+    Other available API versions: 2021-03-15.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -194,6 +208,7 @@ def get_delegated_subnet_service_details_output(resource_group_name: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:delegatednetwork:getDelegatedSubnetServiceDetails', __args__, opts=opts, typ=GetDelegatedSubnetServiceDetailsResult)
     return __ret__.apply(lambda __response__: GetDelegatedSubnetServiceDetailsResult(
+        allocation_block_prefix_size=pulumi.get(__response__, 'allocation_block_prefix_size'),
         controller_details=pulumi.get(__response__, 'controller_details'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

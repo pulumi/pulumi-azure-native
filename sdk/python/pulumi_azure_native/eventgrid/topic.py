@@ -25,12 +25,17 @@ class TopicArgs:
                  resource_group_name: pulumi.Input[str],
                  data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 event_type_info: Optional[pulumi.Input['EventTypeInfoArgs']] = None,
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  identity: Optional[pulumi.Input['IdentityInfoArgs']] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
                  input_schema_mapping: Optional[pulumi.Input['JsonInputSchemaMappingArgs']] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ResourceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version_allowed: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None):
         """
@@ -38,13 +43,19 @@ class TopicArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Union[str, 'DataResidencyBoundary']] data_residency_boundary: Data Residency Boundary of the resource.
         :param pulumi.Input[bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+        :param pulumi.Input['EventTypeInfoArgs'] event_type_info: Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+               subscriber to view different types of events that are published.
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: Extended location of the resource.
         :param pulumi.Input['IdentityInfoArgs'] identity: Identity information for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[Union[str, 'InputSchema']] input_schema: This determines the format that Event Grid should expect for incoming events published to the topic.
         :param pulumi.Input['JsonInputSchemaMappingArgs'] input_schema_mapping: This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
+        :param pulumi.Input[Union[str, 'ResourceKind']] kind: Kind of the resource.
         :param pulumi.Input[str] location: Location of the resource.
+        :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version_allowed: Minimum TLS version of the publisher allowed to publish to this topic
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. 
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
+        :param pulumi.Input['ResourceSkuArgs'] sku: The Sku pricing tier for the topic.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         :param pulumi.Input[str] topic_name: Name of the topic.
         """
@@ -55,6 +66,10 @@ class TopicArgs:
             disable_local_auth = False
         if disable_local_auth is not None:
             pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if event_type_info is not None:
+            pulumi.set(__self__, "event_type_info", event_type_info)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if inbound_ip_rules is not None:
@@ -65,12 +80,20 @@ class TopicArgs:
             pulumi.set(__self__, "input_schema", input_schema)
         if input_schema_mapping is not None:
             pulumi.set(__self__, "input_schema_mapping", input_schema_mapping)
+        if kind is None:
+            kind = 'Azure'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if minimum_tls_version_allowed is not None:
+            pulumi.set(__self__, "minimum_tls_version_allowed", minimum_tls_version_allowed)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if topic_name is not None:
@@ -111,6 +134,31 @@ class TopicArgs:
     @disable_local_auth.setter
     def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter(name="eventTypeInfo")
+    def event_type_info(self) -> Optional[pulumi.Input['EventTypeInfoArgs']]:
+        """
+        Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+        subscriber to view different types of events that are published.
+        """
+        return pulumi.get(self, "event_type_info")
+
+    @event_type_info.setter
+    def event_type_info(self, value: Optional[pulumi.Input['EventTypeInfoArgs']]):
+        pulumi.set(self, "event_type_info", value)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        Extended location of the resource.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
 
     @property
     @pulumi.getter
@@ -162,6 +210,18 @@ class TopicArgs:
 
     @property
     @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'ResourceKind']]]:
+        """
+        Kind of the resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'ResourceKind']]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Location of the resource.
@@ -171,6 +231,18 @@ class TopicArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersionAllowed")
+    def minimum_tls_version_allowed(self) -> Optional[pulumi.Input[Union[str, 'TlsVersion']]]:
+        """
+        Minimum TLS version of the publisher allowed to publish to this topic
+        """
+        return pulumi.get(self, "minimum_tls_version_allowed")
+
+    @minimum_tls_version_allowed.setter
+    def minimum_tls_version_allowed(self, value: Optional[pulumi.Input[Union[str, 'TlsVersion']]]):
+        pulumi.set(self, "minimum_tls_version_allowed", value)
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
@@ -184,6 +256,18 @@ class TopicArgs:
     @public_network_access.setter
     def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['ResourceSkuArgs']]:
+        """
+        The Sku pricing tier for the topic.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['ResourceSkuArgs']]):
+        pulumi.set(self, "sku", value)
 
     @property
     @pulumi.getter
@@ -217,34 +301,45 @@ class Topic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 event_type_info: Optional[pulumi.Input[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]]] = None,
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
                  input_schema_mapping: Optional[pulumi.Input[Union['JsonInputSchemaMappingArgs', 'JsonInputSchemaMappingArgsDict']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ResourceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version_allowed: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         EventGrid Topic
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2022-06-15.
 
-        Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DataResidencyBoundary']] data_residency_boundary: Data Residency Boundary of the resource.
         :param pulumi.Input[bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
+        :param pulumi.Input[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']] event_type_info: Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+               subscriber to view different types of events that are published.
+        :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Extended location of the resource.
         :param pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']] identity: Identity information for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[Union[str, 'InputSchema']] input_schema: This determines the format that Event Grid should expect for incoming events published to the topic.
         :param pulumi.Input[Union['JsonInputSchemaMappingArgs', 'JsonInputSchemaMappingArgsDict']] input_schema_mapping: This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
+        :param pulumi.Input[Union[str, 'ResourceKind']] kind: Kind of the resource.
         :param pulumi.Input[str] location: Location of the resource.
+        :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version_allowed: Minimum TLS version of the publisher allowed to publish to this topic
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. 
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']] sku: The Sku pricing tier for the topic.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         :param pulumi.Input[str] topic_name: Name of the topic.
         """
@@ -256,9 +351,9 @@ class Topic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid Topic
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2022-06-15.
 
-        Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.
@@ -277,13 +372,18 @@ class Topic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_residency_boundary: Optional[pulumi.Input[Union[str, 'DataResidencyBoundary']]] = None,
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 event_type_info: Optional[pulumi.Input[Union['EventTypeInfoArgs', 'EventTypeInfoArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]]] = None,
                  input_schema: Optional[pulumi.Input[Union[str, 'InputSchema']]] = None,
                  input_schema_mapping: Optional[pulumi.Input[Union['JsonInputSchemaMappingArgs', 'JsonInputSchemaMappingArgsDict']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ResourceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version_allowed: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -299,19 +399,26 @@ class Topic(pulumi.CustomResource):
             if disable_local_auth is None:
                 disable_local_auth = False
             __props__.__dict__["disable_local_auth"] = disable_local_auth
+            __props__.__dict__["event_type_info"] = event_type_info
+            __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             if input_schema is None:
                 input_schema = 'EventGridSchema'
             __props__.__dict__["input_schema"] = input_schema
             __props__.__dict__["input_schema_mapping"] = input_schema_mapping
+            if kind is None:
+                kind = 'Azure'
+            __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            __props__.__dict__["minimum_tls_version_allowed"] = minimum_tls_version_allowed
             if public_network_access is None:
                 public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["topic_name"] = topic_name
             __props__.__dict__["endpoint"] = None
@@ -348,16 +455,21 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["data_residency_boundary"] = None
         __props__.__dict__["disable_local_auth"] = None
         __props__.__dict__["endpoint"] = None
+        __props__.__dict__["event_type_info"] = None
+        __props__.__dict__["extended_location"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["inbound_ip_rules"] = None
         __props__.__dict__["input_schema"] = None
         __props__.__dict__["input_schema_mapping"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["metric_resource_id"] = None
+        __props__.__dict__["minimum_tls_version_allowed"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -386,6 +498,23 @@ class Topic(pulumi.CustomResource):
         Endpoint for the topic.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="eventTypeInfo")
+    def event_type_info(self) -> pulumi.Output[Optional['outputs.EventTypeInfoResponse']]:
+        """
+        Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+        subscriber to view different types of events that are published.
+        """
+        return pulumi.get(self, "event_type_info")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        Extended location of the resource.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter
@@ -421,6 +550,14 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[str]]:
+        """
+        Kind of the resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         Location of the resource.
@@ -436,6 +573,14 @@ class Topic(pulumi.CustomResource):
         return pulumi.get(self, "metric_resource_id")
 
     @property
+    @pulumi.getter(name="minimumTlsVersionAllowed")
+    def minimum_tls_version_allowed(self) -> pulumi.Output[Optional[str]]:
+        """
+        Minimum TLS version of the publisher allowed to publish to this topic
+        """
+        return pulumi.get(self, "minimum_tls_version_allowed")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -446,6 +591,9 @@ class Topic(pulumi.CustomResource):
     @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connections.
+        """
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
@@ -466,10 +614,18 @@ class Topic(pulumi.CustomResource):
         return pulumi.get(self, "public_network_access")
 
     @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.ResourceSkuResponse']]:
+        """
+        The Sku pricing tier for the topic.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to Topic resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 

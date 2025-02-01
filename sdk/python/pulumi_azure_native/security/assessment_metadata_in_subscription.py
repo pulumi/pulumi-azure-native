@@ -280,7 +280,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         Security assessment metadata response
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-01-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -303,7 +303,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Security assessment metadata response
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-01-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param AssessmentMetadataInSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -370,7 +370,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["policy_definition_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20190101preview:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azure-native:security/v20200101:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azure-native:security/v20210601:AssessmentMetadataInSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20190101preview:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azure-native:security/v20190101preview:AssessmentsMetadataSubscription"), pulumi.Alias(type_="azure-native:security/v20200101:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azure-native:security/v20210601:AssessmentMetadataInSubscription"), pulumi.Alias(type_="azure-native:security:AssessmentsMetadataSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentMetadataInSubscription, __self__).__init__(
             'azure-native:security:AssessmentMetadataInSubscription',

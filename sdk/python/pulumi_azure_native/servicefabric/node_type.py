@@ -27,14 +27,18 @@ class NodeTypeArgs:
                  resource_group_name: pulumi.Input[str],
                  vm_instance_count: pulumi.Input[int],
                  additional_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VmssDataDiskArgs']]]] = None,
+                 additional_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalNetworkInterfaceConfigurationArgs']]]] = None,
                  application_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  data_disk_letter: Optional[pulumi.Input[str]] = None,
                  data_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  data_disk_type: Optional[pulumi.Input[Union[str, 'DiskType']]] = None,
+                 dscp_configuration_id: Optional[pulumi.Input[str]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 enable_node_public_i_pv6: Optional[pulumi.Input[bool]] = None,
                  enable_over_provisioning: Optional[pulumi.Input[bool]] = None,
                  ephemeral_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'EvictionPolicyType']]] = None,
@@ -43,12 +47,14 @@ class NodeTypeArgs:
                  is_spot_vm: Optional[pulumi.Input[bool]] = None,
                  is_stateless: Optional[pulumi.Input[bool]] = None,
                  multiple_placement_groups: Optional[pulumi.Input[bool]] = None,
+                 nat_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NodeTypeNatConfigArgs']]]] = None,
                  nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
                  node_type_name: Optional[pulumi.Input[str]] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None,
+                 service_artifact_reference_id: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['NodeTypeSkuArgs']] = None,
                  spot_restore_timeout: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -76,14 +82,18 @@ class NodeTypeArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
         :param pulumi.Input[Sequence[pulumi.Input['VmssDataDiskArgs']]] additional_data_disks: Additional managed data disks.
+        :param pulumi.Input[Sequence[pulumi.Input['AdditionalNetworkInterfaceConfigurationArgs']]] additional_network_interface_configurations: Specifies the settings for any additional secondary network interfaces to attach to the node type.
         :param pulumi.Input['EndpointRangeDescriptionArgs'] application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+        :param pulumi.Input[str] computer_name_prefix: Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
         :param pulumi.Input[str] data_disk_letter: Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
         :param pulumi.Input[int] data_disk_size_gb: Disk size for the managed disk attached to the vms on the node type in GBs.
         :param pulumi.Input[Union[str, 'DiskType']] data_disk_type: Managed data disk type. Specifies the storage account type for the managed disk
+        :param pulumi.Input[str] dscp_configuration_id: Specifies the resource id of the DSCP configuration to apply to the node type network interface.
         :param pulumi.Input[bool] enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
         :param pulumi.Input[bool] enable_encryption_at_host: Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
-        :param pulumi.Input[bool] enable_node_public_ip: Specifies whether each node is allocated its own public IP address. This is only supported on secondary node types with custom Load Balancers.
+        :param pulumi.Input[bool] enable_node_public_ip: Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
+        :param pulumi.Input[bool] enable_node_public_i_pv6: Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
         :param pulumi.Input[bool] enable_over_provisioning: Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
         :param pulumi.Input['EndpointRangeDescriptionArgs'] ephemeral_ports: The range of ephemeral ports that nodes in this node type should be configured with.
         :param pulumi.Input[Union[str, 'EvictionPolicyType']] eviction_policy: Specifies the eviction policy for virtual machines in a SPOT node type. Default is Delete.
@@ -92,12 +102,14 @@ class NodeTypeArgs:
         :param pulumi.Input[bool] is_spot_vm: Indicates whether the node type will be Spot Virtual Machines. Azure will allocate the VMs if there is capacity available and the VMs can be evicted at any time.
         :param pulumi.Input[bool] is_stateless: Indicates if the node type can only host Stateless workloads.
         :param pulumi.Input[bool] multiple_placement_groups: Indicates if scale set associated with the node type can be composed of multiple placement groups.
+        :param pulumi.Input[Sequence[pulumi.Input['NodeTypeNatConfigArgs']]] nat_configurations: Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
         :param pulumi.Input[str] nat_gateway_id: Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]] network_security_rules: The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
         :param pulumi.Input[str] node_type_name: The name of the node type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the nodeType. Can only be used with TrustedLaunch SecurityType
-        :param pulumi.Input[Union[str, 'SecurityType']] security_type: Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+        :param pulumi.Input[Union[str, 'SecurityType']] security_type: Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
+        :param pulumi.Input[str] service_artifact_reference_id: Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
         :param pulumi.Input['NodeTypeSkuArgs'] sku: The node type sku.
         :param pulumi.Input[str] spot_restore_timeout: Indicates the time duration after which the platform will not try to restore the VMSS SPOT instances specified as ISO 8601.
         :param pulumi.Input[str] subnet_id: Indicates the resource id of the subnet for the node type.
@@ -125,16 +137,22 @@ class NodeTypeArgs:
         pulumi.set(__self__, "vm_instance_count", vm_instance_count)
         if additional_data_disks is not None:
             pulumi.set(__self__, "additional_data_disks", additional_data_disks)
+        if additional_network_interface_configurations is not None:
+            pulumi.set(__self__, "additional_network_interface_configurations", additional_network_interface_configurations)
         if application_ports is not None:
             pulumi.set(__self__, "application_ports", application_ports)
         if capacities is not None:
             pulumi.set(__self__, "capacities", capacities)
+        if computer_name_prefix is not None:
+            pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
         if data_disk_letter is not None:
             pulumi.set(__self__, "data_disk_letter", data_disk_letter)
         if data_disk_size_gb is not None:
             pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
         if data_disk_type is not None:
             pulumi.set(__self__, "data_disk_type", data_disk_type)
+        if dscp_configuration_id is not None:
+            pulumi.set(__self__, "dscp_configuration_id", dscp_configuration_id)
         if enable_accelerated_networking is not None:
             pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
         if enable_encryption_at_host is None:
@@ -143,6 +161,8 @@ class NodeTypeArgs:
             pulumi.set(__self__, "enable_encryption_at_host", enable_encryption_at_host)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if enable_node_public_i_pv6 is not None:
+            pulumi.set(__self__, "enable_node_public_i_pv6", enable_node_public_i_pv6)
         if enable_over_provisioning is not None:
             pulumi.set(__self__, "enable_over_provisioning", enable_over_provisioning)
         if ephemeral_ports is not None:
@@ -163,6 +183,8 @@ class NodeTypeArgs:
             multiple_placement_groups = False
         if multiple_placement_groups is not None:
             pulumi.set(__self__, "multiple_placement_groups", multiple_placement_groups)
+        if nat_configurations is not None:
+            pulumi.set(__self__, "nat_configurations", nat_configurations)
         if nat_gateway_id is not None:
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_security_rules is not None:
@@ -175,6 +197,8 @@ class NodeTypeArgs:
             pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
         if security_type is not None:
             pulumi.set(__self__, "security_type", security_type)
+        if service_artifact_reference_id is not None:
+            pulumi.set(__self__, "service_artifact_reference_id", service_artifact_reference_id)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if spot_restore_timeout is not None:
@@ -277,6 +301,18 @@ class NodeTypeArgs:
         pulumi.set(self, "additional_data_disks", value)
 
     @property
+    @pulumi.getter(name="additionalNetworkInterfaceConfigurations")
+    def additional_network_interface_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalNetworkInterfaceConfigurationArgs']]]]:
+        """
+        Specifies the settings for any additional secondary network interfaces to attach to the node type.
+        """
+        return pulumi.get(self, "additional_network_interface_configurations")
+
+    @additional_network_interface_configurations.setter
+    def additional_network_interface_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalNetworkInterfaceConfigurationArgs']]]]):
+        pulumi.set(self, "additional_network_interface_configurations", value)
+
+    @property
     @pulumi.getter(name="applicationPorts")
     def application_ports(self) -> Optional[pulumi.Input['EndpointRangeDescriptionArgs']]:
         """
@@ -299,6 +335,18 @@ class NodeTypeArgs:
     @capacities.setter
     def capacities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "capacities", value)
+
+    @property
+    @pulumi.getter(name="computerNamePrefix")
+    def computer_name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
+        """
+        return pulumi.get(self, "computer_name_prefix")
+
+    @computer_name_prefix.setter
+    def computer_name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "computer_name_prefix", value)
 
     @property
     @pulumi.getter(name="dataDiskLetter")
@@ -337,6 +385,18 @@ class NodeTypeArgs:
         pulumi.set(self, "data_disk_type", value)
 
     @property
+    @pulumi.getter(name="dscpConfigurationId")
+    def dscp_configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the resource id of the DSCP configuration to apply to the node type network interface.
+        """
+        return pulumi.get(self, "dscp_configuration_id")
+
+    @dscp_configuration_id.setter
+    def dscp_configuration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dscp_configuration_id", value)
+
+    @property
     @pulumi.getter(name="enableAcceleratedNetworking")
     def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -364,13 +424,25 @@ class NodeTypeArgs:
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether each node is allocated its own public IP address. This is only supported on secondary node types with custom Load Balancers.
+        Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
     @enable_node_public_ip.setter
     def enable_node_public_ip(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_node_public_ip", value)
+
+    @property
+    @pulumi.getter(name="enableNodePublicIPv6")
+    def enable_node_public_i_pv6(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
+        """
+        return pulumi.get(self, "enable_node_public_i_pv6")
+
+    @enable_node_public_i_pv6.setter
+    def enable_node_public_i_pv6(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_node_public_i_pv6", value)
 
     @property
     @pulumi.getter(name="enableOverProvisioning")
@@ -469,6 +541,18 @@ class NodeTypeArgs:
         pulumi.set(self, "multiple_placement_groups", value)
 
     @property
+    @pulumi.getter(name="natConfigurations")
+    def nat_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeTypeNatConfigArgs']]]]:
+        """
+        Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
+        """
+        return pulumi.get(self, "nat_configurations")
+
+    @nat_configurations.setter
+    def nat_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeTypeNatConfigArgs']]]]):
+        pulumi.set(self, "nat_configurations", value)
+
+    @property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -532,13 +616,25 @@ class NodeTypeArgs:
     @pulumi.getter(name="securityType")
     def security_type(self) -> Optional[pulumi.Input[Union[str, 'SecurityType']]]:
         """
-        Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+        Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
         """
         return pulumi.get(self, "security_type")
 
     @security_type.setter
     def security_type(self, value: Optional[pulumi.Input[Union[str, 'SecurityType']]]):
         pulumi.set(self, "security_type", value)
+
+    @property
+    @pulumi.getter(name="serviceArtifactReferenceId")
+    def service_artifact_reference_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
+        """
+        return pulumi.get(self, "service_artifact_reference_id")
+
+    @service_artifact_reference_id.setter
+    def service_artifact_reference_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_artifact_reference_id", value)
 
     @property
     @pulumi.getter
@@ -787,15 +883,19 @@ class NodeType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmssDataDiskArgs', 'VmssDataDiskArgsDict']]]]] = None,
+                 additional_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdditionalNetworkInterfaceConfigurationArgs', 'AdditionalNetworkInterfaceConfigurationArgsDict']]]]] = None,
                  application_ports: Optional[pulumi.Input[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']]] = None,
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  data_disk_letter: Optional[pulumi.Input[str]] = None,
                  data_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  data_disk_type: Optional[pulumi.Input[Union[str, 'DiskType']]] = None,
+                 dscp_configuration_id: Optional[pulumi.Input[str]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 enable_node_public_i_pv6: Optional[pulumi.Input[bool]] = None,
                  enable_over_provisioning: Optional[pulumi.Input[bool]] = None,
                  ephemeral_ports: Optional[pulumi.Input[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']]] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'EvictionPolicyType']]] = None,
@@ -805,6 +905,7 @@ class NodeType(pulumi.CustomResource):
                  is_spot_vm: Optional[pulumi.Input[bool]] = None,
                  is_stateless: Optional[pulumi.Input[bool]] = None,
                  multiple_placement_groups: Optional[pulumi.Input[bool]] = None,
+                 nat_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeTypeNatConfigArgs', 'NodeTypeNatConfigArgsDict']]]]] = None,
                  nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
                  node_type_name: Optional[pulumi.Input[str]] = None,
@@ -812,6 +913,7 @@ class NodeType(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None,
+                 service_artifact_reference_id: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['NodeTypeSkuArgs', 'NodeTypeSkuArgsDict']]] = None,
                  spot_restore_timeout: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -836,22 +938,26 @@ class NodeType(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        Other available API versions: 2023-03-01-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VmssDataDiskArgs', 'VmssDataDiskArgsDict']]]] additional_data_disks: Additional managed data disks.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AdditionalNetworkInterfaceConfigurationArgs', 'AdditionalNetworkInterfaceConfigurationArgsDict']]]] additional_network_interface_configurations: Specifies the settings for any additional secondary network interfaces to attach to the node type.
         :param pulumi.Input[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']] application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
+        :param pulumi.Input[str] computer_name_prefix: Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
         :param pulumi.Input[str] data_disk_letter: Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
         :param pulumi.Input[int] data_disk_size_gb: Disk size for the managed disk attached to the vms on the node type in GBs.
         :param pulumi.Input[Union[str, 'DiskType']] data_disk_type: Managed data disk type. Specifies the storage account type for the managed disk
+        :param pulumi.Input[str] dscp_configuration_id: Specifies the resource id of the DSCP configuration to apply to the node type network interface.
         :param pulumi.Input[bool] enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
         :param pulumi.Input[bool] enable_encryption_at_host: Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
-        :param pulumi.Input[bool] enable_node_public_ip: Specifies whether each node is allocated its own public IP address. This is only supported on secondary node types with custom Load Balancers.
+        :param pulumi.Input[bool] enable_node_public_ip: Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
+        :param pulumi.Input[bool] enable_node_public_i_pv6: Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
         :param pulumi.Input[bool] enable_over_provisioning: Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
         :param pulumi.Input[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']] ephemeral_ports: The range of ephemeral ports that nodes in this node type should be configured with.
         :param pulumi.Input[Union[str, 'EvictionPolicyType']] eviction_policy: Specifies the eviction policy for virtual machines in a SPOT node type. Default is Delete.
@@ -861,13 +967,15 @@ class NodeType(pulumi.CustomResource):
         :param pulumi.Input[bool] is_spot_vm: Indicates whether the node type will be Spot Virtual Machines. Azure will allocate the VMs if there is capacity available and the VMs can be evicted at any time.
         :param pulumi.Input[bool] is_stateless: Indicates if the node type can only host Stateless workloads.
         :param pulumi.Input[bool] multiple_placement_groups: Indicates if scale set associated with the node type can be composed of multiple placement groups.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NodeTypeNatConfigArgs', 'NodeTypeNatConfigArgsDict']]]] nat_configurations: Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
         :param pulumi.Input[str] nat_gateway_id: Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]] network_security_rules: The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
         :param pulumi.Input[str] node_type_name: The name of the node type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the nodeType. Can only be used with TrustedLaunch SecurityType
-        :param pulumi.Input[Union[str, 'SecurityType']] security_type: Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+        :param pulumi.Input[Union[str, 'SecurityType']] security_type: Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
+        :param pulumi.Input[str] service_artifact_reference_id: Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
         :param pulumi.Input[Union['NodeTypeSkuArgs', 'NodeTypeSkuArgsDict']] sku: The node type sku.
         :param pulumi.Input[str] spot_restore_timeout: Indicates the time duration after which the platform will not try to restore the VMSS SPOT instances specified as ISO 8601.
         :param pulumi.Input[str] subnet_id: Indicates the resource id of the subnet for the node type.
@@ -898,9 +1006,9 @@ class NodeType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        Other available API versions: 2023-03-01-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NodeTypeArgs args: The arguments to use to populate this resource's properties.
@@ -918,15 +1026,19 @@ class NodeType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VmssDataDiskArgs', 'VmssDataDiskArgsDict']]]]] = None,
+                 additional_network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdditionalNetworkInterfaceConfigurationArgs', 'AdditionalNetworkInterfaceConfigurationArgsDict']]]]] = None,
                  application_ports: Optional[pulumi.Input[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']]] = None,
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  data_disk_letter: Optional[pulumi.Input[str]] = None,
                  data_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  data_disk_type: Optional[pulumi.Input[Union[str, 'DiskType']]] = None,
+                 dscp_configuration_id: Optional[pulumi.Input[str]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 enable_node_public_i_pv6: Optional[pulumi.Input[bool]] = None,
                  enable_over_provisioning: Optional[pulumi.Input[bool]] = None,
                  ephemeral_ports: Optional[pulumi.Input[Union['EndpointRangeDescriptionArgs', 'EndpointRangeDescriptionArgsDict']]] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'EvictionPolicyType']]] = None,
@@ -936,6 +1048,7 @@ class NodeType(pulumi.CustomResource):
                  is_spot_vm: Optional[pulumi.Input[bool]] = None,
                  is_stateless: Optional[pulumi.Input[bool]] = None,
                  multiple_placement_groups: Optional[pulumi.Input[bool]] = None,
+                 nat_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeTypeNatConfigArgs', 'NodeTypeNatConfigArgsDict']]]]] = None,
                  nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
                  node_type_name: Optional[pulumi.Input[str]] = None,
@@ -943,6 +1056,7 @@ class NodeType(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None,
+                 service_artifact_reference_id: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['NodeTypeSkuArgs', 'NodeTypeSkuArgsDict']]] = None,
                  spot_restore_timeout: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -974,19 +1088,23 @@ class NodeType(pulumi.CustomResource):
             __props__ = NodeTypeArgs.__new__(NodeTypeArgs)
 
             __props__.__dict__["additional_data_disks"] = additional_data_disks
+            __props__.__dict__["additional_network_interface_configurations"] = additional_network_interface_configurations
             __props__.__dict__["application_ports"] = application_ports
             __props__.__dict__["capacities"] = capacities
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["computer_name_prefix"] = computer_name_prefix
             __props__.__dict__["data_disk_letter"] = data_disk_letter
             __props__.__dict__["data_disk_size_gb"] = data_disk_size_gb
             __props__.__dict__["data_disk_type"] = data_disk_type
+            __props__.__dict__["dscp_configuration_id"] = dscp_configuration_id
             __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
             if enable_encryption_at_host is None:
                 enable_encryption_at_host = False
             __props__.__dict__["enable_encryption_at_host"] = enable_encryption_at_host
             __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
+            __props__.__dict__["enable_node_public_i_pv6"] = enable_node_public_i_pv6
             __props__.__dict__["enable_over_provisioning"] = enable_over_provisioning
             __props__.__dict__["ephemeral_ports"] = ephemeral_ports
             __props__.__dict__["eviction_policy"] = eviction_policy
@@ -1002,6 +1120,7 @@ class NodeType(pulumi.CustomResource):
             if multiple_placement_groups is None:
                 multiple_placement_groups = False
             __props__.__dict__["multiple_placement_groups"] = multiple_placement_groups
+            __props__.__dict__["nat_configurations"] = nat_configurations
             __props__.__dict__["nat_gateway_id"] = nat_gateway_id
             __props__.__dict__["network_security_rules"] = network_security_rules
             __props__.__dict__["node_type_name"] = node_type_name
@@ -1011,6 +1130,7 @@ class NodeType(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
             __props__.__dict__["security_type"] = security_type
+            __props__.__dict__["service_artifact_reference_id"] = service_artifact_reference_id
             __props__.__dict__["sku"] = sku
             __props__.__dict__["spot_restore_timeout"] = spot_restore_timeout
             __props__.__dict__["subnet_id"] = subnet_id
@@ -1063,14 +1183,18 @@ class NodeType(pulumi.CustomResource):
         __props__ = NodeTypeArgs.__new__(NodeTypeArgs)
 
         __props__.__dict__["additional_data_disks"] = None
+        __props__.__dict__["additional_network_interface_configurations"] = None
         __props__.__dict__["application_ports"] = None
         __props__.__dict__["capacities"] = None
+        __props__.__dict__["computer_name_prefix"] = None
         __props__.__dict__["data_disk_letter"] = None
         __props__.__dict__["data_disk_size_gb"] = None
         __props__.__dict__["data_disk_type"] = None
+        __props__.__dict__["dscp_configuration_id"] = None
         __props__.__dict__["enable_accelerated_networking"] = None
         __props__.__dict__["enable_encryption_at_host"] = None
         __props__.__dict__["enable_node_public_ip"] = None
+        __props__.__dict__["enable_node_public_i_pv6"] = None
         __props__.__dict__["enable_over_provisioning"] = None
         __props__.__dict__["ephemeral_ports"] = None
         __props__.__dict__["eviction_policy"] = None
@@ -1081,12 +1205,14 @@ class NodeType(pulumi.CustomResource):
         __props__.__dict__["is_stateless"] = None
         __props__.__dict__["multiple_placement_groups"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["nat_configurations"] = None
         __props__.__dict__["nat_gateway_id"] = None
         __props__.__dict__["network_security_rules"] = None
         __props__.__dict__["placement_properties"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["secure_boot_enabled"] = None
         __props__.__dict__["security_type"] = None
+        __props__.__dict__["service_artifact_reference_id"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["spot_restore_timeout"] = None
         __props__.__dict__["subnet_id"] = None
@@ -1121,6 +1247,14 @@ class NodeType(pulumi.CustomResource):
         return pulumi.get(self, "additional_data_disks")
 
     @property
+    @pulumi.getter(name="additionalNetworkInterfaceConfigurations")
+    def additional_network_interface_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.AdditionalNetworkInterfaceConfigurationResponse']]]:
+        """
+        Specifies the settings for any additional secondary network interfaces to attach to the node type.
+        """
+        return pulumi.get(self, "additional_network_interface_configurations")
+
+    @property
     @pulumi.getter(name="applicationPorts")
     def application_ports(self) -> pulumi.Output[Optional['outputs.EndpointRangeDescriptionResponse']]:
         """
@@ -1135,6 +1269,14 @@ class NodeType(pulumi.CustomResource):
         The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         """
         return pulumi.get(self, "capacities")
+
+    @property
+    @pulumi.getter(name="computerNamePrefix")
+    def computer_name_prefix(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
+        """
+        return pulumi.get(self, "computer_name_prefix")
 
     @property
     @pulumi.getter(name="dataDiskLetter")
@@ -1161,6 +1303,14 @@ class NodeType(pulumi.CustomResource):
         return pulumi.get(self, "data_disk_type")
 
     @property
+    @pulumi.getter(name="dscpConfigurationId")
+    def dscp_configuration_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the resource id of the DSCP configuration to apply to the node type network interface.
+        """
+        return pulumi.get(self, "dscp_configuration_id")
+
+    @property
     @pulumi.getter(name="enableAcceleratedNetworking")
     def enable_accelerated_networking(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1180,9 +1330,17 @@ class NodeType(pulumi.CustomResource):
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether each node is allocated its own public IP address. This is only supported on secondary node types with custom Load Balancers.
+        Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
         """
         return pulumi.get(self, "enable_node_public_ip")
+
+    @property
+    @pulumi.getter(name="enableNodePublicIPv6")
+    def enable_node_public_i_pv6(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
+        """
+        return pulumi.get(self, "enable_node_public_i_pv6")
 
     @property
     @pulumi.getter(name="enableOverProvisioning")
@@ -1265,6 +1423,14 @@ class NodeType(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="natConfigurations")
+    def nat_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.NodeTypeNatConfigResponse']]]:
+        """
+        Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
+        """
+        return pulumi.get(self, "nat_configurations")
+
+    @property
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1308,9 +1474,17 @@ class NodeType(pulumi.CustomResource):
     @pulumi.getter(name="securityType")
     def security_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+        Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
         """
         return pulumi.get(self, "security_type")
+
+    @property
+    @pulumi.getter(name="serviceArtifactReferenceId")
+    def service_artifact_reference_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
+        """
+        return pulumi.get(self, "service_artifact_reference_id")
 
     @property
     @pulumi.getter

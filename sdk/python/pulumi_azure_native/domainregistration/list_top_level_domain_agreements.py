@@ -68,9 +68,9 @@ def list_top_level_domain_agreements(for_transfer: Optional[bool] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTopLevelDomainAgreementsResult:
     """
     Description for Gets all legal agreements that user needs to accept before purchasing a domain.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01.
 
 
     :param bool for_transfer: If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.
@@ -93,9 +93,9 @@ def list_top_level_domain_agreements_output(for_transfer: Optional[pulumi.Input[
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListTopLevelDomainAgreementsResult]:
     """
     Description for Gets all legal agreements that user needs to accept before purchasing a domain.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2024-04-01.
 
-    Other available API versions: 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01.
 
 
     :param bool for_transfer: If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.

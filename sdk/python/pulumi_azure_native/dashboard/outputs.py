@@ -18,7 +18,10 @@ from ._enums import *
 
 __all__ = [
     'AzureMonitorWorkspaceIntegrationResponse',
+    'EnterpriseConfigurationsResponse',
+    'GrafanaConfigurationsResponse',
     'GrafanaIntegrationsResponse',
+    'GrafanaPluginResponse',
     'IntegrationFabricPropertiesResponse',
     'ManagedGrafanaPropertiesResponse',
     'ManagedPrivateEndpointConnectionStateResponse',
@@ -27,8 +30,12 @@ __all__ = [
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ResourceSkuResponse',
+    'SecurityResponse',
+    'SmtpResponse',
+    'SnapshotsResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
+    'UsersResponse',
 ]
 
 @pulumi.output_type
@@ -72,6 +79,121 @@ class AzureMonitorWorkspaceIntegrationResponse(dict):
 
 
 @pulumi.output_type
+class EnterpriseConfigurationsResponse(dict):
+    """
+    Enterprise settings of a Grafana instance
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "marketplaceAutoRenew":
+            suggest = "marketplace_auto_renew"
+        elif key == "marketplacePlanId":
+            suggest = "marketplace_plan_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnterpriseConfigurationsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnterpriseConfigurationsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnterpriseConfigurationsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 marketplace_auto_renew: Optional[str] = None,
+                 marketplace_plan_id: Optional[str] = None):
+        """
+        Enterprise settings of a Grafana instance
+        :param str marketplace_auto_renew: The AutoRenew setting of the Enterprise subscription
+        :param str marketplace_plan_id: The Plan Id of the Azure Marketplace subscription for the Enterprise plugins
+        """
+        if marketplace_auto_renew is not None:
+            pulumi.set(__self__, "marketplace_auto_renew", marketplace_auto_renew)
+        if marketplace_plan_id is not None:
+            pulumi.set(__self__, "marketplace_plan_id", marketplace_plan_id)
+
+    @property
+    @pulumi.getter(name="marketplaceAutoRenew")
+    def marketplace_auto_renew(self) -> Optional[str]:
+        """
+        The AutoRenew setting of the Enterprise subscription
+        """
+        return pulumi.get(self, "marketplace_auto_renew")
+
+    @property
+    @pulumi.getter(name="marketplacePlanId")
+    def marketplace_plan_id(self) -> Optional[str]:
+        """
+        The Plan Id of the Azure Marketplace subscription for the Enterprise plugins
+        """
+        return pulumi.get(self, "marketplace_plan_id")
+
+
+@pulumi.output_type
+class GrafanaConfigurationsResponse(dict):
+    """
+    Server configurations of a Grafana instance
+    """
+    def __init__(__self__, *,
+                 security: Optional['outputs.SecurityResponse'] = None,
+                 smtp: Optional['outputs.SmtpResponse'] = None,
+                 snapshots: Optional['outputs.SnapshotsResponse'] = None,
+                 users: Optional['outputs.UsersResponse'] = None):
+        """
+        Server configurations of a Grafana instance
+        :param 'SecurityResponse' security: Grafana security settings
+        :param 'SmtpResponse' smtp: Email server settings.
+               https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
+        :param 'SnapshotsResponse' snapshots: Grafana Snapshots settings
+        :param 'UsersResponse' users: Grafana users settings
+        """
+        if security is not None:
+            pulumi.set(__self__, "security", security)
+        if smtp is not None:
+            pulumi.set(__self__, "smtp", smtp)
+        if snapshots is not None:
+            pulumi.set(__self__, "snapshots", snapshots)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def security(self) -> Optional['outputs.SecurityResponse']:
+        """
+        Grafana security settings
+        """
+        return pulumi.get(self, "security")
+
+    @property
+    @pulumi.getter
+    def smtp(self) -> Optional['outputs.SmtpResponse']:
+        """
+        Email server settings.
+        https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
+        """
+        return pulumi.get(self, "smtp")
+
+    @property
+    @pulumi.getter
+    def snapshots(self) -> Optional['outputs.SnapshotsResponse']:
+        """
+        Grafana Snapshots settings
+        """
+        return pulumi.get(self, "snapshots")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional['outputs.UsersResponse']:
+        """
+        Grafana users settings
+        """
+        return pulumi.get(self, "users")
+
+
+@pulumi.output_type
 class GrafanaIntegrationsResponse(dict):
     """
     GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
@@ -105,6 +227,45 @@ class GrafanaIntegrationsResponse(dict):
     @pulumi.getter(name="azureMonitorWorkspaceIntegrations")
     def azure_monitor_workspace_integrations(self) -> Optional[Sequence['outputs.AzureMonitorWorkspaceIntegrationResponse']]:
         return pulumi.get(self, "azure_monitor_workspace_integrations")
+
+
+@pulumi.output_type
+class GrafanaPluginResponse(dict):
+    """
+    Plugin of Grafana
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pluginId":
+            suggest = "plugin_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrafanaPluginResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrafanaPluginResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrafanaPluginResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 plugin_id: str):
+        """
+        Plugin of Grafana
+        :param str plugin_id: Grafana plugin id
+        """
+        pulumi.set(__self__, "plugin_id", plugin_id)
+
+    @property
+    @pulumi.getter(name="pluginId")
+    def plugin_id(self) -> str:
+        """
+        Grafana plugin id
+        """
+        return pulumi.get(self, "plugin_id")
 
 
 @pulumi.output_type
@@ -204,8 +365,16 @@ class ManagedGrafanaPropertiesResponse(dict):
             suggest = "auto_generated_domain_name_label_scope"
         elif key == "deterministicOutboundIP":
             suggest = "deterministic_outbound_ip"
+        elif key == "enterpriseConfigurations":
+            suggest = "enterprise_configurations"
+        elif key == "grafanaConfigurations":
+            suggest = "grafana_configurations"
         elif key == "grafanaIntegrations":
             suggest = "grafana_integrations"
+        elif key == "grafanaMajorVersion":
+            suggest = "grafana_major_version"
+        elif key == "grafanaPlugins":
+            suggest = "grafana_plugins"
         elif key == "publicNetworkAccess":
             suggest = "public_network_access"
         elif key == "zoneRedundancy":
@@ -231,7 +400,11 @@ class ManagedGrafanaPropertiesResponse(dict):
                  api_key: Optional[str] = None,
                  auto_generated_domain_name_label_scope: Optional[str] = None,
                  deterministic_outbound_ip: Optional[str] = None,
+                 enterprise_configurations: Optional['outputs.EnterpriseConfigurationsResponse'] = None,
+                 grafana_configurations: Optional['outputs.GrafanaConfigurationsResponse'] = None,
                  grafana_integrations: Optional['outputs.GrafanaIntegrationsResponse'] = None,
+                 grafana_major_version: Optional[str] = None,
+                 grafana_plugins: Optional[Mapping[str, 'outputs.GrafanaPluginResponse']] = None,
                  public_network_access: Optional[str] = None,
                  zone_redundancy: Optional[str] = None):
         """
@@ -244,7 +417,11 @@ class ManagedGrafanaPropertiesResponse(dict):
         :param str api_key: The api key setting of the Grafana instance.
         :param str auto_generated_domain_name_label_scope: Scope for dns deterministic name hash calculation.
         :param str deterministic_outbound_ip: Whether a Grafana instance uses deterministic outbound IPs.
+        :param 'EnterpriseConfigurationsResponse' enterprise_configurations: Enterprise settings of a Grafana instance
+        :param 'GrafanaConfigurationsResponse' grafana_configurations: Server configurations of a Grafana instance
         :param 'GrafanaIntegrationsResponse' grafana_integrations: GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
+        :param str grafana_major_version: The major Grafana software version to target.
+        :param Mapping[str, 'GrafanaPluginResponse'] grafana_plugins: Installed plugin list of the Grafana instance. Key is plugin id, value is plugin definition.
         :param str public_network_access: Indicate the state for enable or disable traffic over the public interface.
         :param str zone_redundancy: The zone redundancy setting of the Grafana instance.
         """
@@ -259,8 +436,16 @@ class ManagedGrafanaPropertiesResponse(dict):
             pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
         if deterministic_outbound_ip is not None:
             pulumi.set(__self__, "deterministic_outbound_ip", deterministic_outbound_ip)
+        if enterprise_configurations is not None:
+            pulumi.set(__self__, "enterprise_configurations", enterprise_configurations)
+        if grafana_configurations is not None:
+            pulumi.set(__self__, "grafana_configurations", grafana_configurations)
         if grafana_integrations is not None:
             pulumi.set(__self__, "grafana_integrations", grafana_integrations)
+        if grafana_major_version is not None:
+            pulumi.set(__self__, "grafana_major_version", grafana_major_version)
+        if grafana_plugins is not None:
+            pulumi.set(__self__, "grafana_plugins", grafana_plugins)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if zone_redundancy is not None:
@@ -331,12 +516,44 @@ class ManagedGrafanaPropertiesResponse(dict):
         return pulumi.get(self, "deterministic_outbound_ip")
 
     @property
+    @pulumi.getter(name="enterpriseConfigurations")
+    def enterprise_configurations(self) -> Optional['outputs.EnterpriseConfigurationsResponse']:
+        """
+        Enterprise settings of a Grafana instance
+        """
+        return pulumi.get(self, "enterprise_configurations")
+
+    @property
+    @pulumi.getter(name="grafanaConfigurations")
+    def grafana_configurations(self) -> Optional['outputs.GrafanaConfigurationsResponse']:
+        """
+        Server configurations of a Grafana instance
+        """
+        return pulumi.get(self, "grafana_configurations")
+
+    @property
     @pulumi.getter(name="grafanaIntegrations")
     def grafana_integrations(self) -> Optional['outputs.GrafanaIntegrationsResponse']:
         """
         GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
         """
         return pulumi.get(self, "grafana_integrations")
+
+    @property
+    @pulumi.getter(name="grafanaMajorVersion")
+    def grafana_major_version(self) -> Optional[str]:
+        """
+        The major Grafana software version to target.
+        """
+        return pulumi.get(self, "grafana_major_version")
+
+    @property
+    @pulumi.getter(name="grafanaPlugins")
+    def grafana_plugins(self) -> Optional[Mapping[str, 'outputs.GrafanaPluginResponse']]:
+        """
+        Installed plugin list of the Grafana instance. Key is plugin id, value is plugin definition.
+        """
+        return pulumi.get(self, "grafana_plugins")
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
@@ -690,6 +907,228 @@ class ResourceSkuResponse(dict):
 
 
 @pulumi.output_type
+class SecurityResponse(dict):
+    """
+    Grafana security settings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "csrfAlwaysCheck":
+            suggest = "csrf_always_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 csrf_always_check: Optional[bool] = None):
+        """
+        Grafana security settings
+        :param bool csrf_always_check: Set to true to execute the CSRF check even if the login cookie is not in a request (default false).
+        """
+        if csrf_always_check is not None:
+            pulumi.set(__self__, "csrf_always_check", csrf_always_check)
+
+    @property
+    @pulumi.getter(name="csrfAlwaysCheck")
+    def csrf_always_check(self) -> Optional[bool]:
+        """
+        Set to true to execute the CSRF check even if the login cookie is not in a request (default false).
+        """
+        return pulumi.get(self, "csrf_always_check")
+
+
+@pulumi.output_type
+class SmtpResponse(dict):
+    """
+    Email server settings.
+    https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromAddress":
+            suggest = "from_address"
+        elif key == "fromName":
+            suggest = "from_name"
+        elif key == "skipVerify":
+            suggest = "skip_verify"
+        elif key == "startTLSPolicy":
+            suggest = "start_tls_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SmtpResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SmtpResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SmtpResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 from_address: Optional[str] = None,
+                 from_name: Optional[str] = None,
+                 host: Optional[str] = None,
+                 password: Optional[str] = None,
+                 skip_verify: Optional[bool] = None,
+                 start_tls_policy: Optional[str] = None,
+                 user: Optional[str] = None):
+        """
+        Email server settings.
+        https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-grafana/#smtp
+        :param bool enabled: Enable this to allow Grafana to send email. Default is false
+        :param str from_address: Address used when sending out emails
+               https://pkg.go.dev/net/mail#Address
+        :param str from_name: Name to be used when sending out emails. Default is "Azure Managed Grafana Notification"
+               https://pkg.go.dev/net/mail#Address
+        :param str host: SMTP server hostname with port, e.g. test.email.net:587
+        :param str password: Password of SMTP auth. If the password contains # or ;, then you have to wrap it with triple quotes
+        :param bool skip_verify: Verify SSL for SMTP server. Default is false
+               https://pkg.go.dev/crypto/tls#Config
+        :param str start_tls_policy: The StartTLSPolicy setting of the SMTP configuration
+               https://pkg.go.dev/github.com/go-mail/mail#StartTLSPolicy
+        :param str user: User of SMTP auth
+        """
+        if enabled is None:
+            enabled = False
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if from_address is not None:
+            pulumi.set(__self__, "from_address", from_address)
+        if from_name is not None:
+            pulumi.set(__self__, "from_name", from_name)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if skip_verify is not None:
+            pulumi.set(__self__, "skip_verify", skip_verify)
+        if start_tls_policy is not None:
+            pulumi.set(__self__, "start_tls_policy", start_tls_policy)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enable this to allow Grafana to send email. Default is false
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="fromAddress")
+    def from_address(self) -> Optional[str]:
+        """
+        Address used when sending out emails
+        https://pkg.go.dev/net/mail#Address
+        """
+        return pulumi.get(self, "from_address")
+
+    @property
+    @pulumi.getter(name="fromName")
+    def from_name(self) -> Optional[str]:
+        """
+        Name to be used when sending out emails. Default is "Azure Managed Grafana Notification"
+        https://pkg.go.dev/net/mail#Address
+        """
+        return pulumi.get(self, "from_name")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        """
+        SMTP server hostname with port, e.g. test.email.net:587
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Password of SMTP auth. If the password contains # or ;, then you have to wrap it with triple quotes
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="skipVerify")
+    def skip_verify(self) -> Optional[bool]:
+        """
+        Verify SSL for SMTP server. Default is false
+        https://pkg.go.dev/crypto/tls#Config
+        """
+        return pulumi.get(self, "skip_verify")
+
+    @property
+    @pulumi.getter(name="startTLSPolicy")
+    def start_tls_policy(self) -> Optional[str]:
+        """
+        The StartTLSPolicy setting of the SMTP configuration
+        https://pkg.go.dev/github.com/go-mail/mail#StartTLSPolicy
+        """
+        return pulumi.get(self, "start_tls_policy")
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[str]:
+        """
+        User of SMTP auth
+        """
+        return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class SnapshotsResponse(dict):
+    """
+    Grafana Snapshots settings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalEnabled":
+            suggest = "external_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_enabled: Optional[bool] = None):
+        """
+        Grafana Snapshots settings
+        :param bool external_enabled: Set to false to disable external snapshot publish endpoint
+        """
+        if external_enabled is not None:
+            pulumi.set(__self__, "external_enabled", external_enabled)
+
+    @property
+    @pulumi.getter(name="externalEnabled")
+    def external_enabled(self) -> Optional[bool]:
+        """
+        Set to false to disable external snapshot publish endpoint
+        """
+        return pulumi.get(self, "external_enabled")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -849,5 +1288,45 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class UsersResponse(dict):
+    """
+    Grafana users settings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "viewersCanEdit":
+            suggest = "viewers_can_edit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UsersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UsersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UsersResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 viewers_can_edit: Optional[bool] = None):
+        """
+        Grafana users settings
+        :param bool viewers_can_edit: Set to true so viewers can access and use explore and perform temporary edits on panels in dashboards they have access to. They cannot save their changes.
+        """
+        if viewers_can_edit is not None:
+            pulumi.set(__self__, "viewers_can_edit", viewers_can_edit)
+
+    @property
+    @pulumi.getter(name="viewersCanEdit")
+    def viewers_can_edit(self) -> Optional[bool]:
+        """
+        Set to true so viewers can access and use explore and perform temporary edits on panels in dashboards they have access to. They cannot save their changes.
+        """
+        return pulumi.get(self, "viewers_can_edit")
 
 

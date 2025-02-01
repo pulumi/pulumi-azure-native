@@ -32,7 +32,7 @@ class NamespaceNetworkRuleSetArgs:
         """
         The set of arguments for constructing a NamespaceNetworkRuleSet resource.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'DefaultAction']] default_action: Default Action for Network Rule Set
         :param pulumi.Input[Sequence[pulumi.Input['NWRuleSetIpRulesArgs']]] ip_rules: List of IpRules
         :param pulumi.Input[Union[str, 'PublicNetworkAccessFlag']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
@@ -70,7 +70,7 @@ class NamespaceNetworkRuleSetArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -154,9 +154,9 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  __props__=None):
         """
         Description of NetworkRuleSet resource.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,7 +164,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetIpRulesArgs', 'NWRuleSetIpRulesArgsDict']]]] ip_rules: List of IpRules
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[Union[str, 'PublicNetworkAccessFlag']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] trusted_service_access_enabled: Value that indicates whether Trusted Service Access is Enabled or not.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NWRuleSetVirtualNetworkRulesArgs', 'NWRuleSetVirtualNetworkRulesArgsDict']]]] virtual_network_rules: List VirtualNetwork Rules
         """
@@ -176,9 +176,9 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of NetworkRuleSet resource.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NamespaceNetworkRuleSetArgs args: The arguments to use to populate this resource's properties.

@@ -150,9 +150,9 @@ class WorkspaceCertificate(pulumi.CustomResource):
                  __props__=None):
         """
         Certificate details.
-        Azure REST API version: 2023-09-01-preview.
+        Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
-        Other available API versions: 2024-05-01, 2024-06-01-preview.
+        Other available API versions: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,9 +172,9 @@ class WorkspaceCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Certificate details.
-        Azure REST API version: 2023-09-01-preview.
+        Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
-        Other available API versions: 2024-05-01, 2024-06-01-preview.
+        Other available API versions: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceCertificateArgs args: The arguments to use to populate this resource's properties.

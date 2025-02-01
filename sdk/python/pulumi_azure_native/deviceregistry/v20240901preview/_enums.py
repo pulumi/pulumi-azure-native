@@ -6,8 +6,6 @@ from enum import Enum
 
 __all__ = [
     'AuthenticationMethod',
-    'DataPointObservabilityMode',
-    'EventObservabilityMode',
     'Format',
     'SchemaType',
     'SystemAssignedServiceIdentityType',
@@ -30,46 +28,6 @@ class AuthenticationMethod(str, Enum):
     USERNAME_PASSWORD = "UsernamePassword"
     """
     The user authentication method is a username and password.
-    """
-
-
-class DataPointObservabilityMode(str, Enum):
-    """
-    An indication of how the data point should be mapped to OpenTelemetry.
-    """
-    NONE = "None"
-    """
-    No mapping to OpenTelemetry.
-    """
-    COUNTER = "Counter"
-    """
-    Map as counter to OpenTelemetry.
-    """
-    GAUGE = "Gauge"
-    """
-    Map as gauge to OpenTelemetry.
-    """
-    HISTOGRAM = "Histogram"
-    """
-    Map as histogram to OpenTelemetry.
-    """
-    LOG = "Log"
-    """
-    Map as log to OpenTelemetry.
-    """
-
-
-class EventObservabilityMode(str, Enum):
-    """
-    An indication of how the event should be mapped to OpenTelemetry.
-    """
-    NONE = "None"
-    """
-    No mapping to OpenTelemetry.
-    """
-    LOG = "Log"
-    """
-    Map as log to OpenTelemetry.
     """
 
 

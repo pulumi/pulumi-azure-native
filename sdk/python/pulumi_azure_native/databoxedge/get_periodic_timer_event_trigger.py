@@ -141,7 +141,7 @@ def get_periodic_timer_event_trigger(device_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeriodicTimerEventTriggerResult:
     """
     Get a specific trigger by name.
-    Azure REST API version: 2022-03-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -170,7 +170,7 @@ def get_periodic_timer_event_trigger_output(device_name: Optional[pulumi.Input[s
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeriodicTimerEventTriggerResult]:
     """
     Get a specific trigger by name.
-    Azure REST API version: 2022-03-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.

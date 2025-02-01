@@ -235,9 +235,9 @@ def get_cluster_pool(cluster_pool_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterPoolResult:
     """
     Gets a cluster pool.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str cluster_pool_name: The name of the cluster pool.
@@ -271,9 +271,9 @@ def get_cluster_pool_output(cluster_pool_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterPoolResult]:
     """
     Gets a cluster pool.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
+    Other available API versions: 2023-06-01-preview.
 
 
     :param str cluster_pool_name: The name of the cluster pool.

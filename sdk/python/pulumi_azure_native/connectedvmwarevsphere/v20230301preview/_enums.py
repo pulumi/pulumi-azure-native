@@ -10,7 +10,6 @@ __all__ = [
     'FirmwareType',
     'IPAddressAllocationMethod',
     'IdentityType',
-    'InventoryType',
     'NICType',
     'OsType',
     'PowerOnBootOption',
@@ -66,19 +65,6 @@ class IdentityType(str, Enum):
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
-
-
-class InventoryType(str, Enum):
-    """
-    They inventory type.
-    """
-    RESOURCE_POOL = "ResourcePool"
-    VIRTUAL_MACHINE = "VirtualMachine"
-    VIRTUAL_MACHINE_TEMPLATE = "VirtualMachineTemplate"
-    VIRTUAL_NETWORK = "VirtualNetwork"
-    CLUSTER = "Cluster"
-    DATASTORE = "Datastore"
-    HOST = "Host"
 
 
 class NICType(str, Enum):

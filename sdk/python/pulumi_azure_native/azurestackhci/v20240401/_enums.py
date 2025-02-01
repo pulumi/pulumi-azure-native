@@ -8,7 +8,6 @@ __all__ = [
     'AvailabilityType',
     'ComplianceAssignmentType',
     'DeploymentMode',
-    'DeviceKind',
     'DiagnosticLevel',
     'EceSecrets',
     'ManagedServiceIdentityType',
@@ -56,16 +55,6 @@ class DeploymentMode(str, Enum):
     DEPLOY = "Deploy"
     """
     Deploy ECE action deployment for a cluster.
-    """
-
-
-class DeviceKind(str, Enum):
-    """
-    Device kind to support polymorphic resource.
-    """
-    HCI = "HCI"
-    """
-    Arc-enabled edge device with HCI OS.
     """
 
 

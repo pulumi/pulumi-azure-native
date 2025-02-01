@@ -19,8 +19,6 @@ from ._enums import *
 __all__ = [
     'ErrorResponse',
     'SpringbootserversPropertiesResponse',
-    'SpringbootsitesModelResponseExtendedLocation',
-    'SpringbootsitesPropertiesResponse',
     'SystemDataResponse',
 ]
 
@@ -297,109 +295,6 @@ class SpringbootserversPropertiesResponse(dict):
         The total number of apps been discovered
         """
         return pulumi.get(self, "total_apps")
-
-
-@pulumi.output_type
-class SpringbootsitesModelResponseExtendedLocation(dict):
-    """
-    The extended location definition.
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 type: Optional[str] = None):
-        """
-        The extended location definition.
-        :param str name: The extended location name.
-        :param str type: The extended location type.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The extended location name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The extended location type.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class SpringbootsitesPropertiesResponse(dict):
-    """
-    The springbootsites resource definition.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "masterSiteId":
-            suggest = "master_site_id"
-        elif key == "migrateProjectId":
-            suggest = "migrate_project_id"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SpringbootsitesPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SpringbootsitesPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SpringbootsitesPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 master_site_id: Optional[str] = None,
-                 migrate_project_id: Optional[str] = None,
-                 provisioning_state: Optional[str] = None):
-        """
-        The springbootsites resource definition.
-        :param str master_site_id: The master site ID from Azure Migrate.
-        :param str migrate_project_id: The migrate project ID from Azure Migrate.
-        :param str provisioning_state: The resource provisioning state.
-        """
-        if master_site_id is not None:
-            pulumi.set(__self__, "master_site_id", master_site_id)
-        if migrate_project_id is not None:
-            pulumi.set(__self__, "migrate_project_id", migrate_project_id)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-
-    @property
-    @pulumi.getter(name="masterSiteId")
-    def master_site_id(self) -> Optional[str]:
-        """
-        The master site ID from Azure Migrate.
-        """
-        return pulumi.get(self, "master_site_id")
-
-    @property
-    @pulumi.getter(name="migrateProjectId")
-    def migrate_project_id(self) -> Optional[str]:
-        """
-        The migrate project ID from Azure Migrate.
-        """
-        return pulumi.get(self, "migrate_project_id")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The resource provisioning state.
-        """
-        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

@@ -19,24 +19,16 @@ from .list_communication_service_keys import *
 from .sender_username import *
 from .suppression_list import *
 from .suppression_list_address import *
+from ._inputs import *
 from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.communication.v20220701preview as __v20220701preview
-    v20220701preview = __v20220701preview
     import pulumi_azure_native.communication.v20230331 as __v20230331
     v20230331 = __v20230331
-    import pulumi_azure_native.communication.v20230401 as __v20230401
-    v20230401 = __v20230401
-    import pulumi_azure_native.communication.v20230401preview as __v20230401preview
-    v20230401preview = __v20230401preview
     import pulumi_azure_native.communication.v20230601preview as __v20230601preview
     v20230601preview = __v20230601preview
 else:
-    v20220701preview = _utilities.lazy_import('pulumi_azure_native.communication.v20220701preview')
     v20230331 = _utilities.lazy_import('pulumi_azure_native.communication.v20230331')
-    v20230401 = _utilities.lazy_import('pulumi_azure_native.communication.v20230401')
-    v20230401preview = _utilities.lazy_import('pulumi_azure_native.communication.v20230401preview')
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.communication.v20230601preview')
 

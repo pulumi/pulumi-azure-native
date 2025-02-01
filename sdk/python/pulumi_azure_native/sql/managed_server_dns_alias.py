@@ -96,9 +96,9 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
                  __props__=None):
         """
         A managed server DNS alias.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,9 +114,9 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A managed server DNS alias.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Other available API versions: 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagedServerDnsAliasArgs args: The arguments to use to populate this resource's properties.

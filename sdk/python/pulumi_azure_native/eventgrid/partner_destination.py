@@ -205,9 +205,9 @@ class PartnerDestination(pulumi.CustomResource):
                  __props__=None):
         """
         Event Grid Partner Destination.
-        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-10-15-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,9 +231,9 @@ class PartnerDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Grid Partner Destination.
-        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-10-15-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
-        Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PartnerDestinationArgs args: The arguments to use to populate this resource's properties.
@@ -400,7 +400,7 @@ class PartnerDestination(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to Partner Destination resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 

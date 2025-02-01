@@ -25,12 +25,15 @@ __all__ = [
 @pulumi.output_type
 class GetBackupResult:
     """
-    Backup of a Volume
+    Backup under a Backup Vault
     """
-    def __init__(__self__, backup_id=None, backup_type=None, creation_date=None, failure_reason=None, id=None, label=None, location=None, name=None, provisioning_state=None, size=None, system_data=None, type=None, use_existing_snapshot=None, volume_name=None):
+    def __init__(__self__, backup_id=None, backup_policy_resource_id=None, backup_type=None, creation_date=None, failure_reason=None, id=None, label=None, name=None, provisioning_state=None, size=None, snapshot_name=None, system_data=None, type=None, use_existing_snapshot=None, volume_resource_id=None):
         if backup_id and not isinstance(backup_id, str):
             raise TypeError("Expected argument 'backup_id' to be a str")
         pulumi.set(__self__, "backup_id", backup_id)
+        if backup_policy_resource_id and not isinstance(backup_policy_resource_id, str):
+            raise TypeError("Expected argument 'backup_policy_resource_id' to be a str")
+        pulumi.set(__self__, "backup_policy_resource_id", backup_policy_resource_id)
         if backup_type and not isinstance(backup_type, str):
             raise TypeError("Expected argument 'backup_type' to be a str")
         pulumi.set(__self__, "backup_type", backup_type)
@@ -46,9 +49,6 @@ class GetBackupResult:
         if label and not isinstance(label, str):
             raise TypeError("Expected argument 'label' to be a str")
         pulumi.set(__self__, "label", label)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -58,6 +58,9 @@ class GetBackupResult:
         if size and not isinstance(size, float):
             raise TypeError("Expected argument 'size' to be a float")
         pulumi.set(__self__, "size", size)
+        if snapshot_name and not isinstance(snapshot_name, str):
+            raise TypeError("Expected argument 'snapshot_name' to be a str")
+        pulumi.set(__self__, "snapshot_name", snapshot_name)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -67,9 +70,9 @@ class GetBackupResult:
         if use_existing_snapshot and not isinstance(use_existing_snapshot, bool):
             raise TypeError("Expected argument 'use_existing_snapshot' to be a bool")
         pulumi.set(__self__, "use_existing_snapshot", use_existing_snapshot)
-        if volume_name and not isinstance(volume_name, str):
-            raise TypeError("Expected argument 'volume_name' to be a str")
-        pulumi.set(__self__, "volume_name", volume_name)
+        if volume_resource_id and not isinstance(volume_resource_id, str):
+            raise TypeError("Expected argument 'volume_resource_id' to be a str")
+        pulumi.set(__self__, "volume_resource_id", volume_resource_id)
 
     @property
     @pulumi.getter(name="backupId")
@@ -78,6 +81,14 @@ class GetBackupResult:
         UUID v4 used to identify the Backup
         """
         return pulumi.get(self, "backup_id")
+
+    @property
+    @pulumi.getter(name="backupPolicyResourceId")
+    def backup_policy_resource_id(self) -> str:
+        """
+        ResourceId used to identify the backup policy
+        """
+        return pulumi.get(self, "backup_policy_resource_id")
 
     @property
     @pulumi.getter(name="backupType")
@@ -107,7 +118,7 @@ class GetBackupResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -118,14 +129,6 @@ class GetBackupResult:
         Label for backup
         """
         return pulumi.get(self, "label")
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        """
-        Resource location
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -147,9 +150,17 @@ class GetBackupResult:
     @pulumi.getter
     def size(self) -> float:
         """
-        Size of backup
+        Size of backup in bytes
         """
         return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> Optional[str]:
+        """
+        The name of the snapshot
+        """
+        return pulumi.get(self, "snapshot_name")
 
     @property
     @pulumi.getter(name="systemData")
@@ -176,12 +187,12 @@ class GetBackupResult:
         return pulumi.get(self, "use_existing_snapshot")
 
     @property
-    @pulumi.getter(name="volumeName")
-    def volume_name(self) -> str:
+    @pulumi.getter(name="volumeResourceId")
+    def volume_resource_id(self) -> str:
         """
-        Volume name
+        ResourceId used to identify the Volume
         """
-        return pulumi.get(self, "volume_name")
+        return pulumi.get(self, "volume_resource_id")
 
 
 class AwaitableGetBackupResult(GetBackupResult):
@@ -191,103 +202,100 @@ class AwaitableGetBackupResult(GetBackupResult):
             yield self
         return GetBackupResult(
             backup_id=self.backup_id,
+            backup_policy_resource_id=self.backup_policy_resource_id,
             backup_type=self.backup_type,
             creation_date=self.creation_date,
             failure_reason=self.failure_reason,
             id=self.id,
             label=self.label,
-            location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             size=self.size,
+            snapshot_name=self.snapshot_name,
             system_data=self.system_data,
             type=self.type,
             use_existing_snapshot=self.use_existing_snapshot,
-            volume_name=self.volume_name)
+            volume_resource_id=self.volume_resource_id)
 
 
 def get_backup(account_name: Optional[str] = None,
                backup_name: Optional[str] = None,
-               pool_name: Optional[str] = None,
+               backup_vault_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
-               volume_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupResult:
     """
-    Gets the specified backup of the volume
-    Azure REST API version: 2022-11-01.
+    Get the specified Backup under Backup Vault.
+    Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01.
+    Other available API versions: 2024-07-01-preview.
 
 
     :param str account_name: The name of the NetApp account
     :param str backup_name: The name of the backup
-    :param str pool_name: The name of the capacity pool
+    :param str backup_vault_name: The name of the Backup Vault
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str volume_name: The name of the volume
     """
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['backupName'] = backup_name
-    __args__['poolName'] = pool_name
+    __args__['backupVaultName'] = backup_vault_name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['volumeName'] = volume_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:netapp:getBackup', __args__, opts=opts, typ=GetBackupResult).value
 
     return AwaitableGetBackupResult(
         backup_id=pulumi.get(__ret__, 'backup_id'),
+        backup_policy_resource_id=pulumi.get(__ret__, 'backup_policy_resource_id'),
         backup_type=pulumi.get(__ret__, 'backup_type'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         failure_reason=pulumi.get(__ret__, 'failure_reason'),
         id=pulumi.get(__ret__, 'id'),
         label=pulumi.get(__ret__, 'label'),
-        location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         size=pulumi.get(__ret__, 'size'),
+        snapshot_name=pulumi.get(__ret__, 'snapshot_name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         use_existing_snapshot=pulumi.get(__ret__, 'use_existing_snapshot'),
-        volume_name=pulumi.get(__ret__, 'volume_name'))
+        volume_resource_id=pulumi.get(__ret__, 'volume_resource_id'))
 def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
                       backup_name: Optional[pulumi.Input[str]] = None,
-                      pool_name: Optional[pulumi.Input[str]] = None,
+                      backup_vault_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                      volume_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupResult]:
     """
-    Gets the specified backup of the volume
-    Azure REST API version: 2022-11-01.
+    Get the specified Backup under Backup Vault.
+    Azure REST API version: 2024-09-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01.
+    Other available API versions: 2024-07-01-preview.
 
 
     :param str account_name: The name of the NetApp account
     :param str backup_name: The name of the backup
-    :param str pool_name: The name of the capacity pool
+    :param str backup_vault_name: The name of the Backup Vault
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str volume_name: The name of the volume
     """
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['backupName'] = backup_name
-    __args__['poolName'] = pool_name
+    __args__['backupVaultName'] = backup_vault_name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['volumeName'] = volume_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:netapp:getBackup', __args__, opts=opts, typ=GetBackupResult)
     return __ret__.apply(lambda __response__: GetBackupResult(
         backup_id=pulumi.get(__response__, 'backup_id'),
+        backup_policy_resource_id=pulumi.get(__response__, 'backup_policy_resource_id'),
         backup_type=pulumi.get(__response__, 'backup_type'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         failure_reason=pulumi.get(__response__, 'failure_reason'),
         id=pulumi.get(__response__, 'id'),
         label=pulumi.get(__response__, 'label'),
-        location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         size=pulumi.get(__response__, 'size'),
+        snapshot_name=pulumi.get(__response__, 'snapshot_name'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         use_existing_snapshot=pulumi.get(__response__, 'use_existing_snapshot'),
-        volume_name=pulumi.get(__response__, 'volume_name')))
+        volume_resource_id=pulumi.get(__response__, 'volume_resource_id')))

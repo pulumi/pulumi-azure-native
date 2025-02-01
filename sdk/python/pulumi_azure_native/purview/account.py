@@ -25,29 +25,37 @@ class AccountArgs:
                  resource_group_name: pulumi.Input[str],
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 ingestion_storage: Optional[pulumi.Input['IngestionStorageArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_event_hub_state: Optional[pulumi.Input[Union[str, 'ManagedEventHubState']]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
-                 managed_resources_public_network_access: Optional[pulumi.Input[Union[str, 'ManagedResourcesPublicNetworkAccess']]] = None,
+                 managed_resources_public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 sku: Optional[pulumi.Input['AccountSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_endpoint_state: Optional[pulumi.Input[Union[str, 'TenantEndpointState']]] = None):
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] account_name: The name of the account.
-        :param pulumi.Input['IdentityArgs'] identity: Identity Info on the tracked resource
+        :param pulumi.Input['IdentityArgs'] identity: The Managed Identity of the resource
+        :param pulumi.Input['IngestionStorageArgs'] ingestion_storage: Ingestion Storage Account Info
         :param pulumi.Input[str] location: Gets or sets the location.
-        :param pulumi.Input[Union[str, 'ManagedEventHubState']] managed_event_hub_state:  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+        :param pulumi.Input[Union[str, 'ManagedEventHubState']] managed_event_hub_state: Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
         :param pulumi.Input[str] managed_resource_group_name: Gets or sets the managed resource group name
-        :param pulumi.Input[Union[str, 'ManagedResourcesPublicNetworkAccess']] managed_resources_public_network_access: Gets or sets the public network access for managed resources.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] managed_resources_public_network_access: Gets or sets the public network access for managed resources.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Gets or sets the public network access.
+        :param pulumi.Input['AccountSkuArgs'] sku: Gets or sets the Sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags on the azure resource.
+        :param pulumi.Input[Union[str, 'TenantEndpointState']] tenant_endpoint_state: Gets or sets the state of tenant endpoint.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if ingestion_storage is not None:
+            pulumi.set(__self__, "ingestion_storage", ingestion_storage)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_event_hub_state is None:
@@ -64,8 +72,12 @@ class AccountArgs:
             public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tenant_endpoint_state is not None:
+            pulumi.set(__self__, "tenant_endpoint_state", tenant_endpoint_state)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -95,13 +107,25 @@ class AccountArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
         """
-        Identity Info on the tracked resource
+        The Managed Identity of the resource
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="ingestionStorage")
+    def ingestion_storage(self) -> Optional[pulumi.Input['IngestionStorageArgs']]:
+        """
+        Ingestion Storage Account Info
+        """
+        return pulumi.get(self, "ingestion_storage")
+
+    @ingestion_storage.setter
+    def ingestion_storage(self, value: Optional[pulumi.Input['IngestionStorageArgs']]):
+        pulumi.set(self, "ingestion_storage", value)
 
     @property
     @pulumi.getter
@@ -119,7 +143,7 @@ class AccountArgs:
     @pulumi.getter(name="managedEventHubState")
     def managed_event_hub_state(self) -> Optional[pulumi.Input[Union[str, 'ManagedEventHubState']]]:
         """
-         Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+        Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
         """
         return pulumi.get(self, "managed_event_hub_state")
 
@@ -141,14 +165,14 @@ class AccountArgs:
 
     @property
     @pulumi.getter(name="managedResourcesPublicNetworkAccess")
-    def managed_resources_public_network_access(self) -> Optional[pulumi.Input[Union[str, 'ManagedResourcesPublicNetworkAccess']]]:
+    def managed_resources_public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
         """
         Gets or sets the public network access for managed resources.
         """
         return pulumi.get(self, "managed_resources_public_network_access")
 
     @managed_resources_public_network_access.setter
-    def managed_resources_public_network_access(self, value: Optional[pulumi.Input[Union[str, 'ManagedResourcesPublicNetworkAccess']]]):
+    def managed_resources_public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "managed_resources_public_network_access", value)
 
     @property
@@ -165,6 +189,18 @@ class AccountArgs:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['AccountSkuArgs']]:
+        """
+        Gets or sets the Sku.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['AccountSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Tags on the azure resource.
@@ -175,6 +211,18 @@ class AccountArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tenantEndpointState")
+    def tenant_endpoint_state(self) -> Optional[pulumi.Input[Union[str, 'TenantEndpointState']]]:
+        """
+        Gets or sets the state of tenant endpoint.
+        """
+        return pulumi.get(self, "tenant_endpoint_state")
+
+    @tenant_endpoint_state.setter
+    def tenant_endpoint_state(self, value: Optional[pulumi.Input[Union[str, 'TenantEndpointState']]]):
+        pulumi.set(self, "tenant_endpoint_state", value)
+
 
 class Account(pulumi.CustomResource):
     @overload
@@ -183,31 +231,37 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 ingestion_storage: Optional[pulumi.Input[Union['IngestionStorageArgs', 'IngestionStorageArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_event_hub_state: Optional[pulumi.Input[Union[str, 'ManagedEventHubState']]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
-                 managed_resources_public_network_access: Optional[pulumi.Input[Union[str, 'ManagedResourcesPublicNetworkAccess']]] = None,
+                 managed_resources_public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[Union['AccountSkuArgs', 'AccountSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_endpoint_state: Optional[pulumi.Input[Union[str, 'TenantEndpointState']]] = None,
                  __props__=None):
         """
         Account resource
-        Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-12-01-preview.
+        Azure REST API version: 2024-04-01-preview. Prior API version in Azure Native 2.x: 2021-12-01.
 
-        Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+        Other available API versions: 2021-12-01, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the account.
-        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: Identity Info on the tracked resource
+        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The Managed Identity of the resource
+        :param pulumi.Input[Union['IngestionStorageArgs', 'IngestionStorageArgsDict']] ingestion_storage: Ingestion Storage Account Info
         :param pulumi.Input[str] location: Gets or sets the location.
-        :param pulumi.Input[Union[str, 'ManagedEventHubState']] managed_event_hub_state:  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+        :param pulumi.Input[Union[str, 'ManagedEventHubState']] managed_event_hub_state: Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
         :param pulumi.Input[str] managed_resource_group_name: Gets or sets the managed resource group name
-        :param pulumi.Input[Union[str, 'ManagedResourcesPublicNetworkAccess']] managed_resources_public_network_access: Gets or sets the public network access for managed resources.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] managed_resources_public_network_access: Gets or sets the public network access for managed resources.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Gets or sets the public network access.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[Union['AccountSkuArgs', 'AccountSkuArgsDict']] sku: Gets or sets the Sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags on the azure resource.
+        :param pulumi.Input[Union[str, 'TenantEndpointState']] tenant_endpoint_state: Gets or sets the state of tenant endpoint.
         """
         ...
     @overload
@@ -217,9 +271,9 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Account resource
-        Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-12-01-preview.
+        Azure REST API version: 2024-04-01-preview. Prior API version in Azure Native 2.x: 2021-12-01.
 
-        Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+        Other available API versions: 2021-12-01, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -238,13 +292,16 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 ingestion_storage: Optional[pulumi.Input[Union['IngestionStorageArgs', 'IngestionStorageArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_event_hub_state: Optional[pulumi.Input[Union[str, 'ManagedEventHubState']]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
-                 managed_resources_public_network_access: Optional[pulumi.Input[Union[str, 'ManagedResourcesPublicNetworkAccess']]] = None,
+                 managed_resources_public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[Union['AccountSkuArgs', 'AccountSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_endpoint_state: Optional[pulumi.Input[Union[str, 'TenantEndpointState']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -256,6 +313,7 @@ class Account(pulumi.CustomResource):
 
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["ingestion_storage"] = ingestion_storage
             __props__.__dict__["location"] = location
             if managed_event_hub_state is None:
                 managed_event_hub_state = 'NotSpecified'
@@ -270,19 +328,22 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tenant_endpoint_state"] = tenant_endpoint_state
             __props__.__dict__["account_status"] = None
             __props__.__dict__["cloud_connectors"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["created_by_object_id"] = None
+            __props__.__dict__["default_domain"] = None
             __props__.__dict__["endpoints"] = None
             __props__.__dict__["friendly_name"] = None
             __props__.__dict__["managed_resources"] = None
+            __props__.__dict__["merge_info"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["sku"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:purview/v20201201preview:Account"), pulumi.Alias(type_="azure-native:purview/v20210701:Account"), pulumi.Alias(type_="azure-native:purview/v20211201:Account"), pulumi.Alias(type_="azure-native:purview/v20230501preview:Account"), pulumi.Alias(type_="azure-native:purview/v20240401preview:Account")])
@@ -314,14 +375,17 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["created_by_object_id"] = None
+        __props__.__dict__["default_domain"] = None
         __props__.__dict__["endpoints"] = None
         __props__.__dict__["friendly_name"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["ingestion_storage"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["managed_event_hub_state"] = None
         __props__.__dict__["managed_resource_group_name"] = None
         __props__.__dict__["managed_resources"] = None
         __props__.__dict__["managed_resources_public_network_access"] = None
+        __props__.__dict__["merge_info"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -329,6 +393,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tenant_endpoint_state"] = None
         __props__.__dict__["type"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
 
@@ -344,8 +409,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="cloudConnectors")
     def cloud_connectors(self) -> pulumi.Output[Optional['outputs.CloudConnectorsResponse']]:
         """
-        Cloud connectors.
-        External cloud identifier used as part of scanning configuration.
+        External Cloud Service connectors
         """
         return pulumi.get(self, "cloud_connectors")
 
@@ -374,6 +438,14 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "created_by_object_id")
 
     @property
+    @pulumi.getter(name="defaultDomain")
+    def default_domain(self) -> pulumi.Output[str]:
+        """
+        Gets the default domain in the account.
+        """
+        return pulumi.get(self, "default_domain")
+
+    @property
     @pulumi.getter
     def endpoints(self) -> pulumi.Output['outputs.AccountPropertiesResponseEndpoints']:
         """
@@ -393,9 +465,17 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
         """
-        Identity Info on the tracked resource
+        The Managed Identity of the resource
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="ingestionStorage")
+    def ingestion_storage(self) -> pulumi.Output[Optional['outputs.IngestionStorageResponse']]:
+        """
+        Ingestion Storage Account Info
+        """
+        return pulumi.get(self, "ingestion_storage")
 
     @property
     @pulumi.getter
@@ -409,7 +489,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="managedEventHubState")
     def managed_event_hub_state(self) -> pulumi.Output[Optional[str]]:
         """
-         Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+        Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
         """
         return pulumi.get(self, "managed_event_hub_state")
 
@@ -436,6 +516,14 @@ class Account(pulumi.CustomResource):
         Gets or sets the public network access for managed resources.
         """
         return pulumi.get(self, "managed_resources_public_network_access")
+
+    @property
+    @pulumi.getter(name="mergeInfo")
+    def merge_info(self) -> pulumi.Output[Optional['outputs.AccountMergeInfoResponse']]:
+        """
+        Gets or sets the Merge Info.
+        """
+        return pulumi.get(self, "merge_info")
 
     @property
     @pulumi.getter
@@ -471,7 +559,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Output['outputs.AccountResponseSku']:
+    def sku(self) -> pulumi.Output[Optional['outputs.AccountResponseSku']]:
         """
         Gets or sets the Sku.
         """
@@ -492,6 +580,14 @@ class Account(pulumi.CustomResource):
         Tags on the azure resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantEndpointState")
+    def tenant_endpoint_state(self) -> pulumi.Output[Optional[str]]:
+        """
+        Gets or sets the state of tenant endpoint.
+        """
+        return pulumi.get(self, "tenant_endpoint_state")
 
     @property
     @pulumi.getter

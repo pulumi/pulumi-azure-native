@@ -196,7 +196,7 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:virtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:virtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:virtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20240101:virtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice:virtualNetworkRetrieve")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice:VirtualNetworkRetrieve")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkRetrieve, __self__).__init__(
             'azure-native:hybridcontainerservice/v20240101:VirtualNetworkRetrieve',

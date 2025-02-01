@@ -17,23 +17,132 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AssetEndpointProfileStatusErrorResponse',
+    'AssetEndpointProfileStatusResponse',
+    'AssetStatusDatasetResponse',
     'AssetStatusErrorResponse',
+    'AssetStatusEventResponse',
     'AssetStatusResponse',
+    'AuthenticationResponse',
     'DataPointResponse',
+    'DatasetResponse',
     'DiscoveredDataPointResponse',
     'DiscoveredDatasetResponse',
     'DiscoveredEventResponse',
     'EventResponse',
     'ExtendedLocationResponse',
-    'OwnCertificateResponse',
+    'MessageSchemaReferenceResponse',
     'SystemAssignedServiceIdentityResponse',
     'SystemDataResponse',
     'TopicResponse',
-    'TransportAuthenticationResponse',
-    'UserAuthenticationResponse',
     'UsernamePasswordCredentialsResponse',
     'X509CredentialsResponse',
 ]
+
+@pulumi.output_type
+class AssetEndpointProfileStatusErrorResponse(dict):
+    """
+    Defines the asset endpoint profile status error properties.
+    """
+    def __init__(__self__, *,
+                 code: int,
+                 message: str):
+        """
+        Defines the asset endpoint profile status error properties.
+        :param int code: Error code for classification of errors (ex: 400, 404, 500, etc.).
+        :param str message: Human readable helpful error message to provide additional context for error (ex: “targetAddress 'foo' is not a valid url”).
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> int:
+        """
+        Error code for classification of errors (ex: 400, 404, 500, etc.).
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Human readable helpful error message to provide additional context for error (ex: “targetAddress 'foo' is not a valid url”).
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class AssetEndpointProfileStatusResponse(dict):
+    """
+    Defines the asset endpoint profile status properties.
+    """
+    def __init__(__self__, *,
+                 errors: Sequence['outputs.AssetEndpointProfileStatusErrorResponse']):
+        """
+        Defines the asset endpoint profile status properties.
+        :param Sequence['AssetEndpointProfileStatusErrorResponse'] errors: Array object to transfer and persist errors that originate from the Edge.
+        """
+        pulumi.set(__self__, "errors", errors)
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Sequence['outputs.AssetEndpointProfileStatusErrorResponse']:
+        """
+        Array object to transfer and persist errors that originate from the Edge.
+        """
+        return pulumi.get(self, "errors")
+
+
+@pulumi.output_type
+class AssetStatusDatasetResponse(dict):
+    """
+    Defines the asset status dataset properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageSchemaReference":
+            suggest = "message_schema_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetStatusDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetStatusDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetStatusDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 message_schema_reference: 'outputs.MessageSchemaReferenceResponse',
+                 name: str):
+        """
+        Defines the asset status dataset properties.
+        :param 'MessageSchemaReferenceResponse' message_schema_reference: The message schema reference object.
+        :param str name: The name of the dataset. Must be unique within the status.datasets array. This name is used to correlate between the spec and status dataset information.
+        """
+        pulumi.set(__self__, "message_schema_reference", message_schema_reference)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="messageSchemaReference")
+    def message_schema_reference(self) -> 'outputs.MessageSchemaReferenceResponse':
+        """
+        The message schema reference object.
+        """
+        return pulumi.get(self, "message_schema_reference")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the dataset. Must be unique within the status.datasets array. This name is used to correlate between the spec and status dataset information.
+        """
+        return pulumi.get(self, "name")
+
 
 @pulumi.output_type
 class AssetStatusErrorResponse(dict):
@@ -69,20 +178,84 @@ class AssetStatusErrorResponse(dict):
 
 
 @pulumi.output_type
+class AssetStatusEventResponse(dict):
+    """
+    Defines the asset status event properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageSchemaReference":
+            suggest = "message_schema_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetStatusEventResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetStatusEventResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetStatusEventResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 message_schema_reference: 'outputs.MessageSchemaReferenceResponse',
+                 name: str):
+        """
+        Defines the asset status event properties.
+        :param 'MessageSchemaReferenceResponse' message_schema_reference: The message schema reference object.
+        :param str name: The name of the event. Must be unique within the status.events array. This name is used to correlate between the spec and status event information.
+        """
+        pulumi.set(__self__, "message_schema_reference", message_schema_reference)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="messageSchemaReference")
+    def message_schema_reference(self) -> 'outputs.MessageSchemaReferenceResponse':
+        """
+        The message schema reference object.
+        """
+        return pulumi.get(self, "message_schema_reference")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the event. Must be unique within the status.events array. This name is used to correlate between the spec and status event information.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class AssetStatusResponse(dict):
     """
     Defines the asset status properties.
     """
     def __init__(__self__, *,
+                 datasets: Sequence['outputs.AssetStatusDatasetResponse'],
                  errors: Sequence['outputs.AssetStatusErrorResponse'],
-                 version: int):
+                 events: Sequence['outputs.AssetStatusEventResponse'],
+                 version: float):
         """
         Defines the asset status properties.
+        :param Sequence['AssetStatusDatasetResponse'] datasets: Array of dataset statuses that describe the status of each dataset.
         :param Sequence['AssetStatusErrorResponse'] errors: Array object to transfer and persist errors that originate from the Edge.
-        :param int version: A read only incremental counter indicating the number of times the configuration has been modified from the perspective of the current actual (Edge) state of the Asset. Edge would be the only writer of this value and would sync back up to the cloud. In steady state, this should equal version.
+        :param Sequence['AssetStatusEventResponse'] events: Array of event statuses that describe the status of each event.
+        :param float version: A read only incremental counter indicating the number of times the configuration has been modified from the perspective of the current actual (Edge) state of the Asset. Edge would be the only writer of this value and would sync back up to the cloud. In steady state, this should equal version.
         """
+        pulumi.set(__self__, "datasets", datasets)
         pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "events", events)
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def datasets(self) -> Sequence['outputs.AssetStatusDatasetResponse']:
+        """
+        Array of dataset statuses that describe the status of each dataset.
+        """
+        return pulumi.get(self, "datasets")
 
     @property
     @pulumi.getter
@@ -94,11 +267,86 @@ class AssetStatusResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> int:
+    def events(self) -> Sequence['outputs.AssetStatusEventResponse']:
+        """
+        Array of event statuses that describe the status of each event.
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def version(self) -> float:
         """
         A read only incremental counter indicating the number of times the configuration has been modified from the perspective of the current actual (Edge) state of the Asset. Edge would be the only writer of this value and would sync back up to the cloud. In steady state, this should equal version.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class AuthenticationResponse(dict):
+    """
+    Definition of the client authentication mechanism to the server.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "usernamePasswordCredentials":
+            suggest = "username_password_credentials"
+        elif key == "x509Credentials":
+            suggest = "x509_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 method: Optional[str] = None,
+                 username_password_credentials: Optional['outputs.UsernamePasswordCredentialsResponse'] = None,
+                 x509_credentials: Optional['outputs.X509CredentialsResponse'] = None):
+        """
+        Definition of the client authentication mechanism to the server.
+        :param str method: Defines the method to authenticate the user of the client at the server.
+        :param 'UsernamePasswordCredentialsResponse' username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
+        :param 'X509CredentialsResponse' x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
+        """
+        if method is None:
+            method = 'Certificate'
+        pulumi.set(__self__, "method", method)
+        if username_password_credentials is not None:
+            pulumi.set(__self__, "username_password_credentials", username_password_credentials)
+        if x509_credentials is not None:
+            pulumi.set(__self__, "x509_credentials", x509_credentials)
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
+        """
+        Defines the method to authenticate the user of the client at the server.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter(name="usernamePasswordCredentials")
+    def username_password_credentials(self) -> Optional['outputs.UsernamePasswordCredentialsResponse']:
+        """
+        Defines the username and password references when UsernamePassword user authentication mode is selected.
+        """
+        return pulumi.get(self, "username_password_credentials")
+
+    @property
+    @pulumi.getter(name="x509Credentials")
+    def x509_credentials(self) -> Optional['outputs.X509CredentialsResponse']:
+        """
+        Defines the certificate reference when Certificate user authentication mode is selected.
+        """
+        return pulumi.get(self, "x509_credentials")
 
 
 @pulumi.output_type
@@ -111,8 +359,6 @@ class DataPointResponse(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
-        elif key == "capabilityId":
-            suggest = "capability_id"
         elif key == "dataPointConfiguration":
             suggest = "data_point_configuration"
         elif key == "observabilityMode":
@@ -131,27 +377,22 @@ class DataPointResponse(dict):
 
     def __init__(__self__, *,
                  data_source: str,
-                 capability_id: Optional[str] = None,
+                 name: str,
                  data_point_configuration: Optional[str] = None,
-                 name: Optional[str] = None,
                  observability_mode: Optional[str] = None):
         """
         Defines the data point properties.
         :param str data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-        :param str capability_id: The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
-        :param str data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         :param str name: The name of the data point.
+        :param str data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         :param str observability_mode: An indication of how the data point should be mapped to OpenTelemetry.
         """
         pulumi.set(__self__, "data_source", data_source)
-        if capability_id is not None:
-            pulumi.set(__self__, "capability_id", capability_id)
+        pulumi.set(__self__, "name", name)
         if data_point_configuration is not None:
             pulumi.set(__self__, "data_point_configuration", data_point_configuration)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if observability_mode is None:
-            observability_mode = 'none'
+            observability_mode = 'None'
         if observability_mode is not None:
             pulumi.set(__self__, "observability_mode", observability_mode)
 
@@ -164,12 +405,12 @@ class DataPointResponse(dict):
         return pulumi.get(self, "data_source")
 
     @property
-    @pulumi.getter(name="capabilityId")
-    def capability_id(self) -> Optional[str]:
+    @pulumi.getter
+    def name(self) -> str:
         """
-        The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
+        The name of the data point.
         """
-        return pulumi.get(self, "capability_id")
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="dataPointConfiguration")
@@ -180,20 +421,89 @@ class DataPointResponse(dict):
         return pulumi.get(self, "data_point_configuration")
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name of the data point.
-        """
-        return pulumi.get(self, "name")
-
-    @property
     @pulumi.getter(name="observabilityMode")
     def observability_mode(self) -> Optional[str]:
         """
         An indication of how the data point should be mapped to OpenTelemetry.
         """
         return pulumi.get(self, "observability_mode")
+
+
+@pulumi.output_type
+class DatasetResponse(dict):
+    """
+    Defines the dataset properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataPoints":
+            suggest = "data_points"
+        elif key == "datasetConfiguration":
+            suggest = "dataset_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 data_points: Optional[Sequence['outputs.DataPointResponse']] = None,
+                 dataset_configuration: Optional[str] = None,
+                 topic: Optional['outputs.TopicResponse'] = None):
+        """
+        Defines the dataset properties.
+        :param str name: Name of the dataset.
+        :param Sequence['DataPointResponse'] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+        :param str dataset_configuration: Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+        :param 'TopicResponse' topic: Object that describes the topic information for the specific dataset.
+        """
+        pulumi.set(__self__, "name", name)
+        if data_points is not None:
+            pulumi.set(__self__, "data_points", data_points)
+        if dataset_configuration is not None:
+            pulumi.set(__self__, "dataset_configuration", dataset_configuration)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="dataPoints")
+    def data_points(self) -> Optional[Sequence['outputs.DataPointResponse']]:
+        """
+        Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+        """
+        return pulumi.get(self, "data_points")
+
+    @property
+    @pulumi.getter(name="datasetConfiguration")
+    def dataset_configuration(self) -> Optional[str]:
+        """
+        Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+        """
+        return pulumi.get(self, "dataset_configuration")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional['outputs.TopicResponse']:
+        """
+        Object that describes the topic information for the specific dataset.
+        """
+        return pulumi.get(self, "topic")
 
 
 @pulumi.output_type
@@ -451,8 +761,6 @@ class EventResponse(dict):
         suggest = None
         if key == "eventNotifier":
             suggest = "event_notifier"
-        elif key == "capabilityId":
-            suggest = "capability_id"
         elif key == "eventConfiguration":
             suggest = "event_configuration"
         elif key == "observabilityMode":
@@ -471,29 +779,28 @@ class EventResponse(dict):
 
     def __init__(__self__, *,
                  event_notifier: str,
-                 capability_id: Optional[str] = None,
+                 name: str,
                  event_configuration: Optional[str] = None,
-                 name: Optional[str] = None,
-                 observability_mode: Optional[str] = None):
+                 observability_mode: Optional[str] = None,
+                 topic: Optional['outputs.TopicResponse'] = None):
         """
         Defines the event properties.
         :param str event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
-        :param str capability_id: The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
-        :param str event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         :param str name: The name of the event.
+        :param str event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         :param str observability_mode: An indication of how the event should be mapped to OpenTelemetry.
+        :param 'TopicResponse' topic: Object that describes the topic information for the specific event.
         """
         pulumi.set(__self__, "event_notifier", event_notifier)
-        if capability_id is not None:
-            pulumi.set(__self__, "capability_id", capability_id)
+        pulumi.set(__self__, "name", name)
         if event_configuration is not None:
             pulumi.set(__self__, "event_configuration", event_configuration)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if observability_mode is None:
-            observability_mode = 'none'
+            observability_mode = 'None'
         if observability_mode is not None:
             pulumi.set(__self__, "observability_mode", observability_mode)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
 
     @property
     @pulumi.getter(name="eventNotifier")
@@ -504,12 +811,12 @@ class EventResponse(dict):
         return pulumi.get(self, "event_notifier")
 
     @property
-    @pulumi.getter(name="capabilityId")
-    def capability_id(self) -> Optional[str]:
+    @pulumi.getter
+    def name(self) -> str:
         """
-        The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
+        The name of the event.
         """
-        return pulumi.get(self, "capability_id")
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="eventConfiguration")
@@ -520,20 +827,20 @@ class EventResponse(dict):
         return pulumi.get(self, "event_configuration")
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name of the event.
-        """
-        return pulumi.get(self, "name")
-
-    @property
     @pulumi.getter(name="observabilityMode")
     def observability_mode(self) -> Optional[str]:
         """
         An indication of how the event should be mapped to OpenTelemetry.
         """
         return pulumi.get(self, "observability_mode")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional['outputs.TopicResponse']:
+        """
+        Object that describes the topic information for the specific event.
+        """
+        return pulumi.get(self, "topic")
 
 
 @pulumi.output_type
@@ -570,71 +877,68 @@ class ExtendedLocationResponse(dict):
 
 
 @pulumi.output_type
-class OwnCertificateResponse(dict):
+class MessageSchemaReferenceResponse(dict):
     """
-    Certificate or private key that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
+    Defines the message schema reference properties.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "certPasswordReference":
-            suggest = "cert_password_reference"
-        elif key == "certSecretReference":
-            suggest = "cert_secret_reference"
-        elif key == "certThumbprint":
-            suggest = "cert_thumbprint"
+        if key == "schemaName":
+            suggest = "schema_name"
+        elif key == "schemaRegistryNamespace":
+            suggest = "schema_registry_namespace"
+        elif key == "schemaVersion":
+            suggest = "schema_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OwnCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MessageSchemaReferenceResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        OwnCertificateResponse.__key_warning(key)
+        MessageSchemaReferenceResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        OwnCertificateResponse.__key_warning(key)
+        MessageSchemaReferenceResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cert_password_reference: Optional[str] = None,
-                 cert_secret_reference: Optional[str] = None,
-                 cert_thumbprint: Optional[str] = None):
+                 schema_name: str,
+                 schema_registry_namespace: str,
+                 schema_version: str):
         """
-        Certificate or private key that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
-        :param str cert_password_reference: Secret Reference Name (Pfx or Pem password).
-        :param str cert_secret_reference: Secret Reference name (cert and private key).
-        :param str cert_thumbprint: Certificate thumbprint.
+        Defines the message schema reference properties.
+        :param str schema_name: The message schema name.
+        :param str schema_registry_namespace: The message schema registry namespace.
+        :param str schema_version: The message schema version.
         """
-        if cert_password_reference is not None:
-            pulumi.set(__self__, "cert_password_reference", cert_password_reference)
-        if cert_secret_reference is not None:
-            pulumi.set(__self__, "cert_secret_reference", cert_secret_reference)
-        if cert_thumbprint is not None:
-            pulumi.set(__self__, "cert_thumbprint", cert_thumbprint)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "schema_registry_namespace", schema_registry_namespace)
+        pulumi.set(__self__, "schema_version", schema_version)
 
     @property
-    @pulumi.getter(name="certPasswordReference")
-    def cert_password_reference(self) -> Optional[str]:
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
         """
-        Secret Reference Name (Pfx or Pem password).
+        The message schema name.
         """
-        return pulumi.get(self, "cert_password_reference")
+        return pulumi.get(self, "schema_name")
 
     @property
-    @pulumi.getter(name="certSecretReference")
-    def cert_secret_reference(self) -> Optional[str]:
+    @pulumi.getter(name="schemaRegistryNamespace")
+    def schema_registry_namespace(self) -> str:
         """
-        Secret Reference name (cert and private key).
+        The message schema registry namespace.
         """
-        return pulumi.get(self, "cert_secret_reference")
+        return pulumi.get(self, "schema_registry_namespace")
 
     @property
-    @pulumi.getter(name="certThumbprint")
-    def cert_thumbprint(self) -> Optional[str]:
+    @pulumi.getter(name="schemaVersion")
+    def schema_version(self) -> str:
         """
-        Certificate thumbprint.
+        The message schema version.
         """
-        return pulumi.get(self, "cert_thumbprint")
+        return pulumi.get(self, "schema_version")
 
 
 @pulumi.output_type
@@ -847,112 +1151,6 @@ class TopicResponse(dict):
 
 
 @pulumi.output_type
-class TransportAuthenticationResponse(dict):
-    """
-    Definition of the authentication mechanism for the southbound connector.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ownCertificates":
-            suggest = "own_certificates"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TransportAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TransportAuthenticationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TransportAuthenticationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 own_certificates: Sequence['outputs.OwnCertificateResponse']):
-        """
-        Definition of the authentication mechanism for the southbound connector.
-        :param Sequence['OwnCertificateResponse'] own_certificates: Defines a reference to a secret which contains all certificates and private keys that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
-        """
-        pulumi.set(__self__, "own_certificates", own_certificates)
-
-    @property
-    @pulumi.getter(name="ownCertificates")
-    def own_certificates(self) -> Sequence['outputs.OwnCertificateResponse']:
-        """
-        Defines a reference to a secret which contains all certificates and private keys that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
-        """
-        return pulumi.get(self, "own_certificates")
-
-
-@pulumi.output_type
-class UserAuthenticationResponse(dict):
-    """
-    Definition of the client authentication mechanism to the server.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "usernamePasswordCredentials":
-            suggest = "username_password_credentials"
-        elif key == "x509Credentials":
-            suggest = "x509_credentials"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserAuthenticationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserAuthenticationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 mode: Optional[str] = None,
-                 username_password_credentials: Optional['outputs.UsernamePasswordCredentialsResponse'] = None,
-                 x509_credentials: Optional['outputs.X509CredentialsResponse'] = None):
-        """
-        Definition of the client authentication mechanism to the server.
-        :param str mode: Defines the method to authenticate the user of the client at the server.
-        :param 'UsernamePasswordCredentialsResponse' username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
-        :param 'X509CredentialsResponse' x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
-        """
-        if mode is None:
-            mode = 'Certificate'
-        pulumi.set(__self__, "mode", mode)
-        if username_password_credentials is not None:
-            pulumi.set(__self__, "username_password_credentials", username_password_credentials)
-        if x509_credentials is not None:
-            pulumi.set(__self__, "x509_credentials", x509_credentials)
-
-    @property
-    @pulumi.getter
-    def mode(self) -> str:
-        """
-        Defines the method to authenticate the user of the client at the server.
-        """
-        return pulumi.get(self, "mode")
-
-    @property
-    @pulumi.getter(name="usernamePasswordCredentials")
-    def username_password_credentials(self) -> Optional['outputs.UsernamePasswordCredentialsResponse']:
-        """
-        Defines the username and password references when UsernamePassword user authentication mode is selected.
-        """
-        return pulumi.get(self, "username_password_credentials")
-
-    @property
-    @pulumi.getter(name="x509Credentials")
-    def x509_credentials(self) -> Optional['outputs.X509CredentialsResponse']:
-        """
-        Defines the certificate reference when Certificate user authentication mode is selected.
-        """
-        return pulumi.get(self, "x509_credentials")
-
-
-@pulumi.output_type
 class UsernamePasswordCredentialsResponse(dict):
     """
     The credentials for authentication mode UsernamePassword.
@@ -960,10 +1158,10 @@ class UsernamePasswordCredentialsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "passwordReference":
-            suggest = "password_reference"
-        elif key == "usernameReference":
-            suggest = "username_reference"
+        if key == "passwordSecretName":
+            suggest = "password_secret_name"
+        elif key == "usernameSecretName":
+            suggest = "username_secret_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UsernamePasswordCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -977,31 +1175,31 @@ class UsernamePasswordCredentialsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 password_reference: str,
-                 username_reference: str):
+                 password_secret_name: str,
+                 username_secret_name: str):
         """
         The credentials for authentication mode UsernamePassword.
-        :param str password_reference: A reference to secret containing the password.
-        :param str username_reference: A reference to secret containing the username.
+        :param str password_secret_name: The name of the secret containing the password.
+        :param str username_secret_name: The name of the secret containing the username.
         """
-        pulumi.set(__self__, "password_reference", password_reference)
-        pulumi.set(__self__, "username_reference", username_reference)
+        pulumi.set(__self__, "password_secret_name", password_secret_name)
+        pulumi.set(__self__, "username_secret_name", username_secret_name)
 
     @property
-    @pulumi.getter(name="passwordReference")
-    def password_reference(self) -> str:
+    @pulumi.getter(name="passwordSecretName")
+    def password_secret_name(self) -> str:
         """
-        A reference to secret containing the password.
+        The name of the secret containing the password.
         """
-        return pulumi.get(self, "password_reference")
+        return pulumi.get(self, "password_secret_name")
 
     @property
-    @pulumi.getter(name="usernameReference")
-    def username_reference(self) -> str:
+    @pulumi.getter(name="usernameSecretName")
+    def username_secret_name(self) -> str:
         """
-        A reference to secret containing the username.
+        The name of the secret containing the username.
         """
-        return pulumi.get(self, "username_reference")
+        return pulumi.get(self, "username_secret_name")
 
 
 @pulumi.output_type
@@ -1012,8 +1210,8 @@ class X509CredentialsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "certificateReference":
-            suggest = "certificate_reference"
+        if key == "certificateSecretName":
+            suggest = "certificate_secret_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in X509CredentialsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1027,19 +1225,19 @@ class X509CredentialsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 certificate_reference: str):
+                 certificate_secret_name: str):
         """
         The x509 certificate for authentication mode Certificate.
-        :param str certificate_reference: A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
+        :param str certificate_secret_name: The name of the secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
         """
-        pulumi.set(__self__, "certificate_reference", certificate_reference)
+        pulumi.set(__self__, "certificate_secret_name", certificate_secret_name)
 
     @property
-    @pulumi.getter(name="certificateReference")
-    def certificate_reference(self) -> str:
+    @pulumi.getter(name="certificateSecretName")
+    def certificate_secret_name(self) -> str:
         """
-        A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
+        The name of the secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
         """
-        return pulumi.get(self, "certificate_reference")
+        return pulumi.get(self, "certificate_secret_name")
 
 

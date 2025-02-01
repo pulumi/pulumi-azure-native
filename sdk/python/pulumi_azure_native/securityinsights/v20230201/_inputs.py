@@ -16,8 +16,6 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'AlertsDataTypeOfDataConnectorArgs',
-    'AlertsDataTypeOfDataConnectorArgsDict',
     'AutomationRuleModifyPropertiesActionArgs',
     'AutomationRuleModifyPropertiesActionArgsDict',
     'AutomationRulePropertyArrayChangedValuesConditionArgs',
@@ -30,12 +28,6 @@ __all__ = [
     'AutomationRuleRunPlaybookActionArgsDict',
     'AutomationRuleTriggeringLogicArgs',
     'AutomationRuleTriggeringLogicArgsDict',
-    'AwsCloudTrailDataConnectorDataTypesLogsArgs',
-    'AwsCloudTrailDataConnectorDataTypesLogsArgsDict',
-    'AwsCloudTrailDataConnectorDataTypesArgs',
-    'AwsCloudTrailDataConnectorDataTypesArgsDict',
-    'DataConnectorDataTypeCommonArgs',
-    'DataConnectorDataTypeCommonArgsDict',
     'IncidentInfoArgs',
     'IncidentInfoArgsDict',
     'IncidentLabelArgs',
@@ -44,8 +36,6 @@ __all__ = [
     'IncidentOwnerInfoArgsDict',
     'IncidentPropertiesActionArgs',
     'IncidentPropertiesActionArgsDict',
-    'MCASDataConnectorDataTypesArgs',
-    'MCASDataConnectorDataTypesArgsDict',
     'MetadataAuthorArgs',
     'MetadataAuthorArgsDict',
     'MetadataCategoriesArgs',
@@ -56,14 +46,6 @@ __all__ = [
     'MetadataSourceArgsDict',
     'MetadataSupportArgs',
     'MetadataSupportArgsDict',
-    'OfficeDataConnectorDataTypesExchangeArgs',
-    'OfficeDataConnectorDataTypesExchangeArgsDict',
-    'OfficeDataConnectorDataTypesSharePointArgs',
-    'OfficeDataConnectorDataTypesSharePointArgsDict',
-    'OfficeDataConnectorDataTypesTeamsArgs',
-    'OfficeDataConnectorDataTypesTeamsArgsDict',
-    'OfficeDataConnectorDataTypesArgs',
-    'OfficeDataConnectorDataTypesArgsDict',
     'PlaybookActionPropertiesArgs',
     'PlaybookActionPropertiesArgsDict',
     'PropertyArrayChangedConditionPropertiesArgs',
@@ -72,10 +54,6 @@ __all__ = [
     'PropertyChangedConditionPropertiesArgsDict',
     'PropertyConditionPropertiesArgs',
     'PropertyConditionPropertiesArgsDict',
-    'TIDataConnectorDataTypesIndicatorsArgs',
-    'TIDataConnectorDataTypesIndicatorsArgsDict',
-    'TIDataConnectorDataTypesArgs',
-    'TIDataConnectorDataTypesArgsDict',
     'ThreatIntelligenceExternalReferenceArgs',
     'ThreatIntelligenceExternalReferenceArgsDict',
     'ThreatIntelligenceGranularMarkingModelArgs',
@@ -93,42 +71,6 @@ __all__ = [
 ]
 
 MYPY = False
-
-if not MYPY:
-    class AlertsDataTypeOfDataConnectorArgsDict(TypedDict):
-        """
-        Alerts data type for data connectors.
-        """
-        alerts: NotRequired[pulumi.Input['DataConnectorDataTypeCommonArgsDict']]
-        """
-        Alerts data type connection.
-        """
-elif False:
-    AlertsDataTypeOfDataConnectorArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AlertsDataTypeOfDataConnectorArgs:
-    def __init__(__self__, *,
-                 alerts: Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']] = None):
-        """
-        Alerts data type for data connectors.
-        :param pulumi.Input['DataConnectorDataTypeCommonArgs'] alerts: Alerts data type connection.
-        """
-        if alerts is not None:
-            pulumi.set(__self__, "alerts", alerts)
-
-    @property
-    @pulumi.getter
-    def alerts(self) -> Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']]:
-        """
-        Alerts data type connection.
-        """
-        return pulumi.get(self, "alerts")
-
-    @alerts.setter
-    def alerts(self, value: Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']]):
-        pulumi.set(self, "alerts", value)
-
 
 if not MYPY:
     class AutomationRuleModifyPropertiesActionArgsDict(TypedDict):
@@ -509,114 +451,6 @@ class AutomationRuleTriggeringLogicArgs:
     @expiration_time_utc.setter
     def expiration_time_utc(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "expiration_time_utc", value)
-
-
-if not MYPY:
-    class AwsCloudTrailDataConnectorDataTypesLogsArgsDict(TypedDict):
-        """
-        Logs data type.
-        """
-        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-elif False:
-    AwsCloudTrailDataConnectorDataTypesLogsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AwsCloudTrailDataConnectorDataTypesLogsArgs:
-    def __init__(__self__, *,
-                 state: Optional[pulumi.Input[Union[str, 'DataTypeState']]] = None):
-        """
-        Logs data type.
-        :param pulumi.Input[Union[str, 'DataTypeState']] state: Describe whether this data type connection is enabled or not.
-        """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'DataTypeState']]]:
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
-        pulumi.set(self, "state", value)
-
-
-if not MYPY:
-    class AwsCloudTrailDataConnectorDataTypesArgsDict(TypedDict):
-        """
-        The available data types for Amazon Web Services CloudTrail data connector.
-        """
-        logs: NotRequired[pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgsDict']]
-        """
-        Logs data type.
-        """
-elif False:
-    AwsCloudTrailDataConnectorDataTypesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AwsCloudTrailDataConnectorDataTypesArgs:
-    def __init__(__self__, *,
-                 logs: Optional[pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs']] = None):
-        """
-        The available data types for Amazon Web Services CloudTrail data connector.
-        :param pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs'] logs: Logs data type.
-        """
-        if logs is not None:
-            pulumi.set(__self__, "logs", logs)
-
-    @property
-    @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs']]:
-        """
-        Logs data type.
-        """
-        return pulumi.get(self, "logs")
-
-    @logs.setter
-    def logs(self, value: Optional[pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs']]):
-        pulumi.set(self, "logs", value)
-
-
-if not MYPY:
-    class DataConnectorDataTypeCommonArgsDict(TypedDict):
-        """
-        Common field for data type in data connectors.
-        """
-        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-elif False:
-    DataConnectorDataTypeCommonArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DataConnectorDataTypeCommonArgs:
-    def __init__(__self__, *,
-                 state: Optional[pulumi.Input[Union[str, 'DataTypeState']]] = None):
-        """
-        Common field for data type in data connectors.
-        :param pulumi.Input[Union[str, 'DataTypeState']] state: Describe whether this data type connection is enabled or not.
-        """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'DataTypeState']]]:
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
-        pulumi.set(self, "state", value)
 
 
 if not MYPY:
@@ -1016,62 +850,6 @@ class IncidentPropertiesActionArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'IncidentStatus']]]):
         pulumi.set(self, "status", value)
-
-
-if not MYPY:
-    class MCASDataConnectorDataTypesArgsDict(TypedDict):
-        """
-        The available data types for MCAS (Microsoft Cloud App Security) data connector.
-        """
-        alerts: NotRequired[pulumi.Input['DataConnectorDataTypeCommonArgsDict']]
-        """
-        Alerts data type connection.
-        """
-        discovery_logs: NotRequired[pulumi.Input['DataConnectorDataTypeCommonArgsDict']]
-        """
-        Discovery log data type connection.
-        """
-elif False:
-    MCASDataConnectorDataTypesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class MCASDataConnectorDataTypesArgs:
-    def __init__(__self__, *,
-                 alerts: Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']] = None,
-                 discovery_logs: Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']] = None):
-        """
-        The available data types for MCAS (Microsoft Cloud App Security) data connector.
-        :param pulumi.Input['DataConnectorDataTypeCommonArgs'] alerts: Alerts data type connection.
-        :param pulumi.Input['DataConnectorDataTypeCommonArgs'] discovery_logs: Discovery log data type connection.
-        """
-        if alerts is not None:
-            pulumi.set(__self__, "alerts", alerts)
-        if discovery_logs is not None:
-            pulumi.set(__self__, "discovery_logs", discovery_logs)
-
-    @property
-    @pulumi.getter
-    def alerts(self) -> Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']]:
-        """
-        Alerts data type connection.
-        """
-        return pulumi.get(self, "alerts")
-
-    @alerts.setter
-    def alerts(self, value: Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']]):
-        pulumi.set(self, "alerts", value)
-
-    @property
-    @pulumi.getter(name="discoveryLogs")
-    def discovery_logs(self) -> Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']]:
-        """
-        Discovery log data type connection.
-        """
-        return pulumi.get(self, "discovery_logs")
-
-    @discovery_logs.setter
-    def discovery_logs(self, value: Optional[pulumi.Input['DataConnectorDataTypeCommonArgs']]):
-        pulumi.set(self, "discovery_logs", value)
 
 
 if not MYPY:
@@ -1513,190 +1291,6 @@ class MetadataSupportArgs:
 
 
 if not MYPY:
-    class OfficeDataConnectorDataTypesExchangeArgsDict(TypedDict):
-        """
-        Exchange data type connection.
-        """
-        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-elif False:
-    OfficeDataConnectorDataTypesExchangeArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OfficeDataConnectorDataTypesExchangeArgs:
-    def __init__(__self__, *,
-                 state: Optional[pulumi.Input[Union[str, 'DataTypeState']]] = None):
-        """
-        Exchange data type connection.
-        :param pulumi.Input[Union[str, 'DataTypeState']] state: Describe whether this data type connection is enabled or not.
-        """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'DataTypeState']]]:
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
-        pulumi.set(self, "state", value)
-
-
-if not MYPY:
-    class OfficeDataConnectorDataTypesSharePointArgsDict(TypedDict):
-        """
-        SharePoint data type connection.
-        """
-        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-elif False:
-    OfficeDataConnectorDataTypesSharePointArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OfficeDataConnectorDataTypesSharePointArgs:
-    def __init__(__self__, *,
-                 state: Optional[pulumi.Input[Union[str, 'DataTypeState']]] = None):
-        """
-        SharePoint data type connection.
-        :param pulumi.Input[Union[str, 'DataTypeState']] state: Describe whether this data type connection is enabled or not.
-        """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'DataTypeState']]]:
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
-        pulumi.set(self, "state", value)
-
-
-if not MYPY:
-    class OfficeDataConnectorDataTypesTeamsArgsDict(TypedDict):
-        """
-        Teams data type connection.
-        """
-        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-elif False:
-    OfficeDataConnectorDataTypesTeamsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OfficeDataConnectorDataTypesTeamsArgs:
-    def __init__(__self__, *,
-                 state: Optional[pulumi.Input[Union[str, 'DataTypeState']]] = None):
-        """
-        Teams data type connection.
-        :param pulumi.Input[Union[str, 'DataTypeState']] state: Describe whether this data type connection is enabled or not.
-        """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'DataTypeState']]]:
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
-        pulumi.set(self, "state", value)
-
-
-if not MYPY:
-    class OfficeDataConnectorDataTypesArgsDict(TypedDict):
-        """
-        The available data types for office data connector.
-        """
-        exchange: NotRequired[pulumi.Input['OfficeDataConnectorDataTypesExchangeArgsDict']]
-        """
-        Exchange data type connection.
-        """
-        share_point: NotRequired[pulumi.Input['OfficeDataConnectorDataTypesSharePointArgsDict']]
-        """
-        SharePoint data type connection.
-        """
-        teams: NotRequired[pulumi.Input['OfficeDataConnectorDataTypesTeamsArgsDict']]
-        """
-        Teams data type connection.
-        """
-elif False:
-    OfficeDataConnectorDataTypesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OfficeDataConnectorDataTypesArgs:
-    def __init__(__self__, *,
-                 exchange: Optional[pulumi.Input['OfficeDataConnectorDataTypesExchangeArgs']] = None,
-                 share_point: Optional[pulumi.Input['OfficeDataConnectorDataTypesSharePointArgs']] = None,
-                 teams: Optional[pulumi.Input['OfficeDataConnectorDataTypesTeamsArgs']] = None):
-        """
-        The available data types for office data connector.
-        :param pulumi.Input['OfficeDataConnectorDataTypesExchangeArgs'] exchange: Exchange data type connection.
-        :param pulumi.Input['OfficeDataConnectorDataTypesSharePointArgs'] share_point: SharePoint data type connection.
-        :param pulumi.Input['OfficeDataConnectorDataTypesTeamsArgs'] teams: Teams data type connection.
-        """
-        if exchange is not None:
-            pulumi.set(__self__, "exchange", exchange)
-        if share_point is not None:
-            pulumi.set(__self__, "share_point", share_point)
-        if teams is not None:
-            pulumi.set(__self__, "teams", teams)
-
-    @property
-    @pulumi.getter
-    def exchange(self) -> Optional[pulumi.Input['OfficeDataConnectorDataTypesExchangeArgs']]:
-        """
-        Exchange data type connection.
-        """
-        return pulumi.get(self, "exchange")
-
-    @exchange.setter
-    def exchange(self, value: Optional[pulumi.Input['OfficeDataConnectorDataTypesExchangeArgs']]):
-        pulumi.set(self, "exchange", value)
-
-    @property
-    @pulumi.getter(name="sharePoint")
-    def share_point(self) -> Optional[pulumi.Input['OfficeDataConnectorDataTypesSharePointArgs']]:
-        """
-        SharePoint data type connection.
-        """
-        return pulumi.get(self, "share_point")
-
-    @share_point.setter
-    def share_point(self, value: Optional[pulumi.Input['OfficeDataConnectorDataTypesSharePointArgs']]):
-        pulumi.set(self, "share_point", value)
-
-    @property
-    @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input['OfficeDataConnectorDataTypesTeamsArgs']]:
-        """
-        Teams data type connection.
-        """
-        return pulumi.get(self, "teams")
-
-    @teams.setter
-    def teams(self, value: Optional[pulumi.Input['OfficeDataConnectorDataTypesTeamsArgs']]):
-        pulumi.set(self, "teams", value)
-
-
-if not MYPY:
     class PlaybookActionPropertiesArgsDict(TypedDict):
         logic_app_resource_id: pulumi.Input[str]
         """
@@ -1898,78 +1492,6 @@ class PropertyConditionPropertiesArgs:
     @condition_properties.setter
     def condition_properties(self, value: Optional[pulumi.Input['AutomationRulePropertyValuesConditionArgs']]):
         pulumi.set(self, "condition_properties", value)
-
-
-if not MYPY:
-    class TIDataConnectorDataTypesIndicatorsArgsDict(TypedDict):
-        """
-        Data type for indicators connection.
-        """
-        state: NotRequired[pulumi.Input[Union[str, 'DataTypeState']]]
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-elif False:
-    TIDataConnectorDataTypesIndicatorsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class TIDataConnectorDataTypesIndicatorsArgs:
-    def __init__(__self__, *,
-                 state: Optional[pulumi.Input[Union[str, 'DataTypeState']]] = None):
-        """
-        Data type for indicators connection.
-        :param pulumi.Input[Union[str, 'DataTypeState']] state: Describe whether this data type connection is enabled or not.
-        """
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'DataTypeState']]]:
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'DataTypeState']]]):
-        pulumi.set(self, "state", value)
-
-
-if not MYPY:
-    class TIDataConnectorDataTypesArgsDict(TypedDict):
-        """
-        The available data types for TI (Threat Intelligence) data connector.
-        """
-        indicators: NotRequired[pulumi.Input['TIDataConnectorDataTypesIndicatorsArgsDict']]
-        """
-        Data type for indicators connection.
-        """
-elif False:
-    TIDataConnectorDataTypesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class TIDataConnectorDataTypesArgs:
-    def __init__(__self__, *,
-                 indicators: Optional[pulumi.Input['TIDataConnectorDataTypesIndicatorsArgs']] = None):
-        """
-        The available data types for TI (Threat Intelligence) data connector.
-        :param pulumi.Input['TIDataConnectorDataTypesIndicatorsArgs'] indicators: Data type for indicators connection.
-        """
-        if indicators is not None:
-            pulumi.set(__self__, "indicators", indicators)
-
-    @property
-    @pulumi.getter
-    def indicators(self) -> Optional[pulumi.Input['TIDataConnectorDataTypesIndicatorsArgs']]:
-        """
-        Data type for indicators connection.
-        """
-        return pulumi.get(self, "indicators")
-
-    @indicators.setter
-    def indicators(self, value: Optional[pulumi.Input['TIDataConnectorDataTypesIndicatorsArgs']]):
-        pulumi.set(self, "indicators", value)
 
 
 if not MYPY:

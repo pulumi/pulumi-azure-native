@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'AccountType',
-    'AddonType',
     'AzureContainerDataFormat',
     'ClientPermissionType',
     'DataPolicy',
@@ -33,14 +32,6 @@ class AccountType(str, Enum):
     """
     GENERAL_PURPOSE_STORAGE = "GeneralPurposeStorage"
     BLOB_STORAGE = "BlobStorage"
-
-
-class AddonType(str, Enum):
-    """
-    Addon type.
-    """
-    IOT_EDGE = "IotEdge"
-    ARC_FOR_KUBERNETES = "ArcForKubernetes"
 
 
 class AzureContainerDataFormat(str, Enum):

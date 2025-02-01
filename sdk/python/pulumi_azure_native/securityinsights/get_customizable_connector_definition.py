@@ -165,7 +165,7 @@ def get_customizable_connector_definition(data_connector_definition_name: Option
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomizableConnectorDefinitionResult:
     """
     Gets a data connector definition.
-    Azure REST API version: 2023-07-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str data_connector_definition_name: The data connector definition name.
@@ -196,7 +196,7 @@ def get_customizable_connector_definition_output(data_connector_definition_name:
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomizableConnectorDefinitionResult]:
     """
     Gets a data connector definition.
-    Azure REST API version: 2023-07-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str data_connector_definition_name: The data connector definition name.

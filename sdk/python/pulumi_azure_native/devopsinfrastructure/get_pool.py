@@ -96,7 +96,7 @@ class GetPoolResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -134,7 +134,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="organizationProfile")
-    def organization_profile(self) -> 'outputs.AzureDevOpsOrganizationProfileResponse':
+    def organization_profile(self) -> Any:
         """
         Defines the organization in which the pool will be used.
         """
@@ -199,9 +199,9 @@ def get_pool(pool_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Get a Pool
-    Azure REST API version: 2023-10-30-preview.
+    Azure REST API version: 2024-10-19.
 
-    Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
+    Other available API versions: 2023-10-30-preview, 2025-01-21.
 
 
     :param str pool_name: Name of the pool. It needs to be globally unique.
@@ -232,9 +232,9 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """
     Get a Pool
-    Azure REST API version: 2023-10-30-preview.
+    Azure REST API version: 2024-10-19.
 
-    Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
+    Other available API versions: 2023-10-30-preview, 2025-01-21.
 
 
     :param str pool_name: Name of the pool. It needs to be globally unique.

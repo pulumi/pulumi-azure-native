@@ -515,7 +515,7 @@ class ACIService(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tags"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:ACIService"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200515preview:ACIService"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:ACIService"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210101:ACIService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:ACIService"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200515preview:ACIService"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:ACIService"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210101:ACIService"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210401:AKSService"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210401:EndpointVariant")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ACIService, __self__).__init__(
             'azure-native:machinelearningservices/v20210401:ACIService',

@@ -67,7 +67,7 @@ class GetDatabaseResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -116,9 +116,9 @@ def get_database(database_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Gets information about a database.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2024-08-01.
 
-    Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    Other available API versions: 2022-12-01, 2024-11-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -145,9 +145,9 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Gets information about a database.
-    Azure REST API version: 2022-12-01.
+    Azure REST API version: 2024-08-01.
 
-    Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    Other available API versions: 2022-12-01, 2024-11-01-preview.
 
 
     :param str database_name: The name of the database.

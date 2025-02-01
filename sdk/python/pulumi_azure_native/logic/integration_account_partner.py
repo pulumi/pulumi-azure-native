@@ -167,7 +167,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
                  __props__=None):
         """
         The integration account partner.
-        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+        Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
 
         Other available API versions: 2015-08-01-preview.
 
@@ -190,7 +190,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration account partner.
-        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+        Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
 
         Other available API versions: 2015-08-01-preview.
 
@@ -246,7 +246,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountPartner")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20160601:Partner"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountPartner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountPartner, __self__).__init__(
             'azure-native:logic:IntegrationAccountPartner',

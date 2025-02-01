@@ -191,7 +191,7 @@ class SapApplicationServerInstance(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_details"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads:SapApplicationServerInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20211201preview:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:SapApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads:SapApplicationServerInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SapApplicationServerInstance, __self__).__init__(
             'azure-native:workloads/v20240901:SapApplicationServerInstance',

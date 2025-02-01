@@ -66,9 +66,9 @@ def list_spatial_anchors_account_keys(account_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSpatialAnchorsAccountKeysResult:
     """
     List Both of the 2 Keys of a Spatial Anchors Account
-    Azure REST API version: 2021-01-01.
+    Azure REST API version: 2021-03-01-preview.
 
-    Other available API versions: 2021-03-01-preview.
+    Other available API versions: 2021-01-01.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -88,9 +88,9 @@ def list_spatial_anchors_account_keys_output(account_name: Optional[pulumi.Input
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSpatialAnchorsAccountKeysResult]:
     """
     List Both of the 2 Keys of a Spatial Anchors Account
-    Azure REST API version: 2021-01-01.
+    Azure REST API version: 2021-03-01-preview.
 
-    Other available API versions: 2021-03-01-preview.
+    Other available API versions: 2021-01-01.
 
 
     :param str account_name: Name of an Mixed Reality Account.

@@ -186,7 +186,7 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
                  __props__=None):
         """
         Details about environment name, metadata and environment id of an environment
-        Azure REST API version: 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,7 +208,7 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Details about environment name, metadata and environment id of an environment
-        Azure REST API version: 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param OrganizationEnvironmentByIdArgs args: The arguments to use to populate this resource's properties.

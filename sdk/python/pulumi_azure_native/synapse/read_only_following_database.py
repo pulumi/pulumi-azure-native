@@ -150,7 +150,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a read only following database.
-        Azure REST API version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +171,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a read only following database.
-        Azure REST API version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ReadOnlyFollowingDatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -228,7 +228,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
             __props__.__dict__["statistics"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:ReadWriteDatabase"), pulumi.Alias(type_="azure-native:synapse:ReadWriteDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReadOnlyFollowingDatabase, __self__).__init__(
             'azure-native:synapse:ReadOnlyFollowingDatabase',

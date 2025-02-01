@@ -18,10 +18,6 @@ from ._enums import *
 __all__ = [
     'AdapterPropertyOverridesArgs',
     'AdapterPropertyOverridesArgsDict',
-    'ArcConnectivityPropertiesArgs',
-    'ArcConnectivityPropertiesArgsDict',
-    'ClusterDesiredPropertiesArgs',
-    'ClusterDesiredPropertiesArgsDict',
     'DeploymentClusterArgs',
     'DeploymentClusterArgsDict',
     'DeploymentConfigurationArgs',
@@ -38,18 +34,10 @@ __all__ = [
     'GalleryImageIdentifierArgsDict',
     'GalleryImageVersionArgs',
     'GalleryImageVersionArgsDict',
-    'GuestCredentialArgs',
-    'GuestCredentialArgsDict',
     'HostNetworkArgs',
     'HostNetworkArgsDict',
     'HttpProxyConfigurationArgs',
     'HttpProxyConfigurationArgsDict',
-    'IPConfigurationPropertiesArgs',
-    'IPConfigurationPropertiesArgsDict',
-    'IPConfigurationSubnetArgs',
-    'IPConfigurationSubnetArgsDict',
-    'IPConfigurationArgs',
-    'IPConfigurationArgsDict',
     'IPPoolArgs',
     'IPPoolArgsDict',
     'IdentityArgs',
@@ -58,8 +46,6 @@ __all__ = [
     'InfrastructureNetworkArgsDict',
     'IntentsArgs',
     'IntentsArgsDict',
-    'InterfaceDNSSettingsArgs',
-    'InterfaceDNSSettingsArgsDict',
     'IpPoolsArgs',
     'IpPoolsArgsDict',
     'LogicalNetworkPropertiesDhcpOptionsArgs',
@@ -80,16 +66,10 @@ __all__ = [
     'RouteArgsDict',
     'ScaleUnitsArgs',
     'ScaleUnitsArgsDict',
-    'ServiceConfigurationArgs',
-    'ServiceConfigurationArgsDict',
-    'SoftwareAssurancePropertiesArgs',
-    'SoftwareAssurancePropertiesArgsDict',
     'SshConfigurationArgs',
     'SshConfigurationArgsDict',
     'SshPublicKeyArgs',
     'SshPublicKeyArgsDict',
-    'StepArgs',
-    'StepArgsDict',
     'StorageNetworksArgs',
     'StorageNetworksArgsDict',
     'StorageArgs',
@@ -98,8 +78,6 @@ __all__ = [
     'SubnetPropertiesFormatIpConfigurationReferencesArgsDict',
     'SubnetArgs',
     'SubnetArgsDict',
-    'UpdatePrerequisiteArgs',
-    'UpdatePrerequisiteArgsDict',
     'VirtualMachineInstancePropertiesDataDisksArgs',
     'VirtualMachineInstancePropertiesDataDisksArgsDict',
     'VirtualMachineInstancePropertiesDynamicMemoryConfigArgs',
@@ -206,118 +184,6 @@ class AdapterPropertyOverridesArgs:
     @network_direct_technology.setter
     def network_direct_technology(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_direct_technology", value)
-
-
-if not MYPY:
-    class ArcConnectivityPropertiesArgsDict(TypedDict):
-        """
-        Connectivity related configuration required by arc server.
-        """
-        enabled: NotRequired[pulumi.Input[bool]]
-        """
-        True indicates ARC connectivity is enabled
-        """
-        service_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceConfigurationArgsDict']]]]
-        """
-        Service configurations associated with the connectivity resource. They are only processed by the server if 'enabled' property is set to 'true'.
-        """
-elif False:
-    ArcConnectivityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ArcConnectivityPropertiesArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 service_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceConfigurationArgs']]]] = None):
-        """
-        Connectivity related configuration required by arc server.
-        :param pulumi.Input[bool] enabled: True indicates ARC connectivity is enabled
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceConfigurationArgs']]] service_configurations: Service configurations associated with the connectivity resource. They are only processed by the server if 'enabled' property is set to 'true'.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if service_configurations is not None:
-            pulumi.set(__self__, "service_configurations", service_configurations)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        True indicates ARC connectivity is enabled
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter(name="serviceConfigurations")
-    def service_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceConfigurationArgs']]]]:
-        """
-        Service configurations associated with the connectivity resource. They are only processed by the server if 'enabled' property is set to 'true'.
-        """
-        return pulumi.get(self, "service_configurations")
-
-    @service_configurations.setter
-    def service_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceConfigurationArgs']]]]):
-        pulumi.set(self, "service_configurations", value)
-
-
-if not MYPY:
-    class ClusterDesiredPropertiesArgsDict(TypedDict):
-        """
-        Desired properties of the cluster.
-        """
-        diagnostic_level: NotRequired[pulumi.Input[Union[str, 'DiagnosticLevel']]]
-        """
-        Desired level of diagnostic data emitted by the cluster.
-        """
-        windows_server_subscription: NotRequired[pulumi.Input[Union[str, 'WindowsServerSubscription']]]
-        """
-        Desired state of Windows Server Subscription.
-        """
-elif False:
-    ClusterDesiredPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ClusterDesiredPropertiesArgs:
-    def __init__(__self__, *,
-                 diagnostic_level: Optional[pulumi.Input[Union[str, 'DiagnosticLevel']]] = None,
-                 windows_server_subscription: Optional[pulumi.Input[Union[str, 'WindowsServerSubscription']]] = None):
-        """
-        Desired properties of the cluster.
-        :param pulumi.Input[Union[str, 'DiagnosticLevel']] diagnostic_level: Desired level of diagnostic data emitted by the cluster.
-        :param pulumi.Input[Union[str, 'WindowsServerSubscription']] windows_server_subscription: Desired state of Windows Server Subscription.
-        """
-        if diagnostic_level is not None:
-            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
-        if windows_server_subscription is not None:
-            pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
-
-    @property
-    @pulumi.getter(name="diagnosticLevel")
-    def diagnostic_level(self) -> Optional[pulumi.Input[Union[str, 'DiagnosticLevel']]]:
-        """
-        Desired level of diagnostic data emitted by the cluster.
-        """
-        return pulumi.get(self, "diagnostic_level")
-
-    @diagnostic_level.setter
-    def diagnostic_level(self, value: Optional[pulumi.Input[Union[str, 'DiagnosticLevel']]]):
-        pulumi.set(self, "diagnostic_level", value)
-
-    @property
-    @pulumi.getter(name="windowsServerSubscription")
-    def windows_server_subscription(self) -> Optional[pulumi.Input[Union[str, 'WindowsServerSubscription']]]:
-        """
-        Desired state of Windows Server Subscription.
-        """
-        return pulumi.get(self, "windows_server_subscription")
-
-    @windows_server_subscription.setter
-    def windows_server_subscription(self, value: Optional[pulumi.Input[Union[str, 'WindowsServerSubscription']]]):
-        pulumi.set(self, "windows_server_subscription", value)
 
 
 if not MYPY:
@@ -1205,62 +1071,6 @@ class GalleryImageVersionArgs:
 
 
 if not MYPY:
-    class GuestCredentialArgsDict(TypedDict):
-        """
-        Username / Password Credentials to connect to guest.
-        """
-        password: NotRequired[pulumi.Input[str]]
-        """
-        The password to connect with the guest.
-        """
-        username: NotRequired[pulumi.Input[str]]
-        """
-        The username to connect with the guest.
-        """
-elif False:
-    GuestCredentialArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GuestCredentialArgs:
-    def __init__(__self__, *,
-                 password: Optional[pulumi.Input[str]] = None,
-                 username: Optional[pulumi.Input[str]] = None):
-        """
-        Username / Password Credentials to connect to guest.
-        :param pulumi.Input[str] password: The password to connect with the guest.
-        :param pulumi.Input[str] username: The username to connect with the guest.
-        """
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        The password to connect with the guest.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        The username to connect with the guest.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "username", value)
-
-
-if not MYPY:
     class HostNetworkArgsDict(TypedDict):
         """
         The HostNetwork of a cluster.
@@ -1454,154 +1264,6 @@ class HttpProxyConfigurationArgs:
     @trusted_ca.setter
     def trusted_ca(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "trusted_ca", value)
-
-
-if not MYPY:
-    class IPConfigurationPropertiesArgsDict(TypedDict):
-        """
-        InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
-        """
-        private_ip_address: NotRequired[pulumi.Input[str]]
-        """
-        PrivateIPAddress - Private IP address of the IP configuration.
-        """
-        subnet: NotRequired[pulumi.Input['IPConfigurationSubnetArgsDict']]
-        """
-        Subnet - Name of Subnet bound to the IP configuration.
-        """
-elif False:
-    IPConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class IPConfigurationPropertiesArgs:
-    def __init__(__self__, *,
-                 private_ip_address: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input['IPConfigurationSubnetArgs']] = None):
-        """
-        InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
-        :param pulumi.Input[str] private_ip_address: PrivateIPAddress - Private IP address of the IP configuration.
-        :param pulumi.Input['IPConfigurationSubnetArgs'] subnet: Subnet - Name of Subnet bound to the IP configuration.
-        """
-        if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
-        if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
-
-    @property
-    @pulumi.getter(name="privateIPAddress")
-    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        PrivateIPAddress - Private IP address of the IP configuration.
-        """
-        return pulumi.get(self, "private_ip_address")
-
-    @private_ip_address.setter
-    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "private_ip_address", value)
-
-    @property
-    @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['IPConfigurationSubnetArgs']]:
-        """
-        Subnet - Name of Subnet bound to the IP configuration.
-        """
-        return pulumi.get(self, "subnet")
-
-    @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['IPConfigurationSubnetArgs']]):
-        pulumi.set(self, "subnet", value)
-
-
-if not MYPY:
-    class IPConfigurationSubnetArgsDict(TypedDict):
-        """
-        Subnet - Name of Subnet bound to the IP configuration.
-        """
-        id: NotRequired[pulumi.Input[str]]
-        """
-        ID - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-elif False:
-    IPConfigurationSubnetArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class IPConfigurationSubnetArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Subnet - Name of Subnet bound to the IP configuration.
-        :param pulumi.Input[str] id: ID - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-if not MYPY:
-    class IPConfigurationArgsDict(TypedDict):
-        """
-        InterfaceIPConfiguration iPConfiguration in a network interface.
-        """
-        name: NotRequired[pulumi.Input[str]]
-        """
-        Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        """
-        properties: NotRequired[pulumi.Input['IPConfigurationPropertiesArgsDict']]
-        """
-        InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
-        """
-elif False:
-    IPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class IPConfigurationArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['IPConfigurationPropertiesArgs']] = None):
-        """
-        InterfaceIPConfiguration iPConfiguration in a network interface.
-        :param pulumi.Input[str] name: Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input['IPConfigurationPropertiesArgs'] properties: InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['IPConfigurationPropertiesArgs']]:
-        """
-        InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['IPConfigurationPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
 
 
 if not MYPY:
@@ -2048,38 +1710,6 @@ class IntentsArgs:
     @virtual_switch_configuration_overrides.setter
     def virtual_switch_configuration_overrides(self, value: Optional[pulumi.Input['VirtualSwitchConfigurationOverridesArgs']]):
         pulumi.set(self, "virtual_switch_configuration_overrides", value)
-
-
-if not MYPY:
-    class InterfaceDNSSettingsArgsDict(TypedDict):
-        dns_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
-        """
-        List of DNS server IP Addresses for the interface
-        """
-elif False:
-    InterfaceDNSSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class InterfaceDNSSettingsArgs:
-    def __init__(__self__, *,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of DNS server IP Addresses for the interface
-        """
-        if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
-
-    @property
-    @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of DNS server IP Addresses for the interface
-        """
-        return pulumi.get(self, "dns_servers")
-
-    @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "dns_servers", value)
 
 
 if not MYPY:
@@ -2767,96 +2397,6 @@ class ScaleUnitsArgs:
 
 
 if not MYPY:
-    class ServiceConfigurationArgsDict(TypedDict):
-        """
-        Service configuration details
-        """
-        port: pulumi.Input[float]
-        """
-        The port on which service is enabled.
-        """
-        service_name: pulumi.Input[Union[str, 'ServiceName']]
-        """
-        Name of the service.
-        """
-elif False:
-    ServiceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ServiceConfigurationArgs:
-    def __init__(__self__, *,
-                 port: pulumi.Input[float],
-                 service_name: pulumi.Input[Union[str, 'ServiceName']]):
-        """
-        Service configuration details
-        :param pulumi.Input[float] port: The port on which service is enabled.
-        :param pulumi.Input[Union[str, 'ServiceName']] service_name: Name of the service.
-        """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "service_name", service_name)
-
-    @property
-    @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
-        """
-        The port on which service is enabled.
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: pulumi.Input[float]):
-        pulumi.set(self, "port", value)
-
-    @property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Input[Union[str, 'ServiceName']]:
-        """
-        Name of the service.
-        """
-        return pulumi.get(self, "service_name")
-
-    @service_name.setter
-    def service_name(self, value: pulumi.Input[Union[str, 'ServiceName']]):
-        pulumi.set(self, "service_name", value)
-
-
-if not MYPY:
-    class SoftwareAssurancePropertiesArgsDict(TypedDict):
-        """
-        Software Assurance properties of the cluster.
-        """
-        software_assurance_intent: NotRequired[pulumi.Input[Union[str, 'SoftwareAssuranceIntent']]]
-        """
-        Customer Intent for Software Assurance Benefit.
-        """
-elif False:
-    SoftwareAssurancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class SoftwareAssurancePropertiesArgs:
-    def __init__(__self__, *,
-                 software_assurance_intent: Optional[pulumi.Input[Union[str, 'SoftwareAssuranceIntent']]] = None):
-        """
-        Software Assurance properties of the cluster.
-        :param pulumi.Input[Union[str, 'SoftwareAssuranceIntent']] software_assurance_intent: Customer Intent for Software Assurance Benefit.
-        """
-        if software_assurance_intent is not None:
-            pulumi.set(__self__, "software_assurance_intent", software_assurance_intent)
-
-    @property
-    @pulumi.getter(name="softwareAssuranceIntent")
-    def software_assurance_intent(self) -> Optional[pulumi.Input[Union[str, 'SoftwareAssuranceIntent']]]:
-        """
-        Customer Intent for Software Assurance Benefit.
-        """
-        return pulumi.get(self, "software_assurance_intent")
-
-    @software_assurance_intent.setter
-    def software_assurance_intent(self, value: Optional[pulumi.Input[Union[str, 'SoftwareAssuranceIntent']]]):
-        pulumi.set(self, "software_assurance_intent", value)
-
-
-if not MYPY:
     class SshConfigurationArgsDict(TypedDict):
         """
         SSH configuration for Linux based VMs running on Azure
@@ -2946,182 +2486,6 @@ class SshPublicKeyArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
-
-
-if not MYPY:
-    class StepArgsDict(TypedDict):
-        """
-        Progress representation of the update run steps.
-        """
-        description: NotRequired[pulumi.Input[str]]
-        """
-        More detailed description of the step.
-        """
-        end_time_utc: NotRequired[pulumi.Input[str]]
-        """
-        When the step reached a terminal state.
-        """
-        error_message: NotRequired[pulumi.Input[str]]
-        """
-        Error message, specified if the step is in a failed state.
-        """
-        last_updated_time_utc: NotRequired[pulumi.Input[str]]
-        """
-        Completion time of this step or the last completed sub-step.
-        """
-        name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the step.
-        """
-        start_time_utc: NotRequired[pulumi.Input[str]]
-        """
-        When the step started, or empty if it has not started executing.
-        """
-        status: NotRequired[pulumi.Input[str]]
-        """
-        Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
-        """
-        steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['StepArgsDict']]]]
-        """
-        Recursive model for child steps of this step.
-        """
-elif False:
-    StepArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class StepArgs:
-    def __init__(__self__, *,
-                 description: Optional[pulumi.Input[str]] = None,
-                 end_time_utc: Optional[pulumi.Input[str]] = None,
-                 error_message: Optional[pulumi.Input[str]] = None,
-                 last_updated_time_utc: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 start_time_utc: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['StepArgs']]]] = None):
-        """
-        Progress representation of the update run steps.
-        :param pulumi.Input[str] description: More detailed description of the step.
-        :param pulumi.Input[str] end_time_utc: When the step reached a terminal state.
-        :param pulumi.Input[str] error_message: Error message, specified if the step is in a failed state.
-        :param pulumi.Input[str] last_updated_time_utc: Completion time of this step or the last completed sub-step.
-        :param pulumi.Input[str] name: Name of the step.
-        :param pulumi.Input[str] start_time_utc: When the step started, or empty if it has not started executing.
-        :param pulumi.Input[str] status: Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
-        :param pulumi.Input[Sequence[pulumi.Input['StepArgs']]] steps: Recursive model for child steps of this step.
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if end_time_utc is not None:
-            pulumi.set(__self__, "end_time_utc", end_time_utc)
-        if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
-        if last_updated_time_utc is not None:
-            pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if start_time_utc is not None:
-            pulumi.set(__self__, "start_time_utc", start_time_utc)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if steps is not None:
-            pulumi.set(__self__, "steps", steps)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        More detailed description of the step.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="endTimeUtc")
-    def end_time_utc(self) -> Optional[pulumi.Input[str]]:
-        """
-        When the step reached a terminal state.
-        """
-        return pulumi.get(self, "end_time_utc")
-
-    @end_time_utc.setter
-    def end_time_utc(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "end_time_utc", value)
-
-    @property
-    @pulumi.getter(name="errorMessage")
-    def error_message(self) -> Optional[pulumi.Input[str]]:
-        """
-        Error message, specified if the step is in a failed state.
-        """
-        return pulumi.get(self, "error_message")
-
-    @error_message.setter
-    def error_message(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "error_message", value)
-
-    @property
-    @pulumi.getter(name="lastUpdatedTimeUtc")
-    def last_updated_time_utc(self) -> Optional[pulumi.Input[str]]:
-        """
-        Completion time of this step or the last completed sub-step.
-        """
-        return pulumi.get(self, "last_updated_time_utc")
-
-    @last_updated_time_utc.setter
-    def last_updated_time_utc(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_updated_time_utc", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the step.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="startTimeUtc")
-    def start_time_utc(self) -> Optional[pulumi.Input[str]]:
-        """
-        When the step started, or empty if it has not started executing.
-        """
-        return pulumi.get(self, "start_time_utc")
-
-    @start_time_utc.setter
-    def start_time_utc(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "start_time_utc", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter
-    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StepArgs']]]]:
-        """
-        Recursive model for child steps of this step.
-        """
-        return pulumi.get(self, "steps")
-
-    @steps.setter
-    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StepArgs']]]]):
-        pulumi.set(self, "steps", value)
 
 
 if not MYPY:
@@ -3444,82 +2808,6 @@ class SubnetArgs:
     @vlan.setter
     def vlan(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "vlan", value)
-
-
-if not MYPY:
-    class UpdatePrerequisiteArgsDict(TypedDict):
-        """
-        If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
-        """
-        package_name: NotRequired[pulumi.Input[str]]
-        """
-        Friendly name of the prerequisite.
-        """
-        update_type: NotRequired[pulumi.Input[str]]
-        """
-        Updatable component type.
-        """
-        version: NotRequired[pulumi.Input[str]]
-        """
-        Version of the prerequisite.
-        """
-elif False:
-    UpdatePrerequisiteArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class UpdatePrerequisiteArgs:
-    def __init__(__self__, *,
-                 package_name: Optional[pulumi.Input[str]] = None,
-                 update_type: Optional[pulumi.Input[str]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
-        """
-        If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
-        :param pulumi.Input[str] package_name: Friendly name of the prerequisite.
-        :param pulumi.Input[str] update_type: Updatable component type.
-        :param pulumi.Input[str] version: Version of the prerequisite.
-        """
-        if package_name is not None:
-            pulumi.set(__self__, "package_name", package_name)
-        if update_type is not None:
-            pulumi.set(__self__, "update_type", update_type)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="packageName")
-    def package_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Friendly name of the prerequisite.
-        """
-        return pulumi.get(self, "package_name")
-
-    @package_name.setter
-    def package_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "package_name", value)
-
-    @property
-    @pulumi.getter(name="updateType")
-    def update_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Updatable component type.
-        """
-        return pulumi.get(self, "update_type")
-
-    @update_type.setter
-    def update_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "update_type", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Version of the prerequisite.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "version", value)
 
 
 if not MYPY:

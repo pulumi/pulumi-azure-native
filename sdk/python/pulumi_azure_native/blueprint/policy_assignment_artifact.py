@@ -201,7 +201,7 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
                  __props__=None):
         """
         Blueprint artifact that applies a Policy assignment.
-        Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 1.x: 2018-11-01-preview.
+        Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 2.x: 2018-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,7 +225,7 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Blueprint artifact that applies a Policy assignment.
-        Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 1.x: 2018-11-01-preview.
+        Azure REST API version: 2018-11-01-preview. Prior API version in Azure Native 2.x: 2018-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PolicyAssignmentArtifactArgs args: The arguments to use to populate this resource's properties.
@@ -283,7 +283,7 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
             __props__.__dict__["resource_scope"] = resource_scope
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint/v20181101preview:RoleAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint/v20181101preview:TemplateArtifact"), pulumi.Alias(type_="azure-native:blueprint:RoleAssignmentArtifact"), pulumi.Alias(type_="azure-native:blueprint:TemplateArtifact")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyAssignmentArtifact, __self__).__init__(
             'azure-native:blueprint:PolicyAssignmentArtifact',

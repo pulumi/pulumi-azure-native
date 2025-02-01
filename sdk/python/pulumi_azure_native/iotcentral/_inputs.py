@@ -18,6 +18,10 @@ from ._enums import *
 __all__ = [
     'AppSkuInfoArgs',
     'AppSkuInfoArgsDict',
+    'NetworkRuleSetIpRuleArgs',
+    'NetworkRuleSetIpRuleArgsDict',
+    'NetworkRuleSetsArgs',
+    'NetworkRuleSetsArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
     'SystemAssignedServiceIdentityArgs',
@@ -59,6 +63,162 @@ class AppSkuInfoArgs:
     @name.setter
     def name(self, value: pulumi.Input[Union[str, 'AppSku']]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class NetworkRuleSetIpRuleArgsDict(TypedDict):
+        """
+        An object for an IP range that will be allowed access.
+        """
+        filter_name: NotRequired[pulumi.Input[str]]
+        """
+        The readable name of the IP rule.
+        """
+        ip_mask: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR block defining the IP range.
+        """
+elif False:
+    NetworkRuleSetIpRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkRuleSetIpRuleArgs:
+    def __init__(__self__, *,
+                 filter_name: Optional[pulumi.Input[str]] = None,
+                 ip_mask: Optional[pulumi.Input[str]] = None):
+        """
+        An object for an IP range that will be allowed access.
+        :param pulumi.Input[str] filter_name: The readable name of the IP rule.
+        :param pulumi.Input[str] ip_mask: The CIDR block defining the IP range.
+        """
+        if filter_name is not None:
+            pulumi.set(__self__, "filter_name", filter_name)
+        if ip_mask is not None:
+            pulumi.set(__self__, "ip_mask", ip_mask)
+
+    @property
+    @pulumi.getter(name="filterName")
+    def filter_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The readable name of the IP rule.
+        """
+        return pulumi.get(self, "filter_name")
+
+    @filter_name.setter
+    def filter_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_name", value)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR block defining the IP range.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @ip_mask.setter
+    def ip_mask(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_mask", value)
+
+
+if not MYPY:
+    class NetworkRuleSetsArgsDict(TypedDict):
+        """
+        Network Rule Set Properties of this IoT Central application.
+        """
+        apply_to_devices: NotRequired[pulumi.Input[bool]]
+        """
+        Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.
+        """
+        apply_to_io_t_central: NotRequired[pulumi.Input[bool]]
+        """
+        Whether these rules apply for connectivity via IoT Central web portal and APIs.
+        """
+        default_action: NotRequired[pulumi.Input[Union[str, 'NetworkAction']]]
+        """
+        The default network action to apply.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgsDict']]]]
+        """
+        List of IP rules.
+        """
+elif False:
+    NetworkRuleSetsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkRuleSetsArgs:
+    def __init__(__self__, *,
+                 apply_to_devices: Optional[pulumi.Input[bool]] = None,
+                 apply_to_io_t_central: Optional[pulumi.Input[bool]] = None,
+                 default_action: Optional[pulumi.Input[Union[str, 'NetworkAction']]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]]] = None):
+        """
+        Network Rule Set Properties of this IoT Central application.
+        :param pulumi.Input[bool] apply_to_devices: Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.
+        :param pulumi.Input[bool] apply_to_io_t_central: Whether these rules apply for connectivity via IoT Central web portal and APIs.
+        :param pulumi.Input[Union[str, 'NetworkAction']] default_action: The default network action to apply.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]] ip_rules: List of IP rules.
+        """
+        if apply_to_devices is None:
+            apply_to_devices = False
+        if apply_to_devices is not None:
+            pulumi.set(__self__, "apply_to_devices", apply_to_devices)
+        if apply_to_io_t_central is None:
+            apply_to_io_t_central = False
+        if apply_to_io_t_central is not None:
+            pulumi.set(__self__, "apply_to_io_t_central", apply_to_io_t_central)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+
+    @property
+    @pulumi.getter(name="applyToDevices")
+    def apply_to_devices(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.
+        """
+        return pulumi.get(self, "apply_to_devices")
+
+    @apply_to_devices.setter
+    def apply_to_devices(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "apply_to_devices", value)
+
+    @property
+    @pulumi.getter(name="applyToIoTCentral")
+    def apply_to_io_t_central(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether these rules apply for connectivity via IoT Central web portal and APIs.
+        """
+        return pulumi.get(self, "apply_to_io_t_central")
+
+    @apply_to_io_t_central.setter
+    def apply_to_io_t_central(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "apply_to_io_t_central", value)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[pulumi.Input[Union[str, 'NetworkAction']]]:
+        """
+        The default network action to apply.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: Optional[pulumi.Input[Union[str, 'NetworkAction']]]):
+        pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]]]:
+        """
+        List of IP rules.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]]]):
+        pulumi.set(self, "ip_rules", value)
 
 
 if not MYPY:

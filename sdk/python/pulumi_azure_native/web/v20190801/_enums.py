@@ -8,7 +8,6 @@ __all__ = [
     'AccessControlEntryAction',
     'ComputeModeOptions',
     'InternalLoadBalancingMode',
-    'LogLevel',
 ]
 
 
@@ -36,14 +35,3 @@ class InternalLoadBalancingMode(str, Enum):
     NONE = "None"
     WEB = "Web"
     PUBLISHING = "Publishing"
-
-
-class LogLevel(str, Enum):
-    """
-    Log level.
-    """
-    OFF = "Off"
-    VERBOSE = "Verbose"
-    INFORMATION = "Information"
-    WARNING = "Warning"
-    ERROR = "Error"

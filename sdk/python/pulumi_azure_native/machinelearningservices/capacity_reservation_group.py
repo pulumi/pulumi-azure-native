@@ -34,6 +34,7 @@ class CapacityReservationGroupInitArgs:
         The set of arguments for constructing a CapacityReservationGroup resource.
         :param pulumi.Input['CapacityReservationGroupArgs'] capacity_reservation_group_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] group_id: Group ID
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -82,6 +83,9 @@ class CapacityReservationGroupInitArgs:
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Group ID
+        """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
@@ -164,13 +168,14 @@ class CapacityReservationGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-08-01-preview.
+        Azure REST API version: 2024-01-01-preview. Prior API version in Azure Native 2.x: 2023-08-01-preview.
 
-        Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+        Other available API versions: 2023-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CapacityReservationGroupArgs', 'CapacityReservationGroupArgsDict']] capacity_reservation_group_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[str] group_id: Group ID
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -185,9 +190,9 @@ class CapacityReservationGroup(pulumi.CustomResource):
                  args: CapacityReservationGroupInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-08-01-preview.
+        Azure REST API version: 2024-01-01-preview. Prior API version in Azure Native 2.x: 2023-08-01-preview.
 
-        Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+        Other available API versions: 2023-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationGroupInitArgs args: The arguments to use to populate this resource's properties.

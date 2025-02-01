@@ -9,6 +9,7 @@ __all__ = [
     'AccessReviewRecurrenceRangeType',
     'AccessReviewResult',
     'AssignmentScopeValidation',
+    'AssignmentType',
     'DefaultDecisionType',
     'EnforcementMode',
     'ExemptionCategory',
@@ -65,6 +66,16 @@ class AssignmentScopeValidation(str, Enum):
     """
 
 
+class AssignmentType(str, Enum):
+    """
+    The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    SYSTEM = "System"
+    SYSTEM_HIDDEN = "SystemHidden"
+    CUSTOM = "Custom"
+
+
 class DefaultDecisionType(str, Enum):
     """
     This specifies the behavior for the autoReview feature when an access review completes.
@@ -118,6 +129,10 @@ class OverrideKind(str, Enum):
     POLICY_EFFECT = "policyEffect"
     """
     It will override the policy effect type.
+    """
+    DEFINITION_VERSION = "definitionVersion"
+    """
+    It will override the definition version property value of the policy assignment.
     """
 
 

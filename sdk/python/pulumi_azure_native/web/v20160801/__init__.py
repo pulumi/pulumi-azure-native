@@ -7,7 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_web_app import *
-from .get_web_app_diagnostic_logs_configuration_slot import *
 from .get_web_app_function import *
 from .get_web_app_instance_function_slot import *
 from .get_web_app_premier_add_on import *
@@ -28,7 +27,6 @@ from .list_web_app_sync_function_triggers_slot import *
 from .web_app import *
 from .web_app_backup_configuration import *
 from .web_app_backup_configuration_slot import *
-from .web_app_diagnostic_logs_configuration_slot import *
 from .web_app_function import *
 from .web_app_instance_function_slot import *
 from .web_app_premier_add_on import *

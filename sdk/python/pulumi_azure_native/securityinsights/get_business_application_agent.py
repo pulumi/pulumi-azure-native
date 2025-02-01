@@ -143,9 +143,9 @@ def get_business_application_agent(agent_resource_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBusinessApplicationAgentResult:
     """
     Gets Business Application Agent.
-    Azure REST API version: 2024-04-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2024-10-01-preview.
+    Other available API versions: 2024-04-01-preview.
 
 
     :param str agent_resource_name: Business Application Agent Name
@@ -175,9 +175,9 @@ def get_business_application_agent_output(agent_resource_name: Optional[pulumi.I
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessApplicationAgentResult]:
     """
     Gets Business Application Agent.
-    Azure REST API version: 2024-04-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2024-10-01-preview.
+    Other available API versions: 2024-04-01-preview.
 
 
     :param str agent_resource_name: Business Application Agent Name

@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ClusterManagerArgs', 'ClusterManager']
@@ -26,6 +27,7 @@ class ClusterManagerArgs:
                  analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_manager_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,6 +39,7 @@ class ClusterManagerArgs:
         :param pulumi.Input[str] analytics_workspace_id: The resource ID of the Log Analytics workspace that is used for the logs collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
         :param pulumi.Input[str] cluster_manager_name: The name of the cluster manager.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the cluster manager.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -50,6 +53,8 @@ class ClusterManagerArgs:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if cluster_manager_name is not None:
             pulumi.set(__self__, "cluster_manager_name", cluster_manager_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_resource_group_configuration is not None:
@@ -121,6 +126,18 @@ class ClusterManagerArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        The identity of the cluster manager.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The geo-location where the resource lives
@@ -177,6 +194,7 @@ class ClusterManager(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_manager_name: Optional[pulumi.Input[str]] = None,
                  fabric_controller_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -184,9 +202,9 @@ class ClusterManager(pulumi.CustomResource):
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,6 +212,7 @@ class ClusterManager(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
         :param pulumi.Input[str] cluster_manager_name: The name of the cluster manager.
         :param pulumi.Input[str] fabric_controller_id: The resource ID of the fabric controller that has one to one mapping with the cluster manager.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the cluster manager.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -207,9 +226,9 @@ class ClusterManager(pulumi.CustomResource):
                  args: ClusterManagerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ClusterManagerArgs args: The arguments to use to populate this resource's properties.
@@ -230,6 +249,7 @@ class ClusterManager(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_manager_name: Optional[pulumi.Input[str]] = None,
                  fabric_controller_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -250,6 +270,7 @@ class ClusterManager(pulumi.CustomResource):
             if fabric_controller_id is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_controller_id'")
             __props__.__dict__["fabric_controller_id"] = fabric_controller_id
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
             if resource_group_name is None and not opts.urn:
@@ -295,6 +316,7 @@ class ClusterManager(pulumi.CustomResource):
         __props__.__dict__["detailed_status"] = None
         __props__.__dict__["detailed_status_message"] = None
         __props__.__dict__["fabric_controller_id"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["managed_resource_group_configuration"] = None
         __props__.__dict__["manager_extended_location"] = None
@@ -353,6 +375,14 @@ class ClusterManager(pulumi.CustomResource):
         The resource ID of the fabric controller that has one to one mapping with the cluster manager.
         """
         return pulumi.get(self, "fabric_controller_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        The identity of the cluster manager.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

@@ -106,9 +106,9 @@ def get_replication_network_mapping(fabric_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationNetworkMappingResult:
     """
     Gets the details of an ASR network mapping.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+    Other available API versions: 2023-04-01.
 
 
     :param str fabric_name: Primary fabric name.
@@ -140,9 +140,9 @@ def get_replication_network_mapping_output(fabric_name: Optional[pulumi.Input[st
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationNetworkMappingResult]:
     """
     Gets the details of an ASR network mapping.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+    Other available API versions: 2023-04-01.
 
 
     :param str fabric_name: Primary fabric name.

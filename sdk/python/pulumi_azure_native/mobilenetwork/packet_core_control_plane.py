@@ -28,15 +28,19 @@ class PacketCoreControlPlaneArgs:
                  resource_group_name: pulumi.Input[str],
                  sites: pulumi.Input[Sequence[pulumi.Input['SiteResourceIdArgs']]],
                  sku: pulumi.Input[Union[str, 'BillingSku']],
+                 control_plane_access_virtual_ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
                  diagnostics_upload: Optional[pulumi.Input['DiagnosticsUploadConfigurationArgs']] = None,
+                 event_hub: Optional[pulumi.Input['EventHubConfigurationArgs']] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  installation: Optional[pulumi.Input['InstallationArgs']] = None,
                  interop_settings: Optional[Any] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
+                 signaling: Optional[pulumi.Input['SignalingConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ue_mtu: Optional[pulumi.Input[int]] = None,
+                 user_consent: Optional[pulumi.Input['UserConsentConfigurationArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PacketCoreControlPlane resource.
@@ -46,15 +50,19 @@ class PacketCoreControlPlaneArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['SiteResourceIdArgs']]] sites: Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
         :param pulumi.Input[Union[str, 'BillingSku']] sku: The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] control_plane_access_virtual_ipv4_addresses: The virtual IP address(es) for the control plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to anycast traffic for this address to the control plane access interfaces on the active and standby nodes. In non-HA system this list should be omitted or empty.
         :param pulumi.Input[Union[str, 'CoreNetworkType']] core_network_technology: The core network technology generation (5G core or EPC / 4G core).
         :param pulumi.Input['DiagnosticsUploadConfigurationArgs'] diagnostics_upload: Configuration for uploading packet core diagnostics
+        :param pulumi.Input['EventHubConfigurationArgs'] event_hub: Configuration for sending packet core events to an Azure Event Hub.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity used to retrieve the ingress certificate from Azure key vault.
         :param pulumi.Input['InstallationArgs'] installation: The installation state of the packet core control plane resource.
         :param Any interop_settings: Settings to allow interoperability with third party components e.g. RANs and UEs.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
+        :param pulumi.Input['SignalingConfigurationArgs'] signaling: Signaling configuration for the packet core.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] ue_mtu: The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
+        :param pulumi.Input['UserConsentConfigurationArgs'] user_consent: The user consent configuration for the packet core.
         :param pulumi.Input[str] version: The desired version of the packet core software.
         """
         pulumi.set(__self__, "control_plane_access_interface", control_plane_access_interface)
@@ -63,10 +71,14 @@ class PacketCoreControlPlaneArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sites", sites)
         pulumi.set(__self__, "sku", sku)
+        if control_plane_access_virtual_ipv4_addresses is not None:
+            pulumi.set(__self__, "control_plane_access_virtual_ipv4_addresses", control_plane_access_virtual_ipv4_addresses)
         if core_network_technology is not None:
             pulumi.set(__self__, "core_network_technology", core_network_technology)
         if diagnostics_upload is not None:
             pulumi.set(__self__, "diagnostics_upload", diagnostics_upload)
+        if event_hub is not None:
+            pulumi.set(__self__, "event_hub", event_hub)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if installation is not None:
@@ -77,12 +89,16 @@ class PacketCoreControlPlaneArgs:
             pulumi.set(__self__, "location", location)
         if packet_core_control_plane_name is not None:
             pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
+        if signaling is not None:
+            pulumi.set(__self__, "signaling", signaling)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if ue_mtu is None:
             ue_mtu = 1440
         if ue_mtu is not None:
             pulumi.set(__self__, "ue_mtu", ue_mtu)
+        if user_consent is not None:
+            pulumi.set(__self__, "user_consent", user_consent)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -159,6 +175,18 @@ class PacketCoreControlPlaneArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="controlPlaneAccessVirtualIpv4Addresses")
+    def control_plane_access_virtual_ipv4_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The virtual IP address(es) for the control plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to anycast traffic for this address to the control plane access interfaces on the active and standby nodes. In non-HA system this list should be omitted or empty.
+        """
+        return pulumi.get(self, "control_plane_access_virtual_ipv4_addresses")
+
+    @control_plane_access_virtual_ipv4_addresses.setter
+    def control_plane_access_virtual_ipv4_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "control_plane_access_virtual_ipv4_addresses", value)
+
+    @property
     @pulumi.getter(name="coreNetworkTechnology")
     def core_network_technology(self) -> Optional[pulumi.Input[Union[str, 'CoreNetworkType']]]:
         """
@@ -181,6 +209,18 @@ class PacketCoreControlPlaneArgs:
     @diagnostics_upload.setter
     def diagnostics_upload(self, value: Optional[pulumi.Input['DiagnosticsUploadConfigurationArgs']]):
         pulumi.set(self, "diagnostics_upload", value)
+
+    @property
+    @pulumi.getter(name="eventHub")
+    def event_hub(self) -> Optional[pulumi.Input['EventHubConfigurationArgs']]:
+        """
+        Configuration for sending packet core events to an Azure Event Hub.
+        """
+        return pulumi.get(self, "event_hub")
+
+    @event_hub.setter
+    def event_hub(self, value: Optional[pulumi.Input['EventHubConfigurationArgs']]):
+        pulumi.set(self, "event_hub", value)
 
     @property
     @pulumi.getter
@@ -244,6 +284,18 @@ class PacketCoreControlPlaneArgs:
 
     @property
     @pulumi.getter
+    def signaling(self) -> Optional[pulumi.Input['SignalingConfigurationArgs']]:
+        """
+        Signaling configuration for the packet core.
+        """
+        return pulumi.get(self, "signaling")
+
+    @signaling.setter
+    def signaling(self, value: Optional[pulumi.Input['SignalingConfigurationArgs']]):
+        pulumi.set(self, "signaling", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Resource tags.
@@ -267,6 +319,18 @@ class PacketCoreControlPlaneArgs:
         pulumi.set(self, "ue_mtu", value)
 
     @property
+    @pulumi.getter(name="userConsent")
+    def user_consent(self) -> Optional[pulumi.Input['UserConsentConfigurationArgs']]:
+        """
+        The user consent configuration for the packet core.
+        """
+        return pulumi.get(self, "user_consent")
+
+    @user_consent.setter
+    def user_consent(self, value: Optional[pulumi.Input['UserConsentConfigurationArgs']]):
+        pulumi.set(self, "user_consent", value)
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -285,8 +349,10 @@ class PacketCoreControlPlane(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_plane_access_interface: Optional[pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']]] = None,
+                 control_plane_access_virtual_ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
                  diagnostics_upload: Optional[pulumi.Input[Union['DiagnosticsUploadConfigurationArgs', 'DiagnosticsUploadConfigurationArgsDict']]] = None,
+                 event_hub: Optional[pulumi.Input[Union['EventHubConfigurationArgs', 'EventHubConfigurationArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  installation: Optional[pulumi.Input[Union['InstallationArgs', 'InstallationArgsDict']]] = None,
                  interop_settings: Optional[Any] = None,
@@ -295,23 +361,27 @@ class PacketCoreControlPlane(pulumi.CustomResource):
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[Union['PlatformConfigurationArgs', 'PlatformConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 signaling: Optional[pulumi.Input[Union['SignalingConfigurationArgs', 'SignalingConfigurationArgsDict']]] = None,
                  sites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SiteResourceIdArgs', 'SiteResourceIdArgsDict']]]]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'BillingSku']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ue_mtu: Optional[pulumi.Input[int]] = None,
+                 user_consent: Optional[pulumi.Input[Union['UserConsentConfigurationArgs', 'UserConsentConfigurationArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Packet core control plane resource.
-        Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
 
-        Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']] control_plane_access_interface: The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] control_plane_access_virtual_ipv4_addresses: The virtual IP address(es) for the control plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to anycast traffic for this address to the control plane access interfaces on the active and standby nodes. In non-HA system this list should be omitted or empty.
         :param pulumi.Input[Union[str, 'CoreNetworkType']] core_network_technology: The core network technology generation (5G core or EPC / 4G core).
         :param pulumi.Input[Union['DiagnosticsUploadConfigurationArgs', 'DiagnosticsUploadConfigurationArgsDict']] diagnostics_upload: Configuration for uploading packet core diagnostics
+        :param pulumi.Input[Union['EventHubConfigurationArgs', 'EventHubConfigurationArgsDict']] event_hub: Configuration for sending packet core events to an Azure Event Hub.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity used to retrieve the ingress certificate from Azure key vault.
         :param pulumi.Input[Union['InstallationArgs', 'InstallationArgsDict']] installation: The installation state of the packet core control plane resource.
         :param Any interop_settings: Settings to allow interoperability with third party components e.g. RANs and UEs.
@@ -320,10 +390,12 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
         :param pulumi.Input[Union['PlatformConfigurationArgs', 'PlatformConfigurationArgsDict']] platform: The platform where the packet core is deployed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union['SignalingConfigurationArgs', 'SignalingConfigurationArgsDict']] signaling: Signaling configuration for the packet core.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SiteResourceIdArgs', 'SiteResourceIdArgsDict']]]] sites: Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
         :param pulumi.Input[Union[str, 'BillingSku']] sku: The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] ue_mtu: The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
+        :param pulumi.Input[Union['UserConsentConfigurationArgs', 'UserConsentConfigurationArgsDict']] user_consent: The user consent configuration for the packet core.
         :param pulumi.Input[str] version: The desired version of the packet core software.
         """
         ...
@@ -334,9 +406,9 @@ class PacketCoreControlPlane(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Packet core control plane resource.
-        Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
 
-        Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param PacketCoreControlPlaneArgs args: The arguments to use to populate this resource's properties.
@@ -354,8 +426,10 @@ class PacketCoreControlPlane(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_plane_access_interface: Optional[pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']]] = None,
+                 control_plane_access_virtual_ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  core_network_technology: Optional[pulumi.Input[Union[str, 'CoreNetworkType']]] = None,
                  diagnostics_upload: Optional[pulumi.Input[Union['DiagnosticsUploadConfigurationArgs', 'DiagnosticsUploadConfigurationArgsDict']]] = None,
+                 event_hub: Optional[pulumi.Input[Union['EventHubConfigurationArgs', 'EventHubConfigurationArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  installation: Optional[pulumi.Input[Union['InstallationArgs', 'InstallationArgsDict']]] = None,
                  interop_settings: Optional[Any] = None,
@@ -364,10 +438,12 @@ class PacketCoreControlPlane(pulumi.CustomResource):
                  packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[Union['PlatformConfigurationArgs', 'PlatformConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 signaling: Optional[pulumi.Input[Union['SignalingConfigurationArgs', 'SignalingConfigurationArgsDict']]] = None,
                  sites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SiteResourceIdArgs', 'SiteResourceIdArgsDict']]]]] = None,
                  sku: Optional[pulumi.Input[Union[str, 'BillingSku']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ue_mtu: Optional[pulumi.Input[int]] = None,
+                 user_consent: Optional[pulumi.Input[Union['UserConsentConfigurationArgs', 'UserConsentConfigurationArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -381,8 +457,10 @@ class PacketCoreControlPlane(pulumi.CustomResource):
             if control_plane_access_interface is None and not opts.urn:
                 raise TypeError("Missing required property 'control_plane_access_interface'")
             __props__.__dict__["control_plane_access_interface"] = control_plane_access_interface
+            __props__.__dict__["control_plane_access_virtual_ipv4_addresses"] = control_plane_access_virtual_ipv4_addresses
             __props__.__dict__["core_network_technology"] = core_network_technology
             __props__.__dict__["diagnostics_upload"] = diagnostics_upload
+            __props__.__dict__["event_hub"] = event_hub
             __props__.__dict__["identity"] = identity
             __props__.__dict__["installation"] = installation
             __props__.__dict__["interop_settings"] = interop_settings
@@ -397,6 +475,7 @@ class PacketCoreControlPlane(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["signaling"] = signaling
             if sites is None and not opts.urn:
                 raise TypeError("Missing required property 'sites'")
             __props__.__dict__["sites"] = sites
@@ -407,7 +486,9 @@ class PacketCoreControlPlane(pulumi.CustomResource):
             if ue_mtu is None:
                 ue_mtu = 1440
             __props__.__dict__["ue_mtu"] = ue_mtu
+            __props__.__dict__["user_consent"] = user_consent
             __props__.__dict__["version"] = version
+            __props__.__dict__["home_network_private_keys_provisioning"] = None
             __props__.__dict__["installed_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -439,8 +520,11 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         __props__ = PacketCoreControlPlaneArgs.__new__(PacketCoreControlPlaneArgs)
 
         __props__.__dict__["control_plane_access_interface"] = None
+        __props__.__dict__["control_plane_access_virtual_ipv4_addresses"] = None
         __props__.__dict__["core_network_technology"] = None
         __props__.__dict__["diagnostics_upload"] = None
+        __props__.__dict__["event_hub"] = None
+        __props__.__dict__["home_network_private_keys_provisioning"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["installation"] = None
         __props__.__dict__["installed_version"] = None
@@ -451,12 +535,14 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         __props__.__dict__["platform"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["rollback_version"] = None
+        __props__.__dict__["signaling"] = None
         __props__.__dict__["sites"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["ue_mtu"] = None
+        __props__.__dict__["user_consent"] = None
         __props__.__dict__["version"] = None
         return PacketCoreControlPlane(resource_name, opts=opts, __props__=__props__)
 
@@ -467,6 +553,14 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
         """
         return pulumi.get(self, "control_plane_access_interface")
+
+    @property
+    @pulumi.getter(name="controlPlaneAccessVirtualIpv4Addresses")
+    def control_plane_access_virtual_ipv4_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The virtual IP address(es) for the control plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to anycast traffic for this address to the control plane access interfaces on the active and standby nodes. In non-HA system this list should be omitted or empty.
+        """
+        return pulumi.get(self, "control_plane_access_virtual_ipv4_addresses")
 
     @property
     @pulumi.getter(name="coreNetworkTechnology")
@@ -483,6 +577,22 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         Configuration for uploading packet core diagnostics
         """
         return pulumi.get(self, "diagnostics_upload")
+
+    @property
+    @pulumi.getter(name="eventHub")
+    def event_hub(self) -> pulumi.Output[Optional['outputs.EventHubConfigurationResponse']]:
+        """
+        Configuration for sending packet core events to an Azure Event Hub.
+        """
+        return pulumi.get(self, "event_hub")
+
+    @property
+    @pulumi.getter(name="homeNetworkPrivateKeysProvisioning")
+    def home_network_private_keys_provisioning(self) -> pulumi.Output['outputs.HomeNetworkPrivateKeysProvisioningResponse']:
+        """
+        The provisioning state of the secret containing private keys and keyIds for SUPI concealment.
+        """
+        return pulumi.get(self, "home_network_private_keys_provisioning")
 
     @property
     @pulumi.getter
@@ -566,6 +676,14 @@ class PacketCoreControlPlane(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def signaling(self) -> pulumi.Output[Optional['outputs.SignalingConfigurationResponse']]:
+        """
+        Signaling configuration for the packet core.
+        """
+        return pulumi.get(self, "signaling")
+
+    @property
+    @pulumi.getter
     def sites(self) -> pulumi.Output[Sequence['outputs.SiteResourceIdResponse']]:
         """
         Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
@@ -611,6 +729,14 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
         """
         return pulumi.get(self, "ue_mtu")
+
+    @property
+    @pulumi.getter(name="userConsent")
+    def user_consent(self) -> pulumi.Output[Optional['outputs.UserConsentConfigurationResponse']]:
+        """
+        The user consent configuration for the packet core.
+        """
+        return pulumi.get(self, "user_consent")
 
     @property
     @pulumi.getter

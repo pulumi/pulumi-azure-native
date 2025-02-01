@@ -24,6 +24,8 @@ __all__ = [
     'ActiveDirectoryPropertiesArgsDict',
     'AzureFilesIdentityBasedAuthenticationArgs',
     'AzureFilesIdentityBasedAuthenticationArgsDict',
+    'BlobInventoryCreationTimeArgs',
+    'BlobInventoryCreationTimeArgsDict',
     'BlobInventoryPolicyDefinitionArgs',
     'BlobInventoryPolicyDefinitionArgsDict',
     'BlobInventoryPolicyFilterArgs',
@@ -540,6 +542,42 @@ class AzureFilesIdentityBasedAuthenticationArgs:
 
 
 if not MYPY:
+    class BlobInventoryCreationTimeArgsDict(TypedDict):
+        """
+        This property defines the creation time based filtering condition. Blob Inventory schema parameter 'Creation-Time' is mandatory with this filter.
+        """
+        last_n_days: NotRequired[pulumi.Input[int]]
+        """
+        When set the policy filters the objects that are created in the last N days. Where N is an integer value between 1 to 36500.
+        """
+elif False:
+    BlobInventoryCreationTimeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BlobInventoryCreationTimeArgs:
+    def __init__(__self__, *,
+                 last_n_days: Optional[pulumi.Input[int]] = None):
+        """
+        This property defines the creation time based filtering condition. Blob Inventory schema parameter 'Creation-Time' is mandatory with this filter.
+        :param pulumi.Input[int] last_n_days: When set the policy filters the objects that are created in the last N days. Where N is an integer value between 1 to 36500.
+        """
+        if last_n_days is not None:
+            pulumi.set(__self__, "last_n_days", last_n_days)
+
+    @property
+    @pulumi.getter(name="lastNDays")
+    def last_n_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        When set the policy filters the objects that are created in the last N days. Where N is an integer value between 1 to 36500.
+        """
+        return pulumi.get(self, "last_n_days")
+
+    @last_n_days.setter
+    def last_n_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "last_n_days", value)
+
+
+if not MYPY:
     class BlobInventoryPolicyDefinitionArgsDict(TypedDict):
         """
         An object that defines the blob inventory rule.
@@ -660,6 +698,10 @@ if not MYPY:
         """
         An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
         """
+        creation_time: NotRequired[pulumi.Input['BlobInventoryCreationTimeArgsDict']]
+        """
+        This property is used to filter objects based on the object creation time
+        """
         exclude_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
@@ -687,6 +729,7 @@ elif False:
 class BlobInventoryPolicyFilterArgs:
     def __init__(__self__, *,
                  blob_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 creation_time: Optional[pulumi.Input['BlobInventoryCreationTimeArgs']] = None,
                  exclude_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  include_blob_versions: Optional[pulumi.Input[bool]] = None,
                  include_deleted: Optional[pulumi.Input[bool]] = None,
@@ -695,6 +738,7 @@ class BlobInventoryPolicyFilterArgs:
         """
         An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_types: An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+        :param pulumi.Input['BlobInventoryCreationTimeArgs'] creation_time: This property is used to filter objects based on the object creation time
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_prefix: An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
         :param pulumi.Input[bool] include_blob_versions: Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
         :param pulumi.Input[bool] include_deleted: For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
@@ -703,6 +747,8 @@ class BlobInventoryPolicyFilterArgs:
         """
         if blob_types is not None:
             pulumi.set(__self__, "blob_types", blob_types)
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
         if exclude_prefix is not None:
             pulumi.set(__self__, "exclude_prefix", exclude_prefix)
         if include_blob_versions is not None:
@@ -725,6 +771,18 @@ class BlobInventoryPolicyFilterArgs:
     @blob_types.setter
     def blob_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "blob_types", value)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[pulumi.Input['BlobInventoryCreationTimeArgs']]:
+        """
+        This property is used to filter objects based on the object creation time
+        """
+        return pulumi.get(self, "creation_time")
+
+    @creation_time.setter
+    def creation_time(self, value: Optional[pulumi.Input['BlobInventoryCreationTimeArgs']]):
+        pulumi.set(self, "creation_time", value)
 
     @property
     @pulumi.getter(name="excludePrefix")
@@ -3386,7 +3444,7 @@ if not MYPY:
     class PermissionScopeArgsDict(TypedDict):
         permissions: pulumi.Input[str]
         """
-        The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+        The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), Create (c), Modify Ownership (o), and Modify Permissions (p).
         """
         resource_name: pulumi.Input[str]
         """
@@ -3406,7 +3464,7 @@ class PermissionScopeArgs:
                  resource_name: pulumi.Input[str],
                  service: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] permissions: The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+        :param pulumi.Input[str] permissions: The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), Create (c), Modify Ownership (o), and Modify Permissions (p).
         :param pulumi.Input[str] resource_name: The name of resource, normally the container name or the file share name, used by the local user.
         :param pulumi.Input[str] service: The service used by the local user, e.g. blob, file.
         """
@@ -3418,7 +3476,7 @@ class PermissionScopeArgs:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[str]:
         """
-        The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+        The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), Create (c), Modify Ownership (o), and Modify Permissions (p).
         """
         return pulumi.get(self, "permissions")
 
@@ -3757,7 +3815,7 @@ if not MYPY:
         """
         expiration_action: pulumi.Input[Union[str, 'ExpirationAction']]
         """
-        The SAS expiration action. Can only be Log.
+        The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
         """
         sas_expiration_period: pulumi.Input[str]
         """
@@ -3773,7 +3831,7 @@ class SasPolicyArgs:
                  sas_expiration_period: pulumi.Input[str]):
         """
         SasPolicy assigned to the storage account.
-        :param pulumi.Input[Union[str, 'ExpirationAction']] expiration_action: The SAS expiration action. Can only be Log.
+        :param pulumi.Input[Union[str, 'ExpirationAction']] expiration_action: The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
         :param pulumi.Input[str] sas_expiration_period: The SAS expiration period, DD.HH:MM:SS.
         """
         if expiration_action is None:
@@ -3785,7 +3843,7 @@ class SasPolicyArgs:
     @pulumi.getter(name="expirationAction")
     def expiration_action(self) -> pulumi.Input[Union[str, 'ExpirationAction']]:
         """
-        The SAS expiration action. Can only be Log.
+        The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
         """
         return pulumi.get(self, "expiration_action")
 

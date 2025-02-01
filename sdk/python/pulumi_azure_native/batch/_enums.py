@@ -13,6 +13,7 @@ __all__ = [
     'CertificateVisibility',
     'ComputeNodeDeallocationOption',
     'ComputeNodeFillType',
+    'ContainerHostDataPath',
     'ContainerType',
     'ContainerWorkingDirectory',
     'DiffDiskPlacement',
@@ -33,7 +34,10 @@ __all__ = [
     'PoolIdentityType',
     'PublicNetworkAccessType',
     'ResourceIdentityType',
+    'SecurityEncryptionTypes',
+    'SecurityTypes',
     'StorageAccountType',
+    'UpgradeMode',
 ]
 
 
@@ -47,7 +51,7 @@ class AuthenticationMode(str, Enum):
     """
     AAD = "AAD"
     """
-    The authentication mode using Azure Active Directory.
+    The authentication mode using Microsoft Entra ID.
     """
     TASK_AUTHENTICATION_TOKEN = "TaskAuthenticationToken"
     """
@@ -84,15 +88,6 @@ class AutoUserScope(str, Enum):
 
 
 class CachingType(str, Enum):
-    """
-    Values are:
-
-     none - The caching mode for the disk is not enabled.
-     readOnly - The caching mode for the disk is read only.
-     readWrite - The caching mode for the disk is read and write.
-
-     The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
-    """
     NONE = "None"
     """
     The caching mode for the disk is not enabled.
@@ -109,7 +104,7 @@ class CachingType(str, Enum):
 
 class CertificateStoreLocation(str, Enum):
     """
-    The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+    The default value is currentUser. This property is applicable only for pools configured with Windows compute nodes. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
     """
     CURRENT_USER = "CurrentUser"
     """
@@ -169,6 +164,33 @@ class ComputeNodeFillType(str, Enum):
     """
 
 
+class ContainerHostDataPath(str, Enum):
+    SHARED = "Shared"
+    """
+    The path for multi-instances task to shared their files.
+    """
+    STARTUP = "Startup"
+    """
+    The path for start task.
+    """
+    VFS_MOUNTS = "VfsMounts"
+    """
+    The path contains all virtual file systems are mounted on this node.
+    """
+    TASK = "Task"
+    """
+    The task path.
+    """
+    JOB_PREP = "JobPrep"
+    """
+    The job-prep task path.
+    """
+    APPLICATIONS = "Applications"
+    """
+    The applications path.
+    """
+
+
 class ContainerType(str, Enum):
     DOCKER_COMPATIBLE = "DockerCompatible"
     """
@@ -193,7 +215,7 @@ class ContainerWorkingDirectory(str, Enum):
 
 class DiffDiskPlacement(str, Enum):
     """
-    This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+    This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://learn.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://learn.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
     """
     CACHE_DISK = "CacheDisk"
     """
@@ -323,7 +345,7 @@ class KeySource(str, Enum):
 
 class LoginMode(str, Enum):
     """
-    Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
+    Specifies login mode for the user. The default value is Interactive.
     """
     BATCH = "Batch"
     """
@@ -380,7 +402,7 @@ class NodePlacementPolicyType(str, Enum):
 
 class PoolAllocationMode(str, Enum):
     """
-    The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+    The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Microsoft Entra ID. If the mode is UserSubscription, clients must use Microsoft Entra ID. The default is BatchService.
     """
     BATCH_SERVICE = "BatchService"
     """
@@ -418,6 +440,10 @@ class PublicNetworkAccessType(str, Enum):
     """
     Disables public connectivity and enables private connectivity to Azure Batch Service through private endpoint resource.
     """
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
+    """
+    Secures connectivity to Azure Batch through NSP configuration.
+    """
 
 
 class ResourceIdentityType(str, Enum):
@@ -438,18 +464,47 @@ class ResourceIdentityType(str, Enum):
     """
 
 
-class StorageAccountType(str, Enum):
-    """
-    If omitted, the default is "Standard_LRS". Values are:
+class SecurityEncryptionTypes(str, Enum):
+    NON_PERSISTED_TPM = "NonPersistedTPM"
+    VM_GUEST_STATE_ONLY = "VMGuestStateOnly"
 
-     Standard_LRS - The data disk should use standard locally redundant storage.
-     Premium_LRS - The data disk should use premium locally redundant storage.
+
+class SecurityTypes(str, Enum):
+    TRUSTED_LAUNCH = "trustedLaunch"
     """
+    Trusted launch protects against advanced and persistent attack techniques.
+    """
+    CONFIDENTIAL_VM = "confidentialVM"
+    """
+    Azure confidential computing offers confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. You can use confidential VMs for migrations without making changes to your code, with the platform protecting your VM's state from being read or modified.
+    """
+
+
+class StorageAccountType(str, Enum):
     STANDARD_LRS = "Standard_LRS"
     """
-    The data disk should use standard locally redundant storage.
+    The data disk / OS disk should use standard locally redundant storage.
     """
     PREMIUM_LRS = "Premium_LRS"
     """
-    The data disk should use premium locally redundant storage.
+    The data disk / OS disk should use premium locally redundant storage.
+    """
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    """
+    The data disk / OS disk should use standard SSD locally redundant storage.
+    """
+
+
+class UpgradeMode(str, Enum):
+    AUTOMATIC = "automatic"
+    """
+    All virtual machines in the scale set are automatically updated at the same time.
+    """
+    MANUAL = "manual"
+    """
+    You control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.
+    """
+    ROLLING = "rolling"
+    """
+    The existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again and the next batch will begin. This continues until all instances brought up-to-date.
     """

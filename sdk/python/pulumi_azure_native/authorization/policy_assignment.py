@@ -23,6 +23,8 @@ __all__ = ['PolicyAssignmentArgs', 'PolicyAssignment']
 class PolicyAssignmentArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[str],
+                 assignment_type: Optional[pulumi.Input[Union[str, 'AssignmentType']]] = None,
+                 definition_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enforcement_mode: Optional[pulumi.Input[Union[str, 'EnforcementMode']]] = None,
@@ -39,6 +41,8 @@ class PolicyAssignmentArgs:
         """
         The set of arguments for constructing a PolicyAssignment resource.
         :param pulumi.Input[str] scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        :param pulumi.Input[Union[str, 'AssignmentType']] assignment_type: The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        :param pulumi.Input[str] definition_version: The version of the policy definition to use.
         :param pulumi.Input[str] description: This message will be part of response in case of policy violation.
         :param pulumi.Input[str] display_name: The display name of the policy assignment.
         :param pulumi.Input[Union[str, 'EnforcementMode']] enforcement_mode: The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
@@ -54,6 +58,10 @@ class PolicyAssignmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]] resource_selectors: The resource selector list to filter policies by resource properties.
         """
         pulumi.set(__self__, "scope", scope)
+        if assignment_type is not None:
+            pulumi.set(__self__, "assignment_type", assignment_type)
+        if definition_version is not None:
+            pulumi.set(__self__, "definition_version", definition_version)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -94,6 +102,30 @@ class PolicyAssignmentArgs:
     @scope.setter
     def scope(self, value: pulumi.Input[str]):
         pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="assignmentType")
+    def assignment_type(self) -> Optional[pulumi.Input[Union[str, 'AssignmentType']]]:
+        """
+        The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        """
+        return pulumi.get(self, "assignment_type")
+
+    @assignment_type.setter
+    def assignment_type(self, value: Optional[pulumi.Input[Union[str, 'AssignmentType']]]):
+        pulumi.set(self, "assignment_type", value)
+
+    @property
+    @pulumi.getter(name="definitionVersion")
+    def definition_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the policy definition to use.
+        """
+        return pulumi.get(self, "definition_version")
+
+    @definition_version.setter
+    def definition_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "definition_version", value)
 
     @property
     @pulumi.getter
@@ -257,6 +289,8 @@ class PolicyAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assignment_type: Optional[pulumi.Input[Union[str, 'AssignmentType']]] = None,
+                 definition_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enforcement_mode: Optional[pulumi.Input[Union[str, 'EnforcementMode']]] = None,
@@ -274,12 +308,14 @@ class PolicyAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         The policy assignment.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
-        Other available API versions: 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-01-01.
+        Other available API versions: 2022-06-01, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[str, 'AssignmentType']] assignment_type: The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        :param pulumi.Input[str] definition_version: The version of the policy definition to use.
         :param pulumi.Input[str] description: This message will be part of response in case of policy violation.
         :param pulumi.Input[str] display_name: The display name of the policy assignment.
         :param pulumi.Input[Union[str, 'EnforcementMode']] enforcement_mode: The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
@@ -303,9 +339,9 @@ class PolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy assignment.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
-        Other available API versions: 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-01-01.
+        Other available API versions: 2022-06-01, 2025-01-01.
 
         :param str resource_name: The name of the resource.
         :param PolicyAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -322,6 +358,8 @@ class PolicyAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assignment_type: Optional[pulumi.Input[Union[str, 'AssignmentType']]] = None,
+                 definition_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enforcement_mode: Optional[pulumi.Input[Union[str, 'EnforcementMode']]] = None,
@@ -345,6 +383,8 @@ class PolicyAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyAssignmentArgs.__new__(PolicyAssignmentArgs)
 
+            __props__.__dict__["assignment_type"] = assignment_type
+            __props__.__dict__["definition_version"] = definition_version
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             if enforcement_mode is None:
@@ -363,6 +403,8 @@ class PolicyAssignment(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["effective_definition_version"] = None
+            __props__.__dict__["latest_definition_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -390,10 +432,14 @@ class PolicyAssignment(pulumi.CustomResource):
 
         __props__ = PolicyAssignmentArgs.__new__(PolicyAssignmentArgs)
 
+        __props__.__dict__["assignment_type"] = None
+        __props__.__dict__["definition_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
+        __props__.__dict__["effective_definition_version"] = None
         __props__.__dict__["enforcement_mode"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["latest_definition_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
@@ -407,6 +453,22 @@ class PolicyAssignment(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PolicyAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="assignmentType")
+    def assignment_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        """
+        return pulumi.get(self, "assignment_type")
+
+    @property
+    @pulumi.getter(name="definitionVersion")
+    def definition_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the policy definition to use.
+        """
+        return pulumi.get(self, "definition_version")
 
     @property
     @pulumi.getter
@@ -425,6 +487,14 @@ class PolicyAssignment(pulumi.CustomResource):
         return pulumi.get(self, "display_name")
 
     @property
+    @pulumi.getter(name="effectiveDefinitionVersion")
+    def effective_definition_version(self) -> pulumi.Output[str]:
+        """
+        The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
+        """
+        return pulumi.get(self, "effective_definition_version")
+
+    @property
     @pulumi.getter(name="enforcementMode")
     def enforcement_mode(self) -> pulumi.Output[Optional[str]]:
         """
@@ -439,6 +509,14 @@ class PolicyAssignment(pulumi.CustomResource):
         The managed identity associated with the policy assignment.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="latestDefinitionVersion")
+    def latest_definition_version(self) -> pulumi.Output[str]:
+        """
+        The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
+        """
+        return pulumi.get(self, "latest_definition_version")
 
     @property
     @pulumi.getter

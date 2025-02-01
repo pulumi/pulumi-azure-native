@@ -308,13 +308,13 @@ def get_topic(namespace_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
     Returns a description for the specified topic.
-    Azure REST API version: 2022-01-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2022-01-01-preview.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str topic_name: The topic name.
     """
     __args__ = dict()
@@ -353,13 +353,13 @@ def get_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     Returns a description for the specified topic.
-    Azure REST API version: 2022-01-01-preview.
+    Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2022-01-01-preview.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str topic_name: The topic name.
     """
     __args__ = dict()

@@ -25,6 +25,7 @@ class RegistryArgs:
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
                  admin_user_enabled: Optional[pulumi.Input[bool]] = None,
+                 anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input['EncryptionPropertyArgs']] = None,
                  identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
@@ -41,6 +42,7 @@ class RegistryArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The SKU of the container registry.
         :param pulumi.Input[bool] admin_user_enabled: The value that indicates whether the admin user is enabled.
+        :param pulumi.Input[bool] anonymous_pull_enabled: Enables registry-wide pull from unauthenticated clients.
         :param pulumi.Input[bool] data_endpoint_enabled: Enable a single data endpoint per region for serving data.
         :param pulumi.Input['EncryptionPropertyArgs'] encryption: The encryption settings of container registry.
         :param pulumi.Input['IdentityPropertiesArgs'] identity: The identity of the container registry.
@@ -59,6 +61,10 @@ class RegistryArgs:
             admin_user_enabled = False
         if admin_user_enabled is not None:
             pulumi.set(__self__, "admin_user_enabled", admin_user_enabled)
+        if anonymous_pull_enabled is None:
+            anonymous_pull_enabled = False
+        if anonymous_pull_enabled is not None:
+            pulumi.set(__self__, "anonymous_pull_enabled", anonymous_pull_enabled)
         if data_endpoint_enabled is not None:
             pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
         if encryption is not None:
@@ -123,6 +129,18 @@ class RegistryArgs:
     @admin_user_enabled.setter
     def admin_user_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "admin_user_enabled", value)
+
+    @property
+    @pulumi.getter(name="anonymousPullEnabled")
+    def anonymous_pull_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables registry-wide pull from unauthenticated clients.
+        """
+        return pulumi.get(self, "anonymous_pull_enabled")
+
+    @anonymous_pull_enabled.setter
+    def anonymous_pull_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "anonymous_pull_enabled", value)
 
     @property
     @pulumi.getter(name="dataEndpointEnabled")
@@ -263,6 +281,7 @@ class Registry(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_user_enabled: Optional[pulumi.Input[bool]] = None,
+                 anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
@@ -279,13 +298,14 @@ class Registry(pulumi.CustomResource):
                  __props__=None):
         """
         An object that represents a container registry.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2022-12-01.
 
-        Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        Other available API versions: 2022-12-01, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] admin_user_enabled: The value that indicates whether the admin user is enabled.
+        :param pulumi.Input[bool] anonymous_pull_enabled: Enables registry-wide pull from unauthenticated clients.
         :param pulumi.Input[bool] data_endpoint_enabled: Enable a single data endpoint per region for serving data.
         :param pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']] encryption: The encryption settings of container registry.
         :param pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']] identity: The identity of the container registry.
@@ -308,9 +328,9 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a container registry.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2022-12-01.
 
-        Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        Other available API versions: 2022-12-01, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param RegistryArgs args: The arguments to use to populate this resource's properties.
@@ -328,6 +348,7 @@ class Registry(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_user_enabled: Optional[pulumi.Input[bool]] = None,
+                 anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
@@ -353,6 +374,9 @@ class Registry(pulumi.CustomResource):
             if admin_user_enabled is None:
                 admin_user_enabled = False
             __props__.__dict__["admin_user_enabled"] = admin_user_enabled
+            if anonymous_pull_enabled is None:
+                anonymous_pull_enabled = False
+            __props__.__dict__["anonymous_pull_enabled"] = anonymous_pull_enabled
             __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
@@ -410,6 +434,7 @@ class Registry(pulumi.CustomResource):
         __props__ = RegistryArgs.__new__(RegistryArgs)
 
         __props__.__dict__["admin_user_enabled"] = None
+        __props__.__dict__["anonymous_pull_enabled"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["data_endpoint_enabled"] = None
         __props__.__dict__["data_endpoint_host_names"] = None
@@ -439,6 +464,14 @@ class Registry(pulumi.CustomResource):
         The value that indicates whether the admin user is enabled.
         """
         return pulumi.get(self, "admin_user_enabled")
+
+    @property
+    @pulumi.getter(name="anonymousPullEnabled")
+    def anonymous_pull_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables registry-wide pull from unauthenticated clients.
+        """
+        return pulumi.get(self, "anonymous_pull_enabled")
 
     @property
     @pulumi.getter(name="creationDate")

@@ -132,7 +132,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
                  __props__=None):
         """
         The integration account session.
-        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+        Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,7 +151,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration account session.
-        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+        Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountSessionArgs args: The arguments to use to populate this resource's properties.
@@ -197,7 +197,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountSession"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountSession"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountSession")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountSession"), pulumi.Alias(type_="azure-native:logic/v20160601:Session"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountSession"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountSession")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountSession, __self__).__init__(
             'azure-native:logic:IntegrationAccountSession',

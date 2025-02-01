@@ -354,7 +354,7 @@ class DataProduct(pulumi.CustomResource):
                  __props__=None):
         """
         The data product resource.
-        Azure REST API version: 2023-11-15.
+        Azure REST API version: 2023-11-15. Prior API version in Azure Native 2.x: 2023-11-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -386,7 +386,7 @@ class DataProduct(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The data product resource.
-        Azure REST API version: 2023-11-15.
+        Azure REST API version: 2023-11-15. Prior API version in Azure Native 2.x: 2023-11-15.
 
         :param str resource_name: The name of the resource.
         :param DataProductArgs args: The arguments to use to populate this resource's properties.

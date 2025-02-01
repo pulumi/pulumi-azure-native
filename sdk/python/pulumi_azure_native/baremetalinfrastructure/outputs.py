@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AzureBareMetalStorageInstanceIdentityResponse',
     'DiskResponse',
     'HardwareProfileResponse',
     'NetworkInterfaceResponse',
@@ -27,6 +28,70 @@ __all__ = [
     'StoragePropertiesResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class AzureBareMetalStorageInstanceIdentityResponse(dict):
+    """
+    Identity for Azure Bare Metal Storage Instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureBareMetalStorageInstanceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureBareMetalStorageInstanceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureBareMetalStorageInstanceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        Identity for Azure Bare Metal Storage Instance.
+        :param str principal_id: The principal ID of Azure Bare Metal Storage Instance identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID associated with the Azure Bare Metal Storage Instance. This property will only be provided for a system assigned identity.
+        :param str type: The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of Azure Bare Metal Storage Instance identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID associated with the Azure Bare Metal Storage Instance. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class DiskResponse(dict):
@@ -430,7 +495,7 @@ class StorageProfileResponse(dict):
 @pulumi.output_type
 class StoragePropertiesResponse(dict):
     """
-    described the storage properties of the azure baremetalstorage instance
+    described the storage properties of the azure bare metal storage instance
     """
     @staticmethod
     def __key_warning(key: str):
@@ -468,7 +533,7 @@ class StoragePropertiesResponse(dict):
                  storage_type: Optional[str] = None,
                  workload_type: Optional[str] = None):
         """
-        described the storage properties of the azure baremetalstorage instance
+        described the storage properties of the azure bare metal storage instance
         :param str generation: the kind of storage instance
         :param str hardware_type: the hardware type of the storage instance
         :param str offering_type: the offering type for which the resource is getting provisioned

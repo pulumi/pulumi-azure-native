@@ -27,7 +27,7 @@ class GetChannelResult:
     """
     Channel info.
     """
-    def __init__(__self__, channel_type=None, expiration_time_if_not_activated_utc=None, id=None, message_for_activation=None, name=None, partner_topic_info=None, provisioning_state=None, readiness_state=None, system_data=None, type=None):
+    def __init__(__self__, channel_type=None, expiration_time_if_not_activated_utc=None, id=None, message_for_activation=None, name=None, partner_destination_info=None, partner_topic_info=None, provisioning_state=None, readiness_state=None, system_data=None, type=None):
         if channel_type and not isinstance(channel_type, str):
             raise TypeError("Expected argument 'channel_type' to be a str")
         pulumi.set(__self__, "channel_type", channel_type)
@@ -43,6 +43,9 @@ class GetChannelResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if partner_destination_info and not isinstance(partner_destination_info, dict):
+            raise TypeError("Expected argument 'partner_destination_info' to be a dict")
+        pulumi.set(__self__, "partner_destination_info", partner_destination_info)
         if partner_topic_info and not isinstance(partner_topic_info, dict):
             raise TypeError("Expected argument 'partner_topic_info' to be a dict")
         pulumi.set(__self__, "partner_topic_info", partner_topic_info)
@@ -101,6 +104,14 @@ class GetChannelResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="partnerDestinationInfo")
+    def partner_destination_info(self) -> Optional['outputs.WebhookPartnerDestinationInfoResponse']:
+        """
+        This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
+        """
+        return pulumi.get(self, "partner_destination_info")
+
+    @property
     @pulumi.getter(name="partnerTopicInfo")
     def partner_topic_info(self) -> Optional['outputs.PartnerTopicInfoResponse']:
         """
@@ -128,7 +139,7 @@ class GetChannelResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to Channel resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -152,6 +163,7 @@ class AwaitableGetChannelResult(GetChannelResult):
             id=self.id,
             message_for_activation=self.message_for_activation,
             name=self.name,
+            partner_destination_info=self.partner_destination_info,
             partner_topic_info=self.partner_topic_info,
             provisioning_state=self.provisioning_state,
             readiness_state=self.readiness_state,
@@ -165,9 +177,9 @@ def get_channel(channel_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
     Get properties of a channel.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2022-06-15.
 
 
     :param str channel_name: Name of the channel.
@@ -187,6 +199,7 @@ def get_channel(channel_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         message_for_activation=pulumi.get(__ret__, 'message_for_activation'),
         name=pulumi.get(__ret__, 'name'),
+        partner_destination_info=pulumi.get(__ret__, 'partner_destination_info'),
         partner_topic_info=pulumi.get(__ret__, 'partner_topic_info'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         readiness_state=pulumi.get(__ret__, 'readiness_state'),
@@ -198,9 +211,9 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     Get properties of a channel.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2022-06-15.
 
 
     :param str channel_name: Name of the channel.
@@ -219,6 +232,7 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
         id=pulumi.get(__response__, 'id'),
         message_for_activation=pulumi.get(__response__, 'message_for_activation'),
         name=pulumi.get(__response__, 'name'),
+        partner_destination_info=pulumi.get(__response__, 'partner_destination_info'),
         partner_topic_info=pulumi.get(__response__, 'partner_topic_info'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         readiness_state=pulumi.get(__response__, 'readiness_state'),

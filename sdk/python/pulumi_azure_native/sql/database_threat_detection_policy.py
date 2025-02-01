@@ -250,7 +250,7 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Contains information about a database Threat Detection policy.
-        Azure REST API version: 2014-04-01.
+        Azure REST API version: 2014-04-01. Prior API version in Azure Native 2.x: 2014-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -276,7 +276,7 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains information about a database Threat Detection policy.
-        Azure REST API version: 2014-04-01.
+        Azure REST API version: 2014-04-01. Prior API version in Azure Native 2.x: 2014-04-01.
 
         :param str resource_name: The name of the resource.
         :param DatabaseThreatDetectionPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -339,7 +339,7 @@ class DatabaseThreatDetectionPolicy(pulumi.CustomResource):
             __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230201preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230501preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20240501preview:DatabaseThreatDetectionPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230201preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20230201preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230501preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20230501preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20230801preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql/v20240501preview:DatabaseSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20240501preview:DatabaseThreatDetectionPolicy"), pulumi.Alias(type_="azure-native:sql:DatabaseSecurityAlertPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseThreatDetectionPolicy, __self__).__init__(
             'azure-native:sql:DatabaseThreatDetectionPolicy',

@@ -65,7 +65,7 @@ class GetServiceResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        The identity of the service.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -89,7 +89,7 @@ class GetServiceResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The status of the last operation.
+        Provisioning state of the service.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -138,14 +138,14 @@ def get_service(resource_group_name: Optional[str] = None,
                 service_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Get service
-    Azure REST API version: 2023-07-01-preview.
+    Returns details of the service.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+    Other available API versions: 2023-07-01-preview, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str service_name: Service name
+    :param str service_name: The name of Azure API Center service.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -166,14 +166,14 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
-    Get service
-    Azure REST API version: 2023-07-01-preview.
+    Returns details of the service.
+    Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+    Other available API versions: 2023-07-01-preview, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str service_name: Service name
+    :param str service_name: The name of Azure API Center service.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
