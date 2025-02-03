@@ -72,8 +72,6 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 				return nil, err
 			}
 
-			// TODO sort rules?
-
 			outputs := client.ResponseBodyToSdkOutputs(resp)
 			outputs[OriginalStateKey] = originalState
 			return outputs, nil
@@ -108,7 +106,6 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 
 		// PIM Role Management Policies cannot be deleted. Instead, we reset the policy to its default.
 		Delete: func(ctx context.Context, id string, previousInputs, state resource.PropertyMap) error {
-			queryParams := map[string]any{"api-version": client.ApiVersion()}
 			if !state.HasValue(OriginalStateKey) {
 				logging.V(3).Infof("Warning: no original state found for %s, cannot reset", id)
 				return nil
@@ -125,6 +122,7 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 				return err
 			}
 
+			queryParams := map[string]any{"api-version": client.ApiVersion()}
 			_, _, err = client.CreateOrUpdate(ctx, id, origRequest, queryParams)
 			return err
 		},
