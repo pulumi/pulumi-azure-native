@@ -10969,6 +10969,8 @@
    "rootPackageName": "pulumiazurenativesdk"
   },
   "java": {
+   "buildFiles": "gradle",
+   "gradleNexusPublishPluginVersion": "2.0.0",
    "packages": {
     "azure-native": "azurenative",
     "network/v20230201": "network.v20230201"

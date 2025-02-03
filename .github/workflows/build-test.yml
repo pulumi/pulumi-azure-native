@@ -151,6 +151,7 @@ jobs:
             sdk/dotnet/Pulumi.*.csproj
             sdk/nodejs/package.json
             sdk/python/pyproject.toml
+            sdk/java/build.gradle
 
       - name: Tar SDK folder
         if: ${{ matrix.language != 'go' }}
