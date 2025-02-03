@@ -22,6 +22,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
+// OriginalStateKey is a map key used to store the original state of a resource.
+// It can be used to reset the resource to its original state when the resource is deleted, or to restore individual
+// properties of a resource to their defaults when they are removed from the resource.
+const OriginalStateKey = "__orig_state"
+
 type CustomReadFunc func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error)
 
 // CustomResource is a manual SDK-based implementation of a (part of) resource when Azure API is missing some

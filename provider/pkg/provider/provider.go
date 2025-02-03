@@ -1636,9 +1636,10 @@ func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{
 	object := resource.NewPropertyMapFromMap(outputs)
 	if version.GetVersion().Major < 3 {
 		object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
-		if object.HasValue(customresources.OriginalStateKey) {
-			object[customresources.OriginalStateKey] = resource.MakeSecret(object[customresources.OriginalStateKey])
-		}
+	}
+	// If this is a custom resource that needs the resource's original state, transfer it from inputs to outputs.
+	if object.HasValue(customresources.OriginalStateKey) {
+		object[customresources.OriginalStateKey] = resource.MakeSecret(object[customresources.OriginalStateKey])
 	}
 	return object
 }

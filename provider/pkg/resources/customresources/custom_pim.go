@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
-const OriginalStateKey = "__orig_state"
-
 type Rule struct {
 	Id string
 }
