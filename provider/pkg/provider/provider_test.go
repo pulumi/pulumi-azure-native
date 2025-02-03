@@ -9,6 +9,8 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
 	"github.com/Azure/go-autorest/autorest/azure"
+	"github.com/blang/semver"
+
 	az "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
@@ -639,5 +641,52 @@ func TestCustomCreate(t *testing.T) {
 		_, err := customCreate(context.Background(), resource.PropertyMap{}, "id", crudClient, customRes)
 		require.NoError(t, err)
 		assert.True(t, calledCreate)
+	})
+}
+
+func TestCheckpointObject(t *testing.T) {
+	t.Parallel()
+
+	t.Run("stores inputs in v2", func(t *testing.T) {
+		t.Parallel()
+
+		inputs := resource.PropertyMap{
+			"name": resource.NewStringProperty("test"),
+		}
+		outputs := map[string]any{}
+
+		checkpoint := checkpointObjectVersioned(inputs, outputs, semver.MustParse("2.0.0"))
+		assert.Contains(t, checkpoint, resource.PropertyKey("__inputs"))
+	})
+
+	t.Run("does not store inputs in v3", func(t *testing.T) {
+		t.Parallel()
+
+		inputs := resource.PropertyMap{
+			"name": resource.NewStringProperty("test"),
+		}
+		outputs := map[string]any{}
+
+		checkpoint := checkpointObjectVersioned(inputs, outputs, semver.MustParse("3.0.0"))
+		assert.NotContains(t, checkpoint, resource.PropertyKey("__inputs"))
+	})
+
+	t.Run("preserves original state", func(t *testing.T) {
+		t.Parallel()
+
+		inputs := resource.PropertyMap{
+			"name": resource.NewStringProperty("test"),
+		}
+		outputs := map[string]any{
+			customresources.OriginalStateKey: resource.NewStringProperty("original state"),
+		}
+
+		checkpoint := checkpointObjectVersioned(inputs, outputs, semver.MustParse("2.0.0"))
+		assert.Contains(t, checkpoint, resource.PropertyKey(customresources.OriginalStateKey))
+		assert.True(t, checkpoint.ContainsSecrets())
+
+		checkpoint = checkpointObjectVersioned(inputs, outputs, semver.MustParse("3.0.0"))
+		assert.Contains(t, checkpoint, resource.PropertyKey(customresources.OriginalStateKey))
+		assert.True(t, checkpoint.ContainsSecrets())
 	})
 }

@@ -13,6 +13,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/blang/semver"
 	structpb "github.com/golang/protobuf/ptypes/struct"
 	"github.com/manicminer/hamilton/environments"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
@@ -1645,11 +1646,15 @@ func azureContext(ctx context.Context, timeoutSeconds float64) (context.Context,
 // checkpointObject produces the checkpointed state for the given inputs and outputs.
 // In v2, we stored the inputs in an `__inputs` field of the state; removed in v3.
 func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
+	return checkpointObjectVersioned(inputs, outputs, version.GetVersion())
+}
+
+func checkpointObjectVersioned(inputs resource.PropertyMap, outputs map[string]interface{}, version semver.Version) resource.PropertyMap {
 	object := resource.NewPropertyMapFromMap(outputs)
-	if version.GetVersion().Major < 3 {
+	if version.Major < 3 {
 		object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
 	}
-	// If this is a custom resource that needs the resource's original state, transfer it from inputs to outputs.
+	// If this is a custom resource that needs the resource's original state, preserve it as a secret.
 	if object.HasValue(customresources.OriginalStateKey) {
 		object[customresources.OriginalStateKey] = resource.MakeSecret(object[customresources.OriginalStateKey])
 	}
