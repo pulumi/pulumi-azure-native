@@ -1,6 +1,7 @@
 package customresources
 
 import (
+	"context"
 	"testing"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -8,6 +9,17 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+func TestCanCreate(t *testing.T) {
+	t.Parallel()
+
+	t.Run("returns nil", func(t *testing.T) {
+		t.Parallel()
+		r, err := pimRoleManagementPolicy(nil, nil)
+		require.NoError(t, err)
+		assert.Nil(t, r.CanCreate(context.Background(), ""))
+	})
+}
 
 func TestRestoreDefaultsForDeletedRules(t *testing.T) {
 	t.Run("nothing to restore", func(t *testing.T) {
