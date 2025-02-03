@@ -953,26 +953,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	var outputs map[string]interface{}
 	switch {
 	case isCustom && customRes.Create != nil:
-		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here.
-		var exists bool
-		if customRes.CanCreate != nil {
-			err = customRes.CanCreate(ctx, id)
-			exists = err != nil
-		} else if customRes.Read != nil {
-			_, exists, err = customRes.Read(ctx, id, inputs)
-		} else {
-			err = crudClient.CanCreate(ctx, id)
-			exists = err != nil
-		}
-		if err != nil {
-			return nil, err
-		}
-		if exists {
-			return nil, fmt.Errorf("cannot create already existing resource %q", id)
-		}
-
-		// Create the custom resource and retrieve its outputs, which already match the SDK shape.
-		outputs, err = customRes.Create(ctx, id, inputs)
+		outputs, err = customCreate(ctx, inputs, id, crudClient, customRes)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
@@ -998,6 +979,37 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		Id:         id,
 		Properties: checkpoint,
 	}, nil
+}
+
+func customCreate(ctx context.Context, inputs resource.PropertyMap, id string, crudClient crud.ResourceCrudClient,
+	customRes *customresources.CustomResource,
+) (map[string]any, error) {
+	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here.
+	var exists bool
+	var err error
+
+	if customRes.CanCreate != nil {
+		err = customRes.CanCreate(ctx, id)
+		exists = err != nil
+	} else if customRes.Read != nil {
+		_, exists, err = customRes.Read(ctx, id, inputs)
+	} else {
+		err = crudClient.CanCreate(ctx, id)
+		exists = err != nil
+	}
+	if err != nil {
+		return nil, err
+	}
+	if exists {
+		return nil, fmt.Errorf("cannot create already existing resource %q", id)
+	}
+
+	// Create the custom resource and retrieve its outputs, which already match the SDK shape.
+	outputs, err := customRes.Create(ctx, id, inputs)
+	if err != nil {
+		return nil, azure.AzureError(err)
+	}
+	return outputs, nil
 }
 
 func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.CreateRequest, inputs resource.PropertyMap, id string,

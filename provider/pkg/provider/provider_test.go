@@ -526,3 +526,118 @@ func TestGetTokenRequestOpts(t *testing.T) {
 	assert.Empty(t, opts.TenantID)
 	assert.Equal(t, []string{"http://endpoint/.default"}, opts.Scopes)
 }
+
+func TestCustomCreate(t *testing.T) {
+	t.Parallel()
+
+	t.Run("resource doesn't exist, uses the custom resource's CanCreate", func(t *testing.T) {
+		t.Parallel()
+
+		calledCreate := false
+		customRes := &customresources.CustomResource{
+			CanCreate: func(ctx context.Context, id string) error {
+				return nil
+			},
+			Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+				calledCreate = true
+				return map[string]any{}, nil
+			},
+		}
+
+		_, err := customCreate(context.Background(), resource.PropertyMap{}, "id", nil, customRes)
+		require.NoError(t, err)
+		assert.True(t, calledCreate)
+	})
+
+	t.Run("resource does exist, uses the custom resource's CanCreate", func(t *testing.T) {
+		t.Parallel()
+
+		calledCanCreate := false
+		calledCreate := false
+		calledRead := false
+		customRes := &customresources.CustomResource{
+			CanCreate: func(ctx context.Context, id string) error {
+				calledCanCreate = true
+				return fmt.Errorf("resource already exists")
+			},
+			Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
+				calledRead = true
+				return map[string]any{}, true, nil
+			},
+			Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+				calledCreate = true
+				return map[string]any{}, nil
+			},
+		}
+
+		_, err := customCreate(context.Background(), resource.PropertyMap{}, "id", nil, customRes)
+		require.Error(t, err)
+		assert.True(t, calledCanCreate)
+		assert.False(t, calledRead)
+		assert.False(t, calledCreate)
+	})
+
+	t.Run("resource doesn't exist, uses the custom resource's Read", func(t *testing.T) {
+		t.Parallel()
+
+		azureClient := &az.MockAzureClient{}
+		crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "123", nil)
+
+		calledCreate := false
+		customRes := &customresources.CustomResource{
+			Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
+				return map[string]any{}, false, nil
+			},
+			Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+				calledCreate = true
+				return map[string]any{}, nil
+			},
+		}
+
+		_, err := customCreate(context.Background(), resource.PropertyMap{}, "id", crudClient, customRes)
+		require.NoError(t, err)
+		assert.True(t, calledCreate)
+	})
+
+	t.Run("resource does exist, uses the custom resource's Read", func(t *testing.T) {
+		t.Parallel()
+
+		azureClient := &az.MockAzureClient{}
+		crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "123", nil)
+
+		calledCreate := false
+		customRes := &customresources.CustomResource{
+			Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
+				return map[string]any{}, true, nil
+			},
+			Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+				calledCreate = true
+				return map[string]any{}, nil
+			},
+		}
+
+		_, err := customCreate(context.Background(), resource.PropertyMap{}, "id", crudClient, customRes)
+		require.Error(t, err)
+		require.Contains(t, err.Error(), "cannot create already existing resource")
+		assert.False(t, calledCreate)
+	})
+
+	t.Run("resource doesn't exist, uses the regular CrudClient if custom resource has neither Read nor CanCreate", func(t *testing.T) {
+		t.Parallel()
+
+		azureClient := &az.MockAzureClient{}
+		crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "123", &resources.AzureAPIResource{})
+
+		calledCreate := false
+		customRes := &customresources.CustomResource{
+			Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+				calledCreate = true
+				return map[string]any{}, nil
+			},
+		}
+
+		_, err := customCreate(context.Background(), resource.PropertyMap{}, "id", crudClient, customRes)
+		require.NoError(t, err)
+		assert.True(t, calledCreate)
+	})
+}
