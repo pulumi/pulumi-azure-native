@@ -208,7 +208,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ContentType AnalyticRule { get; } = new ContentType("AnalyticRule");
+        public static ContentType AnalyticsRule { get; } = new ContentType("AnalyticsRule");
         public static ContentType Workbook { get; } = new ContentType("Workbook");
 
         public static bool operator ==(ContentType left, ContentType right) => left.Equals(right);

@@ -77,6 +77,8 @@ if typing.TYPE_CHECKING:
     v20240701preview = __v20240701preview
     import pulumi_azure_native.netapp.v20240901 as __v20240901
     v20240901 = __v20240901
+    import pulumi_azure_native.netapp.v20240901preview as __v20240901preview
+    v20240901preview = __v20240901preview
 else:
     v20210401 = _utilities.lazy_import('pulumi_azure_native.netapp.v20210401')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20210401preview')
@@ -98,4 +100,5 @@ else:
     v20240701 = _utilities.lazy_import('pulumi_azure_native.netapp.v20240701')
     v20240701preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20240701preview')
     v20240901 = _utilities.lazy_import('pulumi_azure_native.netapp.v20240901')
+    v20240901preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20240901preview')
 

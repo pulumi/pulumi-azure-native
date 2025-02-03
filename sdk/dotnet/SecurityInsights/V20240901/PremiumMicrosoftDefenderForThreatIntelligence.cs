@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240901
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240301:PremiumMicrosoftDefenderForThreatIntelligence" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:PremiumMicrosoftDefenderForThreatIntelligence" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:PremiumMicrosoftDefenderForThreatIntelligence" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:PremiumMicrosoftDefenderForThreatIntelligence" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:PremiumMicrosoftDefenderForThreatIntelligence" },
                 },
             };

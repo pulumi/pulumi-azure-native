@@ -76,21 +76,13 @@ namespace Pulumi.AzureNative.Quantum.V20231113Preview
     public sealed class GetWorkspaceResult
     {
         /// <summary>
-        /// Indicator of enablement of the Quantum workspace Api keys.
-        /// </summary>
-        public readonly bool? ApiKeyEnabled;
-        /// <summary>
-        /// The URI of the workspace endpoint.
-        /// </summary>
-        public readonly string EndpointUri;
-        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Managed Identity information.
+        /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.QuantumWorkspaceResponseIdentity? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -100,17 +92,9 @@ namespace Pulumi.AzureNative.Quantum.V20231113Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of Providers selected for this Workspace
+        /// Gets or sets the properties. Define quantum workspace's specific properties.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ProviderResponse> Providers;
-        /// <summary>
-        /// Provisioning status field
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// ARM Resource Id of the storage account associated with this workspace.
-        /// </summary>
-        public readonly string? StorageAccount;
+        public readonly Outputs.WorkspaceResourcePropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -123,52 +107,33 @@ namespace Pulumi.AzureNative.Quantum.V20231113Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Whether the current workspace is ready to accept Jobs.
-        /// </summary>
-        public readonly string Usable;
 
         [OutputConstructor]
         private GetWorkspaceResult(
-            bool? apiKeyEnabled,
-
-            string endpointUri,
-
             string id,
 
-            Outputs.QuantumWorkspaceResponseIdentity? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.ProviderResponse> providers,
-
-            string provisioningState,
-
-            string? storageAccount,
+            Outputs.WorkspaceResourcePropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string usable)
+            string type)
         {
-            ApiKeyEnabled = apiKeyEnabled;
-            EndpointUri = endpointUri;
             Id = id;
             Identity = identity;
             Location = location;
             Name = name;
-            Providers = providers;
-            ProvisioningState = provisioningState;
-            StorageAccount = storageAccount;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            Usable = usable;
         }
     }
 }

@@ -110,6 +110,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240401Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:EyesOn" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:EyesOn" },
                 },
             };

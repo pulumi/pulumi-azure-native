@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20241001Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:System" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:System" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:System" },
                 },
             };

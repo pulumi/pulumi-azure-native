@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230801Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:HuntComment" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:HuntComment" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:HuntComment" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:HuntComment" },
                 },
             };

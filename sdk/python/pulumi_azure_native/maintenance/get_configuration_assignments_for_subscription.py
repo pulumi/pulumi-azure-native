@@ -137,7 +137,7 @@ class AwaitableGetConfigurationAssignmentsForSubscriptionResult(GetConfiguration
 def get_configuration_assignments_for_subscription(configuration_assignment_name: Optional[str] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationAssignmentsForSubscriptionResult:
     """
-    Get configuration assignment for resource..
+    Get configuration assignment for resource.
     Azure REST API version: 2023-04-01.
 
     Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
@@ -162,7 +162,7 @@ def get_configuration_assignments_for_subscription(configuration_assignment_name
 def get_configuration_assignments_for_subscription_output(configuration_assignment_name: Optional[pulumi.Input[str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAssignmentsForSubscriptionResult]:
     """
-    Get configuration assignment for resource..
+    Get configuration assignment for resource.
     Azure REST API version: 2023-04-01.
 
     Other available API versions: 2023-09-01-preview, 2023-10-01-preview.

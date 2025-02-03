@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Get whois information for a single domain name
         /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
         public static Task<ListWhoisByDomainResult> InvokeAsync(ListWhoisByDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWhoisByDomainResult>("azure-native:securityinsights:listWhoisByDomain", args ?? new ListWhoisByDomainArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Get whois information for a single domain name
         /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
         public static Output<ListWhoisByDomainResult> Invoke(ListWhoisByDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWhoisByDomainResult>("azure-native:securityinsights:listWhoisByDomain", args ?? new ListWhoisByDomainInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Get whois information for a single domain name
         /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
         public static Output<ListWhoisByDomainResult> Invoke(ListWhoisByDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListWhoisByDomainResult>("azure-native:securityinsights:listWhoisByDomain", args ?? new ListWhoisByDomainInvokeArgs(), options.WithDefaults());

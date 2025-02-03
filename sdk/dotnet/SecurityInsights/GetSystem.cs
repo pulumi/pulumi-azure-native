@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Gets the system.
         /// Azure REST API version: 2024-04-01-preview.
         /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
         public static Task<GetSystemResult> InvokeAsync(GetSystemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSystemResult>("azure-native:securityinsights:getSystem", args ?? new GetSystemArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Gets the system.
         /// Azure REST API version: 2024-04-01-preview.
         /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
         public static Output<GetSystemResult> Invoke(GetSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemResult>("azure-native:securityinsights:getSystem", args ?? new GetSystemInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Gets the system.
         /// Azure REST API version: 2024-04-01-preview.
         /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
         public static Output<GetSystemResult> Invoke(GetSystemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemResult>("azure-native:securityinsights:getSystem", args ?? new GetSystemInvokeArgs(), options.WithDefaults());

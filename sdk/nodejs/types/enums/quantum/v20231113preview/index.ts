@@ -2,26 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
+export const ManagedServiceIdentityType = {
     None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**
- * The identity type.
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
  */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
-
-export const Status = {
-    Succeeded: "Succeeded",
-    Launching: "Launching",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Deleted: "Deleted",
-    Failed: "Failed",
-} as const;
-
-/**
- * Provisioning status field
- */
-export type Status = (typeof Status)[keyof typeof Status];
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];

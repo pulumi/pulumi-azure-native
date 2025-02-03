@@ -110,6 +110,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230901Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:Action" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:Action" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:Action" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:Action" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:Action" },
                 },
             };

@@ -110,6 +110,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230701Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:Anomalies" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:Anomalies" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:Anomalies" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:Anomalies" },
                 },
             };

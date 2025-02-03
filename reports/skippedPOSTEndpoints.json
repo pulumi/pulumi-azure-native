@@ -1987,7 +1987,8 @@
   },
   "Quantum": {
     "Workspace_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Quantum/locations/{locationName}/checkNameAvailability",
-    "Workspace_RegenerateKeys": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Quantum/workspaces/{workspaceName}/regenerateKey"
+    "Workspaces_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Quantum/locations/{location}/checkNameAvailability",
+    "Workspaces_RegenerateKeys": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Quantum/workspaces/{workspaceName}/regenerateKey"
   },
   "RecommendationsService": {
     "Accounts_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.RecommendationsService/checkNameAvailability",
@@ -2273,6 +2274,11 @@
     "Applications_RefreshPermissions": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applications/{applicationName}/refreshPermissions",
     "Applications_UpdateAccess": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applications/{applicationName}/updateAccess",
     "PortalRegistryPackage": "/providers/Microsoft.Solutions/portalRegistryPackage"
+  },
+  "Sovereign": {
+    "LandingZoneConfigurationOperations_CreateCopy": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName}/landingZoneConfigurations/{landingZoneConfigurationName}/createCopy",
+    "LandingZoneConfigurationOperations_GenerateLandingZone": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName}/landingZoneConfigurations/{landingZoneConfigurationName}/generateLandingZone",
+    "LandingZoneConfigurationOperations_UpdateAuthoringStatus": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName}/landingZoneConfigurations/{landingZoneConfigurationName}/updateAuthoringStatus"
   },
   "Sql": {
     "DatabaseEncryptionProtectors_Revalidate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/encryptionProtector/{encryptionProtectorName}/revalidate",

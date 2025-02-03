@@ -185,6 +185,7 @@ import * as servicelinker from "./servicelinker";
 import * as servicenetworking from "./servicenetworking";
 import * as signalrservice from "./signalrservice";
 import * as solutions from "./solutions";
+import * as sovereign from "./sovereign";
 import * as sql from "./sql";
 import * as sqlvirtualmachine from "./sqlvirtualmachine";
 import * as standbypool from "./standbypool";
@@ -395,6 +396,7 @@ export {
     servicenetworking,
     signalrservice,
     solutions,
+    sovereign,
     sql,
     sqlvirtualmachine,
     standbypool,

@@ -169,6 +169,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:ActivityCustomEntityQuery" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:ActivityCustomEntityQuery" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:ActivityCustomEntityQuery" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:ActivityCustomEntityQuery" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:ActivityCustomEntityQuery" },
                 },
             };

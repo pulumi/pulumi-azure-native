@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:EntityAnalytics" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:EntityAnalytics" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:EntityAnalytics" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:EntityAnalytics" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

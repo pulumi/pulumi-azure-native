@@ -13,13 +13,16 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'ApiKeyResponse',
+    'ManagedServiceIdentityResponse',
     'ProviderResponse',
-    'QuantumWorkspaceResponseIdentity',
     'SystemDataResponse',
+    'UserAssignedIdentityResponse',
+    'WorkspaceResourcePropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -57,6 +60,83 @@ class ApiKeyResponse(dict):
 
 
 @pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
 class ProviderResponse(dict):
     """
     Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
@@ -64,7 +144,9 @@ class ProviderResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "applicationName":
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "applicationName":
             suggest = "application_name"
         elif key == "instanceUri":
             suggest = "instance_uri"
@@ -72,8 +154,6 @@ class ProviderResponse(dict):
             suggest = "provider_id"
         elif key == "providerSku":
             suggest = "provider_sku"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
         elif key == "resourceUsageId":
             suggest = "resource_usage_id"
 
@@ -89,21 +169,22 @@ class ProviderResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 provisioning_state: str,
                  application_name: Optional[str] = None,
                  instance_uri: Optional[str] = None,
                  provider_id: Optional[str] = None,
                  provider_sku: Optional[str] = None,
-                 provisioning_state: Optional[str] = None,
                  resource_usage_id: Optional[str] = None):
         """
         Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
+        :param str provisioning_state: Provisioning status field
         :param str application_name: The provider's marketplace application display name.
         :param str instance_uri: A Uri identifying the specific instance of this provider.
         :param str provider_id: Unique id of this provider.
         :param str provider_sku: The sku associated with pricing information for this provider.
-        :param str provisioning_state: Provisioning status field
         :param str resource_usage_id: Id to track resource usage for the provider.
         """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if application_name is not None:
             pulumi.set(__self__, "application_name", application_name)
         if instance_uri is not None:
@@ -112,10 +193,16 @@ class ProviderResponse(dict):
             pulumi.set(__self__, "provider_id", provider_id)
         if provider_sku is not None:
             pulumi.set(__self__, "provider_sku", provider_sku)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if resource_usage_id is not None:
             pulumi.set(__self__, "resource_usage_id", resource_usage_id)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning status field
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="applicationName")
@@ -150,84 +237,12 @@ class ProviderResponse(dict):
         return pulumi.get(self, "provider_sku")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        Provisioning status field
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter(name="resourceUsageId")
     def resource_usage_id(self) -> Optional[str]:
         """
         Id to track resource usage for the provider.
         """
         return pulumi.get(self, "resource_usage_id")
-
-
-@pulumi.output_type
-class QuantumWorkspaceResponseIdentity(dict):
-    """
-    Managed Identity information.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in QuantumWorkspaceResponseIdentity. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        QuantumWorkspaceResponseIdentity.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        QuantumWorkspaceResponseIdentity.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
-                 type: Optional[str] = None):
-        """
-        Managed Identity information.
-        :param str principal_id: The principal ID of resource identity.
-        :param str tenant_id: The tenant ID of resource.
-        :param str type: The identity type.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal ID of resource identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The tenant ID of resource.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        The identity type.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -338,5 +353,160 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class WorkspaceResourcePropertiesResponse(dict):
+    """
+    Properties of a Workspace
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointUri":
+            suggest = "endpoint_uri"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "apiKeyEnabled":
+            suggest = "api_key_enabled"
+        elif key == "storageAccount":
+            suggest = "storage_account"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_uri: str,
+                 provisioning_state: str,
+                 usable: str,
+                 api_key_enabled: Optional[bool] = None,
+                 providers: Optional[Sequence['outputs.ProviderResponse']] = None,
+                 storage_account: Optional[str] = None):
+        """
+        Properties of a Workspace
+        :param str endpoint_uri: The URI of the workspace endpoint.
+        :param str provisioning_state: Provisioning status field
+        :param str usable: Whether the current workspace is ready to accept Jobs.
+        :param bool api_key_enabled: Indicator of enablement of the Quantum workspace Api keys.
+        :param Sequence['ProviderResponse'] providers: List of Providers selected for this Workspace
+        :param str storage_account: ARM Resource Id of the storage account associated with this workspace.
+        """
+        pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "usable", usable)
+        if api_key_enabled is not None:
+            pulumi.set(__self__, "api_key_enabled", api_key_enabled)
+        if providers is not None:
+            pulumi.set(__self__, "providers", providers)
+        if storage_account is not None:
+            pulumi.set(__self__, "storage_account", storage_account)
+
+    @property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> str:
+        """
+        The URI of the workspace endpoint.
+        """
+        return pulumi.get(self, "endpoint_uri")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning status field
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def usable(self) -> str:
+        """
+        Whether the current workspace is ready to accept Jobs.
+        """
+        return pulumi.get(self, "usable")
+
+    @property
+    @pulumi.getter(name="apiKeyEnabled")
+    def api_key_enabled(self) -> Optional[bool]:
+        """
+        Indicator of enablement of the Quantum workspace Api keys.
+        """
+        return pulumi.get(self, "api_key_enabled")
+
+    @property
+    @pulumi.getter
+    def providers(self) -> Optional[Sequence['outputs.ProviderResponse']]:
+        """
+        List of Providers selected for this Workspace
+        """
+        return pulumi.get(self, "providers")
+
+    @property
+    @pulumi.getter(name="storageAccount")
+    def storage_account(self) -> Optional[str]:
+        """
+        ARM Resource Id of the storage account associated with this workspace.
+        """
+        return pulumi.get(self, "storage_account")
 
 

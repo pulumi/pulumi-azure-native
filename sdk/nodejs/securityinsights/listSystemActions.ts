@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * List of actions for a business application system.
  * Azure REST API version: 2024-04-01-preview.
  *
- * Other available API versions: 2024-10-01-preview.
+ * Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
  */
 export function listSystemActions(args: ListSystemActionsArgs, opts?: pulumi.InvokeOptions): Promise<ListSystemActionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,7 +59,7 @@ export interface ListSystemActionsResult {
  * List of actions for a business application system.
  * Azure REST API version: 2024-04-01-preview.
  *
- * Other available API versions: 2024-10-01-preview.
+ * Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
  */
 export function listSystemActionsOutput(args: ListSystemActionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSystemActionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

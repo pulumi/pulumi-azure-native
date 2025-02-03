@@ -34,6 +34,7 @@ import * as v20240301 from "./v20240301";
 import * as v20240401preview from "./v20240401preview";
 import * as v20240901 from "./v20240901";
 import * as v20241001preview from "./v20241001preview";
+import * as v20250101preview from "./v20250101preview";
 
 export {
     v20190101preview,
@@ -68,6 +69,7 @@ export {
     v20240401preview,
     v20240901,
     v20241001preview,
+    v20250101preview,
 };
 
 export const ActionType = {
@@ -571,7 +573,7 @@ export const ConfigurationType = {
 export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
 
 export const ContentType = {
-    AnalyticRule: "AnalyticRule",
+    AnalyticsRule: "AnalyticsRule",
     Workbook: "Workbook",
 } as const;
 

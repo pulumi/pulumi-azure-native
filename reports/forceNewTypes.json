@@ -59248,6 +59248,69 @@
     "Property": "zones"
   },
   {
+    "VersionedModule": "netapp/v20240901preview",
+    "Module": "NetApp",
+    "ResourceName": "Volume",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20240901preview",
+    "Module": "NetApp",
+    "ResourceName": "Volume",
+    "ReferenceName": "replicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20240901preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "acceptGrowCapacityPoolForShortTermCloneSplit"
+  },
+  {
+    "VersionedModule": "netapp/v20240901preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "VersionedModule": "netapp/v20240901preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "VersionedModule": "netapp/v20240901preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "replicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "VersionedModule": "netapp/v20240901preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "VersionedModule": "netapp/v20240901preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "VersionedModule": "netapp/v20240901preview",
+    "Module": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
     "VersionedModule": "network",
     "Module": "Network",
     "ResourceName": "InboundEndpoint",

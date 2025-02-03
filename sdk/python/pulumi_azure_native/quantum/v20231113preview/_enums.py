@@ -5,26 +5,15 @@
 from enum import Enum
 
 __all__ = [
-    'ResourceIdentityType',
-    'Status',
+    'ManagedServiceIdentityType',
 ]
 
 
-class ResourceIdentityType(str, Enum):
+class ManagedServiceIdentityType(str, Enum):
     """
-    The identity type.
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    SYSTEM_ASSIGNED = "SystemAssigned"
     NONE = "None"
-
-
-class Status(str, Enum):
-    """
-    Provisioning status field
-    """
-    SUCCEEDED = "Succeeded"
-    LAUNCHING = "Launching"
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    DELETED = "Deleted"
-    FAILED = "Failed"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"

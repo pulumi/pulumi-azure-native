@@ -137,7 +137,7 @@ class AwaitableGetConfigurationAssignmentsForSubscriptionResult(GetConfiguration
 def get_configuration_assignments_for_subscription(configuration_assignment_name: Optional[str] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationAssignmentsForSubscriptionResult:
     """
-    Get configuration assignment for resource..
+    Get configuration assignment for resource.
 
 
     :param str configuration_assignment_name: Configuration assignment name
@@ -159,7 +159,7 @@ def get_configuration_assignments_for_subscription(configuration_assignment_name
 def get_configuration_assignments_for_subscription_output(configuration_assignment_name: Optional[pulumi.Input[str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAssignmentsForSubscriptionResult]:
     """
-    Get configuration assignment for resource..
+    Get configuration assignment for resource.
 
 
     :param str configuration_assignment_name: Configuration assignment name

@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.NetApp.V20240701
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240501preview:Backup" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Backup" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:Backup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901preview:Backup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

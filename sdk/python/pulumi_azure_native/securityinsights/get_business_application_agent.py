@@ -145,7 +145,7 @@ def get_business_application_agent(agent_resource_name: Optional[str] = None,
     Gets Business Application Agent.
     Azure REST API version: 2024-04-01-preview.
 
-    Other available API versions: 2024-10-01-preview.
+    Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
 
 
     :param str agent_resource_name: Business Application Agent Name
@@ -177,7 +177,7 @@ def get_business_application_agent_output(agent_resource_name: Optional[pulumi.I
     Gets Business Application Agent.
     Azure REST API version: 2024-04-01-preview.
 
-    Other available API versions: 2024-10-01-preview.
+    Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
 
 
     :param str agent_resource_name: Business Application Agent Name

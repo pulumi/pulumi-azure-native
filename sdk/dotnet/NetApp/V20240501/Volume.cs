@@ -447,6 +447,7 @@ namespace Pulumi.AzureNative.NetApp.V20240501
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:Volume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901preview:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp:Volume" },
                 },
             };

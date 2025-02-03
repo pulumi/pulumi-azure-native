@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:ThreatIntelligenceAlertRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:ThreatIntelligenceAlertRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:ThreatIntelligenceAlertRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:ThreatIntelligenceAlertRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:ThreatIntelligenceAlertRule" },
                 },
             };

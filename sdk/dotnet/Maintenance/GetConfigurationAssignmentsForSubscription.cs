@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Maintenance
     public static class GetConfigurationAssignmentsForSubscription
     {
         /// <summary>
-        /// Get configuration assignment for resource..
+        /// Get configuration assignment for resource.
         /// Azure REST API version: 2023-04-01.
         /// 
         /// Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Maintenance
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentsForSubscriptionResult>("azure-native:maintenance:getConfigurationAssignmentsForSubscription", args ?? new GetConfigurationAssignmentsForSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get configuration assignment for resource..
+        /// Get configuration assignment for resource.
         /// Azure REST API version: 2023-04-01.
         /// 
         /// Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Maintenance
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentsForSubscriptionResult>("azure-native:maintenance:getConfigurationAssignmentsForSubscription", args ?? new GetConfigurationAssignmentsForSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get configuration assignment for resource..
+        /// Get configuration assignment for resource.
         /// Azure REST API version: 2023-04-01.
         /// 
         /// Other available API versions: 2023-09-01-preview, 2023-10-01-preview.

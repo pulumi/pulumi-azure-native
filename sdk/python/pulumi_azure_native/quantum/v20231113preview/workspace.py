@@ -23,35 +23,27 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 api_key_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['QuantumWorkspaceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 providers: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderArgs']]]] = None,
-                 storage_account: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['WorkspaceResourcePropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[bool] api_key_enabled: Indicator of enablement of the Quantum workspace Api keys.
-        :param pulumi.Input['QuantumWorkspaceIdentityArgs'] identity: Managed Identity information.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Sequence[pulumi.Input['ProviderArgs']]] providers: List of Providers selected for this Workspace
-        :param pulumi.Input[str] storage_account: ARM Resource Id of the storage account associated with this workspace.
+        :param pulumi.Input['WorkspaceResourcePropertiesArgs'] properties: Gets or sets the properties. Define quantum workspace's specific properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the quantum workspace resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if api_key_enabled is not None:
-            pulumi.set(__self__, "api_key_enabled", api_key_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if providers is not None:
-            pulumi.set(__self__, "providers", providers)
-        if storage_account is not None:
-            pulumi.set(__self__, "storage_account", storage_account)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if workspace_name is not None:
@@ -70,27 +62,15 @@ class WorkspaceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="apiKeyEnabled")
-    def api_key_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicator of enablement of the Quantum workspace Api keys.
-        """
-        return pulumi.get(self, "api_key_enabled")
-
-    @api_key_enabled.setter
-    def api_key_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "api_key_enabled", value)
-
-    @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['QuantumWorkspaceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        Managed Identity information.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['QuantumWorkspaceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -107,27 +87,15 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter
-    def providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderArgs']]]]:
+    def properties(self) -> Optional[pulumi.Input['WorkspaceResourcePropertiesArgs']]:
         """
-        List of Providers selected for this Workspace
+        Gets or sets the properties. Define quantum workspace's specific properties.
         """
-        return pulumi.get(self, "providers")
+        return pulumi.get(self, "properties")
 
-    @providers.setter
-    def providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderArgs']]]]):
-        pulumi.set(self, "providers", value)
-
-    @property
-    @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM Resource Id of the storage account associated with this workspace.
-        """
-        return pulumi.get(self, "storage_account")
-
-    @storage_account.setter
-    def storage_account(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "storage_account", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['WorkspaceResourcePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
@@ -159,26 +127,22 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[Union['QuantumWorkspaceIdentityArgs', 'QuantumWorkspaceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderArgs', 'ProviderArgsDict']]]]] = None,
+                 properties: Optional[pulumi.Input[Union['WorkspaceResourcePropertiesArgs', 'WorkspaceResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        The resource proxy definition object for quantum workspace.
+        The resource proxy definition object for Quantum Workspace.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] api_key_enabled: Indicator of enablement of the Quantum workspace Api keys.
-        :param pulumi.Input[Union['QuantumWorkspaceIdentityArgs', 'QuantumWorkspaceIdentityArgsDict']] identity: Managed Identity information.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProviderArgs', 'ProviderArgsDict']]]] providers: List of Providers selected for this Workspace
+        :param pulumi.Input[Union['WorkspaceResourcePropertiesArgs', 'WorkspaceResourcePropertiesArgsDict']] properties: Gets or sets the properties. Define quantum workspace's specific properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] storage_account: ARM Resource Id of the storage account associated with this workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of the quantum workspace resource.
         """
@@ -189,7 +153,7 @@ class Workspace(pulumi.CustomResource):
                  args: WorkspaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The resource proxy definition object for quantum workspace.
+        The resource proxy definition object for Quantum Workspace.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -206,12 +170,10 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[Union['QuantumWorkspaceIdentityArgs', 'QuantumWorkspaceIdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderArgs', 'ProviderArgsDict']]]]] = None,
+                 properties: Optional[pulumi.Input[Union['WorkspaceResourcePropertiesArgs', 'WorkspaceResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -223,22 +185,17 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-            __props__.__dict__["api_key_enabled"] = api_key_enabled
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            __props__.__dict__["providers"] = providers
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["storage_account"] = storage_account
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workspace_name"] = workspace_name
-            __props__.__dict__["endpoint_uri"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["usable"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:quantum/v20191104preview:Workspace"), pulumi.Alias(type_="azure-native:quantum/v20220110preview:Workspace"), pulumi.Alias(type_="azure-native:quantum:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
@@ -263,41 +220,20 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
-        __props__.__dict__["api_key_enabled"] = None
-        __props__.__dict__["endpoint_uri"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["providers"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["storage_account"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["usable"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="apiKeyEnabled")
-    def api_key_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicator of enablement of the Quantum workspace Api keys.
-        """
-        return pulumi.get(self, "api_key_enabled")
-
-    @property
-    @pulumi.getter(name="endpointUri")
-    def endpoint_uri(self) -> pulumi.Output[str]:
-        """
-        The URI of the workspace endpoint.
-        """
-        return pulumi.get(self, "endpoint_uri")
-
-    @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.QuantumWorkspaceResponseIdentity']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        Managed Identity information.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -319,27 +255,11 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def providers(self) -> pulumi.Output[Optional[Sequence['outputs.ProviderResponse']]]:
+    def properties(self) -> pulumi.Output['outputs.WorkspaceResourcePropertiesResponse']:
         """
-        List of Providers selected for this Workspace
+        Gets or sets the properties. Define quantum workspace's specific properties.
         """
-        return pulumi.get(self, "providers")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
-        """
-        Provisioning status field
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> pulumi.Output[Optional[str]]:
-        """
-        ARM Resource Id of the storage account associated with this workspace.
-        """
-        return pulumi.get(self, "storage_account")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -364,12 +284,4 @@ class Workspace(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def usable(self) -> pulumi.Output[str]:
-        """
-        Whether the current workspace is ready to accept Jobs.
-        """
-        return pulumi.get(self, "usable")
 

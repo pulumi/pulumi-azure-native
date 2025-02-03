@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.NetApp.V20231101Preview
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:BackupVault" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901preview:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp:BackupVault" },
                 },
             };

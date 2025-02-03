@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.NetApp.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:Snapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901preview:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp:Snapshot" },
                 },
             };

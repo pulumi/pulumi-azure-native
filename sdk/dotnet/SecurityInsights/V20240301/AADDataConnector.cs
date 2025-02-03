@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:AADDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:AADDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:AADDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:AADDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:AADDataConnector" },
                 },
             };

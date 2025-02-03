@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231201Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:OfficeATPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:OfficeATPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:OfficeATPDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:OfficeATPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:OfficeATPDataConnector" },
                 },
             };

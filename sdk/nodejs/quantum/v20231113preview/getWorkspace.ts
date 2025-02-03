@@ -30,25 +30,17 @@ export interface GetWorkspaceArgs {
 }
 
 /**
- * The resource proxy definition object for quantum workspace.
+ * The resource proxy definition object for Quantum Workspace.
  */
 export interface GetWorkspaceResult {
-    /**
-     * Indicator of enablement of the Quantum workspace Api keys.
-     */
-    readonly apiKeyEnabled?: boolean;
-    /**
-     * The URI of the workspace endpoint.
-     */
-    readonly endpointUri: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Managed Identity information.
+     * The managed service identities assigned to this resource.
      */
-    readonly identity?: outputs.quantum.v20231113preview.QuantumWorkspaceResponseIdentity;
+    readonly identity?: outputs.quantum.v20231113preview.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -58,17 +50,9 @@ export interface GetWorkspaceResult {
      */
     readonly name: string;
     /**
-     * List of Providers selected for this Workspace
+     * Gets or sets the properties. Define quantum workspace's specific properties.
      */
-    readonly providers?: outputs.quantum.v20231113preview.ProviderResponse[];
-    /**
-     * Provisioning status field
-     */
-    readonly provisioningState: string;
-    /**
-     * ARM Resource Id of the storage account associated with this workspace.
-     */
-    readonly storageAccount?: string;
+    readonly properties: outputs.quantum.v20231113preview.WorkspaceResourcePropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -81,10 +65,6 @@ export interface GetWorkspaceResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * Whether the current workspace is ready to accept Jobs.
-     */
-    readonly usable: string;
 }
 /**
  * Returns the Workspace resource associated with the given name.

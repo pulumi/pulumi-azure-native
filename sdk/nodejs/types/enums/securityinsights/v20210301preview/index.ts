@@ -86,7 +86,7 @@ export const ConnectivityType = {
 export type ConnectivityType = (typeof ConnectivityType)[keyof typeof ConnectivityType];
 
 export const ContentType = {
-    AnalyticRule: "AnalyticRule",
+    AnalyticsRule: "AnalyticsRule",
     Workbook: "Workbook",
 } as const;
 

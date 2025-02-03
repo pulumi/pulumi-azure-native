@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:TIDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:TIDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:TIDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:TIDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:TIDataConnector" },
                 },
             };

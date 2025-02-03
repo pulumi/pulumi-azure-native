@@ -551,7 +551,7 @@ class ContentType(str, Enum):
     """
     Content type.
     """
-    ANALYTIC_RULE = "AnalyticRule"
+    ANALYTICS_RULE = "AnalyticsRule"
     WORKBOOK = "Workbook"
 
 

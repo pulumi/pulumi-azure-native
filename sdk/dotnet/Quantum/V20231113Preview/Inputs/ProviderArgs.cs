@@ -40,12 +40,6 @@ namespace Pulumi.AzureNative.Quantum.V20231113Preview.Inputs
         public Input<string>? ProviderSku { get; set; }
 
         /// <summary>
-        /// Provisioning status field
-        /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.Quantum.V20231113Preview.Status>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Id to track resource usage for the provider.
         /// </summary>
         [Input("resourceUsageId")]

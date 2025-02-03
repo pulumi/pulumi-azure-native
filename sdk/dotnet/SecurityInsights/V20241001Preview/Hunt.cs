@@ -122,6 +122,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20241001Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:Hunt" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:Hunt" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:Hunt" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:Hunt" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:Hunt" },
                 },
             };

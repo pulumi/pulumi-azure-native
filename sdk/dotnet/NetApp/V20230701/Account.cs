@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.NetApp.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240701preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20240901preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp:Account" },
                 },
             };

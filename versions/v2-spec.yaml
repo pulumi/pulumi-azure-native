@@ -1346,6 +1346,7 @@ NetApp:
     additions:
         BackupVault: 2022-11-01-preview
         getAccountChangeKeyVaultInformation: 2023-11-01-preview
+        getAccountKeyVaultStatus: 2024-09-01-preview
         listVolumeQuotaReport: 2024-03-01-preview
 Network:
     additions:
@@ -1825,6 +1826,8 @@ SoftwarePlan:
     tracking: "2019-12-01"
 Solutions:
     tracking: "2021-07-01"
+Sovereign:
+    tracking: 2025-02-27-preview
 Sql:
     tracking: "2021-11-01"
     additions:
