@@ -4814,6 +4814,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "chaos/v20250101",
+  "fqn": "pulumi_azure_native.chaos.v20250101",
+  "classes": {
+   "azure-native:chaos/v20250101:Capability": "Capability",
+   "azure-native:chaos/v20250101:Experiment": "Experiment",
+   "azure-native:chaos/v20250101:Target": "Target"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cloudngfw",
   "fqn": "pulumi_azure_native.cloudngfw",
   "classes": {
