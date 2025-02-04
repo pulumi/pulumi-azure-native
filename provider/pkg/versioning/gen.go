@@ -41,8 +41,8 @@ func (v VersionMetadata) ShouldInclude(moduleName openapi.ModuleName, version *o
 	if version == nil {
 		return true
 	}
-	// Keep any resources in the default version lock
-	if v.DefaultVersions.IsAtVersion(moduleName, typeName, *version) {
+	// In v2 only: Keep any default versions as explicit versions too
+	if v.MajorVersion < 3 && v.DefaultVersions.IsAtVersion(moduleName, typeName, *version) {
 		return true
 	}
 	// Keep any resources in the previous version lock for easier migration
