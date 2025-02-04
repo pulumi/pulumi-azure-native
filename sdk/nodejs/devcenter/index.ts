@@ -227,7 +227,6 @@ export * from "../types/enums/devcenter";
 // Export sub-modules:
 import * as v20230401 from "./v20230401";
 import * as v20230801preview from "./v20230801preview";
-import * as v20231001preview from "./v20231001preview";
 import * as v20240201 from "./v20240201";
 import * as v20240501preview from "./v20240501preview";
 import * as v20240601preview from "./v20240601preview";
@@ -238,7 +237,6 @@ import * as v20241001preview from "./v20241001preview";
 export {
     v20230401,
     v20230801preview,
-    v20231001preview,
     v20240201,
     v20240501preview,
     v20240601preview,

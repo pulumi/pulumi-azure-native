@@ -5,35 +5,17 @@
 from enum import Enum
 
 __all__ = [
-    'Action',
     'AuditLogStatus',
-    'AzureADAuthenticationAsArmPolicyStatus',
     'ConnectedRegistryMode',
     'CredentialName',
-    'DefaultAction',
-    'EncryptionStatus',
-    'ExportPolicyStatus',
     'LogLevel',
-    'NetworkRuleBypassOptions',
     'PipelineOptions',
     'PipelineRunSourceType',
     'PipelineRunTargetType',
     'PipelineSourceType',
-    'PolicyStatus',
-    'PublicNetworkAccess',
     'ResourceIdentityType',
-    'SkuName',
     'TriggerStatus',
-    'TrustPolicyType',
-    'ZoneRedundancy',
 ]
-
-
-class Action(str, Enum):
-    """
-    The action of IP ACL rule.
-    """
-    ALLOW = "Allow"
 
 
 class AuditLogStatus(str, Enum):
@@ -42,14 +24,6 @@ class AuditLogStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class AzureADAuthenticationAsArmPolicyStatus(str, Enum):
-    """
-    The value that indicates whether the policy is enabled or not.
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
 
 
 class ConnectedRegistryMode(str, Enum):
@@ -69,30 +43,6 @@ class CredentialName(str, Enum):
     CREDENTIAL1 = "Credential1"
 
 
-class DefaultAction(str, Enum):
-    """
-    The default action of allow or deny when no other rules match.
-    """
-    ALLOW = "Allow"
-    DENY = "Deny"
-
-
-class EncryptionStatus(str, Enum):
-    """
-    Indicates whether or not the encryption is enabled for container registry.
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
-
-
-class ExportPolicyStatus(str, Enum):
-    """
-    The value that indicates whether the policy is enabled or not.
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
-
-
 class LogLevel(str, Enum):
     """
     The verbosity of logs persisted on the connected registry.
@@ -101,14 +51,6 @@ class LogLevel(str, Enum):
     INFORMATION = "Information"
     WARNING = "Warning"
     ERROR = "Error"
-    NONE = "None"
-
-
-class NetworkRuleBypassOptions(str, Enum):
-    """
-    Whether to allow trusted Azure services to access a network restricted registry.
-    """
-    AZURE_SERVICES = "AzureServices"
     NONE = "None"
 
 
@@ -140,22 +82,6 @@ class PipelineSourceType(str, Enum):
     AZURE_STORAGE_BLOB_CONTAINER = "AzureStorageBlobContainer"
 
 
-class PolicyStatus(str, Enum):
-    """
-    The value that indicates whether the policy is enabled or not.
-    """
-    ENABLED = "enabled"
-    DISABLED = "disabled"
-
-
-class PublicNetworkAccess(str, Enum):
-    """
-    Whether or not public network access is allowed for the container registry.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class ResourceIdentityType(str, Enum):
     """
     The identity type.
@@ -166,34 +92,9 @@ class ResourceIdentityType(str, Enum):
     NONE = "None"
 
 
-class SkuName(str, Enum):
-    """
-    The SKU name of the container registry. Required for registry creation.
-    """
-    CLASSIC = "Classic"
-    BASIC = "Basic"
-    STANDARD = "Standard"
-    PREMIUM = "Premium"
-
-
 class TriggerStatus(str, Enum):
     """
     The current status of the source trigger.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class TrustPolicyType(str, Enum):
-    """
-    The type of trust policy.
-    """
-    NOTARY = "Notary"
-
-
-class ZoneRedundancy(str, Enum):
-    """
-    Whether or not zone redundancy is enabled for this container registry
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

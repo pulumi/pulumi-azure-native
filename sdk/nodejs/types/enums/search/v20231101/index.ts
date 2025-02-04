@@ -44,62 +44,6 @@ export const IdentityType = {
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
-export const PrivateLinkServiceConnectionProvisioningState = {
-    /**
-     * The private link service connection is in the process of being created along with other resources for it to be fully functional.
-     */
-    Updating: "Updating",
-    /**
-     * The private link service connection is in the process of being deleted.
-     */
-    Deleting: "Deleting",
-    /**
-     * The private link service connection has failed to be provisioned or deleted.
-     */
-    Failed: "Failed",
-    /**
-     * The private link service connection has finished provisioning and is ready for approval.
-     */
-    Succeeded: "Succeeded",
-    /**
-     * Provisioning request for the private link service connection resource has been accepted but the process of creation has not commenced yet.
-     */
-    Incomplete: "Incomplete",
-    /**
-     * Provisioning request for the private link service connection resource has been canceled
-     */
-    Canceled: "Canceled",
-} as const;
-
-/**
- * The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
- */
-export type PrivateLinkServiceConnectionProvisioningState = (typeof PrivateLinkServiceConnectionProvisioningState)[keyof typeof PrivateLinkServiceConnectionProvisioningState];
-
-export const PrivateLinkServiceConnectionStatus = {
-    /**
-     * The private endpoint connection has been created and is pending approval.
-     */
-    Pending: "Pending",
-    /**
-     * The private endpoint connection is approved and is ready for use.
-     */
-    Approved: "Approved",
-    /**
-     * The private endpoint connection has been rejected and cannot be used.
-     */
-    Rejected: "Rejected",
-    /**
-     * The private endpoint connection has been removed from the service.
-     */
-    Disconnected: "Disconnected",
-} as const;
-
-/**
- * Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
- */
-export type PrivateLinkServiceConnectionStatus = (typeof PrivateLinkServiceConnectionStatus)[keyof typeof PrivateLinkServiceConnectionStatus];
-
 export const PublicNetworkAccess = {
     Enabled: "enabled",
     Disabled: "disabled",
@@ -149,31 +93,6 @@ export const SearchSemanticSearch = {
  * Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
  */
 export type SearchSemanticSearch = (typeof SearchSemanticSearch)[keyof typeof SearchSemanticSearch];
-
-export const SharedPrivateLinkResourceProvisioningState = {
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Failed: "Failed",
-    Succeeded: "Succeeded",
-    Incomplete: "Incomplete",
-} as const;
-
-/**
- * The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
- */
-export type SharedPrivateLinkResourceProvisioningState = (typeof SharedPrivateLinkResourceProvisioningState)[keyof typeof SharedPrivateLinkResourceProvisioningState];
-
-export const SharedPrivateLinkResourceStatus = {
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-    Disconnected: "Disconnected",
-} as const;
-
-/**
- * Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
- */
-export type SharedPrivateLinkResourceStatus = (typeof SharedPrivateLinkResourceStatus)[keyof typeof SharedPrivateLinkResourceStatus];
 
 export const SkuName = {
     /**

@@ -43,14 +43,12 @@ export * from "../types/enums/trafficmanager";
 import * as v20170301 from "./v20170301";
 import * as v20170901preview from "./v20170901preview";
 import * as v20180201 from "./v20180201";
-import * as v20220401 from "./v20220401";
 import * as v20220401preview from "./v20220401preview";
 
 export {
     v20170301,
     v20170901preview,
     v20180201,
-    v20220401,
     v20220401preview,
 };
 

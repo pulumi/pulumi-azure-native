@@ -19,13 +19,10 @@ if typing.TYPE_CHECKING:
     v20210401preview = __v20210401preview
     import pulumi_azure_native.kubernetes.v20220501preview as __v20220501preview
     v20220501preview = __v20220501preview
-    import pulumi_azure_native.kubernetes.v20240101 as __v20240101
-    v20240101 = __v20240101
     import pulumi_azure_native.kubernetes.v20241201preview as __v20241201preview
     v20241201preview = __v20241201preview
 else:
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.kubernetes.v20210401preview')
     v20220501preview = _utilities.lazy_import('pulumi_azure_native.kubernetes.v20220501preview')
-    v20240101 = _utilities.lazy_import('pulumi_azure_native.kubernetes.v20240101')
     v20241201preview = _utilities.lazy_import('pulumi_azure_native.kubernetes.v20241201preview')
 

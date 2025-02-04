@@ -26,12 +26,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.keyvault.v20230201 as __v20230201
     v20230201 = __v20230201
-    import pulumi_azure_native.keyvault.v20241101 as __v20241101
-    v20241101 = __v20241101
     import pulumi_azure_native.keyvault.v20241201preview as __v20241201preview
     v20241201preview = __v20241201preview
 else:
     v20230201 = _utilities.lazy_import('pulumi_azure_native.keyvault.v20230201')
-    v20241101 = _utilities.lazy_import('pulumi_azure_native.keyvault.v20241101')
     v20241201preview = _utilities.lazy_import('pulumi_azure_native.keyvault.v20241201preview')
 

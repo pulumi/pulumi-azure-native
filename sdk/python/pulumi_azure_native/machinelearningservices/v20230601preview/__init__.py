@@ -7,7 +7,6 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_private_endpoint_connection import *
-from .list_featureset_version_materialization_jobs import *
 from .list_workspace_connection_secrets import *
 from .private_endpoint_connection import *
 from ._inputs import *

@@ -23,16 +23,6 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
-export const PublicNetworkAccessOption = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Public Network Access Control for PrivateAccess resource.
- */
-export type PublicNetworkAccessOption = (typeof PublicNetworkAccessOption)[keyof typeof PublicNetworkAccessOption];
-
 export const SelectorType = {
     List: "List",
     Query: "Query",

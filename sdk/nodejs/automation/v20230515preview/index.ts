@@ -10,30 +10,10 @@ export const getPackage: typeof import("./getPackage").getPackage = null as any;
 export const getPackageOutput: typeof import("./getPackage").getPackageOutput = null as any;
 utilities.lazyLoad(exports, ["getPackage","getPackageOutput"], () => require("./getPackage"));
 
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
 export { GetRuntimeEnvironmentArgs, GetRuntimeEnvironmentResult, GetRuntimeEnvironmentOutputArgs } from "./getRuntimeEnvironment";
 export const getRuntimeEnvironment: typeof import("./getRuntimeEnvironment").getRuntimeEnvironment = null as any;
 export const getRuntimeEnvironmentOutput: typeof import("./getRuntimeEnvironment").getRuntimeEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getRuntimeEnvironment","getRuntimeEnvironmentOutput"], () => require("./getRuntimeEnvironment"));
-
-export { GetSoftwareUpdateConfigurationByNameArgs, GetSoftwareUpdateConfigurationByNameResult, GetSoftwareUpdateConfigurationByNameOutputArgs } from "./getSoftwareUpdateConfigurationByName";
-export const getSoftwareUpdateConfigurationByName: typeof import("./getSoftwareUpdateConfigurationByName").getSoftwareUpdateConfigurationByName = null as any;
-export const getSoftwareUpdateConfigurationByNameOutput: typeof import("./getSoftwareUpdateConfigurationByName").getSoftwareUpdateConfigurationByNameOutput = null as any;
-utilities.lazyLoad(exports, ["getSoftwareUpdateConfigurationByName","getSoftwareUpdateConfigurationByNameOutput"], () => require("./getSoftwareUpdateConfigurationByName"));
-
-export { GetWatcherArgs, GetWatcherResult, GetWatcherOutputArgs } from "./getWatcher";
-export const getWatcher: typeof import("./getWatcher").getWatcher = null as any;
-export const getWatcherOutput: typeof import("./getWatcher").getWatcherOutput = null as any;
-utilities.lazyLoad(exports, ["getWatcher","getWatcherOutput"], () => require("./getWatcher"));
-
-export { GetWebhookArgs, GetWebhookResult, GetWebhookOutputArgs } from "./getWebhook";
-export const getWebhook: typeof import("./getWebhook").getWebhook = null as any;
-export const getWebhookOutput: typeof import("./getWebhook").getWebhookOutput = null as any;
-utilities.lazyLoad(exports, ["getWebhook","getWebhookOutput"], () => require("./getWebhook"));
 
 export { ListAutomationAccountDeletedRunbooksArgs, ListAutomationAccountDeletedRunbooksResult, ListAutomationAccountDeletedRunbooksOutputArgs } from "./listAutomationAccountDeletedRunbooks";
 export const listAutomationAccountDeletedRunbooks: typeof import("./listAutomationAccountDeletedRunbooks").listAutomationAccountDeletedRunbooks = null as any;
@@ -45,34 +25,11 @@ export type Package = import("./package").Package;
 export const Package: typeof import("./package").Package = null as any;
 utilities.lazyLoad(exports, ["Package"], () => require("./package"));
 
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
 export { RuntimeEnvironmentArgs } from "./runtimeEnvironment";
 export type RuntimeEnvironment = import("./runtimeEnvironment").RuntimeEnvironment;
 export const RuntimeEnvironment: typeof import("./runtimeEnvironment").RuntimeEnvironment = null as any;
 utilities.lazyLoad(exports, ["RuntimeEnvironment"], () => require("./runtimeEnvironment"));
 
-export { SoftwareUpdateConfigurationByNameArgs } from "./softwareUpdateConfigurationByName";
-export type SoftwareUpdateConfigurationByName = import("./softwareUpdateConfigurationByName").SoftwareUpdateConfigurationByName;
-export const SoftwareUpdateConfigurationByName: typeof import("./softwareUpdateConfigurationByName").SoftwareUpdateConfigurationByName = null as any;
-utilities.lazyLoad(exports, ["SoftwareUpdateConfigurationByName"], () => require("./softwareUpdateConfigurationByName"));
-
-export { WatcherArgs } from "./watcher";
-export type Watcher = import("./watcher").Watcher;
-export const Watcher: typeof import("./watcher").Watcher = null as any;
-utilities.lazyLoad(exports, ["Watcher"], () => require("./watcher"));
-
-export { WebhookArgs } from "./webhook";
-export type Webhook = import("./webhook").Webhook;
-export const Webhook: typeof import("./webhook").Webhook = null as any;
-utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
-
-
-// Export enums:
-export * from "../../types/enums/automation/v20230515preview";
 
 const _module = {
     version: utilities.getVersion(),
@@ -80,16 +37,8 @@ const _module = {
         switch (type) {
             case "azure-native:automation/v20230515preview:Package":
                 return new Package(name, <any>undefined, { urn })
-            case "azure-native:automation/v20230515preview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:automation/v20230515preview:RuntimeEnvironment":
                 return new RuntimeEnvironment(name, <any>undefined, { urn })
-            case "azure-native:automation/v20230515preview:SoftwareUpdateConfigurationByName":
-                return new SoftwareUpdateConfigurationByName(name, <any>undefined, { urn })
-            case "azure-native:automation/v20230515preview:Watcher":
-                return new Watcher(name, <any>undefined, { urn })
-            case "azure-native:automation/v20230515preview:Webhook":
-                return new Webhook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

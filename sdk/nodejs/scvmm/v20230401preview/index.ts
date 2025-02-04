@@ -65,11 +65,6 @@ export const getVirtualMachineTemplate: typeof import("./getVirtualMachineTempla
 export const getVirtualMachineTemplateOutput: typeof import("./getVirtualMachineTemplate").getVirtualMachineTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualMachineTemplate","getVirtualMachineTemplateOutput"], () => require("./getVirtualMachineTemplate"));
 
-export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
-export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
-export const getVirtualNetworkOutput: typeof import("./getVirtualNetwork").getVirtualNetworkOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetwork","getVirtualNetworkOutput"], () => require("./getVirtualNetwork"));
-
 export { GetVmmServerArgs, GetVmmServerResult, GetVmmServerOutputArgs } from "./getVmmServer";
 export const getVmmServer: typeof import("./getVmmServer").getVmmServer = null as any;
 export const getVmmServerOutput: typeof import("./getVmmServer").getVmmServerOutput = null as any;
@@ -110,11 +105,6 @@ export type VirtualMachineTemplate = import("./virtualMachineTemplate").VirtualM
 export const VirtualMachineTemplate: typeof import("./virtualMachineTemplate").VirtualMachineTemplate = null as any;
 utilities.lazyLoad(exports, ["VirtualMachineTemplate"], () => require("./virtualMachineTemplate"));
 
-export { VirtualNetworkArgs } from "./virtualNetwork";
-export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
-export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
-utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"));
-
 export { VMInstanceGuestAgentArgs } from "./vminstanceGuestAgent";
 export type VMInstanceGuestAgent = import("./vminstanceGuestAgent").VMInstanceGuestAgent;
 export const VMInstanceGuestAgent: typeof import("./vminstanceGuestAgent").VMInstanceGuestAgent = null as any;
@@ -153,8 +143,6 @@ const _module = {
                 return new VirtualMachineInstance(name, <any>undefined, { urn })
             case "azure-native:scvmm/v20230401preview:VirtualMachineTemplate":
                 return new VirtualMachineTemplate(name, <any>undefined, { urn })
-            case "azure-native:scvmm/v20230401preview:VirtualNetwork":
-                return new VirtualNetwork(name, <any>undefined, { urn })
             case "azure-native:scvmm/v20230401preview:VmmServer":
                 return new VmmServer(name, <any>undefined, { urn })
             default:

@@ -16,12 +16,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.databox.v20221201 as __v20221201
     v20221201 = __v20221201
-    import pulumi_azure_native.databox.v20231201 as __v20231201
-    v20231201 = __v20231201
     import pulumi_azure_native.databox.v20240301preview as __v20240301preview
     v20240301preview = __v20240301preview
 else:
     v20221201 = _utilities.lazy_import('pulumi_azure_native.databox.v20221201')
-    v20231201 = _utilities.lazy_import('pulumi_azure_native.databox.v20231201')
     v20240301preview = _utilities.lazy_import('pulumi_azure_native.databox.v20240301preview')
 

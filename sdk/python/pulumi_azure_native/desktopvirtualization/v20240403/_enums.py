@@ -6,28 +6,20 @@ from enum import Enum
 
 __all__ = [
     'ApplicationGroupType',
-    'CommandLineSetting',
     'DayOfWeek',
-    'FailHealthCheckOnStagingFailure',
     'HostPoolType',
     'HostpoolPublicNetworkAccess',
     'LoadBalancerType',
-    'PackageTimestamped',
     'PersonalDesktopAssignmentType',
     'PreferredAppGroupType',
-    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'RegistrationTokenOperation',
-    'RemoteApplicationType',
     'ResourceIdentityType',
     'SSOSecretType',
     'ScalingHostPoolType',
-    'SessionHandlingOperation',
     'SessionHostComponentUpdateType',
     'SessionHostLoadBalancingAlgorithm',
-    'SetStartVMOnConnect',
     'SkuTier',
-    'StartupBehavior',
     'StopHostsWhen',
 ]
 
@@ -40,16 +32,10 @@ class ApplicationGroupType(str, Enum):
     DESKTOP = "Desktop"
 
 
-class CommandLineSetting(str, Enum):
-    """
-    Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-    """
-    DO_NOT_ALLOW = "DoNotAllow"
-    ALLOW = "Allow"
-    REQUIRE = "Require"
-
-
 class DayOfWeek(str, Enum):
+    """
+    Day of the week.
+    """
     MONDAY = "Monday"
     TUESDAY = "Tuesday"
     WEDNESDAY = "Wednesday"
@@ -57,15 +43,6 @@ class DayOfWeek(str, Enum):
     FRIDAY = "Friday"
     SATURDAY = "Saturday"
     SUNDAY = "Sunday"
-
-
-class FailHealthCheckOnStagingFailure(str, Enum):
-    """
-    Parameter indicating how the health check should behave if this package fails staging
-    """
-    UNHEALTHY = "Unhealthy"
-    NEEDS_ASSISTANCE = "NeedsAssistance"
-    DO_NOT_FAIL = "DoNotFail"
 
 
 class HostPoolType(str, Enum):
@@ -105,14 +82,6 @@ class LoadBalancerType(str, Enum):
     PERSISTENT = "Persistent"
 
 
-class PackageTimestamped(str, Enum):
-    """
-    Is package timestamped so it can ignore the certificate expiry date
-    """
-    TIMESTAMPED = "Timestamped"
-    NOT_TIMESTAMPED = "NotTimestamped"
-
-
 class PersonalDesktopAssignmentType(str, Enum):
     """
     PersonalDesktopAssignment type for HostPool.
@@ -130,15 +99,6 @@ class PreferredAppGroupType(str, Enum):
     RAIL_APPLICATIONS = "RailApplications"
 
 
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-
-
 class PublicNetworkAccess(str, Enum):
     """
     Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
@@ -154,14 +114,6 @@ class RegistrationTokenOperation(str, Enum):
     DELETE = "Delete"
     NONE = "None"
     UPDATE = "Update"
-
-
-class RemoteApplicationType(str, Enum):
-    """
-    Resource Type of Application.
-    """
-    IN_BUILT = "InBuilt"
-    MSIX_APPLICATION = "MsixApplication"
 
 
 class ResourceIdentityType(str, Enum):
@@ -191,14 +143,6 @@ class ScalingHostPoolType(str, Enum):
     """
 
 
-class SessionHandlingOperation(str, Enum):
-    """
-    Action to be taken after a logoff during the ramp up period.
-    """
-    NONE = "None"
-    DEALLOCATE = "Deallocate"
-
-
 class SessionHostComponentUpdateType(str, Enum):
     """
     The type of maintenance for session host components.
@@ -221,14 +165,6 @@ class SessionHostLoadBalancingAlgorithm(str, Enum):
     DEPTH_FIRST = "DepthFirst"
 
 
-class SetStartVMOnConnect(str, Enum):
-    """
-    The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
-    """
-    ENABLE = "Enable"
-    DISABLE = "Disable"
-
-
 class SkuTier(str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
@@ -237,24 +173,6 @@ class SkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
-
-
-class StartupBehavior(str, Enum):
-    """
-    The desired startup behavior during the ramp up period for personal vms in the hostpool.
-    """
-    NONE = "None"
-    """
-    Session hosts will not be started by the service. This setting depends on Start VM on Connect to be enabled to start the session hosts.
-    """
-    WITH_ASSIGNED_USER = "WithAssignedUser"
-    """
-    Session hosts with an assigned user will be started during Ramp Up
-    """
-    ALL = "All"
-    """
-    All personal session hosts in the hostpool will be started during ramp up.
-    """
 
 
 class StopHostsWhen(str, Enum):

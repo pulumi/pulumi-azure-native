@@ -63,14 +63,12 @@ export * from "../types/enums/iothub";
 import * as v20170701 from "./v20170701";
 import * as v20200401 from "./v20200401";
 import * as v20210303preview from "./v20210303preview";
-import * as v20230630 from "./v20230630";
 import * as v20230630preview from "./v20230630preview";
 
 export {
     v20170701,
     v20200401,
     v20210303preview,
-    v20230630,
     v20230630preview,
 };
 

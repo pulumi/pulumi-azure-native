@@ -10,11 +10,6 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
-export { ListFeaturesetVersionMaterializationJobsArgs, ListFeaturesetVersionMaterializationJobsResult, ListFeaturesetVersionMaterializationJobsOutputArgs } from "./listFeaturesetVersionMaterializationJobs";
-export const listFeaturesetVersionMaterializationJobs: typeof import("./listFeaturesetVersionMaterializationJobs").listFeaturesetVersionMaterializationJobs = null as any;
-export const listFeaturesetVersionMaterializationJobsOutput: typeof import("./listFeaturesetVersionMaterializationJobs").listFeaturesetVersionMaterializationJobsOutput = null as any;
-utilities.lazyLoad(exports, ["listFeaturesetVersionMaterializationJobs","listFeaturesetVersionMaterializationJobsOutput"], () => require("./listFeaturesetVersionMaterializationJobs"));
-
 export { ListWorkspaceConnectionSecretsArgs, ListWorkspaceConnectionSecretsResult, ListWorkspaceConnectionSecretsOutputArgs } from "./listWorkspaceConnectionSecrets";
 export const listWorkspaceConnectionSecrets: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecrets = null as any;
 export const listWorkspaceConnectionSecretsOutput: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecretsOutput = null as any;

@@ -18,11 +18,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.mongocluster.v20240701 as __v20240701
-    v20240701 = __v20240701
     import pulumi_azure_native.mongocluster.v20241001preview as __v20241001preview
     v20241001preview = __v20241001preview
 else:
-    v20240701 = _utilities.lazy_import('pulumi_azure_native.mongocluster.v20240701')
     v20241001preview = _utilities.lazy_import('pulumi_azure_native.mongocluster.v20241001preview')
 

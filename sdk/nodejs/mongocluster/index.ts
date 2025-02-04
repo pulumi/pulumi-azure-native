@@ -45,11 +45,9 @@ utilities.lazyLoad(exports, ["MongoClusterPrivateEndpointConnection"], () => req
 export * from "../types/enums/mongocluster";
 
 // Export sub-modules:
-import * as v20240701 from "./v20240701";
 import * as v20241001preview from "./v20241001preview";
 
 export {
-    v20240701,
     v20241001preview,
 };
 

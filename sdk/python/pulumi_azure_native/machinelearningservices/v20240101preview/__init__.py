@@ -6,15 +6,9 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .capacity_reservation_group import *
 from .endpoint_deployment import *
-from .get_capacity_reservation_group import *
 from .get_endpoint_deployment import *
-from .get_inference_pool_status import *
-from .get_labeling_job import *
 from .get_marketplace_subscription import *
-from .get_serverless_endpoint_status import *
-from .labeling_job import *
 from .list_endpoint_keys import *
 from .marketplace_subscription import *
 from ._inputs import *

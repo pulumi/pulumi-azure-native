@@ -5,50 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { CapacityReservationGroupArgs } from "./capacityReservationGroup";
-export type CapacityReservationGroup = import("./capacityReservationGroup").CapacityReservationGroup;
-export const CapacityReservationGroup: typeof import("./capacityReservationGroup").CapacityReservationGroup = null as any;
-utilities.lazyLoad(exports, ["CapacityReservationGroup"], () => require("./capacityReservationGroup"));
-
 export { EndpointDeploymentArgs } from "./endpointDeployment";
 export type EndpointDeployment = import("./endpointDeployment").EndpointDeployment;
 export const EndpointDeployment: typeof import("./endpointDeployment").EndpointDeployment = null as any;
 utilities.lazyLoad(exports, ["EndpointDeployment"], () => require("./endpointDeployment"));
-
-export { GetCapacityReservationGroupArgs, GetCapacityReservationGroupResult, GetCapacityReservationGroupOutputArgs } from "./getCapacityReservationGroup";
-export const getCapacityReservationGroup: typeof import("./getCapacityReservationGroup").getCapacityReservationGroup = null as any;
-export const getCapacityReservationGroupOutput: typeof import("./getCapacityReservationGroup").getCapacityReservationGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getCapacityReservationGroup","getCapacityReservationGroupOutput"], () => require("./getCapacityReservationGroup"));
 
 export { GetEndpointDeploymentArgs, GetEndpointDeploymentResult, GetEndpointDeploymentOutputArgs } from "./getEndpointDeployment";
 export const getEndpointDeployment: typeof import("./getEndpointDeployment").getEndpointDeployment = null as any;
 export const getEndpointDeploymentOutput: typeof import("./getEndpointDeployment").getEndpointDeploymentOutput = null as any;
 utilities.lazyLoad(exports, ["getEndpointDeployment","getEndpointDeploymentOutput"], () => require("./getEndpointDeployment"));
 
-export { GetInferencePoolStatusArgs, GetInferencePoolStatusResult, GetInferencePoolStatusOutputArgs } from "./getInferencePoolStatus";
-export const getInferencePoolStatus: typeof import("./getInferencePoolStatus").getInferencePoolStatus = null as any;
-export const getInferencePoolStatusOutput: typeof import("./getInferencePoolStatus").getInferencePoolStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getInferencePoolStatus","getInferencePoolStatusOutput"], () => require("./getInferencePoolStatus"));
-
-export { GetLabelingJobArgs, GetLabelingJobResult, GetLabelingJobOutputArgs } from "./getLabelingJob";
-export const getLabelingJob: typeof import("./getLabelingJob").getLabelingJob = null as any;
-export const getLabelingJobOutput: typeof import("./getLabelingJob").getLabelingJobOutput = null as any;
-utilities.lazyLoad(exports, ["getLabelingJob","getLabelingJobOutput"], () => require("./getLabelingJob"));
-
 export { GetMarketplaceSubscriptionArgs, GetMarketplaceSubscriptionResult, GetMarketplaceSubscriptionOutputArgs } from "./getMarketplaceSubscription";
 export const getMarketplaceSubscription: typeof import("./getMarketplaceSubscription").getMarketplaceSubscription = null as any;
 export const getMarketplaceSubscriptionOutput: typeof import("./getMarketplaceSubscription").getMarketplaceSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getMarketplaceSubscription","getMarketplaceSubscriptionOutput"], () => require("./getMarketplaceSubscription"));
-
-export { GetServerlessEndpointStatusArgs, GetServerlessEndpointStatusResult, GetServerlessEndpointStatusOutputArgs } from "./getServerlessEndpointStatus";
-export const getServerlessEndpointStatus: typeof import("./getServerlessEndpointStatus").getServerlessEndpointStatus = null as any;
-export const getServerlessEndpointStatusOutput: typeof import("./getServerlessEndpointStatus").getServerlessEndpointStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getServerlessEndpointStatus","getServerlessEndpointStatusOutput"], () => require("./getServerlessEndpointStatus"));
-
-export { LabelingJobArgs } from "./labelingJob";
-export type LabelingJob = import("./labelingJob").LabelingJob;
-export const LabelingJob: typeof import("./labelingJob").LabelingJob = null as any;
-utilities.lazyLoad(exports, ["LabelingJob"], () => require("./labelingJob"));
 
 export { ListEndpointKeysArgs, ListEndpointKeysResult, ListEndpointKeysOutputArgs } from "./listEndpointKeys";
 export const listEndpointKeys: typeof import("./listEndpointKeys").listEndpointKeys = null as any;
@@ -68,12 +38,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:machinelearningservices/v20240101preview:CapacityReservationGroup":
-                return new CapacityReservationGroup(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20240101preview:EndpointDeployment":
                 return new EndpointDeployment(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices/v20240101preview:LabelingJob":
-                return new LabelingJob(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription":
                 return new MarketplaceSubscription(name, <any>undefined, { urn })
             default:

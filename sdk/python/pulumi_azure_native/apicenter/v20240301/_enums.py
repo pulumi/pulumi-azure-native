@@ -10,7 +10,6 @@ __all__ = [
     'EnvironmentKind',
     'EnvironmentServerType',
     'LifecycleStage',
-    'ManagedServiceIdentityType',
     'MetadataAssignmentEntity',
 ]
 
@@ -147,16 +146,6 @@ class LifecycleStage(str, Enum):
     """
     Retired stage
     """
-
-
-class ManagedServiceIdentityType(str, Enum):
-    """
-    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-    """
-    NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class MetadataAssignmentEntity(str, Enum):

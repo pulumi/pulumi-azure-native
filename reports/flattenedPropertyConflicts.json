@@ -39,9 +39,6 @@
   "azure-native:devhub/v20221011preview:Workflow": {
     "githubWorkflowProfile.namespace": {}
   },
-  "azure-native:devhub/v20230801:Workflow": {
-    "githubWorkflowProfile.namespace": {}
-  },
   "azure-native:devhub/v20240501preview:Workflow": {
     "githubWorkflowProfile.namespace": {}
   },

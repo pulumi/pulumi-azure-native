@@ -52,13 +52,11 @@ export * from "../types/enums/databricks";
 // Export sub-modules:
 import * as v20230201 from "./v20230201";
 import * as v20230501 from "./v20230501";
-import * as v20240501 from "./v20240501";
 import * as v20240901preview from "./v20240901preview";
 
 export {
     v20230201,
     v20230501,
-    v20240501,
     v20240901preview,
 };
 

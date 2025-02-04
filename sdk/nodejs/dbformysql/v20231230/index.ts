@@ -50,16 +50,6 @@ export const getGetPrivateDnsZoneSuffixExecute: typeof import("./getGetPrivateDn
 export const getGetPrivateDnsZoneSuffixExecuteOutput: typeof import("./getGetPrivateDnsZoneSuffixExecute").getGetPrivateDnsZoneSuffixExecuteOutput = null as any;
 utilities.lazyLoad(exports, ["getGetPrivateDnsZoneSuffixExecute","getGetPrivateDnsZoneSuffixExecuteOutput"], () => require("./getGetPrivateDnsZoneSuffixExecute"));
 
-export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
-export const getServer: typeof import("./getServer").getServer = null as any;
-export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
-utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
-
-export { ServerArgs } from "./server";
-export type Server = import("./server").Server;
-export const Server: typeof import("./server").Server = null as any;
-utilities.lazyLoad(exports, ["Server"], () => require("./server"));
-
 
 // Export enums:
 export * from "../../types/enums/dbformysql/v20231230";
@@ -76,8 +66,6 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:dbformysql/v20231230:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
-            case "azure-native:dbformysql/v20231230:Server":
-                return new Server(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

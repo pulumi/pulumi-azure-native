@@ -23,13 +23,10 @@ if typing.TYPE_CHECKING:
     v20230901preview = __v20230901preview
     import pulumi_azure_native.databasewatcher.v20240719preview as __v20240719preview
     v20240719preview = __v20240719preview
-    import pulumi_azure_native.databasewatcher.v20241001preview as __v20241001preview
-    v20241001preview = __v20241001preview
     import pulumi_azure_native.databasewatcher.v20250102 as __v20250102
     v20250102 = __v20250102
 else:
     v20230901preview = _utilities.lazy_import('pulumi_azure_native.databasewatcher.v20230901preview')
     v20240719preview = _utilities.lazy_import('pulumi_azure_native.databasewatcher.v20240719preview')
-    v20241001preview = _utilities.lazy_import('pulumi_azure_native.databasewatcher.v20241001preview')
     v20250102 = _utilities.lazy_import('pulumi_azure_native.databasewatcher.v20250102')
 

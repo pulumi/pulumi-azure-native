@@ -43,10 +43,6 @@ if typing.TYPE_CHECKING:
     v20231003preview = __v20231003preview
     import pulumi_azure_native.hybridcompute.v20240331preview as __v20240331preview
     v20240331preview = __v20240331preview
-    import pulumi_azure_native.hybridcompute.v20240710 as __v20240710
-    v20240710 = __v20240710
-    import pulumi_azure_native.hybridcompute.v20240731preview as __v20240731preview
-    v20240731preview = __v20240731preview
     import pulumi_azure_native.hybridcompute.v20241110preview as __v20241110preview
     v20241110preview = __v20241110preview
 else:
@@ -57,7 +53,5 @@ else:
     v20230620preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20230620preview')
     v20231003preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20231003preview')
     v20240331preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20240331preview')
-    v20240710 = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20240710')
-    v20240731preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20240731preview')
     v20241110preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20241110preview')
 

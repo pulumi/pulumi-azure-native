@@ -17,10 +17,8 @@ from .get_api_version import *
 from .get_deployment import *
 from .get_environment import *
 from .get_metadata_schema import *
-from .get_service import *
 from .get_workspace import *
 from .metadata_schema import *
-from .service import *
 from .workspace import *
 from ._inputs import *
 from . import outputs

@@ -16,9 +16,7 @@ from .get_credential_set import *
 from .get_export_pipeline import *
 from .get_import_pipeline import *
 from .get_pipeline_run import *
-from .get_registry import *
 from .import_pipeline import *
 from .pipeline_run import *
-from .registry import *
 from ._inputs import *
 from . import outputs

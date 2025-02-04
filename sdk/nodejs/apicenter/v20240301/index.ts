@@ -60,11 +60,6 @@ export const getMetadataSchema: typeof import("./getMetadataSchema").getMetadata
 export const getMetadataSchemaOutput: typeof import("./getMetadataSchema").getMetadataSchemaOutput = null as any;
 utilities.lazyLoad(exports, ["getMetadataSchema","getMetadataSchemaOutput"], () => require("./getMetadataSchema"));
 
-export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
-export const getService: typeof import("./getService").getService = null as any;
-export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
-
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -74,11 +69,6 @@ export { MetadataSchemaArgs } from "./metadataSchema";
 export type MetadataSchema = import("./metadataSchema").MetadataSchema;
 export const MetadataSchema: typeof import("./metadataSchema").MetadataSchema = null as any;
 utilities.lazyLoad(exports, ["MetadataSchema"], () => require("./metadataSchema"));
-
-export { ServiceArgs } from "./service";
-export type Service = import("./service").Service;
-export const Service: typeof import("./service").Service = null as any;
-utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
@@ -105,8 +95,6 @@ const _module = {
                 return new Environment(name, <any>undefined, { urn })
             case "azure-native:apicenter/v20240301:MetadataSchema":
                 return new MetadataSchema(name, <any>undefined, { urn })
-            case "azure-native:apicenter/v20240301:Service":
-                return new Service(name, <any>undefined, { urn })
             case "azure-native:apicenter/v20240301:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:

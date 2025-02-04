@@ -113,8 +113,6 @@ if typing.TYPE_CHECKING:
     v20230915preview = __v20230915preview
     import pulumi_azure_native.cosmosdb.v20240215preview as __v20240215preview
     v20240215preview = __v20240215preview
-    import pulumi_azure_native.cosmosdb.v20241115 as __v20241115
-    v20241115 = __v20241115
     import pulumi_azure_native.cosmosdb.v20241201preview as __v20241201preview
     v20241201preview = __v20241201preview
 else:
@@ -128,6 +126,5 @@ else:
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.cosmosdb.v20230301preview')
     v20230915preview = _utilities.lazy_import('pulumi_azure_native.cosmosdb.v20230915preview')
     v20240215preview = _utilities.lazy_import('pulumi_azure_native.cosmosdb.v20240215preview')
-    v20241115 = _utilities.lazy_import('pulumi_azure_native.cosmosdb.v20241115')
     v20241201preview = _utilities.lazy_import('pulumi_azure_native.cosmosdb.v20241201preview')
 

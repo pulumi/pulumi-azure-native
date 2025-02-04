@@ -32,13 +32,11 @@ export * from "../types/enums/kubernetes";
 // Export sub-modules:
 import * as v20210401preview from "./v20210401preview";
 import * as v20220501preview from "./v20220501preview";
-import * as v20240101 from "./v20240101";
 import * as v20241201preview from "./v20241201preview";
 
 export {
     v20210401preview,
     v20220501preview,
-    v20240101,
     v20241201preview,
 };
 

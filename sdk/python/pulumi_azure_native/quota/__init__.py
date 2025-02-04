@@ -18,13 +18,10 @@ if typing.TYPE_CHECKING:
     v20230601preview = __v20230601preview
     import pulumi_azure_native.quota.v20241015preview as __v20241015preview
     v20241015preview = __v20241015preview
-    import pulumi_azure_native.quota.v20241218preview as __v20241218preview
-    v20241218preview = __v20241218preview
     import pulumi_azure_native.quota.v20250301 as __v20250301
     v20250301 = __v20250301
 else:
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.quota.v20230601preview')
     v20241015preview = _utilities.lazy_import('pulumi_azure_native.quota.v20241015preview')
-    v20241218preview = _utilities.lazy_import('pulumi_azure_native.quota.v20241218preview')
     v20250301 = _utilities.lazy_import('pulumi_azure_native.quota.v20250301')
 

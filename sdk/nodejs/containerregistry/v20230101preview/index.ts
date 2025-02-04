@@ -55,11 +55,6 @@ export const getPipelineRun: typeof import("./getPipelineRun").getPipelineRun = 
 export const getPipelineRunOutput: typeof import("./getPipelineRun").getPipelineRunOutput = null as any;
 utilities.lazyLoad(exports, ["getPipelineRun","getPipelineRunOutput"], () => require("./getPipelineRun"));
 
-export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
-export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
-export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
-utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
-
 export { ImportPipelineArgs } from "./importPipeline";
 export type ImportPipeline = import("./importPipeline").ImportPipeline;
 export const ImportPipeline: typeof import("./importPipeline").ImportPipeline = null as any;
@@ -69,11 +64,6 @@ export { PipelineRunArgs } from "./pipelineRun";
 export type PipelineRun = import("./pipelineRun").PipelineRun;
 export const PipelineRun: typeof import("./pipelineRun").PipelineRun = null as any;
 utilities.lazyLoad(exports, ["PipelineRun"], () => require("./pipelineRun"));
-
-export { RegistryArgs } from "./registry";
-export type Registry = import("./registry").Registry;
-export const Registry: typeof import("./registry").Registry = null as any;
-utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
 
 
 // Export enums:
@@ -95,8 +85,6 @@ const _module = {
                 return new ImportPipeline(name, <any>undefined, { urn })
             case "azure-native:containerregistry/v20230101preview:PipelineRun":
                 return new PipelineRun(name, <any>undefined, { urn })
-            case "azure-native:containerregistry/v20230101preview:Registry":
-                return new Registry(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

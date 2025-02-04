@@ -24,8 +24,6 @@ if typing.TYPE_CHECKING:
     v20201001preview = __v20201001preview
     import pulumi_azure_native.redisenterprise.v20231001preview as __v20231001preview
     v20231001preview = __v20231001preview
-    import pulumi_azure_native.redisenterprise.v20240201 as __v20240201
-    v20240201 = __v20240201
     import pulumi_azure_native.redisenterprise.v20240901preview as __v20240901preview
     v20240901preview = __v20240901preview
     import pulumi_azure_native.redisenterprise.v20241001 as __v20241001
@@ -33,7 +31,6 @@ if typing.TYPE_CHECKING:
 else:
     v20201001preview = _utilities.lazy_import('pulumi_azure_native.redisenterprise.v20201001preview')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.redisenterprise.v20231001preview')
-    v20240201 = _utilities.lazy_import('pulumi_azure_native.redisenterprise.v20240201')
     v20240901preview = _utilities.lazy_import('pulumi_azure_native.redisenterprise.v20240901preview')
     v20241001 = _utilities.lazy_import('pulumi_azure_native.redisenterprise.v20241001')
 

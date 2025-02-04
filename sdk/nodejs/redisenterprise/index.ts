@@ -57,14 +57,12 @@ export * from "../types/enums/redisenterprise";
 // Export sub-modules:
 import * as v20201001preview from "./v20201001preview";
 import * as v20231001preview from "./v20231001preview";
-import * as v20240201 from "./v20240201";
 import * as v20240901preview from "./v20240901preview";
 import * as v20241001 from "./v20241001";
 
 export {
     v20201001preview,
     v20231001preview,
-    v20240201,
     v20240901preview,
     v20241001,
 };

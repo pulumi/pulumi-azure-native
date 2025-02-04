@@ -26,12 +26,10 @@ export * from "../types/enums/databox";
 
 // Export sub-modules:
 import * as v20221201 from "./v20221201";
-import * as v20231201 from "./v20231201";
 import * as v20240301preview from "./v20240301preview";
 
 export {
     v20221201,
-    v20231201,
     v20240301preview,
 };
 

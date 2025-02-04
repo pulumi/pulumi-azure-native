@@ -27,14 +27,11 @@ if typing.TYPE_CHECKING:
     v20200401 = __v20200401
     import pulumi_azure_native.iothub.v20210303preview as __v20210303preview
     v20210303preview = __v20210303preview
-    import pulumi_azure_native.iothub.v20230630 as __v20230630
-    v20230630 = __v20230630
     import pulumi_azure_native.iothub.v20230630preview as __v20230630preview
     v20230630preview = __v20230630preview
 else:
     v20170701 = _utilities.lazy_import('pulumi_azure_native.iothub.v20170701')
     v20200401 = _utilities.lazy_import('pulumi_azure_native.iothub.v20200401')
     v20210303preview = _utilities.lazy_import('pulumi_azure_native.iothub.v20210303preview')
-    v20230630 = _utilities.lazy_import('pulumi_azure_native.iothub.v20230630')
     v20230630preview = _utilities.lazy_import('pulumi_azure_native.iothub.v20230630preview')
 

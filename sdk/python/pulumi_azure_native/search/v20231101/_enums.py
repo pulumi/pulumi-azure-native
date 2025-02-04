@@ -8,13 +8,9 @@ __all__ = [
     'AadAuthFailureMode',
     'HostingMode',
     'IdentityType',
-    'PrivateLinkServiceConnectionProvisioningState',
-    'PrivateLinkServiceConnectionStatus',
     'PublicNetworkAccess',
     'SearchEncryptionWithCmk',
     'SearchSemanticSearch',
-    'SharedPrivateLinkResourceProvisioningState',
-    'SharedPrivateLinkResourceStatus',
     'SkuName',
 ]
 
@@ -53,58 +49,6 @@ class IdentityType(str, Enum):
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
-
-
-class PrivateLinkServiceConnectionProvisioningState(str, Enum):
-    """
-    The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
-    """
-    UPDATING = "Updating"
-    """
-    The private link service connection is in the process of being created along with other resources for it to be fully functional.
-    """
-    DELETING = "Deleting"
-    """
-    The private link service connection is in the process of being deleted.
-    """
-    FAILED = "Failed"
-    """
-    The private link service connection has failed to be provisioned or deleted.
-    """
-    SUCCEEDED = "Succeeded"
-    """
-    The private link service connection has finished provisioning and is ready for approval.
-    """
-    INCOMPLETE = "Incomplete"
-    """
-    Provisioning request for the private link service connection resource has been accepted but the process of creation has not commenced yet.
-    """
-    CANCELED = "Canceled"
-    """
-    Provisioning request for the private link service connection resource has been canceled
-    """
-
-
-class PrivateLinkServiceConnectionStatus(str, Enum):
-    """
-    Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
-    """
-    PENDING = "Pending"
-    """
-    The private endpoint connection has been created and is pending approval.
-    """
-    APPROVED = "Approved"
-    """
-    The private endpoint connection is approved and is ready for use.
-    """
-    REJECTED = "Rejected"
-    """
-    The private endpoint connection has been rejected and cannot be used.
-    """
-    DISCONNECTED = "Disconnected"
-    """
-    The private endpoint connection has been removed from the service.
-    """
 
 
 class PublicNetworkAccess(str, Enum):
@@ -149,27 +93,6 @@ class SearchSemanticSearch(str, Enum):
     """
     Enables semantic ranking on a search service as a billable feature, with higher throughput and volume of semantic ranking requests.
     """
-
-
-class SharedPrivateLinkResourceProvisioningState(str, Enum):
-    """
-    The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
-    """
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    FAILED = "Failed"
-    SUCCEEDED = "Succeeded"
-    INCOMPLETE = "Incomplete"
-
-
-class SharedPrivateLinkResourceStatus(str, Enum):
-    """
-    Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
 
 
 class SkuName(str, Enum):

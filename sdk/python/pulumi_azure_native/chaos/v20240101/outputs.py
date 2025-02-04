@@ -20,7 +20,6 @@ __all__ = [
     'ActionStatusResponse',
     'BranchResponse',
     'BranchStatusResponse',
-    'CapabilityPropertiesResponse',
     'ContinuousActionResponse',
     'DelayActionResponse',
     'DiscreteActionResponse',
@@ -204,91 +203,6 @@ class BranchStatusResponse(dict):
         The status of the branch.
         """
         return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class CapabilityPropertiesResponse(dict):
-    """
-    Model that represents the Capability properties model.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "parametersSchema":
-            suggest = "parameters_schema"
-        elif key == "targetType":
-            suggest = "target_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CapabilityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CapabilityPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CapabilityPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 description: str,
-                 parameters_schema: str,
-                 publisher: str,
-                 target_type: str,
-                 urn: str):
-        """
-        Model that represents the Capability properties model.
-        :param str description: Localized string of the description.
-        :param str parameters_schema: URL to retrieve JSON schema of the Capability parameters.
-        :param str publisher: String of the Publisher that this Capability extends.
-        :param str target_type: String of the Target Type that this Capability extends.
-        :param str urn: String of the URN for this Capability Type.
-        """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "parameters_schema", parameters_schema)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "target_type", target_type)
-        pulumi.set(__self__, "urn", urn)
-
-    @property
-    @pulumi.getter
-    def description(self) -> str:
-        """
-        Localized string of the description.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="parametersSchema")
-    def parameters_schema(self) -> str:
-        """
-        URL to retrieve JSON schema of the Capability parameters.
-        """
-        return pulumi.get(self, "parameters_schema")
-
-    @property
-    @pulumi.getter
-    def publisher(self) -> str:
-        """
-        String of the Publisher that this Capability extends.
-        """
-        return pulumi.get(self, "publisher")
-
-    @property
-    @pulumi.getter(name="targetType")
-    def target_type(self) -> str:
-        """
-        String of the Target Type that this Capability extends.
-        """
-        return pulumi.get(self, "target_type")
-
-    @property
-    @pulumi.getter
-    def urn(self) -> str:
-        """
-        String of the URN for this Capability Type.
-        """
-        return pulumi.get(self, "urn")
 
 
 @pulumi.output_type

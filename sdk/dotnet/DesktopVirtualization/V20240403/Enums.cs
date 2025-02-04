@@ -39,37 +39,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240403
     }
 
     /// <summary>
-    /// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
+    /// Day of the week.
     /// </summary>
-    [EnumType]
-    public readonly struct CommandLineSetting : IEquatable<CommandLineSetting>
-    {
-        private readonly string _value;
-
-        private CommandLineSetting(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static CommandLineSetting DoNotAllow { get; } = new CommandLineSetting("DoNotAllow");
-        public static CommandLineSetting Allow { get; } = new CommandLineSetting("Allow");
-        public static CommandLineSetting Require { get; } = new CommandLineSetting("Require");
-
-        public static bool operator ==(CommandLineSetting left, CommandLineSetting right) => left.Equals(right);
-        public static bool operator !=(CommandLineSetting left, CommandLineSetting right) => !left.Equals(right);
-
-        public static explicit operator string(CommandLineSetting value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CommandLineSetting other && Equals(other);
-        public bool Equals(CommandLineSetting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     [EnumType]
     public readonly struct DayOfWeek : IEquatable<DayOfWeek>
     {
@@ -96,38 +67,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240403
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
         public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Parameter indicating how the health check should behave if this package fails staging
-    /// </summary>
-    [EnumType]
-    public readonly struct FailHealthCheckOnStagingFailure : IEquatable<FailHealthCheckOnStagingFailure>
-    {
-        private readonly string _value;
-
-        private FailHealthCheckOnStagingFailure(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static FailHealthCheckOnStagingFailure Unhealthy { get; } = new FailHealthCheckOnStagingFailure("Unhealthy");
-        public static FailHealthCheckOnStagingFailure NeedsAssistance { get; } = new FailHealthCheckOnStagingFailure("NeedsAssistance");
-        public static FailHealthCheckOnStagingFailure DoNotFail { get; } = new FailHealthCheckOnStagingFailure("DoNotFail");
-
-        public static bool operator ==(FailHealthCheckOnStagingFailure left, FailHealthCheckOnStagingFailure right) => left.Equals(right);
-        public static bool operator !=(FailHealthCheckOnStagingFailure left, FailHealthCheckOnStagingFailure right) => !left.Equals(right);
-
-        public static explicit operator string(FailHealthCheckOnStagingFailure value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FailHealthCheckOnStagingFailure other && Equals(other);
-        public bool Equals(FailHealthCheckOnStagingFailure other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -242,37 +181,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240403
     }
 
     /// <summary>
-    /// Is package timestamped so it can ignore the certificate expiry date
-    /// </summary>
-    [EnumType]
-    public readonly struct PackageTimestamped : IEquatable<PackageTimestamped>
-    {
-        private readonly string _value;
-
-        private PackageTimestamped(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PackageTimestamped Timestamped { get; } = new PackageTimestamped("Timestamped");
-        public static PackageTimestamped NotTimestamped { get; } = new PackageTimestamped("NotTimestamped");
-
-        public static bool operator ==(PackageTimestamped left, PackageTimestamped right) => left.Equals(right);
-        public static bool operator !=(PackageTimestamped left, PackageTimestamped right) => !left.Equals(right);
-
-        public static explicit operator string(PackageTimestamped value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PackageTimestamped other && Equals(other);
-        public bool Equals(PackageTimestamped other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// PersonalDesktopAssignment type for HostPool.
     /// </summary>
     [EnumType]
@@ -336,38 +244,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240403
     }
 
     /// <summary>
-    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    /// </summary>
-    [EnumType]
-    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
-    {
-        private readonly string _value;
-
-        private PrivateEndpointServiceConnectionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
-        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
-        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
-
-        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
-        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
-        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
     /// </summary>
     [EnumType]
@@ -423,37 +299,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240403
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RegistrationTokenOperation other && Equals(other);
         public bool Equals(RegistrationTokenOperation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Resource Type of Application.
-    /// </summary>
-    [EnumType]
-    public readonly struct RemoteApplicationType : IEquatable<RemoteApplicationType>
-    {
-        private readonly string _value;
-
-        private RemoteApplicationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RemoteApplicationType InBuilt { get; } = new RemoteApplicationType("InBuilt");
-        public static RemoteApplicationType MsixApplication { get; } = new RemoteApplicationType("MsixApplication");
-
-        public static bool operator ==(RemoteApplicationType left, RemoteApplicationType right) => left.Equals(right);
-        public static bool operator !=(RemoteApplicationType left, RemoteApplicationType right) => !left.Equals(right);
-
-        public static explicit operator string(RemoteApplicationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RemoteApplicationType other && Equals(other);
-        public bool Equals(RemoteApplicationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -558,37 +403,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240403
     }
 
     /// <summary>
-    /// Action to be taken after a logoff during the ramp up period.
-    /// </summary>
-    [EnumType]
-    public readonly struct SessionHandlingOperation : IEquatable<SessionHandlingOperation>
-    {
-        private readonly string _value;
-
-        private SessionHandlingOperation(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SessionHandlingOperation None { get; } = new SessionHandlingOperation("None");
-        public static SessionHandlingOperation Deallocate { get; } = new SessionHandlingOperation("Deallocate");
-
-        public static bool operator ==(SessionHandlingOperation left, SessionHandlingOperation right) => left.Equals(right);
-        public static bool operator !=(SessionHandlingOperation left, SessionHandlingOperation right) => !left.Equals(right);
-
-        public static explicit operator string(SessionHandlingOperation value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SessionHandlingOperation other && Equals(other);
-        public bool Equals(SessionHandlingOperation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The type of maintenance for session host components.
     /// </summary>
     [EnumType]
@@ -657,37 +471,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240403
     }
 
     /// <summary>
-    /// The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
-    /// </summary>
-    [EnumType]
-    public readonly struct SetStartVMOnConnect : IEquatable<SetStartVMOnConnect>
-    {
-        private readonly string _value;
-
-        private SetStartVMOnConnect(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SetStartVMOnConnect Enable { get; } = new SetStartVMOnConnect("Enable");
-        public static SetStartVMOnConnect Disable { get; } = new SetStartVMOnConnect("Disable");
-
-        public static bool operator ==(SetStartVMOnConnect left, SetStartVMOnConnect right) => left.Equals(right);
-        public static bool operator !=(SetStartVMOnConnect left, SetStartVMOnConnect right) => !left.Equals(right);
-
-        public static explicit operator string(SetStartVMOnConnect value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SetStartVMOnConnect other && Equals(other);
-        public bool Equals(SetStartVMOnConnect other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
     /// </summary>
     [EnumType]
@@ -713,47 +496,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240403
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
         public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The desired startup behavior during the ramp up period for personal vms in the hostpool.
-    /// </summary>
-    [EnumType]
-    public readonly struct StartupBehavior : IEquatable<StartupBehavior>
-    {
-        private readonly string _value;
-
-        private StartupBehavior(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Session hosts will not be started by the service. This setting depends on Start VM on Connect to be enabled to start the session hosts.
-        /// </summary>
-        public static StartupBehavior None { get; } = new StartupBehavior("None");
-        /// <summary>
-        /// Session hosts with an assigned user will be started during Ramp Up
-        /// </summary>
-        public static StartupBehavior WithAssignedUser { get; } = new StartupBehavior("WithAssignedUser");
-        /// <summary>
-        /// All personal session hosts in the hostpool will be started during ramp up.
-        /// </summary>
-        public static StartupBehavior All { get; } = new StartupBehavior("All");
-
-        public static bool operator ==(StartupBehavior left, StartupBehavior right) => left.Equals(right);
-        public static bool operator !=(StartupBehavior left, StartupBehavior right) => !left.Equals(right);
-
-        public static explicit operator string(StartupBehavior value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StartupBehavior other && Equals(other);
-        public bool Equals(StartupBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

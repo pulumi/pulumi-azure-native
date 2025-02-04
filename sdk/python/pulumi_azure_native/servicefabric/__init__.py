@@ -29,8 +29,6 @@ if typing.TYPE_CHECKING:
     v20230301preview = __v20230301preview
     import pulumi_azure_native.servicefabric.v20240201preview as __v20240201preview
     v20240201preview = __v20240201preview
-    import pulumi_azure_native.servicefabric.v20240401 as __v20240401
-    v20240401 = __v20240401
     import pulumi_azure_native.servicefabric.v20240601preview as __v20240601preview
     v20240601preview = __v20240601preview
     import pulumi_azure_native.servicefabric.v20240901preview as __v20240901preview
@@ -38,7 +36,6 @@ if typing.TYPE_CHECKING:
 else:
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20230301preview')
     v20240201preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20240201preview')
-    v20240401 = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20240401')
     v20240601preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20240601preview')
     v20240901preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20240901preview')
 

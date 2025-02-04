@@ -23,14 +23,11 @@ if typing.TYPE_CHECKING:
     v20170901preview = __v20170901preview
     import pulumi_azure_native.trafficmanager.v20180201 as __v20180201
     v20180201 = __v20180201
-    import pulumi_azure_native.trafficmanager.v20220401 as __v20220401
-    v20220401 = __v20220401
     import pulumi_azure_native.trafficmanager.v20220401preview as __v20220401preview
     v20220401preview = __v20220401preview
 else:
     v20170301 = _utilities.lazy_import('pulumi_azure_native.trafficmanager.v20170301')
     v20170901preview = _utilities.lazy_import('pulumi_azure_native.trafficmanager.v20170901preview')
     v20180201 = _utilities.lazy_import('pulumi_azure_native.trafficmanager.v20180201')
-    v20220401 = _utilities.lazy_import('pulumi_azure_native.trafficmanager.v20220401')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.trafficmanager.v20220401preview')
 

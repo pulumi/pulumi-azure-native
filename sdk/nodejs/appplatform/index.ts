@@ -336,12 +336,10 @@ export * from "../types/enums/appplatform";
 
 // Export sub-modules:
 import * as v20230501preview from "./v20230501preview";
-import * as v20240101preview from "./v20240101preview";
 import * as v20240501preview from "./v20240501preview";
 
 export {
     v20230501preview,
-    v20240101preview,
     v20240501preview,
 };
 
