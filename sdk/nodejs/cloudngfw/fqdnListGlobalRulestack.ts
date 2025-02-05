@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * GlobalRulestack fqdnList
  * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
  */
 export class FqdnListGlobalRulestack extends pulumi.CustomResource {
     /**
@@ -110,7 +110,7 @@ export class FqdnListGlobalRulestack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:FqdnListGlobalRulestack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20250206preview:FqdnListGlobalRulestack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FqdnListGlobalRulestack.__pulumiType, name, resourceInputs, opts);
     }

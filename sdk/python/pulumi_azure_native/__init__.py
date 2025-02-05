@@ -4814,6 +4814,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "chaos/v20250101",
+  "fqn": "pulumi_azure_native.chaos.v20250101",
+  "classes": {
+   "azure-native:chaos/v20250101:Capability": "Capability",
+   "azure-native:chaos/v20250101:Experiment": "Experiment",
+   "azure-native:chaos/v20250101:Target": "Target"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cloudngfw",
   "fqn": "pulumi_azure_native.cloudngfw",
   "classes": {
@@ -4962,6 +4972,25 @@ _utilities.register(
    "azure-native:cloudngfw/v20240207preview:PreRule": "PreRule",
    "azure-native:cloudngfw/v20240207preview:PrefixListGlobalRulestack": "PrefixListGlobalRulestack",
    "azure-native:cloudngfw/v20240207preview:PrefixListLocalRulestack": "PrefixListLocalRulestack"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cloudngfw/v20250206preview",
+  "fqn": "pulumi_azure_native.cloudngfw.v20250206preview",
+  "classes": {
+   "azure-native:cloudngfw/v20250206preview:CertificateObjectGlobalRulestack": "CertificateObjectGlobalRulestack",
+   "azure-native:cloudngfw/v20250206preview:CertificateObjectLocalRulestack": "CertificateObjectLocalRulestack",
+   "azure-native:cloudngfw/v20250206preview:Firewall": "Firewall",
+   "azure-native:cloudngfw/v20250206preview:FqdnListGlobalRulestack": "FqdnListGlobalRulestack",
+   "azure-native:cloudngfw/v20250206preview:FqdnListLocalRulestack": "FqdnListLocalRulestack",
+   "azure-native:cloudngfw/v20250206preview:GlobalRulestack": "GlobalRulestack",
+   "azure-native:cloudngfw/v20250206preview:LocalRule": "LocalRule",
+   "azure-native:cloudngfw/v20250206preview:LocalRulestack": "LocalRulestack",
+   "azure-native:cloudngfw/v20250206preview:PostRule": "PostRule",
+   "azure-native:cloudngfw/v20250206preview:PreRule": "PreRule",
+   "azure-native:cloudngfw/v20250206preview:PrefixListGlobalRulestack": "PrefixListGlobalRulestack",
+   "azure-native:cloudngfw/v20250206preview:PrefixListLocalRulestack": "PrefixListLocalRulestack"
   }
  },
  {
@@ -6565,6 +6594,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20241001",
+  "fqn": "pulumi_azure_native.containerservice.v20241001",
+  "classes": {
+   "azure-native:containerservice/v20241001:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20241001:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20241001:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20241001:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20241001:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20241001:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerstorage",
   "fqn": "pulumi_azure_native.containerstorage",
   "classes": {
@@ -7589,6 +7631,18 @@ _utilities.register(
    "azure-native:dataprotection/v20240401:BackupVault": "BackupVault",
    "azure-native:dataprotection/v20240401:DppResourceGuardProxy": "DppResourceGuardProxy",
    "azure-native:dataprotection/v20240401:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dataprotection/v20250101",
+  "fqn": "pulumi_azure_native.dataprotection.v20250101",
+  "classes": {
+   "azure-native:dataprotection/v20250101:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20250101:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20250101:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20250101:DppResourceGuardProxy": "DppResourceGuardProxy",
+   "azure-native:dataprotection/v20250101:ResourceGuard": "ResourceGuard"
   }
  },
  {
@@ -20393,6 +20447,18 @@ _utilities.register(
    "azure-native:storagecache/v20240301:Cache": "Cache",
    "azure-native:storagecache/v20240301:ImportJob": "ImportJob",
    "azure-native:storagecache/v20240301:StorageTarget": "StorageTarget"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "storagecache/v20240701",
+  "fqn": "pulumi_azure_native.storagecache.v20240701",
+  "classes": {
+   "azure-native:storagecache/v20240701:AmlFilesystem": "AmlFilesystem",
+   "azure-native:storagecache/v20240701:AutoExportJob": "AutoExportJob",
+   "azure-native:storagecache/v20240701:Cache": "Cache",
+   "azure-native:storagecache/v20240701:ImportJob": "ImportJob",
+   "azure-native:storagecache/v20240701:StorageTarget": "StorageTarget"
   }
  },
  {

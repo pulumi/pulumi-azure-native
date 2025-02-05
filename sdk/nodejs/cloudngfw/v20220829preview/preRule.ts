@@ -194,7 +194,7 @@ export class PreRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:PreRule" }, { type: "azure-native:cloudngfw/v20230901:PreRule" }, { type: "azure-native:cloudngfw/v20230901preview:PreRule" }, { type: "azure-native:cloudngfw/v20231010preview:PreRule" }, { type: "azure-native:cloudngfw/v20240119preview:PreRule" }, { type: "azure-native:cloudngfw/v20240207preview:PreRule" }, { type: "azure-native:cloudngfw:PreRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:PreRule" }, { type: "azure-native:cloudngfw/v20230901:PreRule" }, { type: "azure-native:cloudngfw/v20230901preview:PreRule" }, { type: "azure-native:cloudngfw/v20231010preview:PreRule" }, { type: "azure-native:cloudngfw/v20240119preview:PreRule" }, { type: "azure-native:cloudngfw/v20240207preview:PreRule" }, { type: "azure-native:cloudngfw/v20250206preview:PreRule" }, { type: "azure-native:cloudngfw:PreRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PreRule.__pulumiType, name, resourceInputs, opts);
     }

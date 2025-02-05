@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// List the security services for rulestack
         /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
         /// </summary>
         public static Task<ListLocalRulestackSecurityServicesResult> InvokeAsync(ListLocalRulestackSecurityServicesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListLocalRulestackSecurityServicesResult>("azure-native:cloudngfw:listLocalRulestackSecurityServices", args ?? new ListLocalRulestackSecurityServicesArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// List the security services for rulestack
         /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
         /// </summary>
         public static Output<ListLocalRulestackSecurityServicesResult> Invoke(ListLocalRulestackSecurityServicesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLocalRulestackSecurityServicesResult>("azure-native:cloudngfw:listLocalRulestackSecurityServices", args ?? new ListLocalRulestackSecurityServicesInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// List the security services for rulestack
         /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
         /// </summary>
         public static Output<ListLocalRulestackSecurityServicesResult> Invoke(ListLocalRulestackSecurityServicesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListLocalRulestackSecurityServicesResult>("azure-native:cloudngfw:listLocalRulestackSecurityServices", args ?? new ListLocalRulestackSecurityServicesInvokeArgs(), options.WithDefaults());

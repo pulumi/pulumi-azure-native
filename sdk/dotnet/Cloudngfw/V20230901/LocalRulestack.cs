@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.Cloudngfw.V20230901
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20231010preview:LocalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240119preview:LocalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240207preview:LocalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20250206preview:LocalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw:LocalRulestack" },
                 },
             };

@@ -296,7 +296,7 @@ class GlobalRulestack(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw/v20220829:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20231010preview:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240119preview:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw:GlobalRulestack")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw/v20220829:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20231010preview:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240119preview:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20250206preview:GlobalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw:GlobalRulestack")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GlobalRulestack, __self__).__init__(
             'azure-native:cloudngfw/v20230901preview:GlobalRulestack',

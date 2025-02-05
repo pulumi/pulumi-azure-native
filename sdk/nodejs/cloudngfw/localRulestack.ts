@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * PaloAltoNetworks LocalRulestack
  * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
  */
 export class LocalRulestack extends pulumi.CustomResource {
     /**
@@ -150,7 +150,7 @@ export class LocalRulestack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:LocalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20230901:LocalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:LocalRulestack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:LocalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20230901:LocalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20250206preview:LocalRulestack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LocalRulestack.__pulumiType, name, resourceInputs, opts);
     }

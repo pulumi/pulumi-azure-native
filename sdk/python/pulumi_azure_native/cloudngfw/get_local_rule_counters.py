@@ -167,7 +167,7 @@ def get_local_rule_counters(firewall_name: Optional[str] = None,
     Get counters
     Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
 
     :param str local_rulestack_name: LocalRulestack resource name
@@ -202,7 +202,7 @@ def get_local_rule_counters_output(firewall_name: Optional[pulumi.Input[Optional
     Get counters
     Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
 
     :param str local_rulestack_name: LocalRulestack resource name

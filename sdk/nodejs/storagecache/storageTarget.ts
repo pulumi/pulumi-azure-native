@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Type of the Storage Target.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
  *
- * Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01.
+ * Other available API versions: 2021-03-01, 2023-11-01-preview, 2024-03-01, 2024-07-01.
  */
 export class StorageTarget extends pulumi.CustomResource {
     /**
@@ -145,7 +145,7 @@ export class StorageTarget extends pulumi.CustomResource {
             resourceInputs["unknown"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20190801preview:StorageTarget" }, { type: "azure-native:storagecache/v20191101:StorageTarget" }, { type: "azure-native:storagecache/v20200301:StorageTarget" }, { type: "azure-native:storagecache/v20201001:StorageTarget" }, { type: "azure-native:storagecache/v20210301:StorageTarget" }, { type: "azure-native:storagecache/v20210501:StorageTarget" }, { type: "azure-native:storagecache/v20210901:StorageTarget" }, { type: "azure-native:storagecache/v20220101:StorageTarget" }, { type: "azure-native:storagecache/v20220501:StorageTarget" }, { type: "azure-native:storagecache/v20230101:StorageTarget" }, { type: "azure-native:storagecache/v20230301preview:StorageTarget" }, { type: "azure-native:storagecache/v20230501:StorageTarget" }, { type: "azure-native:storagecache/v20231101preview:StorageTarget" }, { type: "azure-native:storagecache/v20240301:StorageTarget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20190801preview:StorageTarget" }, { type: "azure-native:storagecache/v20191101:StorageTarget" }, { type: "azure-native:storagecache/v20200301:StorageTarget" }, { type: "azure-native:storagecache/v20201001:StorageTarget" }, { type: "azure-native:storagecache/v20210301:StorageTarget" }, { type: "azure-native:storagecache/v20210501:StorageTarget" }, { type: "azure-native:storagecache/v20210901:StorageTarget" }, { type: "azure-native:storagecache/v20220101:StorageTarget" }, { type: "azure-native:storagecache/v20220501:StorageTarget" }, { type: "azure-native:storagecache/v20230101:StorageTarget" }, { type: "azure-native:storagecache/v20230301preview:StorageTarget" }, { type: "azure-native:storagecache/v20230501:StorageTarget" }, { type: "azure-native:storagecache/v20231101preview:StorageTarget" }, { type: "azure-native:storagecache/v20240301:StorageTarget" }, { type: "azure-native:storagecache/v20240701:StorageTarget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageTarget.__pulumiType, name, resourceInputs, opts);
     }
