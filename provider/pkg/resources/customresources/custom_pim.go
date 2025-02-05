@@ -20,6 +20,85 @@ type PolicyWithRules struct {
 	Rules []Rule
 }
 
+// roleManagementPolicyClient is a helper struct containing dependencies and methods for CRUD operations on PIM Role Management Policies.
+type roleManagementPolicyClient struct {
+	client           crud.ResourceCrudClient
+	resourceMetadata resources.AzureAPIResource
+}
+
+func (c *roleManagementPolicyClient) create(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+	originalState, err := c.client.Read(ctx, id)
+	if err != nil {
+		return nil, err
+	}
+
+	bodyParams, err := c.client.PrepareAzureRESTBody(id, inputs)
+	if err != nil {
+		return nil, err
+	}
+	queryParams := map[string]any{"api-version": c.client.ApiVersion()}
+
+	// We could skip this if bodyParams = originalState, i.e., the user adds a policy
+	// in its default configuration to their program, but we don't have a diff function.
+	resp, _, err := c.client.CreateOrUpdate(ctx, id, bodyParams, queryParams)
+	if err != nil {
+		return nil, err
+	}
+
+	outputs := c.client.ResponseBodyToSdkOutputs(resp)
+	outputs[OriginalStateKey] = originalState
+	return outputs, nil
+}
+
+func (c *roleManagementPolicyClient) update(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]any, error) {
+	if !olds.HasValue(OriginalStateKey) {
+		logging.V(3).Infof("Warning: no original state found for %s, cannot reset deleted rules", id)
+	} else {
+		restoreDefaultsForDeletedRules(olds, news)
+	}
+
+	bodyParams, err := c.client.PrepareAzureRESTBody(id, news)
+	if err != nil {
+		return nil, err
+	}
+	queryParams := map[string]any{"api-version": c.client.ApiVersion()}
+
+	resp, _, err := c.client.CreateOrUpdate(ctx, id, bodyParams, queryParams)
+	if err != nil {
+		return nil, err
+	}
+
+	outputs := c.client.ResponseBodyToSdkOutputs(resp)
+	if olds.HasValue(OriginalStateKey) {
+		outputs[OriginalStateKey] = olds[OriginalStateKey].Mappable()
+	}
+	return outputs, nil
+}
+
+func (c *roleManagementPolicyClient) delete(ctx context.Context, id string, previousInputs, state resource.PropertyMap) error {
+	if !state.HasValue(OriginalStateKey) {
+		logging.V(3).Infof("Warning: no original state found for %s, cannot reset", id)
+		return nil
+	}
+
+	origState := state[OriginalStateKey].Mappable().(map[string]any)
+	pathItems, err := resources.ParseResourceID(id, c.resourceMetadata.Path)
+	if err != nil {
+		return err
+	}
+	origSdkInputs := c.client.ResponseToSdkInputs(pathItems, origState)
+	origRequest, err := c.client.SdkInputsToRequestBody(origSdkInputs, id)
+	if err != nil {
+		return err
+	}
+
+	queryParams := map[string]any{"api-version": c.client.ApiVersion()}
+	_, _, err = c.client.CreateOrUpdate(ctx, id, origRequest, queryParams)
+	return err
+}
+
+// pimRoleManagementPolicy creates a CustomResource for PIM Role Management Policies. See #2455 and
+// https://learn.microsoft.com/en-us/rest/api/authorization/privileged-role-policy-rest-sample.
 func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudClientFactory crud.ResourceCrudClientFactory) (*CustomResource, error) {
 	// A bit of a hack to initialize some resource. This func's parameters are all nil when the
 	// function is called for the first time, for customresources.featureLookup, which is ok but
@@ -40,6 +119,11 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 		client = crudClientFactory(&res)
 	}
 
+	policyClient := &roleManagementPolicyClient{
+		client:           client,
+		resourceMetadata: res,
+	}
+
 	return &CustomResource{
 		path: "/{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName}",
 
@@ -52,80 +136,14 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 
 		// PIM Role Management Policies cannot be created. Instead, each resource has a default policy.
 		// Simply look up the default policy and return it.
-		Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
-			// First read the existing policy to capture the default for resetting it later on delete.
-			originalState, err := client.Read(ctx, id)
-			if err != nil {
-				return nil, err
-			}
-
-			bodyParams, err := client.PrepareAzureRESTBody(id, inputs)
-			if err != nil {
-				return nil, err
-			}
-			queryParams := map[string]any{"api-version": client.ApiVersion()}
-
-			// We could skip this if bodyParams = originalState, i.e., the user adds a policy
-			// in its default configuration to their program, but we don't have a diff function.
-			resp, _, err := client.CreateOrUpdate(ctx, id, bodyParams, queryParams)
-			if err != nil {
-				return nil, err
-			}
-
-			outputs := client.ResponseBodyToSdkOutputs(resp)
-			outputs[OriginalStateKey] = originalState
-			return outputs, nil
-		},
+		Create: policyClient.create,
 
 		// Tricky because rules can be removed from the list of rules of the policy, but simply removing them from the
 		// request will leave them in their current state, not the default state.
-		Update: func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]any, error) {
-			if !olds.HasValue(OriginalStateKey) {
-				logging.V(3).Infof("Warning: no original state found for %s, cannot reset deleted rules", id)
-			} else {
-				restoreDefaultsForDeletedRules(olds, news)
-			}
-
-			bodyParams, err := client.PrepareAzureRESTBody(id, news)
-			if err != nil {
-				return nil, err
-			}
-			queryParams := map[string]any{"api-version": client.ApiVersion()}
-
-			resp, _, err := client.CreateOrUpdate(ctx, id, bodyParams, queryParams)
-			if err != nil {
-				return nil, err
-			}
-
-			outputs := client.ResponseBodyToSdkOutputs(resp)
-			if olds.HasValue(OriginalStateKey) {
-				outputs[OriginalStateKey] = olds[OriginalStateKey].Mappable()
-			}
-			return outputs, nil
-		},
+		Update: policyClient.update,
 
 		// PIM Role Management Policies cannot be deleted. Instead, we reset the policy to its default.
-		Delete: func(ctx context.Context, id string, previousInputs, state resource.PropertyMap) error {
-			if !state.HasValue(OriginalStateKey) {
-				logging.V(3).Infof("Warning: no original state found for %s, cannot reset", id)
-				return nil
-			}
-
-			origState := state[OriginalStateKey].Mappable().(map[string]any)
-			pathItems, err := resources.ParseResourceID(id, res.Path)
-			if err != nil {
-				return err
-			}
-			origSdkInputs := client.ResponseToSdkInputs(pathItems, origState)
-			origRequest, err := client.SdkInputsToRequestBody(origSdkInputs, id)
-			if err != nil {
-				return err
-			}
-
-			queryParams := map[string]any{"api-version": client.ApiVersion()}
-			_, _, err = client.CreateOrUpdate(ctx, id, origRequest, queryParams)
-			return err
-		},
+		Delete: policyClient.delete,
 	}, nil
 }
 

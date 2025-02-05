@@ -2,15 +2,21 @@ package customresources
 
 import (
 	"context"
+	"encoding/json"
 	"testing"
 
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/deepcopy"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
-func TestCanCreate(t *testing.T) {
+func TestCanCreateRoleManagementPolicy(t *testing.T) {
 	t.Parallel()
 
 	t.Run("returns nil", func(t *testing.T) {
@@ -18,6 +24,173 @@ func TestCanCreate(t *testing.T) {
 		r, err := pimRoleManagementPolicy(nil, nil)
 		require.NoError(t, err)
 		assert.Nil(t, r.CanCreate(context.Background(), ""))
+	})
+}
+
+func TestCreateRoleManagementPolicy(t *testing.T) {
+	t.Parallel()
+
+	roleManagementPolicyResource := resources.AzureAPIResource{}
+
+	t.Run("happy path", func(t *testing.T) {
+		t.Parallel()
+
+		azureClient := azure.MockAzureClient{
+			GetResponse: map[string]any{"original": "policy"},
+		}
+		mockClient := crud.NewResourceCrudClient(&azureClient, nil, nil, "123", &roleManagementPolicyResource)
+		roleManagementPolicyClient := &roleManagementPolicyClient{
+			client: mockClient,
+		}
+
+		out, err := roleManagementPolicyClient.create(context.Background(), "/id", resource.PropertyMap{})
+		require.NoError(t, err)
+		// we read the original policy
+		assert.Equal(t, []string{"/id"}, azureClient.GetIds)
+		// we preserved the original policy in state
+		assert.Equal(t, out[OriginalStateKey], map[string]any{"original": "policy"})
+	})
+
+	t.Run("error on read", func(t *testing.T) {
+		t.Parallel()
+
+		azureClient := azure.MockAzureClient{
+			GetResponseErr: errors.New("error"),
+		}
+		mockClient := crud.NewResourceCrudClient(&azureClient, nil, nil, "123", &roleManagementPolicyResource)
+		roleManagementPolicyClient := &roleManagementPolicyClient{
+			client: mockClient,
+		}
+		out, err := roleManagementPolicyClient.create(context.Background(), "/id", resource.PropertyMap{})
+		require.Error(t, err)
+		assert.Nil(t, out)
+	})
+
+	t.Run("error on put", func(t *testing.T) {
+		t.Parallel()
+
+		azureClient := azure.MockAzureClient{
+			PutResponseErr: errors.New("error"),
+		}
+		mockClient := crud.NewResourceCrudClient(&azureClient, nil, nil, "123", &roleManagementPolicyResource)
+		roleManagementPolicyClient := &roleManagementPolicyClient{
+			client: mockClient,
+		}
+		out, err := roleManagementPolicyClient.create(context.Background(), "/id", resource.PropertyMap{})
+		require.Error(t, err)
+		assert.Nil(t, out)
+	})
+}
+
+func TestUpdateRoleManagementPolicy(t *testing.T) {
+	t.Parallel()
+
+	roleManagementPolicyResource := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Name:     "properties",
+				Location: "body",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"rules": {
+							Type: "array",
+							Items: &resources.AzureAPIProperty{
+								Type:  "object",
+								OneOf: []string{"azure-native:authorization:RoleManagementPolicyExpirationRule"},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	expirationRule := resources.AzureAPIType{
+		Properties: map[string]resources.AzureAPIProperty{
+			"id":                   {Type: "string"},
+			"isExpirationRequired": {Type: "boolean"},
+		},
+	}
+
+	lookupType := func(ref string) (*resources.AzureAPIType, bool, error) {
+		if ref == "#/types/azure-native:authorization:RoleManagementPolicyExpirationRule" {
+			return &expirationRule, true, nil
+		}
+		return nil, false, nil
+	}
+
+	converter := convert.SdkShapeConverter{
+		Types: map[string]resources.AzureAPIType{
+			"azure-native:authorization:RoleManagementPolicyExpirationRule": expirationRule,
+		},
+	}
+
+	// "isExpirationRequired" changes from false to true. The original "false" value is preserved.
+	t.Run("restores deleted rules", func(t *testing.T) {
+		t.Parallel()
+
+		azureClient := azure.MockAzureClient{}
+		mockClient := crud.NewResourceCrudClient(&azureClient, lookupType, &converter, "123", &roleManagementPolicyResource)
+		roleManagementPolicyClient := &roleManagementPolicyClient{
+			client: mockClient,
+		}
+
+		oldsPlain := map[string]any{
+			"rules": []map[string]any{
+				{"id": "rule1", "isExpirationRequired": false},
+			},
+			OriginalStateKey: map[string]any{
+				"properties": map[string]any{
+					"rules": []map[string]any{
+						{"id": "rule1", "isExpirationRequired": false},
+					},
+				},
+			},
+		}
+		olds := resource.NewPropertyMapFromMap(oldsPlain)
+
+		newsPlain := map[string]any{
+			"rules": []map[string]any{
+				{"id": "rule1", "isExpirationRequired": true},
+			},
+		}
+		news := resource.NewPropertyMapFromMap(newsPlain)
+
+		// The return value is mostly empty because `roleManagementPolicyResource` is a dummy without the response properties.
+		out, err := roleManagementPolicyClient.update(context.Background(), "/id", news, olds)
+		require.NoError(t, err)
+		assert.Equal(t, []string{"/id"}, azureClient.PutIds)
+		assert.Len(t, azureClient.PutBodies, 1)
+		// We cannot use `assert.Equals` because in one object "rules" is a `[]map[string]map[string]any`, in the other a `[]map[string]any`.
+		expectedBody, err := json.Marshal(newsPlain)
+		require.NoError(t, err)
+		actualBody, err := json.Marshal(azureClient.PutBodies[0])
+		require.NoError(t, err)
+		assert.JSONEq(t, string(expectedBody), string(actualBody))
+
+		// Check the original state is preserved.
+		// We cannot use `assert.Equals` because in one object "rules" is a `[]map[string]map[string]any`, in the other a `[]map[string]any`.
+		assert.Contains(t, out, OriginalStateKey)
+		expectedOriginalState, err := json.Marshal(oldsPlain[OriginalStateKey])
+		require.NoError(t, err)
+		actualOriginalState, err := json.Marshal(out[OriginalStateKey])
+		require.NoError(t, err)
+		assert.JSONEq(t, string(expectedOriginalState), string(actualOriginalState))
+	})
+
+	t.Run("error on PUT", func(t *testing.T) {
+		t.Parallel()
+
+		azureClient := azure.MockAzureClient{
+			PutResponseErr: errors.New("error"),
+		}
+		mockClient := crud.NewResourceCrudClient(&azureClient, lookupType, &converter, "123", &roleManagementPolicyResource)
+		roleManagementPolicyClient := &roleManagementPolicyClient{
+			client: mockClient,
+		}
+		out, err := roleManagementPolicyClient.update(context.Background(), "/id", resource.PropertyMap{}, resource.PropertyMap{})
+		require.Error(t, err)
+		assert.Nil(t, out)
 	})
 }
 
