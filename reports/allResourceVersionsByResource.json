@@ -5203,7 +5203,8 @@
       "2023-11-01",
       "2024-01-01",
       "2024-03-22-preview",
-      "2024-11-01-preview"
+      "2024-11-01-preview",
+      "2025-01-01"
     ],
     "Experiment": [
       "2021-09-15-preview",
@@ -5216,7 +5217,8 @@
       "2023-11-01",
       "2024-01-01",
       "2024-03-22-preview",
-      "2024-11-01-preview"
+      "2024-11-01-preview",
+      "2025-01-01"
     ],
     "PrivateAccess": [
       "2023-10-27-preview",
@@ -5234,13 +5236,15 @@
       "2023-11-01",
       "2024-01-01",
       "2024-03-22-preview",
-      "2024-11-01-preview"
+      "2024-11-01-preview",
+      "2025-01-01"
     ],
     "getExperimentExecutionDetails": [
       "2023-11-01",
       "2024-01-01",
       "2024-03-22-preview",
-      "2024-11-01-preview"
+      "2024-11-01-preview",
+      "2025-01-01"
     ]
   },
   "Cloudngfw": {
@@ -5251,7 +5255,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "CertificateObjectLocalRulestack": [
       "2022-08-29",
@@ -5260,7 +5265,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "Firewall": [
       "2022-08-29",
@@ -5269,7 +5275,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "FqdnListGlobalRulestack": [
       "2022-08-29",
@@ -5278,7 +5285,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "FqdnListLocalRulestack": [
       "2022-08-29",
@@ -5287,7 +5295,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "GlobalRulestack": [
       "2022-08-29",
@@ -5296,7 +5305,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "LocalRule": [
       "2022-08-29",
@@ -5305,7 +5315,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "LocalRulestack": [
       "2022-08-29",
@@ -5314,7 +5325,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "PostRule": [
       "2022-08-29",
@@ -5323,7 +5335,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "PreRule": [
       "2022-08-29",
@@ -5332,7 +5345,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "PrefixListGlobalRulestack": [
       "2022-08-29",
@@ -5341,7 +5355,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "PrefixListLocalRulestack": [
       "2022-08-29",
@@ -5350,7 +5365,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "getFirewallGlobalRulestack": [
       "2022-08-29",
@@ -5359,7 +5375,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "getFirewallLogProfile": [
       "2022-08-29",
@@ -5368,7 +5385,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "getFirewallSupportInfo": [
       "2022-08-29",
@@ -5377,7 +5395,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "getGlobalRulestackChangeLog": [
       "2022-08-29",
@@ -5386,7 +5405,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "getLocalRuleCounters": [
       "2022-08-29",
@@ -5395,7 +5415,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "getLocalRulestackChangeLog": [
       "2022-08-29",
@@ -5404,7 +5425,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "getLocalRulestackSupportInfo": [
       "2022-08-29",
@@ -5413,7 +5435,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "getPostRuleCounters": [
       "2022-08-29",
@@ -5422,7 +5445,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "getPreRuleCounters": [
       "2022-08-29",
@@ -5431,7 +5455,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listGlobalRulestackAdvancedSecurityObjects": [
       "2022-08-29",
@@ -5440,7 +5465,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listGlobalRulestackAppIds": [
       "2022-08-29",
@@ -5449,7 +5475,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listGlobalRulestackCountries": [
       "2022-08-29",
@@ -5458,7 +5485,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listGlobalRulestackFirewalls": [
       "2022-08-29",
@@ -5467,7 +5495,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listGlobalRulestackPredefinedUrlCategories": [
       "2022-08-29",
@@ -5476,7 +5505,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listGlobalRulestackSecurityServices": [
       "2022-08-29",
@@ -5485,7 +5515,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listLocalRulestackAdvancedSecurityObjects": [
       "2022-08-29",
@@ -5494,7 +5525,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listLocalRulestackAppIds": [
       "2022-08-29",
@@ -5503,7 +5535,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listLocalRulestackCountries": [
       "2022-08-29",
@@ -5512,7 +5545,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listLocalRulestackFirewalls": [
       "2022-08-29",
@@ -5521,7 +5555,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listLocalRulestackPredefinedUrlCategories": [
       "2022-08-29",
@@ -5530,7 +5565,8 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listLocalRulestackSecurityServices": [
       "2022-08-29",
@@ -5539,17 +5575,21 @@
       "2023-09-01-preview",
       "2023-10-10-preview",
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listPaloAltoNetworksCloudngfwCloudManagerTenants": [
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listPaloAltoNetworksCloudngfwProductSerialNumberStatus": [
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ],
     "listPaloAltoNetworksCloudngfwSupportInfo": [
       "2024-01-19-preview",
-      "2024-02-07-preview"
+      "2024-02-07-preview",
+      "2025-02-06-preview"
     ]
   },
   "CodeSigning": {
@@ -6949,7 +6989,8 @@
       "2024-07-02-preview",
       "2024-08-01",
       "2024-09-01",
-      "2024-09-02-preview"
+      "2024-09-02-preview",
+      "2024-10-01"
     ],
     "AutoUpgradeProfile": [
       "2024-05-02-preview"
@@ -7064,7 +7105,8 @@
       "2024-07-02-preview",
       "2024-08-01",
       "2024-09-01",
-      "2024-09-02-preview"
+      "2024-09-02-preview",
+      "2024-10-01"
     ],
     "ManagedCluster": [
       "2017-08-31",
@@ -7148,7 +7190,8 @@
       "2024-07-02-preview",
       "2024-08-01",
       "2024-09-01",
-      "2024-09-02-preview"
+      "2024-09-02-preview",
+      "2024-10-01"
     ],
     "ManagedClusterSnapshot": [
       "2022-02-02-preview",
@@ -7257,7 +7300,8 @@
       "2024-07-02-preview",
       "2024-08-01",
       "2024-09-01",
-      "2024-09-02-preview"
+      "2024-09-02-preview",
+      "2024-10-01"
     ],
     "Snapshot": [
       "2021-08-01",
@@ -7319,7 +7363,8 @@
       "2024-07-02-preview",
       "2024-08-01",
       "2024-09-01",
-      "2024-09-02-preview"
+      "2024-09-02-preview",
+      "2024-10-01"
     ],
     "TrustedAccessRoleBinding": [
       "2022-04-02-preview",
@@ -7358,7 +7403,8 @@
       "2024-07-02-preview",
       "2024-08-01",
       "2024-09-01",
-      "2024-09-02-preview"
+      "2024-09-02-preview",
+      "2024-10-01"
     ],
     "UpdateRun": [
       "2023-03-15-preview",
@@ -7476,7 +7522,8 @@
       "2024-07-02-preview",
       "2024-08-01",
       "2024-09-01",
-      "2024-09-02-preview"
+      "2024-09-02-preview",
+      "2024-10-01"
     ],
     "listManagedClusterMonitoringUserCredentials": [
       "2019-10-01",
@@ -7553,7 +7600,8 @@
       "2024-07-02-preview",
       "2024-08-01",
       "2024-09-01",
-      "2024-09-02-preview"
+      "2024-09-02-preview",
+      "2024-10-01"
     ],
     "listManagedClusterUserCredentials": [
       "2018-03-31",
@@ -7636,7 +7684,8 @@
       "2024-07-02-preview",
       "2024-08-01",
       "2024-09-01",
-      "2024-09-02-preview"
+      "2024-09-02-preview",
+      "2024-10-01"
     ]
   },
   "ContainerStorage": {
@@ -8720,7 +8769,8 @@
       "2023-12-01",
       "2024-02-01-preview",
       "2024-03-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2025-01-01"
     ],
     "BackupPolicy": [
       "2021-01-01",
@@ -8748,7 +8798,8 @@
       "2023-12-01",
       "2024-02-01-preview",
       "2024-03-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2025-01-01"
     ],
     "BackupVault": [
       "2021-01-01",
@@ -8776,7 +8827,8 @@
       "2023-12-01",
       "2024-02-01-preview",
       "2024-03-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2025-01-01"
     ],
     "DppResourceGuardProxy": [
       "2022-09-01-preview",
@@ -8791,7 +8843,8 @@
       "2023-12-01",
       "2024-02-01-preview",
       "2024-03-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2025-01-01"
     ],
     "ResourceGuard": [
       "2021-07-01",
@@ -8816,7 +8869,8 @@
       "2023-12-01",
       "2024-02-01-preview",
       "2024-03-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2025-01-01"
     ]
   },
   "DataReplication": {
@@ -26165,7 +26219,8 @@
       "2023-03-01-preview",
       "2023-05-01",
       "2023-11-01-preview",
-      "2024-03-01"
+      "2024-03-01",
+      "2024-07-01"
     ],
     "StorageTarget": [
       "2019-08-01-preview",
@@ -26181,22 +26236,29 @@
       "2023-03-01-preview",
       "2023-05-01",
       "2023-11-01-preview",
-      "2024-03-01"
+      "2024-03-01",
+      "2024-07-01"
     ],
     "amlFilesystem": [
       "2023-03-01-preview",
       "2023-05-01",
       "2023-11-01-preview",
-      "2024-03-01"
+      "2024-03-01",
+      "2024-07-01"
+    ],
+    "autoExportJob": [
+      "2024-07-01"
     ],
     "getRequiredAmlFSSubnetsSize": [
       "2023-03-01-preview",
       "2023-05-01",
       "2023-11-01-preview",
-      "2024-03-01"
+      "2024-03-01",
+      "2024-07-01"
     ],
     "importJob": [
-      "2024-03-01"
+      "2024-03-01",
+      "2024-07-01"
     ]
   },
   "StorageMover": {
