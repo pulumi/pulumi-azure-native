@@ -48,8 +48,16 @@ type MockAzureClient struct {
 	GetResponseErr error
 
 	// Resource ids that were used in Post, in order
-	PostIds    []string
+	PostIds []string
+	// Bodies that were sent via Post, in order
 	PostBodies []map[string]any
+
+	// Resource ids that were used in Put, in order
+	PutIds []string
+	// Bodies that were sent via Put, in order
+	PutBodies []map[string]any
+
+	PutResponseErr error
 
 	QueryParamsOfLastDelete map[string]any
 }
@@ -77,7 +85,9 @@ func (m *MockAzureClient) Post(ctx context.Context, id string, bodyProps map[str
 	return map[string]any{}, nil
 }
 func (m *MockAzureClient) Put(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
-	return nil, false, nil
+	m.PutIds = append(m.PutIds, id)
+	m.PutBodies = append(m.PutBodies, bodyProps)
+	return nil, false, m.PutResponseErr
 }
 func (m *MockAzureClient) IsNotFound(err error) bool {
 	return false
