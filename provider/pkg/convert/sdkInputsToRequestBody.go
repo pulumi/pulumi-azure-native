@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // SdkInputsToRequestBody converts a map of SDK properties to JSON request body to be sent to an HTTP API.
@@ -41,16 +42,16 @@ func (k *SdkShapeConverter) SdkInputsToRequestBody(props map[string]resources.Az
 			container[name] = k.convertSdkPropToRequestBodyPropValue(id, &p, value)
 		}
 	}
-	var err error
+
 	if len(unusedValues) > 0 {
 		unusedKeys := make([]string, 0, len(unusedValues))
 		for k := range unusedValues {
 			unusedKeys = append(unusedKeys, k)
 		}
 		sort.Strings(unusedKeys)
-		err = fmt.Errorf("unrecognized properties: %v", unusedKeys)
+		logging.V(9).Infof("Unrecognized properties in SdkInputsToRequestBody: %v", unusedKeys)
 	}
-	return result, err
+	return result, nil
 }
 
 // convertSdkPropToRequestBodyPropValue converts an SDK property to a value to be used in a request body.

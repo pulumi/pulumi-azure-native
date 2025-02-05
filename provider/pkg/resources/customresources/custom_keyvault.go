@@ -18,7 +18,7 @@ import (
 func keyVaultSecret(keyVaultDNSSuffix string, tokenCred azcore.TokenCredential) *CustomResource {
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{secretName}",
-		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
+		Delete: func(ctx context.Context, id string, properties, state resource.PropertyMap) error {
 			vaultName := properties["vaultName"]
 			if !vaultName.HasValue() || !vaultName.IsString() {
 				return errors.New("vaultName not found in resource state")
@@ -43,7 +43,7 @@ func keyVaultSecret(keyVaultDNSSuffix string, tokenCred azcore.TokenCredential) 
 func keyVaultKey(keyVaultDNSSuffix string, tokenCred azcore.TokenCredential) *CustomResource {
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/keys/{keyName}",
-		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
+		Delete: func(ctx context.Context, id string, properties, state resource.PropertyMap) error {
 			vaultName := properties["vaultName"]
 			if !vaultName.HasValue() || !vaultName.IsString() {
 				return errors.New("vaultName not found in resource state")

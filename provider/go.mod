@@ -242,6 +242,3 @@ require (
 	gopkg.in/yaml.v2 v2.4.0
 	lukechampine.com/frand v1.4.2 // indirect
 )
-
-// replace github.com/hashicorp/go-azure-helpers => /Users/tkappler/pulumi/go-azure-helpers
-// replace github.com/manicminer/hamilton => /Users/tkappler/pulumi/hamilton
