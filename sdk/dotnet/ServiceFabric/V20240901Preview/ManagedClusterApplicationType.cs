@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20240901Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240201preview:ManagedClusterApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240401:ManagedClusterApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240601preview:ManagedClusterApplicationType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20241101preview:ManagedClusterApplicationType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric:ManagedClusterApplicationType" },
                 },
             };

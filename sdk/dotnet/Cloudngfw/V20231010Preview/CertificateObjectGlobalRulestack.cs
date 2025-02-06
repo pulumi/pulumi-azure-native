@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.Cloudngfw.V20231010Preview
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20230901preview:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240119preview:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240207preview:CertificateObjectGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20250206preview:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw:CertificateObjectGlobalRulestack" },
                 },
             };

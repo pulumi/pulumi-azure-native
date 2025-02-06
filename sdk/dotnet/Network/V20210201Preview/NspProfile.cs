@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NspProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network:NspProfile" },
                 },
             };

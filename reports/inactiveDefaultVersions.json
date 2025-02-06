@@ -64,6 +64,9 @@
   "Intune": [
     "2015-01-14-preview"
   ],
+  "Logz": [
+    "2022-01-01-preview"
+  ],
   "M365SecurityAndCompliance": [
     "2021-03-25-preview"
   ],
@@ -90,9 +93,6 @@
   "Network": [
     "2021-03-01-preview"
   ],
-  "NetworkAnalytics": [
-    "2023-11-15"
-  ],
   "PolicyInsights": [
     "2022-09-01"
   ],
@@ -110,9 +110,6 @@
   ],
   "SoftwarePlan": [
     "2019-12-01"
-  ],
-  "Sovereign": [
-    "2025-02-27-preview"
   ],
   "StorSimple": [
     "2017-06-01"

@@ -565,6 +565,31 @@ export const getNetworkSecurityPerimeter: typeof import("./getNetworkSecurityPer
 export const getNetworkSecurityPerimeterOutput: typeof import("./getNetworkSecurityPerimeter").getNetworkSecurityPerimeterOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkSecurityPerimeter","getNetworkSecurityPerimeterOutput"], () => require("./getNetworkSecurityPerimeter"));
 
+export { GetNetworkSecurityPerimeterAccessRuleArgs, GetNetworkSecurityPerimeterAccessRuleResult, GetNetworkSecurityPerimeterAccessRuleOutputArgs } from "./getNetworkSecurityPerimeterAccessRule";
+export const getNetworkSecurityPerimeterAccessRule: typeof import("./getNetworkSecurityPerimeterAccessRule").getNetworkSecurityPerimeterAccessRule = null as any;
+export const getNetworkSecurityPerimeterAccessRuleOutput: typeof import("./getNetworkSecurityPerimeterAccessRule").getNetworkSecurityPerimeterAccessRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkSecurityPerimeterAccessRule","getNetworkSecurityPerimeterAccessRuleOutput"], () => require("./getNetworkSecurityPerimeterAccessRule"));
+
+export { GetNetworkSecurityPerimeterAssociationArgs, GetNetworkSecurityPerimeterAssociationResult, GetNetworkSecurityPerimeterAssociationOutputArgs } from "./getNetworkSecurityPerimeterAssociation";
+export const getNetworkSecurityPerimeterAssociation: typeof import("./getNetworkSecurityPerimeterAssociation").getNetworkSecurityPerimeterAssociation = null as any;
+export const getNetworkSecurityPerimeterAssociationOutput: typeof import("./getNetworkSecurityPerimeterAssociation").getNetworkSecurityPerimeterAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkSecurityPerimeterAssociation","getNetworkSecurityPerimeterAssociationOutput"], () => require("./getNetworkSecurityPerimeterAssociation"));
+
+export { GetNetworkSecurityPerimeterLinkArgs, GetNetworkSecurityPerimeterLinkResult, GetNetworkSecurityPerimeterLinkOutputArgs } from "./getNetworkSecurityPerimeterLink";
+export const getNetworkSecurityPerimeterLink: typeof import("./getNetworkSecurityPerimeterLink").getNetworkSecurityPerimeterLink = null as any;
+export const getNetworkSecurityPerimeterLinkOutput: typeof import("./getNetworkSecurityPerimeterLink").getNetworkSecurityPerimeterLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkSecurityPerimeterLink","getNetworkSecurityPerimeterLinkOutput"], () => require("./getNetworkSecurityPerimeterLink"));
+
+export { GetNetworkSecurityPerimeterLoggingConfigurationArgs, GetNetworkSecurityPerimeterLoggingConfigurationResult, GetNetworkSecurityPerimeterLoggingConfigurationOutputArgs } from "./getNetworkSecurityPerimeterLoggingConfiguration";
+export const getNetworkSecurityPerimeterLoggingConfiguration: typeof import("./getNetworkSecurityPerimeterLoggingConfiguration").getNetworkSecurityPerimeterLoggingConfiguration = null as any;
+export const getNetworkSecurityPerimeterLoggingConfigurationOutput: typeof import("./getNetworkSecurityPerimeterLoggingConfiguration").getNetworkSecurityPerimeterLoggingConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkSecurityPerimeterLoggingConfiguration","getNetworkSecurityPerimeterLoggingConfigurationOutput"], () => require("./getNetworkSecurityPerimeterLoggingConfiguration"));
+
+export { GetNetworkSecurityPerimeterProfileArgs, GetNetworkSecurityPerimeterProfileResult, GetNetworkSecurityPerimeterProfileOutputArgs } from "./getNetworkSecurityPerimeterProfile";
+export const getNetworkSecurityPerimeterProfile: typeof import("./getNetworkSecurityPerimeterProfile").getNetworkSecurityPerimeterProfile = null as any;
+export const getNetworkSecurityPerimeterProfileOutput: typeof import("./getNetworkSecurityPerimeterProfile").getNetworkSecurityPerimeterProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkSecurityPerimeterProfile","getNetworkSecurityPerimeterProfileOutput"], () => require("./getNetworkSecurityPerimeterProfile"));
+
 export { GetNetworkVirtualApplianceArgs, GetNetworkVirtualApplianceResult, GetNetworkVirtualApplianceOutputArgs } from "./getNetworkVirtualAppliance";
 export const getNetworkVirtualAppliance: typeof import("./getNetworkVirtualAppliance").getNetworkVirtualAppliance = null as any;
 export const getNetworkVirtualApplianceOutput: typeof import("./getNetworkVirtualAppliance").getNetworkVirtualApplianceOutput = null as any;
@@ -1195,6 +1220,31 @@ export type NetworkSecurityPerimeter = import("./networkSecurityPerimeter").Netw
 export const NetworkSecurityPerimeter: typeof import("./networkSecurityPerimeter").NetworkSecurityPerimeter = null as any;
 utilities.lazyLoad(exports, ["NetworkSecurityPerimeter"], () => require("./networkSecurityPerimeter"));
 
+export { NetworkSecurityPerimeterAccessRuleArgs } from "./networkSecurityPerimeterAccessRule";
+export type NetworkSecurityPerimeterAccessRule = import("./networkSecurityPerimeterAccessRule").NetworkSecurityPerimeterAccessRule;
+export const NetworkSecurityPerimeterAccessRule: typeof import("./networkSecurityPerimeterAccessRule").NetworkSecurityPerimeterAccessRule = null as any;
+utilities.lazyLoad(exports, ["NetworkSecurityPerimeterAccessRule"], () => require("./networkSecurityPerimeterAccessRule"));
+
+export { NetworkSecurityPerimeterAssociationArgs } from "./networkSecurityPerimeterAssociation";
+export type NetworkSecurityPerimeterAssociation = import("./networkSecurityPerimeterAssociation").NetworkSecurityPerimeterAssociation;
+export const NetworkSecurityPerimeterAssociation: typeof import("./networkSecurityPerimeterAssociation").NetworkSecurityPerimeterAssociation = null as any;
+utilities.lazyLoad(exports, ["NetworkSecurityPerimeterAssociation"], () => require("./networkSecurityPerimeterAssociation"));
+
+export { NetworkSecurityPerimeterLinkArgs } from "./networkSecurityPerimeterLink";
+export type NetworkSecurityPerimeterLink = import("./networkSecurityPerimeterLink").NetworkSecurityPerimeterLink;
+export const NetworkSecurityPerimeterLink: typeof import("./networkSecurityPerimeterLink").NetworkSecurityPerimeterLink = null as any;
+utilities.lazyLoad(exports, ["NetworkSecurityPerimeterLink"], () => require("./networkSecurityPerimeterLink"));
+
+export { NetworkSecurityPerimeterLoggingConfigurationArgs } from "./networkSecurityPerimeterLoggingConfiguration";
+export type NetworkSecurityPerimeterLoggingConfiguration = import("./networkSecurityPerimeterLoggingConfiguration").NetworkSecurityPerimeterLoggingConfiguration;
+export const NetworkSecurityPerimeterLoggingConfiguration: typeof import("./networkSecurityPerimeterLoggingConfiguration").NetworkSecurityPerimeterLoggingConfiguration = null as any;
+utilities.lazyLoad(exports, ["NetworkSecurityPerimeterLoggingConfiguration"], () => require("./networkSecurityPerimeterLoggingConfiguration"));
+
+export { NetworkSecurityPerimeterProfileArgs } from "./networkSecurityPerimeterProfile";
+export type NetworkSecurityPerimeterProfile = import("./networkSecurityPerimeterProfile").NetworkSecurityPerimeterProfile;
+export const NetworkSecurityPerimeterProfile: typeof import("./networkSecurityPerimeterProfile").NetworkSecurityPerimeterProfile = null as any;
+utilities.lazyLoad(exports, ["NetworkSecurityPerimeterProfile"], () => require("./networkSecurityPerimeterProfile"));
+
 export { NetworkVirtualApplianceArgs } from "./networkVirtualAppliance";
 export type NetworkVirtualAppliance = import("./networkVirtualAppliance").NetworkVirtualAppliance;
 export const NetworkVirtualAppliance: typeof import("./networkVirtualAppliance").NetworkVirtualAppliance = null as any;
@@ -1600,6 +1650,7 @@ import * as v20240201 from "./v20240201";
 import * as v20240301 from "./v20240301";
 import * as v20240501 from "./v20240501";
 import * as v20240601 from "./v20240601";
+import * as v20240601preview from "./v20240601preview";
 
 export {
     v20180501,
@@ -1642,6 +1693,7 @@ export {
     v20240301,
     v20240501,
     v20240601,
+    v20240601preview,
 };
 
 const _module = {
@@ -1778,6 +1830,16 @@ const _module = {
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
             case "azure-native:network:NetworkSecurityPerimeter":
                 return new NetworkSecurityPerimeter(name, <any>undefined, { urn })
+            case "azure-native:network:NetworkSecurityPerimeterAccessRule":
+                return new NetworkSecurityPerimeterAccessRule(name, <any>undefined, { urn })
+            case "azure-native:network:NetworkSecurityPerimeterAssociation":
+                return new NetworkSecurityPerimeterAssociation(name, <any>undefined, { urn })
+            case "azure-native:network:NetworkSecurityPerimeterLink":
+                return new NetworkSecurityPerimeterLink(name, <any>undefined, { urn })
+            case "azure-native:network:NetworkSecurityPerimeterLoggingConfiguration":
+                return new NetworkSecurityPerimeterLoggingConfiguration(name, <any>undefined, { urn })
+            case "azure-native:network:NetworkSecurityPerimeterProfile":
+                return new NetworkSecurityPerimeterProfile(name, <any>undefined, { urn })
             case "azure-native:network:NetworkVirtualAppliance":
                 return new NetworkVirtualAppliance(name, <any>undefined, { urn })
             case "azure-native:network:NetworkVirtualApplianceConnection":

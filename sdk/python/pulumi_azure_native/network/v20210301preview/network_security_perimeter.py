@@ -233,7 +233,7 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-native:network:NetworkSecurityPerimeter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-native:network:NetworkSecurityPerimeter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkSecurityPerimeter, __self__).__init__(
             'azure-native:network/v20210301preview:NetworkSecurityPerimeter',

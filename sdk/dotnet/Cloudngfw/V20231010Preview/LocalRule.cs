@@ -181,6 +181,7 @@ namespace Pulumi.AzureNative.Cloudngfw.V20231010Preview
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20230901preview:LocalRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240119preview:LocalRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240207preview:LocalRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20250206preview:LocalRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw:LocalRule" },
                 },
             };

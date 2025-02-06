@@ -1413,6 +1413,11 @@ Network:
         NetworkProfile: "2023-02-01"
         NetworkSecurityGroup: "2023-02-01"
         NetworkSecurityPerimeter: 2021-03-01-preview
+        NetworkSecurityPerimeterAccessRule: 2024-06-01-preview
+        NetworkSecurityPerimeterAssociation: 2024-06-01-preview
+        NetworkSecurityPerimeterLink: 2024-06-01-preview
+        NetworkSecurityPerimeterLoggingConfiguration: 2024-06-01-preview
+        NetworkSecurityPerimeterProfile: 2024-06-01-preview
         NetworkVirtualAppliance: "2023-02-01"
         NetworkVirtualApplianceConnection: "2023-06-01"
         NetworkWatcher: "2023-02-01"
@@ -1554,8 +1559,6 @@ Network:
         - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-05-01 is greater than 2022-09-01
-NetworkAnalytics:
-    tracking: "2023-11-15"
 NetworkCloud:
     tracking: 2023-05-01-preview
     additions:
@@ -1809,7 +1812,11 @@ ServiceBus:
 ServiceFabric:
     tracking: 2023-03-01-preview
     additions:
+        getManagedClusterFaultSimulation: 2024-11-01-preview
+        getNodeTypeFaultSimulation: 2024-11-01-preview
         getmanagedMaintenanceWindowStatus: 2023-07-01-preview
+        listManagedClusterFaultSimulation: 2024-11-01-preview
+        listNodeTypeFaultSimulation: 2024-11-01-preview
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:

@@ -118,6 +118,11 @@ from .get_network_manager_routing_configuration import *
 from .get_network_profile import *
 from .get_network_security_group import *
 from .get_network_security_perimeter import *
+from .get_network_security_perimeter_access_rule import *
+from .get_network_security_perimeter_association import *
+from .get_network_security_perimeter_link import *
+from .get_network_security_perimeter_logging_configuration import *
+from .get_network_security_perimeter_profile import *
 from .get_network_virtual_appliance import *
 from .get_network_virtual_appliance_connection import *
 from .get_network_watcher import *
@@ -244,6 +249,11 @@ from .network_manager_routing_configuration import *
 from .network_profile import *
 from .network_security_group import *
 from .network_security_perimeter import *
+from .network_security_perimeter_access_rule import *
+from .network_security_perimeter_association import *
+from .network_security_perimeter_link import *
+from .network_security_perimeter_logging_configuration import *
+from .network_security_perimeter_profile import *
 from .network_virtual_appliance import *
 from .network_virtual_appliance_connection import *
 from .network_watcher import *
@@ -401,6 +411,8 @@ if typing.TYPE_CHECKING:
     v20240501 = __v20240501
     import pulumi_azure_native.network.v20240601 as __v20240601
     v20240601 = __v20240601
+    import pulumi_azure_native.network.v20240601preview as __v20240601preview
+    v20240601preview = __v20240601preview
 else:
     v20180501 = _utilities.lazy_import('pulumi_azure_native.network.v20180501')
     v20180601 = _utilities.lazy_import('pulumi_azure_native.network.v20180601')
@@ -442,4 +454,5 @@ else:
     v20240301 = _utilities.lazy_import('pulumi_azure_native.network.v20240301')
     v20240501 = _utilities.lazy_import('pulumi_azure_native.network.v20240501')
     v20240601 = _utilities.lazy_import('pulumi_azure_native.network.v20240601')
+    v20240601preview = _utilities.lazy_import('pulumi_azure_native.network.v20240601preview')
 

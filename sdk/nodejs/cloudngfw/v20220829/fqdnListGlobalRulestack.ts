@@ -107,7 +107,7 @@ export class FqdnListGlobalRulestack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw:FqdnListGlobalRulestack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw/v20250206preview:FqdnListGlobalRulestack" }, { type: "azure-native:cloudngfw:FqdnListGlobalRulestack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FqdnListGlobalRulestack.__pulumiType, name, resourceInputs, opts);
     }

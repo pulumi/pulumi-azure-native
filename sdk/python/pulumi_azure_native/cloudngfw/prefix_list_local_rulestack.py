@@ -134,7 +134,7 @@ class PrefixListLocalRulestack(pulumi.CustomResource):
         LocalRulestack prefixList
         Azure REST API version: 2023-09-01.
 
-        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +155,7 @@ class PrefixListLocalRulestack(pulumi.CustomResource):
         LocalRulestack prefixList
         Azure REST API version: 2023-09-01.
 
-        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
         :param str resource_name: The name of the resource.
         :param PrefixListLocalRulestackArgs args: The arguments to use to populate this resource's properties.
@@ -203,7 +203,7 @@ class PrefixListLocalRulestack(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw/v20220829:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901preview:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20231010preview:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240119preview:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:PrefixListLocalRulestack")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw/v20220829:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901preview:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20231010preview:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240119preview:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:PrefixListLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20250206preview:PrefixListLocalRulestack")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrefixListLocalRulestack, __self__).__init__(
             'azure-native:cloudngfw:PrefixListLocalRulestack',

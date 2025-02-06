@@ -152,7 +152,7 @@ class CertificateObjectLocalRulestack(pulumi.CustomResource):
         LocalRulestack Certificate Object
         Azure REST API version: 2023-09-01.
 
-        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,7 +174,7 @@ class CertificateObjectLocalRulestack(pulumi.CustomResource):
         LocalRulestack Certificate Object
         Azure REST API version: 2023-09-01.
 
-        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
         :param str resource_name: The name of the resource.
         :param CertificateObjectLocalRulestackArgs args: The arguments to use to populate this resource's properties.
@@ -224,7 +224,7 @@ class CertificateObjectLocalRulestack(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw/v20220829:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901preview:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20231010preview:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240119preview:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:CertificateObjectLocalRulestack")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw/v20220829:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901preview:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20231010preview:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240119preview:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:CertificateObjectLocalRulestack"), pulumi.Alias(type_="azure-native:cloudngfw/v20250206preview:CertificateObjectLocalRulestack")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CertificateObjectLocalRulestack, __self__).__init__(
             'azure-native:cloudngfw:CertificateObjectLocalRulestack',

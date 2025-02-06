@@ -138,7 +138,7 @@ class StorageContainer(pulumi.CustomResource):
         The storage container resource definition.
         Azure REST API version: 2022-12-15-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,7 +159,7 @@ class StorageContainer(pulumi.CustomResource):
         The storage container resource definition.
         Azure REST API version: 2022-12-15-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param StorageContainerArgs args: The arguments to use to populate this resource's properties.
@@ -204,7 +204,7 @@ class StorageContainer(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:StorageContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:StorageContainer"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:StorageContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageContainer, __self__).__init__(
             'azure-native:azurestackhci:StorageContainer',

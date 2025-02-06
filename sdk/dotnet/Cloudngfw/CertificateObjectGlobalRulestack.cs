@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Cloudngfw
     /// GlobalRulestack Certificate Object
     /// Azure REST API version: 2023-09-01.
     /// 
-    /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cloudngfw:CertificateObjectGlobalRulestack")]
     public partial class CertificateObjectGlobalRulestack : global::Pulumi.CustomResource
@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.Cloudngfw
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20231010preview:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240119preview:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240207preview:CertificateObjectGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20250206preview:CertificateObjectGlobalRulestack" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

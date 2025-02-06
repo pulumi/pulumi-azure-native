@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Product serial and status for the service
         /// Azure REST API version: 2024-02-07-preview.
+        /// 
+        /// Other available API versions: 2025-02-06-preview.
         /// </summary>
         public static Task<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> InvokeAsync(ListPaloAltoNetworksCloudngfwProductSerialNumberStatusArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwProductSerialNumberStatus", args ?? new ListPaloAltoNetworksCloudngfwProductSerialNumberStatusArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Product serial and status for the service
         /// Azure REST API version: 2024-02-07-preview.
+        /// 
+        /// Other available API versions: 2025-02-06-preview.
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwProductSerialNumberStatus", InvokeArgs.Empty, options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Product serial and status for the service
         /// Azure REST API version: 2024-02-07-preview.
+        /// 
+        /// Other available API versions: 2025-02-06-preview.
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwProductSerialNumberStatus", InvokeArgs.Empty, options.WithDefaults());

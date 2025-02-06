@@ -2156,6 +2156,34 @@
     "Property": "jobType"
   },
   {
+    "VersionedModule": "azurestackhci/v20250201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "NetworkInterface",
+    "ReferenceName": "IPConfiguration",
+    "Property": "name"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20250201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "VirtualMachineInstancePropertiesOsProfile",
+    "Property": "adminPassword"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20250201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "ImageArmReference",
+    "Property": "id"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20250201preview",
+    "Module": "AzureStackHCI",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "ImageArmReference",
+    "Property": "imageReference"
+  },
+  {
     "VersionedModule": "botservice",
     "Module": "BotService",
     "ResourceName": "Bot",
@@ -4054,6 +4082,13 @@
   },
   {
     "VersionedModule": "dataprotection/v20240401",
+    "Module": "DataProtection",
+    "ResourceName": "BackupInstance",
+    "ReferenceName": "PolicyParameters",
+    "Property": "policyParameters"
+  },
+  {
+    "VersionedModule": "dataprotection/v20250101",
     "Module": "DataProtection",
     "ResourceName": "BackupInstance",
     "ReferenceName": "PolicyParameters",
@@ -65290,6 +65325,34 @@
   },
   {
     "VersionedModule": "storagecache/v20240301",
+    "Module": "StorageCache",
+    "ResourceName": "AmlFilesystem",
+    "ReferenceName": "AmlFilesystemHsmSettings",
+    "Property": "settings"
+  },
+  {
+    "VersionedModule": "storagecache/v20240701",
+    "Module": "StorageCache",
+    "ResourceName": "StorageTarget",
+    "ReferenceName": "URLString",
+    "Property": "target"
+  },
+  {
+    "VersionedModule": "storagecache/v20240701",
+    "Module": "StorageCache",
+    "ResourceName": "StorageTarget",
+    "ReferenceName": "URLString",
+    "Property": "target"
+  },
+  {
+    "VersionedModule": "storagecache/v20240701",
+    "Module": "StorageCache",
+    "ResourceName": "StorageTarget",
+    "ReferenceName": "Nfs3Target",
+    "Property": "target"
+  },
+  {
+    "VersionedModule": "storagecache/v20240701",
     "Module": "StorageCache",
     "ResourceName": "AmlFilesystem",
     "ReferenceName": "AmlFilesystemHsmSettings",

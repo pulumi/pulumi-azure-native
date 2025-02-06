@@ -170,7 +170,6 @@ import * as mobilenetwork from "./mobilenetwork";
 import * as monitor from "./monitor";
 import * as netapp from "./netapp";
 import * as network from "./network";
-import * as networkanalytics from "./networkanalytics";
 import * as networkcloud from "./networkcloud";
 import * as networkfunction from "./networkfunction";
 import * as notificationhubs from "./notificationhubs";
@@ -409,7 +408,6 @@ export {
     monitor,
     netapp,
     network,
-    networkanalytics,
     networkcloud,
     networkfunction,
     notificationhubs,

@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Network.V20230801Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NspAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:network:NspAssociation" },
                 },
             };

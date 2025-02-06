@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.Network.V20230801Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NspAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network:NspAccessRule" },
                 },
             };

@@ -1104,6 +1104,10 @@ if not MYPY:
         """
         the types of identities associated with this resource
         """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        the identity principal Id of the server.
+        """
         user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgsDict']]]]
         """
         represents user assigned identities map.
@@ -1115,13 +1119,17 @@ elif False:
 class UserAssignedIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'IdentityType']],
+                 principal_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]] = None):
         """
         Information describing the identities associated with this application.
         :param pulumi.Input[Union[str, 'IdentityType']] type: the types of identities associated with this resource
+        :param pulumi.Input[str] principal_id: the identity principal Id of the server.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]] user_assigned_identities: represents user assigned identities map.
         """
         pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
         if user_assigned_identities is not None:
             pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
@@ -1136,6 +1144,18 @@ class UserAssignedIdentityArgs:
     @type.setter
     def type(self, value: pulumi.Input[Union[str, 'IdentityType']]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        the identity principal Id of the server.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
 
     @property
     @pulumi.getter(name="userAssignedIdentities")

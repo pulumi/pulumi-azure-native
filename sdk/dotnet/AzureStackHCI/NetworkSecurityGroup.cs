@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// NetworkSecurityGroup resource.
     /// Azure REST API version: 2024-02-01-preview.
     /// 
-    /// Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:NetworkSecurityGroup")]
     public partial class NetworkSecurityGroup : global::Pulumi.CustomResource
@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:NetworkSecurityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:NetworkSecurityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:NetworkSecurityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250201preview:NetworkSecurityGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

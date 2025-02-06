@@ -137,7 +137,7 @@ export class GlobalRulestack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:GlobalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:GlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:GlobalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:GlobalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:GlobalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:GlobalRulestack" }, { type: "azure-native:cloudngfw:GlobalRulestack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:GlobalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:GlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:GlobalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:GlobalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:GlobalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:GlobalRulestack" }, { type: "azure-native:cloudngfw/v20250206preview:GlobalRulestack" }, { type: "azure-native:cloudngfw:GlobalRulestack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GlobalRulestack.__pulumiType, name, resourceInputs, opts);
     }

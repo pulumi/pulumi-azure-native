@@ -73,6 +73,8 @@ if typing.TYPE_CHECKING:
     v20240119preview = __v20240119preview
     import pulumi_azure_native.cloudngfw.v20240207preview as __v20240207preview
     v20240207preview = __v20240207preview
+    import pulumi_azure_native.cloudngfw.v20250206preview as __v20250206preview
+    v20250206preview = __v20250206preview
 else:
     v20220829 = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20220829')
     v20220829preview = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20220829preview')
@@ -81,4 +83,5 @@ else:
     v20231010preview = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20231010preview')
     v20240119preview = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20240119preview')
     v20240207preview = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20240207preview')
+    v20250206preview = _utilities.lazy_import('pulumi_azure_native.cloudngfw.v20250206preview')
 

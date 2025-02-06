@@ -8842,6 +8842,31 @@ Network:
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2021-03-01-preview/networkSecurityPerimeter.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}
         RpNamespace: Microsoft.Network
+    NetworkSecurityPerimeterAccessRule:
+        ApiVersion: 2024-06-01-preview
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/profiles/{profileName}/accessRules/{accessRuleName}
+        RpNamespace: Microsoft.Network
+    NetworkSecurityPerimeterAssociation:
+        ApiVersion: 2024-06-01-preview
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/resourceAssociations/{associationName}
+        RpNamespace: Microsoft.Network
+    NetworkSecurityPerimeterLink:
+        ApiVersion: 2024-06-01-preview
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/links/{linkName}
+        RpNamespace: Microsoft.Network
+    NetworkSecurityPerimeterLoggingConfiguration:
+        ApiVersion: 2024-06-01-preview
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/loggingConfigurations/{loggingConfigurationName}
+        RpNamespace: Microsoft.Network
+    NetworkSecurityPerimeterProfile:
+        ApiVersion: 2024-06-01-preview
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/preview/2024-06-01-preview/networkSecurityPerimeter.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/profiles/{profileName}
+        RpNamespace: Microsoft.Network
     NetworkVirtualAppliance:
         ApiVersion: "2023-02-01"
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2023-02-01/networkVirtualAppliance.json
@@ -9392,22 +9417,6 @@ Network:
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2024-03-01/virtualWan.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}/vpnConnections/{connectionName}/vpnLinkConnections/{linkConnectionName}/sharedKeys/default/listSharedKey
         RpNamespace: Microsoft.Network
-NetworkAnalytics:
-    DataProduct:
-        ApiVersion: "2023-11-15"
-        SpecFilePath: specification/networkanalytics/resource-manager/Microsoft.NetworkAnalytics/stable/2023-11-15/networkanalytics.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkAnalytics/dataProducts/{dataProductName}
-        RpNamespace: Microsoft.NetworkAnalytics
-    DataType:
-        ApiVersion: "2023-11-15"
-        SpecFilePath: specification/networkanalytics/resource-manager/Microsoft.NetworkAnalytics/stable/2023-11-15/networkanalytics.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkAnalytics/dataProducts/{dataProductName}/dataTypes/{dataTypeName}
-        RpNamespace: Microsoft.NetworkAnalytics
-    listDataProductRolesAssignments:
-        ApiVersion: "2023-11-15"
-        SpecFilePath: specification/networkanalytics/resource-manager/Microsoft.NetworkAnalytics/stable/2023-11-15/networkanalytics.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkAnalytics/dataProducts/{dataProductName}/listRolesAssignments
-        RpNamespace: Microsoft.NetworkAnalytics
 NetworkCloud:
     AgentPool:
         ApiVersion: 2023-10-01-preview
@@ -11140,6 +11149,16 @@ ServiceFabric:
         SpecFilePath: specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/preview/2023-03-01-preview/nodetype.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/nodeTypes/{nodeTypeName}
         RpNamespace: Microsoft.ServiceFabric
+    getManagedClusterFaultSimulation:
+        ApiVersion: 2024-11-01-preview
+        SpecFilePath: specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/preview/2024-11-01-preview/managedcluster.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/getFaultSimulation
+        RpNamespace: Microsoft.ServiceFabric
+    getNodeTypeFaultSimulation:
+        ApiVersion: 2024-11-01-preview
+        SpecFilePath: specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/preview/2024-11-01-preview/nodetype.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/nodeTypes/{nodeTypeName}/getFaultSimulation
+        RpNamespace: Microsoft.ServiceFabric
     getmanagedAzResiliencyStatus:
         ApiVersion: 2023-03-01-preview
         SpecFilePath: specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/preview/2023-03-01-preview/managedcluster.json
@@ -11149,6 +11168,16 @@ ServiceFabric:
         ApiVersion: 2023-07-01-preview
         SpecFilePath: specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/preview/2023-07-01-preview/managedcluster.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/getMaintenanceWindowStatus
+        RpNamespace: Microsoft.ServiceFabric
+    listManagedClusterFaultSimulation:
+        ApiVersion: 2024-11-01-preview
+        SpecFilePath: specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/preview/2024-11-01-preview/managedcluster.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/listFaultSimulation
+        RpNamespace: Microsoft.ServiceFabric
+    listNodeTypeFaultSimulation:
+        ApiVersion: 2024-11-01-preview
+        SpecFilePath: specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/preview/2024-11-01-preview/nodetype.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/nodeTypes/{nodeTypeName}/listFaultSimulation
         RpNamespace: Microsoft.ServiceFabric
 ServiceFabricMesh:
     Application:

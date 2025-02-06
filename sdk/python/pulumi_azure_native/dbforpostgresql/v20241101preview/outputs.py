@@ -1664,6 +1664,8 @@ class UserAssignedIdentityResponse(dict):
         suggest = None
         if key == "tenantId":
             suggest = "tenant_id"
+        elif key == "principalId":
+            suggest = "principal_id"
         elif key == "userAssignedIdentities":
             suggest = "user_assigned_identities"
 
@@ -1681,15 +1683,19 @@ class UserAssignedIdentityResponse(dict):
     def __init__(__self__, *,
                  tenant_id: str,
                  type: str,
+                 principal_id: Optional[str] = None,
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None):
         """
         Information describing the identities associated with this application.
         :param str tenant_id: Tenant id of the server.
         :param str type: the types of identities associated with this resource
+        :param str principal_id: the identity principal Id of the server.
         :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: represents user assigned identities map.
         """
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
         if user_assigned_identities is not None:
             pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
@@ -1708,6 +1714,14 @@ class UserAssignedIdentityResponse(dict):
         the types of identities associated with this resource
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        the identity principal Id of the server.
+        """
+        return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="userAssignedIdentities")

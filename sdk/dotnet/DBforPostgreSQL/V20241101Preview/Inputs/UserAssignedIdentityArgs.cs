@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20241101Preview.Inputs
     public sealed class UserAssignedIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// the identity principal Id of the server.
+        /// </summary>
+        [Input("principalId")]
+        public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
         /// the types of identities associated with this resource
         /// </summary>
         [Input("type", required: true)]

@@ -68,7 +68,7 @@ def list_global_rulestack_app_ids(app_id_version: Optional[str] = None,
     List of AppIds for GlobalRulestack ApiVersion
     Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name
@@ -95,7 +95,7 @@ def list_global_rulestack_app_ids_output(app_id_version: Optional[pulumi.Input[O
     List of AppIds for GlobalRulestack ApiVersion
     Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name

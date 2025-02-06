@@ -56,7 +56,7 @@ def get_firewall_global_rulestack(firewall_name: Optional[str] = None,
     Get Global Rulestack associated with the Firewall
     Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
 
     :param str firewall_name: Firewall resource name
@@ -77,7 +77,7 @@ def get_firewall_global_rulestack_output(firewall_name: Optional[pulumi.Input[st
     Get Global Rulestack associated with the Firewall
     Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
 
     :param str firewall_name: Firewall resource name
