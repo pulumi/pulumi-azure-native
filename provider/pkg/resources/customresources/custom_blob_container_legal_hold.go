@@ -224,7 +224,7 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 
 			return input, nil
 		},
-		Delete: func(ctx context.Context, id string, inputs, _ resource.PropertyMap) error {
+		Delete: func(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
 			path := strings.TrimSuffix(id, "/legalHold") + "/clearLegalHold"
 
 			tags, err := readTags(inputs.Mappable())

@@ -222,7 +222,7 @@ func (r *staticWebsite_azidentity) read(ctx context.Context, id string, properti
 	return outputs, true, nil
 }
 
-func (r *staticWebsite_azidentity) delete(ctx context.Context, id string, inputs, _ resource.PropertyMap) error {
+func (r *staticWebsite_azidentity) delete(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
 	accountClient, err := r.newStorageAccountClient(inputs)
 	if err != nil {
 		return err
@@ -728,7 +728,7 @@ func (r *blob_azidentity) update(ctx context.Context, id string, properties, old
 	return state, err
 }
 
-func (r *blob_azidentity) delete(ctx context.Context, id string, inputs, _ resource.PropertyMap) error {
+func (r *blob_azidentity) delete(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
 	subID := parseSubscriptionID(id)
 	blobsClient, err := r.newBlobClient(ctx, inputs, subID)
 	if err != nil {
