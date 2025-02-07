@@ -16,8 +16,10 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/squeeze"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	embeddedVersion "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/versioning"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
@@ -182,6 +184,15 @@ func main() {
 		err = emitSplitPackage(&pkgSpec, "go", outdir)
 		if err != nil {
 			panic(err)
+		}
+
+	case "readApiVersionsFromReadmes":
+		versions, err := openapi.ReadAllDefaultVersionsFromReadmes(buildSchemaArgs.Specs.SpecsDir)
+		if err != nil {
+			panic(err)
+		}
+		for _, module := range util.SortedKeys(versions) {
+			fmt.Printf("%s,%s\n", module, versions[module])
 		}
 
 	default:
