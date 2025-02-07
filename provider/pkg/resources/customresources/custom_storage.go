@@ -129,8 +129,8 @@ func (r *staticWebsite) read(ctx context.Context, id string, properties resource
 	return outputs, true, nil
 }
 
-func (r *staticWebsite) delete(ctx context.Context, id string, properties resource.PropertyMap) error {
-	dataClient, found, err := r.newDataClient(ctx, properties)
+func (r *staticWebsite) delete(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
+	dataClient, found, err := r.newDataClient(ctx, inputs)
 	if err != nil {
 		return err
 	}
@@ -140,7 +140,7 @@ func (r *staticWebsite) delete(ctx context.Context, id string, properties resour
 		return nil
 	}
 
-	acc := properties[accountName].StringValue()
+	acc := inputs[accountName].StringValue()
 	if _, err := dataClient.SetServiceProperties(ctx, acc, accounts.StorageServiceProperties{
 		StaticWebsite: &accounts.StaticWebsite{
 			Enabled: false,
@@ -331,8 +331,8 @@ func (r *blob) update(ctx context.Context, id string, properties, oldState resou
 	return state, err
 }
 
-func (r *blob) delete(ctx context.Context, id string, properties resource.PropertyMap) error {
-	blobsClient, found, err := r.newDataClient(ctx, properties)
+func (r *blob) delete(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
+	blobsClient, found, err := r.newDataClient(ctx, inputs)
 	if err != nil {
 		return err
 	}
@@ -342,9 +342,9 @@ func (r *blob) delete(ctx context.Context, id string, properties resource.Proper
 		return nil
 	}
 
-	acc := properties[accountName].StringValue()
-	container := properties[containerName].StringValue()
-	name := properties[blobName].StringValue()
+	acc := inputs[accountName].StringValue()
+	container := inputs[containerName].StringValue()
+	name := inputs[blobName].StringValue()
 	input := blobs.DeleteInput{
 		DeleteSnapshots: true,
 	}

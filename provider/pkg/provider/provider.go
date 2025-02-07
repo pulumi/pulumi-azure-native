@@ -1508,7 +1508,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			return nil, errors.Wrapf(err, "resource %s inputs are empty", label)
 		}
 		// Our hand-crafted implementation of DELETE operation.
-		err = customRes.Delete(ctx, id, inputs)
+		err = customRes.Delete(ctx, id, inputs, state)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
