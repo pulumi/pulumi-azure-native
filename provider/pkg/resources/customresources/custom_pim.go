@@ -13,7 +13,8 @@ import (
 )
 
 // OriginalStateKey is an internal key in the state of a PIM Role Management Policy that contains the original state of the policy.
-const OriginalStateKey = "__original_state"
+const OriginalStateKey = "__orig_state"
+const pimRoleManagementPolicyTok = "azure-native:authorization:RoleManagementPolicy"
 
 // pimRoleManagementPolicy returns a custom resource for
 // [PIM Role Management Policies](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-add-role-to-user#next-steps).
@@ -32,12 +33,12 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 	if lookupResource != nil && crudClientFactory != nil {
 		var found bool
 		var err error
-		res, found, err = lookupResource("azure-native:authorization:RoleManagementPolicy")
+		res, found, err = lookupResource(pimRoleManagementPolicyTok)
 		if err != nil {
 			return nil, err
 		}
 		if !found {
-			return nil, fmt.Errorf("resource %q not found", "azure-native:authorization:RoleManagementPolicy")
+			return nil, fmt.Errorf("resource %q not found", pimRoleManagementPolicyTok)
 		}
 
 		client = crudClientFactory(&res)
@@ -46,6 +47,7 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 	return &CustomResource{
 		isSingleton: true,
 		path:        "/{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName}",
+		tok:         pimRoleManagementPolicyTok,
 
 		// PIM Role Management Policies cannot be created. Instead, each resource has a default policy.
 		// But we need to allow the user to create the Pulumi resource, so we return true here and then

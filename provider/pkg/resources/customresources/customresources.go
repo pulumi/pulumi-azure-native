@@ -198,6 +198,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 		return nil, err
 	}
 
+	pimEligibleRoleAssignment, err := pimRoleEligibilityScheduleRequest(lookupResource, crudClientFactory, tokenCred)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		keyVaultAccessPolicy(armKVClient),
 
@@ -209,6 +214,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		postgresConf,
 		protectedItem,
 		pimRoleManagementPolicy,
+		pimEligibleRoleAssignment,
 	}
 
 	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The
