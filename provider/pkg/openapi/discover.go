@@ -640,7 +640,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 			typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
 			recordDisambiguation(disambiguation)
 
-			if typeName != "" && (hasDelete || defaultState != nil) {
+			if typeName != "" && (hasDelete || defaultState != nil || customresources.IsCustomResource(path)) {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", sdkVersion, typeName, path, version.Resources[typeName].Path)
 				}
