@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"regexp"
 
-	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
@@ -58,18 +58,18 @@ func keyVaultAccessPolicy(client *armkeyvault.VaultsClient) *CustomResource {
 			InputProperties: keyVaultAccessPolicyProperties,
 			RequiredInputs:  []string{resourceGroupName, vaultName, policy},
 		},
-		Meta: &AzureAPIResource{
+		Meta: &resources.AzureAPIResource{
 			Path: path,
-			PutParameters: []AzureAPIParameter{
-				{Name: subscriptionId, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
-				{Name: resourceGroupName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
-				{Name: vaultName, Location: "path", IsRequired: true, Value: &AzureAPIProperty{Type: "string"}},
-				{Name: "policy.objectId", Location: "path", Value: &AzureAPIProperty{Type: "string"}},
+			PutParameters: []resources.AzureAPIParameter{
+				{Name: subscriptionId, Location: "path", IsRequired: true, Value: &resources.AzureAPIProperty{Type: "string"}},
+				{Name: resourceGroupName, Location: "path", IsRequired: true, Value: &resources.AzureAPIProperty{Type: "string"}},
+				{Name: vaultName, Location: "path", IsRequired: true, Value: &resources.AzureAPIProperty{Type: "string"}},
+				{Name: "policy.objectId", Location: "path", Value: &resources.AzureAPIProperty{Type: "string"}},
 				{
 					Name:     "properties",
 					Location: "body",
-					Body: &AzureAPIType{
-						Properties: map[string]AzureAPIProperty{
+					Body: &resources.AzureAPIType{
+						Properties: map[string]resources.AzureAPIProperty{
 							policy: {Type: "#/types/azure-native:keyvault:AccessPolicyEntry"},
 						},
 						RequiredProperties: []string{resourceGroupName, vaultName, policy},
@@ -264,20 +264,6 @@ func parseKeyVaultPathParams(id string) (vaultPathParams, error) {
 		VaultName:     matches[2],
 		ObjectId:      objectId,
 	}, nil
-}
-
-func sdkPolicyToMap(ap *armkeyvault.AccessPolicyEntry) map[string]interface{} {
-	return map[string]interface{}{
-		"tenantId":      ap.TenantID,
-		"objectId":      ap.ObjectID,
-		"applicationId": ap.ApplicationID,
-		"permissions": map[string]interface{}{
-			"certificatePermissions": ap.Permissions.Certificates,
-			"keyPermissions":         ap.Permissions.Keys,
-			"secretPermissions":      ap.Permissions.Secrets,
-			"storagePermissions":     ap.Permissions.Storage,
-		},
-	}
 }
 
 func sdkPermissionsToMap(permissions *armkeyvault.Permissions) map[string]interface{} {
