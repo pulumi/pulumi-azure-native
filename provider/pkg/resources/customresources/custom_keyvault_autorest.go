@@ -18,12 +18,12 @@ import (
 func keyVaultSecret_autorest(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *CustomResource {
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{secretName}",
-		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
-			vaultName := properties["vaultName"]
+		Delete: func(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
+			vaultName := inputs["vaultName"]
 			if !vaultName.HasValue() || !vaultName.IsString() {
 				return errors.New("vaultName not found in resource state")
 			}
-			secretName := properties["secretName"]
+			secretName := inputs["secretName"]
 			if !secretName.HasValue() || !secretName.IsString() {
 				return errors.New("secretName not found in resource state")
 			}
@@ -40,12 +40,12 @@ func keyVaultSecret_autorest(keyVaultDNSSuffix string, kvClient *keyvault.BaseCl
 func keyVaultKey_autorest(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *CustomResource {
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/keys/{keyName}",
-		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
-			vaultName := properties["vaultName"]
+		Delete: func(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
+			vaultName := inputs["vaultName"]
 			if !vaultName.HasValue() || !vaultName.IsString() {
 				return errors.New("vaultName not found in resource state")
 			}
-			keyName := properties["keyName"]
+			keyName := inputs["keyName"]
 			if !keyName.HasValue() || !keyName.IsString() {
 				return errors.New("keyName not found in resource state")
 			}

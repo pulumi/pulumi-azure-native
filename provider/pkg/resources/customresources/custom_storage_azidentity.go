@@ -222,8 +222,8 @@ func (r *staticWebsite_azidentity) read(ctx context.Context, id string, properti
 	return outputs, true, nil
 }
 
-func (r *staticWebsite_azidentity) delete(ctx context.Context, id string, properties resource.PropertyMap) error {
-	accountClient, err := r.newStorageAccountClient(properties)
+func (r *staticWebsite_azidentity) delete(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
+	accountClient, err := r.newStorageAccountClient(inputs)
 	if err != nil {
 		return err
 	}
@@ -237,7 +237,7 @@ func (r *staticWebsite_azidentity) delete(ctx context.Context, id string, proper
 		return err
 	}
 
-	acc := properties[accountName].StringValue()
+	acc := inputs[accountName].StringValue()
 
 	siteProps := &service.SetPropertiesOptions{
 		StaticWebsite: &service.StaticWebsite{
@@ -728,9 +728,9 @@ func (r *blob_azidentity) update(ctx context.Context, id string, properties, old
 	return state, err
 }
 
-func (r *blob_azidentity) delete(ctx context.Context, id string, properties resource.PropertyMap) error {
+func (r *blob_azidentity) delete(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
 	subID := parseSubscriptionID(id)
-	blobsClient, err := r.newBlobClient(ctx, properties, subID)
+	blobsClient, err := r.newBlobClient(ctx, inputs, subID)
 	if err != nil {
 		return err
 	}
@@ -745,9 +745,9 @@ func (r *blob_azidentity) delete(ctx context.Context, id string, properties reso
 			return nil
 		}
 
-		acc := properties[accountName].StringValue()
-		container := properties[containerName].StringValue()
-		name := properties[blobName].StringValue()
+		acc := inputs[accountName].StringValue()
+		container := inputs[containerName].StringValue()
+		name := inputs[blobName].StringValue()
 		return errors.Wrapf(err, "deleting blob %q (container %q / account %q)", name, container, acc)
 	}
 
