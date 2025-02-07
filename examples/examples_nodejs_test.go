@@ -408,6 +408,17 @@ func TestPIMRoleManagementPolicies(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestPIMRoleEligibilityScheduleRequests(t *testing.T) {
+	skipIfShort(t)
+
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "pim-roleeligibilityschedules"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 // Try ARM_SUBSCRIPTION_ID first as in CI, then 'az' as in local development.
 func getAzureSubscriptionId(t *testing.T) string {
 	sub := os.Getenv("ARM_SUBSCRIPTION_ID")
