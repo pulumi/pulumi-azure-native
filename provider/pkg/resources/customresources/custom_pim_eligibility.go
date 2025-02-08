@@ -74,11 +74,6 @@ func pimRoleEligibilityScheduleRequest(lookupResource resources.ResourceLookupFu
 				return nil, false, fmt.Errorf("scope is required")
 			}
 
-			// parameters, ok := inputsPlain["parameters"].(map[string]any)
-			// if !ok {
-			// 	return nil, false, fmt.Errorf("'parameters' is required")
-			// }
-
 			roleEligibilityScheduleRequestName, ok := inputsPlain["roleEligibilityScheduleRequestName"]
 			if !ok {
 				// This is the first Pulumi read. Find the schedule by scope and principalId.
@@ -138,7 +133,6 @@ func pimRoleEligibilityScheduleRequest(lookupResource resources.ResourceLookupFu
 			}
 			q.Q("Read", id, schedule)
 
-			// TODO convert schedule to provider SDK. Probably manually, although ResponseBodyToSdkOutputs could be an option.
 			resultMap, err := structToMap(schedule)
 			if err != nil {
 				return nil, false, err
@@ -161,49 +155,20 @@ func pimRoleEligibilityScheduleRequest(lookupResource resources.ResourceLookupFu
 			q.Q("Create", id, bodyParams)
 			queryParams := map[string]any{"api-version": client.ApiVersion()}
 
-			// We could skip this if bodyParams = originalState, i.e., the user adds a policy
-			// in its default configuration to their program, but we don't have a diff function.
+			// We could skip the Create if bodyParams = originalState, i.e., the user adds a policy in its default
+			// configuration, but we don't have a diff function.
 			resp, _, err := client.CreateOrUpdate(ctx, id, bodyParams, queryParams)
 			if err != nil {
 				return nil, err
 			}
 
+			// TODO Check for OData.Error.Code != "SubjectNotFound"
+			// Poll schedules "list for scope" with filter assignedTo=principalId until
+			//   item.Properties.RoleDefinitionId == roleDefinitionId && *item.Properties.MemberType == roleeligibilityschedules.MemberTypeDirect
+			q.Q("Create", id, resp)
+
 			outputs := client.ResponseBodyToSdkOutputs(resp)
 			return outputs, nil
-
-			// inputsPlain := inputs.Mappable()
-			// scope := getScope(inputsPlain)
-			// if scope == "" {
-			// 	return nil, fmt.Errorf("scope is required")
-			// }
-
-			// principalId := inputsPlain["principalId"].(string)
-			// roleDefinitionId := inputsPlain["roleDefinitionId"].(string)
-
-			// // TODO Create a schedule from the inputs
-
-			// // Create a new GUID
-			// requestGuid := uuid.New().String()
-
-			// resp, err := requestsClient.Create(ctx, scope, requestGuid, armauthorization.RoleEligibilityScheduleRequest{
-			// 	Properties: &armauthorization.RoleEligibilityScheduleRequestProperties{
-			// 		PrincipalID:      &principalId,
-			// 		RoleDefinitionID: &roleDefinitionId,
-			// 		RequestType:      &requestType,
-			// 		ScheduleInfo: &armauthorization.RoleEligibilityScheduleInfo{
-			// 			StartDateTime: &startDateTime,
-			// 			Expiration:    &expiration,
-			// 		},
-			// 	},
-			// }, nil)
-			// if err != nil {
-			// 	return nil, err
-			// }
-			// // Check for OData.Error.Code != "SubjectNotFound"
-			// // Poll schedules "list for scope" with filter assignedTo=principalId until
-			// //   item.Properties.RoleDefinitionId == roleDefinitionId && *item.Properties.MemberType == roleeligibilityschedules.MemberTypeDirect
-			// q.Q("Create", id, resp)
-			// return nil, err
 		},
 
 		Update: func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]any, error) {
@@ -288,13 +253,6 @@ func getIdAndQueryForRoleEligibilityScheduleRequest(inputs resource.PropertyMap,
 	if err != nil {
 		return "", nil, fmt.Errorf("failed to prepare Azure REST ID and query: %w", err)
 	}
-
-	// origId is now something like
-	// "/%2Fproviders%2FMicrosoft.Subscription%2Fsubscriptions%2F0282681f%2FresourceGroups%2FresourceGroupbf0842e2/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/5dcccc58"
-	// or (TODO)
-	// "/%2Fsubscriptions%2F0282681f-7a9e-424b-80b2-96babd57a8a1%2FresourceGroups%2FresourceGroupbf0842e2/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/5dcccc58"
-	// It should be
-	// "/providers/Microsoft.Subscription/subscriptions/resourceGroups/resourceGroupbf0842e2/0282681f/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/5dcccc58"
 
 	if !inputs.HasValue("scope") {
 		return "", nil, fmt.Errorf("GetIdAndQuery: scope is required")
