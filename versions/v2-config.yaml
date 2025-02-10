@@ -12,7 +12,7 @@ META: # not great to be in same namespace than the RPs
 #   - "preview": (prefer|exclude) use the latest -preview version rather than latest stable
 #   - "folders": folder(s) of the Azure spec GH repo containing this RP, purely informational
 #   - "notes": misc. information for future readers
-#  - "expectTracking": Either "stable" or "preview" - defaults to "stable"
+#   - "expectTracking": Either "stable" or "preview" - defaults to "stable"
 
 # Auditing notes:
 # - Compare v1-config with v2-config and look for significant changes
@@ -73,6 +73,7 @@ AppPlatform:
 Attestation:
 Authorization:
   expectAdditions: true
+  explicit: true
   folders: ["authorization", "resources"]
   notes: "For ManagementLocks, the docs say 2016-09-01 which is not the latest stable https://learn.microsoft.com/en-us/rest/api/resources/management-locks"
 Automanage:
@@ -83,7 +84,7 @@ Automanage:
 Automation:
   expectAdditions: true
   notes: |
-    Docs still list Webhook, Watcher and SoftwareUpdateConfigurationByName on old verisons only:
+    Docs still list Webhook, Watcher and SoftwareUpdateConfigurationByName on old versions only:
     https://learn.microsoft.com/en-us/rest/api/automation/
 AutonomousDevelopmentPlatform:
   expectTracking: preview
