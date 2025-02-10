@@ -317,8 +317,7 @@ func TestRecoveryServicesProtectedItemTs(t *testing.T) {
 			Dir: filepath.Join(getCwd(t), "recoveryservices-protecteditem"),
 			// Backing up protected items increases `protectedItemsCount` in policy and container,
 			// and adds `AzureBackupProtected` to the item.
-			ExpectRefreshChanges:    true,
-			PreviewCommandlineFlags: []string{"--diff"},
+			ExpectRefreshChanges: true,
 		})
 
 	integration.ProgramTest(t, &test)
@@ -330,6 +329,8 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 		Dependencies: []string{
 			"@pulumi/azure-native",
 		},
+		// Show the diff instead of just the non-actionable error: no changes were expected but changes were proposed"
+		PreviewCommandlineFlags: []string{"--diff"},
 	})
 
 	return baseJS
