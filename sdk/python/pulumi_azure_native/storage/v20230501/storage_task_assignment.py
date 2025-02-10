@@ -157,7 +157,7 @@ class StorageTaskAssignment(pulumi.CustomResource):
             __props__.__dict__["storage_task_assignment_name"] = storage_task_assignment_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage:StorageTaskAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20240101:StorageTaskAssignment"), pulumi.Alias(type_="azure-native:storage:StorageTaskAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageTaskAssignment, __self__).__init__(
             'azure-native:storage/v20230501:StorageTaskAssignment',

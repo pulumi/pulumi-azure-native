@@ -117,7 +117,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20240201preview:NetworkSecurityGroup" }, { type: "azure-native:azurestackhci/v20240501preview:NetworkSecurityGroup" }, { type: "azure-native:azurestackhci/v20240715preview:NetworkSecurityGroup" }, { type: "azure-native:azurestackhci/v20241001preview:NetworkSecurityGroup" }, { type: "azure-native:azurestackhci:NetworkSecurityGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20240201preview:NetworkSecurityGroup" }, { type: "azure-native:azurestackhci/v20240501preview:NetworkSecurityGroup" }, { type: "azure-native:azurestackhci/v20240715preview:NetworkSecurityGroup" }, { type: "azure-native:azurestackhci/v20241001preview:NetworkSecurityGroup" }, { type: "azure-native:azurestackhci/v20250201preview:NetworkSecurityGroup" }, { type: "azure-native:azurestackhci:NetworkSecurityGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityGroup.__pulumiType, name, resourceInputs, opts);
     }

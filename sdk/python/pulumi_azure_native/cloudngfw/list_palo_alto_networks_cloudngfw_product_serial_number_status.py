@@ -65,6 +65,8 @@ def list_palo_alto_networks_cloudngfw_product_serial_number_status(opts: Optiona
     """
     Product serial and status for the service
     Azure REST API version: 2024-02-07-preview.
+
+    Other available API versions: 2025-02-06-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -77,6 +79,8 @@ def list_palo_alto_networks_cloudngfw_product_serial_number_status_output(opts: 
     """
     Product serial and status for the service
     Azure REST API version: 2024-02-07-preview.
+
+    Other available API versions: 2025-02-06-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

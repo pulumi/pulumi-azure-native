@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Storage
         /// Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
         /// </summary>
         public static Task<GetFileServicePropertiesResult> InvokeAsync(GetFileServicePropertiesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileServicePropertiesResult>("azure-native:storage:getFileServiceProperties", args ?? new GetFileServicePropertiesArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Storage
         /// Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
         /// </summary>
         public static Output<GetFileServicePropertiesResult> Invoke(GetFileServicePropertiesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileServicePropertiesResult>("azure-native:storage:getFileServiceProperties", args ?? new GetFileServicePropertiesInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Storage
         /// Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
         /// </summary>
         public static Output<GetFileServicePropertiesResult> Invoke(GetFileServicePropertiesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileServicePropertiesResult>("azure-native:storage:getFileServiceProperties", args ?? new GetFileServicePropertiesInvokeArgs(), options.WithDefaults());

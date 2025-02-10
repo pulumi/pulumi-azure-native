@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Storage
     /// <summary>
     /// The storage task assignment.
     /// Azure REST API version: 2023-05-01.
+    /// 
+    /// Other available API versions: 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:StorageTaskAssignment")]
     public partial class StorageTaskAssignment : global::Pulumi.CustomResource
@@ -60,6 +62,7 @@ namespace Pulumi.AzureNative.Storage
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230501:StorageTaskAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20240101:StorageTaskAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

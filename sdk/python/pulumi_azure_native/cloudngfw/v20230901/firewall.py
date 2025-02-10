@@ -361,7 +361,7 @@ class Firewall(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw/v20220829:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901preview:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw/v20231010preview:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw/v20240119preview:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw:Firewall")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cloudngfw/v20220829:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw/v20220829preview:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw/v20230901preview:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw/v20231010preview:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw/v20240119preview:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw/v20240207preview:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw/v20250206preview:Firewall"), pulumi.Alias(type_="azure-native:cloudngfw:Firewall")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Firewall, __self__).__init__(
             'azure-native:cloudngfw/v20230901:Firewall',

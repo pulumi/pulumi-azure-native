@@ -117,7 +117,7 @@ export class CertificateObjectLocalRulestack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20230901:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw:CertificateObjectLocalRulestack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20230901:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20250206preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw:CertificateObjectLocalRulestack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CertificateObjectLocalRulestack.__pulumiType, name, resourceInputs, opts);
     }

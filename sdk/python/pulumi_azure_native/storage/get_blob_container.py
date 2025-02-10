@@ -322,7 +322,7 @@ def get_blob_container(account_name: Optional[str] = None,
     Gets properties of a specified container.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -368,7 +368,7 @@ def get_blob_container_output(account_name: Optional[pulumi.Input[str]] = None,
     Gets properties of a specified container.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.Chaos.V20240322Preview
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20231101:Capability" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20240101:Capability" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20241101preview:Capability" },
+                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20250101:Capability" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos:Capability" },
                 },
             };

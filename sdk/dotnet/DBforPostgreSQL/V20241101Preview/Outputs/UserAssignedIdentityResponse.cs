@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20241101Preview.Outputs
     public sealed class UserAssignedIdentityResponse
     {
         /// <summary>
+        /// the identity principal Id of the server.
+        /// </summary>
+        public readonly string? PrincipalId;
+        /// <summary>
         /// Tenant id of the server.
         /// </summary>
         public readonly string TenantId;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20241101Preview.Outputs
 
         [OutputConstructor]
         private UserAssignedIdentityResponse(
+            string? principalId,
+
             string tenantId,
 
             string type,
 
             ImmutableDictionary<string, Outputs.UserIdentityResponse>? userAssignedIdentities)
         {
+            PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
             UserAssignedIdentities = userAssignedIdentities;

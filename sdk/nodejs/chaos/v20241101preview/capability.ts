@@ -127,7 +127,7 @@ export class Capability extends pulumi.CustomResource {
             resourceInputs["urn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:chaos/v20210915preview:Capability" }, { type: "azure-native:chaos/v20220701preview:Capability" }, { type: "azure-native:chaos/v20221001preview:Capability" }, { type: "azure-native:chaos/v20230401preview:Capability" }, { type: "azure-native:chaos/v20230415preview:Capability" }, { type: "azure-native:chaos/v20230901preview:Capability" }, { type: "azure-native:chaos/v20231027preview:Capability" }, { type: "azure-native:chaos/v20231101:Capability" }, { type: "azure-native:chaos/v20240101:Capability" }, { type: "azure-native:chaos/v20240322preview:Capability" }, { type: "azure-native:chaos:Capability" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:chaos/v20210915preview:Capability" }, { type: "azure-native:chaos/v20220701preview:Capability" }, { type: "azure-native:chaos/v20221001preview:Capability" }, { type: "azure-native:chaos/v20230401preview:Capability" }, { type: "azure-native:chaos/v20230415preview:Capability" }, { type: "azure-native:chaos/v20230901preview:Capability" }, { type: "azure-native:chaos/v20231027preview:Capability" }, { type: "azure-native:chaos/v20231101:Capability" }, { type: "azure-native:chaos/v20240101:Capability" }, { type: "azure-native:chaos/v20240322preview:Capability" }, { type: "azure-native:chaos/v20250101:Capability" }, { type: "azure-native:chaos:Capability" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Capability.__pulumiType, name, resourceInputs, opts);
     }

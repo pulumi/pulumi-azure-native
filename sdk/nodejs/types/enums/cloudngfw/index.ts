@@ -9,6 +9,7 @@ import * as v20230901preview from "./v20230901preview";
 import * as v20231010preview from "./v20231010preview";
 import * as v20240119preview from "./v20240119preview";
 import * as v20240207preview from "./v20240207preview";
+import * as v20250206preview from "./v20250206preview";
 
 export {
     v20220829,
@@ -18,6 +19,7 @@ export {
     v20231010preview,
     v20240119preview,
     v20240207preview,
+    v20250206preview,
 };
 
 export const ActionEnum = {

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The local user associated with the storage accounts.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-08-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
  */
 export class LocalUser extends pulumi.CustomResource {
     /**
@@ -124,7 +124,7 @@ export class LocalUser extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20210801:LocalUser" }, { type: "azure-native:storage/v20210901:LocalUser" }, { type: "azure-native:storage/v20220501:LocalUser" }, { type: "azure-native:storage/v20220901:LocalUser" }, { type: "azure-native:storage/v20230101:LocalUser" }, { type: "azure-native:storage/v20230401:LocalUser" }, { type: "azure-native:storage/v20230501:LocalUser" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20210801:LocalUser" }, { type: "azure-native:storage/v20210901:LocalUser" }, { type: "azure-native:storage/v20220501:LocalUser" }, { type: "azure-native:storage/v20220901:LocalUser" }, { type: "azure-native:storage/v20230101:LocalUser" }, { type: "azure-native:storage/v20230401:LocalUser" }, { type: "azure-native:storage/v20230501:LocalUser" }, { type: "azure-native:storage/v20240101:LocalUser" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LocalUser.__pulumiType, name, resourceInputs, opts);
     }

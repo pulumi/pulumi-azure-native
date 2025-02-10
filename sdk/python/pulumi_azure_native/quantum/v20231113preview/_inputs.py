@@ -102,6 +102,10 @@ if not MYPY:
         """
         The sku associated with pricing information for this provider.
         """
+        provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProviderStatus']]]
+        """
+        Provisioning status field
+        """
         resource_usage_id: NotRequired[pulumi.Input[str]]
         """
         Id to track resource usage for the provider.
@@ -116,6 +120,7 @@ class ProviderArgs:
                  instance_uri: Optional[pulumi.Input[str]] = None,
                  provider_id: Optional[pulumi.Input[str]] = None,
                  provider_sku: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProviderStatus']]] = None,
                  resource_usage_id: Optional[pulumi.Input[str]] = None):
         """
         Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
@@ -123,6 +128,7 @@ class ProviderArgs:
         :param pulumi.Input[str] instance_uri: A Uri identifying the specific instance of this provider.
         :param pulumi.Input[str] provider_id: Unique id of this provider.
         :param pulumi.Input[str] provider_sku: The sku associated with pricing information for this provider.
+        :param pulumi.Input[Union[str, 'ProviderStatus']] provisioning_state: Provisioning status field
         :param pulumi.Input[str] resource_usage_id: Id to track resource usage for the provider.
         """
         if application_name is not None:
@@ -133,6 +139,8 @@ class ProviderArgs:
             pulumi.set(__self__, "provider_id", provider_id)
         if provider_sku is not None:
             pulumi.set(__self__, "provider_sku", provider_sku)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if resource_usage_id is not None:
             pulumi.set(__self__, "resource_usage_id", resource_usage_id)
 
@@ -183,6 +191,18 @@ class ProviderArgs:
     @provider_sku.setter
     def provider_sku(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "provider_sku", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProviderStatus']]]:
+        """
+        Provisioning status field
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProviderStatus']]]):
+        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="resourceUsageId")

@@ -187,7 +187,7 @@ class LocalUser(pulumi.CustomResource):
         The local user associated with the storage accounts.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-08-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +211,7 @@ class LocalUser(pulumi.CustomResource):
         The local user associated with the storage accounts.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-08-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param LocalUserArgs args: The arguments to use to populate this resource's properties.
@@ -263,7 +263,7 @@ class LocalUser(pulumi.CustomResource):
             __props__.__dict__["sid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20210801:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20210901:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20220501:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20220901:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20230101:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20230401:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20230501:LocalUser")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20210801:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20210901:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20220501:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20220901:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20230101:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20230401:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20230501:LocalUser"), pulumi.Alias(type_="azure-native:storage/v20240101:LocalUser")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LocalUser, __self__).__init__(
             'azure-native:storage:LocalUser',

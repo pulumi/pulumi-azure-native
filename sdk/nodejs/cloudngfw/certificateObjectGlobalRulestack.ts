@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * GlobalRulestack Certificate Object
  * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
  */
 export class CertificateObjectGlobalRulestack extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class CertificateObjectGlobalRulestack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:CertificateObjectGlobalRulestack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:CertificateObjectGlobalRulestack" }, { type: "azure-native:cloudngfw/v20250206preview:CertificateObjectGlobalRulestack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CertificateObjectGlobalRulestack.__pulumiType, name, resourceInputs, opts);
     }

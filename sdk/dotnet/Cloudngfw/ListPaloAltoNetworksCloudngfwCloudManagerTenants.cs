@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Cloud Manager Tenant
         /// Azure REST API version: 2024-02-07-preview.
+        /// 
+        /// Other available API versions: 2025-02-06-preview.
         /// </summary>
         public static Task<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult> InvokeAsync(ListPaloAltoNetworksCloudngfwCloudManagerTenantsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwCloudManagerTenants", args ?? new ListPaloAltoNetworksCloudngfwCloudManagerTenantsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Cloud Manager Tenant
         /// Azure REST API version: 2024-02-07-preview.
+        /// 
+        /// Other available API versions: 2025-02-06-preview.
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwCloudManagerTenants", InvokeArgs.Empty, options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Cloud Manager Tenant
         /// Azure REST API version: 2024-02-07-preview.
+        /// 
+        /// Other available API versions: 2025-02-06-preview.
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwCloudManagerTenants", InvokeArgs.Empty, options.WithDefaults());

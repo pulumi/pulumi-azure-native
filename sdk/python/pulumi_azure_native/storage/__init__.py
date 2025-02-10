@@ -60,9 +60,12 @@ if typing.TYPE_CHECKING:
     v20230401 = __v20230401
     import pulumi_azure_native.storage.v20230501 as __v20230501
     v20230501 = __v20230501
+    import pulumi_azure_native.storage.v20240101 as __v20240101
+    v20240101 = __v20240101
 else:
     v20220901 = _utilities.lazy_import('pulumi_azure_native.storage.v20220901')
     v20230101 = _utilities.lazy_import('pulumi_azure_native.storage.v20230101')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.storage.v20230401')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.storage.v20230501')
+    v20240101 = _utilities.lazy_import('pulumi_azure_native.storage.v20240101')
 

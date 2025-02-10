@@ -144,9 +144,7 @@ class ProviderResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "applicationName":
+        if key == "applicationName":
             suggest = "application_name"
         elif key == "instanceUri":
             suggest = "instance_uri"
@@ -154,6 +152,8 @@ class ProviderResponse(dict):
             suggest = "provider_id"
         elif key == "providerSku":
             suggest = "provider_sku"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
         elif key == "resourceUsageId":
             suggest = "resource_usage_id"
 
@@ -169,22 +169,21 @@ class ProviderResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 provisioning_state: str,
                  application_name: Optional[str] = None,
                  instance_uri: Optional[str] = None,
                  provider_id: Optional[str] = None,
                  provider_sku: Optional[str] = None,
+                 provisioning_state: Optional[str] = None,
                  resource_usage_id: Optional[str] = None):
         """
         Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
-        :param str provisioning_state: Provisioning status field
         :param str application_name: The provider's marketplace application display name.
         :param str instance_uri: A Uri identifying the specific instance of this provider.
         :param str provider_id: Unique id of this provider.
         :param str provider_sku: The sku associated with pricing information for this provider.
+        :param str provisioning_state: Provisioning status field
         :param str resource_usage_id: Id to track resource usage for the provider.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if application_name is not None:
             pulumi.set(__self__, "application_name", application_name)
         if instance_uri is not None:
@@ -193,16 +192,10 @@ class ProviderResponse(dict):
             pulumi.set(__self__, "provider_id", provider_id)
         if provider_sku is not None:
             pulumi.set(__self__, "provider_sku", provider_sku)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if resource_usage_id is not None:
             pulumi.set(__self__, "resource_usage_id", resource_usage_id)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Provisioning status field
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="applicationName")
@@ -235,6 +228,14 @@ class ProviderResponse(dict):
         The sku associated with pricing information for this provider.
         """
         return pulumi.get(self, "provider_sku")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Provisioning status field
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="resourceUsageId")

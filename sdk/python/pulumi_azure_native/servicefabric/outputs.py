@@ -27,12 +27,16 @@ __all__ = [
     'AzureActiveDirectoryResponse',
     'ClientCertificateResponse',
     'EndpointRangeDescriptionResponse',
+    'FaultSimulationConstraintsResponse',
+    'FaultSimulationDetailsResponse',
+    'FaultSimulationResponse',
     'FrontendConfigurationResponse',
     'IPTagResponse',
     'LoadBalancingRuleResponse',
     'ManagedIdentityResponse',
     'NamedPartitionSchemeResponse',
     'NetworkSecurityRuleResponse',
+    'NodeTypeFaultSimulationResponse',
     'NodeTypeSkuResponse',
     'PartitionInstanceCountScaleMechanismResponse',
     'ResourceAzStatusResponse',
@@ -64,6 +68,7 @@ __all__ = [
     'VmImagePlanResponse',
     'VmManagedIdentityResponse',
     'VmssDataDiskResponse',
+    'ZoneFaultSimulationParametersResponse',
 ]
 
 @pulumi.output_type
@@ -835,6 +840,159 @@ class EndpointRangeDescriptionResponse(dict):
 
 
 @pulumi.output_type
+class FaultSimulationConstraintsResponse(dict):
+    """
+    Constraints for Fault Simulation action.
+    """
+    def __init__(__self__, *,
+                 expiration_time: Optional[str] = None):
+        """
+        Constraints for Fault Simulation action.
+        :param str expiration_time: The absolute expiration timestamp (UTC) after which this fault simulation should be stopped if it's still active.
+        """
+        if expiration_time is not None:
+            pulumi.set(__self__, "expiration_time", expiration_time)
+
+    @property
+    @pulumi.getter(name="expirationTime")
+    def expiration_time(self) -> Optional[str]:
+        """
+        The absolute expiration timestamp (UTC) after which this fault simulation should be stopped if it's still active.
+        """
+        return pulumi.get(self, "expiration_time")
+
+
+@pulumi.output_type
+class FaultSimulationDetailsResponse(dict):
+    """
+    Details for Fault Simulation.
+    """
+    def __init__(__self__, *,
+                 cluster_id: Optional[str] = None,
+                 node_type_fault_simulation: Optional[Sequence['outputs.NodeTypeFaultSimulationResponse']] = None,
+                 operation_id: Optional[str] = None,
+                 parameters: Optional['outputs.ZoneFaultSimulationParametersResponse'] = None):
+        """
+        Details for Fault Simulation.
+        :param str cluster_id: unique identifier for the cluster resource.
+        :param Sequence['NodeTypeFaultSimulationResponse'] node_type_fault_simulation: List of node type simulations associated with the cluster fault simulation.
+        :param str operation_id: unique identifier for the operation associated with the fault simulation.
+        :param 'ZoneFaultSimulationParametersResponse' parameters: Fault simulation parameters.
+        """
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
+        if node_type_fault_simulation is not None:
+            pulumi.set(__self__, "node_type_fault_simulation", node_type_fault_simulation)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[str]:
+        """
+        unique identifier for the cluster resource.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="nodeTypeFaultSimulation")
+    def node_type_fault_simulation(self) -> Optional[Sequence['outputs.NodeTypeFaultSimulationResponse']]:
+        """
+        List of node type simulations associated with the cluster fault simulation.
+        """
+        return pulumi.get(self, "node_type_fault_simulation")
+
+    @property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[str]:
+        """
+        unique identifier for the operation associated with the fault simulation.
+        """
+        return pulumi.get(self, "operation_id")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional['outputs.ZoneFaultSimulationParametersResponse']:
+        """
+        Fault simulation parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FaultSimulationResponse(dict):
+    """
+    Fault simulation object with status.
+    """
+    def __init__(__self__, *,
+                 details: Optional['outputs.FaultSimulationDetailsResponse'] = None,
+                 end_time: Optional[str] = None,
+                 simulation_id: Optional[str] = None,
+                 start_time: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        Fault simulation object with status.
+        :param 'FaultSimulationDetailsResponse' details: Fault simulation details
+        :param str end_time: The end time of the fault simulation.
+        :param str simulation_id: unique identifier for the fault simulation.
+        :param str start_time: The start time of the fault simulation.
+        :param str status: Fault simulation status
+        """
+        if details is not None:
+            pulumi.set(__self__, "details", details)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if simulation_id is not None:
+            pulumi.set(__self__, "simulation_id", simulation_id)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def details(self) -> Optional['outputs.FaultSimulationDetailsResponse']:
+        """
+        Fault simulation details
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        The end time of the fault simulation.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="simulationId")
+    def simulation_id(self) -> Optional[str]:
+        """
+        unique identifier for the fault simulation.
+        """
+        return pulumi.get(self, "simulation_id")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        The start time of the fault simulation.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Fault simulation status
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class FrontendConfigurationResponse(dict):
     """
     Describes the frontend configurations for the node type.
@@ -1419,6 +1577,65 @@ class NetworkSecurityRuleResponse(dict):
         The source port ranges.
         """
         return pulumi.get(self, "source_port_ranges")
+
+
+@pulumi.output_type
+class NodeTypeFaultSimulationResponse(dict):
+    """
+    Node type fault simulation object with status.
+    """
+    def __init__(__self__, *,
+                 node_type_name: Optional[str] = None,
+                 operation_id: Optional[str] = None,
+                 operation_status: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        Node type fault simulation object with status.
+        :param str node_type_name: Node type name.
+        :param str operation_id: Current or latest asynchronous operation identifier on the node type.
+        :param str operation_status: Current or latest asynchronous operation status on the node type
+        :param str status: Fault simulation status
+        """
+        if node_type_name is not None:
+            pulumi.set(__self__, "node_type_name", node_type_name)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+        if operation_status is not None:
+            pulumi.set(__self__, "operation_status", operation_status)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="nodeTypeName")
+    def node_type_name(self) -> Optional[str]:
+        """
+        Node type name.
+        """
+        return pulumi.get(self, "node_type_name")
+
+    @property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[str]:
+        """
+        Current or latest asynchronous operation identifier on the node type.
+        """
+        return pulumi.get(self, "operation_id")
+
+    @property
+    @pulumi.getter(name="operationStatus")
+    def operation_status(self) -> Optional[str]:
+        """
+        Current or latest asynchronous operation status on the node type
+        """
+        return pulumi.get(self, "operation_status")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Fault simulation status
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -3757,5 +3974,65 @@ class VmssDataDiskResponse(dict):
         Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM. Lun 0 is reserved for the service fabric data disk.
         """
         return pulumi.get(self, "lun")
+
+
+@pulumi.output_type
+class ZoneFaultSimulationParametersResponse(dict):
+    """
+    Parameters for Zone Fault Simulation action.
+    """
+    def __init__(__self__, *,
+                 fault_kind: str,
+                 constraints: Optional['outputs.FaultSimulationConstraintsResponse'] = None,
+                 force: Optional[bool] = None,
+                 zones: Optional[Sequence[str]] = None):
+        """
+        Parameters for Zone Fault Simulation action.
+        :param str fault_kind: The kind of fault simulation.
+               Expected value is 'Zone'.
+        :param 'FaultSimulationConstraintsResponse' constraints: Constraints for Fault Simulation action.
+        :param bool force: Force the action to go through without any check on the cluster.
+        :param Sequence[str] zones: Indicates the zones of the fault simulation.
+        """
+        pulumi.set(__self__, "fault_kind", 'Zone')
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+        if force is not None:
+            pulumi.set(__self__, "force", force)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="faultKind")
+    def fault_kind(self) -> str:
+        """
+        The kind of fault simulation.
+        Expected value is 'Zone'.
+        """
+        return pulumi.get(self, "fault_kind")
+
+    @property
+    @pulumi.getter
+    def constraints(self) -> Optional['outputs.FaultSimulationConstraintsResponse']:
+        """
+        Constraints for Fault Simulation action.
+        """
+        return pulumi.get(self, "constraints")
+
+    @property
+    @pulumi.getter
+    def force(self) -> Optional[bool]:
+        """
+        Force the action to go through without any check on the cluster.
+        """
+        return pulumi.get(self, "force")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        Indicates the zones of the fault simulation.
+        """
+        return pulumi.get(self, "zones")
 
 

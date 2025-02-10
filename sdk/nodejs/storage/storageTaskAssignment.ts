@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The storage task assignment.
  * Azure REST API version: 2023-05-01.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export class StorageTaskAssignment extends pulumi.CustomResource {
     /**
@@ -83,7 +85,7 @@ export class StorageTaskAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20230501:StorageTaskAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20230501:StorageTaskAssignment" }, { type: "azure-native:storage/v20240101:StorageTaskAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageTaskAssignment.__pulumiType, name, resourceInputs, opts);
     }

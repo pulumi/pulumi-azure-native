@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Chaos
     /// Model that represents a Experiment resource.
     /// Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview.
     /// 
-    /// Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview.
+    /// Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos:Experiment")]
     public partial class Experiment : global::Pulumi.CustomResource
@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Chaos
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20240101:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20240322preview:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20241101preview:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20250101:Experiment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

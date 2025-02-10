@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.Storage.V20230401
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:ManagementPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:ManagementPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230501:ManagementPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20240101:ManagementPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:storage:ManagementPolicy" },
                 },
             };

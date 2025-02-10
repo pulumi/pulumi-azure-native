@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Storage.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:TableServiceProperties" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230401:TableServiceProperties" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230501:TableServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20240101:TableServiceProperties" },
                     new global::Pulumi.Alias { Type = "azure-native:storage:TableServiceProperties" },
                 },
             };

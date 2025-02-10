@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets properties of a specified share.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
  */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -139,7 +139,7 @@ export interface GetFileShareResult {
  * Gets properties of a specified share.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
  */
 export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

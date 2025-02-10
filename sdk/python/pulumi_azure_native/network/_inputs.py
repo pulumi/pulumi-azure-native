@@ -444,6 +444,8 @@ __all__ = [
     'NetworkSecurityGroupArgsDict',
     'NsRecordArgs',
     'NsRecordArgsDict',
+    'NspLoggingConfigurationPropertiesArgs',
+    'NspLoggingConfigurationPropertiesArgsDict',
     'O365BreakOutCategoryPoliciesArgs',
     'O365BreakOutCategoryPoliciesArgsDict',
     'O365PolicyPropertiesArgs',
@@ -21808,6 +21810,62 @@ class NsRecordArgs:
     @nsdname.setter
     def nsdname(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "nsdname", value)
+
+
+if not MYPY:
+    class NspLoggingConfigurationPropertiesArgsDict(TypedDict):
+        """
+        The NSP logging configuration properties.
+        """
+        enabled_log_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The log categories to enable in the NSP logging configuration.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the NSP logging configuration.
+        """
+elif False:
+    NspLoggingConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NspLoggingConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 enabled_log_categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        The NSP logging configuration properties.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_log_categories: The log categories to enable in the NSP logging configuration.
+        :param pulumi.Input[str] version: The version of the NSP logging configuration.
+        """
+        if enabled_log_categories is not None:
+            pulumi.set(__self__, "enabled_log_categories", enabled_log_categories)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="enabledLogCategories")
+    def enabled_log_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The log categories to enable in the NSP logging configuration.
+        """
+        return pulumi.get(self, "enabled_log_categories")
+
+    @enabled_log_categories.setter
+    def enabled_log_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "enabled_log_categories", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the NSP logging configuration.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 if not MYPY:

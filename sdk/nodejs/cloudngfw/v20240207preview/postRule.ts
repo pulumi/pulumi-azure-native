@@ -194,7 +194,7 @@ export class PostRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:PostRule" }, { type: "azure-native:cloudngfw/v20220829preview:PostRule" }, { type: "azure-native:cloudngfw/v20230901:PostRule" }, { type: "azure-native:cloudngfw/v20230901preview:PostRule" }, { type: "azure-native:cloudngfw/v20231010preview:PostRule" }, { type: "azure-native:cloudngfw/v20240119preview:PostRule" }, { type: "azure-native:cloudngfw:PostRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:PostRule" }, { type: "azure-native:cloudngfw/v20220829preview:PostRule" }, { type: "azure-native:cloudngfw/v20230901:PostRule" }, { type: "azure-native:cloudngfw/v20230901preview:PostRule" }, { type: "azure-native:cloudngfw/v20231010preview:PostRule" }, { type: "azure-native:cloudngfw/v20240119preview:PostRule" }, { type: "azure-native:cloudngfw/v20250206preview:PostRule" }, { type: "azure-native:cloudngfw:PostRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PostRule.__pulumiType, name, resourceInputs, opts);
     }

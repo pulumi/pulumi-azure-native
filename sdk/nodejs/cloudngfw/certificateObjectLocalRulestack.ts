@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * LocalRulestack Certificate Object
  * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
  */
 export class CertificateObjectLocalRulestack extends pulumi.CustomResource {
     /**
@@ -120,7 +120,7 @@ export class CertificateObjectLocalRulestack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20230901:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:CertificateObjectLocalRulestack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20230901:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:CertificateObjectLocalRulestack" }, { type: "azure-native:cloudngfw/v20250206preview:CertificateObjectLocalRulestack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CertificateObjectLocalRulestack.__pulumiType, name, resourceInputs, opts);
     }

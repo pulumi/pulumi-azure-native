@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ManagedServiceIdentityType',
+    'ProviderStatus',
 ]
 
 
@@ -17,3 +18,33 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class ProviderStatus(str, Enum):
+    """
+    Provisioning status field
+    """
+    SUCCEEDED = "Succeeded"
+    """
+    The provider is successfully provisioned.
+    """
+    LAUNCHING = "Launching"
+    """
+    The provider is starting provisioning.
+    """
+    UPDATING = "Updating"
+    """
+    The provider is updating.
+    """
+    DELETING = "Deleting"
+    """
+    The provider is deleting.
+    """
+    DELETED = "Deleted"
+    """
+    The provider is deleted.
+    """
+    FAILED = "Failed"
+    """
+    The provider is failed.
+    """

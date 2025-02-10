@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * PostRulestack rule list
  * Azure REST API version: 2023-09-01.
  *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+ * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
  */
 export class PostRule extends pulumi.CustomResource {
     /**
@@ -197,7 +197,7 @@ export class PostRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:PostRule" }, { type: "azure-native:cloudngfw/v20220829preview:PostRule" }, { type: "azure-native:cloudngfw/v20230901:PostRule" }, { type: "azure-native:cloudngfw/v20230901preview:PostRule" }, { type: "azure-native:cloudngfw/v20231010preview:PostRule" }, { type: "azure-native:cloudngfw/v20240119preview:PostRule" }, { type: "azure-native:cloudngfw/v20240207preview:PostRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:PostRule" }, { type: "azure-native:cloudngfw/v20220829preview:PostRule" }, { type: "azure-native:cloudngfw/v20230901:PostRule" }, { type: "azure-native:cloudngfw/v20230901preview:PostRule" }, { type: "azure-native:cloudngfw/v20231010preview:PostRule" }, { type: "azure-native:cloudngfw/v20240119preview:PostRule" }, { type: "azure-native:cloudngfw/v20240207preview:PostRule" }, { type: "azure-native:cloudngfw/v20250206preview:PostRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PostRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.Cloudngfw.V20240119Preview
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20230901preview:Firewall" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20231010preview:Firewall" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240207preview:Firewall" },
+                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20250206preview:Firewall" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw:Firewall" },
                 },
             };

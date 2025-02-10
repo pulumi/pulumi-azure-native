@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Quantum.V20231113Preview.Outputs
         /// <summary>
         /// Provisioning status field
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Id to track resource usage for the provider.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.Quantum.V20231113Preview.Outputs
 
             string? providerSku,
 
-            string provisioningState,
+            string? provisioningState,
 
             string? resourceUsageId)
         {

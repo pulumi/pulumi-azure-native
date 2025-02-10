@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Cloudngfw.V20240119Preview
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20230901preview:FqdnListGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20231010preview:FqdnListGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240207preview:FqdnListGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20250206preview:FqdnListGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw:FqdnListGlobalRulestack" },
                 },
             };

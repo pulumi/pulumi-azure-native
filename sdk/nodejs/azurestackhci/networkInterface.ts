@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The network interface resource definition.
  * Azure REST API version: 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**
@@ -126,7 +126,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20210901preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20221215preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20230701preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20230901preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240101:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240201preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240501preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240715preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240801preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20241001preview:NetworkInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20210901preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20221215preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20230701preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20230901preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240101:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240201preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240501preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240715preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240801preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20241001preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20250201preview:NetworkInterface" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkInterface.__pulumiType, name, resourceInputs, opts);
     }

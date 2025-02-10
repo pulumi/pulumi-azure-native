@@ -268,6 +268,7 @@ __all__ = [
     'NetworkRuleResponse',
     'NetworkSecurityGroupResponse',
     'NsRecordResponse',
+    'NspLoggingConfigurationPropertiesResponse',
     'O365BreakOutCategoryPoliciesResponse',
     'O365PolicyPropertiesResponse',
     'Office365PolicyPropertiesResponse',
@@ -24333,6 +24334,58 @@ class NsRecordResponse(dict):
         The name server name for this NS record.
         """
         return pulumi.get(self, "nsdname")
+
+
+@pulumi.output_type
+class NspLoggingConfigurationPropertiesResponse(dict):
+    """
+    The NSP logging configuration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledLogCategories":
+            suggest = "enabled_log_categories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NspLoggingConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NspLoggingConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NspLoggingConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled_log_categories: Optional[Sequence[str]] = None,
+                 version: Optional[str] = None):
+        """
+        The NSP logging configuration properties.
+        :param Sequence[str] enabled_log_categories: The log categories to enable in the NSP logging configuration.
+        :param str version: The version of the NSP logging configuration.
+        """
+        if enabled_log_categories is not None:
+            pulumi.set(__self__, "enabled_log_categories", enabled_log_categories)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="enabledLogCategories")
+    def enabled_log_categories(self) -> Optional[Sequence[str]]:
+        """
+        The log categories to enable in the NSP logging configuration.
+        """
+        return pulumi.get(self, "enabled_log_categories")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The version of the NSP logging configuration.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

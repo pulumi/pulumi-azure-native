@@ -189,7 +189,7 @@ def get_firewall_support_info(email: Optional[str] = None,
     support info for firewall.
     Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
 
     :param str email: email address on behalf of which this API called
@@ -224,7 +224,7 @@ def get_firewall_support_info_output(email: Optional[pulumi.Input[Optional[str]]
     support info for firewall.
     Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
 
 
     :param str email: email address on behalf of which this API called

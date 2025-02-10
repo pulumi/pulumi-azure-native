@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspLink" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NspLink" },
                     new global::Pulumi.Alias { Type = "azure-native:network:NspLink" },
                 },
             };

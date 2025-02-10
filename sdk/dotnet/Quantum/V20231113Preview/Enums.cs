@@ -39,4 +39,57 @@ namespace Pulumi.AzureNative.Quantum.V20231113Preview
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Provisioning status field
+    /// </summary>
+    [EnumType]
+    public readonly struct ProviderStatus : IEquatable<ProviderStatus>
+    {
+        private readonly string _value;
+
+        private ProviderStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The provider is successfully provisioned.
+        /// </summary>
+        public static ProviderStatus Succeeded { get; } = new ProviderStatus("Succeeded");
+        /// <summary>
+        /// The provider is starting provisioning.
+        /// </summary>
+        public static ProviderStatus Launching { get; } = new ProviderStatus("Launching");
+        /// <summary>
+        /// The provider is updating.
+        /// </summary>
+        public static ProviderStatus Updating { get; } = new ProviderStatus("Updating");
+        /// <summary>
+        /// The provider is deleting.
+        /// </summary>
+        public static ProviderStatus Deleting { get; } = new ProviderStatus("Deleting");
+        /// <summary>
+        /// The provider is deleted.
+        /// </summary>
+        public static ProviderStatus Deleted { get; } = new ProviderStatus("Deleted");
+        /// <summary>
+        /// The provider is failed.
+        /// </summary>
+        public static ProviderStatus Failed { get; } = new ProviderStatus("Failed");
+
+        public static bool operator ==(ProviderStatus left, ProviderStatus right) => left.Equals(right);
+        public static bool operator !=(ProviderStatus left, ProviderStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ProviderStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProviderStatus other && Equals(other);
+        public bool Equals(ProviderStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

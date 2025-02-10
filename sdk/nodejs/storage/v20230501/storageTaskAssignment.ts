@@ -82,7 +82,7 @@ export class StorageTaskAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage:StorageTaskAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20240101:StorageTaskAssignment" }, { type: "azure-native:storage:StorageTaskAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageTaskAssignment.__pulumiType, name, resourceInputs, opts);
     }

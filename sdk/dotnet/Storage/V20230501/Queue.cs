@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.Storage.V20230501
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:Queue" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:Queue" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230401:Queue" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20240101:Queue" },
                     new global::Pulumi.Alias { Type = "azure-native:storage:Queue" },
                 },
             };

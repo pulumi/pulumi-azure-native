@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.Storage.V20230501
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20240101:StorageTaskAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:storage:StorageTaskAssignment" },
                 },
             };

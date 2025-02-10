@@ -372,6 +372,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20231201Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240401:NodeType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240601preview:NodeType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240901preview:NodeType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20241101preview:NodeType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric:NodeType" },
                 },
             };
