@@ -190,6 +190,10 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/basicPublishingCredentialsPolicies/scm": {
 		"allow": true,
 	},
+	// https://github.com/pulumi/pulumi-azure-native/issues/3934
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/sqlVulnerabilityAssessments/{vulnerabilityAssessmentName}": {
+		"state": "Disabled",
+	},
 }
 
 var skipDeleteResources = map[string]bool{
