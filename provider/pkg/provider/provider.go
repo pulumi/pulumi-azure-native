@@ -13,6 +13,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/blang/semver"
 	structpb "github.com/golang/protobuf/ptypes/struct"
 	"github.com/manicminer/hamilton/environments"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
@@ -953,17 +954,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	var outputs map[string]interface{}
 	switch {
 	case isCustom && customRes.Create != nil:
-		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here.
-		_, exists, err := customRes.Read(ctx, id, inputs)
-		if err != nil {
-			return nil, err
-		}
-		if exists {
-			return nil, fmt.Errorf("cannot create already existing resource %q", id)
-		}
-
-		// Create the custom resource and retrieve its outputs, which already match the SDK shape.
-		outputs, err = customRes.Create(ctx, id, inputs)
+		outputs, err = customCreate(ctx, inputs, id, crudClient, customRes)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
@@ -989,6 +980,37 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		Id:         id,
 		Properties: checkpoint,
 	}, nil
+}
+
+func customCreate(ctx context.Context, inputs resource.PropertyMap, id string, crudClient crud.ResourceCrudClient,
+	customRes *customresources.CustomResource,
+) (map[string]any, error) {
+	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here.
+	var exists bool
+	var err error
+
+	if customRes.CanCreate != nil {
+		err = customRes.CanCreate(ctx, id)
+		exists = err != nil
+	} else if customRes.Read != nil {
+		_, exists, err = customRes.Read(ctx, id, inputs)
+	} else {
+		err = crudClient.CanCreate(ctx, id)
+		exists = err != nil
+	}
+	if err != nil {
+		return nil, err
+	}
+	if exists {
+		return nil, fmt.Errorf("cannot create already existing resource %q", id)
+	}
+
+	// Create the custom resource and retrieve its outputs, which already match the SDK shape.
+	outputs, err := customRes.Create(ctx, id, inputs)
+	if err != nil {
+		return nil, azure.AzureError(err)
+	}
+	return outputs, nil
 }
 
 func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.CreateRequest, inputs resource.PropertyMap, id string,
@@ -1224,6 +1246,12 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	var outputsWithoutIgnores = outputs
+
+	plainOldState := oldState.Mappable()
+	if oldState.HasValue(customresources.OriginalStateKey) {
+		outputsWithoutIgnores[customresources.OriginalStateKey] = plainOldState[customresources.OriginalStateKey]
+	}
+
 	if inputs == nil {
 		// There may be no old state (i.e., importing a new resource).
 		// Extract inputs from resource's ID and response body.
@@ -1247,7 +1275,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 
 		// 1. If we previously reset inputs to their default value, remove them so we don't get them in
 		// the projected output. This would cause unnecessary changes on refresh.
-		plainOldState := mappableOldState(*res, oldState)
+		removeDefaults(*res, plainOldState)
 		// 2. Project old outputs to their corresponding input shape (exclude read-only properties).
 		oldInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, plainOldState)
 		// 3a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
@@ -1287,12 +1315,11 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	return &rpc.ReadResponse{Id: id, Properties: checkpoint, Inputs: inputsRecord}, nil
 }
 
-// Converts oldState into a serializable object map, with the resource's default values from metadata removed.
-func mappableOldState(res resources.AzureAPIResource, oldState resource.PropertyMap) map[string]interface{} {
-	plainOldState := oldState.Mappable()
+// removeDefaults removes the resource's default values from the given state, modifying the map in place.
+func removeDefaults(res resources.AzureAPIResource, plainOldState map[string]any) {
 	previousInputsRaw, ok := plainOldState["__inputs"]
 	if !ok {
-		return plainOldState
+		return
 	}
 	previousInputs := previousInputsRaw.(map[string]interface{})
 
@@ -1304,7 +1331,6 @@ func mappableOldState(res resources.AzureAPIResource, oldState resource.Property
 			delete(plainOldState, property)
 		}
 	}
-	return plainOldState
 }
 
 // removeUnsetSubResourceProperties resets sub-resource properties in the outputs if they weren't set in the old inputs.
@@ -1620,9 +1646,17 @@ func azureContext(ctx context.Context, timeoutSeconds float64) (context.Context,
 // checkpointObject produces the checkpointed state for the given inputs and outputs.
 // In v2, we stored the inputs in an `__inputs` field of the state; removed in v3.
 func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
+	return checkpointObjectVersioned(inputs, outputs, version.GetVersion())
+}
+
+func checkpointObjectVersioned(inputs resource.PropertyMap, outputs map[string]interface{}, version semver.Version) resource.PropertyMap {
 	object := resource.NewPropertyMapFromMap(outputs)
-	if version.GetVersion().Major < 3 {
+	if version.Major < 3 {
 		object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
+	}
+	// If this is a custom resource that needs the resource's original state, preserve it as a secret.
+	if object.HasValue(customresources.OriginalStateKey) {
+		object[customresources.OriginalStateKey] = resource.MakeSecret(object[customresources.OriginalStateKey])
 	}
 	return object
 }

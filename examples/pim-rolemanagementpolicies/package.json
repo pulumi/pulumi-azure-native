@@ -1,0 +1,11 @@
+{
+    "name": "pim-rolemanagementpolicies",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^18"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0",
+        "@pulumi/azure-native": "^2.0.0"
+    }
+}

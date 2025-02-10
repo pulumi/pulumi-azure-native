@@ -9,6 +9,8 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
 	"github.com/Azure/go-autorest/autorest/azure"
+	"github.com/blang/semver"
+
 	az "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
@@ -94,9 +96,8 @@ func TestRestoreDefaultInputsIsNoopWithoutDefaultProperties(t *testing.T) {
 
 func TestMappableOldStateIsNoopWithoutDefaults(t *testing.T) {
 	res := resources.AzureAPIResource{} // no defaults
-	m := mappableOldState(res, resource.PropertyMap{
-		"foo": resource.NewStringProperty("bar"),
-	})
+	m := map[string]interface{}{"foo": "bar"}
+	removeDefaults(res, m)
 	assert.Equal(t, map[string]interface{}{"foo": "bar"}, m)
 }
 
@@ -108,11 +109,12 @@ func TestMappableOldStatePreservesNonDefaults(t *testing.T) {
 			},
 		},
 	}
-	m := mappableOldState(res, resource.PropertyMap{
-		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
-			"defaultAction": resource.NewStringProperty("Deny"),
-		}),
-	})
+	m := map[string]any{
+		"networkRuleSet": map[string]any{
+			"defaultAction": "Deny",
+		},
+	}
+	removeDefaults(res, m)
 	assert.Equal(t, "Deny", m["networkRuleSet"].(map[string]interface{})["defaultAction"])
 }
 
@@ -124,16 +126,17 @@ func TestMappableOldStateRemovesDefaultsThatWereInputs(t *testing.T) {
 			},
 		},
 	}
-	m := mappableOldState(res, resource.PropertyMap{
-		"__inputs": resource.NewObjectProperty(resource.PropertyMap{
-			"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
-				"defaultAction": resource.NewStringProperty("Allow"),
-			}),
-		}),
-		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
-			"defaultAction": resource.NewStringProperty("Allow"),
-		}),
-	})
+	m := map[string]any{
+		"__inputs": map[string]any{
+			"networkRuleSet": map[string]any{
+				"defaultAction": "Allow",
+			},
+		},
+		"networkRuleSet": map[string]any{
+			"defaultAction": "Allow",
+		},
+	}
+	removeDefaults(res, m)
 	assert.Contains(t, m, "__inputs")
 	assert.NotContains(t, m, "networkRuleSet")
 }
@@ -146,12 +149,13 @@ func TestMappableOldStatePreservesDefaultsThatWereNotInputs(t *testing.T) {
 			},
 		},
 	}
-	m := mappableOldState(res, resource.PropertyMap{
-		"__inputs": resource.NewObjectProperty(resource.PropertyMap{}),
-		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
-			"defaultAction": resource.NewStringProperty("Allow"),
-		}),
-	})
+	m := map[string]any{
+		"__inputs": map[string]any{},
+		"networkRuleSet": map[string]any{
+			"defaultAction": "Allow",
+		},
+	}
+	removeDefaults(res, m)
 	assert.Contains(t, m, "__inputs")
 	assert.Contains(t, m, "networkRuleSet")
 }
@@ -523,4 +527,166 @@ func TestGetTokenRequestOpts(t *testing.T) {
 	assert.Empty(t, opts.Claims)
 	assert.Empty(t, opts.TenantID)
 	assert.Equal(t, []string{"http://endpoint/.default"}, opts.Scopes)
+}
+
+func TestCustomCreate(t *testing.T) {
+	t.Parallel()
+
+	t.Run("resource doesn't exist, uses the custom resource's CanCreate", func(t *testing.T) {
+		t.Parallel()
+
+		calledCreate := false
+		customRes := &customresources.CustomResource{
+			CanCreate: func(ctx context.Context, id string) error {
+				return nil
+			},
+			Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+				calledCreate = true
+				return map[string]any{}, nil
+			},
+		}
+
+		_, err := customCreate(context.Background(), resource.PropertyMap{}, "id", nil, customRes)
+		require.NoError(t, err)
+		assert.True(t, calledCreate)
+	})
+
+	t.Run("resource does exist, uses the custom resource's CanCreate", func(t *testing.T) {
+		t.Parallel()
+
+		calledCanCreate := false
+		calledCreate := false
+		calledRead := false
+		customRes := &customresources.CustomResource{
+			CanCreate: func(ctx context.Context, id string) error {
+				calledCanCreate = true
+				return fmt.Errorf("resource already exists")
+			},
+			Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
+				calledRead = true
+				return map[string]any{}, true, nil
+			},
+			Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+				calledCreate = true
+				return map[string]any{}, nil
+			},
+		}
+
+		_, err := customCreate(context.Background(), resource.PropertyMap{}, "id", nil, customRes)
+		require.Error(t, err)
+		assert.True(t, calledCanCreate)
+		assert.False(t, calledRead)
+		assert.False(t, calledCreate)
+	})
+
+	t.Run("resource doesn't exist, uses the custom resource's Read", func(t *testing.T) {
+		t.Parallel()
+
+		azureClient := &az.MockAzureClient{}
+		crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "123", nil)
+
+		calledCreate := false
+		customRes := &customresources.CustomResource{
+			Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
+				return map[string]any{}, false, nil
+			},
+			Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+				calledCreate = true
+				return map[string]any{}, nil
+			},
+		}
+
+		_, err := customCreate(context.Background(), resource.PropertyMap{}, "id", crudClient, customRes)
+		require.NoError(t, err)
+		assert.True(t, calledCreate)
+	})
+
+	t.Run("resource does exist, uses the custom resource's Read", func(t *testing.T) {
+		t.Parallel()
+
+		azureClient := &az.MockAzureClient{}
+		crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "123", nil)
+
+		calledCreate := false
+		customRes := &customresources.CustomResource{
+			Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
+				return map[string]any{}, true, nil
+			},
+			Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+				calledCreate = true
+				return map[string]any{}, nil
+			},
+		}
+
+		_, err := customCreate(context.Background(), resource.PropertyMap{}, "id", crudClient, customRes)
+		require.Error(t, err)
+		require.Contains(t, err.Error(), "cannot create already existing resource")
+		assert.False(t, calledCreate)
+	})
+
+	t.Run("resource doesn't exist, uses the regular CrudClient if custom resource has neither Read nor CanCreate", func(t *testing.T) {
+		t.Parallel()
+
+		azureClient := &az.MockAzureClient{}
+		crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "123", &resources.AzureAPIResource{})
+
+		calledCreate := false
+		customRes := &customresources.CustomResource{
+			Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+				calledCreate = true
+				return map[string]any{}, nil
+			},
+		}
+
+		_, err := customCreate(context.Background(), resource.PropertyMap{}, "id", crudClient, customRes)
+		require.NoError(t, err)
+		assert.True(t, calledCreate)
+	})
+}
+
+func TestCheckpointObject(t *testing.T) {
+	t.Parallel()
+
+	t.Run("stores inputs in v2", func(t *testing.T) {
+		t.Parallel()
+
+		inputs := resource.PropertyMap{
+			"name": resource.NewStringProperty("test"),
+		}
+		outputs := map[string]any{}
+
+		checkpoint := checkpointObjectVersioned(inputs, outputs, semver.MustParse("2.0.0"))
+		assert.Contains(t, checkpoint, resource.PropertyKey("__inputs"))
+	})
+
+	t.Run("does not store inputs in v3", func(t *testing.T) {
+		t.Parallel()
+
+		inputs := resource.PropertyMap{
+			"name": resource.NewStringProperty("test"),
+		}
+		outputs := map[string]any{}
+
+		checkpoint := checkpointObjectVersioned(inputs, outputs, semver.MustParse("3.0.0"))
+		assert.NotContains(t, checkpoint, resource.PropertyKey("__inputs"))
+	})
+
+	t.Run("preserves original state", func(t *testing.T) {
+		t.Parallel()
+
+		inputs := resource.PropertyMap{
+			"name": resource.NewStringProperty("test"),
+		}
+		outputs := map[string]any{
+			customresources.OriginalStateKey: resource.NewStringProperty("original state"),
+		}
+
+		checkpoint := checkpointObjectVersioned(inputs, outputs, semver.MustParse("2.0.0"))
+		assert.Contains(t, checkpoint, resource.PropertyKey(customresources.OriginalStateKey))
+		assert.True(t, checkpoint.ContainsSecrets())
+
+		checkpoint = checkpointObjectVersioned(inputs, outputs, semver.MustParse("3.0.0"))
+		assert.Contains(t, checkpoint, resource.PropertyKey(customresources.OriginalStateKey))
+		assert.True(t, checkpoint.ContainsSecrets())
+	})
 }
