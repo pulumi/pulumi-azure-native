@@ -8,14 +8,19 @@ import * as v20200301 from "./v20200301";
 import * as v20200301preview from "./v20200301preview";
 import * as v20200401preview from "./v20200401preview";
 import * as v20200501 from "./v20200501";
+import * as v20201001 from "./v20201001";
+import * as v20201001preview from "./v20201001preview";
 import * as v20210601 from "./v20210601";
 import * as v20211201preview from "./v20211201preview";
 import * as v20220401 from "./v20220401";
+import * as v20220401preview from "./v20220401preview";
 import * as v20220601 from "./v20220601";
 import * as v20220701preview from "./v20220701preview";
 import * as v20230401 from "./v20230401";
+import * as v20240201preview from "./v20240201preview";
 import * as v20240401 from "./v20240401";
 import * as v20240501 from "./v20240501";
+import * as v20240901preview from "./v20240901preview";
 import * as v20250101 from "./v20250101";
 
 export {
@@ -25,14 +30,19 @@ export {
     v20200301preview,
     v20200401preview,
     v20200501,
+    v20201001,
+    v20201001preview,
     v20210601,
     v20211201preview,
     v20220401,
+    v20220401preview,
     v20220601,
     v20220701preview,
     v20230401,
+    v20240201preview,
     v20240401,
     v20240501,
+    v20240901preview,
     v20250101,
 };
 
@@ -70,6 +80,18 @@ export const AccessReviewResult = {
  */
 export type AccessReviewResult = (typeof AccessReviewResult)[keyof typeof AccessReviewResult];
 
+export const ApprovalMode = {
+    SingleStage: "SingleStage",
+    Serial: "Serial",
+    Parallel: "Parallel",
+    NoApproval: "NoApproval",
+} as const;
+
+/**
+ * The type of rule
+ */
+export type ApprovalMode = (typeof ApprovalMode)[keyof typeof ApprovalMode];
+
 export const AssignmentScopeValidation = {
     /**
      * This option will validate the exemption is at or under the assignment scope.
@@ -97,6 +119,17 @@ export const DefaultDecisionType = {
  */
 export type DefaultDecisionType = (typeof DefaultDecisionType)[keyof typeof DefaultDecisionType];
 
+export const EnablementRules = {
+    MultiFactorAuthentication: "MultiFactorAuthentication",
+    Justification: "Justification",
+    Ticketing: "Ticketing",
+} as const;
+
+/**
+ * The type of enablement rule
+ */
+export type EnablementRules = (typeof EnablementRules)[keyof typeof EnablementRules];
+
 export const EnforcementMode = {
     /**
      * The policy effect is enforced during resource creation or update.
@@ -112,6 +145,13 @@ export const EnforcementMode = {
  * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
  */
 export type EnforcementMode = (typeof EnforcementMode)[keyof typeof EnforcementMode];
+
+export const ExcludedPrincipalTypes = {
+    ServicePrincipalsAsTarget: "ServicePrincipalsAsTarget",
+    ServicePrincipalsAsRequestor: "ServicePrincipalsAsRequestor",
+} as const;
+
+export type ExcludedPrincipalTypes = (typeof ExcludedPrincipalTypes)[keyof typeof ExcludedPrincipalTypes];
 
 export const ExemptionCategory = {
     /**
@@ -140,6 +180,26 @@ export const LockLevel = {
  */
 export type LockLevel = (typeof LockLevel)[keyof typeof LockLevel];
 
+export const NotificationDeliveryMechanism = {
+    Email: "Email",
+} as const;
+
+/**
+ * The type of notification.
+ */
+export type NotificationDeliveryMechanism = (typeof NotificationDeliveryMechanism)[keyof typeof NotificationDeliveryMechanism];
+
+export const NotificationLevel = {
+    None: "None",
+    Critical: "Critical",
+    All: "All",
+} as const;
+
+/**
+ * The notification level.
+ */
+export type NotificationLevel = (typeof NotificationLevel)[keyof typeof NotificationLevel];
+
 export const OverrideKind = {
     /**
      * It will override the policy effect type.
@@ -151,6 +211,17 @@ export const OverrideKind = {
  * The override kind.
  */
 export type OverrideKind = (typeof OverrideKind)[keyof typeof OverrideKind];
+
+export const PIMOnlyMode = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+    ReportOnly: "ReportOnly",
+} as const;
+
+/**
+ * Determines whether the setting is enabled, disabled or report only.
+ */
+export type PIMOnlyMode = (typeof PIMOnlyMode)[keyof typeof PIMOnlyMode];
 
 export const ParameterType = {
     String: "String",
@@ -199,6 +270,34 @@ export const PublicNetworkAccessOptions = {
 
 export type PublicNetworkAccessOptions = (typeof PublicNetworkAccessOptions)[keyof typeof PublicNetworkAccessOptions];
 
+export const RecipientType = {
+    Requestor: "Requestor",
+    Approver: "Approver",
+    Admin: "Admin",
+} as const;
+
+/**
+ * The recipient type.
+ */
+export type RecipientType = (typeof RecipientType)[keyof typeof RecipientType];
+
+export const RequestType = {
+    AdminAssign: "AdminAssign",
+    AdminRemove: "AdminRemove",
+    AdminUpdate: "AdminUpdate",
+    AdminExtend: "AdminExtend",
+    AdminRenew: "AdminRenew",
+    SelfActivate: "SelfActivate",
+    SelfDeactivate: "SelfDeactivate",
+    SelfExtend: "SelfExtend",
+    SelfRenew: "SelfRenew",
+} as const;
+
+/**
+ * The type of the role assignment schedule request. Eg: SelfActivate, AdminAssign etc
+ */
+export type RequestType = (typeof RequestType)[keyof typeof RequestType];
+
 export const ResourceIdentityType = {
     /**
      * Indicates that a system assigned identity is associated with the resource.
@@ -218,6 +317,20 @@ export const ResourceIdentityType = {
  * The identity type. This is the only required field when adding a system or user assigned identity to a resource.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const RoleManagementPolicyRuleType = {
+    RoleManagementPolicyApprovalRule: "RoleManagementPolicyApprovalRule",
+    RoleManagementPolicyAuthenticationContextRule: "RoleManagementPolicyAuthenticationContextRule",
+    RoleManagementPolicyEnablementRule: "RoleManagementPolicyEnablementRule",
+    RoleManagementPolicyExpirationRule: "RoleManagementPolicyExpirationRule",
+    RoleManagementPolicyNotificationRule: "RoleManagementPolicyNotificationRule",
+    RoleManagementPolicyPimOnlyModeRule: "RoleManagementPolicyPimOnlyModeRule",
+} as const;
+
+/**
+ * The type of rule
+ */
+export type RoleManagementPolicyRuleType = (typeof RoleManagementPolicyRuleType)[keyof typeof RoleManagementPolicyRuleType];
 
 export const SelectorKind = {
     /**
@@ -242,3 +355,25 @@ export const SelectorKind = {
  * The selector kind.
  */
 export type SelectorKind = (typeof SelectorKind)[keyof typeof SelectorKind];
+
+export const Type = {
+    AfterDuration: "AfterDuration",
+    AfterDateTime: "AfterDateTime",
+    NoExpiration: "NoExpiration",
+} as const;
+
+/**
+ * Type of the role eligibility schedule expiration
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
+export const UserType = {
+    User: "User",
+    Group: "Group",
+    ServicePrincipal: "ServicePrincipal",
+} as const;
+
+/**
+ * The type of user.
+ */
+export type UserType = (typeof UserType)[keyof typeof UserType];

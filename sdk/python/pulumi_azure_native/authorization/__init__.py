@@ -30,6 +30,8 @@ from .get_private_link_association import *
 from .get_resource_management_private_link import *
 from .get_role_assignment import *
 from .get_role_definition import *
+from .get_role_eligibility_schedule_request import *
+from .get_role_management_policy import *
 from .get_role_management_policy_assignment import *
 from .get_scope_access_review_history_definition_by_id import *
 from .get_scope_access_review_schedule_definition_by_id import *
@@ -61,6 +63,8 @@ from .private_link_association import *
 from .resource_management_private_link import *
 from .role_assignment import *
 from .role_definition import *
+from .role_eligibility_schedule_request import *
+from .role_management_policy import *
 from .role_management_policy_assignment import *
 from .scope_access_review_history_definition_by_id import *
 from .scope_access_review_schedule_definition_by_id import *
@@ -97,6 +101,8 @@ if typing.TYPE_CHECKING:
     v20211201preview = __v20211201preview
     import pulumi_azure_native.authorization.v20220401 as __v20220401
     v20220401 = __v20220401
+    import pulumi_azure_native.authorization.v20220401preview as __v20220401preview
+    v20220401preview = __v20220401preview
     import pulumi_azure_native.authorization.v20220501preview as __v20220501preview
     v20220501preview = __v20220501preview
     import pulumi_azure_native.authorization.v20220601 as __v20220601
@@ -130,6 +136,7 @@ else:
     v20210601 = _utilities.lazy_import('pulumi_azure_native.authorization.v20210601')
     v20211201preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20211201preview')
     v20220401 = _utilities.lazy_import('pulumi_azure_native.authorization.v20220401')
+    v20220401preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20220401preview')
     v20220501preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20220501preview')
     v20220601 = _utilities.lazy_import('pulumi_azure_native.authorization.v20220601')
     v20220701preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20220701preview')

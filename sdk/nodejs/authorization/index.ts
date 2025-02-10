@@ -125,6 +125,16 @@ export const getRoleDefinition: typeof import("./getRoleDefinition").getRoleDefi
 export const getRoleDefinitionOutput: typeof import("./getRoleDefinition").getRoleDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getRoleDefinition","getRoleDefinitionOutput"], () => require("./getRoleDefinition"));
 
+export { GetRoleEligibilityScheduleRequestArgs, GetRoleEligibilityScheduleRequestResult, GetRoleEligibilityScheduleRequestOutputArgs } from "./getRoleEligibilityScheduleRequest";
+export const getRoleEligibilityScheduleRequest: typeof import("./getRoleEligibilityScheduleRequest").getRoleEligibilityScheduleRequest = null as any;
+export const getRoleEligibilityScheduleRequestOutput: typeof import("./getRoleEligibilityScheduleRequest").getRoleEligibilityScheduleRequestOutput = null as any;
+utilities.lazyLoad(exports, ["getRoleEligibilityScheduleRequest","getRoleEligibilityScheduleRequestOutput"], () => require("./getRoleEligibilityScheduleRequest"));
+
+export { GetRoleManagementPolicyArgs, GetRoleManagementPolicyResult, GetRoleManagementPolicyOutputArgs } from "./getRoleManagementPolicy";
+export const getRoleManagementPolicy: typeof import("./getRoleManagementPolicy").getRoleManagementPolicy = null as any;
+export const getRoleManagementPolicyOutput: typeof import("./getRoleManagementPolicy").getRoleManagementPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getRoleManagementPolicy","getRoleManagementPolicyOutput"], () => require("./getRoleManagementPolicy"));
+
 export { GetRoleManagementPolicyAssignmentArgs, GetRoleManagementPolicyAssignmentResult, GetRoleManagementPolicyAssignmentOutputArgs } from "./getRoleManagementPolicyAssignment";
 export const getRoleManagementPolicyAssignment: typeof import("./getRoleManagementPolicyAssignment").getRoleManagementPolicyAssignment = null as any;
 export const getRoleManagementPolicyAssignmentOutput: typeof import("./getRoleManagementPolicyAssignment").getRoleManagementPolicyAssignmentOutput = null as any;
@@ -280,6 +290,16 @@ export type RoleDefinition = import("./roleDefinition").RoleDefinition;
 export const RoleDefinition: typeof import("./roleDefinition").RoleDefinition = null as any;
 utilities.lazyLoad(exports, ["RoleDefinition"], () => require("./roleDefinition"));
 
+export { RoleEligibilityScheduleRequestArgs } from "./roleEligibilityScheduleRequest";
+export type RoleEligibilityScheduleRequest = import("./roleEligibilityScheduleRequest").RoleEligibilityScheduleRequest;
+export const RoleEligibilityScheduleRequest: typeof import("./roleEligibilityScheduleRequest").RoleEligibilityScheduleRequest = null as any;
+utilities.lazyLoad(exports, ["RoleEligibilityScheduleRequest"], () => require("./roleEligibilityScheduleRequest"));
+
+export { RoleManagementPolicyArgs } from "./roleManagementPolicy";
+export type RoleManagementPolicy = import("./roleManagementPolicy").RoleManagementPolicy;
+export const RoleManagementPolicy: typeof import("./roleManagementPolicy").RoleManagementPolicy = null as any;
+utilities.lazyLoad(exports, ["RoleManagementPolicy"], () => require("./roleManagementPolicy"));
+
 export { RoleManagementPolicyAssignmentArgs } from "./roleManagementPolicyAssignment";
 export type RoleManagementPolicyAssignment = import("./roleManagementPolicyAssignment").RoleManagementPolicyAssignment;
 export const RoleManagementPolicyAssignment: typeof import("./roleManagementPolicyAssignment").RoleManagementPolicyAssignment = null as any;
@@ -332,6 +352,7 @@ import * as v20201001preview from "./v20201001preview";
 import * as v20210601 from "./v20210601";
 import * as v20211201preview from "./v20211201preview";
 import * as v20220401 from "./v20220401";
+import * as v20220401preview from "./v20220401preview";
 import * as v20220501preview from "./v20220501preview";
 import * as v20220601 from "./v20220601";
 import * as v20220701preview from "./v20220701preview";
@@ -356,6 +377,7 @@ export {
     v20210601,
     v20211201preview,
     v20220401,
+    v20220401preview,
     v20220501preview,
     v20220601,
     v20220701preview,
@@ -412,6 +434,10 @@ const _module = {
                 return new RoleAssignment(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleDefinition":
                 return new RoleDefinition(name, <any>undefined, { urn })
+            case "azure-native:authorization:RoleEligibilityScheduleRequest":
+                return new RoleEligibilityScheduleRequest(name, <any>undefined, { urn })
+            case "azure-native:authorization:RoleManagementPolicy":
+                return new RoleManagementPolicy(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleManagementPolicyAssignment":
                 return new RoleManagementPolicyAssignment(name, <any>undefined, { urn })
             case "azure-native:authorization:ScopeAccessReviewHistoryDefinitionById":
