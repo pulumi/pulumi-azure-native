@@ -10194,6 +10194,37 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "eventgrid/v20250215",
+  "fqn": "pulumi_azure_native.eventgrid.v20250215",
+  "classes": {
+   "azure-native:eventgrid/v20250215:CaCertificate": "CaCertificate",
+   "azure-native:eventgrid/v20250215:Channel": "Channel",
+   "azure-native:eventgrid/v20250215:Client": "Client",
+   "azure-native:eventgrid/v20250215:ClientGroup": "ClientGroup",
+   "azure-native:eventgrid/v20250215:Domain": "Domain",
+   "azure-native:eventgrid/v20250215:DomainEventSubscription": "DomainEventSubscription",
+   "azure-native:eventgrid/v20250215:DomainTopic": "DomainTopic",
+   "azure-native:eventgrid/v20250215:DomainTopicEventSubscription": "DomainTopicEventSubscription",
+   "azure-native:eventgrid/v20250215:EventSubscription": "EventSubscription",
+   "azure-native:eventgrid/v20250215:Namespace": "Namespace",
+   "azure-native:eventgrid/v20250215:NamespaceTopic": "NamespaceTopic",
+   "azure-native:eventgrid/v20250215:NamespaceTopicEventSubscription": "NamespaceTopicEventSubscription",
+   "azure-native:eventgrid/v20250215:PartnerConfiguration": "PartnerConfiguration",
+   "azure-native:eventgrid/v20250215:PartnerNamespace": "PartnerNamespace",
+   "azure-native:eventgrid/v20250215:PartnerRegistration": "PartnerRegistration",
+   "azure-native:eventgrid/v20250215:PartnerTopic": "PartnerTopic",
+   "azure-native:eventgrid/v20250215:PartnerTopicEventSubscription": "PartnerTopicEventSubscription",
+   "azure-native:eventgrid/v20250215:PermissionBinding": "PermissionBinding",
+   "azure-native:eventgrid/v20250215:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:eventgrid/v20250215:SystemTopic": "SystemTopic",
+   "azure-native:eventgrid/v20250215:SystemTopicEventSubscription": "SystemTopicEventSubscription",
+   "azure-native:eventgrid/v20250215:Topic": "Topic",
+   "azure-native:eventgrid/v20250215:TopicEventSubscription": "TopicEventSubscription",
+   "azure-native:eventgrid/v20250215:TopicSpace": "TopicSpace"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "eventhub",
   "fqn": "pulumi_azure_native.eventhub",
   "classes": {

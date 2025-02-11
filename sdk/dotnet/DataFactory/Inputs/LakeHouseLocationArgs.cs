@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
-    /// The location of Microsoft Fabric LakeHouse Files dataset.
+    /// The location of Microsoft Fabric Lakehouse Files dataset.
     /// </summary>
     public sealed class LakeHouseLocationArgs : global::Pulumi.ResourceArgs
     {

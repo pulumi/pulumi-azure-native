@@ -47072,7 +47072,7 @@ class JsonWriteSettingsResponse(dict):
 @pulumi.output_type
 class LakeHouseLinkedServiceResponse(dict):
     """
-    Microsoft Fabric LakeHouse linked service.
+    Microsoft Fabric Lakehouse linked service.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -47121,24 +47121,24 @@ class LakeHouseLinkedServiceResponse(dict):
                  version: Optional[str] = None,
                  workspace_id: Optional[Any] = None):
         """
-        Microsoft Fabric LakeHouse linked service.
+        Microsoft Fabric Lakehouse linked service.
         :param str type: Type of linked service.
-               Expected value is 'LakeHouse'.
+               Expected value is 'Lakehouse'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param Any artifact_id: The ID of Microsoft Fabric LakeHouse artifact. Type: string (or Expression with resultType string).
+        :param Any artifact_id: The ID of Microsoft Fabric Lakehouse artifact. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
         :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-        :param Any service_principal_id: The ID of the application used to authenticate against Microsoft Fabric LakeHouse. Type: string (or Expression with resultType string).
-        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against Microsoft Fabric LakeHouse.
+        :param Any service_principal_id: The ID of the application used to authenticate against Microsoft Fabric Lakehouse. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against Microsoft Fabric Lakehouse.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param str version: Version of the linked service.
         :param Any workspace_id: The ID of Microsoft Fabric workspace. Type: string (or Expression with resultType string).
         """
-        pulumi.set(__self__, "type", 'LakeHouse')
+        pulumi.set(__self__, "type", 'Lakehouse')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if artifact_id is not None:
@@ -47171,7 +47171,7 @@ class LakeHouseLinkedServiceResponse(dict):
     def type(self) -> str:
         """
         Type of linked service.
-        Expected value is 'LakeHouse'.
+        Expected value is 'Lakehouse'.
         """
         return pulumi.get(self, "type")
 
@@ -47187,7 +47187,7 @@ class LakeHouseLinkedServiceResponse(dict):
     @pulumi.getter(name="artifactId")
     def artifact_id(self) -> Optional[Any]:
         """
-        The ID of Microsoft Fabric LakeHouse artifact. Type: string (or Expression with resultType string).
+        The ID of Microsoft Fabric Lakehouse artifact. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "artifact_id")
 
@@ -47243,7 +47243,7 @@ class LakeHouseLinkedServiceResponse(dict):
     @pulumi.getter(name="servicePrincipalId")
     def service_principal_id(self) -> Optional[Any]:
         """
-        The ID of the application used to authenticate against Microsoft Fabric LakeHouse. Type: string (or Expression with resultType string).
+        The ID of the application used to authenticate against Microsoft Fabric Lakehouse. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_principal_id")
 
@@ -47251,7 +47251,7 @@ class LakeHouseLinkedServiceResponse(dict):
     @pulumi.getter(name="servicePrincipalKey")
     def service_principal_key(self) -> Optional[Any]:
         """
-        The Key of the application used to authenticate against Microsoft Fabric LakeHouse.
+        The Key of the application used to authenticate against Microsoft Fabric Lakehouse.
         """
         return pulumi.get(self, "service_principal_key")
 
@@ -47283,7 +47283,7 @@ class LakeHouseLinkedServiceResponse(dict):
 @pulumi.output_type
 class LakeHouseLocationResponse(dict):
     """
-    The location of Microsoft Fabric LakeHouse Files dataset.
+    The location of Microsoft Fabric Lakehouse Files dataset.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -47309,7 +47309,7 @@ class LakeHouseLocationResponse(dict):
                  file_name: Optional[Any] = None,
                  folder_path: Optional[Any] = None):
         """
-        The location of Microsoft Fabric LakeHouse Files dataset.
+        The location of Microsoft Fabric Lakehouse Files dataset.
         :param str type: Type of dataset storage location.
                Expected value is 'LakeHouseLocation'.
         :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -47350,7 +47350,7 @@ class LakeHouseLocationResponse(dict):
 @pulumi.output_type
 class LakeHouseReadSettingsResponse(dict):
     """
-    Microsoft Fabric LakeHouse Files read settings.
+    Microsoft Fabric Lakehouse Files read settings.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -47401,7 +47401,7 @@ class LakeHouseReadSettingsResponse(dict):
                  wildcard_file_name: Optional[Any] = None,
                  wildcard_folder_path: Optional[Any] = None):
         """
-        Microsoft Fabric LakeHouse Files read settings.
+        Microsoft Fabric Lakehouse Files read settings.
         :param str type: The read setting type.
                Expected value is 'LakeHouseReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -47413,8 +47413,8 @@ class LakeHouseReadSettingsResponse(dict):
         :param Any modified_datetime_start: The start of file's modified datetime. Type: string (or Expression with resultType string).
         :param Any partition_root_path: Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
         :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
-        :param Any wildcard_file_name: Microsoft Fabric LakeHouse Files wildcardFileName. Type: string (or Expression with resultType string).
-        :param Any wildcard_folder_path: Microsoft Fabric LakeHouse Files wildcardFolderPath. Type: string (or Expression with resultType string).
+        :param Any wildcard_file_name: Microsoft Fabric Lakehouse Files wildcardFileName. Type: string (or Expression with resultType string).
+        :param Any wildcard_folder_path: Microsoft Fabric Lakehouse Files wildcardFolderPath. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'LakeHouseReadSettings')
         if delete_files_after_completion is not None:
@@ -47525,7 +47525,7 @@ class LakeHouseReadSettingsResponse(dict):
     @pulumi.getter(name="wildcardFileName")
     def wildcard_file_name(self) -> Optional[Any]:
         """
-        Microsoft Fabric LakeHouse Files wildcardFileName. Type: string (or Expression with resultType string).
+        Microsoft Fabric Lakehouse Files wildcardFileName. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "wildcard_file_name")
 
@@ -47533,7 +47533,7 @@ class LakeHouseReadSettingsResponse(dict):
     @pulumi.getter(name="wildcardFolderPath")
     def wildcard_folder_path(self) -> Optional[Any]:
         """
-        Microsoft Fabric LakeHouse Files wildcardFolderPath. Type: string (or Expression with resultType string).
+        Microsoft Fabric Lakehouse Files wildcardFolderPath. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "wildcard_folder_path")
 
@@ -47541,7 +47541,7 @@ class LakeHouseReadSettingsResponse(dict):
 @pulumi.output_type
 class LakeHouseTableDatasetResponse(dict):
     """
-    Microsoft Fabric LakeHouse Table.
+    Microsoft Fabric Lakehouse Table.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -47571,20 +47571,20 @@ class LakeHouseTableDatasetResponse(dict):
                  structure: Optional[Any] = None,
                  table: Optional[Any] = None):
         """
-        Microsoft Fabric LakeHouse Table.
+        Microsoft Fabric Lakehouse Table.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-               Expected value is 'LakeHouseTable'.
+               Expected value is 'LakehouseTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param Any table: The name of Microsoft Fabric LakeHouse Table. Type: string (or Expression with resultType string).
+        :param Any table: The name of Microsoft Fabric Lakehouse Table. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "type", 'LakeHouseTable')
+        pulumi.set(__self__, "type", 'LakehouseTable')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -47613,7 +47613,7 @@ class LakeHouseTableDatasetResponse(dict):
     def type(self) -> str:
         """
         Type of dataset.
-        Expected value is 'LakeHouseTable'.
+        Expected value is 'LakehouseTable'.
         """
         return pulumi.get(self, "type")
 
@@ -47669,7 +47669,7 @@ class LakeHouseTableDatasetResponse(dict):
     @pulumi.getter
     def table(self) -> Optional[Any]:
         """
-        The name of Microsoft Fabric LakeHouse Table. Type: string (or Expression with resultType string).
+        The name of Microsoft Fabric Lakehouse Table. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table")
 
@@ -47677,7 +47677,7 @@ class LakeHouseTableDatasetResponse(dict):
 @pulumi.output_type
 class LakeHouseTableSinkResponse(dict):
     """
-    A copy activity for Microsoft Fabric LakeHouse Table sink.
+    A copy activity for Microsoft Fabric Lakehouse Table sink.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -47724,7 +47724,7 @@ class LakeHouseTableSinkResponse(dict):
                  write_batch_size: Optional[Any] = None,
                  write_batch_timeout: Optional[Any] = None):
         """
-        A copy activity for Microsoft Fabric LakeHouse Table sink.
+        A copy activity for Microsoft Fabric Lakehouse Table sink.
         :param str type: Copy sink type.
                Expected value is 'LakeHouseTableSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -47733,7 +47733,7 @@ class LakeHouseTableSinkResponse(dict):
         :param Any partition_option: Create partitions in folder structure based on one or multiple columns. Each distinct column value (pair) will be a new partition. Possible values include: "None", "PartitionByKey".
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Any table_action_option: The type of table action for LakeHouse Table sink. Possible values include: "None", "Append", "Overwrite".
+        :param Any table_action_option: The type of table action for Lakehouse Table sink. Possible values include: "None", "Append", "Overwrite".
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -47818,7 +47818,7 @@ class LakeHouseTableSinkResponse(dict):
     @pulumi.getter(name="tableActionOption")
     def table_action_option(self) -> Optional[Any]:
         """
-        The type of table action for LakeHouse Table sink. Possible values include: "None", "Append", "Overwrite".
+        The type of table action for Lakehouse Table sink. Possible values include: "None", "Append", "Overwrite".
         """
         return pulumi.get(self, "table_action_option")
 
@@ -47842,7 +47842,7 @@ class LakeHouseTableSinkResponse(dict):
 @pulumi.output_type
 class LakeHouseTableSourceResponse(dict):
     """
-    A copy activity source for Microsoft Fabric LakeHouse Table.
+    A copy activity source for Microsoft Fabric Lakehouse Table.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -47883,7 +47883,7 @@ class LakeHouseTableSourceResponse(dict):
                  timestamp_as_of: Optional[Any] = None,
                  version_as_of: Optional[Any] = None):
         """
-        A copy activity source for Microsoft Fabric LakeHouse Table.
+        A copy activity source for Microsoft Fabric Lakehouse Table.
         :param str type: Copy source type.
                Expected value is 'LakeHouseTableSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -47979,7 +47979,7 @@ class LakeHouseTableSourceResponse(dict):
 @pulumi.output_type
 class LakeHouseWriteSettingsResponse(dict):
     """
-    Microsoft Fabric LakeHouse Files write settings.
+    Microsoft Fabric Lakehouse Files write settings.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -48009,7 +48009,7 @@ class LakeHouseWriteSettingsResponse(dict):
                  max_concurrent_connections: Optional[Any] = None,
                  metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
-        Microsoft Fabric LakeHouse Files write settings.
+        Microsoft Fabric Lakehouse Files write settings.
         :param str type: The write setting type.
                Expected value is 'LakeHouseWriteSettings'.
         :param Any copy_behavior: The type of copy behavior for copy sink.

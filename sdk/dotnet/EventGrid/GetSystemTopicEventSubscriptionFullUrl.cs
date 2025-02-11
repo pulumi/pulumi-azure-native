@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get the full endpoint URL for an event subscription of a system topic.
         /// Azure REST API version: 2022-06-15.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
         /// </summary>
         public static Task<GetSystemTopicEventSubscriptionFullUrlResult> InvokeAsync(GetSystemTopicEventSubscriptionFullUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid:getSystemTopicEventSubscriptionFullUrl", args ?? new GetSystemTopicEventSubscriptionFullUrlArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get the full endpoint URL for an event subscription of a system topic.
         /// Azure REST API version: 2022-06-15.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
         /// </summary>
         public static Output<GetSystemTopicEventSubscriptionFullUrlResult> Invoke(GetSystemTopicEventSubscriptionFullUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid:getSystemTopicEventSubscriptionFullUrl", args ?? new GetSystemTopicEventSubscriptionFullUrlInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get the full endpoint URL for an event subscription of a system topic.
         /// Azure REST API version: 2022-06-15.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
         /// </summary>
         public static Output<GetSystemTopicEventSubscriptionFullUrlResult> Invoke(GetSystemTopicEventSubscriptionFullUrlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid:getSystemTopicEventSubscriptionFullUrl", args ?? new GetSystemTopicEventSubscriptionFullUrlInvokeArgs(), options.WithDefaults());

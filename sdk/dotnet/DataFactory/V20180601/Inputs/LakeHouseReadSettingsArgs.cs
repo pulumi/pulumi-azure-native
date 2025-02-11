@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 {
 
     /// <summary>
-    /// Microsoft Fabric LakeHouse Files read settings.
+    /// Microsoft Fabric Lakehouse Files read settings.
     /// </summary>
     public sealed class LakeHouseReadSettingsArgs : global::Pulumi.ResourceArgs
     {
@@ -77,13 +77,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Microsoft Fabric LakeHouse Files wildcardFileName. Type: string (or Expression with resultType string).
+        /// Microsoft Fabric Lakehouse Files wildcardFileName. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("wildcardFileName")]
         public Input<object>? WildcardFileName { get; set; }
 
         /// <summary>
-        /// Microsoft Fabric LakeHouse Files wildcardFolderPath. Type: string (or Expression with resultType string).
+        /// Microsoft Fabric Lakehouse Files wildcardFolderPath. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("wildcardFolderPath")]
         public Input<object>? WildcardFolderPath { get; set; }

@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.EventGrid.V20231215Preview
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:Client" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20240601preview:Client" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20241215preview:Client" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20250215:Client" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid:Client" },
                 },
             };

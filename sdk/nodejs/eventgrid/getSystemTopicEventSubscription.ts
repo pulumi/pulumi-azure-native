@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get an event subscription.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
  */
 export function getSystemTopicEventSubscription(args: GetSystemTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -110,7 +110,7 @@ export interface GetSystemTopicEventSubscriptionResult {
  * Get an event subscription.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
  */
 export function getSystemTopicEventSubscriptionOutput(args: GetSystemTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemTopicEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

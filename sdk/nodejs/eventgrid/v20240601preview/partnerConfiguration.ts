@@ -98,7 +98,7 @@ export class PartnerConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:PartnerConfiguration" }, { type: "azure-native:eventgrid/v20220615:PartnerConfiguration" }, { type: "azure-native:eventgrid/v20230601preview:PartnerConfiguration" }, { type: "azure-native:eventgrid/v20231215preview:PartnerConfiguration" }, { type: "azure-native:eventgrid/v20241215preview:PartnerConfiguration" }, { type: "azure-native:eventgrid:PartnerConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:PartnerConfiguration" }, { type: "azure-native:eventgrid/v20220615:PartnerConfiguration" }, { type: "azure-native:eventgrid/v20230601preview:PartnerConfiguration" }, { type: "azure-native:eventgrid/v20231215preview:PartnerConfiguration" }, { type: "azure-native:eventgrid/v20241215preview:PartnerConfiguration" }, { type: "azure-native:eventgrid/v20250215:PartnerConfiguration" }, { type: "azure-native:eventgrid:PartnerConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerConfiguration.__pulumiType, name, resourceInputs, opts);
     }

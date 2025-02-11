@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get all delivery attributes for an event subscription of a namespace topic.
         /// Azure REST API version: 2023-12-15-preview.
         /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
         /// </summary>
         public static Task<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> InvokeAsync(GetNamespaceTopicEventSubscriptionDeliveryAttributesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getNamespaceTopicEventSubscriptionDeliveryAttributes", args ?? new GetNamespaceTopicEventSubscriptionDeliveryAttributesArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get all delivery attributes for an event subscription of a namespace topic.
         /// Azure REST API version: 2023-12-15-preview.
         /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
         /// </summary>
         public static Output<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetNamespaceTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getNamespaceTopicEventSubscriptionDeliveryAttributes", args ?? new GetNamespaceTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get all delivery attributes for an event subscription of a namespace topic.
         /// Azure REST API version: 2023-12-15-preview.
         /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
         /// </summary>
         public static Output<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetNamespaceTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getNamespaceTopicEventSubscriptionDeliveryAttributes", args ?? new GetNamespaceTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
