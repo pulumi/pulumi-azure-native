@@ -14206,7 +14206,7 @@
           "Central India",
           "West US 2"
         ],
-        "resourceType": "locations/operationStatuses"
+        "resourceType": "locations/operationstatuses"
       },
       {
         "apiVersions": [
@@ -87766,6 +87766,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -87818,6 +87822,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -87870,6 +87878,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -87951,6 +87963,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -88000,6 +88016,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -88049,6 +88069,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -88098,6 +88122,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -88150,6 +88178,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -88202,6 +88234,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -88254,6 +88290,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -96974,6 +97014,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -97023,6 +97067,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -97075,6 +97123,10 @@
           "South India",
           "Spain Central",
           "Mexico Central",
+          "Germany North",
+          "Australia Central",
+          "UAE Central",
+          "New Zealand North",
           "Qatar Central",
           "Poland Central",
           "Central US EUAP",
@@ -113425,6 +113477,7 @@
           "Israel Central",
           "Mexico Central",
           "Spain Central",
+          "New Zealand North",
           "Central US EUAP",
           "East US 2 EUAP"
         ],
@@ -149155,14 +149208,16 @@
     "resourceTypes": [
       {
         "apiVersions": [
+          "2024-12-22-preview",
           "2024-08-01-preview"
         ],
-        "defaultApiVersion": "2024-08-01-preview",
+        "defaultApiVersion": "2024-12-22-preview",
         "locations": [],
         "resourceType": "checkNameAvailability"
       },
       {
         "apiVersions": [
+          "2024-12-22-preview",
           "2024-08-01-preview"
         ],
         "defaultApiVersion": "2024-08-01-preview",
@@ -149171,6 +149226,7 @@
       },
       {
         "apiVersions": [
+          "2024-12-22-preview",
           "2024-08-01-preview"
         ],
         "defaultApiVersion": "2024-08-01-preview",
@@ -149185,6 +149241,7 @@
       },
       {
         "apiVersions": [
+          "2024-12-22-preview",
           "2024-08-01-preview"
         ],
         "defaultApiVersion": "2024-08-01-preview",
@@ -149193,6 +149250,7 @@
       },
       {
         "apiVersions": [
+          "2024-12-22-preview",
           "2024-08-01-preview"
         ],
         "defaultApiVersion": "2024-08-01-preview",
