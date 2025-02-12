@@ -2064,16 +2064,12 @@ Web:
         - modulename: Web
           resourcename: listContainerAppSecrets
           detail: version 2023-12-01 is greater than 2022-09-01
-        - modulename: Web
-          resourcename: ContainerApp
-          detail: version 2024-04-01 is greater than 2022-09-01
-        - modulename: Web
-          resourcename: listContainerAppSecrets
-          detail: version 2024-04-01 is greater than 2022-09-01
 WebPubSub:
     tracking: "2023-02-01"
     additions:
         WebPubSubReplica: 2023-03-01-preview
+WeightsAndBiases:
+    tracking: 2024-09-18-preview
 WindowsESU:
     tracking: 2019-09-16-preview
 WindowsIoT:

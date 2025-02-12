@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Sovereign.Outputs
 {
 
     /// <summary>
-    /// The details for the custom resource override.
+    /// The details for the custom naming convention override for a specific resource type.
     /// </summary>
     [OutputType]
     public sealed class CustomNamingConventionResponse
     {
         /// <summary>
-        /// The custom formula for the resource type.
+        /// The custom naming formula for the resource type.
         /// </summary>
         public readonly string Formula;
         /// <summary>

@@ -335,7 +335,7 @@ class DomainEventSubscription(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["topic"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:DomainEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:DomainEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:DomainEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:DomainEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:DomainEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid:DomainEventSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:DomainEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:DomainEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:DomainEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:DomainEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:DomainEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20250215:DomainEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid:DomainEventSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DomainEventSubscription, __self__).__init__(
             'azure-native:eventgrid/v20231215preview:DomainEventSubscription',

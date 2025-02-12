@@ -424,6 +424,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "WeightsAndBiases",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "Workloads",
     "Detail": "expected no additions but found some"
   }

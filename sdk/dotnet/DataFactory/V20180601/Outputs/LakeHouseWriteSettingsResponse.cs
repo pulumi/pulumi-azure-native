@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
     /// <summary>
-    /// Microsoft Fabric LakeHouse Files write settings.
+    /// Microsoft Fabric Lakehouse Files write settings.
     /// </summary>
     [OutputType]
     public sealed class LakeHouseWriteSettingsResponse

@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.Sovereign.Inputs
 {
 
     /// <summary>
-    /// The details for the custom resource override.
+    /// The details for the custom naming convention override for a specific resource type.
     /// </summary>
     public sealed class CustomNamingConventionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The custom formula for the resource type.
+        /// The custom naming formula for the resource type.
         /// </summary>
         [Input("formula", required: true)]
         public Input<string> Formula { get; set; } = null!;

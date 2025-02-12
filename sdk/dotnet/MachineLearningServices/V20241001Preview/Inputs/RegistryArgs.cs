@@ -72,10 +72,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Inputs
 
         [Input("syndicatedRegistries")]
         private InputList<Inputs.RegistrySyndicatedRegistriesArgs>? _syndicatedRegistries;
-
-        /// <summary>
-        /// List of tuples containing Guid and SyndicatedRegistry
-        /// </summary>
         public InputList<Inputs.RegistrySyndicatedRegistriesArgs> SyndicatedRegistries
         {
             get => _syndicatedRegistries ?? (_syndicatedRegistries = new InputList<Inputs.RegistrySyndicatedRegistriesArgs>());

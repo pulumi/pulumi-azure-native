@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sovereign.Inputs
 {
 
     /// <summary>
-    /// The properties of managed identity.
+    /// The properties of managed identity, specifically including type and resource ID.
     /// </summary>
     public sealed class ManagedIdentityPropertiesArgs : global::Pulumi.ResourceArgs
     {

@@ -473,6 +473,8 @@ if typing.TYPE_CHECKING:
     web = __web
     import pulumi_azure_native.webpubsub as __webpubsub
     webpubsub = __webpubsub
+    import pulumi_azure_native.weightsandbiases as __weightsandbiases
+    weightsandbiases = __weightsandbiases
     import pulumi_azure_native.windowsesu as __windowsesu
     windowsesu = __windowsesu
     import pulumi_azure_native.windowsiot as __windowsiot
@@ -712,6 +714,7 @@ else:
     voiceservices = _utilities.lazy_import('pulumi_azure_native.voiceservices')
     web = _utilities.lazy_import('pulumi_azure_native.web')
     webpubsub = _utilities.lazy_import('pulumi_azure_native.webpubsub')
+    weightsandbiases = _utilities.lazy_import('pulumi_azure_native.weightsandbiases')
     windowsesu = _utilities.lazy_import('pulumi_azure_native.windowsesu')
     windowsiot = _utilities.lazy_import('pulumi_azure_native.windowsiot')
     workloads = _utilities.lazy_import('pulumi_azure_native.workloads')
@@ -10190,6 +10193,37 @@ _utilities.register(
    "azure-native:eventgrid/v20241215preview:Topic": "Topic",
    "azure-native:eventgrid/v20241215preview:TopicEventSubscription": "TopicEventSubscription",
    "azure-native:eventgrid/v20241215preview:TopicSpace": "TopicSpace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "eventgrid/v20250215",
+  "fqn": "pulumi_azure_native.eventgrid.v20250215",
+  "classes": {
+   "azure-native:eventgrid/v20250215:CaCertificate": "CaCertificate",
+   "azure-native:eventgrid/v20250215:Channel": "Channel",
+   "azure-native:eventgrid/v20250215:Client": "Client",
+   "azure-native:eventgrid/v20250215:ClientGroup": "ClientGroup",
+   "azure-native:eventgrid/v20250215:Domain": "Domain",
+   "azure-native:eventgrid/v20250215:DomainEventSubscription": "DomainEventSubscription",
+   "azure-native:eventgrid/v20250215:DomainTopic": "DomainTopic",
+   "azure-native:eventgrid/v20250215:DomainTopicEventSubscription": "DomainTopicEventSubscription",
+   "azure-native:eventgrid/v20250215:EventSubscription": "EventSubscription",
+   "azure-native:eventgrid/v20250215:Namespace": "Namespace",
+   "azure-native:eventgrid/v20250215:NamespaceTopic": "NamespaceTopic",
+   "azure-native:eventgrid/v20250215:NamespaceTopicEventSubscription": "NamespaceTopicEventSubscription",
+   "azure-native:eventgrid/v20250215:PartnerConfiguration": "PartnerConfiguration",
+   "azure-native:eventgrid/v20250215:PartnerNamespace": "PartnerNamespace",
+   "azure-native:eventgrid/v20250215:PartnerRegistration": "PartnerRegistration",
+   "azure-native:eventgrid/v20250215:PartnerTopic": "PartnerTopic",
+   "azure-native:eventgrid/v20250215:PartnerTopicEventSubscription": "PartnerTopicEventSubscription",
+   "azure-native:eventgrid/v20250215:PermissionBinding": "PermissionBinding",
+   "azure-native:eventgrid/v20250215:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:eventgrid/v20250215:SystemTopic": "SystemTopic",
+   "azure-native:eventgrid/v20250215:SystemTopicEventSubscription": "SystemTopicEventSubscription",
+   "azure-native:eventgrid/v20250215:Topic": "Topic",
+   "azure-native:eventgrid/v20250215:TopicEventSubscription": "TopicEventSubscription",
+   "azure-native:eventgrid/v20250215:TopicSpace": "TopicSpace"
   }
  },
  {
@@ -21092,6 +21126,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "videoindexer/v20250101",
+  "fqn": "pulumi_azure_native.videoindexer.v20250101",
+  "classes": {
+   "azure-native:videoindexer/v20250101:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "virtualmachineimages",
   "fqn": "pulumi_azure_native.virtualmachineimages",
   "classes": {
@@ -21752,7 +21794,6 @@ _utilities.register(
    "azure-native:web/v20240401:AppServicePlan": "AppServicePlan",
    "azure-native:web/v20240401:AppServicePlanRouteForVnet": "AppServicePlanRouteForVnet",
    "azure-native:web/v20240401:Certificate": "Certificate",
-   "azure-native:web/v20240401:ContainerApp": "ContainerApp",
    "azure-native:web/v20240401:KubeEnvironment": "KubeEnvironment",
    "azure-native:web/v20240401:StaticSite": "StaticSite",
    "azure-native:web/v20240401:StaticSiteBuildDatabaseConnection": "StaticSiteBuildDatabaseConnection",
@@ -21977,6 +22018,22 @@ _utilities.register(
    "azure-native:webpubsub/v20241001preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
    "azure-native:webpubsub/v20241001preview:WebPubSubReplica": "WebPubSubReplica",
    "azure-native:webpubsub/v20241001preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "weightsandbiases",
+  "fqn": "pulumi_azure_native.weightsandbiases",
+  "classes": {
+   "azure-native:weightsandbiases:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "weightsandbiases/v20240918preview",
+  "fqn": "pulumi_azure_native.weightsandbiases.v20240918preview",
+  "classes": {
+   "azure-native:weightsandbiases/v20240918preview:Instance": "Instance"
   }
  },
  {

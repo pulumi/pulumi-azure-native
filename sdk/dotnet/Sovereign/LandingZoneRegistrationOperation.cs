@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sovereign
 {
     /// <summary>
-    /// The Landing Zone registration resource type
+    /// The Landing zone registration resource type.
     /// Azure REST API version: 2025-02-27-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sovereign:LandingZoneRegistrationOperation")]
@@ -90,13 +90,13 @@ namespace Pulumi.AzureNative.Sovereign
     public sealed class LandingZoneRegistrationOperationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The parent landing zone account
+        /// The landing zone account.
         /// </summary>
         [Input("landingZoneAccountName", required: true)]
         public Input<string> LandingZoneAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Landing Zone Registration resource.
+        /// The name of the landing zone registration resource.
         /// </summary>
         [Input("landingZoneRegistrationName")]
         public Input<string>? LandingZoneRegistrationName { get; set; }

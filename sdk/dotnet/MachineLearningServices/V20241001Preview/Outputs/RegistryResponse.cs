@@ -49,9 +49,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Outputs
         /// Private endpoint connections info used for pending connections in private link portal
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> RegistryPrivateEndpointConnections;
-        /// <summary>
-        /// List of tuples containing Guid and SyndicatedRegistry
-        /// </summary>
         public readonly ImmutableArray<Outputs.RegistryResponseSyndicatedRegistries> SyndicatedRegistries;
 
         [OutputConstructor]

@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * The Landing Zone registration resource type
+ * The Landing zone registration resource type.
  */
 export class LandingZoneRegistrationOperation extends pulumi.CustomResource {
     /**
@@ -96,11 +96,11 @@ export class LandingZoneRegistrationOperation extends pulumi.CustomResource {
  */
 export interface LandingZoneRegistrationOperationArgs {
     /**
-     * The parent landing zone account
+     * The landing zone account.
      */
     landingZoneAccountName: pulumi.Input<string>;
     /**
-     * The name of the Landing Zone Registration resource.
+     * The name of the landing zone registration resource.
      */
     landingZoneRegistrationName?: pulumi.Input<string>;
     /**

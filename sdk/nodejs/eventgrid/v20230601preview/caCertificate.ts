@@ -109,7 +109,7 @@ export class CaCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20231215preview:CaCertificate" }, { type: "azure-native:eventgrid/v20240601preview:CaCertificate" }, { type: "azure-native:eventgrid/v20241215preview:CaCertificate" }, { type: "azure-native:eventgrid:CaCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20231215preview:CaCertificate" }, { type: "azure-native:eventgrid/v20240601preview:CaCertificate" }, { type: "azure-native:eventgrid/v20241215preview:CaCertificate" }, { type: "azure-native:eventgrid/v20250215:CaCertificate" }, { type: "azure-native:eventgrid:CaCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CaCertificate.__pulumiType, name, resourceInputs, opts);
     }

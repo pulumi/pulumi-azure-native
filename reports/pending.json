@@ -627,7 +627,8 @@
     "2023-06-01-preview",
     "2023-12-15-preview",
     "2024-06-01-preview",
-    "2024-12-15-preview"
+    "2024-12-15-preview",
+    "2025-02-15"
   ],
   "EventHub": [
     "2021-01-01-preview",
@@ -1365,7 +1366,8 @@
     "2024-01-01",
     "2024-04-01-preview",
     "2024-06-01-preview",
-    "2024-09-23-preview"
+    "2024-09-23-preview",
+    "2025-01-01"
   ],
   "VirtualMachineImages": [
     "2023-07-01",
@@ -1409,6 +1411,7 @@
     "2024-08-01-preview",
     "2024-10-01-preview"
   ],
+  "WeightsAndBiases": [],
   "WindowsESU": [],
   "WindowsIoT": [],
   "WorkloadMonitor": [],

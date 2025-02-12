@@ -194,6 +194,7 @@ namespace Pulumi.AzureNative.EventGrid.V20241215Preview
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:Domain" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:Domain" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20240601preview:Domain" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20250215:Domain" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid:Domain" },
                 },
             };

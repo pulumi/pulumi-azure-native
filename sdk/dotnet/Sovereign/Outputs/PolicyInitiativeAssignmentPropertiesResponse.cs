@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Sovereign.Outputs
 {
 
     /// <summary>
-    /// Details of policy assignments
+    /// The properties of assigned policy initiatives.
     /// </summary>
     [OutputType]
     public sealed class PolicyInitiativeAssignmentPropertiesResponse
     {
         /// <summary>
-        /// The parameters for the assignment of policy initiatives.
+        /// The parameters of the assigned policy initiative.
         /// </summary>
         public readonly object AssignmentParameters;
         /// <summary>

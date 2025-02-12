@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
     /// <summary>
-    /// The location of Microsoft Fabric LakeHouse Files dataset.
+    /// The location of Microsoft Fabric Lakehouse Files dataset.
     /// </summary>
     [OutputType]
     public sealed class LakeHouseLocationResponse
