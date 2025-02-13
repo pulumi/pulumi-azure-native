@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview.Inputs
 {
 
     /// <summary>
-    /// The details associated with tags.
+    /// Key-value pairs that can be assigned to this resource.
     /// </summary>
     public sealed class TagsArgs : global::Pulumi.ResourceArgs
     {

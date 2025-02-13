@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the landing zone registration.
+ * Get a landing zone registration.
  * Azure REST API version: 2025-02-27-preview.
  */
 export function getLandingZoneRegistrationOperation(args: GetLandingZoneRegistrationOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetLandingZoneRegistrationOperationResult> {
@@ -22,11 +22,11 @@ export function getLandingZoneRegistrationOperation(args: GetLandingZoneRegistra
 
 export interface GetLandingZoneRegistrationOperationArgs {
     /**
-     * The parent landing zone account
+     * The landing zone account.
      */
     landingZoneAccountName: string;
     /**
-     * The name of the Landing Zone Registration resource.
+     * The name of the landing zone registration resource.
      */
     landingZoneRegistrationName: string;
     /**
@@ -36,7 +36,7 @@ export interface GetLandingZoneRegistrationOperationArgs {
 }
 
 /**
- * The Landing Zone registration resource type
+ * The Landing zone registration resource type.
  */
 export interface GetLandingZoneRegistrationOperationResult {
     /**
@@ -61,7 +61,7 @@ export interface GetLandingZoneRegistrationOperationResult {
     readonly type: string;
 }
 /**
- * Gets the landing zone registration.
+ * Get a landing zone registration.
  * Azure REST API version: 2025-02-27-preview.
  */
 export function getLandingZoneRegistrationOperationOutput(args: GetLandingZoneRegistrationOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLandingZoneRegistrationOperationResult> {
@@ -75,11 +75,11 @@ export function getLandingZoneRegistrationOperationOutput(args: GetLandingZoneRe
 
 export interface GetLandingZoneRegistrationOperationOutputArgs {
     /**
-     * The parent landing zone account
+     * The landing zone account.
      */
     landingZoneAccountName: pulumi.Input<string>;
     /**
-     * The name of the Landing Zone Registration resource.
+     * The name of the landing zone registration resource.
      */
     landingZoneRegistrationName: pulumi.Input<string>;
     /**

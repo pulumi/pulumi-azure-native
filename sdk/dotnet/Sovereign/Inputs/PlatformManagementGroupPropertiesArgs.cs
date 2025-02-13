@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sovereign.Inputs
 {
 
     /// <summary>
-    /// Platform management group properties.
+    /// The 'Platform' management group properties.
     /// </summary>
     public sealed class PlatformManagementGroupPropertiesArgs : global::Pulumi.ResourceArgs
     {
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sovereign.Inputs
         private InputList<Inputs.PolicyInitiativeAssignmentPropertiesArgs>? _policyInitiativesAssignmentProperties;
 
         /// <summary>
-        /// Array of initiative assignments to be applied to the management group.
+        /// Array of policy initiatives applied to the management group.
         /// </summary>
         public InputList<Inputs.PolicyInitiativeAssignmentPropertiesArgs> PolicyInitiativesAssignmentProperties
         {

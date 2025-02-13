@@ -134,6 +134,9 @@
   "VisualStudio": [
     "2017-11-01-preview"
   ],
+  "WeightsAndBiases": [
+    "2024-09-18-preview"
+  ],
   "WindowsESU": [
     "2019-09-16-preview"
   ],

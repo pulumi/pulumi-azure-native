@@ -12,13 +12,11 @@ from .app_service_environment_private_endpoint_connection import *
 from .app_service_plan import *
 from .app_service_plan_route_for_vnet import *
 from .certificate import *
-from .container_app import *
 from .get_app_service_environment import *
 from .get_app_service_environment_ase_custom_dns_suffix_configuration import *
 from .get_app_service_environment_private_endpoint_connection import *
 from .get_app_service_plan import *
 from .get_certificate import *
-from .get_container_app import *
 from .get_kube_environment import *
 from .get_static_site import *
 from .get_static_site_build_database_connection import *
@@ -68,7 +66,6 @@ from .get_web_app_vnet_connection import *
 from .get_web_app_vnet_connection_slot import *
 from .kube_environment import *
 from .list_app_service_plan_hybrid_connection_keys import *
-from .list_container_app_secrets import *
 from .list_site_identifiers_assigned_to_host_name import *
 from .list_static_site_app_settings import *
 from .list_static_site_build_app_settings import *

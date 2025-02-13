@@ -103,10 +103,10 @@ def get_landing_zone_configuration_operation(landing_zone_account_name: Optional
                                              resource_group_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLandingZoneConfigurationOperationResult:
     """
-    Gets the landing zone configuration.
+    Get a landing zone configuration.
 
 
-    :param str landing_zone_account_name: The parent landing zone account
+    :param str landing_zone_account_name: The landing zone account.
     :param str landing_zone_configuration_name: The landing zone configuration name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -128,10 +128,10 @@ def get_landing_zone_configuration_operation_output(landing_zone_account_name: O
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLandingZoneConfigurationOperationResult]:
     """
-    Gets the landing zone configuration.
+    Get a landing zone configuration.
 
 
-    :param str landing_zone_account_name: The parent landing zone account
+    :param str landing_zone_account_name: The landing zone account.
     :param str landing_zone_configuration_name: The landing zone configuration name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """

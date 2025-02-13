@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Gets the landing zone account.
+ * Get a landing zone account.
  */
 export function getLandingZoneAccountOperation(args: GetLandingZoneAccountOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetLandingZoneAccountOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,7 +20,7 @@ export function getLandingZoneAccountOperation(args: GetLandingZoneAccountOperat
 
 export interface GetLandingZoneAccountOperationArgs {
     /**
-     * The parent landing zone account
+     * The landing zone account.
      */
     landingZoneAccountName: string;
     /**
@@ -30,7 +30,7 @@ export interface GetLandingZoneAccountOperationArgs {
 }
 
 /**
- * The Landing zone account parent resource type.
+ * The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
  */
 export interface GetLandingZoneAccountOperationResult {
     /**
@@ -67,7 +67,7 @@ export interface GetLandingZoneAccountOperationResult {
     readonly type: string;
 }
 /**
- * Gets the landing zone account.
+ * Get a landing zone account.
  */
 export function getLandingZoneAccountOperationOutput(args: GetLandingZoneAccountOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLandingZoneAccountOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,7 +79,7 @@ export function getLandingZoneAccountOperationOutput(args: GetLandingZoneAccount
 
 export interface GetLandingZoneAccountOperationOutputArgs {
     /**
-     * The parent landing zone account
+     * The landing zone account.
      */
     landingZoneAccountName: pulumi.Input<string>;
     /**

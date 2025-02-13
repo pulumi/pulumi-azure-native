@@ -117,7 +117,7 @@ export class SystemTopic extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:SystemTopic" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211201:SystemTopic" }, { type: "azure-native:eventgrid/v20220615:SystemTopic" }, { type: "azure-native:eventgrid/v20230601preview:SystemTopic" }, { type: "azure-native:eventgrid/v20231215preview:SystemTopic" }, { type: "azure-native:eventgrid/v20241215preview:SystemTopic" }, { type: "azure-native:eventgrid:SystemTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:SystemTopic" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211201:SystemTopic" }, { type: "azure-native:eventgrid/v20220615:SystemTopic" }, { type: "azure-native:eventgrid/v20230601preview:SystemTopic" }, { type: "azure-native:eventgrid/v20231215preview:SystemTopic" }, { type: "azure-native:eventgrid/v20241215preview:SystemTopic" }, { type: "azure-native:eventgrid/v20250215:SystemTopic" }, { type: "azure-native:eventgrid:SystemTopic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SystemTopic.__pulumiType, name, resourceInputs, opts);
     }

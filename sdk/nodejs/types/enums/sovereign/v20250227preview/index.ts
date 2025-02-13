@@ -4,21 +4,21 @@
 
 export const FirewallCreationOptions = {
     /**
-     * Value when a firewall resource is not created.
+     * Select 'None' value to skip Firewall deployment.
      */
     None: "None",
     /**
-     * Value when the firewall creation is based on the standard SKU.
+     * Select 'Standard' value to deploy the Firewall Standard SKU.
      */
     Standard: "Standard",
     /**
-     * Value when the firewall creation is based on the premium SKU.
+     * Select 'Premium' value to deploy the Firewall Premium SKU.
      */
     Premium: "Premium",
 } as const;
 
 /**
- * To deploy firewall, choose the Standard/Premium based on the desired SKU. Choose None for no firewall and UseExisting for a pre existing one.
+ * Parameter used for deploying a Firewall: Select 'No' to skip deployment, 'Standard' to deploy the Standard SKU, or 'Premium' to deploy the Premium SKU.
  */
 export type FirewallCreationOptions = (typeof FirewallCreationOptions)[keyof typeof FirewallCreationOptions];
 
@@ -66,49 +66,49 @@ export const ResourceCreationOptions = {
 } as const;
 
 /**
- * To deploy log analytics workspace, choose Yes, otherwise No. Select UseExisting to provide an existing log analytics workspace.
+ * Parameter used to deploy a log analytics workspace: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing log analytics workspace.
  */
 export type ResourceCreationOptions = (typeof ResourceCreationOptions)[keyof typeof ResourceCreationOptions];
 
 export const ResourceType = {
     /**
-     * Value when customer wants to provide custom naming convention for Azure Firewall.
+     * Value when customer wants to provide a custom naming convention for Azure Firewall.
      */
     AzureFirewalls: "azureFirewalls",
     /**
-     * Value when customer wants to provide custom naming convention for Log Analytics workspace.
+     * Value when customer wants to provide a custom naming convention for Log Analytics workspace.
      */
     Workspaces: "workspaces",
     /**
-     * Value when customer wants to provide custom naming convention for automation account.
+     * Value when customer wants to provide a custom naming convention for automation account.
      */
     AutomationAccounts: "automationAccounts",
     /**
-     * Value when customer wants to provide custom naming convention for dashboard.
+     * Value when customer wants to provide a custom naming convention for dashboard.
      */
     Dashboards: "dashboards",
     /**
-     * Value when customer wants to provide custom naming convention for managed identity.
+     * Value when customer wants to provide a custom naming convention for managed identity.
      */
     UserAssignedIdentities: "userAssignedIdentities",
     /**
-     * Value when customer wants to provide custom naming convention for Bastion.
+     * Value when customer wants to provide a custom naming convention for Bastion.
      */
     BastionHosts: "bastionHosts",
     /**
-     * Value when customer wants to provide custom naming convention for DDoS protection plan.
+     * Value when customer wants to provide a custom naming convention for DDoS protection plan.
      */
     DdosProtectionPlans: "ddosProtectionPlans",
     /**
-     * Value when customer wants to provide custom naming convention for Bastion NSG.
+     * Value when customer wants to provide a custom naming convention for Bastion NSG.
      */
     NetworkSecurityGroups: "networkSecurityGroups",
     /**
-     * Value when customer wants to provide custom naming convention for virtual network.
+     * Value when customer wants to provide a custom naming convention for virtual network.
      */
     VirtualNetworks: "virtualNetworks",
     /**
-     * Value when customer wants to provide custom naming convention for route table.
+     * Value when customer wants to provide a custom naming convention for route table.
      */
     RouteTables: "routeTables",
 } as const;

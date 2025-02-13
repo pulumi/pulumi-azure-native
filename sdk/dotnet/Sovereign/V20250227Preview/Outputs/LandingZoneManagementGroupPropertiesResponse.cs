@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview.Outputs
 {
 
     /// <summary>
-    /// Landing zone management group properties.
+    /// The 'Landing Zones' management group properties..
     /// </summary>
     [OutputType]
     public sealed class LandingZoneManagementGroupPropertiesResponse
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Array of initiative assignments to be applied to the management group.
+        /// Array of policy initiatives applied to the management group.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyInitiativeAssignmentPropertiesResponse> PolicyInitiativesAssignmentProperties;
 

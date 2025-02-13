@@ -149,7 +149,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:Namespace" }, { type: "azure-native:eventgrid/v20240601preview:Namespace" }, { type: "azure-native:eventgrid/v20241215preview:Namespace" }, { type: "azure-native:eventgrid:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:Namespace" }, { type: "azure-native:eventgrid/v20240601preview:Namespace" }, { type: "azure-native:eventgrid/v20241215preview:Namespace" }, { type: "azure-native:eventgrid/v20250215:Namespace" }, { type: "azure-native:eventgrid:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }

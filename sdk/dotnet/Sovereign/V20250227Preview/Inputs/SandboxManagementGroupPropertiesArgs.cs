@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview.Inputs
 {
 
     /// <summary>
-    /// Sandbox management group properties.
+    /// The 'Sandbox' management group properties.
     /// </summary>
     public sealed class SandboxManagementGroupPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When set to false this management group will not be created. The default value is false.
+        /// This parameter determines whether the 'Sandbox' management group will be created. If set to true, the group will be created; if set to false, it will not be created. The default value is false.
         /// </summary>
         [Input("create", required: true)]
         public Input<bool> Create { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview.Inputs
         private InputList<Inputs.PolicyInitiativeAssignmentPropertiesArgs>? _policyInitiativesAssignmentProperties;
 
         /// <summary>
-        /// Array of initiative assignments to be applied to the management group.
+        /// Array of policy initiatives applied to the management group.
         /// </summary>
         public InputList<Inputs.PolicyInitiativeAssignmentPropertiesArgs> PolicyInitiativesAssignmentProperties
         {

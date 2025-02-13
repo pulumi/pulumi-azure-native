@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 {
 
     /// <summary>
-    /// Microsoft Fabric LakeHouse Table.
+    /// Microsoft Fabric Lakehouse Table.
     /// </summary>
     public sealed class LakeHouseTableDatasetArgs : global::Pulumi.ResourceArgs
     {
@@ -70,14 +70,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? Structure { get; set; }
 
         /// <summary>
-        /// The name of Microsoft Fabric LakeHouse Table. Type: string (or Expression with resultType string).
+        /// The name of Microsoft Fabric Lakehouse Table. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("table")]
         public Input<object>? Table { get; set; }
 
         /// <summary>
         /// Type of dataset.
-        /// Expected value is 'LakeHouseTable'.
+        /// Expected value is 'LakehouseTable'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

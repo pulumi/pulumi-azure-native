@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
     /// <summary>
-    /// A copy activity for Microsoft Fabric LakeHouse Table sink.
+    /// A copy activity for Microsoft Fabric Lakehouse Table sink.
     /// </summary>
     [OutputType]
     public sealed class LakeHouseTableSinkResponse
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? SinkRetryWait;
         /// <summary>
-        /// The type of table action for LakeHouse Table sink. Possible values include: "None", "Append", "Overwrite".
+        /// The type of table action for Lakehouse Table sink. Possible values include: "None", "Append", "Overwrite".
         /// </summary>
         public readonly object? TableActionOption;
         /// <summary>

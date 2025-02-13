@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sovereign.Outputs
 {
 
     /// <summary>
-    /// The properties of managed identity.
+    /// The properties of managed identity, specifically including type and resource ID.
     /// </summary>
     [OutputType]
     public sealed class ManagedIdentityPropertiesResponse

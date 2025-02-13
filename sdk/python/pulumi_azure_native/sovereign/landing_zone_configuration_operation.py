@@ -28,7 +28,7 @@ class LandingZoneConfigurationOperationArgs:
                  properties: Optional[pulumi.Input['LandingZoneConfigurationResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a LandingZoneConfigurationOperation resource.
-        :param pulumi.Input[str] landing_zone_account_name: The parent landing zone account
+        :param pulumi.Input[str] landing_zone_account_name: The landing zone account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] landing_zone_configuration_name: The landing zone configuration name
         :param pulumi.Input['LandingZoneConfigurationResourcePropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -44,7 +44,7 @@ class LandingZoneConfigurationOperationArgs:
     @pulumi.getter(name="landingZoneAccountName")
     def landing_zone_account_name(self) -> pulumi.Input[str]:
         """
-        The parent landing zone account
+        The landing zone account.
         """
         return pulumi.get(self, "landing_zone_account_name")
 
@@ -105,7 +105,7 @@ class LandingZoneConfigurationOperation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] landing_zone_account_name: The parent landing zone account
+        :param pulumi.Input[str] landing_zone_account_name: The landing zone account.
         :param pulumi.Input[str] landing_zone_configuration_name: The landing zone configuration name
         :param pulumi.Input[Union['LandingZoneConfigurationResourcePropertiesArgs', 'LandingZoneConfigurationResourcePropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.

@@ -564,8 +564,6 @@ __all__ = [
     'SynapseSparkPropertiesArgsDict',
     'SynapseSparkArgs',
     'SynapseSparkArgsDict',
-    'SyndicatedRegistryArgs',
-    'SyndicatedRegistryArgsDict',
     'SystemCreatedAcrAccountArgs',
     'SystemCreatedAcrAccountArgsDict',
     'SystemCreatedStorageAccountArgs',
@@ -28979,13 +28977,9 @@ class RegistryRegionArmDetailsArgs:
 
 if not MYPY:
     class RegistrySyndicatedRegistriesArgsDict(TypedDict):
-        syndicated_registry: NotRequired[pulumi.Input['SyndicatedRegistryArgsDict']]
+        registry_id: NotRequired[pulumi.Input[str]]
         """
-        A registry that is syndicated
-        """
-        syndicated_registry_guid: NotRequired[pulumi.Input[str]]
-        """
-        The Guid of the syndicated registry
+        Registry id guid of a destination registry that this registry can syndicate to 
         """
 elif False:
     RegistrySyndicatedRegistriesArgsDict: TypeAlias = Mapping[str, Any]
@@ -28993,40 +28987,24 @@ elif False:
 @pulumi.input_type
 class RegistrySyndicatedRegistriesArgs:
     def __init__(__self__, *,
-                 syndicated_registry: Optional[pulumi.Input['SyndicatedRegistryArgs']] = None,
-                 syndicated_registry_guid: Optional[pulumi.Input[str]] = None):
+                 registry_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['SyndicatedRegistryArgs'] syndicated_registry: A registry that is syndicated
-        :param pulumi.Input[str] syndicated_registry_guid: The Guid of the syndicated registry
+        :param pulumi.Input[str] registry_id: Registry id guid of a destination registry that this registry can syndicate to 
         """
-        if syndicated_registry is not None:
-            pulumi.set(__self__, "syndicated_registry", syndicated_registry)
-        if syndicated_registry_guid is not None:
-            pulumi.set(__self__, "syndicated_registry_guid", syndicated_registry_guid)
+        if registry_id is not None:
+            pulumi.set(__self__, "registry_id", registry_id)
 
     @property
-    @pulumi.getter(name="syndicatedRegistry")
-    def syndicated_registry(self) -> Optional[pulumi.Input['SyndicatedRegistryArgs']]:
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> Optional[pulumi.Input[str]]:
         """
-        A registry that is syndicated
+        Registry id guid of a destination registry that this registry can syndicate to 
         """
-        return pulumi.get(self, "syndicated_registry")
+        return pulumi.get(self, "registry_id")
 
-    @syndicated_registry.setter
-    def syndicated_registry(self, value: Optional[pulumi.Input['SyndicatedRegistryArgs']]):
-        pulumi.set(self, "syndicated_registry", value)
-
-    @property
-    @pulumi.getter(name="syndicatedRegistryGuid")
-    def syndicated_registry_guid(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Guid of the syndicated registry
-        """
-        return pulumi.get(self, "syndicated_registry_guid")
-
-    @syndicated_registry_guid.setter
-    def syndicated_registry_guid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "syndicated_registry_guid", value)
+    @registry_id.setter
+    def registry_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_id", value)
 
 
 if not MYPY:
@@ -29064,9 +29042,6 @@ if not MYPY:
         Private endpoint connections info used for pending connections in private link portal
         """
         syndicated_registries: NotRequired[pulumi.Input[Sequence[pulumi.Input['RegistrySyndicatedRegistriesArgsDict']]]]
-        """
-        List of tuples containing Guid and SyndicatedRegistry
-        """
 elif False:
     RegistryArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -29091,7 +29066,6 @@ class RegistryArgs:
                Possible values: "Enabled" or "Disabled"
         :param pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]] region_details: Details of each region the registry is in
         :param pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]] registry_private_endpoint_connections: Private endpoint connections info used for pending connections in private link portal
-        :param pulumi.Input[Sequence[pulumi.Input['RegistrySyndicatedRegistriesArgs']]] syndicated_registries: List of tuples containing Guid and SyndicatedRegistry
         """
         if discovery_url is not None:
             pulumi.set(__self__, "discovery_url", discovery_url)
@@ -29198,9 +29172,6 @@ class RegistryArgs:
     @property
     @pulumi.getter(name="syndicatedRegistries")
     def syndicated_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistrySyndicatedRegistriesArgs']]]]:
-        """
-        List of tuples containing Guid and SyndicatedRegistry
-        """
         return pulumi.get(self, "syndicated_registries")
 
     @syndicated_registries.setter
@@ -34140,42 +34111,6 @@ class SynapseSparkArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
-
-
-if not MYPY:
-    class SyndicatedRegistryArgsDict(TypedDict):
-        """
-        A registry that is syndicated
-        """
-        registry_id: NotRequired[pulumi.Input[str]]
-        """
-        The Registry Id of the syndicated Registry
-        """
-elif False:
-    SyndicatedRegistryArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class SyndicatedRegistryArgs:
-    def __init__(__self__, *,
-                 registry_id: Optional[pulumi.Input[str]] = None):
-        """
-        A registry that is syndicated
-        :param pulumi.Input[str] registry_id: The Registry Id of the syndicated Registry
-        """
-        if registry_id is not None:
-            pulumi.set(__self__, "registry_id", registry_id)
-
-    @property
-    @pulumi.getter(name="registryId")
-    def registry_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Registry Id of the syndicated Registry
-        """
-        return pulumi.get(self, "registry_id")
-
-    @registry_id.setter
-    def registry_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "registry_id", value)
 
 
 if not MYPY:

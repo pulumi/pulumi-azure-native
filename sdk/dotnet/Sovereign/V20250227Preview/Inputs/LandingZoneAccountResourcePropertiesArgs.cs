@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview.Inputs
     public sealed class LandingZoneAccountResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The storage account that will host the generated slz code.
+        /// The storage account that will host the generated infrastructure as code (IaC) for a landing zone deployment.
         /// </summary>
         [Input("storageAccount", required: true)]
         public Input<string> StorageAccount { get; set; } = null!;

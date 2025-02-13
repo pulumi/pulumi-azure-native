@@ -13102,6 +13102,12 @@ WebPubSub:
         SpecFilePath: specification/webpubsub/resource-manager/Microsoft.SignalRService/stable/2023-02-01/webpubsub.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/webPubSub/{resourceName}/listKeys
         RpNamespace: Microsoft.SignalRService
+WeightsAndBiases:
+    Instance:
+        ApiVersion: 2024-09-18-preview
+        SpecFilePath: specification/liftrweightsandbiases/resource-manager/Microsoft.WeightsAndBiases/preview/2024-09-18-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WeightsAndBiases/instances/{instancename}
+        RpNamespace: Microsoft.WeightsAndBiases
 WindowsESU:
     MultipleActivationKey:
         ApiVersion: 2019-09-16-preview

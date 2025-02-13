@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
 {
 
     /// <summary>
-    /// A copy activity source for Microsoft Fabric LakeHouse Table.
+    /// A copy activity source for Microsoft Fabric Lakehouse Table.
     /// </summary>
     public sealed class LakeHouseTableSourceArgs : global::Pulumi.ResourceArgs
     {

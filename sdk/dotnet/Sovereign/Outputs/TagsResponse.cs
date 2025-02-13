@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sovereign.Outputs
 {
 
     /// <summary>
-    /// The details associated with tags.
+    /// Key-value pairs that can be assigned to this resource.
     /// </summary>
     [OutputType]
     public sealed class TagsResponse

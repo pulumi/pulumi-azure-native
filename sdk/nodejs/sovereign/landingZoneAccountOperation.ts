@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The Landing zone account parent resource type.
+ * The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
  * Azure REST API version: 2025-02-27-preview.
  */
 export class LandingZoneAccountOperation extends pulumi.CustomResource {
@@ -115,7 +115,7 @@ export interface LandingZoneAccountOperationArgs {
      */
     identity?: pulumi.Input<inputs.sovereign.ManagedServiceIdentityArgs>;
     /**
-     * The parent landing zone account
+     * The landing zone account.
      */
     landingZoneAccountName?: pulumi.Input<string>;
     /**

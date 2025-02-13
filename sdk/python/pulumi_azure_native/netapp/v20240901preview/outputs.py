@@ -24,6 +24,7 @@ __all__ = [
     'EncryptionIdentityResponse',
     'ExportPolicyRuleResponse',
     'HourlyScheduleResponse',
+    'KeyVaultPrivateEndpointResponse',
     'KeyVaultPropertiesResponse',
     'LdapSearchScopeOptResponse',
     'ManagedServiceIdentityResponse',
@@ -982,6 +983,41 @@ class HourlyScheduleResponse(dict):
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
+
+
+@pulumi.output_type
+class KeyVaultPrivateEndpointResponse(dict):
+    """
+    Pairs of virtual network ID and private endpoint ID. Every virtual network that has volumes encrypted with customer-managed keys needs its own key vault private endpoint.
+    """
+    def __init__(__self__, *,
+                 private_endpoint_id: Optional[str] = None,
+                 virtual_network_id: Optional[str] = None):
+        """
+        Pairs of virtual network ID and private endpoint ID. Every virtual network that has volumes encrypted with customer-managed keys needs its own key vault private endpoint.
+        :param str private_endpoint_id: Identifier of the private endpoint to reach the Azure Key Vault
+        :param str virtual_network_id: Identifier for the virtual network id
+        """
+        if private_endpoint_id is not None:
+            pulumi.set(__self__, "private_endpoint_id", private_endpoint_id)
+        if virtual_network_id is not None:
+            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+
+    @property
+    @pulumi.getter(name="privateEndpointId")
+    def private_endpoint_id(self) -> Optional[str]:
+        """
+        Identifier of the private endpoint to reach the Azure Key Vault
+        """
+        return pulumi.get(self, "private_endpoint_id")
+
+    @property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> Optional[str]:
+        """
+        Identifier for the virtual network id
+        """
+        return pulumi.get(self, "virtual_network_id")
 
 
 @pulumi.output_type
