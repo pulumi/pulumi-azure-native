@@ -299,6 +299,17 @@ export const ResourceIdentityType = {
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
+export const RoleEligibilityScheduleRequestPropertiesExpirationType = {
+    AfterDuration: "AfterDuration",
+    AfterDateTime: "AfterDateTime",
+    NoExpiration: "NoExpiration",
+} as const;
+
+/**
+ * Type of the role eligibility schedule expiration
+ */
+export type RoleEligibilityScheduleRequestPropertiesExpirationType = (typeof RoleEligibilityScheduleRequestPropertiesExpirationType)[keyof typeof RoleEligibilityScheduleRequestPropertiesExpirationType];
+
 export const RoleManagementPolicyRuleType = {
     RoleManagementPolicyApprovalRule: "RoleManagementPolicyApprovalRule",
     RoleManagementPolicyAuthenticationContextRule: "RoleManagementPolicyAuthenticationContextRule",

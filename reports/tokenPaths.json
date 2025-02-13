@@ -1338,6 +1338,7 @@
   "azure-native:authorization:ResourceManagementPrivateLink": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/resourceManagementPrivateLinks/{rmplName}",
   "azure-native:authorization:RoleAssignment": "/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}",
   "azure-native:authorization:RoleDefinition": "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+  "azure-native:authorization:RoleEligibilitySchedule": "/{scope}/providers/Microsoft.Authorization/roleEligibilitySchedules/{roleEligibilityScheduleName}",
   "azure-native:authorization:RoleManagementPolicy": "/{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName}",
   "azure-native:authorization:RoleManagementPolicyAssignment": "/{scope}/providers/Microsoft.Authorization/roleManagementPolicyAssignments/{roleManagementPolicyAssignmentName}",
   "azure-native:authorization:ScopeAccessReviewHistoryDefinitionById": "/{scope}/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/{historyDefinitionId}",

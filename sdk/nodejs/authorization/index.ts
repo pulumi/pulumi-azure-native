@@ -285,6 +285,11 @@ export type RoleDefinition = import("./roleDefinition").RoleDefinition;
 export const RoleDefinition: typeof import("./roleDefinition").RoleDefinition = null as any;
 utilities.lazyLoad(exports, ["RoleDefinition"], () => require("./roleDefinition"));
 
+export { RoleEligibilityScheduleArgs } from "./roleEligibilitySchedule";
+export type RoleEligibilitySchedule = import("./roleEligibilitySchedule").RoleEligibilitySchedule;
+export const RoleEligibilitySchedule: typeof import("./roleEligibilitySchedule").RoleEligibilitySchedule = null as any;
+utilities.lazyLoad(exports, ["RoleEligibilitySchedule"], () => require("./roleEligibilitySchedule"));
+
 export { RoleManagementPolicyArgs } from "./roleManagementPolicy";
 export type RoleManagementPolicy = import("./roleManagementPolicy").RoleManagementPolicy;
 export const RoleManagementPolicy: typeof import("./roleManagementPolicy").RoleManagementPolicy = null as any;
@@ -422,6 +427,8 @@ const _module = {
                 return new RoleAssignment(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleDefinition":
                 return new RoleDefinition(name, <any>undefined, { urn })
+            case "azure-native:authorization:RoleEligibilitySchedule":
+                return new RoleEligibilitySchedule(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleManagementPolicy":
                 return new RoleManagementPolicy(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleManagementPolicyAssignment":

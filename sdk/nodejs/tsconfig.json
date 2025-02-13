@@ -2899,6 +2899,7 @@
         "authorization/resourceManagementPrivateLink.ts",
         "authorization/roleAssignment.ts",
         "authorization/roleDefinition.ts",
+        "authorization/roleEligibilitySchedule.ts",
         "authorization/roleManagementPolicy.ts",
         "authorization/roleManagementPolicyAssignment.ts",
         "authorization/scopeAccessReviewHistoryDefinitionById.ts",
