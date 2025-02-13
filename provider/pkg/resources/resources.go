@@ -96,6 +96,7 @@ type AzureAPIType struct {
 
 // AzureAPIResource is a resource in Azure REST API.
 type AzureAPIResource struct {
+	// API version in "2020-10-01" format.
 	APIVersion string `json:"apiVersion"`
 	Path       string `json:"path"`
 	// HTTP method to create/update the resource. Defaults to PUT if empty.
