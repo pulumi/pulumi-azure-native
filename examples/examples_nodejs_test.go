@@ -328,6 +328,17 @@ func TestRecoveryServicesProtectedItemTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestPIMRoleEligibilitySchedule(t *testing.T) {
+	skipIfShort(t)
+
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "pim-roleeligibilityschedules"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccPIMRoleManagementPolicies(t *testing.T) {
 	skipIfShort(t)
 
