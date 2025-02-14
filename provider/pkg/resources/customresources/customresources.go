@@ -21,6 +21,7 @@ import (
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // OriginalStateKey is a map key used to store the original state of a resource.
@@ -150,7 +151,7 @@ func (r *CustomResource) ApplySchema(pkg *schema.PackageSpec, meta *AzureAPIMeta
 			if mt, metaTypeFound := meta.Types[n]; metaTypeFound {
 				metaTypes[n] = mt
 			} else {
-				return fmt.Errorf("metadata for type %s not found", n)
+				logging.V(9).Infof("metadata for type %s not found, assuming it's an enum", n)
 			}
 		}
 		originalResource = &ResourceDefinition{
