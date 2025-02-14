@@ -98,6 +98,15 @@ type ResourceDefinition struct {
 	MetaTypes    map[string]AzureAPIType
 }
 
+// makePropertyNotRequired removes a property from the various lists of required properties, but leaves the property itself.
+func (r *ResourceDefinition) makePropertyNotRequired(property string) {
+	r.Resource.RequiredInputs = util.RemoveFromSlice(r.Resource.RequiredInputs, property)
+	r.Resource.ObjectTypeSpec.Required = util.RemoveFromSlice(r.Resource.ObjectTypeSpec.Required, property)
+	if body, hasBody := r.MetaResource.BodyParameter(); hasBody {
+		body.Body.RequiredProperties = util.RemoveFromSlice(body.Body.RequiredProperties, property)
+	}
+}
+
 // ApplySchemas applies custom schema modifications to the given package.
 // These modifications should never overlap with each other, but we apply in a deterministic order to ensure
 // that the end result of the modifications is consistent.
