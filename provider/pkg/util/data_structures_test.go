@@ -1,3 +1,5 @@
+// Copyright 2024, Pulumi Corporation.  All rights reserved.
+
 package util
 
 import (
@@ -53,5 +55,25 @@ func TestGetInnerMap(t *testing.T) {
 		}
 		_, ok := GetInnerMap(m, "a", "b", "c")
 		assert.False(t, ok)
+	})
+}
+
+func TestRemoveFromSlice(t *testing.T) {
+	t.Run("empty slice", func(t *testing.T) {
+		s := []int{}
+		s = RemoveFromSlice(s, 1)
+		assert.Equal(t, []int{}, s)
+	})
+
+	t.Run("value not found", func(t *testing.T) {
+		s := []int{1, 2, 3}
+		s = RemoveFromSlice(s, 4)
+		assert.Equal(t, []int{1, 2, 3}, s)
+	})
+
+	t.Run("value found", func(t *testing.T) {
+		s := []int{1, 2, 3}
+		s = RemoveFromSlice(s, 2)
+		assert.Equal(t, []int{1, 3}, s)
 	})
 }
