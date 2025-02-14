@@ -5,7 +5,9 @@ import * as resources from "@pulumi/azure-native/resources";
 import * as authorization from "@pulumi/azure-native/authorization";
 
 // Create an Azure Resource Group
-const resourceGroup = new resources.ResourceGroup("resourceGroup");
+const resourceGroup = new resources.ResourceGroup("resourceGroup", {
+    location: "westeurope",
+});
 
 const roleAssignment = new authorization.RoleAssignment("roleAssignment", {
     // Azure RBAC Contributor role.
@@ -14,7 +16,7 @@ const roleAssignment = new authorization.RoleAssignment("roleAssignment", {
     scope: resourceGroup.id,
 });
 
-const res = new authorization.RoleEligibilitySchedule("resr", {
+const res = new authorization.PimRoleEligibilitySchedule("res2", {
     scope: resourceGroup.id,
     roleDefinitionId: roleAssignment.roleDefinitionId,
     principalId: roleAssignment.principalId,
@@ -22,7 +24,7 @@ const res = new authorization.RoleEligibilitySchedule("resr", {
     scheduleInfo: {
         startDateTime: new Date().toISOString(),
         expiration: {
-            duration: "P1D",
+            duration: "P1H",
             type: 'AfterDuration'
         },
     },
