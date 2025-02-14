@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview.Outputs
     public sealed class LandingZoneAccountResourcePropertiesResponse
     {
         /// <summary>
-        /// The status of a user-initiated, control-plane operation on the landing zone account.
+        /// The state that reflects the current stage in the creation, updating, or deletion process of the landing zone account.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The storage account that will host the generated slz code.
+        /// The storage account that will host the generated infrastructure as code (IaC) for a landing zone deployment.
         /// </summary>
         public readonly string StorageAccount;
 

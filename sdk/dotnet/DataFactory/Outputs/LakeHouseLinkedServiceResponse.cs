@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
     /// <summary>
-    /// Microsoft Fabric LakeHouse linked service.
+    /// Microsoft Fabric Lakehouse linked service.
     /// </summary>
     [OutputType]
     public sealed class LakeHouseLinkedServiceResponse
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The ID of Microsoft Fabric LakeHouse artifact. Type: string (or Expression with resultType string).
+        /// The ID of Microsoft Fabric Lakehouse artifact. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? ArtifactId;
         /// <summary>
@@ -49,11 +49,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? ServicePrincipalCredentialType;
         /// <summary>
-        /// The ID of the application used to authenticate against Microsoft Fabric LakeHouse. Type: string (or Expression with resultType string).
+        /// The ID of the application used to authenticate against Microsoft Fabric Lakehouse. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? ServicePrincipalId;
         /// <summary>
-        /// The Key of the application used to authenticate against Microsoft Fabric LakeHouse.
+        /// The Key of the application used to authenticate against Microsoft Fabric Lakehouse.
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalKey;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         public readonly object? Tenant;
         /// <summary>
         /// Type of linked service.
-        /// Expected value is 'LakeHouse'.
+        /// Expected value is 'Lakehouse'.
         /// </summary>
         public readonly string Type;
         /// <summary>

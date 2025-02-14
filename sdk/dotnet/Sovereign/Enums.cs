@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.Sovereign
 {
     /// <summary>
-    /// To deploy firewall, choose the Standard/Premium based on the desired SKU. Choose None for no firewall and UseExisting for a pre existing one.
+    /// Parameter used for deploying a Firewall: Select 'No' to skip deployment, 'Standard' to deploy the Standard SKU, or 'Premium' to deploy the Premium SKU.
     /// </summary>
     [EnumType]
     public readonly struct FirewallCreationOptions : IEquatable<FirewallCreationOptions>
@@ -21,15 +21,15 @@ namespace Pulumi.AzureNative.Sovereign
         }
 
         /// <summary>
-        /// Value when a firewall resource is not created.
+        /// Select 'None' value to skip Firewall deployment.
         /// </summary>
         public static FirewallCreationOptions None { get; } = new FirewallCreationOptions("None");
         /// <summary>
-        /// Value when the firewall creation is based on the standard SKU.
+        /// Select 'Standard' value to deploy the Firewall Standard SKU.
         /// </summary>
         public static FirewallCreationOptions Standard { get; } = new FirewallCreationOptions("Standard");
         /// <summary>
-        /// Value when the firewall creation is based on the premium SKU.
+        /// Select 'Premium' value to deploy the Firewall Premium SKU.
         /// </summary>
         public static FirewallCreationOptions Premium { get; } = new FirewallCreationOptions("Premium");
 
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.Sovereign
     }
 
     /// <summary>
-    /// To deploy log analytics workspace, choose Yes, otherwise No. Select UseExisting to provide an existing log analytics workspace.
+    /// Parameter used to deploy a log analytics workspace: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing log analytics workspace.
     /// </summary>
     [EnumType]
     public readonly struct ResourceCreationOptions : IEquatable<ResourceCreationOptions>
@@ -173,43 +173,43 @@ namespace Pulumi.AzureNative.Sovereign
         }
 
         /// <summary>
-        /// Value when customer wants to provide custom naming convention for Azure Firewall.
+        /// Value when customer wants to provide a custom naming convention for Azure Firewall.
         /// </summary>
         public static ResourceType AzureFirewalls { get; } = new ResourceType("azureFirewalls");
         /// <summary>
-        /// Value when customer wants to provide custom naming convention for Log Analytics workspace.
+        /// Value when customer wants to provide a custom naming convention for Log Analytics workspace.
         /// </summary>
         public static ResourceType Workspaces { get; } = new ResourceType("workspaces");
         /// <summary>
-        /// Value when customer wants to provide custom naming convention for automation account.
+        /// Value when customer wants to provide a custom naming convention for automation account.
         /// </summary>
         public static ResourceType AutomationAccounts { get; } = new ResourceType("automationAccounts");
         /// <summary>
-        /// Value when customer wants to provide custom naming convention for dashboard.
+        /// Value when customer wants to provide a custom naming convention for dashboard.
         /// </summary>
         public static ResourceType Dashboards { get; } = new ResourceType("dashboards");
         /// <summary>
-        /// Value when customer wants to provide custom naming convention for managed identity.
+        /// Value when customer wants to provide a custom naming convention for managed identity.
         /// </summary>
         public static ResourceType UserAssignedIdentities { get; } = new ResourceType("userAssignedIdentities");
         /// <summary>
-        /// Value when customer wants to provide custom naming convention for Bastion.
+        /// Value when customer wants to provide a custom naming convention for Bastion.
         /// </summary>
         public static ResourceType BastionHosts { get; } = new ResourceType("bastionHosts");
         /// <summary>
-        /// Value when customer wants to provide custom naming convention for DDoS protection plan.
+        /// Value when customer wants to provide a custom naming convention for DDoS protection plan.
         /// </summary>
         public static ResourceType DdosProtectionPlans { get; } = new ResourceType("ddosProtectionPlans");
         /// <summary>
-        /// Value when customer wants to provide custom naming convention for Bastion NSG.
+        /// Value when customer wants to provide a custom naming convention for Bastion NSG.
         /// </summary>
         public static ResourceType NetworkSecurityGroups { get; } = new ResourceType("networkSecurityGroups");
         /// <summary>
-        /// Value when customer wants to provide custom naming convention for virtual network.
+        /// Value when customer wants to provide a custom naming convention for virtual network.
         /// </summary>
         public static ResourceType VirtualNetworks { get; } = new ResourceType("virtualNetworks");
         /// <summary>
-        /// Value when customer wants to provide custom naming convention for route table.
+        /// Value when customer wants to provide a custom naming convention for route table.
         /// </summary>
         public static ResourceType RouteTables { get; } = new ResourceType("routeTables");
 

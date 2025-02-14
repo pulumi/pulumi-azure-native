@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// Gets the properties of an Azure Video Indexer account.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview.
+        /// Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:videoindexer:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// Gets the properties of an Azure Video Indexer account.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview.
+        /// Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:videoindexer:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// Gets the properties of an Azure Video Indexer account.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview.
+        /// Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:videoindexer:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

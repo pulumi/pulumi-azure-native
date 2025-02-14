@@ -183,6 +183,8 @@ class SuppressionListAddress(pulumi.CustomResource):
         A object that represents a SuppressionList record.
         Azure REST API version: 2023-06-01-preview.
 
+        Other available API versions: 2024-09-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_id: The id of the address in a suppression list.
@@ -204,6 +206,8 @@ class SuppressionListAddress(pulumi.CustomResource):
         """
         A object that represents a SuppressionList record.
         Azure REST API version: 2023-06-01-preview.
+
+        Other available API versions: 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SuppressionListAddressArgs args: The arguments to use to populate this resource's properties.
@@ -262,7 +266,7 @@ class SuppressionListAddress(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20230601preview:SuppressionListAddress")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20230601preview:SuppressionListAddress"), pulumi.Alias(type_="azure-native:communication/v20240901preview:SuppressionListAddress")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SuppressionListAddress, __self__).__init__(
             'azure-native:communication:SuppressionListAddress',

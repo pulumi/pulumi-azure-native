@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Namespace resource.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -149,7 +149,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:Namespace" }, { type: "azure-native:eventgrid/v20231215preview:Namespace" }, { type: "azure-native:eventgrid/v20240601preview:Namespace" }, { type: "azure-native:eventgrid/v20241215preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:Namespace" }, { type: "azure-native:eventgrid/v20231215preview:Namespace" }, { type: "azure-native:eventgrid/v20240601preview:Namespace" }, { type: "azure-native:eventgrid/v20241215preview:Namespace" }, { type: "azure-native:eventgrid/v20250215:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }

@@ -32,7 +32,7 @@ class LandingZoneAccountOperationArgs:
         The set of arguments for constructing a LandingZoneAccountOperation resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
-        :param pulumi.Input[str] landing_zone_account_name: The parent landing zone account
+        :param pulumi.Input[str] landing_zone_account_name: The landing zone account.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['LandingZoneAccountResourcePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -77,7 +77,7 @@ class LandingZoneAccountOperationArgs:
     @pulumi.getter(name="landingZoneAccountName")
     def landing_zone_account_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The parent landing zone account
+        The landing zone account.
         """
         return pulumi.get(self, "landing_zone_account_name")
 
@@ -135,12 +135,12 @@ class LandingZoneAccountOperation(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        The Landing zone account parent resource type.
+        The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
-        :param pulumi.Input[str] landing_zone_account_name: The parent landing zone account
+        :param pulumi.Input[str] landing_zone_account_name: The landing zone account.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['LandingZoneAccountResourcePropertiesArgs', 'LandingZoneAccountResourcePropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -153,7 +153,7 @@ class LandingZoneAccountOperation(pulumi.CustomResource):
                  args: LandingZoneAccountOperationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The Landing zone account parent resource type.
+        The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
 
         :param str resource_name: The name of the resource.
         :param LandingZoneAccountOperationArgs args: The arguments to use to populate this resource's properties.

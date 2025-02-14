@@ -201,7 +201,7 @@ class PartnerNamespace(pulumi.CustomResource):
         EventGrid Partner Namespace.
         Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,7 +228,7 @@ class PartnerNamespace(pulumi.CustomResource):
         EventGrid Partner Namespace.
         Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
 
         :param str resource_name: The name of the resource.
         :param PartnerNamespaceArgs args: The arguments to use to populate this resource's properties.
@@ -286,7 +286,7 @@ class PartnerNamespace(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:PartnerNamespace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:PartnerNamespace"), pulumi.Alias(type_="azure-native:eventgrid/v20250215:PartnerNamespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PartnerNamespace, __self__).__init__(
             'azure-native:eventgrid:PartnerNamespace',

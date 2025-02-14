@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get all delivery attributes for an event subscription of a namespace topic.
  * Azure REST API version: 2023-12-15-preview.
  *
- * Other available API versions: 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
  */
 export function getNamespaceTopicEventSubscriptionDeliveryAttributes(args: GetNamespaceTopicEventSubscriptionDeliveryAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,7 +55,7 @@ export interface GetNamespaceTopicEventSubscriptionDeliveryAttributesResult {
  * Get all delivery attributes for an event subscription of a namespace topic.
  * Azure REST API version: 2023-12-15-preview.
  *
- * Other available API versions: 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
  */
 export function getNamespaceTopicEventSubscriptionDeliveryAttributesOutput(args: GetNamespaceTopicEventSubscriptionDeliveryAttributesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

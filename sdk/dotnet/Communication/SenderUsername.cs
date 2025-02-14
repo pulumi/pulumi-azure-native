@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Communication
     /// A class representing a SenderUsername resource.
     /// Azure REST API version: 2023-03-31.
     /// 
-    /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+    /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:SenderUsername")]
     public partial class SenderUsername : global::Pulumi.CustomResource
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Communication
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401:SenderUsername" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:SenderUsername" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230601preview:SenderUsername" },
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20240901preview:SenderUsername" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

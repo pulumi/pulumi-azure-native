@@ -30,6 +30,11 @@ export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
+export { GetAccountChangeKeyVaultInformationArgs, GetAccountChangeKeyVaultInformationResult, GetAccountChangeKeyVaultInformationOutputArgs } from "./getAccountChangeKeyVaultInformation";
+export const getAccountChangeKeyVaultInformation: typeof import("./getAccountChangeKeyVaultInformation").getAccountChangeKeyVaultInformation = null as any;
+export const getAccountChangeKeyVaultInformationOutput: typeof import("./getAccountChangeKeyVaultInformation").getAccountChangeKeyVaultInformationOutput = null as any;
+utilities.lazyLoad(exports, ["getAccountChangeKeyVaultInformation","getAccountChangeKeyVaultInformationOutput"], () => require("./getAccountChangeKeyVaultInformation"));
+
 export { GetBackupArgs, GetBackupResult, GetBackupOutputArgs } from "./getBackup";
 export const getBackup: typeof import("./getBackup").getBackup = null as any;
 export const getBackupOutput: typeof import("./getBackup").getBackupOutput = null as any;

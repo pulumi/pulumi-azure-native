@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     /// Container App.
     /// Azure REST API version: 2023-01-01.
     /// 
-    /// Other available API versions: 2023-12-01, 2024-04-01.
+    /// Other available API versions: 2023-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:ContainerApp")]
     public partial class ContainerApp : global::Pulumi.CustomResource
@@ -114,7 +114,6 @@ namespace Pulumi.AzureNative.Web
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:ContainerApp" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:ContainerApp" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:ContainerApp" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:ContainerApp" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

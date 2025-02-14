@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 {
 
     /// <summary>
-    /// Microsoft Fabric LakeHouse linked service.
+    /// Microsoft Fabric Lakehouse linked service.
     /// </summary>
     public sealed class LakeHouseLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// The ID of Microsoft Fabric LakeHouse artifact. Type: string (or Expression with resultType string).
+        /// The ID of Microsoft Fabric Lakehouse artifact. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("artifactId")]
         public Input<object>? ArtifactId { get; set; }
@@ -76,13 +76,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? ServicePrincipalCredentialType { get; set; }
 
         /// <summary>
-        /// The ID of the application used to authenticate against Microsoft Fabric LakeHouse. Type: string (or Expression with resultType string).
+        /// The ID of the application used to authenticate against Microsoft Fabric Lakehouse. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("servicePrincipalId")]
         public Input<object>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// The Key of the application used to authenticate against Microsoft Fabric LakeHouse.
+        /// The Key of the application used to authenticate against Microsoft Fabric Lakehouse.
         /// </summary>
         [Input("servicePrincipalKey")]
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ServicePrincipalKey { get; set; }
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
 
         /// <summary>
         /// Type of linked service.
-        /// Expected value is 'LakeHouse'.
+        /// Expected value is 'Lakehouse'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

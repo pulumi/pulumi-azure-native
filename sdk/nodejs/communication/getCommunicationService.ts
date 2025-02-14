@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get the CommunicationService and its properties.
  * Azure REST API version: 2023-03-31.
  *
- * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+ * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
  */
 export function getCommunicationService(args: GetCommunicationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +93,7 @@ export interface GetCommunicationServiceResult {
  * Get the CommunicationService and its properties.
  * Azure REST API version: 2023-03-31.
  *
- * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+ * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
  */
 export function getCommunicationServiceOutput(args: GetCommunicationServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommunicationServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

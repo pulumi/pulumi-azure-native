@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Communication
     /// <summary>
     /// A object that represents a SuppressionList record.
     /// Azure REST API version: 2023-06-01-preview.
+    /// 
+    /// Other available API versions: 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:SuppressionListAddress")]
     public partial class SuppressionListAddress : global::Pulumi.CustomResource
@@ -96,6 +98,7 @@ namespace Pulumi.AzureNative.Communication
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230601preview:SuppressionListAddress" },
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20240901preview:SuppressionListAddress" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

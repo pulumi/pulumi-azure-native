@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetLandingZoneRegistrationOperationResult:
     """
-    The Landing Zone registration resource type
+    The Landing zone registration resource type.
     """
     def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
@@ -103,11 +103,11 @@ def get_landing_zone_registration_operation(landing_zone_account_name: Optional[
                                             resource_group_name: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLandingZoneRegistrationOperationResult:
     """
-    Gets the landing zone registration.
+    Get a landing zone registration.
 
 
-    :param str landing_zone_account_name: The parent landing zone account
-    :param str landing_zone_registration_name: The name of the Landing Zone Registration resource.
+    :param str landing_zone_account_name: The landing zone account.
+    :param str landing_zone_registration_name: The name of the landing zone registration resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -128,11 +128,11 @@ def get_landing_zone_registration_operation_output(landing_zone_account_name: Op
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLandingZoneRegistrationOperationResult]:
     """
-    Gets the landing zone registration.
+    Get a landing zone registration.
 
 
-    :param str landing_zone_account_name: The parent landing zone account
-    :param str landing_zone_registration_name: The name of the Landing Zone Registration resource.
+    :param str landing_zone_account_name: The landing zone account.
+    :param str landing_zone_registration_name: The name of the landing zone registration resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()

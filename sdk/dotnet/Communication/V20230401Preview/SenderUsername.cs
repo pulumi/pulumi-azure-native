@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.Communication.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230331:SenderUsername" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401:SenderUsername" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230601preview:SenderUsername" },
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20240901preview:SenderUsername" },
                     new global::Pulumi.Alias { Type = "azure-native:communication:SenderUsername" },
                 },
             };

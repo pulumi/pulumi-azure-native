@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:Channel" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20240601preview:Channel" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20241215preview:Channel" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20250215:Channel" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid:Channel" },
                 },
             };

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Client resource.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
  */
 export class Client extends pulumi.CustomResource {
     /**
@@ -126,7 +126,7 @@ export class Client extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:Client" }, { type: "azure-native:eventgrid/v20231215preview:Client" }, { type: "azure-native:eventgrid/v20240601preview:Client" }, { type: "azure-native:eventgrid/v20241215preview:Client" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:Client" }, { type: "azure-native:eventgrid/v20231215preview:Client" }, { type: "azure-native:eventgrid/v20240601preview:Client" }, { type: "azure-native:eventgrid/v20241215preview:Client" }, { type: "azure-native:eventgrid/v20250215:Client" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Client.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,6 +11,7 @@ from .backup import *
 from .backup_policy import *
 from .backup_vault import *
 from .get_account import *
+from .get_account_key_vault_status import *
 from .get_backup import *
 from .get_backup_policy import *
 from .get_backup_vault import *

@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetLandingZoneAccountOperationResult:
     """
-    The Landing zone account parent resource type.
+    The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
     """
     def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
@@ -138,10 +138,10 @@ def get_landing_zone_account_operation(landing_zone_account_name: Optional[str] 
                                        resource_group_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLandingZoneAccountOperationResult:
     """
-    Gets the landing zone account.
+    Get a landing zone account.
 
 
-    :param str landing_zone_account_name: The parent landing zone account
+    :param str landing_zone_account_name: The landing zone account.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -163,10 +163,10 @@ def get_landing_zone_account_operation_output(landing_zone_account_name: Optiona
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLandingZoneAccountOperationResult]:
     """
-    Gets the landing zone account.
+    Get a landing zone account.
 
 
-    :param str landing_zone_account_name: The parent landing zone account
+    :param str landing_zone_account_name: The landing zone account.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()

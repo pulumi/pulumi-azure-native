@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview.Inputs
         public Input<string> ExistingTopLevelMgId { get; set; } = null!;
 
         /// <summary>
-        /// The managed identity to be tied to this landing zone registration
+        /// The managed identity to be assigned to this landing zone registration.
         /// </summary>
         [Input("managedIdentity", required: true)]
         public Input<Inputs.ManagedIdentityPropertiesArgs> ManagedIdentity { get; set; } = null!;

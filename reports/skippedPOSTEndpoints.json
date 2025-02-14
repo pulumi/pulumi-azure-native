@@ -510,6 +510,7 @@
     "Domains_InitiateVerification": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName}/initiateVerification"
   },
   "Compute": {
+    "AttributeBasedVMSizeRecommender_Post": "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/vmSizeRecommendations/vmAttributeBased/generate",
     "CloudServiceRoleInstances_Rebuild": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/rebuild",
     "CloudServiceRoleInstances_Reimage": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/reimage",
     "CloudServiceRoleInstances_Restart": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/restart",

@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.Sovereign.Inputs
 {
 
     /// <summary>
-    /// Details of policy assignments
+    /// The properties of assigned policy initiatives.
     /// </summary>
     public sealed class PolicyInitiativeAssignmentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The parameters for the assignment of policy initiatives.
+        /// The parameters of the assigned policy initiative.
         /// </summary>
         [Input("assignmentParameters", required: true)]
         public Input<object> AssignmentParameters { get; set; } = null!;

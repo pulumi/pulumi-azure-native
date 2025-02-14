@@ -223,7 +223,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["verification_records"] = None
             __props__.__dict__["verification_states"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20211001preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20220701preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230301preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230331:Domain"), pulumi.Alias(type_="azure-native:communication/v20230401preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230601preview:Domain"), pulumi.Alias(type_="azure-native:communication:Domain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20211001preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20220701preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230301preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230331:Domain"), pulumi.Alias(type_="azure-native:communication/v20230401preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20230601preview:Domain"), pulumi.Alias(type_="azure-native:communication/v20240901preview:Domain"), pulumi.Alias(type_="azure-native:communication:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Domain, __self__).__init__(
             'azure-native:communication/v20230401:Domain',

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a valid sender username for a domains resource.
  * Azure REST API version: 2023-03-31.
  *
- * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+ * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
  */
 export function getSenderUsername(args: GetSenderUsernameArgs, opts?: pulumi.InvokeOptions): Promise<GetSenderUsernameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,7 +83,7 @@ export interface GetSenderUsernameResult {
  * Get a valid sender username for a domains resource.
  * Azure REST API version: 2023-03-31.
  *
- * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+ * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
  */
 export function getSenderUsernameOutput(args: GetSenderUsernameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSenderUsernameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

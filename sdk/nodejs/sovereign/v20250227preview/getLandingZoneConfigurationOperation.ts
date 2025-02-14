@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Gets the landing zone configuration.
+ * Get a landing zone configuration.
  */
 export function getLandingZoneConfigurationOperation(args: GetLandingZoneConfigurationOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetLandingZoneConfigurationOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,7 +21,7 @@ export function getLandingZoneConfigurationOperation(args: GetLandingZoneConfigu
 
 export interface GetLandingZoneConfigurationOperationArgs {
     /**
-     * The parent landing zone account
+     * The landing zone account.
      */
     landingZoneAccountName: string;
     /**
@@ -60,7 +60,7 @@ export interface GetLandingZoneConfigurationOperationResult {
     readonly type: string;
 }
 /**
- * Gets the landing zone configuration.
+ * Get a landing zone configuration.
  */
 export function getLandingZoneConfigurationOperationOutput(args: GetLandingZoneConfigurationOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLandingZoneConfigurationOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,7 +73,7 @@ export function getLandingZoneConfigurationOperationOutput(args: GetLandingZoneC
 
 export interface GetLandingZoneConfigurationOperationOutputArgs {
     /**
-     * The parent landing zone account
+     * The landing zone account.
      */
     landingZoneAccountName: pulumi.Input<string>;
     /**

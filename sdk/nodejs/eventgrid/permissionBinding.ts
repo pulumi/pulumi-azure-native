@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Permission binding resource.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
  */
 export class PermissionBinding extends pulumi.CustomResource {
     /**
@@ -114,7 +114,7 @@ export class PermissionBinding extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20231215preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20240601preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20241215preview:PermissionBinding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20231215preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20240601preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20241215preview:PermissionBinding" }, { type: "azure-native:eventgrid/v20250215:PermissionBinding" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PermissionBinding.__pulumiType, name, resourceInputs, opts);
     }

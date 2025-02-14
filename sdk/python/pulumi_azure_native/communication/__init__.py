@@ -33,10 +33,13 @@ if typing.TYPE_CHECKING:
     v20230401preview = __v20230401preview
     import pulumi_azure_native.communication.v20230601preview as __v20230601preview
     v20230601preview = __v20230601preview
+    import pulumi_azure_native.communication.v20240901preview as __v20240901preview
+    v20240901preview = __v20240901preview
 else:
     v20220701preview = _utilities.lazy_import('pulumi_azure_native.communication.v20220701preview')
     v20230331 = _utilities.lazy_import('pulumi_azure_native.communication.v20230331')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.communication.v20230401')
     v20230401preview = _utilities.lazy_import('pulumi_azure_native.communication.v20230401preview')
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.communication.v20230601preview')
+    v20240901preview = _utilities.lazy_import('pulumi_azure_native.communication.v20240901preview')
 

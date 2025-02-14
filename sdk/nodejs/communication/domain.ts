@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A class representing a Domains resource.
  * Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2021-10-01-preview.
  *
- * Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+ * Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
  *
  * Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
  */
@@ -147,7 +147,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["verificationStates"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20211001preview:Domain" }, { type: "azure-native:communication/v20220701preview:Domain" }, { type: "azure-native:communication/v20230301preview:Domain" }, { type: "azure-native:communication/v20230331:Domain" }, { type: "azure-native:communication/v20230401:Domain" }, { type: "azure-native:communication/v20230401preview:Domain" }, { type: "azure-native:communication/v20230601preview:Domain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20211001preview:Domain" }, { type: "azure-native:communication/v20220701preview:Domain" }, { type: "azure-native:communication/v20230301preview:Domain" }, { type: "azure-native:communication/v20230331:Domain" }, { type: "azure-native:communication/v20230401:Domain" }, { type: "azure-native:communication/v20230401preview:Domain" }, { type: "azure-native:communication/v20230601preview:Domain" }, { type: "azure-native:communication/v20240901preview:Domain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }

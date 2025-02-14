@@ -118,7 +118,7 @@ class EmailService(pulumi.CustomResource):
         A class representing an EmailService resource.
         Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2021-10-01-preview.
 
-        Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+        Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +138,7 @@ class EmailService(pulumi.CustomResource):
         A class representing an EmailService resource.
         Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2021-10-01-preview.
 
-        Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+        Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EmailServiceArgs args: The arguments to use to populate this resource's properties.
@@ -182,7 +182,7 @@ class EmailService(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20211001preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20220701preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230301preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230331:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230401:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230401preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230601preview:EmailService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20211001preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20220701preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230301preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230331:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230401:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230401preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230601preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20240901preview:EmailService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EmailService, __self__).__init__(
             'azure-native:communication:EmailService',

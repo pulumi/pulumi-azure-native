@@ -97,7 +97,7 @@ export class LandingZoneConfigurationOperation extends pulumi.CustomResource {
  */
 export interface LandingZoneConfigurationOperationArgs {
     /**
-     * The parent landing zone account
+     * The landing zone account.
      */
     landingZoneAccountName: pulumi.Input<string>;
     /**

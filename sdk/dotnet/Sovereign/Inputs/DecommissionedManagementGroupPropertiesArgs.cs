@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.Sovereign.Inputs
 {
 
     /// <summary>
-    /// Decommissioned management group properties.
+    /// The 'Decommissioned' management group properties.
     /// </summary>
     public sealed class DecommissionedManagementGroupPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When set to false, this management group will not be created. The default value is false.
+        /// This parameter determines whether the 'Decommissioned' management group will be created. If set to true, the group will be created; if set to false, it will not be created. The default value is false.
         /// </summary>
         [Input("create", required: true)]
         public Input<bool> Create { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sovereign.Inputs
         private InputList<Inputs.PolicyInitiativeAssignmentPropertiesArgs>? _policyInitiativesAssignmentProperties;
 
         /// <summary>
-        /// Array of initiative assignments to be applied to the management group.
+        /// Array of policy initiatives applied to the management group.
         /// </summary>
         public InputList<Inputs.PolicyInitiativeAssignmentPropertiesArgs> PolicyInitiativesAssignmentProperties
         {

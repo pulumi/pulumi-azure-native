@@ -13,16 +13,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Inputs
     public sealed class RegistrySyndicatedRegistriesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A registry that is syndicated
+        /// Registry id guid of a destination registry that this registry can syndicate to 
         /// </summary>
-        [Input("syndicatedRegistry")]
-        public Input<Inputs.SyndicatedRegistryArgs>? SyndicatedRegistry { get; set; }
-
-        /// <summary>
-        /// The Guid of the syndicated registry
-        /// </summary>
-        [Input("syndicatedRegistryGuid")]
-        public Input<string>? SyndicatedRegistryGuid { get; set; }
+        [Input("registryId")]
+        public Input<string>? RegistryId { get; set; }
 
         public RegistrySyndicatedRegistriesArgs()
         {

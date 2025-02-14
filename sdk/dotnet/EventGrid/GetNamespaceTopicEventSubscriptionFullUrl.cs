@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get the full endpoint URL for an event subscription of a namespace topic.
         /// Azure REST API version: 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-12-15-preview.
+        /// Other available API versions: 2024-12-15-preview, 2025-02-15.
         /// </summary>
         public static Task<GetNamespaceTopicEventSubscriptionFullUrlResult> InvokeAsync(GetNamespaceTopicEventSubscriptionFullUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid:getNamespaceTopicEventSubscriptionFullUrl", args ?? new GetNamespaceTopicEventSubscriptionFullUrlArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get the full endpoint URL for an event subscription of a namespace topic.
         /// Azure REST API version: 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-12-15-preview.
+        /// Other available API versions: 2024-12-15-preview, 2025-02-15.
         /// </summary>
         public static Output<GetNamespaceTopicEventSubscriptionFullUrlResult> Invoke(GetNamespaceTopicEventSubscriptionFullUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid:getNamespaceTopicEventSubscriptionFullUrl", args ?? new GetNamespaceTopicEventSubscriptionFullUrlInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get the full endpoint URL for an event subscription of a namespace topic.
         /// Azure REST API version: 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-12-15-preview.
+        /// Other available API versions: 2024-12-15-preview, 2025-02-15.
         /// </summary>
         public static Output<GetNamespaceTopicEventSubscriptionFullUrlResult> Invoke(GetNamespaceTopicEventSubscriptionFullUrlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid:getNamespaceTopicEventSubscriptionFullUrl", args ?? new GetNamespaceTopicEventSubscriptionFullUrlInvokeArgs(), options.WithDefaults());

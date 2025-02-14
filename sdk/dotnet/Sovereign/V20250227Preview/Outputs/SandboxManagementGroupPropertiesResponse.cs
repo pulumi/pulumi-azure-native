@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview.Outputs
 {
 
     /// <summary>
-    /// Sandbox management group properties.
+    /// The 'Sandbox' management group properties.
     /// </summary>
     [OutputType]
     public sealed class SandboxManagementGroupPropertiesResponse
     {
         /// <summary>
-        /// When set to false this management group will not be created. The default value is false.
+        /// This parameter determines whether the 'Sandbox' management group will be created. If set to true, the group will be created; if set to false, it will not be created. The default value is false.
         /// </summary>
         public readonly bool Create;
         /// <summary>
-        /// Array of initiative assignments to be applied to the management group.
+        /// Array of policy initiatives applied to the management group.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyInitiativeAssignmentPropertiesResponse> PolicyInitiativesAssignmentProperties;
 

@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.EventGrid.V20240601Preview
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:CaCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:CaCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20241215preview:CaCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20250215:CaCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid:CaCertificate" },
                 },
             };

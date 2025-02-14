@@ -15,19 +15,19 @@ __all__ = [
 
 class FirewallCreationOptions(str, Enum):
     """
-    To deploy firewall, choose the Standard/Premium based on the desired SKU. Choose None for no firewall and UseExisting for a pre existing one.
+    Parameter used for deploying a Firewall: Select 'No' to skip deployment, 'Standard' to deploy the Standard SKU, or 'Premium' to deploy the Premium SKU.
     """
     NONE = "None"
     """
-    Value when a firewall resource is not created.
+    Select 'None' value to skip Firewall deployment.
     """
     STANDARD = "Standard"
     """
-    Value when the firewall creation is based on the standard SKU.
+    Select 'Standard' value to deploy the Firewall Standard SKU.
     """
     PREMIUM = "Premium"
     """
-    Value when the firewall creation is based on the premium SKU.
+    Select 'Premium' value to deploy the Firewall Premium SKU.
     """
 
 
@@ -57,7 +57,7 @@ class ManagedServiceIdentityType(str, Enum):
 
 class ResourceCreationOptions(str, Enum):
     """
-    To deploy log analytics workspace, choose Yes, otherwise No. Select UseExisting to provide an existing log analytics workspace.
+    Parameter used to deploy a log analytics workspace: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing log analytics workspace.
     """
     YES = "Yes"
     """
@@ -79,41 +79,41 @@ class ResourceType(str, Enum):
     """
     AZURE_FIREWALLS = "azureFirewalls"
     """
-    Value when customer wants to provide custom naming convention for Azure Firewall.
+    Value when customer wants to provide a custom naming convention for Azure Firewall.
     """
     WORKSPACES = "workspaces"
     """
-    Value when customer wants to provide custom naming convention for Log Analytics workspace.
+    Value when customer wants to provide a custom naming convention for Log Analytics workspace.
     """
     AUTOMATION_ACCOUNTS = "automationAccounts"
     """
-    Value when customer wants to provide custom naming convention for automation account.
+    Value when customer wants to provide a custom naming convention for automation account.
     """
     DASHBOARDS = "dashboards"
     """
-    Value when customer wants to provide custom naming convention for dashboard.
+    Value when customer wants to provide a custom naming convention for dashboard.
     """
     USER_ASSIGNED_IDENTITIES = "userAssignedIdentities"
     """
-    Value when customer wants to provide custom naming convention for managed identity.
+    Value when customer wants to provide a custom naming convention for managed identity.
     """
     BASTION_HOSTS = "bastionHosts"
     """
-    Value when customer wants to provide custom naming convention for Bastion.
+    Value when customer wants to provide a custom naming convention for Bastion.
     """
     DDOS_PROTECTION_PLANS = "ddosProtectionPlans"
     """
-    Value when customer wants to provide custom naming convention for DDoS protection plan.
+    Value when customer wants to provide a custom naming convention for DDoS protection plan.
     """
     NETWORK_SECURITY_GROUPS = "networkSecurityGroups"
     """
-    Value when customer wants to provide custom naming convention for Bastion NSG.
+    Value when customer wants to provide a custom naming convention for Bastion NSG.
     """
     VIRTUAL_NETWORKS = "virtualNetworks"
     """
-    Value when customer wants to provide custom naming convention for virtual network.
+    Value when customer wants to provide a custom naming convention for virtual network.
     """
     ROUTE_TABLES = "routeTables"
     """
-    Value when customer wants to provide custom naming convention for route table.
+    Value when customer wants to provide a custom naming convention for route table.
     """

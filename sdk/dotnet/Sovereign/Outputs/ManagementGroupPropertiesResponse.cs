@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Sovereign.Outputs
 {
 
     /// <summary>
-    /// Details of the policy and initiatives associated with the management group.
+    /// The properties of policy initiatives applied to the management group.
     /// </summary>
     [OutputType]
     public sealed class ManagementGroupPropertiesResponse
     {
         /// <summary>
-        /// Array of initiative assignments to be applied to the management group.
+        /// Array of policy initiatives applied to the management group.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyInitiativeAssignmentPropertiesResponse> PolicyInitiativesAssignmentProperties;
 

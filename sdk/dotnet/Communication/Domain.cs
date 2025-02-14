@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Communication
     /// A class representing a Domains resource.
     /// Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2021-10-01-preview.
     /// 
-    /// Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+    /// Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
     /// 
     /// Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
     /// </summary>
@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.Communication
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401:Domain" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:Domain" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230601preview:Domain" },
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20240901preview:Domain" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

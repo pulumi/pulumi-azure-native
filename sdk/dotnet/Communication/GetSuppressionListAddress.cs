@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get a SuppressionListAddress.
         /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2024-09-01-preview.
         /// </summary>
         public static Task<GetSuppressionListAddressResult> InvokeAsync(GetSuppressionListAddressArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionListAddressResult>("azure-native:communication:getSuppressionListAddress", args ?? new GetSuppressionListAddressArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get a SuppressionListAddress.
         /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2024-09-01-preview.
         /// </summary>
         public static Output<GetSuppressionListAddressResult> Invoke(GetSuppressionListAddressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionListAddressResult>("azure-native:communication:getSuppressionListAddress", args ?? new GetSuppressionListAddressInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// Get a SuppressionListAddress.
         /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2024-09-01-preview.
         /// </summary>
         public static Output<GetSuppressionListAddressResult> Invoke(GetSuppressionListAddressInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionListAddressResult>("azure-native:communication:getSuppressionListAddress", args ?? new GetSuppressionListAddressInvokeArgs(), options.WithDefaults());

@@ -245,6 +245,7 @@ import * as vmwarecloudsimple from "./vmwarecloudsimple";
 import * as voiceservices from "./voiceservices";
 import * as web from "./web";
 import * as webpubsub from "./webpubsub";
+import * as weightsandbiases from "./weightsandbiases";
 import * as windowsesu from "./windowsesu";
 import * as windowsiot from "./windowsiot";
 import * as workloads from "./workloads";
@@ -483,6 +484,7 @@ export {
     voiceservices,
     web,
     webpubsub,
+    weightsandbiases,
     windowsesu,
     windowsiot,
     workloads,

@@ -179,7 +179,7 @@ export class PartnerRegistration extends pulumi.CustomResource {
             resourceInputs["visibilityState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20201015preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20210601preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20220615:PartnerRegistration" }, { type: "azure-native:eventgrid/v20230601preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20231215preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20240601preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20241215preview:PartnerRegistration" }, { type: "azure-native:eventgrid:PartnerRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20201015preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20210601preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20220615:PartnerRegistration" }, { type: "azure-native:eventgrid/v20230601preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20231215preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20240601preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20241215preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20250215:PartnerRegistration" }, { type: "azure-native:eventgrid:PartnerRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerRegistration.__pulumiType, name, resourceInputs, opts);
     }

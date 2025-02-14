@@ -14,22 +14,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Outputs
     public sealed class RegistryResponseSyndicatedRegistries
     {
         /// <summary>
-        /// A registry that is syndicated
+        /// Registry id guid of a destination registry that this registry can syndicate to 
         /// </summary>
-        public readonly Outputs.SyndicatedRegistryResponse? SyndicatedRegistry;
-        /// <summary>
-        /// The Guid of the syndicated registry
-        /// </summary>
-        public readonly string? SyndicatedRegistryGuid;
+        public readonly string? RegistryId;
 
         [OutputConstructor]
-        private RegistryResponseSyndicatedRegistries(
-            Outputs.SyndicatedRegistryResponse? syndicatedRegistry,
-
-            string? syndicatedRegistryGuid)
+        private RegistryResponseSyndicatedRegistries(string? registryId)
         {
-            SyndicatedRegistry = syndicatedRegistry;
-            SyndicatedRegistryGuid = syndicatedRegistryGuid;
+            RegistryId = registryId;
         }
     }
 }

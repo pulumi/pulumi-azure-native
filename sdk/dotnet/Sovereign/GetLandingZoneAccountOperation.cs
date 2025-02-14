@@ -12,21 +12,21 @@ namespace Pulumi.AzureNative.Sovereign
     public static class GetLandingZoneAccountOperation
     {
         /// <summary>
-        /// Gets the landing zone account.
+        /// Get a landing zone account.
         /// Azure REST API version: 2025-02-27-preview.
         /// </summary>
         public static Task<GetLandingZoneAccountOperationResult> InvokeAsync(GetLandingZoneAccountOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLandingZoneAccountOperationResult>("azure-native:sovereign:getLandingZoneAccountOperation", args ?? new GetLandingZoneAccountOperationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the landing zone account.
+        /// Get a landing zone account.
         /// Azure REST API version: 2025-02-27-preview.
         /// </summary>
         public static Output<GetLandingZoneAccountOperationResult> Invoke(GetLandingZoneAccountOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLandingZoneAccountOperationResult>("azure-native:sovereign:getLandingZoneAccountOperation", args ?? new GetLandingZoneAccountOperationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the landing zone account.
+        /// Get a landing zone account.
         /// Azure REST API version: 2025-02-27-preview.
         /// </summary>
         public static Output<GetLandingZoneAccountOperationResult> Invoke(GetLandingZoneAccountOperationInvokeArgs args, InvokeOutputOptions options)
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Sovereign
     public sealed class GetLandingZoneAccountOperationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The parent landing zone account
+        /// The landing zone account.
         /// </summary>
         [Input("landingZoneAccountName", required: true)]
         public string LandingZoneAccountName { get; set; } = null!;
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.Sovereign
     public sealed class GetLandingZoneAccountOperationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The parent landing zone account
+        /// The landing zone account.
         /// </summary>
         [Input("landingZoneAccountName", required: true)]
         public Input<string> LandingZoneAccountName { get; set; } = null!;

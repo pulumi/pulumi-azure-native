@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sovereign.V20250227Preview
 {
     /// <summary>
-    /// The Landing zone account parent resource type.
+    /// The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
     /// </summary>
     [AzureNativeResourceType("azure-native:sovereign/v20250227preview:LandingZoneAccountOperation")]
     public partial class LandingZoneAccountOperation : global::Pulumi.CustomResource
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The parent landing zone account
+        /// The landing zone account.
         /// </summary>
         [Input("landingZoneAccountName")]
         public Input<string>? LandingZoneAccountName { get; set; }

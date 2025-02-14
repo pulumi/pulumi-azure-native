@@ -176,7 +176,7 @@ class EmailService(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20211001preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20220701preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230301preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230331:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230401preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230601preview:EmailService"), pulumi.Alias(type_="azure-native:communication:EmailService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20211001preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20220701preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230301preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230331:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230401preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20230601preview:EmailService"), pulumi.Alias(type_="azure-native:communication/v20240901preview:EmailService"), pulumi.Alias(type_="azure-native:communication:EmailService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EmailService, __self__).__init__(
             'azure-native:communication/v20230401:EmailService',

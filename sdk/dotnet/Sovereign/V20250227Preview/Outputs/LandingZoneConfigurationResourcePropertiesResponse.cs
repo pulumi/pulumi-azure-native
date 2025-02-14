@@ -17,115 +17,115 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview.Outputs
     public sealed class LandingZoneConfigurationResourcePropertiesResponse
     {
         /// <summary>
-        /// The status for the landing zone configurations workflow.
+        /// The status that indicates the current phase of the configuration process for a deployment.
         /// </summary>
         public readonly string AuthoringStatus;
         /// <summary>
-        /// To deploy the bastion service, choose Yes, otherwise No. Choose UseExisting for existing bastion service.
+        /// Parameter used to deploy a Bastion: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing Bastion.
         /// </summary>
         public readonly string AzureBastionCreationOption;
         /// <summary>
-        /// Azure bastion subnet. IP v4 CIDR block.
+        /// The Bastion subnet address. Specify the address using IPv4 CIDR notation.
         /// </summary>
         public readonly string? AzureBastionSubnetCidrBlock;
         /// <summary>
-        /// The customized naming convention for one or more resource types in this landing zone configuration
+        /// The custom naming convention applied to specific resource types for this landing zone configuration, which overrides the default naming convention for those resource types. Example - 'customNamingConvention': [{'resourceType': 'azureFirewalls', 'formula': '{DeploymentPrefix}-afwl-{DeploymentSuffix}'}]
         /// </summary>
         public readonly ImmutableArray<Outputs.CustomNamingConventionResponse> CustomNamingConvention;
         /// <summary>
-        /// To deploy ddos, choose Yes, otherwise No. Select Existing to provide an existing ddos protection plan.
+        /// Parameter used to deploy a DDoS protection plan: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing DDoS protection plan.
         /// </summary>
         public readonly string DdosProtectionCreationOption;
         /// <summary>
-        /// This will be applied to the decommissioned management group.
+        /// The assigned policies of the 'Decommissioned' management group and indicator to create it or not.
         /// </summary>
         public readonly Outputs.DecommissionedManagementGroupPropertiesResponse? DecommissionedMgMetadata;
         /// <summary>
-        /// The resource id of azure bastion.
+        /// The resource ID of the Bastion when reusing an existing one.
         /// </summary>
         public readonly string? ExistingAzureBastionId;
         /// <summary>
-        /// The resource id of the ddos protection plan.
+        /// The resource ID of the DDoS protection plan when reusing an existing one.
         /// </summary>
         public readonly string? ExistingDdosProtectionId;
         /// <summary>
-        /// The resource id of the log analytics workspace that was created to centralize log ingestion.
+        /// The resource ID of the log analytics workspace when reusing an existing one.
         /// </summary>
         public readonly string? ExistingLogAnalyticsWorkspaceId;
         /// <summary>
-        /// To deploy firewall, choose the Standard/Premium based on the desired SKU. Choose None for no firewall and UseExisting for a pre existing one.
+        /// Parameter used for deploying a Firewall: Select 'No' to skip deployment, 'Standard' to deploy the Standard SKU, or 'Premium' to deploy the Premium SKU.
         /// </summary>
         public readonly string FirewallCreationOption;
         /// <summary>
-        /// Azure firewall subnet. IPv4 CIDR block.
+        /// The Firewall subnet address used for deploying a firewall. Specify the Firewall subnet using IPv4 CIDR notation.
         /// </summary>
         public readonly string? FirewallSubnetCidrBlock;
         /// <summary>
-        /// Gateway subnet. IPv4 CIDR block.
+        /// The gateway subnet address used for deploying a virtual network. Specify the subnet using IPv4 CIDR notation.
         /// </summary>
         public readonly string GatewaySubnetCidrBlock;
         /// <summary>
-        /// The address space for the VNET. IPv4 CIDR block.
+        /// The Virtual Network address. Specify the address using IPv4 CIDR notation.
         /// </summary>
         public readonly string HubNetworkCidrBlock;
         /// <summary>
-        /// Landing zone children management group properties
+        /// The child management groups of 'Landing Zones' management group and their assigned policies.
         /// </summary>
         public readonly ImmutableArray<Outputs.LandingZoneManagementGroupPropertiesResponse> LandingZonesMgChildren;
         /// <summary>
-        /// This will be applied to the landing zone management groups.
+        /// The assigned policies of the 'Landing Zones' management group.
         /// </summary>
         public readonly Outputs.ManagementGroupPropertiesResponse? LandingZonesMgMetadata;
         /// <summary>
-        /// To deploy log analytics workspace, choose Yes, otherwise No. Select UseExisting to provide an existing log analytics workspace.
+        /// Parameter used to deploy a log analytics workspace: Select 'Yes' to enable deployment, 'No' to skip it, or 'Existing' to reuse an existing log analytics workspace.
         /// </summary>
         public readonly string LogAnalyticsWorkspaceCreationOption;
         /// <summary>
-        /// Set how long logs are retained for, in days. Minimum length is 30 and maximum is 730
+        /// Parameter to define the retention period for logs, in days. The minimum duration is 30 days and the maximum is 730 days.
         /// </summary>
         public readonly double LogRetentionInDays;
         /// <summary>
-        /// The managed identity to be tied to this landing zone configuration
+        /// The managed identity to be assigned to this landing zone configuration.
         /// </summary>
         public readonly Outputs.ManagedIdentityPropertiesResponse ManagedIdentity;
         /// <summary>
-        /// The naming convention that's used by default for all resource types for this landing zone configuration
+        /// The default naming convention applied to all resources for this landing zone configuration. Example - {DeploymentPrefix}-Contoso-{ResourceTypeAbbreviation}{DeploymentSuffix}-{Environment}-testing
         /// </summary>
         public readonly string? NamingConventionFormula;
         /// <summary>
-        /// This will be applied to the connectivity management group under platform.
+        /// The assigned policies of the 'Connectivity' management group under 'Platform' management group.
         /// </summary>
         public readonly Outputs.ManagementGroupPropertiesResponse? PlatformConnectivityMgMetadata;
         /// <summary>
-        /// This will be applied to the identity management group under platform.
+        /// The assigned policies of the 'Identity' management group under 'Platform' management group.
         /// </summary>
         public readonly Outputs.ManagementGroupPropertiesResponse? PlatformIdentityMgMetadata;
         /// <summary>
-        /// This will be applied to the management management group under platform.
+        /// The assigned policies of the 'Management' management group under 'Platform' management group.
         /// </summary>
         public readonly Outputs.ManagementGroupPropertiesResponse? PlatformManagementMgMetadata;
         /// <summary>
-        /// Platform children management group properties.
+        /// The names of the 'Platform' child management groups and their assigned policies, excluding the default ones: 'Connectivity', 'Identity', and 'Management'
         /// </summary>
         public readonly ImmutableArray<Outputs.PlatformManagementGroupPropertiesResponse> PlatformMgChildren;
         /// <summary>
-        /// This will be applied to the platform management group.
+        /// The assigned policies of the 'Platform' management group.
         /// </summary>
         public readonly Outputs.ManagementGroupPropertiesResponse? PlatformMgMetadata;
         /// <summary>
-        /// The status of a user-initiated, control-plane operation on the landing zone configuration.
+        /// The state that reflects the current stage in the creation, updating, or deletion process of the landing zone configuration.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// This will be applied to the sandbox management group.
+        /// The assigned policies of the 'Sandbox' management group and indicator to create it or not.
         /// </summary>
         public readonly Outputs.SandboxManagementGroupPropertiesResponse? SandboxMgMetadata;
         /// <summary>
-        /// Array of tag objects in format of {'name':'a tag name', 'value':'a tag value'}.
+        /// Tags are key-value pairs that can be assigned to a resource to organize and manage it more effectively. Example: {'name': 'a tag name', 'value': 'a tag value'}
         /// </summary>
         public readonly ImmutableArray<Outputs.TagsResponse> Tags;
         /// <summary>
-        /// This will be applied to the root of the landing zone deployment.
+        /// The assigned policies of the parent management group.
         /// </summary>
         public readonly Outputs.ManagementGroupPropertiesResponse? TopLevelMgMetadata;
 

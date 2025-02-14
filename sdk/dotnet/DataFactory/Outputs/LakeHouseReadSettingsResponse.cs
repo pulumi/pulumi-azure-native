@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
     /// <summary>
-    /// Microsoft Fabric LakeHouse Files read settings.
+    /// Microsoft Fabric Lakehouse Files read settings.
     /// </summary>
     [OutputType]
     public sealed class LakeHouseReadSettingsResponse
@@ -58,11 +58,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Microsoft Fabric LakeHouse Files wildcardFileName. Type: string (or Expression with resultType string).
+        /// Microsoft Fabric Lakehouse Files wildcardFileName. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? WildcardFileName;
         /// <summary>
-        /// Microsoft Fabric LakeHouse Files wildcardFolderPath. Type: string (or Expression with resultType string).
+        /// Microsoft Fabric Lakehouse Files wildcardFolderPath. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? WildcardFolderPath;
 

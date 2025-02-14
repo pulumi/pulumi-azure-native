@@ -324,7 +324,6 @@ __all__ = [
     'SweepJobResponse',
     'SynapseSparkResponse',
     'SynapseSparkResponseProperties',
-    'SyndicatedRegistryResponse',
     'SystemCreatedAcrAccountResponse',
     'SystemCreatedStorageAccountResponse',
     'SystemDataResponse',
@@ -26257,7 +26256,6 @@ class RegistryResponse(dict):
                Possible values: "Enabled" or "Disabled"
         :param Sequence['RegistryRegionArmDetailsResponse'] region_details: Details of each region the registry is in
         :param Sequence['RegistryPrivateEndpointConnectionResponse'] registry_private_endpoint_connections: Private endpoint connections info used for pending connections in private link portal
-        :param Sequence['RegistryResponseSyndicatedRegistries'] syndicated_registries: List of tuples containing Guid and SyndicatedRegistry
         """
         if discovery_url is not None:
             pulumi.set(__self__, "discovery_url", discovery_url)
@@ -26346,9 +26344,6 @@ class RegistryResponse(dict):
     @property
     @pulumi.getter(name="syndicatedRegistries")
     def syndicated_registries(self) -> Optional[Sequence['outputs.RegistryResponseSyndicatedRegistries']]:
-        """
-        List of tuples containing Guid and SyndicatedRegistry
-        """
         return pulumi.get(self, "syndicated_registries")
 
 
@@ -26357,10 +26352,8 @@ class RegistryResponseSyndicatedRegistries(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "syndicatedRegistry":
-            suggest = "syndicated_registry"
-        elif key == "syndicatedRegistryGuid":
-            suggest = "syndicated_registry_guid"
+        if key == "registryId":
+            suggest = "registry_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RegistryResponseSyndicatedRegistries. Access the value via the '{suggest}' property getter instead.")
@@ -26374,32 +26367,20 @@ class RegistryResponseSyndicatedRegistries(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 syndicated_registry: Optional['outputs.SyndicatedRegistryResponse'] = None,
-                 syndicated_registry_guid: Optional[str] = None):
+                 registry_id: Optional[str] = None):
         """
-        :param 'SyndicatedRegistryResponse' syndicated_registry: A registry that is syndicated
-        :param str syndicated_registry_guid: The Guid of the syndicated registry
+        :param str registry_id: Registry id guid of a destination registry that this registry can syndicate to 
         """
-        if syndicated_registry is not None:
-            pulumi.set(__self__, "syndicated_registry", syndicated_registry)
-        if syndicated_registry_guid is not None:
-            pulumi.set(__self__, "syndicated_registry_guid", syndicated_registry_guid)
+        if registry_id is not None:
+            pulumi.set(__self__, "registry_id", registry_id)
 
     @property
-    @pulumi.getter(name="syndicatedRegistry")
-    def syndicated_registry(self) -> Optional['outputs.SyndicatedRegistryResponse']:
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> Optional[str]:
         """
-        A registry that is syndicated
+        Registry id guid of a destination registry that this registry can syndicate to 
         """
-        return pulumi.get(self, "syndicated_registry")
-
-    @property
-    @pulumi.getter(name="syndicatedRegistryGuid")
-    def syndicated_registry_guid(self) -> Optional[str]:
-        """
-        The Guid of the syndicated registry
-        """
-        return pulumi.get(self, "syndicated_registry_guid")
+        return pulumi.get(self, "registry_id")
 
 
 @pulumi.output_type
@@ -30337,46 +30318,6 @@ class SynapseSparkResponseProperties(dict):
         Name of Azure Machine Learning workspace.
         """
         return pulumi.get(self, "workspace_name")
-
-
-@pulumi.output_type
-class SyndicatedRegistryResponse(dict):
-    """
-    A registry that is syndicated
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "registryId":
-            suggest = "registry_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SyndicatedRegistryResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SyndicatedRegistryResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SyndicatedRegistryResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 registry_id: Optional[str] = None):
-        """
-        A registry that is syndicated
-        :param str registry_id: The Registry Id of the syndicated Registry
-        """
-        if registry_id is not None:
-            pulumi.set(__self__, "registry_id", registry_id)
-
-    @property
-    @pulumi.getter(name="registryId")
-    def registry_id(self) -> Optional[str]:
-        """
-        The Registry Id of the syndicated Registry
-        """
-        return pulumi.get(self, "registry_id")
 
 
 @pulumi.output_type

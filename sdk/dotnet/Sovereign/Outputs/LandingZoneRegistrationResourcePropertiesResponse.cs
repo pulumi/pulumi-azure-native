@@ -25,11 +25,11 @@ namespace Pulumi.AzureNative.Sovereign.Outputs
         /// </summary>
         public readonly string ExistingTopLevelMgId;
         /// <summary>
-        /// The managed identity to be tied to this landing zone registration
+        /// The managed identity to be assigned to this landing zone registration.
         /// </summary>
         public readonly Outputs.ManagedIdentityPropertiesResponse ManagedIdentity;
         /// <summary>
-        /// The status of a user-initiated, control-plane operation on the landing Zone registration resource type.
+        /// The state that reflects the current stage in the creation, updating, or deletion process of the landing zone registration resource type.
         /// </summary>
         public readonly string ProvisioningState;
 

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview.Inputs
 {
 
     /// <summary>
-    /// Landing zone management group properties.
+    /// The 'Landing Zones' management group properties..
     /// </summary>
     public sealed class LandingZoneManagementGroupPropertiesArgs : global::Pulumi.ResourceArgs
     {
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview.Inputs
         private InputList<Inputs.PolicyInitiativeAssignmentPropertiesArgs>? _policyInitiativesAssignmentProperties;
 
         /// <summary>
-        /// Array of initiative assignments to be applied to the management group.
+        /// Array of policy initiatives applied to the management group.
         /// </summary>
         public InputList<Inputs.PolicyInitiativeAssignmentPropertiesArgs> PolicyInitiativesAssignmentProperties
         {

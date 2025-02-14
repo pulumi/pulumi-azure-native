@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.Sovereign.V20250227Preview
     public sealed class LandingZoneConfigurationOperationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The parent landing zone account
+        /// The landing zone account.
         /// </summary>
         [Input("landingZoneAccountName", required: true)]
         public Input<string> LandingZoneAccountName { get; set; } = null!;
