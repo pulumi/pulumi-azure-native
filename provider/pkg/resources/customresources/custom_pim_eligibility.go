@@ -1,7 +1,10 @@
+// Copyright 2025, Pulumi Corporation.  All rights reserved.
+
 package customresources
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"strings"
 	"time"
@@ -9,22 +12,30 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/authorization/armauthorization/v3"
 	"github.com/google/uuid"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 const (
-	pimRoleEligibilityScheduleTok  = "azure-native:authorization:RoleEligibilitySchedule"
-	pimRoleEligibilitySchedulePath = "/{scope}/providers/Microsoft.Authorization/roleEligibilitySchedules/{roleEligibilityScheduleName}"
+	pimRoleEligibilityScheduleResourceName = "PimRoleEligibilitySchedule"
+	pimRoleEligibilityScheduleTok          = "azure-native:authorization:" + pimRoleEligibilityScheduleResourceName
 
-	// pimRoleEligibilityScheduleRequestTok  = "azure-native:authorization:RoleEligibilityScheduleRequest"
-	// pimRoleEligibilityScheduleRequestPath = "/{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/{roleEligibilityScheduleRequestName}"
+	pimRoleEligibilityScheduleRequestResourceName = "RoleEligibilityScheduleRequest"
+	pimRoleEligibilityScheduleRequestTok          = "azure-native:authorization:" + pimRoleEligibilityScheduleRequestResourceName
+	PimRoleEligibilityScheduleRequestPath         = "/{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/{roleEligibilityScheduleRequestName}"
+
+	pimRoleEligibilityScheduleMaxWaitForCreate        = 10 * time.Minute
+	pimRoleEligibilityScheduleMaxWaitForDelete        = 10 * time.Minute
+	pimRoleEligibilityScheduleMaxWaitForDeleteRequest = 2 * time.Minute
 )
+
+// Tests are allowed to change this to a smaller value.
+var pimRoleEligibilityScheduleTickerInterval = 10 * time.Second
 
 // pimRoleEligibilitySchedule returns a custom resource for Role Eligibility Schedules, used to limit standing
 // administrator access to privileged roles in Azure Privileged Identity Management (PIM). See
@@ -75,264 +86,68 @@ func pimRoleEligibilitySchedule(
 		}
 	}
 
-	schedule := &pimEligibilityScheduleClient{
+	client := &pimEligibilityScheduleClientImpl{
 		crudClient:      crudClient,
 		schedulesClient: schedulesClient,
 		requestsClient:  requestsClient,
 	}
-	schedule.lookupScheduleFunc = schedule.lookupSchedule
 
 	return &CustomResource{
-		tok:    pimRoleEligibilityScheduleTok,
-		path:   pimRoleEligibilitySchedulePath,
-		Schema: genSchema,
-		Read:   schedule.Read,
-		Create: schedule.Create,
-		Delete: schedule.Delete,
+		tok:                pimRoleEligibilityScheduleRequestTok,
+		CustomResourceName: pimRoleEligibilityScheduleResourceName,
+		path:               PimRoleEligibilityScheduleRequestPath,
+		Schema:             genSchema,
+		Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
+			return read(ctx, id, inputs, client)
+		},
+		Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+			return createPimEligibilitySchedule(ctx, id, inputs, client, pimRoleEligibilityScheduleMaxWaitForCreate)
+		},
+		Delete: func(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
+			return deletePimEligibilitySchedule(ctx, id, inputs, state, client, pimRoleEligibilityScheduleMaxWaitForDelete)
+		},
 	}, nil
 }
 
+// TODO add more docs (here or in /docs)
 func genSchema(resource *ResourceDefinition) (*ResourceDefinition, error) {
-	if resource != nil {
-		return nil, fmt.Errorf("resource %q already exists", pimRoleEligibilityScheduleTok)
+	if resource == nil {
+		return nil, fmt.Errorf("resource %q not found in the spec", pimRoleEligibilityScheduleRequestTok)
 	}
 
-	resource = &ResourceDefinition{
-		Resource: schema.ResourceSpec{
-			InputProperties: map[string]schema.PropertySpec{
-				"scope": {
-					Description:      "The scope of the role eligibility schedule request to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.",
-					TypeSpec:         schema.TypeSpec{Type: "string"},
-					ReplaceOnChanges: true,
-				},
-				"principalId": {
-					Description:      "The principal ID",
-					TypeSpec:         schema.TypeSpec{Type: "string"},
-					ReplaceOnChanges: true,
-				},
-				"roleDefinitionId": {
-					Description:      "The role definition ID",
-					TypeSpec:         schema.TypeSpec{Type: "string"},
-					ReplaceOnChanges: true,
-				},
-				"justification": {
-					Description:      "Justification for the role eligibility schedule request",
-					TypeSpec:         schema.TypeSpec{Type: "string"},
-					ReplaceOnChanges: true,
-				},
-				"scheduleInfo": {
-					Description: "The schedule information for the role eligibility schedule",
-					TypeSpec: schema.TypeSpec{
-						Type: "object",
-						Ref:  "#/types/azure-native:authorization:RoleEligibilityScheduleRequestPropertiesScheduleInfo",
-					},
-					ReplaceOnChanges: true,
-				},
-			},
-			RequiredInputs: []string{"scope", "principalId", "roleDefinitionId"},
-			ObjectTypeSpec: schema.ObjectTypeSpec{
-				Properties: map[string]schema.PropertySpec{
-					"scope": {
-						Description:      "The scope of the role eligibility schedule to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.",
-						TypeSpec:         schema.TypeSpec{Type: "string"},
-						ReplaceOnChanges: true,
-					},
-					"principalId": {
-						Description:      "The principal ID",
-						TypeSpec:         schema.TypeSpec{Type: "string"},
-						ReplaceOnChanges: true,
-					},
-					"roleDefinitionId": {
-						Description:      "The role definition ID",
-						TypeSpec:         schema.TypeSpec{Type: "string"},
-						ReplaceOnChanges: true,
-					},
-					"justification": {
-						Description:      "Justification for the role eligibility schedule request",
-						TypeSpec:         schema.TypeSpec{Type: "string"},
-						ReplaceOnChanges: true,
-					},
-					"scheduleInfo": {
-						Description: "The schedule information for the role eligibility schedule",
-						TypeSpec: schema.TypeSpec{
-							Type: "object",
-							Ref:  "#/types/azure-native:authorization:RoleEligibilityScheduleRequestPropertiesScheduleInfo",
-						},
-						ReplaceOnChanges: true,
-					},
-					"status": {
-						Description: "The status of the role eligibility schedule request",
-						TypeSpec:    schema.TypeSpec{Type: "string"},
-					},
-					"startDateTime": {
-						Description: "The end date time of the role eligibility schedule",
-						TypeSpec:    schema.TypeSpec{Type: "string"},
-					},
-					"endDateTime": {
-						Description: "The end date time of the role eligibility schedule",
-						TypeSpec:    schema.TypeSpec{Type: "string"},
-					},
-				},
-				Required: []string{"scope", "principalId", "roleDefinitionId"},
-			},
-		},
-		MetaResource: resources.AzureAPIResource{
-			APIVersion: "2020-10-01",
-			Path:       pimRoleEligibilitySchedulePath,
-			PutParameters: []resources.AzureAPIParameter{
-				{
-					Name:       "scope",
-					Location:   "path",
-					IsRequired: true,
-					Value:      &resources.AzureAPIProperty{Type: "string", ForceNew: true},
-				},
-				{
-					Name:       "properties",
-					Location:   "body",
-					IsRequired: true,
-					Body: &resources.AzureAPIType{
-						Properties: map[string]resources.AzureAPIProperty{
-							"principalId":      {Type: "string", ForceNew: true},
-							"roleDefinitionId": {Type: "string", ForceNew: true},
-							"justification":    {Type: "string", ForceNew: true},
-						},
-					},
-				},
-			},
-		},
-		Types: map[string]schema.ComplexTypeSpec{
-			// "azure-native:authorization:RequestType": {
-			// 	ObjectTypeSpec: schema.ObjectTypeSpec{
-			// 		Description: "The type of the role assignment schedule request. Eg: SelfActivate, AdminAssign etc",
-			// 		Type:        "string",
-			// 	},
-			// 	Enum: []schema.EnumValueSpec{
-			// 		{Value: "Accepted"},
-			// 		{Value: "PendingEvaluation"},
-			// 		{Value: "Granted"},
-			// 		{Value: "Denied"},
-			// 		{Value: "PendingProvisioning"},
-			// 		{Value: "Provisioned"},
-			// 		{Value: "PendingRevocation"},
-			// 		{Value: "Revoked"},
-			// 		{Value: "Canceled"},
-			// 		{Value: "Failed"},
-			// 		{Value: "PendingApprovalProvisioning"},
-			// 		{Value: "PendingApproval"},
-			// 		{Value: "FailedAsResourceIsLocked"},
-			// 		{Value: "PendingAdminDecision"},
-			// 		{Value: "AdminApproved"},
-			// 		{Value: "AdminDenied"},
-			// 		{Value: "TimedOut"},
-			// 		{Value: "ProvisioningStarted"},
-			// 		{Value: "Invalid"},
-			// 		{Value: "PendingScheduleCreation"},
-			// 		{Value: "ScheduleCreated"},
-			// 		{Value: "PendingExternalProvisioning"},
-			// 	},
-			// },
-			// "azure-native:authorization:RoleEligibilityScheduleRequestStatus": {
-			// 	ObjectTypeSpec: schema.ObjectTypeSpec{
-			// 		Description: "The status of the role eligibility schedule request.",
-			// 		Type:        "string",
-			// 	},
-			// 	Enum: []schema.EnumValueSpec{
-			// 		{Value: "Accepted"},
-			// 		{Value: "PendingEvaluation"},
-			// 		{Value: "Granted"},
-			// 		{Value: "Denied"},
-			// 		{Value: "PendingProvisioning"},
-			// 		{Value: "Provisioned"},
-			// 		{Value: "PendingRevocation"},
-			// 		{Value: "Revoked"},
-			// 		{Value: "Canceled"},
-			// 		{Value: "Failed"},
-			// 		{Value: "PendingApprovalProvisioning"},
-			// 		{Value: "PendingApproval"},
-			// 		{Value: "FailedAsResourceIsLocked"},
-			// 		{Value: "PendingAdminDecision"},
-			// 		{Value: "AdminApproved"},
-			// 		{Value: "AdminDenied"},
-			// 		{Value: "TimedOut"},
-			// 		{Value: "ProvisioningStarted"},
-			// 		{Value: "Invalid"},
-			// 		{Value: "PendingScheduleCreation"},
-			// 		{Value: "ScheduleCreated"},
-			// 		{Value: "PendingExternalProvisioning"},
-			// 	},
-			// },
-			"azure-native:authorization:RoleEligibilityScheduleRequestPropertiesExpiration": {
-				ObjectTypeSpec: schema.ObjectTypeSpec{
-					Type:        "object",
-					Description: "Expiration of the role eligibility schedule",
-					Properties: map[string]schema.PropertySpec{
-						"duration":    {TypeSpec: schema.TypeSpec{Type: "string"}},
-						"endDateTime": {TypeSpec: schema.TypeSpec{Type: "string"}},
-						"type": {
-							TypeSpec:    schema.TypeSpec{Type: "string", Ref: "#/types/azure-native:authorization:RoleEligibilityScheduleRequestPropertiesExpirationType"},
-							Description: "Type of the role eligibility schedule expiration",
-						},
-					},
-				},
-			},
-			"azure-native:authorization:RoleEligibilityScheduleRequestPropertiesExpirationType": {
-				ObjectTypeSpec: schema.ObjectTypeSpec{
-					Description: "Type of the role eligibility schedule expiration",
-					Type:        "string",
-				},
-				Enum: []schema.EnumValueSpec{
-					{Value: "AfterDuration"},
-					{Value: "AfterDateTime"},
-					{Value: "NoExpiration"},
-				},
-			},
-			"azure-native:authorization:RoleEligibilityScheduleRequestPropertiesScheduleInfo": {
-				ObjectTypeSpec: schema.ObjectTypeSpec{
-					Type:        "object",
-					Description: "Schedule info of the role eligibility schedule",
-					Properties: map[string]schema.PropertySpec{
-						"startDateTime": {TypeSpec: schema.TypeSpec{Type: "string"}},
-						"expiration": {
-							TypeSpec:    schema.TypeSpec{Type: "object", Ref: "#/types/azure-native:authorization:RoleEligibilityScheduleRequestPropertiesExpiration"},
-							Description: "Expiration of the role eligibility schedule",
-						},
-					},
-				},
-			},
-		},
-		MetaTypes: map[string]resources.AzureAPIType{
-			"azure-native:authorization:RoleEligibilityScheduleRequestPropertiesExpiration": {
-				Properties: map[string]resources.AzureAPIProperty{
-					"duration":    {Type: "string"},
-					"endDateTime": {Type: "string"},
-					"type":        {Type: "string", Ref: "#/types/azure-native:authorization:RoleEligibilityScheduleRequestPropertiesExpirationType"},
-				},
-			},
-			"azure-native:authorization:RoleEligibilityScheduleRequestPropertiesExpirationType": {},
-			"azure-native:authorization:RoleEligibilityScheduleRequestPropertiesScheduleInfo": {
-				Properties: map[string]resources.AzureAPIProperty{
-					"startDateTime": {Type: "string"},
-					"expiration":    {Type: "object", Ref: "#/types/azure-native:authorization:RoleEligibilityScheduleRequestPropertiesExpiration"},
-				},
-			},
-		},
-	}
+	// remove requestType, we're only supporting one so far (like TF)
+	delete(resource.Resource.InputProperties, "requestType")
+	resource.makePropertyNotRequired("requestType")
+
+	// remove the name, it's a random GUID so we generate it ourselves
+	delete(resource.Resource.InputProperties, "roleEligibilityScheduleRequestName")
+
 	return resource, nil
 }
 
-type pimEligibilityScheduleClient struct {
-	crudClient         crud.ResourceCrudClient
-	schedulesClient    *armauthorization.RoleEligibilitySchedulesClient
-	requestsClient     *armauthorization.RoleEligibilityScheduleRequestsClient
-	lookupScheduleFunc lookupScheduleFunc
+type pimEligibilityScheduleClient interface {
+	// listSchedules(scope, principalId string) *runtime.Pager[armauthorization.RoleEligibilitySchedulesClientListForScopeResponse]
+	findSchedule(ctx context.Context, scope, principalId, roleDefinitionId string) (*armauthorization.RoleEligibilitySchedule, error)
+	getSchedule(ctx context.Context, scope, scheduleName string) (*armauthorization.RoleEligibilitySchedule, error)
+	// Matches armauthorization.RoleEligibilityScheduleRequestsClient.Create
+	createSchedule(ctx context.Context, scope string, roleEligibilityScheduleRequestName string,
+		parameters armauthorization.RoleEligibilityScheduleRequest,
+	) (armauthorization.RoleEligibilityScheduleRequestsClientCreateResponse, error)
+	cancelSchedule(ctx context.Context, scope, scheduleName string) (armauthorization.RoleEligibilityScheduleRequestsClientCancelResponse, error)
+	// Map an Azure SDK schedule object to Pulumi SDK shape output.
+	mapScheduleToOutputs(schedule *armauthorization.RoleEligibilitySchedule) (map[string]any, error)
 }
 
-type lookupScheduleFunc func(ctx context.Context, scope, principalId, roleDefinitionId string) (*armauthorization.RoleEligibilitySchedule, error)
+type pimEligibilityScheduleClientImpl struct {
+	crudClient      crud.ResourceCrudClient
+	schedulesClient *armauthorization.RoleEligibilitySchedulesClient
+	requestsClient  *armauthorization.RoleEligibilityScheduleRequestsClient
+}
 
-func (c *pimEligibilityScheduleClient) lookupSchedule(ctx context.Context, scope, principalId, roleDefinitionId string) (*armauthorization.RoleEligibilitySchedule, error) {
+func (c *pimEligibilityScheduleClientImpl) findSchedule(ctx context.Context, scope, principalId, roleDefinitionId string,
+) (*armauthorization.RoleEligibilitySchedule, error) {
 	pager := c.schedulesClient.NewListForScopePager(scope, &armauthorization.RoleEligibilitySchedulesClientListForScopeOptions{
 		Filter: pulumi.StringRef(fmt.Sprintf("principalId eq '%s'", principalId)),
-		// Filter: pulumi.StringRef("asTarget()"),
 	})
 	for pager.More() {
 		page, err := pager.NextPage(ctx)
@@ -350,24 +165,53 @@ func (c *pimEligibilityScheduleClient) lookupSchedule(ctx context.Context, scope
 	return nil, nil
 }
 
-// TODO with a client for RoleEligibilitySchedule, could we just use c.crudClient.ResponseBodyToSdkOutputs()?
-func mapScheduleToOutputs(schedule *armauthorization.RoleEligibilitySchedule, inputs resource.PropertyMap) (map[string]any, error) {
-	return map[string]any{
-		"scope":            schedule.Properties.Scope,
-		"principalId":      schedule.Properties.PrincipalID,
-		"roleDefinitionId": schedule.Properties.RoleDefinitionID,
-		"startDateTime":    schedule.Properties.StartDateTime,
-		"endDateTime":      schedule.Properties.EndDateTime,
-		"status":           schedule.Properties.Status,
-	}, nil
+func (c *pimEligibilityScheduleClientImpl) getSchedule(ctx context.Context, scope, scheduleName string) (*armauthorization.RoleEligibilitySchedule, error) {
+	s, err := c.schedulesClient.Get(ctx, scope, scheduleName, nil)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving role eligibility schedule: %w", err)
+	}
+	return &s.RoleEligibilitySchedule, nil
 }
 
-func (c *pimEligibilityScheduleClient) Read(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
-	scope := inputs["scope"].StringValue()
-	principalId := inputs["principalId"].StringValue()
-	roleDefinitionId := inputs["roleDefinitionId"].StringValue()
+func (c *pimEligibilityScheduleClientImpl) createSchedule(ctx context.Context, scope string, roleEligibilityScheduleRequestName string,
+	parameters armauthorization.RoleEligibilityScheduleRequest,
+) (armauthorization.RoleEligibilityScheduleRequestsClientCreateResponse, error) {
+	return c.requestsClient.Create(ctx, scope, roleEligibilityScheduleRequestName, parameters, nil)
+}
 
-	existingSchedule, err := c.lookupScheduleFunc(ctx, scope, principalId, roleDefinitionId)
+func (c *pimEligibilityScheduleClientImpl) cancelSchedule(ctx context.Context, scope, scheduleName string) (armauthorization.RoleEligibilityScheduleRequestsClientCancelResponse, error) {
+	return c.requestsClient.Cancel(ctx, scope, scheduleName, nil)
+}
+
+// Map an Azure SDK schedule object to Pulumi SDK shape output. Since the SDK uses the same API, it's almost in the
+// right shape, except the SDK ignores the `"x-ms-client-flatten": true` annotation in the API spec, so we run it
+// through our converter.
+func (c *pimEligibilityScheduleClientImpl) mapScheduleToOutputs(schedule *armauthorization.RoleEligibilitySchedule) (map[string]any, error) {
+	j, err := json.Marshal(schedule)
+	if err != nil {
+		return nil, fmt.Errorf("converting role eligibility schedule from SDK to JSON: %w", err)
+	}
+	var js map[string]any
+	err = json.Unmarshal(j, &js)
+	if err != nil {
+		return nil, fmt.Errorf("unmarshaling role eligibility schedule from JSON: %w", err)
+	}
+
+	// We don't need the "Microsoft.Authorization/roleEligibilitySchedules" type that the SDK adds.
+	delete(js, "type")
+
+	result := c.crudClient.ResponseBodyToSdkOutputs(js)
+	return result, nil
+}
+
+func read(ctx context.Context, id string, inputs resource.PropertyMap, client pimEligibilityScheduleClient) (map[string]any, bool, error) {
+	sdkInputs, err := inputsToSdk(inputs)
+	if err != nil {
+		return nil, false, fmt.Errorf("converting inputs to SDK shape: %w", err)
+	}
+
+	existingSchedule, err := client.findSchedule(ctx, *sdkInputs.Properties.Scope,
+		*sdkInputs.Properties.PrincipalID, *sdkInputs.Properties.RoleDefinitionID)
 	if err != nil {
 		return nil, false, fmt.Errorf("looking up role eligibility schedule: %w", err)
 	}
@@ -376,7 +220,7 @@ func (c *pimEligibilityScheduleClient) Read(ctx context.Context, id string, inpu
 		return nil, false, nil
 	}
 
-	result, err := mapScheduleToOutputs(existingSchedule, inputs)
+	result, err := client.mapScheduleToOutputs(existingSchedule)
 	if err != nil {
 		return nil, true, fmt.Errorf("mapping role eligibility schedule to outputs: %w", err)
 	}
@@ -386,75 +230,45 @@ func (c *pimEligibilityScheduleClient) Read(ctx context.Context, id string, inpu
 // Create submits a Role Eligibility Schedule Request to the PIM service. It then waits and polls for the request to be
 // in a terminal state like approved or denied. All possible states are defined
 // [here](https://learn.microsoft.com/en-us/rest/api/authorization/role-eligibility-schedules/get?view=rest-authorization-2020-10-01&tabs=HTTP#status).
-func (c *pimEligibilityScheduleClient) Create(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
-	scope := inputs["scope"].StringValue()
-	principalId := inputs["principalId"].StringValue()
-	roleDefinitionId := inputs["roleDefinitionId"].StringValue()
-
-	// Look for an existing schedule for the same scope|principal|role triple.
-	// TODO this is what TF does but it's not clear why there couldn't be multiple schedules.
-	schedule, err := c.lookupScheduleFunc(ctx, scope, principalId, roleDefinitionId)
+func createPimEligibilitySchedule(ctx context.Context, id string, inputs resource.PropertyMap,
+	client pimEligibilityScheduleClient, maxWait time.Duration,
+) (map[string]any, error) {
+	payload, err := inputsToSdk(inputs)
 	if err != nil {
-		return nil, fmt.Errorf("looking up role eligibility schedule: %w", err)
-	}
-	if schedule != nil {
-		return nil, fmt.Errorf("a role eligibility schedule already exists")
+		return nil, fmt.Errorf("converting inputs to SDK shape: %w", err)
 	}
 
 	// Generate a new GUID for the schedule request name
 	scheduleRequestName := uuid.New().String()
+	payload.Name = nil
 
-	// Prepare the payload for the role eligibility schedule request
-	// TODO could this just be c.crudClient.PrepareAzureRESTBody() if we had a client for RoleEligibilityScheduleRequest?
 	typeAssign := armauthorization.RequestTypeAdminAssign
-	scheduleInfo := inputs["scheduleInfo"].ObjectValue()
-	startTime, err := time.Parse(time.RFC3339, scheduleInfo["startDateTime"].StringValue())
-	if err != nil {
-		return nil, fmt.Errorf("invalid start time: %w", err)
-	}
-	expiration := scheduleInfo["expiration"].ObjectValue()
-	expirationType := armauthorization.Type(expiration["type"].StringValue())
-	payload := armauthorization.RoleEligibilityScheduleRequest{
-		Properties: &armauthorization.RoleEligibilityScheduleRequestProperties{
-			Justification:    pulumi.StringRef(inputs["justification"].StringValue()),
-			PrincipalID:      pulumi.StringRef(principalId),
-			RoleDefinitionID: pulumi.StringRef(roleDefinitionId),
-			RequestType:      &typeAssign,
-			ScheduleInfo: &armauthorization.RoleEligibilityScheduleRequestPropertiesScheduleInfo{
-				StartDateTime: &startTime,
-				Expiration: &armauthorization.RoleEligibilityScheduleRequestPropertiesScheduleInfoExpiration{
-					Duration: pulumi.StringRef(expiration["duration"].StringValue()),
-					Type:     &expirationType,
-				},
-			},
-		},
-	}
+	payload.Properties.RequestType = &typeAssign
 
-	// Create the request
-	_, err = c.requestsClient.Create(ctx, scope, scheduleRequestName, payload, nil)
+	// Create the schedule request
+	_, err = client.createSchedule(ctx, *payload.Properties.Scope, scheduleRequestName, *payload)
 	if err != nil {
 		return nil, fmt.Errorf("creating role eligibility schedule request: %w", err)
 	}
 
-	// Poll for completion. Success is when we find a schedule with the matching scope|principal|role triple.
-	maxWait := 10 * time.Minute
+	// Poll for completion. Success is when we find a schedule with the matching scope|principal|role tuple.
 	timeout := time.After(maxWait)
-	ticker := time.NewTicker(10 * time.Second)
+	ticker := time.NewTicker(pimRoleEligibilityScheduleTickerInterval)
 	defer ticker.Stop()
 	for {
 		select {
 		case <-timeout:
 			return nil, fmt.Errorf("timed out waiting %s for role eligibility schedule to be created", maxWait)
 		case <-ticker.C:
-			// Use lookupSchedule to check if the schedule exists
-			schedule, err := c.lookupSchedule(ctx, scope, principalId, roleDefinitionId)
+			// check if the schedule exists
+			schedule, err := client.findSchedule(ctx, *payload.Properties.Scope,
+				*payload.Properties.PrincipalID, *payload.Properties.RoleDefinitionID)
 			if err != nil {
 				return nil, fmt.Errorf("looking up role eligibility schedule: %w", err)
 			}
 
 			if schedule != nil {
-				// Schedule found, exit the loop
-				return mapScheduleToOutputs(schedule, inputs)
+				return client.mapScheduleToOutputs(schedule)
 			}
 		}
 	}
@@ -463,14 +277,21 @@ func (c *pimEligibilityScheduleClient) Create(ctx context.Context, id string, in
 // Delete checks if the Role Eligibility Schedule Request for this schedule is still active, i.e., in a non-terminal
 // state. If so, it cancels the request. Otherwise, it submits a new Schedule Request with RequestType=AdminRemove to
 // delete the schedule.
-func (c *pimEligibilityScheduleClient) Delete(ctx context.Context, id string, previousInputs, state resource.PropertyMap) error {
-	// Extract necessary information from the state
-	scope := state["scope"].StringValue()
-	principalId := state["principalId"].StringValue()
-	roleDefinitionId := state["roleDefinitionId"].StringValue()
+func deletePimEligibilitySchedule(ctx context.Context, id string,
+	previousInputs, state resource.PropertyMap,
+	client pimEligibilityScheduleClient,
+	maxWait time.Duration,
+) error {
+	sdkState, err := inputsToSdk(state)
+	if err != nil {
+		return fmt.Errorf("converting inputs to SDK shape: %w", err)
+	}
+
+	scheduleName := *sdkState.Name
+	scope := *sdkState.Properties.Scope
 
 	// Check the current status of the schedule
-	schedule, err := c.schedulesClient.Get(ctx, scope, id, nil)
+	schedule, err := client.getSchedule(ctx, scope, scheduleName)
 	if err != nil {
 		var responseErr *azcore.ResponseError
 		if errors.As(err, &responseErr) && responseErr.StatusCode == 404 {
@@ -481,58 +302,130 @@ func (c *pimEligibilityScheduleClient) Delete(ctx context.Context, id string, pr
 	}
 
 	// If the schedule is active, cancel it
-	if *schedule.Properties.Status == armauthorization.StatusPendingApproval || *schedule.Properties.Status == armauthorization.StatusGranted {
-		_, err := c.requestsClient.Cancel(ctx, scope, id, nil)
+	if statusIsPending(schedule.Properties.Status) {
+		_, err := client.cancelSchedule(ctx, *sdkState.Properties.Scope, id)
 		if err != nil {
 			return fmt.Errorf("canceling role eligibility schedule: %w", err)
 		}
 		return nil
 	}
 
-	// If the schedule is not active, submit a new request with RequestType=AdminRemove
+	// If the schedule is not active, submit a new request with RequestType=AdminRemove.
+	// Generate a new GUID for the removal request
+	removeRequestName := uuid.New().String()
+
 	typeRemove := armauthorization.RequestTypeAdminRemove
 	payload := armauthorization.RoleEligibilityScheduleRequest{
+		Name: pulumi.StringRef(removeRequestName),
 		Properties: &armauthorization.RoleEligibilityScheduleRequestProperties{
-			PrincipalID:      pulumi.StringRef(principalId),
-			RoleDefinitionID: pulumi.StringRef(roleDefinitionId),
+			PrincipalID:      sdkState.Properties.PrincipalID,
+			RoleDefinitionID: sdkState.Properties.RoleDefinitionID,
 			RequestType:      &typeRemove,
 			Justification:    pulumi.StringRef("Removed by Pulumi"),
 		},
 	}
 
-	// Generate a new GUID for the removal request
-	removeRequestName := uuid.New().String()
-
-	_, err = c.requestsClient.Create(ctx, scope, removeRequestName, payload, nil)
+	err = util.RetryOperation(2*time.Minute, 20*time.Second, "requesting role eligibility schedule removal", func() (bool, error) {
+		_, err = client.createSchedule(ctx, scope, removeRequestName, payload)
+		if err != nil {
+			var responseErr *azcore.ResponseError
+			if errors.As(err, &responseErr) {
+				// occasional intermittent error, retry
+				if responseErr.ErrorCode == "ActiveDurationTooShort" {
+					return false, nil
+				}
+				// already deleted, we're done
+				if responseErr.ErrorCode == "RoleAssignmentDoesNotExist" {
+					return true, nil
+				}
+			}
+			return false, fmt.Errorf("creating role eligibility schedule removal request: %w", err)
+		}
+		return true, nil
+	})
 	if err != nil {
 		return fmt.Errorf("creating role eligibility schedule removal request: %w", err)
 	}
 
-	// Poll for the removal request to be processed.
-	maxWait := 10 * time.Minute
-	timeout := time.After(maxWait)
-	ticker := time.NewTicker(10 * time.Second)
-	defer ticker.Stop()
-	for {
-		select {
-		case <-timeout:
-			return fmt.Errorf("timed out waiting %s for role eligibility schedule to be deleted", maxWait)
-		case <-ticker.C:
-			request, err := c.requestsClient.Get(ctx, scope, removeRequestName, nil)
+	// Poll for the schedule to be gone.
+	err = util.RetryOperation(maxWait, pimRoleEligibilityScheduleTickerInterval, "role eligibility schedule deletion", func() (bool, error) {
+		_, err := client.getSchedule(ctx, scope, scheduleName)
+		if err != nil {
+			var responseErr *azcore.ResponseError
+			if errors.As(err, &responseErr) && responseErr.StatusCode == 404 {
+				return true, nil
+			}
+			return false, fmt.Errorf("retrieving role eligibility schedule: %w", err)
+		}
+		return false, nil
+	})
+	return err
+}
+
+func statusIsPending(status *armauthorization.Status) bool {
+	return *status == armauthorization.StatusGranted ||
+		strings.HasPrefix(string(*status), "Pending")
+}
+
+func inputsToSdk(inputs resource.PropertyMap) (*armauthorization.RoleEligibilityScheduleRequest, error) {
+	result := &armauthorization.RoleEligibilityScheduleRequest{
+		Properties: &armauthorization.RoleEligibilityScheduleRequestProperties{},
+	}
+
+	if name, ok := inputs["roleEligibilityScheduleRequestName"]; ok {
+		result.Name = pulumi.StringRef(name.StringValue())
+	} else if name, ok = inputs["name"]; ok {
+		result.Name = pulumi.StringRef(name.StringValue())
+	}
+
+	if scope, ok := inputs["scope"]; ok {
+		result.Properties.Scope = pulumi.StringRef(scope.StringValue())
+	} else {
+		return nil, fmt.Errorf("scope is required")
+	}
+
+	if principalId, ok := inputs["principalId"]; ok {
+		result.Properties.PrincipalID = pulumi.StringRef(principalId.StringValue())
+	} else {
+		return nil, fmt.Errorf("principalId is required")
+	}
+
+	if roleDefinitionId, ok := inputs["roleDefinitionId"]; ok {
+		result.Properties.RoleDefinitionID = pulumi.StringRef(roleDefinitionId.StringValue())
+	} else {
+		return nil, fmt.Errorf("roleDefinitionId is required")
+	}
+
+	if justification, ok := inputs["justification"]; ok {
+		result.Properties.Justification = pulumi.StringRef(justification.StringValue())
+	}
+
+	if status, ok := inputs["status"]; ok {
+		statusVal := armauthorization.Status(status.StringValue())
+		result.Properties.Status = &statusVal
+	}
+
+	if scheduleInfo, ok := inputs["scheduleInfo"]; ok {
+		info := scheduleInfo.ObjectValue()
+		result.Properties.ScheduleInfo = &armauthorization.RoleEligibilityScheduleRequestPropertiesScheduleInfo{
+			Expiration: &armauthorization.RoleEligibilityScheduleRequestPropertiesScheduleInfoExpiration{},
+		}
+
+		if startDateTime, ok := info["startDateTime"]; ok {
+			startTime, err := time.Parse(time.RFC3339, startDateTime.StringValue())
 			if err != nil {
-				return fmt.Errorf("retrieving role eligibility schedule removal request: %w", err)
+				return nil, fmt.Errorf("invalid start time: %w", err)
 			}
+			result.Properties.ScheduleInfo.StartDateTime = &startTime
+		}
 
-			status := request.Properties.Status
-			if *status == armauthorization.StatusAdminApproved || *status == armauthorization.StatusGranted {
-				break
-			}
-
-			if *status == armauthorization.StatusAdminDenied {
-				return fmt.Errorf("role eligibility schedule removal request denied")
-			}
-
-			time.Sleep(10 * time.Second) // Polling interval
+		if expiration, ok := info["expiration"]; ok {
+			exp := expiration.ObjectValue()
+			result.Properties.ScheduleInfo.Expiration.Duration = pulumi.StringRef(exp["duration"].StringValue())
+			expirationType := armauthorization.Type(exp["type"].StringValue())
+			result.Properties.ScheduleInfo.Expiration.Type = &expirationType
 		}
 	}
+
+	return result, nil
 }
