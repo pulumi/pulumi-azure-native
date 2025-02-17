@@ -6155,7 +6155,7 @@ HybridConnectivity:
         RpNamespace: Microsoft.HybridConnectivity
     PublicCloudConnector:
         ApiVersion: "2024-12-01"
-        SpecFilePath: specification/hybridconnectivity/resource-manager/Microsoft.HybridConnectivity/PublicCloud/stable/2024-12-01/publicCloud.json
+        SpecFilePath: specification/hybridconnectivity/resource-manager/Microsoft.HybridConnectivity/stable/2024-12-01/hybridconnectivity.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridConnectivity/publicCloudConnectors/{publicCloudConnector}
         RpNamespace: Microsoft.HybridConnectivity
     ServiceConfiguration:
@@ -6165,7 +6165,7 @@ HybridConnectivity:
         RpNamespace: Microsoft.HybridConnectivity
     SolutionConfiguration:
         ApiVersion: "2024-12-01"
-        SpecFilePath: specification/hybridconnectivity/resource-manager/Microsoft.HybridConnectivity/PublicCloud/stable/2024-12-01/publicCloud.json
+        SpecFilePath: specification/hybridconnectivity/resource-manager/Microsoft.HybridConnectivity/stable/2024-12-01/hybridconnectivity.json
         ResourceUri: /{resourceUri}/providers/Microsoft.HybridConnectivity/solutionConfigurations/{solutionConfiguration}
         RpNamespace: Microsoft.HybridConnectivity
     listEndpointCredentials:
