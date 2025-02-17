@@ -540,7 +540,7 @@ func (k *azureNativeProvider) getDefaultLocation(ctx context.Context, olds, news
 		return nil
 	}
 
-	v, ok := response.(map[string]any)["location"].(string)
+	v, ok := response["location"].(string)
 	if !ok {
 		logging.V(9).Infof("no location for resource group %q", rgName)
 		return nil
