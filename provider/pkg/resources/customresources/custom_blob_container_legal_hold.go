@@ -127,7 +127,7 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 				return nil, false, err
 			}
 
-			legalHoldProp, ok := util.GetInnerMap(container.(map[string]any), "properties", "legalHold")
+			legalHoldProp, ok := util.GetInnerMap(container, "properties", "legalHold")
 			if !ok {
 				return nil, false, nil
 			}
