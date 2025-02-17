@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.PortalServices
     /// <summary>
     /// The copilot settings tenant resource definition.
     /// Azure REST API version: 2024-04-01-preview.
+    /// 
+    /// Other available API versions: 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:portalservices:CopilotSetting")]
     public partial class CopilotSetting : global::Pulumi.CustomResource
@@ -71,6 +73,7 @@ namespace Pulumi.AzureNative.PortalServices
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:portalservices/v20240401:CopilotSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:portalservices/v20240401preview:CopilotSetting" },
                 },
             };
