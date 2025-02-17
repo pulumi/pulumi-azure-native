@@ -31,7 +31,7 @@ type AzureDeleter interface {
 type AzureClient interface {
 	AzureDeleter
 	CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error
-	Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (any, error)
+	Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (map[string]any, error)
 	Head(ctx context.Context, id string, apiVersion string) error
 	Patch(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error)
 	Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}) (any, error)
@@ -69,7 +69,7 @@ func (m *MockAzureClient) Delete(ctx context.Context, id, apiVersion, asyncStyle
 func (m *MockAzureClient) CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error {
 	return nil
 }
-func (m *MockAzureClient) Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (any, error) {
+func (m *MockAzureClient) Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (map[string]any, error) {
 	m.GetIds = append(m.GetIds, id)
 	return m.GetResponse, m.GetResponseErr
 }
@@ -214,7 +214,7 @@ func (a *azureClientImpl) Post(
 	return outputs, nil
 }
 
-func (a *azureClientImpl) Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (any, error) {
+func (a *azureClientImpl) Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (map[string]any, error) {
 	queryParameters := map[string]interface{}{
 		"api-version": apiVersion,
 	}
@@ -239,7 +239,7 @@ func (a *azureClientImpl) Get(ctx context.Context, id string, apiVersion string,
 	if err != nil {
 		return nil, err
 	}
-	var outputs any
+	var outputs map[string]any
 	err = autorest.Respond(
 		resp,
 		a.client.ByInspecting(),

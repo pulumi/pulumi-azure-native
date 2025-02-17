@@ -66,13 +66,9 @@ func makeWebAppResource(resourceType, path string, crudClientFactory crud.Resour
 				return nil, false, err
 			}
 
-			siteConfigResponseRaw, err := azureClient.Get(ctx, id+"/config/web", apiVersion, nil)
+			siteConfigResponse, err := azureClient.Get(ctx, id+"/config/web", apiVersion, nil)
 			if err != nil {
 				return nil, false, err
-			}
-			siteConfigResponse, ok := siteConfigResponseRaw.(map[string]any)
-			if !ok {
-				return nil, true, fmt.Errorf("unexpected response type %T", siteConfigResponseRaw)
 			}
 
 			if err := mergeWebAppSiteConfig(webAppResponse, siteConfigResponse); err != nil {
