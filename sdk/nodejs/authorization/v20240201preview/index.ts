@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetPimRoleEligibilityScheduleArgs, GetPimRoleEligibilityScheduleResult, GetPimRoleEligibilityScheduleOutputArgs } from "./getPimRoleEligibilitySchedule";
+export const getPimRoleEligibilitySchedule: typeof import("./getPimRoleEligibilitySchedule").getPimRoleEligibilitySchedule = null as any;
+export const getPimRoleEligibilityScheduleOutput: typeof import("./getPimRoleEligibilitySchedule").getPimRoleEligibilityScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getPimRoleEligibilitySchedule","getPimRoleEligibilityScheduleOutput"], () => require("./getPimRoleEligibilitySchedule"));
+
 export { GetRoleManagementPolicyArgs, GetRoleManagementPolicyResult, GetRoleManagementPolicyOutputArgs } from "./getRoleManagementPolicy";
 export const getRoleManagementPolicy: typeof import("./getRoleManagementPolicy").getRoleManagementPolicy = null as any;
 export const getRoleManagementPolicyOutput: typeof import("./getRoleManagementPolicy").getRoleManagementPolicyOutput = null as any;
@@ -14,6 +19,11 @@ export { GetRoleManagementPolicyAssignmentArgs, GetRoleManagementPolicyAssignmen
 export const getRoleManagementPolicyAssignment: typeof import("./getRoleManagementPolicyAssignment").getRoleManagementPolicyAssignment = null as any;
 export const getRoleManagementPolicyAssignmentOutput: typeof import("./getRoleManagementPolicyAssignment").getRoleManagementPolicyAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getRoleManagementPolicyAssignment","getRoleManagementPolicyAssignmentOutput"], () => require("./getRoleManagementPolicyAssignment"));
+
+export { PimRoleEligibilityScheduleArgs } from "./pimRoleEligibilitySchedule";
+export type PimRoleEligibilitySchedule = import("./pimRoleEligibilitySchedule").PimRoleEligibilitySchedule;
+export const PimRoleEligibilitySchedule: typeof import("./pimRoleEligibilitySchedule").PimRoleEligibilitySchedule = null as any;
+utilities.lazyLoad(exports, ["PimRoleEligibilitySchedule"], () => require("./pimRoleEligibilitySchedule"));
 
 export { RoleManagementPolicyArgs } from "./roleManagementPolicy";
 export type RoleManagementPolicy = import("./roleManagementPolicy").RoleManagementPolicy;
@@ -33,6 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:authorization/v20240201preview:PimRoleEligibilitySchedule":
+                return new PimRoleEligibilitySchedule(name, <any>undefined, { urn })
             case "azure-native:authorization/v20240201preview:RoleManagementPolicy":
                 return new RoleManagementPolicy(name, <any>undefined, { urn })
             case "azure-native:authorization/v20240201preview:RoleManagementPolicyAssignment":

@@ -563,6 +563,17 @@ func (modules AzureModules) addAPIPath(specsDir, fileLocation, path string, swag
 	return addResourcesAndInvokes(version, fileLocation, path, moduleNaming, swagger)
 }
 
+// getTypeName returns the type name for a given operation and path. The path is used to check for custom resource
+// names. In the standard case, it's unused and the name is based on the operation id.
+func getTypeName(op *spec.Operation, path string) (string, *resources.NameDisambiguation) {
+	var disambiguation *resources.NameDisambiguation
+	typeName := customresources.GetCustomResourceName(path)
+	if typeName == "" {
+		typeName, disambiguation = resources.ResourceName(op.ID, path)
+	}
+	return typeName, disambiguation
+}
+
 func addResourcesAndInvokes(version VersionResources, fileLocation, path string, moduleNaming resources.ModuleNaming, swagger *Spec) DiscoveryDiagnostics {
 	apiVersion := ApiVersion(swagger.Info.Version)
 	sdkVersion := ApiToSdkVersion(apiVersion)
@@ -636,11 +647,10 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 				// See the limitation in `SdkShapeConverter.isDefaultResponse()`
 				panic(fmt.Sprintf("invalid defaultResourcesState '%s': non-empty collections aren't supported for deletable resources", path))
 			}
-
-			typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
+			typeName, disambiguation := getTypeName(pathItem.Get, path)
 			recordDisambiguation(disambiguation)
 
-			if typeName != "" && (hasDelete || defaultState != nil) {
+			if typeName != "" && (hasDelete || defaultState != nil || customresources.IsCustomResource(path)) {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", sdkVersion, typeName, path, version.Resources[typeName].Path)
 				}
@@ -651,7 +661,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 				addResource(typeName, defaultBody, nil /* pathItemList */)
 			}
 		case pathItem.Head != nil && !pathItem.Head.Deprecated:
-			typeName, disambiguation := resources.ResourceName(pathItem.Head.ID, path)
+			typeName, disambiguation := getTypeName(pathItem.Head, path)
 			recordDisambiguation(disambiguation)
 
 			if typeName != "" && hasDelete {
@@ -665,9 +675,9 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 			var disambiguation *resources.NameDisambiguation
 			switch {
 			case pathItemList.Get != nil && !pathItemList.Get.Deprecated:
-				typeName, disambiguation = resources.ResourceName(pathItemList.Get.ID, path)
+				typeName, disambiguation = getTypeName(pathItemList.Get, path)
 			case pathItemList.Post != nil && !pathItemList.Post.Deprecated:
-				typeName, disambiguation = resources.ResourceName(pathItemList.Post.ID, path)
+				typeName, disambiguation = getTypeName(pathItemList.Post, path)
 			}
 			recordDisambiguation(disambiguation)
 
@@ -694,7 +704,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 	// Add an entry for PATCH-based resources.
 	if pathItem.Patch != nil && !pathItem.Patch.Deprecated && pathItem.Get != nil && !pathItem.Get.Deprecated {
 		defaultState := defaults.GetDefaultResourceState(path, swagger.Info.Version)
-		typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
+		typeName, disambiguation := getTypeName(pathItem.Get, path)
 		recordDisambiguation(disambiguation)
 
 		if typeName != "" && (customresources.IsCustomResource(path) || defaultState != nil) {
@@ -735,7 +745,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 		}
 
 		if prefix != "" {
-			typeName, disambiguation := resources.ResourceName(pathItem.Post.ID, path)
+			typeName, disambiguation := getTypeName(pathItem.Post, path)
 			if typeName != "" {
 				addInvoke(prefix + typeName)
 				recordDisambiguation(disambiguation)

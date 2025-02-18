@@ -10,7 +10,9 @@ __all__ = [
     'NotificationDeliveryMechanism',
     'NotificationLevel',
     'RecipientType',
+    'RequestType',
     'RoleManagementPolicyRuleType',
+    'Type',
     'UserType',
 ]
 
@@ -59,6 +61,21 @@ class RecipientType(str, Enum):
     ADMIN = "Admin"
 
 
+class RequestType(str, Enum):
+    """
+    The type of the role assignment schedule request. Eg: SelfActivate, AdminAssign etc
+    """
+    ADMIN_ASSIGN = "AdminAssign"
+    ADMIN_REMOVE = "AdminRemove"
+    ADMIN_UPDATE = "AdminUpdate"
+    ADMIN_EXTEND = "AdminExtend"
+    ADMIN_RENEW = "AdminRenew"
+    SELF_ACTIVATE = "SelfActivate"
+    SELF_DEACTIVATE = "SelfDeactivate"
+    SELF_EXTEND = "SelfExtend"
+    SELF_RENEW = "SelfRenew"
+
+
 class RoleManagementPolicyRuleType(str, Enum):
     """
     The type of rule
@@ -68,6 +85,15 @@ class RoleManagementPolicyRuleType(str, Enum):
     ROLE_MANAGEMENT_POLICY_ENABLEMENT_RULE = "RoleManagementPolicyEnablementRule"
     ROLE_MANAGEMENT_POLICY_EXPIRATION_RULE = "RoleManagementPolicyExpirationRule"
     ROLE_MANAGEMENT_POLICY_NOTIFICATION_RULE = "RoleManagementPolicyNotificationRule"
+
+
+class Type(str, Enum):
+    """
+    Type of the role eligibility schedule expiration
+    """
+    AFTER_DURATION = "AfterDuration"
+    AFTER_DATE_TIME = "AfterDateTime"
+    NO_EXPIRATION = "NoExpiration"
 
 
 class UserType(str, Enum):

@@ -13,6 +13,7 @@ import * as v20201001preview from "./v20201001preview";
 import * as v20210601 from "./v20210601";
 import * as v20211201preview from "./v20211201preview";
 import * as v20220401 from "./v20220401";
+import * as v20220401preview from "./v20220401preview";
 import * as v20220601 from "./v20220601";
 import * as v20220701preview from "./v20220701preview";
 import * as v20230401 from "./v20230401";
@@ -34,6 +35,7 @@ export {
     v20210601,
     v20211201preview,
     v20220401,
+    v20220401preview,
     v20220601,
     v20220701preview,
     v20230401,
@@ -279,6 +281,23 @@ export const RecipientType = {
  */
 export type RecipientType = (typeof RecipientType)[keyof typeof RecipientType];
 
+export const RequestType = {
+    AdminAssign: "AdminAssign",
+    AdminRemove: "AdminRemove",
+    AdminUpdate: "AdminUpdate",
+    AdminExtend: "AdminExtend",
+    AdminRenew: "AdminRenew",
+    SelfActivate: "SelfActivate",
+    SelfDeactivate: "SelfDeactivate",
+    SelfExtend: "SelfExtend",
+    SelfRenew: "SelfRenew",
+} as const;
+
+/**
+ * The type of the role assignment schedule request. Eg: SelfActivate, AdminAssign etc
+ */
+export type RequestType = (typeof RequestType)[keyof typeof RequestType];
+
 export const ResourceIdentityType = {
     /**
      * Indicates that a system assigned identity is associated with the resource.
@@ -336,6 +355,17 @@ export const SelectorKind = {
  * The selector kind.
  */
 export type SelectorKind = (typeof SelectorKind)[keyof typeof SelectorKind];
+
+export const Type = {
+    AfterDuration: "AfterDuration",
+    AfterDateTime: "AfterDateTime",
+    NoExpiration: "NoExpiration",
+} as const;
+
+/**
+ * Type of the role eligibility schedule expiration
+ */
+export type Type = (typeof Type)[keyof typeof Type];
 
 export const UserType = {
     User: "User",
