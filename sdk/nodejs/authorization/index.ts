@@ -55,6 +55,11 @@ export const getManagementLockByScope: typeof import("./getManagementLockByScope
 export const getManagementLockByScopeOutput: typeof import("./getManagementLockByScope").getManagementLockByScopeOutput = null as any;
 utilities.lazyLoad(exports, ["getManagementLockByScope","getManagementLockByScopeOutput"], () => require("./getManagementLockByScope"));
 
+export { GetPimRoleEligibilityScheduleArgs, GetPimRoleEligibilityScheduleResult, GetPimRoleEligibilityScheduleOutputArgs } from "./getPimRoleEligibilitySchedule";
+export const getPimRoleEligibilitySchedule: typeof import("./getPimRoleEligibilitySchedule").getPimRoleEligibilitySchedule = null as any;
+export const getPimRoleEligibilityScheduleOutput: typeof import("./getPimRoleEligibilitySchedule").getPimRoleEligibilityScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getPimRoleEligibilitySchedule","getPimRoleEligibilityScheduleOutput"], () => require("./getPimRoleEligibilitySchedule"));
+
 export { GetPolicyAssignmentArgs, GetPolicyAssignmentResult, GetPolicyAssignmentOutputArgs } from "./getPolicyAssignment";
 export const getPolicyAssignment: typeof import("./getPolicyAssignment").getPolicyAssignment = null as any;
 export const getPolicyAssignmentOutput: typeof import("./getPolicyAssignment").getPolicyAssignmentOutput = null as any;
@@ -215,6 +220,11 @@ export type ManagementLockByScope = import("./managementLockByScope").Management
 export const ManagementLockByScope: typeof import("./managementLockByScope").ManagementLockByScope = null as any;
 utilities.lazyLoad(exports, ["ManagementLockByScope"], () => require("./managementLockByScope"));
 
+export { PimRoleEligibilityScheduleArgs } from "./pimRoleEligibilitySchedule";
+export type PimRoleEligibilitySchedule = import("./pimRoleEligibilitySchedule").PimRoleEligibilitySchedule;
+export const PimRoleEligibilitySchedule: typeof import("./pimRoleEligibilitySchedule").PimRoleEligibilitySchedule = null as any;
+utilities.lazyLoad(exports, ["PimRoleEligibilitySchedule"], () => require("./pimRoleEligibilitySchedule"));
+
 export { PolicyAssignmentArgs } from "./policyAssignment";
 export type PolicyAssignment = import("./policyAssignment").PolicyAssignment;
 export const PolicyAssignment: typeof import("./policyAssignment").PolicyAssignment = null as any;
@@ -342,6 +352,7 @@ import * as v20201001preview from "./v20201001preview";
 import * as v20210601 from "./v20210601";
 import * as v20211201preview from "./v20211201preview";
 import * as v20220401 from "./v20220401";
+import * as v20220401preview from "./v20220401preview";
 import * as v20220501preview from "./v20220501preview";
 import * as v20220601 from "./v20220601";
 import * as v20220701preview from "./v20220701preview";
@@ -366,6 +377,7 @@ export {
     v20210601,
     v20211201preview,
     v20220401,
+    v20220401preview,
     v20220501preview,
     v20220601,
     v20220701preview,
@@ -394,6 +406,8 @@ const _module = {
                 return new ManagementLockAtSubscriptionLevel(name, <any>undefined, { urn })
             case "azure-native:authorization:ManagementLockByScope":
                 return new ManagementLockByScope(name, <any>undefined, { urn })
+            case "azure-native:authorization:PimRoleEligibilitySchedule":
+                return new PimRoleEligibilitySchedule(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicyAssignment":
                 return new PolicyAssignment(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicyDefinition":

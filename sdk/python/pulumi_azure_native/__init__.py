@@ -2529,6 +2529,7 @@ _utilities.register(
    "azure-native:authorization:ManagementLockAtResourceLevel": "ManagementLockAtResourceLevel",
    "azure-native:authorization:ManagementLockAtSubscriptionLevel": "ManagementLockAtSubscriptionLevel",
    "azure-native:authorization:ManagementLockByScope": "ManagementLockByScope",
+   "azure-native:authorization:PimRoleEligibilitySchedule": "PimRoleEligibilitySchedule",
    "azure-native:authorization:PolicyAssignment": "PolicyAssignment",
    "azure-native:authorization:PolicyDefinition": "PolicyDefinition",
    "azure-native:authorization:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
@@ -2624,6 +2625,7 @@ _utilities.register(
   "mod": "authorization/v20201001",
   "fqn": "pulumi_azure_native.authorization.v20201001",
   "classes": {
+   "azure-native:authorization/v20201001:PimRoleEligibilitySchedule": "PimRoleEligibilitySchedule",
    "azure-native:authorization/v20201001:RoleManagementPolicy": "RoleManagementPolicy",
    "azure-native:authorization/v20201001:RoleManagementPolicyAssignment": "RoleManagementPolicyAssignment"
   }
@@ -2633,6 +2635,7 @@ _utilities.register(
   "mod": "authorization/v20201001preview",
   "fqn": "pulumi_azure_native.authorization.v20201001preview",
   "classes": {
+   "azure-native:authorization/v20201001preview:PimRoleEligibilitySchedule": "PimRoleEligibilitySchedule",
    "azure-native:authorization/v20201001preview:RoleManagementPolicy": "RoleManagementPolicy",
    "azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment": "RoleManagementPolicyAssignment"
   }
@@ -2665,6 +2668,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.authorization.v20220401",
   "classes": {
    "azure-native:authorization/v20220401:RoleAssignment": "RoleAssignment"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "authorization/v20220401preview",
+  "fqn": "pulumi_azure_native.authorization.v20220401preview",
+  "classes": {
+   "azure-native:authorization/v20220401preview:PimRoleEligibilitySchedule": "PimRoleEligibilitySchedule"
   }
  },
  {
@@ -2723,6 +2734,7 @@ _utilities.register(
   "mod": "authorization/v20240201preview",
   "fqn": "pulumi_azure_native.authorization.v20240201preview",
   "classes": {
+   "azure-native:authorization/v20240201preview:PimRoleEligibilitySchedule": "PimRoleEligibilitySchedule",
    "azure-native:authorization/v20240201preview:RoleManagementPolicy": "RoleManagementPolicy",
    "azure-native:authorization/v20240201preview:RoleManagementPolicyAssignment": "RoleManagementPolicyAssignment"
   }
@@ -2756,6 +2768,7 @@ _utilities.register(
   "mod": "authorization/v20240901preview",
   "fqn": "pulumi_azure_native.authorization.v20240901preview",
   "classes": {
+   "azure-native:authorization/v20240901preview:PimRoleEligibilitySchedule": "PimRoleEligibilitySchedule",
    "azure-native:authorization/v20240901preview:RoleManagementPolicy": "RoleManagementPolicy",
    "azure-native:authorization/v20240901preview:RoleManagementPolicyAssignment": "RoleManagementPolicyAssignment"
   }
