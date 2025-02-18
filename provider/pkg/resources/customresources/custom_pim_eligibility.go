@@ -22,6 +22,21 @@ import (
 )
 
 const (
+	pimRoleEligibilityScheduleResourceDescription = `A PIM (Privileged Identity Management) Role Eligibility Schedule.
+
+Role Eligibility Schedules are used to limit standing administrator access to privileged roles in Azure PIM. See
+[here](https://learn.microsoft.com/en-us/rest/api/authorization/privileged-role-eligibility-rest-sample) for details.
+
+A Role Eligibility Schedule is uniquely defined by scope, principal, and role. At present, only one instance of this
+resource can exist for a given scope|principal|role tuple.
+
+Note that this resource cannot be updated. Each change leads to a recreation.
+
+Internally, this resource uses the
+[Role Eligibility Schedule Requests](https://learn.microsoft.com/en-us/rest/api/authorization/role-eligibility-schedule-requests?view=rest-authorization-2020-10-01)
+API to create and delete the schedules.
+`
+
 	pimRoleEligibilityScheduleResourceName = "PimRoleEligibilitySchedule"
 	pimRoleEligibilityScheduleTok          = "azure-native:authorization:" + pimRoleEligibilityScheduleResourceName
 
@@ -37,17 +52,9 @@ const (
 // Tests are allowed to change this to a smaller value.
 var pimRoleEligibilityScheduleTickerInterval = 10 * time.Second
 
-// pimRoleEligibilitySchedule returns a custom resource for Role Eligibility Schedules, used to limit standing
-// administrator access to privileged roles in Azure Privileged Identity Management (PIM). See
-// https://learn.microsoft.com/en-us/rest/api/authorization/privileged-role-eligibility-rest-sample for details.
+// pimRoleEligibilitySchedule returns a custom resource for Role Eligibility Schedules.
 //
-// Role Eligibility Schedules cannot be created directly. Instead, one submits a Role Eligibility Schedule Request,
-// which can then be approved or denied. This resource handles the request internally.
-//
-// A Role Eligibility Schedule is defined by the triple of scope, principal, and role. At present, only one instance
-// of this resource can exist for a given scope|principal|role triple.
-//
-// Note that this resource cannot be updated. Each change leads to a recreation.
+// See the docs in the constant `pimRoleEligibilityScheduleResourceDescription` for details.
 //
 // The APIs used are Microsoft.Authorization/roleEligibilitySchedules and Microsoft.Authorization/
 // roleEligibilityScheduleRequests.
@@ -56,9 +63,8 @@ func pimRoleEligibilitySchedule(
 	crudClientFactory crud.ResourceCrudClientFactory,
 	token azcore.TokenCredential,
 ) (*CustomResource, error) {
-	// A bit of a hack to initialize some resource. This func's parameters are all nil when the
-	// function is called for the first time, for customresources.featureLookup, which is ok but
-	// would break our initialization here.
+	// A bit of a hack to initialize some resource. This func's parameters are all nil when the function is called for
+	// the first time, for customresources.featureLookup, which is ok but would break our initialization here.
 	var crudClient crud.ResourceCrudClient
 	var res resources.AzureAPIResource
 	var schedulesClient *armauthorization.RoleEligibilitySchedulesClient
@@ -109,7 +115,7 @@ func pimRoleEligibilitySchedule(
 	}, nil
 }
 
-// TODO add more docs (here or in /docs)
+// genSchema modifies the schema extracted from the Azure spec.
 func genSchema(resource *ResourceDefinition) (*ResourceDefinition, error) {
 	if resource == nil {
 		return nil, fmt.Errorf("resource %q not found in the spec", pimRoleEligibilityScheduleRequestTok)
@@ -122,9 +128,22 @@ func genSchema(resource *ResourceDefinition) (*ResourceDefinition, error) {
 	// remove the name, it's a random GUID so we generate it ourselves
 	delete(resource.Resource.InputProperties, "roleEligibilityScheduleRequestName")
 
+	updateResourceDescription(resource, pimRoleEligibilityScheduleResourceDescription)
+
 	return resource, nil
 }
 
+// updateResourceDescription replaces the resource description with the given one, but preserves API version
+// documentation if present.
+func updateResourceDescription(resource *ResourceDefinition, newDescription string) {
+	if idx := strings.Index(resource.Resource.Description, "Azure REST API version:"); idx != -1 {
+		newDescription += "\n\n" + resource.Resource.Description[idx:]
+	}
+	resource.Resource.Description = newDescription
+}
+
+// pimEligibilityScheduleClient is a client for the PIM Role Eligibility Schedule API. The interface allows to use fake
+// clients in tests.
 type pimEligibilityScheduleClient interface {
 	// listSchedules(scope, principalId string) *runtime.Pager[armauthorization.RoleEligibilitySchedulesClientListForScopeResponse]
 	findSchedule(ctx context.Context, scope, principalId, roleDefinitionId string) (*armauthorization.RoleEligibilitySchedule, error)
@@ -311,7 +330,7 @@ func deletePimEligibilitySchedule(ctx context.Context, id string,
 	}
 
 	// If the schedule is not active, submit a new request with RequestType=AdminRemove.
-	// Generate a new GUID for the removal request
+	// Generate a new GUID for the removal request.
 	removeRequestName := uuid.New().String()
 
 	typeRemove := armauthorization.RequestTypeAdminRemove
@@ -367,6 +386,7 @@ func statusIsPending(status *armauthorization.Status) bool {
 		strings.HasPrefix(string(*status), "Pending")
 }
 
+// inputsToSdk converts the Pulumi SDK shape inputs to the Azure SDK shape.
 func inputsToSdk(inputs resource.PropertyMap) (*armauthorization.RoleEligibilityScheduleRequest, error) {
 	result := &armauthorization.RoleEligibilityScheduleRequest{
 		Properties: &armauthorization.RoleEligibilityScheduleRequestProperties{},
