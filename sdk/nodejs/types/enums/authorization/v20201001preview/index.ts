@@ -56,23 +56,6 @@ export const RecipientType = {
  */
 export type RecipientType = (typeof RecipientType)[keyof typeof RecipientType];
 
-export const RequestType = {
-    AdminAssign: "AdminAssign",
-    AdminRemove: "AdminRemove",
-    AdminUpdate: "AdminUpdate",
-    AdminExtend: "AdminExtend",
-    AdminRenew: "AdminRenew",
-    SelfActivate: "SelfActivate",
-    SelfDeactivate: "SelfDeactivate",
-    SelfExtend: "SelfExtend",
-    SelfRenew: "SelfRenew",
-} as const;
-
-/**
- * The type of the role assignment schedule request. Eg: SelfActivate, AdminAssign etc
- */
-export type RequestType = (typeof RequestType)[keyof typeof RequestType];
-
 export const RoleManagementPolicyRuleType = {
     RoleManagementPolicyApprovalRule: "RoleManagementPolicyApprovalRule",
     RoleManagementPolicyAuthenticationContextRule: "RoleManagementPolicyAuthenticationContextRule",
@@ -85,17 +68,6 @@ export const RoleManagementPolicyRuleType = {
  * The type of rule
  */
 export type RoleManagementPolicyRuleType = (typeof RoleManagementPolicyRuleType)[keyof typeof RoleManagementPolicyRuleType];
-
-export const Type = {
-    AfterDuration: "AfterDuration",
-    AfterDateTime: "AfterDateTime",
-    NoExpiration: "NoExpiration",
-} as const;
-
-/**
- * Type of the role eligibility schedule expiration
- */
-export type Type = (typeof Type)[keyof typeof Type];
 
 export const UserType = {
     User: "User",

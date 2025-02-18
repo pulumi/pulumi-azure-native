@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Get the specified role eligibility schedule request.
         /// Azure REST API version: 2020-10-01.
-        /// 
-        /// Other available API versions: 2020-10-01-preview, 2022-04-01-preview, 2024-02-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Task<GetPimRoleEligibilityScheduleResult> InvokeAsync(GetPimRoleEligibilityScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPimRoleEligibilityScheduleResult>("azure-native:authorization:getPimRoleEligibilitySchedule", args ?? new GetPimRoleEligibilityScheduleArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Get the specified role eligibility schedule request.
         /// Azure REST API version: 2020-10-01.
-        /// 
-        /// Other available API versions: 2020-10-01-preview, 2022-04-01-preview, 2024-02-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetPimRoleEligibilityScheduleResult> Invoke(GetPimRoleEligibilityScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPimRoleEligibilityScheduleResult>("azure-native:authorization:getPimRoleEligibilitySchedule", args ?? new GetPimRoleEligibilityScheduleInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Get the specified role eligibility schedule request.
         /// Azure REST API version: 2020-10-01.
-        /// 
-        /// Other available API versions: 2020-10-01-preview, 2022-04-01-preview, 2024-02-01-preview, 2024-09-01-preview.
         /// </summary>
         public static Output<GetPimRoleEligibilityScheduleResult> Invoke(GetPimRoleEligibilityScheduleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPimRoleEligibilityScheduleResult>("azure-native:authorization:getPimRoleEligibilitySchedule", args ?? new GetPimRoleEligibilityScheduleInvokeArgs(), options.WithDefaults());

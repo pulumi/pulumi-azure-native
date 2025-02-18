@@ -6,10 +6,8 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_pim_role_eligibility_schedule import *
 from .get_role_management_policy import *
 from .get_role_management_policy_assignment import *
-from .pim_role_eligibility_schedule import *
 from .role_management_policy import *
 from .role_management_policy_assignment import *
 from ._inputs import *

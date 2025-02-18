@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * API to create and delete the schedules.
  *
  * Azure REST API version: 2020-10-01.
- *
- * Other available API versions: 2020-10-01-preview, 2022-04-01-preview, 2024-02-01-preview, 2024-09-01-preview.
  */
 export class PimRoleEligibilitySchedule extends pulumi.CustomResource {
     /**
@@ -191,7 +189,7 @@ export class PimRoleEligibilitySchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20201001:PimRoleEligibilitySchedule" }, { type: "azure-native:authorization/v20201001preview:PimRoleEligibilitySchedule" }, { type: "azure-native:authorization/v20220401preview:PimRoleEligibilitySchedule" }, { type: "azure-native:authorization/v20240201preview:PimRoleEligibilitySchedule" }, { type: "azure-native:authorization/v20240901preview:PimRoleEligibilitySchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20201001:PimRoleEligibilitySchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PimRoleEligibilitySchedule.__pulumiType, name, resourceInputs, opts);
     }

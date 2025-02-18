@@ -179,7 +179,7 @@ export class PimRoleEligibilitySchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20201001preview:PimRoleEligibilitySchedule" }, { type: "azure-native:authorization/v20220401preview:PimRoleEligibilitySchedule" }, { type: "azure-native:authorization/v20240201preview:PimRoleEligibilitySchedule" }, { type: "azure-native:authorization/v20240901preview:PimRoleEligibilitySchedule" }, { type: "azure-native:authorization:PimRoleEligibilitySchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization:PimRoleEligibilitySchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PimRoleEligibilitySchedule.__pulumiType, name, resourceInputs, opts);
     }

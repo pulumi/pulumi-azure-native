@@ -25,8 +25,6 @@ namespace Pulumi.AzureNative.Authorization
     /// API to create and delete the schedules.
     /// 
     /// Azure REST API version: 2020-10-01.
-    /// 
-    /// Other available API versions: 2020-10-01-preview, 2022-04-01-preview, 2024-02-01-preview, 2024-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PimRoleEligibilitySchedule")]
     public partial class PimRoleEligibilitySchedule : global::Pulumi.CustomResource
@@ -171,10 +169,6 @@ namespace Pulumi.AzureNative.Authorization
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20201001:PimRoleEligibilitySchedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20201001preview:PimRoleEligibilitySchedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20220401preview:PimRoleEligibilitySchedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20240201preview:PimRoleEligibilitySchedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20240901preview:PimRoleEligibilitySchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

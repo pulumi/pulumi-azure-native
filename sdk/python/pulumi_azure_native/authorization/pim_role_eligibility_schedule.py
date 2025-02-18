@@ -217,8 +217,6 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
 
         Azure REST API version: 2020-10-01.
 
-        Other available API versions: 2020-10-01-preview, 2022-04-01-preview, 2024-02-01-preview, 2024-09-01-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition: The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
@@ -254,8 +252,6 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
         API to create and delete the schedules.
 
         Azure REST API version: 2020-10-01.
-
-        Other available API versions: 2020-10-01-preview, 2022-04-01-preview, 2024-02-01-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PimRoleEligibilityScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -316,7 +312,7 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
             __props__.__dict__["requestor_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20201001:PimRoleEligibilitySchedule"), pulumi.Alias(type_="azure-native:authorization/v20201001preview:PimRoleEligibilitySchedule"), pulumi.Alias(type_="azure-native:authorization/v20220401preview:PimRoleEligibilitySchedule"), pulumi.Alias(type_="azure-native:authorization/v20240201preview:PimRoleEligibilitySchedule"), pulumi.Alias(type_="azure-native:authorization/v20240901preview:PimRoleEligibilitySchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20201001:PimRoleEligibilitySchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PimRoleEligibilitySchedule, __self__).__init__(
             'azure-native:authorization:PimRoleEligibilitySchedule',

@@ -285,8 +285,6 @@ def get_pim_role_eligibility_schedule(role_eligibility_schedule_request_name: Op
     Get the specified role eligibility schedule request.
     Azure REST API version: 2020-10-01.
 
-    Other available API versions: 2020-10-01-preview, 2022-04-01-preview, 2024-02-01-preview, 2024-09-01-preview.
-
 
     :param str role_eligibility_schedule_request_name: The name (guid) of the role eligibility schedule request to get.
     :param str scope: The scope of the role eligibility schedule request.
@@ -324,8 +322,6 @@ def get_pim_role_eligibility_schedule_output(role_eligibility_schedule_request_n
     """
     Get the specified role eligibility schedule request.
     Azure REST API version: 2020-10-01.
-
-    Other available API versions: 2020-10-01-preview, 2022-04-01-preview, 2024-02-01-preview, 2024-09-01-preview.
 
 
     :param str role_eligibility_schedule_request_name: The name (guid) of the role eligibility schedule request to get.

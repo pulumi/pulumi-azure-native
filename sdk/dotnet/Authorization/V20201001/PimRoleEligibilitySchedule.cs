@@ -154,10 +154,6 @@ namespace Pulumi.AzureNative.Authorization.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20201001preview:PimRoleEligibilitySchedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20220401preview:PimRoleEligibilitySchedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20240201preview:PimRoleEligibilitySchedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20240901preview:PimRoleEligibilitySchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization:PimRoleEligibilitySchedule" },
                 },
             };
