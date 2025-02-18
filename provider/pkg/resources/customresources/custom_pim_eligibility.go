@@ -109,8 +109,8 @@ func pimRoleEligibilitySchedule(
 		Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
 			return createPimEligibilitySchedule(ctx, id, inputs, client, pimRoleEligibilityScheduleMaxWaitForCreate)
 		},
-		Delete: func(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
-			return deletePimEligibilitySchedule(ctx, id, inputs, state, client, pimRoleEligibilityScheduleMaxWaitForDelete)
+		Delete: func(ctx context.Context, id string, _, state resource.PropertyMap) error {
+			return deletePimEligibilitySchedule(ctx, id, state, client, pimRoleEligibilityScheduleMaxWaitForDelete)
 		},
 	}, nil
 }
@@ -127,6 +127,12 @@ func genSchema(resource *ResourceDefinition) (*ResourceDefinition, error) {
 
 	// remove the name, it's a random GUID so we generate it ourselves
 	delete(resource.Resource.InputProperties, "roleEligibilityScheduleRequestName")
+
+	// This resource doesn't support direct updates, all changes need to go through a new schedule request.
+	for name, p := range resource.Resource.InputProperties {
+		p.ReplaceOnChanges = true
+		resource.Resource.InputProperties[name] = p
+	}
 
 	updateResourceDescription(resource, pimRoleEligibilityScheduleResourceDescription)
 
@@ -145,7 +151,6 @@ func updateResourceDescription(resource *ResourceDefinition, newDescription stri
 // pimEligibilityScheduleClient is a client for the PIM Role Eligibility Schedule API. The interface allows to use fake
 // clients in tests.
 type pimEligibilityScheduleClient interface {
-	// listSchedules(scope, principalId string) *runtime.Pager[armauthorization.RoleEligibilitySchedulesClientListForScopeResponse]
 	findSchedule(ctx context.Context, scope, principalId, roleDefinitionId string) (*armauthorization.RoleEligibilitySchedule, error)
 	getSchedule(ctx context.Context, scope, scheduleName string) (*armauthorization.RoleEligibilitySchedule, error)
 	// Matches armauthorization.RoleEligibilityScheduleRequestsClient.Create
@@ -204,7 +209,7 @@ func (c *pimEligibilityScheduleClientImpl) cancelSchedule(ctx context.Context, s
 
 // Map an Azure SDK schedule object to Pulumi SDK shape output. Since the SDK uses the same API, it's almost in the
 // right shape, except the SDK ignores the `"x-ms-client-flatten": true` annotation in the API spec, so we run it
-// through our converter.
+// through our converter to remove the extra layer of nesting.
 func (c *pimEligibilityScheduleClientImpl) mapScheduleToOutputs(schedule *armauthorization.RoleEligibilitySchedule) (map[string]any, error) {
 	j, err := json.Marshal(schedule)
 	if err != nil {
@@ -271,33 +276,31 @@ func createPimEligibilitySchedule(ctx context.Context, id string, inputs resourc
 	}
 
 	// Poll for completion. Success is when we find a schedule with the matching scope|principal|role tuple.
-	timeout := time.After(maxWait)
-	ticker := time.NewTicker(pimRoleEligibilityScheduleTickerInterval)
-	defer ticker.Stop()
-	for {
-		select {
-		case <-timeout:
-			return nil, fmt.Errorf("timed out waiting %s for role eligibility schedule to be created", maxWait)
-		case <-ticker.C:
-			// check if the schedule exists
-			schedule, err := client.findSchedule(ctx, *payload.Properties.Scope,
+	var schedule *armauthorization.RoleEligibilitySchedule
+	err = util.RetryOperation(maxWait, pimRoleEligibilityScheduleTickerInterval,
+		"waiting for role eligibility schedule to be created",
+		func() (bool, error) {
+			var err error
+			schedule, err = client.findSchedule(ctx, *payload.Properties.Scope,
 				*payload.Properties.PrincipalID, *payload.Properties.RoleDefinitionID)
 			if err != nil {
-				return nil, fmt.Errorf("looking up role eligibility schedule: %w", err)
+				return true, fmt.Errorf("looking up role eligibility schedule: %w", err)
 			}
-
-			if schedule != nil {
-				return client.mapScheduleToOutputs(schedule)
-			}
-		}
+			return schedule != nil, nil
+		})
+	if err != nil {
+		return nil, err
 	}
+
+	return client.mapScheduleToOutputs(schedule)
 }
 
 // Delete checks if the Role Eligibility Schedule Request for this schedule is still active, i.e., in a non-terminal
 // state. If so, it cancels the request. Otherwise, it submits a new Schedule Request with RequestType=AdminRemove to
 // delete the schedule.
-func deletePimEligibilitySchedule(ctx context.Context, id string,
-	previousInputs, state resource.PropertyMap,
+func deletePimEligibilitySchedule(ctx context.Context,
+	id string,
+	state resource.PropertyMap,
 	client pimEligibilityScheduleClient,
 	maxWait time.Duration,
 ) error {
@@ -344,7 +347,7 @@ func deletePimEligibilitySchedule(ctx context.Context, id string,
 		},
 	}
 
-	err = util.RetryOperation(2*time.Minute, 20*time.Second, "requesting role eligibility schedule removal", func() (bool, error) {
+	err = util.RetryOperation(2*time.Minute, pimRoleEligibilityScheduleTickerInterval, "requesting role eligibility schedule removal", func() (bool, error) {
 		_, err = client.createSchedule(ctx, scope, removeRequestName, payload)
 		if err != nil {
 			var responseErr *azcore.ResponseError
@@ -358,12 +361,12 @@ func deletePimEligibilitySchedule(ctx context.Context, id string,
 					return true, nil
 				}
 			}
-			return false, fmt.Errorf("creating role eligibility schedule removal request: %w", err)
+			return true, fmt.Errorf("creating role eligibility schedule removal request: %w", err)
 		}
 		return true, nil
 	})
 	if err != nil {
-		return fmt.Errorf("creating role eligibility schedule removal request: %w", err)
+		return err
 	}
 
 	// Poll for the schedule to be gone.
