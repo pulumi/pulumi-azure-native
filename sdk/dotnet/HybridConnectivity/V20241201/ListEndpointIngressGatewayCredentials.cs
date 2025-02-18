@@ -46,13 +46,13 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
         public int? Expiresin { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
 
         /// <summary>
-        /// The name of the service.
+        /// The name of the service. If not provided, the request will by pass the generation of service configuration token.
         /// </summary>
         [Input("serviceName")]
         public Union<string, Pulumi.AzureNative.HybridConnectivity.V20241201.ServiceName>? ServiceName { get; set; }
@@ -78,13 +78,13 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
         public Input<int>? Expiresin { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
 
         /// <summary>
-        /// The name of the service.
+        /// The name of the service. If not provided, the request will by pass the generation of service configuration token.
         /// </summary>
         [Input("serviceName")]
         public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.V20241201.ServiceName>? ServiceName { get; set; }

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Keys for endpoint authentication.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
  */
 export function listBatchEndpointKeys(args: ListBatchEndpointKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListBatchEndpointKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,7 +51,7 @@ export interface ListBatchEndpointKeysResult {
  * Keys for endpoint authentication.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
  */
 export function listBatchEndpointKeysOutput(args: ListBatchEndpointKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBatchEndpointKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
