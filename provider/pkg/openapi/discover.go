@@ -650,7 +650,9 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 			typeName, disambiguation := getTypeName(pathItem.Get, path)
 			recordDisambiguation(disambiguation)
 
-			if typeName != "" && (hasDelete || defaultState != nil || customresources.IsCustomResource(path)) {
+			isCustom, includeCustom := customresources.IncludeCustomResource(path, string(apiVersion))
+			canBeDeleted := hasDelete || defaultState != nil
+			if typeName != "" && ((isCustom && includeCustom) || (!isCustom && canBeDeleted)) {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", sdkVersion, typeName, path, version.Resources[typeName].Path)
 				}
@@ -707,7 +709,8 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 		typeName, disambiguation := getTypeName(pathItem.Get, path)
 		recordDisambiguation(disambiguation)
 
-		if typeName != "" && (customresources.IsCustomResource(path) || defaultState != nil) {
+		isCustom, includeCustom := customresources.IncludeCustomResource(path, string(apiVersion))
+		if typeName != "" && ((isCustom && includeCustom) || (!isCustom && defaultState != nil)) {
 			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 				fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", sdkVersion, typeName, path, version.Resources[typeName].Path)
 			}

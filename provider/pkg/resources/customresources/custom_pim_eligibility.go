@@ -102,6 +102,7 @@ func pimRoleEligibilitySchedule(
 		tok:                pimRoleEligibilityScheduleRequestTok,
 		CustomResourceName: pimRoleEligibilityScheduleResourceName,
 		path:               PimRoleEligibilityScheduleRequestPath,
+		apiVersion:         pulumi.StringRef("2020-10-01"),
 		Schema:             genSchema,
 		Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
 			return read(ctx, id, inputs, client)

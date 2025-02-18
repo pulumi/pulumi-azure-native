@@ -83,6 +83,10 @@ type CustomResource struct {
 	// the custom resource's name to be different.
 	CustomResourceName string
 
+	// Optional. If specified, only include schema and metadata from the spec for this version. Has no effect for
+	// resources that don't use the Azure spec. Format is 2020-01-30 or 2020-01-30-preview.
+	apiVersion *string
+
 	// IsSingleton is true if the resource is a singleton resource that cannot be created or deleted, only initialized
 	// and reset to a default state. Normally, we infer this from whether the `Delete` property is set. In some cases
 	// we need to set it explicitly if the resource is a singleton but does have a `Delete` property implementing a
@@ -283,9 +287,18 @@ func BuildCustomResources(env *azureEnv.Environment,
 // featureLookup is a map of custom resource to lookup their capabilities.
 var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil, nil, nil, "", nil)
 
-func IsCustomResource(path string) bool {
-	_, ok := featureLookup[path]
-	return ok
+// IncludeCustomResource returns isCustom=true if a custom resource is defined for the given path, and include=true if
+// the given API version should be included.
+// Note on the `apiVersion` parameter: using the `openapi.ApiVersion` type would create an import cycle.
+func IncludeCustomResource(path, apiVersion string) (isCustom, include bool) {
+	var resource *CustomResource
+	resource, isCustom = featureLookup[path]
+	if !isCustom {
+		return
+	}
+
+	include = resource.apiVersion == nil || *resource.apiVersion == apiVersion
+	return
 }
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
