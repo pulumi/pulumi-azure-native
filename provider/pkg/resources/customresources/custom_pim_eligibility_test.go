@@ -11,6 +11,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/authorization/armauthorization/v3"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/stretchr/testify/assert"
@@ -206,4 +207,66 @@ func TestDeletePimEligibilitySchedule(t *testing.T) {
 func isValidGUID(guid string) bool {
 	_, err := uuid.Parse(guid)
 	return err == nil
+}
+
+func TestUpdateResourceDescription(t *testing.T) {
+	t.Parallel()
+
+	t.Run("no existing description", func(t *testing.T) {
+		t.Parallel()
+
+		resource := &ResourceDefinition{
+			Resource: schema.ResourceSpec{
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Description: "",
+				},
+			},
+		}
+
+		updateResourceDescription(resource, "foo bar")
+		assert.Equal(t, "foo bar", resource.Resource.Description)
+	})
+
+	t.Run("existing description without API version", func(t *testing.T) {
+		t.Parallel()
+
+		resource := &ResourceDefinition{
+			Resource: schema.ResourceSpec{
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Description: "existing description",
+				},
+			},
+		}
+
+		updateResourceDescription(resource, "foo bar")
+		assert.Equal(t, "foo bar", resource.Resource.Description)
+	})
+
+	t.Run("existing description with API versions", func(t *testing.T) {
+		t.Parallel()
+
+		resource := &ResourceDefinition{
+			Resource: schema.ResourceSpec{
+				ObjectTypeSpec: schema.ObjectTypeSpec{
+					Description: `Role Eligibility schedule request
+Azure REST API version: 2020-10-01.
+
+Other available API versions: 2020-10-01-preview, 2022-04-01-preview, 2024-02-01-preview, 2024-09-01-preview.
+## Import
+...`,
+				},
+			},
+		}
+
+		updateResourceDescription(resource, "foo bar.\n\nmore info.")
+		assert.Equal(t, `foo bar.
+
+more info.
+
+Azure REST API version: 2020-10-01.
+
+Other available API versions: 2020-10-01-preview, 2022-04-01-preview, 2024-02-01-preview, 2024-09-01-preview.
+## Import
+...`, resource.Resource.Description)
+	})
 }
