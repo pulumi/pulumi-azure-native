@@ -170,8 +170,13 @@ func getOidcTokenExchangeAssertion(authConf *authConfiguration) func(ctx context
 		if err != nil {
 			return "", fmt.Errorf("githubAssertion: cannot parse URL query")
 		}
+
 		// see https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-azure#adding-the-federated-credentials-to-azure
-		query.Set("audience", "api://AzureADTokenExchange")
+		audience := "api://AzureADTokenExchange"
+		if authConf.oidcAudience != "" {
+			audience = authConf.oidcAudience
+		}
+		query.Set("audience", audience)
 		req.URL.RawQuery = query.Encode()
 
 		req.Header.Set("Accept", "application/json")
@@ -235,6 +240,7 @@ type authConfiguration struct {
 	auxTenants []string
 
 	useOidc               bool
+	oidcAudience          string
 	oidcToken             string
 	oidcTokenFilePath     string
 	oidcTokenRequestToken string
@@ -275,6 +281,7 @@ func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
 		useMsi: k.getConfig("useMsi", "ARM_USE_MSI") == "true",
 
 		useOidc:               k.getConfig("useOidc", "ARM_USE_OIDC") == "true",
+		oidcAudience:          k.getConfig("oidcAudience", "ARM_OIDC_AUDIENCE"),
 		oidcToken:             k.getConfig("oidcToken", "ARM_OIDC_TOKEN"),
 		oidcTokenFilePath:     k.getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH"),
 		oidcTokenRequestToken: k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),

@@ -29,6 +29,7 @@ func TestGetAuthConfig(t *testing.T) {
 		t.Setenv("ARM_CLIENT_CERTIFICATE_PATH", value)
 		t.Setenv("ARM_CLIENT_ID", value)
 		t.Setenv("ARM_CLIENT_SECRET", value)
+		t.Setenv("ARM_OIDC_AUDIENCE", value)
 		t.Setenv("ARM_OIDC_TOKEN", value)
 		t.Setenv("ARM_OIDC_TOKEN_FILE_PATH", value)
 		t.Setenv("ACTIONS_ID_TOKEN_REQUEST_TOKEN", value)
@@ -49,6 +50,7 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Empty(t, c.clientCertPath)
 		require.Empty(t, c.clientId)
 		require.Empty(t, c.clientSecret)
+		require.Empty(t, c.oidcAudience)
 		require.Empty(t, c.oidcToken)
 		require.Empty(t, c.oidcTokenFilePath)
 		require.Empty(t, c.oidcTokenRequestToken)
@@ -69,6 +71,7 @@ func TestGetAuthConfig(t *testing.T) {
 				"clientId":                  "conf",
 				"clientSecret":              "conf",
 				"environment":               "usgov",
+				"oidcAudience":              "conf",
 				"oidcToken":                 "conf",
 				"oidcTokenFilePath":         "conf",
 				"oidcRequestToken":          "conf",
@@ -88,6 +91,7 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "conf", c.clientCertPath)
 		require.Equal(t, "conf", c.clientId)
 		require.Equal(t, "conf", c.clientSecret)
+		require.Equal(t, "conf", c.oidcAudience)
 		require.Equal(t, "conf", c.oidcToken)
 		require.Equal(t, "conf", c.oidcTokenFilePath)
 		require.Equal(t, "conf", c.oidcTokenRequestToken)
@@ -111,6 +115,7 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "env", c.clientCertPath)
 		require.Equal(t, "env", c.clientId)
 		require.Equal(t, "env", c.clientSecret)
+		require.Equal(t, "env", c.oidcAudience)
 		require.Equal(t, "env", c.oidcToken)
 		require.Equal(t, "env", c.oidcTokenFilePath)
 		require.Equal(t, "env", c.oidcTokenRequestToken)
@@ -229,6 +234,20 @@ func TestNewCredential(t *testing.T) {
 	t.Run("OIDC with token exchange URL", func(t *testing.T) {
 		conf := &authConfiguration{
 			useOidc:               true,
+			oidcTokenRequestToken: "oidc-token",
+			oidcTokenRequestUrl:   "oidc-token-url",
+			clientId:              "client-id",
+			tenantId:              "tenant-id",
+		}
+		cred, err := newSingleMethodAuthCredential(conf)
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
+	})
+
+	t.Run("OIDC with token exchange URL and custom audience", func(t *testing.T) {
+		conf := &authConfiguration{
+			useOidc:               true,
+			oidcAudience:          "api://oidc-audience",
 			oidcTokenRequestToken: "oidc-token",
 			oidcTokenRequestUrl:   "oidc-token-url",
 			clientId:              "client-id",
