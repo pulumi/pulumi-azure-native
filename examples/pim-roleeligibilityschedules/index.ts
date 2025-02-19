@@ -9,10 +9,11 @@ const resourceGroup = new resources.ResourceGroup("resourceGroup", {
     location: "westeurope",
 });
 
+// "Reports Reader" role, a harmless one with little security risk.
+const roleId = "028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027"; //"4a5d8f65-41da-4de4-8968-e035b65339cf";
 const roleAssignment = new authorization.RoleAssignment("roleAssignment", {
-    // Azure RBAC Contributor role.
-    roleDefinitionId: pulumi.interpolate `${resourceGroup.id}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c`,
-    principalId: "db8fa9c3-36b4-4474-91b0-aa96bcc706bc", // Thomas K.
+    roleDefinitionId: pulumi.interpolate `${resourceGroup.id}/providers/Microsoft.Authorization/roleDefinitions/${roleId}`,
+    principalId: "e61877e9-d26b-4890-9a3c-2287e77ca427", // user "testuser"
     scope: resourceGroup.id,
 });
 
@@ -32,7 +33,10 @@ const res = new authorization.PimRoleEligibilitySchedule("res2", {
     //     ticketNumber: "1234567890",
     //     ticketSystem: "Pulumi",
     // },
-}, { dependsOn: [roleAssignment] });
+}, {
+    dependsOn: [roleAssignment],
+    ignoreChanges: ["scheduleInfo.startDateTime"]
+});
 
 export const roleAssignmentId = roleAssignment.id;
 export const roleAssignmentPrincipalId = roleAssignment.principalId;
