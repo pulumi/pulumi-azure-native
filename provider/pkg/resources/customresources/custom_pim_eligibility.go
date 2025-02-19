@@ -451,5 +451,16 @@ func inputsToSdk(inputs resource.PropertyMap) (*armauthorization.RoleEligibility
 		}
 	}
 
+	if ticketInfo, ok := inputs["ticketInfo"]; ok {
+		info := ticketInfo.ObjectValue()
+		result.Properties.TicketInfo = &armauthorization.RoleEligibilityScheduleRequestPropertiesTicketInfo{}
+		if ticketNumber, ok := info["ticketNumber"]; ok {
+			result.Properties.TicketInfo.TicketNumber = pulumi.StringRef(ticketNumber.StringValue())
+		}
+		if ticketSystem, ok := info["ticketSystem"]; ok {
+			result.Properties.TicketInfo.TicketSystem = pulumi.StringRef(ticketSystem.StringValue())
+		}
+	}
+
 	return result, nil
 }

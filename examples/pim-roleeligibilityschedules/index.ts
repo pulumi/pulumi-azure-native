@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+// Copyright 2025, Pulumi Corporation.  All rights reserved.
 
 import * as pulumi from "@pulumi/pulumi";
 import * as resources from "@pulumi/azure-native/resources";
@@ -29,10 +29,10 @@ const res = new authorization.PimRoleEligibilitySchedule("res2", {
             type: 'AfterDuration'
         },
     },
-    // ticketInfo: {
-    //     ticketNumber: "1234567890",
-    //     ticketSystem: "Pulumi",
-    // },
+    ticketInfo: {
+        ticketNumber: "1234567890",
+        ticketSystem: "Pulumi",
+    },
 }, {
     dependsOn: [roleAssignment],
     ignoreChanges: ["scheduleInfo.startDateTime"]

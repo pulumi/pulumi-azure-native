@@ -329,7 +329,7 @@ Other available API versions: 2020-10-01-preview, 2022-04-01-preview, 2024-02-01
 func TestInputsToSdk(t *testing.T) {
 	t.Parallel()
 
-	validInputs := resource.PropertyMap{
+	validRequiredInputs := resource.PropertyMap{
 		"name":             resource.NewStringProperty(uuid.New().String()),
 		"scope":            resource.NewStringProperty("scope"),
 		"principalId":      resource.NewStringProperty("principalID"),
@@ -339,7 +339,7 @@ func TestInputsToSdk(t *testing.T) {
 	t.Run("happy path", func(t *testing.T) {
 		t.Parallel()
 
-		sdk, err := inputsToSdk(validInputs)
+		sdk, err := inputsToSdk(validRequiredInputs)
 		require.NoError(t, err)
 		assert.Equal(t, "scope", *sdk.Properties.Scope)
 		assert.Equal(t, "principalID", *sdk.Properties.PrincipalID)
@@ -350,11 +350,52 @@ func TestInputsToSdk(t *testing.T) {
 		t.Parallel()
 
 		for _, prop := range []string{"scope", "principalId", "roleDefinitionId"} {
-			inputs := validInputs.Copy()
+			inputs := validRequiredInputs.Copy()
 			delete(inputs, resource.PropertyKey(prop))
 			_, err := inputsToSdk(inputs)
 			require.Error(t, err)
 			assert.Contains(t, err.Error(), prop+" is required")
 		}
+	})
+
+	t.Run("scheduleInfo", func(t *testing.T) {
+		t.Parallel()
+
+		inputs := validRequiredInputs.Copy()
+		now := time.Now()
+		inputs["scheduleInfo"] = resource.NewObjectProperty(resource.PropertyMap{
+			"startDateTime": resource.NewStringProperty(now.Format(time.RFC3339)),
+			"expiration": resource.NewObjectProperty(resource.PropertyMap{
+				"duration": resource.NewStringProperty("P1D"),
+				"type":     resource.NewStringProperty("AfterDuration"),
+			}),
+		})
+
+		sdk, err := inputsToSdk(inputs)
+		require.NoError(t, err)
+		require.NotNil(t, sdk.Properties.ScheduleInfo)
+		assert.WithinDuration(t, now, *sdk.Properties.ScheduleInfo.StartDateTime, 1*time.Second)
+		assert.Equal(t, "P1D", *sdk.Properties.ScheduleInfo.Expiration.Duration)
+		assert.Equal(t, armauthorization.TypeAfterDuration, *sdk.Properties.ScheduleInfo.Expiration.Type)
+	})
+
+	t.Run("misc optional properties", func(t *testing.T) {
+		t.Parallel()
+
+		inputs := validRequiredInputs.Copy()
+		inputs["justification"] = resource.NewStringProperty("foo bar")
+		inputs["status"] = resource.NewStringProperty(string(armauthorization.StatusPendingApproval))
+		inputs["ticketInfo"] = resource.NewObjectProperty(resource.PropertyMap{
+			"ticketNumber": resource.NewStringProperty("123456"),
+			"ticketSystem": resource.NewStringProperty("pulumi"),
+		})
+
+		sdk, err := inputsToSdk(inputs)
+		require.NoError(t, err)
+		assert.Equal(t, "foo bar", *sdk.Properties.Justification)
+		assert.Equal(t, armauthorization.StatusPendingApproval, *sdk.Properties.Status)
+		require.NotNil(t, sdk.Properties.TicketInfo)
+		assert.Equal(t, "123456", *sdk.Properties.TicketInfo.TicketNumber)
+		assert.Equal(t, "pulumi", *sdk.Properties.TicketInfo.TicketSystem)
 	})
 }
