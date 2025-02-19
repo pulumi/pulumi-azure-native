@@ -287,7 +287,8 @@
     "ConnectionRaiBlocklist": {
       "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}": [
         "2024-07-01-preview",
-        "2024-10-01-preview"
+        "2024-10-01-preview",
+        "2025-01-01-preview"
       ],
       "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}/raiblocklistitems/{}": [
         "2024-04-01-preview",
@@ -301,7 +302,8 @@
       ],
       "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}/raiblocklistitems/{}": [
         "2024-07-01-preview",
-        "2024-10-01-preview"
+        "2024-10-01-preview",
+        "2025-01-01-preview"
       ]
     }
   },

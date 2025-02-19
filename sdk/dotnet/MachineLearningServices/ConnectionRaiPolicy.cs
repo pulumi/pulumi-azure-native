@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Azure OpenAI Content Filters resource.
     /// Azure REST API version: 2024-04-01-preview.
     /// 
-    /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ConnectionRaiPolicy")]
     public partial class ConnectionRaiPolicy : global::Pulumi.CustomResource
@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:ConnectionRaiPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:ConnectionRaiPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:ConnectionRaiPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:ConnectionRaiPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
