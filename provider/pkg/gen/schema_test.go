@@ -404,3 +404,91 @@ func TestResourcePathTracker(t *testing.T) {
 		assert.True(t, tracker.hasConflicts())
 	})
 }
+
+func TestDetermineUpdateOperation(t *testing.T) {
+	t.Run("overrides to use PATCH", func(t *testing.T) {
+		for _, tok := range []string{"azure-native:dbforpostgresql:Server", "azure-native:resources:TagAtScope"} {
+			t.Run(tok, func(t *testing.T) {
+				op, method, err := determineCreateAndUpdateOperation(tok, &resourceVariant{
+					ResourceSpec: &openapi.ResourceSpec{
+						PathItem: &spec.PathItem{
+							PathItemProps: spec.PathItemProps{
+								Put:   &spec.Operation{},
+								Patch: &spec.Operation{},
+							},
+						},
+					},
+				})
+				require.NoError(t, err)
+				assert.NotNil(t, op)
+				assert.Equal(t, "PATCH", method)
+			})
+		}
+	})
+
+	t.Run("overrides to use PATCH, versioned", func(t *testing.T) {
+		for _, tok := range []string{"azure-native:dbforpostgresql/v20240801:Server", "azure-native:resources/v20220901:TagAtScope"} {
+			t.Run(tok, func(t *testing.T) {
+				op, method, err := determineCreateAndUpdateOperation(tok, &resourceVariant{
+					ResourceSpec: &openapi.ResourceSpec{
+						PathItem: &spec.PathItem{
+							PathItemProps: spec.PathItemProps{
+								Put:   &spec.Operation{},
+								Patch: &spec.Operation{},
+							},
+						},
+					},
+				})
+				require.NoError(t, err)
+				assert.NotNil(t, op)
+				assert.Equal(t, "PATCH", method)
+			})
+		}
+	})
+
+	t.Run("prefers PUT over PATCH", func(t *testing.T) {
+		op, method, err := determineCreateAndUpdateOperation("azure-native:foo:bar", &resourceVariant{
+			ResourceSpec: &openapi.ResourceSpec{
+				PathItem: &spec.PathItem{
+					PathItemProps: spec.PathItemProps{
+						Put:   &spec.Operation{},
+						Patch: &spec.Operation{},
+					},
+				},
+			},
+		})
+		require.NoError(t, err)
+		assert.NotNil(t, op)
+		assert.Equal(t, "PUT", method)
+	})
+
+	t.Run("only PUT", func(t *testing.T) {
+		op, method, err := determineCreateAndUpdateOperation("azure-native:foo:bar", &resourceVariant{
+			ResourceSpec: &openapi.ResourceSpec{
+				PathItem: &spec.PathItem{
+					PathItemProps: spec.PathItemProps{
+						Put: &spec.Operation{},
+					},
+				},
+			},
+		})
+		require.NoError(t, err)
+		assert.NotNil(t, op)
+		assert.Equal(t, "PUT", method)
+	})
+
+	t.Run("only PATCH", func(t *testing.T) {
+		op, method, err := determineCreateAndUpdateOperation("azure-native:foo:bar", &resourceVariant{
+			ResourceSpec: &openapi.ResourceSpec{
+				PathItem: &spec.PathItem{
+					PathItemProps: spec.PathItemProps{
+						Patch: &spec.Operation{},
+					},
+				},
+			},
+		})
+		require.NoError(t, err)
+		assert.NotNil(t, op)
+		assert.Equal(t, "PATCH", method)
+	})
+}

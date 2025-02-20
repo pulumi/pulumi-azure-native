@@ -858,6 +858,27 @@ func (g *packageGenerator) mergeResourcePathsInto(resourcePaths map[openapi.Reso
 	}
 }
 
+// determineCreateAndUpdateOperation returns the operation to be used for resource creation (first return value), and
+// the HTTP method (PUT or PATCH) to be used for updates. The create operation can be PATCH in rare cases, when the
+// resource always exists and is only brought into Pulumi state by creating it.
+func determineCreateAndUpdateOperation(tok string, resource *resourceVariant) (*spec.Operation, string, error) {
+	path := resource.PathItem
+	module, _, name, err := resources.ParseToken(tok)
+	if err != nil {
+		return nil, "", err
+	}
+
+	// #3961
+	if module == "dbforpostgresql" && name == "Server" && path.Patch != nil {
+		return path.Put, "PATCH", nil
+	}
+
+	if path.Put == nil {
+		return path.Patch, "PATCH", nil
+	}
+	return path.Put, "PUT", nil
+}
+
 func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, resource *resourceVariant, nestedResourceBodyRefs []string, typeNameAliases ...string) error {
 	module := g.moduleWithVersion()
 	swagger := resource.Swagger
@@ -892,14 +913,12 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		flattenedPropertyConflicts: map[string]any{},
 	}
 
-	updateOp := path.Put
-	updateMethod := ""
-	if path.Put == nil {
-		updateOp = path.Patch
-		updateMethod = "PATCH"
+	createOp, updateMethod, err := determineCreateAndUpdateOperation(resourceTok, resource)
+	if err != nil {
+		return errors.Wrapf(err, "failed to determine update operation for '%s'", resourceTok)
 	}
 
-	resourceResponse, err := gen.genResponse(updateOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
+	resourceResponse, err := gen.genResponse(createOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
 	if err != nil {
 		return errors.Wrapf(err, "failed to generate '%s': response type", resourceTok)
 	}
@@ -909,7 +928,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		return nil
 	}
 
-	parameters := resource.Swagger.MergeParameters(updateOp.Parameters, path.Parameters)
+	parameters := resource.Swagger.MergeParameters(createOp.Parameters, path.Parameters)
 	autoNamer := resources.NewAutoNamer(resource.Path)
 
 	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &autoNamer, resource.body)
@@ -1030,7 +1049,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		Response:             resourceResponse.properties,
 		DefaultBody:          resource.DefaultBody,
 		Singleton:            isSingleton(resource),
-		PutAsyncStyle:        g.getAsyncStyle(updateOp),
+		PutAsyncStyle:        g.getAsyncStyle(createOp),
 		DeleteAsyncStyle:     g.getAsyncStyle(resource.PathItem.Delete),
 		ReadMethod:           readMethod,
 		ReadPath:             readPath,

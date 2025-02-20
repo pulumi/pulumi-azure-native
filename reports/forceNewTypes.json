@@ -3773,39 +3773,11 @@
     "Property": "geoRedundantBackup"
   },
   {
-    "VersionedModule": "dbforpostgresql/v20210615privatepreview",
-    "Module": "DBforPostgreSQL",
-    "ResourceName": "Server",
-    "ReferenceName": "Network",
-    "Property": "delegatedSubnetResourceId"
-  },
-  {
-    "VersionedModule": "dbforpostgresql/v20210615privatepreview",
-    "Module": "DBforPostgreSQL",
-    "ResourceName": "Server",
-    "ReferenceName": "Network",
-    "Property": "privateDnsZoneArmResourceId"
-  },
-  {
     "VersionedModule": "dbforpostgresql/v20220308preview",
     "Module": "DBforPostgreSQL",
     "ResourceName": "Server",
     "ReferenceName": "Backup",
     "Property": "geoRedundantBackup"
-  },
-  {
-    "VersionedModule": "dbforpostgresql/v20220308preview",
-    "Module": "DBforPostgreSQL",
-    "ResourceName": "Server",
-    "ReferenceName": "Network",
-    "Property": "delegatedSubnetResourceId"
-  },
-  {
-    "VersionedModule": "dbforpostgresql/v20220308preview",
-    "Module": "DBforPostgreSQL",
-    "ResourceName": "Server",
-    "ReferenceName": "Network",
-    "Property": "privateDnsZoneArmResourceId"
   },
   {
     "VersionedModule": "dbforpostgresql/v20221201",
