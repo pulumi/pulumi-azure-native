@@ -566,12 +566,10 @@ func (modules AzureModules) addAPIPath(specsDir, fileLocation, path string, swag
 // getTypeName returns the type name for a given operation and path. The path is used to check for custom resource
 // names. In the standard case, it's unused and the name is based on the operation id.
 func getTypeName(op *spec.Operation, path string) (string, *resources.NameDisambiguation) {
-	var disambiguation *resources.NameDisambiguation
-	typeName, found := customresources.GetCustomResourceName(path)
-	if !found {
-		typeName, disambiguation = resources.ResourceName(op.ID, path)
+	if typeName, found := customresources.GetCustomResourceName(path); found {
+		return typeName, nil
 	}
-	return typeName, disambiguation
+	return resources.ResourceName(op.ID, path)
 }
 
 func addResourcesAndInvokes(version VersionResources, fileLocation, path string, moduleNaming resources.ModuleNaming, swagger *Spec) DiscoveryDiagnostics {

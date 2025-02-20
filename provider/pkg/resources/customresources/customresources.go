@@ -325,7 +325,7 @@ func IsSingleton(path string) bool {
 
 func GetCustomResourceName(path string) (string, bool) {
 	if res, ok := featureLookup[path]; ok {
-		return res.CustomResourceName, true
+		return res.CustomResourceName, res.CustomResourceName != ""
 	}
 	return "", false
 }
