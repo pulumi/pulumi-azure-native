@@ -35,7 +35,9 @@ type CustomReadFunc func(ctx context.Context, id string, inputs resource.Propert
 // crucial operations.
 type CustomResource struct {
 	path string
-	tok  string
+	// tok is the resource token for this custom resource, used both for looking up the resource in the schema and for
+	// the resource name. To use the tok for schema lookup but give the resource a different name, set CustomResourceName.
+	tok string
 	// Types are net-new auxiliary types defined for this resource. Optional.
 	// Deprecated: Use Schema instead.
 	Types map[string]schema.ComplexTypeSpec

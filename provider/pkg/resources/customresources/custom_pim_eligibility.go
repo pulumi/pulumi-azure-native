@@ -18,6 +18,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/authorization/armauthorization/v3"
 	"github.com/google/uuid"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,8 +64,8 @@ func pimRoleEligibilitySchedule(
 	crudClientFactory crud.ResourceCrudClientFactory,
 	token azcore.TokenCredential,
 ) (*CustomResource, error) {
-	// A bit of a hack to initialize some resource. This func's parameters are all nil when the function is called for
-	// the first time, for customresources.featureLookup, which is ok but would break our initialization here.
+	// This func's parameters are all nil when the function is called for the first time, for
+	// `customresources.featureLookup`, so we initialize the objects we need conditionally
 	var crudClient crud.ResourceCrudClient
 	var res resources.AzureAPIResource
 	var schedulesClient *armauthorization.RoleEligibilitySchedulesClient
@@ -123,13 +124,22 @@ func genSchema(resource *ResourceDefinition) (*ResourceDefinition, error) {
 	}
 
 	// remove requestType, we're only supporting one so far (like TF)
-	delete(resource.Resource.InputProperties, "requestType")
-	resource.makePropertyNotRequired("requestType")
+	if _, ok := resource.Resource.InputProperties["requestType"]; ok {
+		delete(resource.Resource.InputProperties, "requestType")
+		resource.makePropertyNotRequired("requestType")
+	} else {
+		logging.V(5).Infof("warning: expected property 'requestType' not found in the spec for %s", pimRoleEligibilityScheduleRequestTok)
+	}
 
 	// remove the name, it's a random GUID so we generate it ourselves
-	delete(resource.Resource.InputProperties, "roleEligibilityScheduleRequestName")
+	if _, ok := resource.Resource.InputProperties["roleEligibilityScheduleRequestName"]; ok {
+		delete(resource.Resource.InputProperties, "roleEligibilityScheduleRequestName")
+		resource.makePropertyNotRequired("roleEligibilityScheduleRequestName")
+	} else {
+		logging.V(5).Infof("warning: expected property 'roleEligibilityScheduleRequestName' not found in the spec for %s", pimRoleEligibilityScheduleRequestTok)
+	}
 
-	// This resource doesn't support direct updates, all changes need to go through a new schedule request.
+	// All properties cause replacement because this resource doesn't support updates.
 	for name, p := range resource.Resource.InputProperties {
 		p.ReplaceOnChanges = true
 		resource.Resource.InputProperties[name] = p
@@ -169,6 +179,8 @@ type pimEligibilityScheduleClientImpl struct {
 	requestsClient  *armauthorization.RoleEligibilityScheduleRequestsClient
 }
 
+// findSchedule finds a role eligibility schedule by scope, principalId, and roleDefinitionId. It considers only
+// schedules with MemberType=Direct (there are also "Group" and "Inherited").
 func (c *pimEligibilityScheduleClientImpl) findSchedule(ctx context.Context, scope, principalId, roleDefinitionId string,
 ) (*armauthorization.RoleEligibilitySchedule, error) {
 	pager := c.schedulesClient.NewListForScopePager(scope, &armauthorization.RoleEligibilitySchedulesClientListForScopeOptions{
