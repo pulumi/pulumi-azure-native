@@ -249,11 +249,11 @@ func (r *resourceCrudClient) HandleErrorWithCheckpoint(ctx context.Context, err 
 // currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
 // produces a checkpoint with these outputs and given inputs.
 func (r *resourceCrudClient) currentResourceStateCheckpoint(ctx context.Context, id string, inputs resource.PropertyMap) (*structpb.Struct, error) {
-	getResp, getErr := r.azureClient.Get(ctx, id, r.res.APIVersion, r.res.ReadQueryParams)
+	getResponse, getErr := r.azureClient.Get(ctx, id, r.res.APIVersion, r.res.ReadQueryParams)
 	if getErr != nil {
 		return nil, getErr
 	}
-	outputs := r.converter.ResponseBodyToSdkOutputs(r.res.Response, getResp.(map[string]any))
+	outputs := r.converter.ResponseBodyToSdkOutputs(r.res.Response, getResponse)
 	obj := checkpointObject(inputs, outputs)
 	return plugin.MarshalProperties(
 		obj,
@@ -291,7 +291,7 @@ func (r *resourceCrudClient) MaintainSubResourcePropertiesIfNotSet(ctx context.C
 		return fmt.Errorf("reading cloud state: %w", err)
 	}
 
-	writtenProperties := writePropertiesToBody(missingProperties, bodyParams, state.(map[string]any))
+	writtenProperties := writePropertiesToBody(missingProperties, bodyParams, state)
 	for writtenProperty, writtenValue := range writtenProperties {
 		logging.V(9).Infof("Maintaining remote value for property: %s.%s = %v", id, writtenProperty, writtenValue)
 	}
