@@ -567,8 +567,8 @@ func (modules AzureModules) addAPIPath(specsDir, fileLocation, path string, swag
 // names. In the standard case, it's unused and the name is based on the operation id.
 func getTypeName(op *spec.Operation, path string) (string, *resources.NameDisambiguation) {
 	var disambiguation *resources.NameDisambiguation
-	typeName := customresources.GetCustomResourceName(path)
-	if typeName == "" {
+	typeName, found := customresources.GetCustomResourceName(path)
+	if !found {
 		typeName, disambiguation = resources.ResourceName(op.ID, path)
 	}
 	return typeName, disambiguation

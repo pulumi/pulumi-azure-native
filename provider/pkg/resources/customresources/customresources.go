@@ -323,11 +323,11 @@ func IsSingleton(path string) bool {
 	return false
 }
 
-func GetCustomResourceName(path string) string {
+func GetCustomResourceName(path string) (string, bool) {
 	if res, ok := featureLookup[path]; ok {
-		return res.CustomResourceName
+		return res.CustomResourceName, true
 	}
-	return ""
+	return "", false
 }
 
 // SchemaMixins returns the map of custom resource schema definitions per resource token.
