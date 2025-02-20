@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The description of the service.
  * Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
  *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+ * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -117,7 +117,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20180820preview:Service" }, { type: "azure-native:healthcareapis/v20190916:Service" }, { type: "azure-native:healthcareapis/v20200315:Service" }, { type: "azure-native:healthcareapis/v20200330:Service" }, { type: "azure-native:healthcareapis/v20210111:Service" }, { type: "azure-native:healthcareapis/v20210601preview:Service" }, { type: "azure-native:healthcareapis/v20211101:Service" }, { type: "azure-native:healthcareapis/v20220131preview:Service" }, { type: "azure-native:healthcareapis/v20220515:Service" }, { type: "azure-native:healthcareapis/v20220601:Service" }, { type: "azure-native:healthcareapis/v20221001preview:Service" }, { type: "azure-native:healthcareapis/v20221201:Service" }, { type: "azure-native:healthcareapis/v20230228:Service" }, { type: "azure-native:healthcareapis/v20230906:Service" }, { type: "azure-native:healthcareapis/v20231101:Service" }, { type: "azure-native:healthcareapis/v20231201:Service" }, { type: "azure-native:healthcareapis/v20240301:Service" }, { type: "azure-native:healthcareapis/v20240331:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20180820preview:Service" }, { type: "azure-native:healthcareapis/v20190916:Service" }, { type: "azure-native:healthcareapis/v20200315:Service" }, { type: "azure-native:healthcareapis/v20200330:Service" }, { type: "azure-native:healthcareapis/v20210111:Service" }, { type: "azure-native:healthcareapis/v20210601preview:Service" }, { type: "azure-native:healthcareapis/v20211101:Service" }, { type: "azure-native:healthcareapis/v20220131preview:Service" }, { type: "azure-native:healthcareapis/v20220515:Service" }, { type: "azure-native:healthcareapis/v20220601:Service" }, { type: "azure-native:healthcareapis/v20221001preview:Service" }, { type: "azure-native:healthcareapis/v20221201:Service" }, { type: "azure-native:healthcareapis/v20230228:Service" }, { type: "azure-native:healthcareapis/v20230906:Service" }, { type: "azure-native:healthcareapis/v20231101:Service" }, { type: "azure-native:healthcareapis/v20231201:Service" }, { type: "azure-native:healthcareapis/v20240301:Service" }, { type: "azure-native:healthcareapis/v20240331:Service" }, { type: "azure-native:healthcareapis/v20250301preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }
