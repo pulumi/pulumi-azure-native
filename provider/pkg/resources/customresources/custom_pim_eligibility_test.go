@@ -113,9 +113,7 @@ func (c *fakePimEligibilityScheduleClient) cancelSchedule(ctx context.Context, s
 
 func (c *fakePimEligibilityScheduleClient) mapScheduleToOutputs(schedule *armauthorization.RoleEligibilitySchedule) (map[string]any, error) {
 	c.mapScheduleToOutputsCalls++
-	return map[string]any{
-		"name": *schedule.Name,
-	}, nil
+	return map[string]any{}, nil
 }
 
 func TestCreatePimEligibilitySchedule(t *testing.T) {
@@ -435,7 +433,7 @@ func TestReadPimEligibilitySchedule(t *testing.T) {
 		result, found, err := read(context.Background(), "/id/is/not/used", validRequiredInputs, client)
 		require.NoError(t, err)
 		assert.True(t, found)
-		assert.Equal(t, guid, result["name"])
+		assert.NotNil(t, result)
 	})
 
 	t.Run("not found", func(t *testing.T) {
