@@ -8,6 +8,7 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/exp/maps"
@@ -153,5 +154,40 @@ func TestDefaultState(t *testing.T) {
 
 		res := parseSwagger(t, path)
 		assert.Equal(t, def.State, res.DefaultBody)
+	})
+}
+
+func TestGetTypeName(t *testing.T) {
+	t.Run("Standard name", func(t *testing.T) {
+		op := &spec.Operation{
+			OperationProps: spec.OperationProps{
+				ID: "DiagnosticSettingsCategory_Get",
+			},
+		}
+		typeName, disambiguation := getTypeName(op, "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/diagnosticSettingsCategories/{categoryName}")
+		assert.Equal(t, "DiagnosticSettingsCategory", typeName)
+		assert.Nil(t, disambiguation)
+	})
+
+	t.Run("Custom name", func(t *testing.T) {
+		op := &spec.Operation{
+			OperationProps: spec.OperationProps{
+				ID: "Foo_Get",
+			},
+		}
+		typeName, disambiguation := getTypeName(op, "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.netapp/backupvaults/{vault}")
+		assert.Equal(t, "BackupVaultFoo", typeName)
+		assert.NotNil(t, disambiguation)
+	})
+
+	t.Run("Custom resource", func(t *testing.T) {
+		op := &spec.Operation{
+			OperationProps: spec.OperationProps{
+				ID: "Unused",
+			},
+		}
+		typeName, disambiguation := getTypeName(op, customresources.PimRoleEligibilityScheduleRequestPath)
+		assert.Equal(t, "PimRoleEligibilitySchedule", typeName)
+		assert.Nil(t, disambiguation)
 	})
 }

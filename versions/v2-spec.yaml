@@ -135,6 +135,7 @@ Authorization:
         ManagementLockAtResourceLevel: "2020-05-01"
         ManagementLockAtSubscriptionLevel: "2020-05-01"
         ManagementLockByScope: "2020-05-01"
+        PimRoleEligibilitySchedule: "2020-10-01"
         PolicyDefinition: "2021-06-01"
         PolicyDefinitionAtManagementGroup: "2021-06-01"
         PolicyDefinitionVersion: "2023-04-01"

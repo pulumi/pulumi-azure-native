@@ -17,12 +17,11 @@ import (
 
 const webAppResourceType = "azure-native:web:WebApp"
 const webAppSlotResourceType = "azure-native:web:WebAppSlot"
+const webAppPath = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}"
 
 // webApp is a custom resource for web:WebApp. It overrides Read and Delete, for independent reasons.
 func webApp(crudClientFactory crud.ResourceCrudClientFactory, azureClient azure.AzureClient, lookupResource resources.ResourceLookupFunc) (*CustomResource, error) {
-	return makeWebAppResource(webAppResourceType,
-		"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}",
-		crudClientFactory, azureClient, lookupResource)
+	return makeWebAppResource(webAppResourceType, webAppPath, crudClientFactory, azureClient, lookupResource)
 }
 
 // webAppSlot is a custom resource for web:WebAppSlot. It overrides Read and Delete, for independent reasons.

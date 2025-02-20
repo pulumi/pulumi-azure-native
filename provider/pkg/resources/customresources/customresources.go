@@ -15,11 +15,13 @@ import (
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // OriginalStateKey is a map key used to store the original state of a resource.
@@ -33,7 +35,9 @@ type CustomReadFunc func(ctx context.Context, id string, inputs resource.Propert
 // crucial operations.
 type CustomResource struct {
 	path string
-	tok  string
+	// tok is the resource token for this custom resource, used both for looking up the resource in the schema and for
+	// the resource name. To use the tok for schema lookup but give the resource a different name, set CustomResourceName.
+	tok string
 	// Types are net-new auxiliary types defined for this resource. Optional.
 	// Deprecated: Use Schema instead.
 	Types map[string]schema.ComplexTypeSpec
@@ -76,6 +80,15 @@ type CustomResource struct {
 	Update func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]interface{}, error)
 	// Delete an existing resource. Constructs the resource ID based on input values.
 	Delete func(ctx context.Context, id string, previousInputs, state resource.PropertyMap) error
+
+	// Only used when we want to specify a `tok` that exists in the spec so we can look up the resource, but we want
+	// the custom resource's name to be different.
+	CustomResourceName string
+
+	// Optional. If specified, only include schema and metadata from the spec for this version. Has no effect for
+	// resources that don't use the Azure spec. Format is 2020-01-30 or 2020-01-30-preview.
+	apiVersion *string
+
 	// IsSingleton is true if the resource is a singleton resource that cannot be created or deleted, only initialized
 	// and reset to a default state. Normally, we infer this from whether the `Delete` property is set. In some cases
 	// we need to set it explicitly if the resource is a singleton but does have a `Delete` property implementing a
@@ -90,6 +103,15 @@ type ResourceDefinition struct {
 	Types        map[string]schema.ComplexTypeSpec
 	MetaResource AzureAPIResource
 	MetaTypes    map[string]AzureAPIType
+}
+
+// makePropertyNotRequired removes a property from the various lists of required properties, but leaves the property itself.
+func (r *ResourceDefinition) makePropertyNotRequired(property string) {
+	r.Resource.RequiredInputs = util.RemoveFromSlice(r.Resource.RequiredInputs, property)
+	r.Resource.ObjectTypeSpec.Required = util.RemoveFromSlice(r.Resource.ObjectTypeSpec.Required, property)
+	if body, hasBody := r.MetaResource.BodyParameter(); hasBody {
+		body.Body.RequiredProperties = util.RemoveFromSlice(body.Body.RequiredProperties, property)
+	}
 }
 
 // ApplySchemas applies custom schema modifications to the given package.
@@ -109,15 +131,24 @@ func (r *CustomResource) ApplySchema(pkg *schema.PackageSpec, meta *AzureAPIMeta
 		return nil
 	}
 
-	existingResource, resourceAlreadyExists := pkg.Resources[r.tok]
+	tok := r.tok
+	if r.CustomResourceName != "" {
+		module, version, _, err := resources.ParseToken(tok)
+		if err != nil {
+			return fmt.Errorf("failed to parse token %s: %w", tok, err)
+		}
+		tok = resources.BuildToken(module, version, r.CustomResourceName)
+	}
+
+	existingResource, resourceAlreadyExists := pkg.Resources[tok]
 	var originalResource *ResourceDefinition
 	types := map[string]schema.ComplexTypeSpec{} // Hoist scope for easy lookup when checking if the type is new.
 	if resourceAlreadyExists {
-		resourceMeta, resourceMetadataFound := meta.Resources[r.tok]
+		resourceMeta, resourceMetadataFound := meta.Resources[tok]
 		if !resourceMetadataFound {
-			return fmt.Errorf("metadata for resource %s not found", r.tok)
+			return fmt.Errorf("metadata for resource %s not found", tok)
 		}
-		VisitResourceTypes(pkg, r.tok, func(tok string, t schema.ComplexTypeSpec) {
+		VisitResourceTypes(pkg, tok, func(tok string, t schema.ComplexTypeSpec) {
 			// Capture referenced schema types
 			types[tok] = t
 		})
@@ -126,7 +157,7 @@ func (r *CustomResource) ApplySchema(pkg *schema.PackageSpec, meta *AzureAPIMeta
 			if mt, metaTypeFound := meta.Types[n]; metaTypeFound {
 				metaTypes[n] = mt
 			} else {
-				return fmt.Errorf("metadata for type %s not found", n)
+				logging.V(9).Infof("metadata for type %s not found, assuming it's an enum", n)
 			}
 		}
 		originalResource = &ResourceDefinition{
@@ -139,12 +170,18 @@ func (r *CustomResource) ApplySchema(pkg *schema.PackageSpec, meta *AzureAPIMeta
 
 	customResource, err := r.Schema(originalResource)
 	if err != nil {
-		return fmt.Errorf("failed to apply custom resource schema modifications for %s: %w", r.tok, err)
+		if !resourceAlreadyExists && len(pkg.Resources) < 100 {
+			logging.V(5).Infof("warning: error applying custom resource schema modifications for %s: '%s'; continuing since this is likely a test run with only %d resources",
+				tok, err, len(pkg.Resources))
+			return nil
+		}
+		return fmt.Errorf("failed to apply custom resource schema modifications for %s: %w", tok, err)
 	}
 	if customResource == nil {
 		return nil
 	}
-	pkg.Resources[r.tok] = customResource.Resource
+
+	pkg.Resources[tok] = customResource.Resource
 	for typeToken, typeSchema := range customResource.Types {
 		if _, isExistingType := types[typeToken]; !isExistingType {
 			// New type, ensure it doesn't conflict
@@ -154,7 +191,7 @@ func (r *CustomResource) ApplySchema(pkg *schema.PackageSpec, meta *AzureAPIMeta
 		}
 		pkg.Types[typeToken] = typeSchema
 	}
-	meta.Resources[r.tok] = customResource.MetaResource
+	meta.Resources[tok] = customResource.MetaResource
 	for n, t := range customResource.MetaTypes {
 		// Skip validation of meta types as they should be 1:1 with schema types
 		meta.Types[n] = t
@@ -203,6 +240,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 		return nil, err
 	}
 
+	pimRoleEligibilitySchedule, err := pimRoleEligibilitySchedule(lookupResource, crudClientFactory, tokenCred)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		keyVaultAccessPolicy(armKVClient),
 
@@ -214,6 +256,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		postgresConf,
 		protectedItem,
 		pimRoleManagementPolicy,
+		pimRoleEligibilitySchedule,
 	}
 
 	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The
@@ -251,9 +294,18 @@ func BuildCustomResources(env *azureEnv.Environment,
 // featureLookup is a map of custom resource to lookup their capabilities.
 var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil, nil, nil, "", nil)
 
-func IsCustomResource(path string) bool {
-	_, ok := featureLookup[path]
-	return ok
+// IncludeCustomResource returns isCustom=true if a custom resource is defined for the given path, and include=true if
+// the given API version should be included.
+// Note on the `apiVersion` parameter: using the `openapi.ApiVersion` type would create an import cycle.
+func IncludeCustomResource(path, apiVersion string) (isCustom, include bool) {
+	var resource *CustomResource
+	resource, isCustom = featureLookup[path]
+	if !isCustom {
+		return
+	}
+
+	include = resource.apiVersion == nil || *resource.apiVersion == apiVersion
+	return
 }
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
@@ -269,6 +321,13 @@ func IsSingleton(path string) bool {
 		return res.isSingleton
 	}
 	return false
+}
+
+func GetCustomResourceName(path string) (string, bool) {
+	if res, ok := featureLookup[path]; ok {
+		return res.CustomResourceName, res.CustomResourceName != ""
+	}
+	return "", false
 }
 
 // SchemaMixins returns the map of custom resource schema definitions per resource token.

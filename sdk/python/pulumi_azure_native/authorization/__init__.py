@@ -16,6 +16,7 @@ from .get_management_lock_at_resource_group_level import *
 from .get_management_lock_at_resource_level import *
 from .get_management_lock_at_subscription_level import *
 from .get_management_lock_by_scope import *
+from .get_pim_role_eligibility_schedule import *
 from .get_policy_assignment import *
 from .get_policy_definition import *
 from .get_policy_definition_at_management_group import *
@@ -48,6 +49,7 @@ from .management_lock_at_resource_group_level import *
 from .management_lock_at_resource_level import *
 from .management_lock_at_subscription_level import *
 from .management_lock_by_scope import *
+from .pim_role_eligibility_schedule import *
 from .policy_assignment import *
 from .policy_definition import *
 from .policy_definition_at_management_group import *

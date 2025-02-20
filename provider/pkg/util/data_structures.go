@@ -1,3 +1,5 @@
+// Copyright 2024, Pulumi Corporation.  All rights reserved.
+
 package util
 
 import (
@@ -63,4 +65,15 @@ func MapOrdered[K cmp.Ordered, V any](m map[K]V) iter.Seq2[K, V] {
 			}
 		}
 	}
+}
+
+// RemoveFromSlice removes the given value from a slice, if found. It returns a new slice.
+// It will only remove the FIRST value if there are multiple occurrences.
+func RemoveFromSlice[T comparable](slice []T, value T) []T {
+	for i, v := range slice {
+		if v == value {
+			return append(slice[:i], slice[i+1:]...)
+		}
+	}
+	return slice
 }

@@ -25,9 +25,11 @@ __all__ = [
     'PrincipalType',
     'PublicNetworkAccessOptions',
     'RecipientType',
+    'RequestType',
     'ResourceIdentityType',
     'RoleManagementPolicyRuleType',
     'SelectorKind',
+    'Type',
     'UserType',
 ]
 
@@ -227,6 +229,21 @@ class RecipientType(str, Enum):
     ADMIN = "Admin"
 
 
+class RequestType(str, Enum):
+    """
+    The type of the role assignment schedule request. Eg: SelfActivate, AdminAssign etc
+    """
+    ADMIN_ASSIGN = "AdminAssign"
+    ADMIN_REMOVE = "AdminRemove"
+    ADMIN_UPDATE = "AdminUpdate"
+    ADMIN_EXTEND = "AdminExtend"
+    ADMIN_RENEW = "AdminRenew"
+    SELF_ACTIVATE = "SelfActivate"
+    SELF_DEACTIVATE = "SelfDeactivate"
+    SELF_EXTEND = "SelfExtend"
+    SELF_RENEW = "SelfRenew"
+
+
 class ResourceIdentityType(str, Enum):
     """
     The identity type. This is the only required field when adding a system or user assigned identity to a resource.
@@ -277,6 +294,15 @@ class SelectorKind(str, Enum):
     """
     The selector kind to filter policies by the policy definition reference ID.
     """
+
+
+class Type(str, Enum):
+    """
+    Type of the role eligibility schedule expiration
+    """
+    AFTER_DURATION = "AfterDuration"
+    AFTER_DATE_TIME = "AfterDateTime"
+    NO_EXPIRATION = "NoExpiration"
 
 
 class UserType(str, Enum):

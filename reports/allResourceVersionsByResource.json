@@ -3123,6 +3123,9 @@
       "2017-04-01",
       "2020-05-01"
     ],
+    "PimRoleEligibilitySchedule": [
+      "2020-10-01"
+    ],
     "PolicyAssignment": [
       "2015-10-01-preview",
       "2016-04-01",
