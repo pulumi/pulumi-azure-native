@@ -70,6 +70,8 @@ type fakePimEligibilityScheduleClient struct {
 		name       string
 		parameters armauthorization.RoleEligibilityScheduleRequest
 	}
+
+	mapScheduleToOutputsCalls int
 }
 
 func (c *fakePimEligibilityScheduleClient) findSchedule(ctx context.Context, scope, principalID, roleDefinitionID string) (*armauthorization.RoleEligibilitySchedule, error) {
@@ -110,7 +112,10 @@ func (c *fakePimEligibilityScheduleClient) cancelSchedule(ctx context.Context, s
 }
 
 func (c *fakePimEligibilityScheduleClient) mapScheduleToOutputs(schedule *armauthorization.RoleEligibilitySchedule) (map[string]any, error) {
-	return map[string]any{}, nil
+	c.mapScheduleToOutputsCalls++
+	return map[string]any{
+		"name": *schedule.Name,
+	}, nil
 }
 
 func TestCreatePimEligibilitySchedule(t *testing.T) {
@@ -397,5 +402,66 @@ func TestInputsToSdk(t *testing.T) {
 		require.NotNil(t, sdk.Properties.TicketInfo)
 		assert.Equal(t, "123456", *sdk.Properties.TicketInfo.TicketNumber)
 		assert.Equal(t, "pulumi", *sdk.Properties.TicketInfo.TicketSystem)
+	})
+}
+
+func TestReadPimEligibilitySchedule(t *testing.T) {
+	t.Parallel()
+
+	guid := uuid.New().String()
+	validRequiredInputs := resource.PropertyMap{
+		"name":             resource.NewStringProperty(guid),
+		"scope":            resource.NewStringProperty("scope"),
+		"principalId":      resource.NewStringProperty("principalID"),
+		"roleDefinitionId": resource.NewStringProperty("roleDefinitionID"),
+	}
+
+	existingSchedule := &armauthorization.RoleEligibilitySchedule{
+		Name: pulumi.StringRef(guid),
+		Properties: &armauthorization.RoleEligibilityScheduleProperties{
+			PrincipalID:      pulumi.StringRef("principalID"),
+			RoleDefinitionID: pulumi.StringRef("roleDefinitionID"),
+			Scope:            pulumi.StringRef("scope"),
+		},
+	}
+
+	t.Run("found", func(t *testing.T) {
+		t.Parallel()
+
+		client := &fakePimEligibilityScheduleClient{
+			scheduleToFind: existingSchedule,
+		}
+
+		result, found, err := read(context.Background(), "/id/is/not/used", validRequiredInputs, client)
+		require.NoError(t, err)
+		assert.True(t, found)
+		assert.Equal(t, guid, result["name"])
+	})
+
+	t.Run("not found", func(t *testing.T) {
+		t.Parallel()
+
+		client := &fakePimEligibilityScheduleClient{}
+
+		inputs := validRequiredInputs.Copy()
+		result, found, err := read(context.Background(), "/id/is/not/used", inputs, client)
+		require.NoError(t, err)
+		assert.False(t, found)
+		assert.Nil(t, result)
+	})
+
+	t.Run("error converting inputs", func(t *testing.T) {
+		t.Parallel()
+
+		client := &fakePimEligibilityScheduleClient{}
+
+		inputs := validRequiredInputs.Copy()
+		delete(inputs, "scope")
+
+		result, found, err := read(context.Background(), "/id/is/not/used", inputs, client)
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "scope is required")
+		assert.False(t, found)
+		assert.Nil(t, result)
 	})
 }
