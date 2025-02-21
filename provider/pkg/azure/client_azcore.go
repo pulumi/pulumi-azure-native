@@ -299,6 +299,9 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 			Frequency: time.Duration(c.updatePollingIntervalSeconds * int64(time.Second)),
 		})
 		if err != nil {
+			if err, ok := err.(*azcore.ResponseError); ok {
+				return nil, created, newResponseError(err.RawResponse)
+			}
 			return nil, created, err
 		}
 	}
