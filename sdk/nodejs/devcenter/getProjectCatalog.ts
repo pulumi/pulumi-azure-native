@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets an associated project catalog.
  * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
  */
 export function getProjectCatalog(args: GetProjectCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectCatalogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -102,7 +102,7 @@ export interface GetProjectCatalogResult {
  * Gets an associated project catalog.
  * Azure REST API version: 2024-02-01.
  *
- * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
  */
 export function getProjectCatalogOutput(args: GetProjectCatalogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectCatalogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -20,6 +20,7 @@ import * as v20240401preview from "./v20240401preview";
 import * as v20240701preview from "./v20240701preview";
 import * as v20241001 from "./v20241001";
 import * as v20241001preview from "./v20241001preview";
+import * as v20250101preview from "./v20250101preview";
 
 export {
     v20200501preview,
@@ -40,6 +41,7 @@ export {
     v20240701preview,
     v20241001,
     v20241001preview,
+    v20250101preview,
 };
 
 export const AllowedContentLevel = {

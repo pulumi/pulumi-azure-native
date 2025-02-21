@@ -4,6 +4,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "AgriculturePlatform",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "ApiCenter",
     "Detail": "expected tracking stable but found preview"
   },
@@ -142,6 +146,10 @@
   {
     "ModuleName": "Datadog",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "DependencyMap",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "ModuleName": "DevCenter",

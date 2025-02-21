@@ -87,7 +87,7 @@ export class ConnectionDeployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:ConnectionDeployment" }, { type: "azure-native:machinelearningservices/v20240701preview:ConnectionDeployment" }, { type: "azure-native:machinelearningservices:ConnectionDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240401preview:ConnectionDeployment" }, { type: "azure-native:machinelearningservices/v20240701preview:ConnectionDeployment" }, { type: "azure-native:machinelearningservices/v20250101preview:ConnectionDeployment" }, { type: "azure-native:machinelearningservices:ConnectionDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionDeployment.__pulumiType, name, resourceInputs, opts);
     }

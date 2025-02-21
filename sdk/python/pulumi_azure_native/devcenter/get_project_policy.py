@@ -130,6 +130,8 @@ def get_project_policy(dev_center_name: Optional[str] = None,
     Gets a specific project policy.
     Azure REST API version: 2024-10-01-preview.
 
+    Other available API versions: 2025-02-01.
+
 
     :param str dev_center_name: The name of the devcenter.
     :param str project_policy_name: The name of the project policy.
@@ -157,6 +159,8 @@ def get_project_policy_output(dev_center_name: Optional[pulumi.Input[str]] = Non
     """
     Gets a specific project policy.
     Azure REST API version: 2024-10-01-preview.
+
+    Other available API versions: 2025-02-01.
 
 
     :param str dev_center_name: The name of the devcenter.

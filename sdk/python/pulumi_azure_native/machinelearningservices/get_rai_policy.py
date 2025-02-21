@@ -107,7 +107,7 @@ def get_rai_policy(endpoint_name: Optional[str] = None,
     Azure OpenAI Content Filters resource.
     Azure REST API version: 2024-04-01-preview.
 
-    Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
 
 
     :param str endpoint_name: Name of the endpoint resource.
@@ -138,7 +138,7 @@ def get_rai_policy_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     Azure OpenAI Content Filters resource.
     Azure REST API version: 2024-04-01-preview.
 
-    Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
 
 
     :param str endpoint_name: Name of the endpoint resource.
