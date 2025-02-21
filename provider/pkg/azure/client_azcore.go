@@ -160,7 +160,7 @@ func (c *azCoreClient) initRequest(ctx context.Context, method, id string, query
 	return req, nil
 }
 
-func (c *azCoreClient) Get(ctx context.Context, id, apiVersion string, queryParams map[string]any) (any, error) {
+func (c *azCoreClient) Get(ctx context.Context, id, apiVersion string, queryParams map[string]any) (map[string]any, error) {
 	queryParameters := map[string]any{
 		"api-version": apiVersion,
 	}
@@ -181,7 +181,7 @@ func (c *azCoreClient) Get(ctx context.Context, id, apiVersion string, queryPara
 		return nil, newResponseError(resp)
 	}
 
-	var responseBody map[string]interface{}
+	var responseBody map[string]any
 	if err := runtime.UnmarshalAsJSON(resp, &responseBody); err != nil {
 		return nil, handleAzCoreResponseError(err, resp)
 	}
