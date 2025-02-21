@@ -223,11 +223,10 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 			})
 			return err
 		}
-
 		return nil
 	}()
 	if err, ok := err.(*azcore.ResponseError); ok {
-		if err.StatusCode == http.StatusNotFound && err.ErrorCode == "ResourceNotFound" {
+		if err.StatusCode == http.StatusNotFound {
 			// If the resource is already deleted, we don't want to return an error.
 			return nil
 		}
