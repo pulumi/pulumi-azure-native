@@ -202,45 +202,39 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 		return err
 	}
 
-	resp, err := c.pipeline.Do(req)
-	if err != nil {
-		return err
-	}
-	if runtime.HasStatusCode(resp, http.StatusNotFound) {
-		// If the resource is already deleted, we don't want to return an error.
-		return nil
-	}
-	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusAccepted, http.StatusNoContent) {
-		return newResponseError(resp)
-	}
-
-	// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
-	// poll for the deletion result in that case.
-	if asyncStyle != "" {
-		pt, err := runtime.NewPoller[any](resp, c.pipeline, nil)
+	err = func() error {
+		resp, err := c.pipeline.Do(req)
 		if err != nil {
 			return err
 		}
-		_, err = pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
-			Frequency: time.Duration(c.deletePollingIntervalSeconds * int64(time.Second)),
-		})
-		if err != nil {
-			if respErr, ok := err.(*azcore.ResponseError); ok {
-				// If the resource is already deleted, we don't want to return an error.
-				if respErr.StatusCode == http.StatusNotFound && respErr.ErrorCode == "ResourceNotFound" {
-					// If the resource is already deleted, we don't want to return an error.
-					return nil
-				}
+		if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusAccepted, http.StatusNoContent) {
+			return newResponseError(resp)
+		}
+
+		// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
+		// poll for the deletion result in that case.
+		if asyncStyle != "" {
+			pt, err := runtime.NewPoller[any](resp, c.pipeline, nil)
+			if err != nil {
+				return err
 			}
+			_, err = pt.PollUntilDone(ctx, &runtime.PollUntilDoneOptions{
+				Frequency: time.Duration(c.deletePollingIntervalSeconds * int64(time.Second)),
+			})
 			return err
 		}
+
 		return nil
+	}()
+
+	if err, ok := err.(*azcore.ResponseError); ok {
+		if err.StatusCode == http.StatusNotFound && err.ErrorCode == "ResourceNotFound" {
+			// If the resource is already deleted, we don't want to return an error.
+			return nil
+		}
 	}
 
-	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusAccepted, http.StatusNoContent, http.StatusNotFound) {
-		return newResponseError(resp)
-	}
-	return err
+	return nil
 }
 
 func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]interface{},
