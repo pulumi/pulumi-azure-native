@@ -1,4 +1,4 @@
-name: pim-rolemanagementpolicies
+name: pim-roleeligibilityschedules
 runtime: nodejs
 description: A minimal Azure Native TypeScript Pulumi program
 config:
