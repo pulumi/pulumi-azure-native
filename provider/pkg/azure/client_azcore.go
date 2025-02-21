@@ -206,6 +206,13 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 	if err != nil {
 		return err
 	}
+	if runtime.HasStatusCode(resp, http.StatusNotFound) {
+		// If the resource is already deleted, we don't want to return an error.
+		return nil
+	}
+	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusAccepted, http.StatusNoContent) {
+		return newResponseError(resp)
+	}
 
 	// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
 	// poll for the deletion result in that case.
@@ -218,14 +225,16 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 			Frequency: time.Duration(c.deletePollingIntervalSeconds * int64(time.Second)),
 		})
 		if err != nil {
-			respErr := err.(*azcore.ResponseError)
-			if resp.StatusCode == 202 && respErr.StatusCode == 404 && strings.Contains(respErr.Error(), "ResourceNotFound") {
-				// Consider this specific error to be a success of deletion.
-				// Work around https://github.com/pulumi/pulumi-azure-nextgen/issues/120
-				return nil
+			if respErr, ok := err.(*azcore.ResponseError); ok {
+				// If the resource is already deleted, we don't want to return an error.
+				if respErr.StatusCode == http.StatusNotFound && respErr.ErrorCode == "ResourceNotFound" {
+					// If the resource is already deleted, we don't want to return an error.
+					return nil
+				}
 			}
+			return err
 		}
-		return err
+		return nil
 	}
 
 	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusAccepted, http.StatusNoContent, http.StatusNotFound) {
