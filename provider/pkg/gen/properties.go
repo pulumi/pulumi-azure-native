@@ -108,6 +108,13 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 			continue
 		}
 
+		// Workaround for https://github.com/Azure/azure-rest-api-specs/issues/9432
+		if m.moduleName == "KeyVault" && m.resourceName == "Vault" {
+			if name == "vaultUri" || name == "provisioningState" {
+				resolvedProperty.ReadOnly = true
+			}
+		}
+
 		sdkName := name
 		if clientName, ok := resolvedProperty.Extensions.GetString(extensionClientName); ok {
 			sdkName = firstToLower(clientName)
