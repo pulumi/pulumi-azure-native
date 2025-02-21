@@ -226,15 +226,13 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 
 		return nil
 	}()
-
 	if err, ok := err.(*azcore.ResponseError); ok {
 		if err.StatusCode == http.StatusNotFound && err.ErrorCode == "ResourceNotFound" {
 			// If the resource is already deleted, we don't want to return an error.
 			return nil
 		}
 	}
-
-	return nil
+	return err
 }
 
 func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]interface{},
