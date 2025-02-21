@@ -331,7 +331,7 @@ func TestErrorStatusCodes(t *testing.T) {
 	})
 
 	t.Run("DELETE error", func(t *testing.T) {
-		for _, statusCode := range []int{201, 400, 401, 403, 409, 410, 500, 502, 503, 504} {
+		for _, statusCode := range []int{201, 400, 401, 403, 404, 409, 410, 500, 502, 503, 504} {
 			client := newClientWithPreparedResponses([]*http.Response{{StatusCode: statusCode}})
 			err := client.Delete(context.Background(), "/subscriptions/123", "2022-09-01", "", nil)
 			require.Error(t, err, statusCode)

@@ -208,7 +208,7 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 			return err
 		}
 		if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusAccepted, http.StatusNoContent) {
-			return newResponseError(resp)
+			return runtime.NewResponseError(resp)
 		}
 
 		// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
@@ -231,6 +231,7 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 			// If the resource is already deleted, we don't want to return an error.
 			return nil
 		}
+		return newResponseError(err.RawResponse)
 	}
 	return err
 }
