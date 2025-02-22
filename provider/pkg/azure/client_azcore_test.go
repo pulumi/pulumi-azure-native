@@ -429,6 +429,17 @@ func TestErrorStatusCodes(t *testing.T) {
 		require.NoError(t, err)
 	})
 
+	t.Run("DELETE initial success on 404 when asyncStyle is given", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{
+			{
+				StatusCode: 404,
+				Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "ResourceNotFound"}}`)),
+			},
+		})
+		err := client.Delete(context.Background(), "/subscriptions/123/rg/rg", "2022-09-01", "the actual value doesn't matter!", nil)
+		require.NoError(t, err)
+	})
+
 	t.Run("DELETE polling success on 404 when asyncStyle is given", func(t *testing.T) {
 		client := newClientWithPreparedResponses([]*http.Response{
 			{
@@ -443,6 +454,19 @@ func TestErrorStatusCodes(t *testing.T) {
 		})
 		err := client.Delete(context.Background(), "/subscriptions/123/rg/rg", "2022-09-01", "the actual value doesn't matter!", nil)
 		require.NoError(t, err)
+	})
+
+	t.Run("DELETE initial failure when asyncStyle is given", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{
+			{
+				StatusCode: 400,
+				Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "BadRequest"}}`)),
+			},
+		})
+		err := client.Delete(context.Background(), "/subscriptions/123/rg/rg", "2022-09-01", "the actual value doesn't matter!", nil)
+		require.Error(t, err)
+		require.IsType(t, &PulumiAzcoreResponseError{}, err)
+		require.Equal(t, "BadRequest", err.(*PulumiAzcoreResponseError).ErrorCode)
 	})
 
 	t.Run("DELETE polling failure when asyncStyle is given", func(t *testing.T) {
