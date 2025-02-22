@@ -54,7 +54,7 @@ func postgresFlexibleServerConfiguration(crudClientFactory crud.ResourceCrudClie
 			if err != nil {
 				return err
 			}
-			result, _, err := crudClient.CreateOrUpdate(ctx, id, map[string]any{
+			result, _, err := crudClient.Update(ctx, id, map[string]any{
 				"properties": map[string]any{
 					"value":  defaultValue,
 					"source": source,
