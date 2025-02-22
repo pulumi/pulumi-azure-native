@@ -1837,8 +1837,12 @@ class VaultPropertiesResponse(dict):
             suggest = "hsm_pool_resource_id"
         elif key == "privateEndpointConnections":
             suggest = "private_endpoint_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "vaultUri":
+            suggest = "vault_uri"
         elif key == "accessPolicies":
             suggest = "access_policies"
         elif key == "enablePurgeProtection":
@@ -1855,14 +1859,10 @@ class VaultPropertiesResponse(dict):
             suggest = "enabled_for_template_deployment"
         elif key == "networkAcls":
             suggest = "network_acls"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
         elif key == "publicNetworkAccess":
             suggest = "public_network_access"
         elif key == "softDeleteRetentionInDays":
             suggest = "soft_delete_retention_in_days"
-        elif key == "vaultUri":
-            suggest = "vault_uri"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1878,8 +1878,10 @@ class VaultPropertiesResponse(dict):
     def __init__(__self__, *,
                  hsm_pool_resource_id: str,
                  private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionItemResponse'],
+                 provisioning_state: str,
                  sku: 'outputs.SkuResponse',
                  tenant_id: str,
+                 vault_uri: str,
                  access_policies: Optional[Sequence['outputs.AccessPolicyEntryResponse']] = None,
                  enable_purge_protection: Optional[bool] = None,
                  enable_rbac_authorization: Optional[bool] = None,
@@ -1888,16 +1890,16 @@ class VaultPropertiesResponse(dict):
                  enabled_for_disk_encryption: Optional[bool] = None,
                  enabled_for_template_deployment: Optional[bool] = None,
                  network_acls: Optional['outputs.NetworkRuleSetResponse'] = None,
-                 provisioning_state: Optional[str] = None,
                  public_network_access: Optional[str] = None,
-                 soft_delete_retention_in_days: Optional[int] = None,
-                 vault_uri: Optional[str] = None):
+                 soft_delete_retention_in_days: Optional[int] = None):
         """
         Properties of the vault
         :param str hsm_pool_resource_id: The resource id of HSM Pool.
         :param Sequence['PrivateEndpointConnectionItemResponse'] private_endpoint_connections: List of private endpoint connections associated with the key vault.
+        :param str provisioning_state: Provisioning state of the vault.
         :param 'SkuResponse' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+        :param str vault_uri: The URI of the vault for performing operations on keys and secrets.
         :param Sequence['AccessPolicyEntryResponse'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
@@ -1907,15 +1909,15 @@ class VaultPropertiesResponse(dict):
         :param bool enabled_for_disk_encryption: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         :param bool enabled_for_template_deployment: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param 'NetworkRuleSetResponse' network_acls: Rules governing the accessibility of the key vault from specific network locations.
-        :param str provisioning_state: Provisioning state of the vault.
         :param str public_network_access: Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
         :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
-        :param str vault_uri: The URI of the vault for performing operations on keys and secrets.
         """
         pulumi.set(__self__, "hsm_pool_resource_id", hsm_pool_resource_id)
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "vault_uri", vault_uri)
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
         if enable_purge_protection is not None:
@@ -1936,8 +1938,6 @@ class VaultPropertiesResponse(dict):
             pulumi.set(__self__, "enabled_for_template_deployment", enabled_for_template_deployment)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if public_network_access is None:
             public_network_access = 'enabled'
         if public_network_access is not None:
@@ -1946,8 +1946,6 @@ class VaultPropertiesResponse(dict):
             soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
             pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
-        if vault_uri is not None:
-            pulumi.set(__self__, "vault_uri", vault_uri)
 
     @property
     @pulumi.getter(name="hsmPoolResourceId")
@@ -1966,6 +1964,14 @@ class VaultPropertiesResponse(dict):
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the vault.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter
     def sku(self) -> 'outputs.SkuResponse':
         """
@@ -1980,6 +1986,14 @@ class VaultPropertiesResponse(dict):
         The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         """
         return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="vaultUri")
+    def vault_uri(self) -> str:
+        """
+        The URI of the vault for performing operations on keys and secrets.
+        """
+        return pulumi.get(self, "vault_uri")
 
     @property
     @pulumi.getter(name="accessPolicies")
@@ -2047,14 +2061,6 @@ class VaultPropertiesResponse(dict):
         return pulumi.get(self, "network_acls")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        Provisioning state of the vault.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[str]:
         """
@@ -2069,14 +2075,6 @@ class VaultPropertiesResponse(dict):
         softDelete data retention days. It accepts >=7 and <=90.
         """
         return pulumi.get(self, "soft_delete_retention_in_days")
-
-    @property
-    @pulumi.getter(name="vaultUri")
-    def vault_uri(self) -> Optional[str]:
-        """
-        The URI of the vault for performing operations on keys and secrets.
-        """
-        return pulumi.get(self, "vault_uri")
 
 
 @pulumi.output_type

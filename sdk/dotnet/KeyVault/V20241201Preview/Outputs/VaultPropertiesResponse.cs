@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.KeyVault.V20241201Preview.Outputs
         /// <summary>
         /// Provisioning state of the vault.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.KeyVault.V20241201Preview.Outputs
         /// <summary>
         /// The URI of the vault for performing operations on keys and secrets.
         /// </summary>
-        public readonly string? VaultUri;
+        public readonly string VaultUri;
 
         [OutputConstructor]
         private VaultPropertiesResponse(
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.KeyVault.V20241201Preview.Outputs
 
             ImmutableArray<Outputs.PrivateEndpointConnectionItemResponse> privateEndpointConnections,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? publicNetworkAccess,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.KeyVault.V20241201Preview.Outputs
 
             string tenantId,
 
-            string? vaultUri)
+            string vaultUri)
         {
             AccessPolicies = accessPolicies;
             EnablePurgeProtection = enablePurgeProtection;

@@ -1799,10 +1799,6 @@ if not MYPY:
         """
         Rules governing the accessibility of the key vault from specific network locations.
         """
-        provisioning_state: NotRequired[pulumi.Input[Union[str, 'VaultProvisioningState']]]
-        """
-        Provisioning state of the vault.
-        """
         public_network_access: NotRequired[pulumi.Input[str]]
         """
         Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
@@ -1810,10 +1806,6 @@ if not MYPY:
         soft_delete_retention_in_days: NotRequired[pulumi.Input[int]]
         """
         softDelete data retention days. It accepts >=7 and <=90.
-        """
-        vault_uri: NotRequired[pulumi.Input[str]]
-        """
-        The URI of the vault for performing operations on keys and secrets.
         """
 elif False:
     VaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -1832,10 +1824,8 @@ class VaultPropertiesArgs:
                  enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
                  network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'VaultProvisioningState']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
-                 soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
-                 vault_uri: Optional[pulumi.Input[str]] = None):
+                 soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None):
         """
         Properties of the vault
         :param pulumi.Input['SkuArgs'] sku: SKU details
@@ -1850,10 +1840,8 @@ class VaultPropertiesArgs:
         :param pulumi.Input[bool] enabled_for_disk_encryption: Property to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         :param pulumi.Input[bool] enabled_for_template_deployment: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param pulumi.Input['NetworkRuleSetArgs'] network_acls: Rules governing the accessibility of the key vault from specific network locations.
-        :param pulumi.Input[Union[str, 'VaultProvisioningState']] provisioning_state: Provisioning state of the vault.
         :param pulumi.Input[str] public_network_access: Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
         :param pulumi.Input[int] soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
-        :param pulumi.Input[str] vault_uri: The URI of the vault for performing operations on keys and secrets.
         """
         pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -1879,8 +1867,6 @@ class VaultPropertiesArgs:
             pulumi.set(__self__, "enabled_for_template_deployment", enabled_for_template_deployment)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if public_network_access is None:
             public_network_access = 'enabled'
         if public_network_access is not None:
@@ -1889,8 +1875,6 @@ class VaultPropertiesArgs:
             soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
             pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
-        if vault_uri is not None:
-            pulumi.set(__self__, "vault_uri", vault_uri)
 
     @property
     @pulumi.getter
@@ -2026,18 +2010,6 @@ class VaultPropertiesArgs:
         pulumi.set(self, "network_acls", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'VaultProvisioningState']]]:
-        """
-        Provisioning state of the vault.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'VaultProvisioningState']]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2060,18 +2032,6 @@ class VaultPropertiesArgs:
     @soft_delete_retention_in_days.setter
     def soft_delete_retention_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "soft_delete_retention_in_days", value)
-
-    @property
-    @pulumi.getter(name="vaultUri")
-    def vault_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URI of the vault for performing operations on keys and secrets.
-        """
-        return pulumi.get(self, "vault_uri")
-
-    @vault_uri.setter
-    def vault_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vault_uri", value)
 
 
 if not MYPY:

@@ -77,12 +77,6 @@ namespace Pulumi.AzureNative.KeyVault.V20230201.Inputs
         public Input<Inputs.NetworkRuleSetArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Provisioning state of the vault.
-        /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.KeyVault.V20230201.VaultProvisioningState>? ProvisioningState { get; set; }
-
-        /// <summary>
         /// Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
         /// </summary>
         [Input("publicNetworkAccess")]
@@ -105,12 +99,6 @@ namespace Pulumi.AzureNative.KeyVault.V20230201.Inputs
         /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
-
-        /// <summary>
-        /// The URI of the vault for performing operations on keys and secrets.
-        /// </summary>
-        [Input("vaultUri")]
-        public Input<string>? VaultUri { get; set; }
 
         public VaultPropertiesArgs()
         {
