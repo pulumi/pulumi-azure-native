@@ -451,7 +451,7 @@ func TestDetermineUpdateOperation(t *testing.T) {
 		})
 		require.NoError(t, err)
 		assert.NotNil(t, op)
-		assert.Equal(t, "PUT", method)
+		assert.Equal(t, "", method)
 	})
 
 	t.Run("only PUT", func(t *testing.T) {
@@ -466,7 +466,7 @@ func TestDetermineUpdateOperation(t *testing.T) {
 		})
 		require.NoError(t, err)
 		assert.NotNil(t, op)
-		assert.Equal(t, "PUT", method)
+		assert.Equal(t, "", method)
 	})
 
 	t.Run("only PATCH", func(t *testing.T) {

@@ -876,7 +876,7 @@ func determineCreateAndUpdateOperation(tok string, resource *resourceVariant) (*
 	if path.Put == nil {
 		return path.Patch, "PATCH", nil
 	}
-	return path.Put, "PUT", nil
+	return path.Put, "", nil
 }
 
 func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, resource *resourceVariant, nestedResourceBodyRefs []string, typeNameAliases ...string) error {
