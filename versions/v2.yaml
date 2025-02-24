@@ -4590,6 +4590,32 @@ DataShare:
         SpecFilePath: specification/datashare/resource-manager/Microsoft.DataShare/stable/2021-08-01/DataShare.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/listSynchronizations
         RpNamespace: Microsoft.DataShare
+DatabaseFleetManager:
+    FirewallRule:
+        ApiVersion: 2025-02-01-preview
+        SpecFilePath: specification/databasefleetmanager/resource-manager/Microsoft.DatabaseFleetManager/preview/2025-02-01-preview/databasefleetmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/firewallRules/{firewallRuleName}
+        RpNamespace: Microsoft.DatabaseFleetManager
+    Fleet:
+        ApiVersion: 2025-02-01-preview
+        SpecFilePath: specification/databasefleetmanager/resource-manager/Microsoft.DatabaseFleetManager/preview/2025-02-01-preview/databasefleetmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}
+        RpNamespace: Microsoft.DatabaseFleetManager
+    FleetDatabase:
+        ApiVersion: 2025-02-01-preview
+        SpecFilePath: specification/databasefleetmanager/resource-manager/Microsoft.DatabaseFleetManager/preview/2025-02-01-preview/databasefleetmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/databases/{databaseName}
+        RpNamespace: Microsoft.DatabaseFleetManager
+    FleetTier:
+        ApiVersion: 2025-02-01-preview
+        SpecFilePath: specification/databasefleetmanager/resource-manager/Microsoft.DatabaseFleetManager/preview/2025-02-01-preview/databasefleetmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/tiers/{tierName}
+        RpNamespace: Microsoft.DatabaseFleetManager
+    Fleetspace:
+        ApiVersion: 2025-02-01-preview
+        SpecFilePath: specification/databasefleetmanager/resource-manager/Microsoft.DatabaseFleetManager/preview/2025-02-01-preview/databasefleetmanager.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}
+        RpNamespace: Microsoft.DatabaseFleetManager
 DatabaseWatcher:
     AlertRuleResource:
         ApiVersion: 2024-07-19-preview

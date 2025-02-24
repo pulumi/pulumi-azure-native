@@ -808,6 +808,8 @@ DataReplication:
     tracking: 2021-02-16-preview
 DataShare:
     tracking: "2021-08-01"
+DatabaseFleetManager:
+    tracking: 2025-02-01-preview
 DatabaseWatcher:
     tracking: 2023-09-01-preview
     additions:

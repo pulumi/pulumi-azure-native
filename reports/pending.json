@@ -465,7 +465,8 @@
     "2023-03-01",
     "2023-12-01",
     "2024-02-01-preview",
-    "2024-03-01-preview"
+    "2024-03-01-preview",
+    "2025-02-01"
   ],
   "DataBoxEdge": [
     "2022-04-01-preview",
@@ -496,8 +497,11 @@
     "2024-04-01",
     "2025-01-01"
   ],
-  "DataReplication": [],
+  "DataReplication": [
+    "2024-09-01"
+  ],
   "DataShare": [],
+  "DatabaseFleetManager": [],
   "DatabaseWatcher": [
     "2024-07-19-preview",
     "2024-10-01-preview",
@@ -1055,7 +1059,8 @@
   "NetworkCloud": [
     "2024-06-01-preview",
     "2024-07-01",
-    "2024-10-01-preview"
+    "2024-10-01-preview",
+    "2025-02-01"
   ],
   "NetworkFunction": [],
   "NotificationHubs": [

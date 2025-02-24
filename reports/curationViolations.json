@@ -136,6 +136,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "DatabaseFleetManager",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "DatabaseWatcher",
     "Detail": "expected tracking stable but found preview"
   },
