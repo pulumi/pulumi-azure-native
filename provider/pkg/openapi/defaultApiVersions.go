@@ -8,6 +8,29 @@ import (
 	"strings"
 )
 
+// # How to determine the default API version of a service?
+//
+// It's in the `readme.md` file of the service in azure-rest-api-specs, in a yaml code block with a `tag` field.
+//
+// Example:
+//
+// ```yaml
+// openapi-type: arm
+// tag: package-2025-03-01
+// ```
+//
+// There will be other fields as well.
+//
+// The version can be just a year and month, in which case the API version is the only one released in that month.
+//
+// The version can also be a composite version like `tag: package-composite-v5`. I don't fully understand those yet.
+//
+// ## Spec version
+// Since we're reading the readme.md files from the azure-rest-api-specs repo, we need to know which commit of the
+// file to read. The `main` branch of the spec can be updated with new API versions that SDKs are not using yet. In
+// case of stable versions, this is _probably_ ok, in case of preview versions it's more questionable. But we cannot
+// simply use the latest stable version since some services barely release stable versions.
+
 func readDefaultVersionFromReadme(readme io.Reader) (string, error) {
 	var version string
 	var inYamlBlock bool
