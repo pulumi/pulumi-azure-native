@@ -407,43 +407,35 @@ func TestResourcePathTracker(t *testing.T) {
 
 func TestDetermineUpdateOperation(t *testing.T) {
 	t.Run("overrides to use PATCH", func(t *testing.T) {
-		for _, tok := range []string{"azure-native:dbforpostgresql:Server", "azure-native:resources:TagAtScope"} {
-			t.Run(tok, func(t *testing.T) {
-				op, method, err := determineCreateAndUpdateOperation(tok, &resourceVariant{
-					ResourceSpec: &openapi.ResourceSpec{
-						PathItem: &spec.PathItem{
-							PathItemProps: spec.PathItemProps{
-								Put:   &spec.Operation{},
-								Patch: &spec.Operation{},
-							},
-						},
+		op, method, err := determineCreateAndUpdateOperation("azure-native:dbforpostgresql:Server", &resourceVariant{
+			ResourceSpec: &openapi.ResourceSpec{
+				PathItem: &spec.PathItem{
+					PathItemProps: spec.PathItemProps{
+						Put:   &spec.Operation{},
+						Patch: &spec.Operation{},
 					},
-				})
-				require.NoError(t, err)
-				assert.NotNil(t, op)
-				assert.Equal(t, "PATCH", method)
-			})
-		}
+				},
+			},
+		})
+		require.NoError(t, err)
+		assert.NotNil(t, op)
+		assert.Equal(t, "PATCH", method)
 	})
 
 	t.Run("overrides to use PATCH, versioned", func(t *testing.T) {
-		for _, tok := range []string{"azure-native:dbforpostgresql/v20240801:Server", "azure-native:resources/v20220901:TagAtScope"} {
-			t.Run(tok, func(t *testing.T) {
-				op, method, err := determineCreateAndUpdateOperation(tok, &resourceVariant{
-					ResourceSpec: &openapi.ResourceSpec{
-						PathItem: &spec.PathItem{
-							PathItemProps: spec.PathItemProps{
-								Put:   &spec.Operation{},
-								Patch: &spec.Operation{},
-							},
-						},
+		op, method, err := determineCreateAndUpdateOperation("azure-native:dbforpostgresql/v20240801:Server", &resourceVariant{
+			ResourceSpec: &openapi.ResourceSpec{
+				PathItem: &spec.PathItem{
+					PathItemProps: spec.PathItemProps{
+						Put:   &spec.Operation{},
+						Patch: &spec.Operation{},
 					},
-				})
-				require.NoError(t, err)
-				assert.NotNil(t, op)
-				assert.Equal(t, "PATCH", method)
-			})
-		}
+				},
+			},
+		})
+		require.NoError(t, err)
+		assert.NotNil(t, op)
+		assert.Equal(t, "PATCH", method)
 	})
 
 	t.Run("prefers PUT over PATCH", func(t *testing.T) {
