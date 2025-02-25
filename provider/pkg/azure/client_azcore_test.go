@@ -418,11 +418,22 @@ func TestErrorStatusCodes(t *testing.T) {
 			{
 				StatusCode: 503, // temporary failure
 				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
-				Body:       io.NopCloser(strings.NewReader(`{"status": "Unavailable"}`)),
+				Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "Unavailable"}}`)),
 			},
 			{
 				StatusCode: 200,
 				Body:       io.NopCloser(strings.NewReader(`{"status": "Succeeded"}`)),
+			},
+		})
+		err := client.Delete(context.Background(), "/subscriptions/123/rg/rg", "2022-09-01", "the actual value doesn't matter!", nil)
+		require.NoError(t, err)
+	})
+
+	t.Run("DELETE initial success on 404 when asyncStyle is given", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{
+			{
+				StatusCode: 404,
+				Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "ResourceNotFound"}}`)),
 			},
 		})
 		err := client.Delete(context.Background(), "/subscriptions/123/rg/rg", "2022-09-01", "the actual value doesn't matter!", nil)
@@ -438,11 +449,24 @@ func TestErrorStatusCodes(t *testing.T) {
 			},
 			{
 				StatusCode: 404,
-				Body:       io.NopCloser(strings.NewReader(`{"error": "ResourceNotFound"}`)),
+				Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "ResourceNotFound"}}`)),
 			},
 		})
 		err := client.Delete(context.Background(), "/subscriptions/123/rg/rg", "2022-09-01", "the actual value doesn't matter!", nil)
 		require.NoError(t, err)
+	})
+
+	t.Run("DELETE initial failure when asyncStyle is given", func(t *testing.T) {
+		client := newClientWithPreparedResponses([]*http.Response{
+			{
+				StatusCode: 400,
+				Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "BadRequest"}}`)),
+			},
+		})
+		err := client.Delete(context.Background(), "/subscriptions/123/rg/rg", "2022-09-01", "the actual value doesn't matter!", nil)
+		require.Error(t, err)
+		require.IsType(t, &PulumiAzcoreResponseError{}, err)
+		require.Equal(t, "BadRequest", err.(*PulumiAzcoreResponseError).ErrorCode)
 	})
 
 	t.Run("DELETE polling failure when asyncStyle is given", func(t *testing.T) {
@@ -455,16 +479,18 @@ func TestErrorStatusCodes(t *testing.T) {
 			{
 				StatusCode: 503, // temporary failure
 				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
-				Body:       io.NopCloser(strings.NewReader(`{"status": "Unavailable"}`)),
+				Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "Unavailable"}}`)),
 			},
 			{
 				StatusCode: 400,
 				Header:     http.Header{"Location": []string{"https://management.azure.com/operation"}},
-				Body:       io.NopCloser(strings.NewReader(`{"status": "Unavailable"}`)),
+				Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "BadRequest"}}`)),
 			},
 		})
 		err := client.Delete(context.Background(), "/subscriptions/123/rg/rg", "2022-09-01", "the actual value doesn't matter!", nil)
 		require.Error(t, err)
+		require.IsType(t, &PulumiAzcoreResponseError{}, err)
+		require.Equal(t, "BadRequest", err.(*PulumiAzcoreResponseError).ErrorCode)
 	})
 }
 
