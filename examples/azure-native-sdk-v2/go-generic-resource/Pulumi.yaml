@@ -1,0 +1,7 @@
+name: go-simple
+description: A minimal Azure Native Go Pulumi program
+runtime: go
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: azure-go
