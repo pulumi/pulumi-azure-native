@@ -12,7 +12,9 @@
     "2020-07-01-preview"
   ],
   "Addons": [],
-  "Advisor": [],
+  "Advisor": [
+    "2023-09-01-preview"
+  ],
   "AgFoodPlatform": [],
   "AgriculturePlatform": [],
   "AlertsManagement": [
@@ -396,7 +398,8 @@
     "2024-08-01",
     "2024-09-01",
     "2024-09-02-preview",
-    "2024-10-01"
+    "2024-10-01",
+    "2024-10-02-preview"
   ],
   "ContainerStorage": [],
   "Contoso": [],
@@ -465,7 +468,8 @@
     "2023-03-01",
     "2023-12-01",
     "2024-02-01-preview",
-    "2024-03-01-preview"
+    "2024-03-01-preview",
+    "2025-02-01"
   ],
   "DataBoxEdge": [
     "2022-04-01-preview",
@@ -496,8 +500,11 @@
     "2024-04-01",
     "2025-01-01"
   ],
-  "DataReplication": [],
+  "DataReplication": [
+    "2024-09-01"
+  ],
   "DataShare": [],
+  "DatabaseFleetManager": [],
   "DatabaseWatcher": [
     "2024-07-19-preview",
     "2024-10-01-preview",
@@ -662,7 +669,8 @@
     "2023-08-15-preview",
     "2023-11-01-preview",
     "2024-05-01-preview",
-    "2024-08-01-preview"
+    "2024-08-01-preview",
+    "2025-01-15-preview"
   ],
   "HanaOnAzure": [],
   "HardwareSecurityModules": [
@@ -850,7 +858,8 @@
     "2023-06-07"
   ],
   "LoadTestService": [
-    "2023-12-01-preview"
+    "2023-12-01-preview",
+    "2024-12-01-preview"
   ],
   "Logic": [
     "2015-08-01-preview",
@@ -1055,7 +1064,8 @@
   "NetworkCloud": [
     "2024-06-01-preview",
     "2024-07-01",
-    "2024-10-01-preview"
+    "2024-10-01-preview",
+    "2025-02-01"
   ],
   "NetworkFunction": [],
   "NotificationHubs": [
