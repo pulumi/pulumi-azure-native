@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the replication extension.
  * Azure REST API version: 2021-02-16-preview.
+ *
+ * Other available API versions: 2024-09-01.
  */
 export function getReplicationExtension(args: GetReplicationExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,6 +62,8 @@ export interface GetReplicationExtensionResult {
 /**
  * Gets the details of the replication extension.
  * Azure REST API version: 2021-02-16-preview.
+ *
+ * Other available API versions: 2024-09-01.
  */
 export function getReplicationExtensionOutput(args: GetReplicationExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

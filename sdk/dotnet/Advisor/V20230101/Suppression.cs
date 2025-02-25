@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Advisor.V20230101
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20200101:Suppression" },
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20220901:Suppression" },
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20221001:Suppression" },
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20230901preview:Suppression" },
                     new global::Pulumi.Alias { Type = "azure-native:advisor:Suppression" },
                 },
             };

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get properties of the provided the Kubernetes cluster feature.
  * Azure REST API version: 2024-06-01-preview.
  *
- * Other available API versions: 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-02-01.
  */
 export function getKubernetesClusterFeature(args: GetKubernetesClusterFeatureArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterFeatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,7 +95,7 @@ export interface GetKubernetesClusterFeatureResult {
  * Get properties of the provided the Kubernetes cluster feature.
  * Azure REST API version: 2024-06-01-preview.
  *
- * Other available API versions: 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-02-01.
  */
 export function getKubernetesClusterFeatureOutput(args: GetKubernetesClusterFeatureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesClusterFeatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

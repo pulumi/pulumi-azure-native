@@ -43,11 +43,13 @@ export * from "../types/enums/loadtestservice";
 import * as v20211201preview from "./v20211201preview";
 import * as v20221201 from "./v20221201";
 import * as v20231201preview from "./v20231201preview";
+import * as v20241201preview from "./v20241201preview";
 
 export {
     v20211201preview,
     v20221201,
     v20231201preview,
+    v20241201preview,
 };
 
 const _module = {

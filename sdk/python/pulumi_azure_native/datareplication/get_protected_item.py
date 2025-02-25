@@ -103,6 +103,8 @@ def get_protected_item(protected_item_name: Optional[str] = None,
     Gets the details of the protected item.
     Azure REST API version: 2021-02-16-preview.
 
+    Other available API versions: 2024-09-01.
+
 
     :param str protected_item_name: The protected item name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -128,6 +130,8 @@ def get_protected_item_output(protected_item_name: Optional[pulumi.Input[str]] =
     """
     Gets the details of the protected item.
     Azure REST API version: 2021-02-16-preview.
+
+    Other available API versions: 2024-09-01.
 
 
     :param str protected_item_name: The protected item name.

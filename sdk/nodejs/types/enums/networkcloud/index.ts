@@ -7,6 +7,7 @@ import * as v20231001preview from "./v20231001preview";
 import * as v20240601preview from "./v20240601preview";
 import * as v20240701 from "./v20240701";
 import * as v20241001preview from "./v20241001preview";
+import * as v20250201 from "./v20250201";
 
 export {
     v20230701,
@@ -14,6 +15,7 @@ export {
     v20240601preview,
     v20240701,
     v20241001preview,
+    v20250201,
 };
 
 export const AdvertiseToFabric = {

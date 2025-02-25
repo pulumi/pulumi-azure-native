@@ -58,6 +58,7 @@ import * as costmanagement from "./costmanagement";
 import * as customerinsights from "./customerinsights";
 import * as customproviders from "./customproviders";
 import * as dashboard from "./dashboard";
+import * as databasefleetmanager from "./databasefleetmanager";
 import * as databasewatcher from "./databasewatcher";
 import * as databox from "./databox";
 import * as databoxedge from "./databoxedge";
@@ -271,6 +272,7 @@ export {
     customerinsights,
     customproviders,
     dashboard,
+    databasefleetmanager,
     databasewatcher,
     databox,
     databoxedge,

@@ -155,7 +155,7 @@ class LoadTest(pulumi.CustomResource):
         LoadTest details.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
 
-        Other available API versions: 2021-12-01-preview, 2023-12-01-preview.
+        Other available API versions: 2021-12-01-preview, 2023-12-01-preview, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,7 +177,7 @@ class LoadTest(pulumi.CustomResource):
         LoadTest details.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
 
-        Other available API versions: 2021-12-01-preview, 2023-12-01-preview.
+        Other available API versions: 2021-12-01-preview, 2023-12-01-preview, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param LoadTestArgs args: The arguments to use to populate this resource's properties.
@@ -224,7 +224,7 @@ class LoadTest(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:loadtestservice/v20211201preview:LoadTest"), pulumi.Alias(type_="azure-native:loadtestservice/v20220415preview:LoadTest"), pulumi.Alias(type_="azure-native:loadtestservice/v20221201:LoadTest"), pulumi.Alias(type_="azure-native:loadtestservice/v20231201preview:LoadTest")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:loadtestservice/v20211201preview:LoadTest"), pulumi.Alias(type_="azure-native:loadtestservice/v20220415preview:LoadTest"), pulumi.Alias(type_="azure-native:loadtestservice/v20221201:LoadTest"), pulumi.Alias(type_="azure-native:loadtestservice/v20231201preview:LoadTest"), pulumi.Alias(type_="azure-native:loadtestservice/v20241201preview:LoadTest")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadTest, __self__).__init__(
             'azure-native:loadtestservice:LoadTest',
