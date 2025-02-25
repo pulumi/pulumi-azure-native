@@ -1033,7 +1033,7 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 
 	crudClient.SetUnsetSubresourcePropertiesToDefaults(bodyParams, bodyParams, true)
 
-	response, created, err := crudClient.CreateOrUpdate(ctx, id, bodyParams, queryParams)
+	response, created, err := crudClient.Create(ctx, id, bodyParams, queryParams)
 	if err != nil {
 		if created {
 			return id, nil, crudClient.HandleErrorWithCheckpoint(ctx, err, id, inputs, req.GetProperties())
@@ -1467,7 +1467,7 @@ func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.Update
 		return nil, fmt.Errorf("failed maintaining unset sub-resource properties: %w", err)
 	}
 
-	response, updated, err := crudClient.CreateOrUpdate(ctx, id, bodyParams, queryParams)
+	response, updated, err := crudClient.Update(ctx, id, bodyParams, queryParams)
 	if err != nil {
 		if updated {
 			return nil, crudClient.HandleErrorWithCheckpoint(ctx, err, id, inputs, req.GetNews())

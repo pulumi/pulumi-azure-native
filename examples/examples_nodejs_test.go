@@ -12,6 +12,7 @@ import (
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
@@ -76,11 +77,45 @@ func TestImportTs(t *testing.T) {
 }
 
 func TestPostgresTs(t *testing.T) {
-	// t.Skip("takes longer than 10 minutes and can fail with 'unexpected error', issue #898")
 	skipIfShort(t)
+	var initialServerId resource.ID
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "postgres"),
+			ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+				require.NotNil(t, stackInfo.Deployment)
+				require.NotNil(t, stackInfo.Deployment.Resources)
+
+				found := false
+				for _, resource := range stackInfo.Deployment.Resources {
+					if resource.Type == "azure-native:dbforpostgresql:Server" {
+						found = true
+						initialServerId = resource.ID
+						break
+					}
+				}
+				assert.True(t, found, "no storage account found in deployed resources")
+			},
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      filepath.Join("postgres", "step2-update-pw"),
+					Additive: true,
+					ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+						require.NotNil(t, stackInfo.Deployment)
+						require.NotNil(t, stackInfo.Deployment.Resources)
+
+						found := false
+						for _, resource := range stackInfo.Deployment.Resources {
+							if resource.Type == "azure-native:dbforpostgresql:Server" {
+								found = true
+								assert.Equal(t, initialServerId, resource.ID)
+								break
+							}
+						}
+						assert.True(t, found, "no storage account found in deployed resources")
+					},
+				},
+			},
 		})
 
 	integration.ProgramTest(t, &test)

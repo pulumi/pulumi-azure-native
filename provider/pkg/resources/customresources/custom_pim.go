@@ -40,7 +40,7 @@ func (c *roleManagementPolicyClient) create(ctx context.Context, id string, inpu
 
 	// We could skip this if bodyParams = originalState, i.e., the user adds a policy
 	// in its default configuration to their program, but we don't have a diff function.
-	resp, _, err := c.client.CreateOrUpdate(ctx, id, bodyParams, queryParams)
+	resp, _, err := c.client.Update(ctx, id, bodyParams, queryParams)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func (c *roleManagementPolicyClient) update(ctx context.Context, id string, news
 	}
 	queryParams := map[string]any{"api-version": c.client.ApiVersion()}
 
-	resp, _, err := c.client.CreateOrUpdate(ctx, id, bodyParams, queryParams)
+	resp, _, err := c.client.Update(ctx, id, bodyParams, queryParams)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +93,7 @@ func (c *roleManagementPolicyClient) delete(ctx context.Context, id string, prev
 	}
 
 	queryParams := map[string]any{"api-version": c.client.ApiVersion()}
-	_, _, err = c.client.CreateOrUpdate(ctx, id, origRequest, queryParams)
+	_, _, err = c.client.Update(ctx, id, origRequest, queryParams)
 	return err
 }
 

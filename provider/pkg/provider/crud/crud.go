@@ -42,7 +42,8 @@ type AzureRESTConverter interface {
 // It operates in the context of a specific kind of Azure resource of type resources.AzureAPIResource.
 type ResourceCrudOperations interface {
 	CanCreate(ctx context.Context, id string) error
-	CreateOrUpdate(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, bool, error)
+	Create(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, bool, error)
+	Update(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, bool, error)
 	Read(ctx context.Context, id string) (map[string]any, error)
 	HandleErrorWithCheckpoint(ctx context.Context, err error, id string, inputs resource.PropertyMap, properties *structpb.Struct) error
 }
@@ -377,8 +378,13 @@ func (r *resourceCrudClient) CanCreate(ctx context.Context, id string) error {
 	})
 }
 
-func (r *resourceCrudClient) CreateOrUpdate(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, bool, error) {
-	// Submit the `PUT` or `PATCH` against the ARM endpoint
+func (r *resourceCrudClient) Create(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, bool, error) {
+	// Submit the `PUT` request against the ARM endpoint
+	return r.azureClient.Put(ctx, id, bodyParams, queryParams, r.res.PutAsyncStyle)
+}
+
+func (r *resourceCrudClient) Update(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, bool, error) {
+	// Submit the `PUT` or `PATCH` request against the ARM endpoint
 	op := r.azureClient.Put
 	if r.res.UpdateMethod == "PATCH" {
 		op = r.azureClient.Patch

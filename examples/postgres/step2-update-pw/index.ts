@@ -20,7 +20,7 @@ const flexibleServer = new postgresql.Server("server", {
         mode: postgresql.HighAvailabilityMode.SameZone,
     },
     administratorLogin: "cloudsa",
-    administratorLoginPassword: `pa$$w0rd`,
+    administratorLoginPassword: `NEW pa$$w0rd`,
     version: "14",
     storage: {
         storageSizeGB: 64,
