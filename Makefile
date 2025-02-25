@@ -403,6 +403,19 @@ export FAKE_MODULE
 		./venv/bin/python -m pip install build && \
 		cd ./bin && \
 		../venv/bin/python -m build .
+
+# Re-encrypt with bzip2 to shrink the package a bit, see #3977
+# The top-level contents of the wheel are pulumi_azure_native and pulumi_azure_native-2.0.0a0+dev.dist-info.
+	cd sdk/python/bin/dist && \
+		whl=$$(ls *.whl) && \
+		echo "whl = $$whl" && \
+		unzip -q $$whl && \
+		dist=$$(ls -d *.dist-info) && \
+		echo "dist = $$dist" && \
+		rm -vrf $$whl && \
+		zip -Z bzip -9 -q -r -m $$whl pulumi_azure_native $$dist && \
+		rm -vrf pulumi-azure-native $$dist
+
 	@touch $@
 
 .make/build_dotnet: .make/generate_dotnet
