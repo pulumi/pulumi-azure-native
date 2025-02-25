@@ -156,6 +156,12 @@ namespace Pulumi.AzureNative.Resources
     public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The API version to use for the operation.
+        /// </summary>
+        [Input("apiVersion", required: true)]
+        public Input<string> ApiVersion { get; set; } = null!;
+
+        /// <summary>
         /// Resource extended location.
         /// </summary>
         [Input("extendedLocation")]

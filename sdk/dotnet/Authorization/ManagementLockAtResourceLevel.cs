@@ -104,6 +104,12 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class ManagementLockAtResourceLevelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The API version to use for this operation.
+        /// </summary>
+        [Input("apiVersion", required: true)]
+        public Input<string> ApiVersion { get; set; } = null!;
+
+        /// <summary>
         /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         /// </summary>
         [Input("level", required: true)]

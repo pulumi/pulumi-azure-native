@@ -74,6 +74,9 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.apiVersion === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'apiVersion'");
+            }
             if ((!args || args.level === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'level'");
             }
@@ -92,6 +95,7 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
+            resourceInputs["apiVersion"] = args ? args.apiVersion : undefined;
             resourceInputs["level"] = args ? args.level : undefined;
             resourceInputs["lockName"] = args ? args.lockName : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
@@ -123,6 +127,10 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
  * The set of arguments for constructing a ManagementLockAtResourceLevel resource.
  */
 export interface ManagementLockAtResourceLevelArgs {
+    /**
+     * The API version to use for this operation.
+     */
+    apiVersion: pulumi.Input<string>;
     /**
      * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
      */

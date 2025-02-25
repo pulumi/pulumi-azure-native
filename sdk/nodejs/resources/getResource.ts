@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources:getResource", {
+        "apiVersion": args.apiVersion,
         "parentResourcePath": args.parentResourcePath,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
@@ -25,6 +26,10 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetResourceArgs {
+    /**
+     * The API version to use for the operation.
+     */
+    apiVersion: string;
     /**
      * The parent resource identity.
      */
@@ -109,6 +114,7 @@ export interface GetResourceResult {
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getResource", {
+        "apiVersion": args.apiVersion,
         "parentResourcePath": args.parentResourcePath,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
@@ -118,6 +124,10 @@ export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetResourceOutputArgs {
+    /**
+     * The API version to use for the operation.
+     */
+    apiVersion: pulumi.Input<string>;
     /**
      * The parent resource identity.
      */

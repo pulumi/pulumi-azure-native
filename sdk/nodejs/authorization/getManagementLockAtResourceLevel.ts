@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
 export function getManagementLockAtResourceLevel(args: GetManagementLockAtResourceLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceLevelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getManagementLockAtResourceLevel", {
+        "apiVersion": args.apiVersion,
         "lockName": args.lockName,
         "parentResourcePath": args.parentResourcePath,
         "resourceGroupName": args.resourceGroupName,
@@ -24,6 +25,10 @@ export function getManagementLockAtResourceLevel(args: GetManagementLockAtResour
 }
 
 export interface GetManagementLockAtResourceLevelArgs {
+    /**
+     * The API version to use for this operation.
+     */
+    apiVersion: string;
     /**
      * The name of lock.
      */
@@ -90,6 +95,7 @@ export interface GetManagementLockAtResourceLevelResult {
 export function getManagementLockAtResourceLevelOutput(args: GetManagementLockAtResourceLevelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementLockAtResourceLevelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getManagementLockAtResourceLevel", {
+        "apiVersion": args.apiVersion,
         "lockName": args.lockName,
         "parentResourcePath": args.parentResourcePath,
         "resourceGroupName": args.resourceGroupName,
@@ -100,6 +106,10 @@ export function getManagementLockAtResourceLevelOutput(args: GetManagementLockAt
 }
 
 export interface GetManagementLockAtResourceLevelOutputArgs {
+    /**
+     * The API version to use for this operation.
+     */
+    apiVersion: pulumi.Input<string>;
     /**
      * The name of lock.
      */

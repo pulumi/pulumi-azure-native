@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Resources.V20220901
     public sealed class GetResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The API version to use for the operation.
+        /// </summary>
+        [Input("apiVersion", required: true)]
+        public string ApiVersion { get; set; } = null!;
+
+        /// <summary>
         /// The parent resource identity.
         /// </summary>
         [Input("parentResourcePath", required: true)]
@@ -71,6 +77,12 @@ namespace Pulumi.AzureNative.Resources.V20220901
 
     public sealed class GetResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API version to use for the operation.
+        /// </summary>
+        [Input("apiVersion", required: true)]
+        public Input<string> ApiVersion { get; set; } = null!;
+
         /// <summary>
         /// The parent resource identity.
         /// </summary>

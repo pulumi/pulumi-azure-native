@@ -182,7 +182,8 @@ class AwaitableGetResourceResult(GetResourceResult):
             type=self.type)
 
 
-def get_resource(parent_resource_path: Optional[str] = None,
+def get_resource(api_version: Optional[str] = None,
+                 parent_resource_path: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  resource_provider_namespace: Optional[str] = None,
@@ -195,6 +196,7 @@ def get_resource(parent_resource_path: Optional[str] = None,
     Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
 
+    :param str api_version: The API version to use for the operation.
     :param str parent_resource_path: The parent resource identity.
     :param str resource_group_name: The name of the resource group containing the resource to get. The name is case insensitive.
     :param str resource_name: The name of the resource to get.
@@ -202,6 +204,7 @@ def get_resource(parent_resource_path: Optional[str] = None,
     :param str resource_type: The resource type of the resource.
     """
     __args__ = dict()
+    __args__['apiVersion'] = api_version
     __args__['parentResourcePath'] = parent_resource_path
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -223,7 +226,8 @@ def get_resource(parent_resource_path: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None,
+def get_resource_output(api_version: Optional[pulumi.Input[str]] = None,
+                        parent_resource_path: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
                         resource_provider_namespace: Optional[pulumi.Input[str]] = None,
@@ -236,6 +240,7 @@ def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None
     Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
 
+    :param str api_version: The API version to use for the operation.
     :param str parent_resource_path: The parent resource identity.
     :param str resource_group_name: The name of the resource group containing the resource to get. The name is case insensitive.
     :param str resource_name: The name of the resource to get.
@@ -243,6 +248,7 @@ def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None
     :param str resource_type: The resource type of the resource.
     """
     __args__ = dict()
+    __args__['apiVersion'] = api_version
     __args__['parentResourcePath'] = parent_resource_path
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name

@@ -22,6 +22,7 @@ __all__ = ['ResourceArgs', 'Resource']
 @pulumi.input_type
 class ResourceArgs:
     def __init__(__self__, *,
+                 api_version: pulumi.Input[str],
                  parent_resource_path: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  resource_provider_namespace: pulumi.Input[str],
@@ -38,6 +39,7 @@ class ResourceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Resource resource.
+        :param pulumi.Input[str] api_version: The API version to use for the operation.
         :param pulumi.Input[str] parent_resource_path: The parent resource identity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the resource. The name is case insensitive.
         :param pulumi.Input[str] resource_provider_namespace: The namespace of the resource provider.
@@ -53,6 +55,7 @@ class ResourceArgs:
         :param pulumi.Input['SkuArgs'] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        pulumi.set(__self__, "api_version", api_version)
         pulumi.set(__self__, "parent_resource_path", parent_resource_path)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_provider_namespace", resource_provider_namespace)
@@ -77,6 +80,18 @@ class ResourceArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> pulumi.Input[str]:
+        """
+        The API version to use for the operation.
+        """
+        return pulumi.get(self, "api_version")
+
+    @api_version.setter
+    def api_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_version", value)
 
     @property
     @pulumi.getter(name="parentResourcePath")
@@ -252,6 +267,7 @@ class Resource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_version: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -272,6 +288,7 @@ class Resource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_version: The API version to use for the operation.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Resource extended location.
         :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[str] kind: The kind of the resource.
@@ -311,6 +328,7 @@ class Resource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_version: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -334,6 +352,9 @@ class Resource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceArgs.__new__(ResourceArgs)
 
+            if api_version is None and not opts.urn:
+                raise TypeError("Missing required property 'api_version'")
+            __props__.__dict__["api_version"] = api_version
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind

@@ -37,6 +37,12 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetManagementLockAtResourceLevelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The API version to use for this operation.
+        /// </summary>
+        [Input("apiVersion", required: true)]
+        public string ApiVersion { get; set; } = null!;
+
+        /// <summary>
         /// The name of lock.
         /// </summary>
         [Input("lockName", required: true)]
@@ -80,6 +86,12 @@ namespace Pulumi.AzureNative.Authorization
 
     public sealed class GetManagementLockAtResourceLevelInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The API version to use for this operation.
+        /// </summary>
+        [Input("apiVersion", required: true)]
+        public Input<string> ApiVersion { get; set; } = null!;
+
         /// <summary>
         /// The name of lock.
         /// </summary>
