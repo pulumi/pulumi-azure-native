@@ -1483,8 +1483,8 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			continue // Header parameters aren't mapped to the SDK.
 		case providerHasDefaultValue && !isMethodParameter(param):
 			// Don't include values with a provider-configured value to the schema unless it's a method parameter.
-		case param.Name == "api-version":
-			continue // No need to include API version in the schema or meta, it is added automatically by the provider.
+		case m.paramIsSetByProvider(param, bodySchema):
+			continue // No need to include params like API version in the schema or meta, they are added automatically by the provider.
 		case param.In == "body":
 			if param.Schema == nil {
 				return nil, errors.Errorf("no schema for body parameter '%s'", param.Name)
@@ -1577,6 +1577,26 @@ func isMethodParameter(param *openapi.Parameter) bool {
 	}
 
 	return false
+}
+
+// paramIsSetByProvider returns true if this parameter is set _only_ by the provider, so it shouldn't be visible to
+// users. Currently, that's `api-version`.
+func (m *moduleGenerator) paramIsSetByProvider(param *openapi.Parameter, bodySchema *openapi.Schema) bool {
+	if param.Name != "api-version" || param.In != "query" {
+		return false
+	}
+
+	// #3524: for this resource, the api-version is passed through to another Azure service, so the user needs to specify it.
+	if m.moduleName == "Resources" && m.resourceName == "Resource" {
+		return false
+	}
+
+	// #3524: for this resource, the api-version is passed through to another Azure service, so the user needs to specify it.
+	if m.moduleName == "Authorization" && m.resourceName == "ManagementLockAtResourceLevel" {
+		return false
+	}
+
+	return true
 }
 
 func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response, ctx *openapi.ReferenceContext,
